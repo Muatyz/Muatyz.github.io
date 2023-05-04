@@ -8,6 +8,15 @@
     <language>zh-cn</language>
     <lastBuildDate>Tue, 21 Feb 2023 12:20:21 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>🙋🏻‍♂️关于</title>
+      <link>https://Muatyz.github.io/about/</link>
+      <pubDate>Thu, 04 May 2023 14:57:28 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/about/</guid>
+      <description>该站点用于记录每日所学新知 Interest: Condensed Matter Physics, Numerical Calculation Profile: Undergraduate</description>
+    </item>
+    
+    <item>
       <title>Tech1</title>
       <link>https://Muatyz.github.io/posts/tech/tech1/</link>
       <pubDate>Tue, 21 Feb 2023 12:20:21 +0800</pubDate>
@@ -58,16 +67,7 @@
       <pubDate>Sat, 06 Nov 2021 15:15:53 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/links/</guid>
-      <description>Sulv&amp;#39;s Blog 一个记录技术、阅读、生活的博客 👉友链格式 名称： Sulv&amp;rsquo;s Blog 网址： https://www.sulvblog.cn 图标： https://www.sulvblog.cn/img/Q.gif 描述： 一个记录技术、阅读、生活的博客 👉友链申请要求 秉承互换友链原则、文章定期更新、不能有太多广告、个人描述字数控制在15字内 👉Hugo博客交流群 787018782</description>
-    </item>
-    
-    <item>
-      <title>🙋🏻‍♂️关于</title>
-      <link>https://Muatyz.github.io/about/</link>
-      <pubDate>Sat, 06 Nov 2021 14:57:28 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/about/</guid>
-      <description>关于我 英文名: Kevin Xu 职业: 程序员 运动: 跑步、乒乓球、爬山</description>
+      <description>Sulv&amp;#39;s Blog 一个记录技术、阅读、生活的博客 👉友链格式 名称： Blog-Name 网址： https://www.blogurl 图标： https://www.blogurl/img/Title.png 描述： Description of the site 👉友链申请要求 秉承互换友链原则、文章定期更新、不能有太多广告、个人描述字数控制在15字内</description>
     </item>
     
     
