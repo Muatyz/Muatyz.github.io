@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>🧱 建站 on 计算物理资料库</title>
+    <title>🧱 PHY on 计算物理资料库</title>
     <link>https://Muatyz.github.io/posts/phy/</link>
-    <description>Recent content in 🧱 建站 on 计算物理资料库</description>
+    <description>Recent content in 🧱 PHY on 计算物理资料库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 05 May 2022 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/phy/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/phy/blog/</guid>
-      <description></description>
+      <description>转角双层石墨烯数值计算方法综述</description>
     </item>
     
   </channel>
