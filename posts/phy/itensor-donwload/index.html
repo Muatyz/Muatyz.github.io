@@ -543,17 +543,17 @@ code.has-jax {
 </span></span></code></pre></div><p>(ctnmodel换成你自己程序的名字)</p>
 <p>或者直接在你的Makefile里面找到build和debug的行，
 然后分别添加</p>
-<pre tabindex="0"><code>chmod +x $(APP)
-</code></pre><p>和</p>
-<pre tabindex="0"><code>chmod +x $(APP)-g
-</code></pre><p>最后形成这样的表达：</p>
-<pre tabindex="0"><code>build: $(APP)
-#这一行是为了添加可执行权限，如果你不需要，可以将其注释掉
-  chmod +x $(APP)
-debug: $(APP)-g
-#同上
-  chmod +x $(APP)-g
-</code></pre></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chmod +x $(APP)
+</span></span></code></pre></div><p>和</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chmod +x $(APP)-g
+</span></span></code></pre></div><p>最后形成这样的表达：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>build: $(APP)
+</span></span><span style="display:flex;"><span>#这一行是为了添加可执行权限，如果你不需要，可以将其注释掉
+</span></span><span style="display:flex;"><span>  chmod +x $(APP)
+</span></span><span style="display:flex;"><span>debug: $(APP)-g
+</span></span><span style="display:flex;"><span>#同上
+</span></span><span style="display:flex;"><span>  chmod +x $(APP)-g
+</span></span></code></pre></div></blockquote>
 <p>你可以通过在终端执行</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ctnmodel
 </span></span></code></pre></div><p>(ctnmodel换成你的程序的名字)来完成程序的执行.这些模板都是由Makefile来进行管理的,所以对于vscode的编译执行功能没有得到充分发挥.</p>
