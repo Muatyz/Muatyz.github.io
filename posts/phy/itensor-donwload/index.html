@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Github基础语法说明 | 计算物理资料库</title>
+<title>ITensor库安装说明 | 计算物理资料库</title>
 <meta name="keywords" content="">
-<meta name="description" content="使用Visual Studio进行git管理非常方便, 但是不清楚其背后的提交, 合并等原理是不可行的.">
+<meta name="description" content="ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)">
 <meta name="author" content="Muartz">
-<link rel="canonical" href="https://Muatyz.github.io/posts/cs/tech/">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/itensor-donwload/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://Muatyz.github.io/img/Head.png">
@@ -109,16 +109,16 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta property="og:title" content="Github基础语法说明" />
-<meta property="og:description" content="使用Visual Studio进行git管理非常方便, 但是不清楚其背后的提交, 合并等原理是不可行的." />
+<meta property="og:title" content="ITensor库安装说明" />
+<meta property="og:description" content="ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Muatyz.github.io/posts/cs/tech/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-05-05T00:17:58+08:00" />
-<meta property="article:modified_time" content="2022-05-05T00:17:58+08:00" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/itensor-donwload/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-05T00:18:23+08:00" />
+<meta property="article:modified_time" content="2022-05-05T00:18:23+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Github基础语法说明"/>
-<meta name="twitter:description" content="使用Visual Studio进行git管理非常方便, 但是不清楚其背后的提交, 合并等原理是不可行的."/>
+<meta name="twitter:title" content="ITensor库安装说明"/>
+<meta name="twitter:description" content="ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)"/>
 
 
 <script type="application/ld+json">
@@ -137,14 +137,14 @@ code.has-jax {
         {
           "@type": "ListItem",
           "position":  2 ,
-          "name": "👨🏻‍💻 CS",
-          "item": "https://Muatyz.github.io/posts/cs/"
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
         }, 
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "Github基础语法说明",
-      "item": "https://Muatyz.github.io/posts/cs/tech/"
+      "name": "ITensor库安装说明",
+      "item": "https://Muatyz.github.io/posts/phy/itensor-donwload/"
     }
   ]
 }
@@ -153,24 +153,24 @@ code.has-jax {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Github基础语法说明",
-  "name": "Github基础语法说明",
-  "description": "使用Visual Studio进行git管理非常方便, 但是不清楚其背后的提交, 合并等原理是不可行的.",
+  "headline": "ITensor库安装说明",
+  "name": "ITensor库安装说明",
+  "description": "ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)",
   "keywords": [
     ""
   ],
-  "articleBody": "get commit 在当前分支创建一个提交记录\n分支 创建新分支\ngit branch 创建分支后直接使用\ngit commit 并不会在新分支产生提交记录, 这是因为没有切换到新分支.\ngit 工具会使用*来提示你目前所在的分支.\ngit checkout 切换到名为 branch-name 的分支, 这个时候提交就可以在该分支下产生新提交记录了.\n把这两个功能整合起来的命令:\ngit checkout -b 合并 对于同一父节点有着不同的分支, 这两个分支表示各有一个独立提交.\n把branch-name 合并到 main 里:\ngit merge 这会产生一个新节点 C4, 其父节点为 main 和 branch-name 的最新提交记录所表示的结点(C2和C3).\n在此基础上再将 main 合并到 branch-name, 因为此时 main 继承自 branch-name, 所以只会把 branch-name 代表的指针移动到最后产生的结点(C4)\nRebase 这是另一种合并分支的方法, 就是去除一系列的提交记录, 将其在另一个地方逐一执行. 这可以让代码库的提交历史变得更清晰.\n假设 main 和 bugFix 的分支自结点C1, 各自的最新提交记录结点为 C2 和 C3, 目前所在分支是 bugFix.\nC2 和 C3的工作可以是并行的.\n现在使用 rebase 命令实现合并, 这会使得两个分支的功能像是顺序实现的.\ngit rebase main 这会产生一个新结点C3', 其父节点为 C2, main 停留在 C2, bugFix 停留在 C3', 目前所在分支仍然为 bugFix.\n现在我们需要使 main 得到更新:\ngit checkout main;git merge bugFix; 因为 bugFix 继承自 main, 所以git 要做到以上指令, 只需要将 main 指针移动到 C3' 即可.\n目前所在分支为 main.\n分离 如何在提交树上移动?\nHead 是一个对当前分支的符号引用, 它用来指代当前分支的最新提交记录. 这也意味着 Head 会随着你的提交而更新.\n现在我们要让 HEAD 指向 具体的提交记录而并非分支名.\n假设这样一个状态:main*指针指向最新提交记录C1, HEAD 指向 main.\n即\nHEAD -\u003e main -\u003e C1\n我们执行命令:\ngit checkout C1 这样就变成了\nHEAD -\u003e C1\n当然在具体的操作实践中, 结点的记录不会像 C1 这样简单, 而是一个更复杂的哈希值(可以长达40位!).\n相对引用 Git 对于哈希值的处理有一定的智能, 它允许你可以只使用哈希值的前几个字符来指代对应的提交记录, 而无需将哈希值完整写出.\n你可以通过\ngit log 来查看提交记录的哈希值.\n如果是通过相对引用, 就可以不用使用哈希值.\n两种常见的移动方法:\n使用^向上移动一个提交记录\n具体用法是将^加在引用名称的后面, 比如\ngit checkout main^ 将 HEAD 切换到 main 的父节点.\nHEAD 本身也可以作为引用名称的对象.\n使用~向上移动 num 个提交记录\ngit checkout HEAD~4 这将使得 HEAD 指针移到 HEAD 的第四个父节点.\n使用 -f 来让分支指向另一个提交.(-f 代表强制)\ngit branch -f main HEAD~3 这会将 main 分支强制指向 HEAD 的第3级父提交.\n撤销变更 有两种实现方法:\ngit reset\n这会使得提交记录回溯, 原来指向的提交记录会被代码库忽略.\n但是原提交记录所作出变更还在, 只是没有加入暂存区.\n这个只适用于本地代码库, 对于远程分支是无效的.\ngit revert C2\n为了将撤销更改分享给别人, 需要用到这个指令.\n这会产生一个新的提交记录结点C2’, 这个更改是用来撤销C2的. 即 C2’ 状态也就是 C1.\n注意辨别两个指令在使用的时候所使用的坐标是谁.\n整理提交记录 现在我们需要处理更复杂的工作流了.\ngit cherry-pick 假设 C2 和 C5 分支自共有父节点 C1, 而C2后的提交记录分别是C3, C4.\n现在main指针指向 C5, side 指针指向 C4. 且当前所在分支为main.(git 工具会提示你main*)\n我们执行\ngit cherry-pick C2 C4 这会使得 C5 后依次出现新提交记录 C2' 和 C4', 并且 main* 指向C4'.\n交互式 rebase 在我们并不清楚提交记录的哈希值的时候, git 提供了一个方法.\n--interactive 或者 -i, 这会使 Git 打开一个 UI 界面并列出提交记录的哈希值和提交说明.\n在实际操作中, 这个 UI 窗口可能仅仅只是一个文本编辑器中的界面. VS Code 中的代码管理会比这个更人性化一些.\n具体来说里面有若干个提交记录, 通过鼠标点击拖动来调整或者忽略这些结点顺序.\n只取一个提交记录 为了调试而在代码中添加了一些调试命令, 这部分代码在正式的 使用中显然是不会用到的.\n实际上我们只需要’刚好能解决问题并且没有任何调试代码’的那一个提交记录就可以了.\n我们可以借助之前所学的命令来达成这一目的.\ngit rebase -i\ngit cherry-pick\ngit checkout main; git cherry-pick bugFix; 或者\ngit rebase -i main bugFix; git branch -f main HEAD 提交的技巧 假设在 newImage 分支进行了一次提交, 又在这个提交基础上创建了 caption 分支, 然后又在 caption 分支上进行了一次提交.\n现在如果要对 newImage 中的提交进行修改, 就需要进行一些修改和排序.\n",
-  "wordCount" : "1664",
+  "articleBody": "在某文件夹下创建ITensor文件夹。在该文件夹内执行\ngit clone https://github.com/ITensor/ITensor itensor 得到以itensor命名的编译源文件。这个文件夹名字可以自己改。\n前置：安装lapack和blas依赖库. sudo apt-get update sudo apt-get install libblas-dev liblapack-dev 检验是否正确安装:\ndpkg -L libblas-dev dpkg -L liblapack-dev 若能弹出对应路径说明安装成功。在这里留心安装的具体路径, 之后设置BLAS_LAPACK_LIBFLAGS可能会用到\n在终端执行\ncd itensor 进入下载的库文件所在的文件夹.\ncp options.mk.sample options.mk 将示例mk文件另存为mk文件.并且执行\nsudo nano options.mk 以nano编辑器打开配置文件。配置文件里默认的平台是MacOS，我们用的是WSL2,所以将\nPLATFORM=macos BLAS_LAPACK_LIBFLAGS=-framework Accelerate 这两行注释掉，而将下面的\n#PLATFORM=lapack #BLAS_LAPACK_LIBFLAGS=-lpthread -L/usr/lib -lblas -llapack 取消注释。注意看自己的BLAS_LAPACK_LIBFLAGS是否需要修改.比如我的就应该是-L/usr/lib/x86_64-linux-gnu.ctrl+O，ENTER保存。ctrl+X退出。\n依然是在itensor目录下，在bash终端执行\nmake 等待终端执行完成。\n为了能够在ITensor源文件所在文件夹以外的路径使用Itensor, 应该遵循以下步骤。\n将itensor/tutorial/project_template下的所有文件(Makefile,myappname.cc,myclass.h,当然说明书README.md无关紧要)复制粘贴到含有main函数代码的cpp文件所在的文件夹中;\n修改LIBRARY_DIR.这个路径和options.mk所在的文件夹的路径是相同的.(如果有/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor/options.mk,那么就将\nLIBRARY_DIR=$(HOME)/itensor 改写为\nLIBRARY_DIR=/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor 即可;\n修改APPNAME.这个是你的程序的名字.我给自己的程序源文件主程序起名为ctnmodel.cc, 所以 APP=myappname 改为\nAPP=ctnmodel 增加依赖库.模板里的myclass.h是用来测试的,在实际过程中可以替换为自己的头文件;\n编译的源文件名字,只要完成了APP的修改就无需改动.\n然后在bash终端执行\nmake 编译出执行文件.\n注意\n示例的Makefile并没有添加可执行权限，如果你想在bash终端中进行执行，那么你可以\nchmod +x ctnmodel (ctnmodel换成你自己程序的名字)\n或者直接在你的Makefile里面找到build和debug的行， 然后分别添加\nchmod +x $(APP) 和\nchmod +x $(APP)-g 最后形成这样的表达：\nbuild: $(APP) #这一行是为了添加可执行权限，如果你不需要，可以将其注释掉 chmod +x $(APP) debug: $(APP)-g #同上 chmod +x $(APP)-g 你可以通过在终端执行\n./ctnmodel (ctnmodel换成你的程序的名字)来完成程序的执行.这些模板都是由Makefile来进行管理的,所以对于vscode的编译执行功能没有得到充分发挥.\n待续:vscode的配置.\n",
+  "wordCount" : "1115",
   "inLanguage": "en",
-  "datePublished": "2022-05-05T00:17:58+08:00",
-  "dateModified": "2022-05-05T00:17:58+08:00",
+  "datePublished": "2022-05-05T00:18:23+08:00",
+  "dateModified": "2022-05-05T00:18:23+08:00",
   "author":[{
     "@type": "Person",
     "name": "Muartz"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://Muatyz.github.io/posts/cs/tech/"
+    "@id": "https://Muatyz.github.io/posts/phy/itensor-donwload/"
   },
   "publisher": {
     "@type": "Organization",
@@ -289,12 +289,12 @@ code.has-jax {
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/cs/">👨🏻‍💻 CS</a></div>
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a></div>
             <h1 class="post-title">
-                Github基础语法说明
+                ITensor库安装说明
             </h1>
             <div class="post-description">
-                使用Visual Studio进行git管理非常方便, 但是不清楚其背后的提交, 合并等原理是不可行的.
+                ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)
             </div>
             <div class="post-meta">
 
@@ -328,13 +328,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1664字
+        <span>1115字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>4分钟
+        <span>3分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -348,7 +348,8 @@ code.has-jax {
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://Muatyz.github.io/tags/cs/" style="color: var(--secondary)!important;">cs</a>
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">numerical calculation</a>
             </span>
         </span>
     </span>
@@ -410,25 +411,7 @@ code.has-jax {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e5%88%86%e6%94%af" aria-label="分支">分支</a></li>
-                <li>
-                    <a href="#%e5%90%88%e5%b9%b6" aria-label="合并">合并</a></li>
-                <li>
-                    <a href="#rebase" aria-label="Rebase">Rebase</a></li>
-                <li>
-                    <a href="#%e5%88%86%e7%a6%bb" aria-label="分离">分离</a></li>
-                <li>
-                    <a href="#%e7%9b%b8%e5%af%b9%e5%bc%95%e7%94%a8" aria-label="相对引用">相对引用</a></li>
-                <li>
-                    <a href="#%e6%92%a4%e9%94%80%e5%8f%98%e6%9b%b4" aria-label="撤销变更">撤销变更</a></li>
-                <li>
-                    <a href="#%e6%95%b4%e7%90%86%e6%8f%90%e4%ba%a4%e8%ae%b0%e5%bd%95" aria-label="整理提交记录">整理提交记录</a></li>
-                <li>
-                    <a href="#%e4%ba%a4%e4%ba%92%e5%bc%8f-rebase" aria-label="交互式 rebase">交互式 rebase</a></li>
-                <li>
-                    <a href="#%e5%8f%aa%e5%8f%96%e4%b8%80%e4%b8%aa%e6%8f%90%e4%ba%a4%e8%ae%b0%e5%bd%95" aria-label="只取一个提交记录">只取一个提交记录</a></li>
-                <li>
-                    <a href="#%e6%8f%90%e4%ba%a4%e7%9a%84%e6%8a%80%e5%b7%a7" aria-label="提交的技巧">提交的技巧</a>
+                    <a href="#%e5%89%8d%e7%bd%ae%e5%ae%89%e8%a3%85lapack%e5%92%8cblas%e4%be%9d%e8%b5%96%e5%ba%93" aria-label="前置：安装lapack和blas依赖库.">前置：安装lapack和blas依赖库.</a>
                 </li>
             </ul>
         </div>
@@ -493,159 +476,184 @@ code.has-jax {
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>get commit 
-</span></span></code></pre></div><p>在当前分支创建一个提交记录</p>
-<h1 id="分支">分支<a hidden class="anchor" aria-hidden="true" href="#分支">#</a></h1>
-<p>创建新分支</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git branch &lt;branch-name&gt;
-</span></span></code></pre></div><p>创建分支后直接使用</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit
-</span></span></code></pre></div><p>并不会在新分支产生提交记录, 这是因为没有切换到新分支.</p>
-<p>git 工具会使用<code>*</code>来提示你目前所在的分支.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout &lt;branch-name&gt;
-</span></span></code></pre></div><p>切换到名为 <code>branch-name</code> 的分支, 这个时候提交就可以在该分支下产生新提交记录了.</p>
-<p>把这两个功能整合起来的命令:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout -b &lt;branch-name&gt;
-</span></span></code></pre></div><h1 id="合并">合并<a hidden class="anchor" aria-hidden="true" href="#合并">#</a></h1>
-<p>对于同一父节点有着不同的分支, 这两个分支表示各有一个独立提交.</p>
-<p>把<code>branch-name</code> 合并到 <code>main</code> 里:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git merge &lt;branch-name&gt;
-</span></span></code></pre></div><p>这会产生一个新节点 <code>C4</code>, 其父节点为 <code>main</code> 和 <code>branch-name</code> 的最新提交记录所表示的结点(<code>C2</code>和<code>C3</code>).</p>
-<p>在此基础上再将 <code>main</code> 合并到 <code>branch-name</code>, 因为此时 <code>main</code> 继承自 <code>branch-name</code>, 所以只会把 <code>branch-name</code> 代表的指针移动到最后产生的结点(<code>C4</code>)</p>
-<h1 id="rebase">Rebase<a hidden class="anchor" aria-hidden="true" href="#rebase">#</a></h1>
-<p>这是另一种合并分支的方法, 就是去除一系列的提交记录, 将其在另一个地方逐一执行. 这可以让代码库的提交历史变得更清晰.</p>
-<p>假设 <code>main</code> 和 <code>bugFix</code> 的分支自结点<code>C1</code>, 各自的最新提交记录结点为 <code>C2</code> 和 <code>C3</code>, 目前所在分支是 <code>bugFix</code>.</p>
-<p><code>C2</code> 和 <code>C3</code>的工作可以是并行的.</p>
-<p>现在使用 <code>rebase</code> 命令实现合并, 这会使得两个分支的功能像是顺序实现的.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git rebase main
-</span></span></code></pre></div><p>这会产生一个新结点<code>C3'</code>, 其父节点为 <code>C2</code>, <code>main</code> 停留在 <code>C2</code>, <code>bugFix</code> 停留在 <code>C3'</code>, 目前所在分支仍然为 <code>bugFix</code>.</p>
-<p>现在我们需要使 <code>main</code> 得到更新:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout main;git merge bugFix;
-</span></span></code></pre></div><p>因为 <code>bugFix</code> 继承自 <code>main</code>, 所以git 要做到以上指令, 只需要将 <code>main</code> 指针移动到 <code>C3'</code> 即可.</p>
-<p>目前所在分支为 <code>main</code>.</p>
-<h1 id="分离">分离<a hidden class="anchor" aria-hidden="true" href="#分离">#</a></h1>
-<p>如何在提交树上移动?</p>
-<p>Head 是一个对当前分支的符号引用, 它用来指代当前分支的最新提交记录. 这也意味着 Head 会随着你的提交而更新.</p>
-<p>现在我们要让 HEAD 指向 具体的提交记录而并非分支名.</p>
-<p>假设这样一个状态:main*指针指向最新提交记录C1, HEAD 指向 main.</p>
-<p>即</p>
-<p><code>HEAD -&gt; main -&gt; C1</code></p>
-<p>我们执行命令:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout C1
-</span></span></code></pre></div><p>这样就变成了</p>
-<p><code>HEAD -&gt; C1</code></p>
-<p>当然在具体的操作实践中, 结点的记录不会像 <code>C1</code> 这样简单, 而是一个更复杂的哈希值(可以长达40位!).</p>
-<h1 id="相对引用">相对引用<a hidden class="anchor" aria-hidden="true" href="#相对引用">#</a></h1>
-<p>Git 对于哈希值的处理有一定的智能, 它允许你可以只使用哈希值的前几个字符来指代对应的提交记录, 而无需将哈希值完整写出.</p>
-<p>你可以通过</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log
-</span></span></code></pre></div><p>来查看提交记录的哈希值.</p>
-<p>如果是通过相对引用, 就可以不用使用哈希值.</p>
-<p>两种常见的移动方法:</p>
-<ul>
+        <div class="post-content"><p>在某文件夹下创建ITensor文件夹。在该文件夹内执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/ITensor/ITensor itensor
+</span></span></code></pre></div><p>得到以itensor命名的编译源文件。这个文件夹名字可以自己改。</p>
+<h1 id="前置安装lapack和blas依赖库">前置：安装lapack和blas依赖库.<a hidden class="anchor" aria-hidden="true" href="#前置安装lapack和blas依赖库">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt-get install libblas-dev liblapack-dev
+</span></span></code></pre></div><p>检验是否正确安装:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dpkg -L libblas-dev
+</span></span><span style="display:flex;"><span>dpkg -L liblapack-dev
+</span></span></code></pre></div><p>若能弹出对应路径说明安装成功。在这里留心安装的具体路径,
+之后设置<code>BLAS_LAPACK_LIBFLAGS</code>可能会用到</p>
+<hr>
+<p>在终端执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd itensor
+</span></span></code></pre></div><p>进入下载的库文件所在的文件夹.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp options.mk.sample options.mk
+</span></span></code></pre></div><p>将示例mk文件另存为mk文件.并且执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano options.mk
+</span></span></code></pre></div><p>以nano编辑器打开配置文件。配置文件里默认的平台是MacOS，我们用的是WSL2,所以将</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mk" data-lang="mk"><span style="display:flex;"><span>PLATFORM<span style="color:#f92672">=</span>macos
+</span></span><span style="display:flex;"><span>BLAS_LAPACK_LIBFLAGS<span style="color:#f92672">=</span>-framework Accelerate
+</span></span></code></pre></div><p>这两行注释掉，而将下面的</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mk" data-lang="mk"><span style="display:flex;"><span><span style="color:#75715e">#PLATFORM=lapack
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#BLAS_LAPACK_LIBFLAGS=-lpthread -L/usr/lib -lblas -llapack
+</span></span></span></code></pre></div><p>取消注释。注意看自己的<code>BLAS_LAPACK_LIBFLAGS</code>是否需要修改.比如我的就应该是<code>-L/usr/lib/x86_64-linux-gnu</code>.ctrl+O，ENTER保存。ctrl+X退出。</p>
+<p>依然是在itensor目录下，在bash终端执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
+</span></span></code></pre></div><p>等待终端执行完成。</p>
+<p>为了能够在ITensor源文件所在文件夹以外的路径使用Itensor,
+应该遵循以下步骤。</p>
+<ol>
 <li>
-<p>使用<code>^</code>向上移动一个提交记录</p>
-<p>具体用法是将^加在引用名称的后面, 比如</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout main^
-</span></span></code></pre></div><p>将 <code>HEAD</code> 切换到 <code>main</code> 的父节点.</p>
-<p><code>HEAD</code> 本身也可以作为引用名称的对象.</p>
+<p>将itensor/tutorial/project_template下的所有文件(Makefile,myappname.cc,myclass.h,当然说明书README.md无关紧要)复制粘贴到含有main函数代码的cpp文件所在的文件夹中;</p>
 </li>
 <li>
-<p>使用<code>~&lt;num&gt;</code>向上移动 <code>num</code> 个提交记录</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout HEAD~4
-</span></span></code></pre></div><p>这将使得 <code>HEAD</code> 指针移到 <code>HEAD</code> 的第四个父节点.</p>
+<p>修改LIBRARY_DIR.这个路径和options.mk所在的文件夹的路径是相同的.(如果有/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor/options.mk,那么就将</p>
 </li>
-</ul>
-<p>使用 -f 来让分支指向另一个提交.(-f 代表强制)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git branch -f main HEAD~3
-</span></span></code></pre></div><p>这会将 <code>main</code> 分支强制指向 <code>HEAD</code> 的第3级父提交.</p>
-<h1 id="撤销变更">撤销变更<a hidden class="anchor" aria-hidden="true" href="#撤销变更">#</a></h1>
-<p>有两种实现方法:</p>
-<ul>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>LIBRARY_DIR<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>HOME<span style="color:#66d9ef">)</span>/itensor
+</span></span></code></pre></div><p>改写为</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>LIBRARY_DIR<span style="color:#f92672">=</span>/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor
+</span></span></code></pre></div><p>即可;</p>
+<ol start="3">
+<li>修改APPNAME.这个是你的程序的名字.我给自己的程序源文件主程序起名为ctnmodel.cc,
+所以</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>APP<span style="color:#f92672">=</span>myappname
+</span></span></code></pre></div><p>改为</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>APP<span style="color:#f92672">=</span>ctnmodel
+</span></span></code></pre></div><ol start="4">
 <li>
-<p><code>git reset</code></p>
-<p>这会使得提交记录回溯, 原来指向的提交记录会被代码库忽略.</p>
-<p>但是原提交记录所作出变更还在, 只是没有加入暂存区.</p>
-<p>这个只适用于本地代码库, 对于远程分支是无效的.</p>
-</li>
-<li>
-<p><code>git revert C2</code></p>
-<p>为了将撤销更改分享给别人, 需要用到这个指令.</p>
-<p>这会产生一个新的提交记录结点C2&rsquo;, 这个更改是用来撤销C2的. 即 C2&rsquo; 状态也就是 C1.</p>
-</li>
-</ul>
-<p>注意辨别两个指令在使用的时候所使用的坐标是谁.</p>
-<h1 id="整理提交记录">整理提交记录<a hidden class="anchor" aria-hidden="true" href="#整理提交记录">#</a></h1>
-<p>现在我们需要处理更复杂的工作流了.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git cherry-pick &lt;commit&gt;
-</span></span></code></pre></div><p>假设 <code>C2</code> 和 <code>C5</code> 分支自共有父节点 <code>C1</code>, 而<code>C2</code>后的提交记录分别是<code>C3</code>, <code>C4</code>.</p>
-<p>现在<code>main</code>指针指向 <code>C5</code>, <code>side</code> 指针指向 <code>C4</code>. 且当前所在分支为<code>main</code>.(git 工具会提示你<code>main*</code>)</p>
-<p>我们执行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git cherry-pick C2 C4
-</span></span></code></pre></div><p>这会使得 <code>C5</code> 后依次出现新提交记录 <code>C2'</code> 和 <code>C4'</code>, 并且 <code>main*</code> 指向<code>C4'</code>.</p>
-<h1 id="交互式-rebase">交互式 rebase<a hidden class="anchor" aria-hidden="true" href="#交互式-rebase">#</a></h1>
-<p>在我们并不清楚提交记录的哈希值的时候, git 提供了一个方法.</p>
-<p><code>--interactive</code> 或者 <code>-i</code>, 这会使 Git 打开一个 UI 界面并列出提交记录的哈希值和提交说明.</p>
-<p>在实际操作中, 这个 UI 窗口可能仅仅只是一个文本编辑器中的界面. VS Code 中的代码管理会比这个更人性化一些.</p>
-<p>具体来说里面有若干个提交记录, 通过鼠标点击拖动来调整或者忽略这些结点顺序.</p>
-<h1 id="只取一个提交记录">只取一个提交记录<a hidden class="anchor" aria-hidden="true" href="#只取一个提交记录">#</a></h1>
-<p>为了调试而在代码中添加了一些调试命令, 这部分代码在正式的 使用中显然是不会用到的.</p>
-<p>实际上我们只需要&rsquo;刚好能解决问题并且没有任何调试代码&rsquo;的那一个提交记录就可以了.</p>
-<p>我们可以借助之前所学的命令来达成这一目的.</p>
-<ul>
-<li>
-<p><code>git rebase -i</code></p>
+<p>增加依赖库.模板里的myclass.h是用来测试的,在实际过程中可以替换为自己的头文件;</p>
 </li>
 <li>
-<p><code>git cherry-pick</code></p>
+<p>编译的源文件名字,只要完成了APP的修改就无需改动.</p>
 </li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout main;
-</span></span><span style="display:flex;"><span>git cherry-pick bugFix;
-</span></span></code></pre></div><p>或者</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git rebase -i main bugFix;
-</span></span><span style="display:flex;"><span>git branch -f main HEAD
-</span></span></code></pre></div><h1 id="提交的技巧">提交的技巧<a hidden class="anchor" aria-hidden="true" href="#提交的技巧">#</a></h1>
-<p>假设在 <code>newImage</code> 分支进行了一次提交, 又在这个提交基础上创建了 caption 分支, 然后又在 caption 分支上进行了一次提交.</p>
-<p>现在如果要对 <code>newImage</code> 中的提交进行修改, 就需要进行一些修改和排序.</p>
+</ol>
+<p>然后在bash终端执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
+</span></span></code></pre></div><p>编译出执行文件.</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>示例的Makefile并没有添加可执行权限，如果你想在bash终端中进行执行，那么你可以</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x ctnmodel
+</span></span></code></pre></div><p>(ctnmodel换成你自己程序的名字)</p>
+<p>或者直接在你的Makefile里面找到build和debug的行，
+然后分别添加</p>
+<pre tabindex="0"><code>chmod +x $(APP)
+</code></pre><p>和</p>
+<pre tabindex="0"><code>chmod +x $(APP)-g
+</code></pre><p>最后形成这样的表达：</p>
+<pre tabindex="0"><code>build: $(APP)
+#这一行是为了添加可执行权限，如果你不需要，可以将其注释掉
+  chmod +x $(APP)
+debug: $(APP)-g
+#同上
+  chmod +x $(APP)-g
+</code></pre></blockquote>
+<p>你可以通过在终端执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ctnmodel
+</span></span></code></pre></div><p>(ctnmodel换成你的程序的名字)来完成程序的执行.这些模板都是由Makefile来进行管理的,所以对于vscode的编译执行功能没有得到充分发挥.</p>
+<p>待续:vscode的配置.</p>
+<!-- 一个解决的办法是在VSCode里配置includePath.
+
+你可以在工程文件夹里新建一个c_pp_properties.json并且写入以下内容:
+
+```json
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**/*.h",
+                "${workspaceFolder}/**/*.hpp",
+                "/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor/*"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
+
+```
+
+新建一个tasks.json并且写入以下内容:
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "debug",
+            "type": "shell",
+            "command": "make debug",
+            "group": "build",
+            "problemMatcher": "$gcc"
+        }
+    ]
+}
+```
+
+新建launch.json文件并且写入:
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/ctnmodel",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
+``` -->
 
 
-        </div>
-        <div class="post-reward">
-            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
-                <div id="QR" style="opacity: 0;">
-                    <div id="wechat" style="display: inline-block">
-                        <a class="fancybox" rel="group">
-                            <img id="wechat_qr" src="https://Muatyz.github.io/" alt="wechat_pay"></a>
-                        <p>微信</p>
-                    </div>
-                    <div id="alipay" style="display: inline-block">
-                        <a class="fancybox" rel="group">
-                            <img id="alipay_qr" src="https://Muatyz.github.io/" alt="alipay"></a>
-                        <p>支付宝</p>
-                    </div>
-                </div>
-                <button id="rewardButton"
-                        onclick="
-                    var qr = document.getElementById('QR');
-                    if (qr.style.opacity === '0') {
-                        qr.style.opacity='1';
-                    } else {
-                        qr.style.opacity='0'
-                    }"
-                >
-                    <span>🧧 鼓励</span>
-                </button>
-            </div>
         </div>
 
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://Muatyz.github.io/posts/read/moire-bands/">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/itensor-mannual/">
     <span class="title">« 上一页</span>
     <br>
-    <span>[中字]Moiré bands in twisted double-layer graphene</span>
+    <span>ITensor基础语法说明</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/phy/tbg-nu-cal/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>转角双层石墨烯的数值计算综述</span>
   </a>
 </nav>
 
