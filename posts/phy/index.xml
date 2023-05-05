@@ -9,6 +9,15 @@
     <copyright>Muartz</copyright>
     <lastBuildDate>Thu, 05 May 2022 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/phy/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>ITensor基础语法说明</title>
+      <link>https://Muatyz.github.io/posts/phy/itensor-mannual/</link>
+      <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/itensor-mannual/</guid>
+      <description>介绍以DMRG算法为基础的itensor库使用</description>
+    </item>
+    
+    <item>
       <title>转角双层石墨烯的数值计算综述</title>
       <link>https://Muatyz.github.io/posts/phy/tbg-nu-cal/</link>
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
