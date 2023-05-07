@@ -36,6 +36,33 @@
     </item>
     
     <item>
+      <title>发源于重整化(Renormalization)的MERA算法</title>
+      <link>https://Muatyz.github.io/posts/phy/mera-method/</link>
+      <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/mera-method/</guid>
+      <description>多尺度纠缠重整化(MERA)是用以解决量子多体问题的算法之一</description>
+    </item>
+    
+    <item>
+      <title>哈密顿量的描述方式</title>
+      <link>https://Muatyz.github.io/posts/phy/hamiltonian/</link>
+      <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/hamiltonian/</guid>
+      <description>哈密顿量可谓是最常使用的算子了, 不同的描绘方法体现出不同的物理背景和思想</description>
+    </item>
+    
+    <item>
+      <title>紧束缚模型</title>
+      <link>https://Muatyz.github.io/posts/phy/tight-binding-model/</link>
+      <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/tight-binding-model/</guid>
+      <description>紧束缚模型是在能带计算中的最基础的方法</description>
+    </item>
+    
+    <item>
       <title>转角双层石墨烯的数值计算综述</title>
       <link>https://Muatyz.github.io/posts/phy/tbg-nu-cal/</link>
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>

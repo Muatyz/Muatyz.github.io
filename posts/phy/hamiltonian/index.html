@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>ITensor库安装说明 | 计算物理资料库</title>
+<title>哈密顿量的描述方式 | 计算物理资料库</title>
 <meta name="keywords" content="">
-<meta name="description" content="ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)">
+<meta name="description" content="哈密顿量可谓是最常使用的算子了, 不同的描绘方法体现出不同的物理背景和思想">
 <meta name="author" content="Muartz">
-<link rel="canonical" href="https://Muatyz.github.io/posts/phy/itensor-donwload/">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/hamiltonian/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
@@ -109,16 +109,16 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta property="og:title" content="ITensor库安装说明" />
-<meta property="og:description" content="ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)" />
+<meta property="og:title" content="哈密顿量的描述方式" />
+<meta property="og:description" content="哈密顿量可谓是最常使用的算子了, 不同的描绘方法体现出不同的物理背景和思想" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Muatyz.github.io/posts/phy/itensor-donwload/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/hamiltonian/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-05-05T00:18:23+08:00" />
 <meta property="article:modified_time" content="2022-05-05T00:18:23+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="ITensor库安装说明"/>
-<meta name="twitter:description" content="ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)"/>
+<meta name="twitter:title" content="哈密顿量的描述方式"/>
+<meta name="twitter:description" content="哈密顿量可谓是最常使用的算子了, 不同的描绘方法体现出不同的物理背景和思想"/>
 
 
 <script type="application/ld+json">
@@ -143,8 +143,8 @@ code.has-jax {
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "ITensor库安装说明",
-      "item": "https://Muatyz.github.io/posts/phy/itensor-donwload/"
+      "name": "哈密顿量的描述方式",
+      "item": "https://Muatyz.github.io/posts/phy/hamiltonian/"
     }
   ]
 }
@@ -153,14 +153,14 @@ code.has-jax {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "ITensor库安装说明",
-  "name": "ITensor库安装说明",
-  "description": "ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)",
+  "headline": "哈密顿量的描述方式",
+  "name": "哈密顿量的描述方式",
+  "description": "哈密顿量可谓是最常使用的算子了, 不同的描绘方法体现出不同的物理背景和思想",
   "keywords": [
     ""
   ],
-  "articleBody": "在某文件夹下创建ITensor文件夹。在该文件夹内执行\ngit clone https://github.com/ITensor/ITensor itensor 得到以itensor命名的编译源文件。这个文件夹名字可以自己改。\n前置：安装lapack和blas依赖库. sudo apt-get update sudo apt-get install libblas-dev liblapack-dev 检验是否正确安装:\ndpkg -L libblas-dev dpkg -L liblapack-dev 若能弹出对应路径说明安装成功。在这里留心安装的具体路径, 之后设置BLAS_LAPACK_LIBFLAGS可能会用到\n在终端执行\ncd itensor 进入下载的库文件所在的文件夹.\ncp options.mk.sample options.mk 将示例mk文件另存为mk文件.并且执行\nsudo nano options.mk 以nano编辑器打开配置文件。配置文件里默认的平台是MacOS，我们用的是WSL2,所以将\nPLATFORM=macos BLAS_LAPACK_LIBFLAGS=-framework Accelerate 这两行注释掉，而将下面的\n#PLATFORM=lapack #BLAS_LAPACK_LIBFLAGS=-lpthread -L/usr/lib -lblas -llapack 取消注释。注意看自己的BLAS_LAPACK_LIBFLAGS是否需要修改.比如我的就应该是-L/usr/lib/x86_64-linux-gnu.ctrl+O，ENTER保存。ctrl+X退出。\n依然是在itensor目录下，在bash终端执行\nmake 等待终端执行完成。\n为了能够在ITensor源文件所在文件夹以外的路径使用Itensor, 应该遵循以下步骤。\n将itensor/tutorial/project_template下的所有文件(Makefile,myappname.cc,myclass.h,当然说明书README.md无关紧要)复制粘贴到含有main函数代码的cpp文件所在的文件夹中;\n修改LIBRARY_DIR.这个路径和options.mk所在的文件夹的路径是相同的.(如果有/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor/options.mk,那么就将\nLIBRARY_DIR=$(HOME)/itensor 改写为\nLIBRARY_DIR=/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor 即可;\n修改APPNAME.这个是你的程序的名字.我给自己的程序源文件主程序起名为ctnmodel.cc, 所以 APP=myappname 改为\nAPP=ctnmodel 增加依赖库.模板里的myclass.h是用来测试的,在实际过程中可以替换为自己的头文件;\n编译的源文件名字,只要完成了APP的修改就无需改动.\n然后在bash终端执行\nmake 编译出执行文件.\n注意\n示例的Makefile并没有添加可执行权限，如果你想在bash终端中进行执行，那么你可以\nchmod +x ctnmodel (ctnmodel换成你自己程序的名字)\n或者直接在你的Makefile里面找到build和debug的行， 然后分别添加\nchmod +x $(APP) 和\nchmod +x $(APP)-g 最后形成这样的表达：\nbuild: $(APP) #这一行是为了添加可执行权限，如果你不需要，可以将其注释掉 chmod +x $(APP) debug: $(APP)-g #同上 chmod +x $(APP)-g 你可以通过在终端执行\n./ctnmodel (ctnmodel换成你的程序的名字)来完成程序的执行.这些模板都是由Makefile来进行管理的,所以对于vscode的编译执行功能没有得到充分发挥.\n待续:vscode的配置.\n",
-  "wordCount" : "1115",
+  "articleBody": "Dirac Notation 狄拉克符号利用 ‘$\\langle$’(Bra, 左矢) 和 ‘$\\rangle$’(Ket, 右矢)语言来对常规的量子力学中的概念进行替换.\n方程语言 Dirac Notation Wave Function $\\psi$ $\\psi = |\\psi\\rangle$ Conjugate Wave Function $\\psi^{*}$ $\\psi^{*} = \\langle\\psi|$ Inner Product $\\int\\phi^{*}(q)\\psi(q)dq=\\langle\\phi|\\psi\\rangle$ Outer Product(Operater) $|\\psi\\rangle\\langle\\phi|$ 特别地, 当 $\\psi = \\phi$ 时, 外积 $|\\psi\\rangle\\langle\\phi| = \\hat{P}$ 为投影算符.\n若有一组正交归一完备基 $\\{|a_{i}\\rangle\\}$, 其满足:\n完备性. $\\sum_{i}|a_{i}\\rangle\\langle a_{i}| = 1$; 正交归一性. $\\langle a_{i}|a_{j}\\rangle = \\delta_{ij}$ 我们就能对波函数和算子进行改写.\n$|\\psi\\rangle = \\sum_{i}|a_{i}\\rangle\\langle a_{i}|\\psi\\rangle = \\sum_{i}c_{i}|a_{i}\\rangle$ $\\hat{H} = \\sum_{i}|a_{i}\\rangle\\langle a_{i}|\\hat{H}\\sum_{j}|a_{j}\\rangle\\langle a_{j}|= \\sum_{ij}|a_{i}\\rangle\\langle a_{i}|\\hat{H}|a_{j}\\rangle\\langle a_{j}|=\\sum_{ij}H_{ij}|a_{i}\\rangle\\langle a_{j}|$ Generation and Annihilation Operators(Ascending and Descending Operators) 通过使用二次量子化, 可以将单体的算符 $\\hat{H}=\\sum_{i}\\hat{h}(q_{i})$ 转化为形式:\n$$ \\hat{H}=\\sum_{ij}h_{ij}\\hat{c_{i}^{\\dagger}}\\hat{c_{j}} $$\n$\\hat{c}$ 是湮灭算符, $\\hat{c^{\\dagger}}$ 是产生算符;对于费米子系统有 $\\{\\hat{c_i},\\hat{c_j}\\} = \\delta_{ij}$. 系数 $h_{ij} = \\langle i|\\hat{h}|j\\rangle$, $\\hat{h}$ 表示的是单粒子态算符.\n具体证明过程见于二次量子化.\nField Operators 场算符被定义为\n$$ \\hat{\\psi}(q) = \\sum_{i}\\hat{c_{i}}\\phi_{i}(q), $$\n对应的厄米共轭的场算符为\n$$ \\hat{\\psi^{\\dagger}}(q) = \\sum_{i}\\hat{c_{i}^{\\dagger}}\\phi_{i}^{*}(q), $$\n对于单体算子 $\\hat{H}=\\sum_{i}\\hat{h}(q_{i})$, 可以写成场算子的形式:\n$$ \\hat{H}=\\int\\hat{\\psi^{\\dagger}}(q)\\hat{h}(q)\\hat{\\psi}(q)dq $$\n$\\hat{h}(q)$ 表示的是单粒子态算符.\n$$ \\begin{equation} \\begin{aligned} \\hat{H} \u0026= \\int\\hat{\\psi^{\\dagger}}(q)\\hat{h}(q)\\hat{\\psi}(q)dq\\\\ \u0026= \\int\\sum_{i}\\hat{c_{i}^{\\dagger}}\\psi_{i}^{*}(q)\\hat{h}(q)\\sum_{j}\\hat{c_{j}}\\psi_{j}(q)dq\\\\ \u0026= \\sum_{ij}\\hat{c_{i}^{\\dagger}}\\hat{c_{j}}\\int\\psi_{i}^{*}(q)\\hat{h}(q)\\psi_{j}(q)dq\\\\ \u0026= \\sum_{ij}\\langle i|\\hat{h}|j\\rangle \\hat{c_{i}^{\\dagger}}\\hat{c_{j}}\\\\ \u0026=\\sum_{ij}h_{ij}\\hat{c_{i}^{\\dagger}}\\hat{c_{j}} \\end{aligned} \\end{equation} $$\n",
+  "wordCount" : "323",
   "inLanguage": "en",
   "datePublished": "2022-05-05T00:18:23+08:00",
   "dateModified": "2022-05-05T00:18:23+08:00",
@@ -170,7 +170,7 @@ code.has-jax {
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://Muatyz.github.io/posts/phy/itensor-donwload/"
+    "@id": "https://Muatyz.github.io/posts/phy/hamiltonian/"
   },
   "publisher": {
     "@type": "Organization",
@@ -291,10 +291,10 @@ code.has-jax {
         <header class="post-header">
             <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a></div>
             <h1 class="post-title">
-                ITensor库安装说明
+                哈密顿量的描述方式
             </h1>
             <div class="post-description">
-                ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)
+                哈密顿量可谓是最常使用的算子了, 不同的描绘方法体现出不同的物理背景和思想
             </div>
             <div class="post-meta">
 
@@ -328,13 +328,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1115字
+        <span>323字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>3分钟
+        <span>1分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -349,7 +349,6 @@ code.has-jax {
         <span>
             <span class="post-tags-meta">
                 <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
-                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">numerical calculation</a>
             </span>
         </span>
     </span>
@@ -411,7 +410,11 @@ code.has-jax {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e5%89%8d%e7%bd%ae%e5%ae%89%e8%a3%85lapack%e5%92%8cblas%e4%be%9d%e8%b5%96%e5%ba%93" aria-label="前置：安装lapack和blas依赖库.">前置：安装lapack和blas依赖库.</a>
+                    <a href="#dirac-notation" aria-label="Dirac Notation">Dirac Notation</a></li>
+                <li>
+                    <a href="#generation-and-annihilation-operatorsascending-and-descending-operators" aria-label="Generation and Annihilation Operators(Ascending and Descending Operators)">Generation and Annihilation Operators(Ascending and Descending Operators)</a></li>
+                <li>
+                    <a href="#field-operators" aria-label="Field Operators">Field Operators</a>
                 </li>
             </ul>
         </div>
@@ -476,168 +479,83 @@ code.has-jax {
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><p>在某文件夹下创建ITensor文件夹。在该文件夹内执行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/ITensor/ITensor itensor
-</span></span></code></pre></div><p>得到以itensor命名的编译源文件。这个文件夹名字可以自己改。</p>
-<h1 id="前置安装lapack和blas依赖库">前置：安装lapack和blas依赖库.<a hidden class="anchor" aria-hidden="true" href="#前置安装lapack和blas依赖库">#</a></h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get update
-</span></span><span style="display:flex;"><span>sudo apt-get install libblas-dev liblapack-dev
-</span></span></code></pre></div><p>检验是否正确安装:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dpkg -L libblas-dev
-</span></span><span style="display:flex;"><span>dpkg -L liblapack-dev
-</span></span></code></pre></div><p>若能弹出对应路径说明安装成功。在这里留心安装的具体路径,
-之后设置<code>BLAS_LAPACK_LIBFLAGS</code>可能会用到</p>
-<hr>
-<p>在终端执行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd itensor
-</span></span></code></pre></div><p>进入下载的库文件所在的文件夹.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp options.mk.sample options.mk
-</span></span></code></pre></div><p>将示例mk文件另存为mk文件.并且执行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano options.mk
-</span></span></code></pre></div><p>以nano编辑器打开配置文件。配置文件里默认的平台是MacOS，我们用的是WSL2,所以将</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mk" data-lang="mk"><span style="display:flex;"><span>PLATFORM<span style="color:#f92672">=</span>macos
-</span></span><span style="display:flex;"><span>BLAS_LAPACK_LIBFLAGS<span style="color:#f92672">=</span>-framework Accelerate
-</span></span></code></pre></div><p>这两行注释掉，而将下面的</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mk" data-lang="mk"><span style="display:flex;"><span><span style="color:#75715e">#PLATFORM=lapack
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#BLAS_LAPACK_LIBFLAGS=-lpthread -L/usr/lib -lblas -llapack
-</span></span></span></code></pre></div><p>取消注释。注意看自己的<code>BLAS_LAPACK_LIBFLAGS</code>是否需要修改.比如我的就应该是<code>-L/usr/lib/x86_64-linux-gnu</code>.ctrl+O，ENTER保存。ctrl+X退出。</p>
-<p>依然是在itensor目录下，在bash终端执行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
-</span></span></code></pre></div><p>等待终端执行完成。</p>
-<p>为了能够在ITensor源文件所在文件夹以外的路径使用Itensor,
-应该遵循以下步骤。</p>
-<ol>
-<li>
-<p>将itensor/tutorial/project_template下的所有文件(Makefile,myappname.cc,myclass.h,当然说明书README.md无关紧要)复制粘贴到含有main函数代码的cpp文件所在的文件夹中;</p>
-</li>
-<li>
-<p>修改LIBRARY_DIR.这个路径和options.mk所在的文件夹的路径是相同的.(如果有/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor/options.mk,那么就将</p>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>LIBRARY_DIR<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>HOME<span style="color:#66d9ef">)</span>/itensor
-</span></span></code></pre></div><p>改写为</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>LIBRARY_DIR<span style="color:#f92672">=</span>/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor
-</span></span></code></pre></div><p>即可;</p>
-<ol start="3">
-<li>修改APPNAME.这个是你的程序的名字.我给自己的程序源文件主程序起名为ctnmodel.cc,
-所以</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>APP<span style="color:#f92672">=</span>myappname
-</span></span></code></pre></div><p>改为</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>APP<span style="color:#f92672">=</span>ctnmodel
-</span></span></code></pre></div><ol start="4">
-<li>
-<p>增加依赖库.模板里的myclass.h是用来测试的,在实际过程中可以替换为自己的头文件;</p>
-</li>
-<li>
-<p>编译的源文件名字,只要完成了APP的修改就无需改动.</p>
-</li>
-</ol>
-<p>然后在bash终端执行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
-</span></span></code></pre></div><p>编译出执行文件.</p>
+        <div class="post-content"><h1 id="dirac-notation">Dirac Notation<a hidden class="anchor" aria-hidden="true" href="#dirac-notation">#</a></h1>
+<p>狄拉克符号利用 &lsquo;$\langle$&rsquo;(Bra, 左矢) 和 &lsquo;$\rangle$&rsquo;(Ket, 右矢)语言来对常规的量子力学中的概念进行替换.</p>
+<table>
+<thead>
+<tr>
+<th>方程语言</th>
+<th>Dirac Notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wave Function $\psi$</td>
+<td>$\psi = |\psi\rangle$</td>
+</tr>
+<tr>
+<td>Conjugate Wave Function $\psi^{*}$</td>
+<td>$\psi^{*} = \langle\psi|$</td>
+</tr>
+<tr>
+<td>Inner Product</td>
+<td>$\int\phi^{*}(q)\psi(q)dq=\langle\phi|\psi\rangle$</td>
+</tr>
+<tr>
+<td>Outer Product(Operater)</td>
+<td>$|\psi\rangle\langle\phi|$</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p><strong>注意</strong></p>
-<p>示例的Makefile并没有添加可执行权限，如果你想在bash终端中进行执行，那么你可以</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x ctnmodel
-</span></span></code></pre></div><p>(ctnmodel换成你自己程序的名字)</p>
-<p>或者直接在你的Makefile里面找到build和debug的行，
-然后分别添加</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chmod +x $(APP)
-</span></span></code></pre></div><p>和</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chmod +x $(APP)-g
-</span></span></code></pre></div><p>最后形成这样的表达：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>build: $(APP)
-</span></span><span style="display:flex;"><span>#这一行是为了添加可执行权限，如果你不需要，可以将其注释掉
-</span></span><span style="display:flex;"><span>  chmod +x $(APP)
-</span></span><span style="display:flex;"><span>debug: $(APP)-g
-</span></span><span style="display:flex;"><span>#同上
-</span></span><span style="display:flex;"><span>  chmod +x $(APP)-g
-</span></span></code></pre></div></blockquote>
-<p>你可以通过在终端执行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ctnmodel
-</span></span></code></pre></div><p>(ctnmodel换成你的程序的名字)来完成程序的执行.这些模板都是由Makefile来进行管理的,所以对于vscode的编译执行功能没有得到充分发挥.</p>
-<p>待续:vscode的配置.</p>
-<!-- 一个解决的办法是在VSCode里配置includePath.
-
-你可以在工程文件夹里新建一个c_pp_properties.json并且写入以下内容:
-
-```json
-{
-    "configurations": [
-        {
-            "name": "Linux",
-            "includePath": [
-                "${workspaceFolder}/**/*.h",
-                "${workspaceFolder}/**/*.hpp",
-                "/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor/*"
-            ],
-            "defines": [],
-            "compilerPath": "/usr/bin/g++",
-            "cStandard": "gnu17",
-            "cppStandard": "gnu++14",
-            "intelliSenseMode": "linux-gcc-x64"
-        }
-    ],
-    "version": 4
-}
-
-```
-
-新建一个tasks.json并且写入以下内容:
-
-```json
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "type": "shell",
-            "command": "make build",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": "$gcc"
-        },
-        {
-            "label": "debug",
-            "type": "shell",
-            "command": "make debug",
-            "group": "build",
-            "problemMatcher": "$gcc"
-        }
-    ]
-}
-```
-
-新建launch.json文件并且写入:
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(gdb) Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/ctnmodel",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
-        }
-    ]
-}
-``` -->
+<p>特别地, 当 $\psi = \phi$ 时, 外积 $|\psi\rangle\langle\phi| = \hat{P}$ 为投影算符.</p>
+</blockquote>
+<p>若有一组正交归一完备基 $\{|a_{i}\rangle\}$, 其满足:</p>
+<ul>
+<li>完备性. $\sum_{i}|a_{i}\rangle\langle a_{i}| = 1$;</li>
+<li>正交归一性. $\langle a_{i}|a_{j}\rangle = \delta_{ij}$</li>
+</ul>
+<p>我们就能对波函数和算子进行改写.</p>
+<ul>
+<li>$|\psi\rangle = \sum_{i}|a_{i}\rangle\langle a_{i}|\psi\rangle = \sum_{i}c_{i}|a_{i}\rangle$</li>
+<li>$\hat{H} = \sum_{i}|a_{i}\rangle\langle a_{i}|\hat{H}\sum_{j}|a_{j}\rangle\langle a_{j}|= \sum_{ij}|a_{i}\rangle\langle a_{i}|\hat{H}|a_{j}\rangle\langle a_{j}|=\sum_{ij}H_{ij}|a_{i}\rangle\langle a_{j}|$</li>
+</ul>
+<h1 id="generation-and-annihilation-operatorsascending-and-descending-operators">Generation and Annihilation Operators(Ascending and Descending Operators)<a hidden class="anchor" aria-hidden="true" href="#generation-and-annihilation-operatorsascending-and-descending-operators">#</a></h1>
+<p>通过使用二次量子化, 可以将单体的算符 $\hat{H}=\sum_{i}\hat{h}(q_{i})$ 转化为形式:</p>
+<p>$$
+\hat{H}=\sum_{ij}h_{ij}\hat{c_{i}^{\dagger}}\hat{c_{j}}
+$$</p>
+<blockquote>
+<p>$\hat{c}$ 是湮灭算符, $\hat{c^{\dagger}}$ 是产生算符;对于费米子系统有 $\{\hat{c_i},\hat{c_j}\} = \delta_{ij}$. 系数 $h_{ij} = \langle i|\hat{h}|j\rangle$, $\hat{h}$ 表示的是单粒子态算符.</p>
+<p>具体证明过程见于<a href="https://muartz.com/posts/phy/second-quantization/" target="_blank" rel="noopener nofollow noreferrer" >二次量子化</a>.</p>
+</blockquote>
+<h1 id="field-operators">Field Operators<a hidden class="anchor" aria-hidden="true" href="#field-operators">#</a></h1>
+<p>场算符被定义为</p>
+<p>$$
+\hat{\psi}(q) = \sum_{i}\hat{c_{i}}\phi_{i}(q),
+$$</p>
+<p>对应的厄米共轭的场算符为</p>
+<p>$$
+\hat{\psi^{\dagger}}(q) = \sum_{i}\hat{c_{i}^{\dagger}}\phi_{i}^{*}(q),
+$$</p>
+<p>对于单体算子 $\hat{H}=\sum_{i}\hat{h}(q_{i})$, 可以写成场算子的形式:</p>
+<p>$$
+\hat{H}=\int\hat{\psi^{\dagger}}(q)\hat{h}(q)\hat{\psi}(q)dq
+$$</p>
+<blockquote>
+<p>$\hat{h}(q)$ 表示的是单粒子态算符.</p>
+</blockquote>
+<p>$$
+\begin{equation}
+\begin{aligned}
+\hat{H} &amp;= \int\hat{\psi^{\dagger}}(q)\hat{h}(q)\hat{\psi}(q)dq\\
+&amp;= \int\sum_{i}\hat{c_{i}^{\dagger}}\psi_{i}^{*}(q)\hat{h}(q)\sum_{j}\hat{c_{j}}\psi_{j}(q)dq\\
+&amp;= \sum_{ij}\hat{c_{i}^{\dagger}}\hat{c_{j}}\int\psi_{i}^{*}(q)\hat{h}(q)\psi_{j}(q)dq\\
+&amp;= \sum_{ij}\langle i|\hat{h}|j\rangle \hat{c_{i}^{\dagger}}\hat{c_{j}}\\
+&amp;=\sum_{ij}h_{ij}\hat{c_{i}^{\dagger}}\hat{c_{j}}
+\end{aligned}
+\end{equation}
+$$</p>
 
 
         </div>
@@ -645,15 +563,15 @@ code.has-jax {
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://Muatyz.github.io/posts/phy/itensor-mannual/">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/mera-method/">
     <span class="title">« 上一页</span>
     <br>
-    <span>ITensor基础语法说明</span>
+    <span>发源于重整化(Renormalization)的MERA算法</span>
   </a>
-  <a class="next" href="https://Muatyz.github.io/posts/phy/mera-method/">
+  <a class="next" href="https://Muatyz.github.io/posts/phy/tight-binding-model/">
     <span class="title">下一页 »</span>
     <br>
-    <span>发源于重整化(Renormalization)的MERA算法</span>
+    <span>紧束缚模型</span>
   </a>
 </nav>
 
