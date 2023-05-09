@@ -663,6 +663,28 @@ code.has-jax {
     })
 </script>
 
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
 
 </body>

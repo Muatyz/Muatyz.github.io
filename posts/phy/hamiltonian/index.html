@@ -159,8 +159,8 @@ code.has-jax {
   "keywords": [
     ""
   ],
-  "articleBody": "Dirac Notation 狄拉克符号利用 ‘$\\langle$’(Bra, 左矢) 和 ‘$\\rangle$’(Ket, 右矢)语言来对常规的量子力学中的概念进行替换.\n方程语言 Dirac Notation Wave Function $\\psi$ $\\psi = |\\psi\\rangle$ Conjugate Wave Function $\\psi^{*}$ $\\psi^{*} = \\langle\\psi|$ Inner Product $\\int\\phi^{*}(q)\\psi(q)dq=\\langle\\phi|\\psi\\rangle$ Outer Product(Operater) $|\\psi\\rangle\\langle\\phi|$ 特别地, 当 $\\psi = \\phi$ 时, 外积 $|\\psi\\rangle\\langle\\phi| = \\hat{P}$ 为投影算符.\n若有一组正交归一完备基 $\\{|a_{i}\\rangle\\}$, 其满足:\n完备性. $\\sum_{i}|a_{i}\\rangle\\langle a_{i}| = 1$; 正交归一性. $\\langle a_{i}|a_{j}\\rangle = \\delta_{ij}$ 我们就能对波函数和算子进行改写.\n$|\\psi\\rangle = \\sum_{i}|a_{i}\\rangle\\langle a_{i}|\\psi\\rangle = \\sum_{i}c_{i}|a_{i}\\rangle$ $\\hat{H} = \\sum_{i}|a_{i}\\rangle\\langle a_{i}|\\hat{H}\\sum_{j}|a_{j}\\rangle\\langle a_{j}|= \\sum_{ij}|a_{i}\\rangle\\langle a_{i}|\\hat{H}|a_{j}\\rangle\\langle a_{j}|=\\sum_{ij}H_{ij}|a_{i}\\rangle\\langle a_{j}|$ Generation and Annihilation Operators(Ascending and Descending Operators) 通过使用二次量子化, 可以将单体的算符 $\\hat{H}=\\sum_{i}\\hat{h}(q_{i})$ 转化为形式:\n$$ \\hat{H}=\\sum_{ij}h_{ij}\\hat{c_{i}^{\\dagger}}\\hat{c_{j}} $$\n$\\hat{c}$ 是湮灭算符, $\\hat{c^{\\dagger}}$ 是产生算符;对于费米子系统有 $\\{\\hat{c_i},\\hat{c_j}\\} = \\delta_{ij}$. 系数 $h_{ij} = \\langle i|\\hat{h}|j\\rangle$, $\\hat{h}$ 表示的是单粒子态算符.\n具体证明过程见于二次量子化.\nField Operators 场算符被定义为\n$$ \\hat{\\psi}(q) = \\sum_{i}\\hat{c_{i}}\\phi_{i}(q), $$\n对应的厄米共轭的场算符为\n$$ \\hat{\\psi^{\\dagger}}(q) = \\sum_{i}\\hat{c_{i}^{\\dagger}}\\phi_{i}^{*}(q), $$\n对于单体算子 $\\hat{H}=\\sum_{i}\\hat{h}(q_{i})$, 可以写成场算子的形式:\n$$ \\hat{H}=\\int\\hat{\\psi^{\\dagger}}(q)\\hat{h}(q)\\hat{\\psi}(q)dq $$\n$\\hat{h}(q)$ 表示的是单粒子态算符.\n$$ \\begin{equation} \\begin{aligned} \\hat{H} \u0026= \\int\\hat{\\psi^{\\dagger}}(q)\\hat{h}(q)\\hat{\\psi}(q)dq\\\\ \u0026= \\int\\sum_{i}\\hat{c_{i}^{\\dagger}}\\psi_{i}^{*}(q)\\hat{h}(q)\\sum_{j}\\hat{c_{j}}\\psi_{j}(q)dq\\\\ \u0026= \\sum_{ij}\\hat{c_{i}^{\\dagger}}\\hat{c_{j}}\\int\\psi_{i}^{*}(q)\\hat{h}(q)\\psi_{j}(q)dq\\\\ \u0026= \\sum_{ij}\\langle i|\\hat{h}|j\\rangle \\hat{c_{i}^{\\dagger}}\\hat{c_{j}}\\\\ \u0026=\\sum_{ij}h_{ij}\\hat{c_{i}^{\\dagger}}\\hat{c_{j}} \\end{aligned} \\end{equation} $$\n",
-  "wordCount" : "323",
+  "articleBody": "Dirac Notation 狄拉克符号利用 ‘$\\langle$’(Bra, 左矢) 和 ‘$\\rangle$’(Ket, 右矢)语言来对常规的量子力学中的概念进行替换.\n方程语言 Dirac Notation Wave Function $\\psi$ $\\psi = |\\psi\\rangle$ Conjugate Wave Function $\\psi^{*}$ $\\psi^{*} = \\langle\\psi|$ Inner Product $\\int\\phi^{*}(q)\\psi(q)dq=\\langle\\phi|\\psi\\rangle$ Outer Product(Operater) $|\\psi\\rangle\\langle\\phi|$ 特别地, 当 $\\psi = \\phi$ 时, 外积 $|\\psi\\rangle\\langle\\phi| = \\hat{P}$ 为投影算符.\n若有一组正交归一完备基 $\\{|a_{i}\\rangle\\}$, 其满足:\n完备性. $\\sum_{i}|a_{i}\\rangle\\langle a_{i}| = 1$; 正交归一性. $\\langle a_{i}|a_{j}\\rangle = \\delta_{ij}$ 我们就能对波函数和算子进行改写.\n$|\\psi\\rangle = \\sum_{i}|a_{i}\\rangle\\langle a_{i}|\\psi\\rangle = \\sum_{i}c_{i}|a_{i}\\rangle$ $\\hat{H} = \\sum_{i}|a_{i}\\rangle\\langle a_{i}|\\hat{H}\\sum_{j}|a_{j}\\rangle\\langle a_{j}|= \\sum_{ij}|a_{i}\\rangle\\langle a_{i}|\\hat{H}|a_{j}\\rangle\\langle a_{j}|=\\sum_{ij}H_{ij}|a_{i}\\rangle\\langle a_{j}|$ Generation and Annihilation Operators(Ascending and Descending Operators) 通过使用二次量子化, 可以将单体的算符 $\\hat{H}=\\sum_{i}\\hat{h}(q_{i})$ 转化为形式:\n$$ \\hat{H}=\\sum_{ij}h_{ij}\\hat{c_{i}^{\\dagger}}\\hat{c_{j}} $$\n$\\hat{c}$ 是湮灭算符, $\\hat{c^{\\dagger}}$ 是产生算符;对于费米子系统有 $\\{\\hat{c_i},\\hat{c_j}\\} = \\delta_{ij}$. 系数 $h_{ij} = \\langle i|\\hat{h}|j\\rangle$, $\\hat{h}$ 表示的是单粒子态算符.\n具体证明过程见于二次量子化.\nField Operators 场算符被定义为\n$$ \\hat{\\psi}(q) = \\sum_{i}\\hat{c_{i}}\\phi_{i}(q), $$\n对应的厄米共轭的场算符为\n$$ \\hat{\\psi^{\\dagger}}(q) = \\sum_{i}\\hat{c_{i}^{\\dagger}}\\phi_{i}^{*}(q), $$\n对于单体算子 $\\hat{H}=\\sum_{i}\\hat{h}(q_{i})$, 可以写成场算子的形式:\n$$ \\hat{H}=\\int\\hat{\\psi^{\\dagger}}(q)\\hat{h}(q)\\hat{\\psi}(q)dq $$\n$\\hat{h}(q)$ 表示的是单粒子态算符.\n$$ \\begin{equation} \\begin{aligned} \\hat{H} \u0026= \\int\\hat{\\psi^{\\dagger}}(q)\\hat{h}(q)\\hat{\\psi}(q)dq\\\\ \u0026= \\int\\sum_{i}\\hat{c_{i}^{\\dagger}}\\psi_{i}^{*}(q)\\hat{h}(q)\\sum_{j}\\hat{c_{j}}\\psi_{j}(q)dq\\\\ \u0026= \\sum_{ij}\\hat{c_{i}^{\\dagger}}\\hat{c_{j}}\\int\\psi_{i}^{*}(q)\\hat{h}(q)\\psi_{j}(q)dq\\\\ \u0026= \\sum_{ij}\\langle i|\\hat{h}|j\\rangle \\hat{c_{i}^{\\dagger}}\\hat{c_{j}}\\\\ \u0026=\\sum_{ij}h_{ij}\\hat{c_{i}^{\\dagger}}\\hat{c_{j}} \\end{aligned} \\end{equation} $$\n泡利矩阵构造方法 在紧束缚模型-石墨烯中我们已经谈到过单层石墨烯的紧束缚模型近似下的哈密顿量:\n$$ h_{\\vec{K}}(\\vec{q})\\approx\\hbar v_{F} \\begin{bmatrix} 0 \u0026 q_{x} - iq_{y} \\\\ q_{x} + iq_{y} \u0026 0 \\\\ \\end{bmatrix} =\\hbar v_{F}\\sigma\\cdot\\vec{q} $$\n$v_{F} = \\frac{3ta}{2}$, 石墨烯中的等效费米速度.\n我们可以发现, 拥有自旋意义的泡利矩阵同样可以构造出哈密顿量.\n泡利矩阵的定义和运算 单位矩阵 $$ \\sigma_{0} = \\begin{bmatrix} 1 \u0026 0 \\\\ 0 \u0026 1 \\\\ \\end{bmatrix} $$\n泡利矩阵 $$ \\sigma_{x}= \\begin{bmatrix} 0 \u0026 1 \\\\ 1 \u0026 0 \\\\ \\end{bmatrix}, \\sigma_{y}= \\begin{bmatrix} 0 \u0026 -i \\\\ i \u0026 0 \\\\ \\end{bmatrix}, \\sigma_{z}= \\begin{bmatrix} 1 \u0026 0 \\\\ 0 \u0026 -1 \\\\ \\end{bmatrix} $$\n计算性质 $$ \\sigma_{x}^2=\\sigma_{y}^2=\\sigma_{z}^2=\\sigma_{0}\\\\ \\sigma_{x}\\cdot\\sigma_{y}=i\\sigma_{z}\\\\ \\sigma_{y}\\cdot\\sigma_{z}=i\\sigma_{x}\\\\ \\sigma_{z}\\cdot\\sigma_{x}=i\\sigma_{y} $$\n对易关系: $$ [\\sigma_{x},\\sigma_{y}]=2i\\sigma_{z}\\\\ [\\sigma_{y},\\sigma_{z}]=2i\\sigma_{x}\\\\ [\\sigma_{z},\\sigma_{x}]=2i\\sigma_{y} $$\n反对易关系: $$ \\{\\sigma_{x},\\sigma_{y}\\}=2i\\sigma_{z}\\\\ \\{\\sigma_{y},\\sigma_{z}\\}=2i\\sigma_{x}\\\\ \\{\\sigma_{z},\\sigma_{x}\\}=2i\\sigma_{y} $$\n泡利矩阵的Kronecker积 矩阵的Kronecker积\n若有 $A = (a_{ij})_{m\\times n}, B = (b_{ij})_{p\\times q}$ , 则分块矩阵 $$ \\begin{bmatrix} a_{11}B \u0026 a_{12}B \u0026 \\cdots \u0026 a_{1n}B \\\\ a_{21}B \u0026 a_{22}B \u0026 \\cdots \u0026 a_{2n}B \\\\ \\vdots \u0026 \\vdots \u0026 \\ddots \u0026 \\vdots \\\\ a_{m1}B \u0026 a_{m2}B \u0026 \\cdots \u0026 a_{mn}B \\\\ \\end{bmatrix}_{mp\\times nq} $$\n为 $A$ 和 $B$ 的Kronecker积, 记作 $A\\otimes B$.\n例如: $$ \\begin{bmatrix} a \u0026 b \\\\ c \u0026 d \\\\ \\end{bmatrix}\\otimes \\begin{bmatrix} 2\\\\ 3\\\\ \\end{bmatrix}= \\begin{bmatrix} 2a \u0026 2b \\\\ 3a \u0026 3b \\\\ 2c \u0026 2d \\\\ 3c \u0026 3d \\\\ \\end{bmatrix}, $$ $$ \\begin{bmatrix} 2\\\\ 3\\\\ \\end{bmatrix}\\otimes \\begin{bmatrix} a \u0026 b \\\\ c \u0026 d \\\\ \\end{bmatrix}= \\begin{bmatrix} 2a \u0026 2b \\\\ 2c \u0026 2d \\\\ 3a \u0026 3b \\\\ 3c \u0026 3d \\\\ \\end{bmatrix}. $$\n由此我们可以计算出含有泡利矩阵的Kronecker积.\n从二次量子化到泡利矩阵 该内容参考自博客文章从Pauli矩阵出发构造哈密顿量, 作者YuXuan\n凝聚态更关心低能状态下的哈密顿量, 而晶体中电子的能量通常与其动量和位置有关, 所以会将哈密顿量写作动量$k$的函数.\n我们给出一个以动量$k$为参数的哈密顿量:\n$$ H(\\vec{k})=2\\lambda_{x}\\sin{k_{x}}\\sigma_{x}s_{z}\\tau_{z}+2\\lambda_{y}\\sin{k_{y}}\\sigma_{y}\\tau_{z}+(\\zeta_{k}\\sigma_{z}-\\mu)\\tau_{z} + \\Delta(\\vec{k})\\tau_{x} $$\n该式的引入只是为了介绍泡利矩阵是如何参与到构造哈密顿量的, 其中具体的参数意义可以暂且不理会. 如果你对其参数含义实在感兴趣, 猜测得出的含义如下:它是用来描述二维拓扑绝缘体或者拓扑超导体的。其中的$\\lambda_x$和$\\lambda_y$是自旋轨道耦合项，$\\sigma_x$和$\\sigma_y$是泡利矩阵，$s_z$是自旋算符，$\\tau_z$是粒子-空穴空间的泡利矩阵。$\\zeta_k$和$\\mu$是质量项，$\\Delta(\\vec{k})$是超导配对项。\n原本的哈密顿量写法应该是\n$$ \\hat{H} = \\sum_{\\vec{k}}\\Psi_{k}^{\\dagger}H(\\vec{k})\\Psi_{\\vec{k}} $$\n我们选定基矢:\n$$ \\Psi_{\\dagger} = \\begin{bmatrix} c_{a\\uparrow\\vec{k}}^{\\dagger} \u0026 c_{b\\uparrow\\vec{k}}^{\\dagger} \u0026 c_{a\\downarrow\\vec{k}}^{\\dagger} \u0026 c_{b\\downarrow\\vec{k}}^{\\dagger} \u0026 c_{a\\downarrow-\\vec{k}} \u0026 c_{b\\downarrow-\\vec{k}} \u0026 -c_{a\\uparrow-\\vec{k}} \u0026 -c_{b\\uparrow-\\vec{k}} \\\\ \\end{bmatrix} $$\n注意基矢的选定其实是具有高自由度, 你可以对算符的顺序和符号进行任意重排组合, 最后只是影响了哈密顿量的形式, 但是物理意义是不变的.\n$c_{a\\uparrow\\vec{k}}^{\\dagger}$ 中各指标的含义\n$^{\\dagger}$ 代表产生算符, $a$ 表示能带/轨道, $\\uparrow$ 表示自旋, $\\vec{k}$ 表示动量.\n所以 $\\Psi_{\\vec{k}}$ 相当于一个包含了所有升降算符的极长列向量.由此我们得到了哈密顿量的泡利矩阵形式和二次量子化形式之间的关系.\n不如更具体的例子:\n选择基矢为\n$$ \\Psi_{\\vec{k}}= \\begin{bmatrix} C_{a,\\uparrow, \\vec{k}}\\\\ C_{a,\\uparrow, -\\vec{k}}\\\\ C_{a,\\downarrow, \\vec{k}}\\\\ C_{a,\\downarrow, -\\vec{k}}\\\\ C_{b,\\uparrow, \\vec{k}}\\\\ C_{b,\\uparrow, -\\vec{k}}\\\\ C_{b,\\downarrow, \\vec{k}}\\\\ C_{b,\\downarrow, -\\vec{k}}\\\\ \\end{bmatrix} $$\n$$ \\Psi_{\\dagger}= \\begin{bmatrix} C_{a,\\uparrow, \\vec{k}}^{\\dagger} \u0026 C_{a,\\uparrow, -\\vec{k}}^{\\dagger} \u0026 C_{a,\\downarrow, \\vec{k}}^{\\dagger} \u0026 C_{a,\\downarrow, -\\vec{k}}^{\\dagger} \u0026 C_{b,\\uparrow, \\vec{k}}^{\\dagger} \u0026 C_{b,\\uparrow, -\\vec{k}}^{\\dagger} \u0026 C_{b,\\downarrow, \\vec{k}}^{\\dagger} \u0026 C_{b,\\downarrow, -\\vec{k}}^{\\dagger} \\\\ \\end{bmatrix} $$\n哈密顿量为\n$$ H^{BdG}(\\vec{k}) = (m_{0}-t_{x}\\cos{k_{x}}-t_{y}\\cos{k_{y}})\\sigma_{z}\\tau_{z} + A_{x}\\sin{k_{x}}\\sigma_{x}\\tau_{z} + A_{y}\\sin{k_{y}}\\sigma_{y}\\tau_{z} + \\Delta{k}\\tau_{x} $$\n这也提示我们, 因为个人习惯不同, 同一个哈密顿量可能有很多种不同形式的写法. 所以在阅读他人的文章时, 如何识别出其基矢的选择则成为重要的问题.具体的解决方法由原文作者在哈密顿量构建时的基矢选择中给出.\n将哈密顿量写为二次量子化的形式:\n$$ \\hat{H} = \\frac{1}{2}\\sum_{\\vec{k}}\\Psi_{\\vec{k}}^{\\dagger}H(\\vec{k})\\Psi_{\\vec{k}} $$\n其中计算 $(m_{0}-t_{x}\\cos{k_{x}}-t_{y}\\cos{k_{y}})\\sigma_{z}\\tau_{z}$ 的算子表示即为 $\\Psi_{\\vec{k}}^{\\dagger}\\cdot(\\tau_{z}\\otimes s_{0}\\otimes\\sigma_{z})\\Psi_{\\vec{k}}$\n最后得到的结果为\n$$ \\hat{H}=-C_{a,\\downarrow,-\\vec{k}}C_{a,\\downarrow,-\\vec{k}}^{\\dagger}-C_{a,\\uparrow,-\\vec{k}}C_{a,\\uparrow,-\\vec{k}}^{\\dagger}+C_{a,\\downarrow,\\vec{k}}C_{a,\\downarrow,\\vec{k}}^{\\dagger}+C_{a,\\uparrow,\\vec{k}}C_{a,\\uparrow,\\vec{k}}^{\\dagger}+C_{b,\\downarrow,-\\vec{k}}C_{b,\\downarrow,-\\vec{k}}^{\\dagger}+C_{b,\\uparrow,-\\vec{k}}C_{b,\\uparrow,-\\vec{k}}^{\\dagger}-C_{b,\\downarrow,\\vec{k}}C_{b,\\downarrow,\\vec{k}}^{\\dagger}-C_{b,\\uparrow,\\vec{k}}C_{b,\\uparrow,\\vec{k}}^{\\dagger} $$ 利用 Mathematica 可以方便地计算出所有的算符组合形式.\nClear[\"Global`*\"] i = PauliMatrix[0];x = PauliMatrix[1];y = PauliMatrix[2];z = PauliMatrix[3]; m1 = KroneckerProduct[z, i, z]; b1 = Flatten[Table[{C_{i1,i2,i3}},{i1,{\"a\",\"b\"}},{i2,{\"\\uparrow\", \"\\downarrow\"}}, {i3, {\"k\",\"-k\"}}], 2]; b1t = Flatten[Table[{C_{i1,i2,i3}^{\\dagger}},{i1,{\"a\",\"b\"}},{i2,{\"\\uparrow\", \"\\downarrow\"}}, {i3, {\"k\",\"-k\"}}]]; re = Style[b1t.m1.b1, Lighter@Blue,20, FontFamily -\u003e \"Times New Roman\"] 其中的 LaTex 格式代码仅供参考, 使用时需要将其转换为 Mathmatica 格式.\n",
+  "wordCount" : "1604",
   "inLanguage": "en",
   "datePublished": "2022-05-05T00:18:23+08:00",
   "dateModified": "2022-05-05T00:18:23+08:00",
@@ -328,13 +328,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>323字
+        <span>1604字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1分钟
+        <span>4分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -414,8 +414,27 @@ code.has-jax {
                 <li>
                     <a href="#generation-and-annihilation-operatorsascending-and-descending-operators" aria-label="Generation and Annihilation Operators(Ascending and Descending Operators)">Generation and Annihilation Operators(Ascending and Descending Operators)</a></li>
                 <li>
-                    <a href="#field-operators" aria-label="Field Operators">Field Operators</a>
+                    <a href="#field-operators" aria-label="Field Operators">Field Operators</a></li>
+                <li>
+                    <a href="#%e6%b3%a1%e5%88%a9%e7%9f%a9%e9%98%b5%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95" aria-label="泡利矩阵构造方法">泡利矩阵构造方法</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b3%a1%e5%88%a9%e7%9f%a9%e9%98%b5%e7%9a%84%e5%ae%9a%e4%b9%89%e5%92%8c%e8%bf%90%e7%ae%97" aria-label="泡利矩阵的定义和运算">泡利矩阵的定义和运算</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8d%95%e4%bd%8d%e7%9f%a9%e9%98%b5" aria-label="单位矩阵">单位矩阵</a></li>
+                <li>
+                    <a href="#%e6%b3%a1%e5%88%a9%e7%9f%a9%e9%98%b5" aria-label="泡利矩阵">泡利矩阵</a></li>
+                <li>
+                    <a href="#%e8%ae%a1%e7%ae%97%e6%80%a7%e8%b4%a8" aria-label="计算性质">计算性质</a></li>
+                <li>
+                    <a href="#%e6%b3%a1%e5%88%a9%e7%9f%a9%e9%98%b5%e7%9a%84kronecker%e7%a7%af" aria-label="泡利矩阵的Kronecker积">泡利矩阵的Kronecker积</a></li></ul>
                 </li>
+                <li>
+                    <a href="#%e4%bb%8e%e4%ba%8c%e6%ac%a1%e9%87%8f%e5%ad%90%e5%8c%96%e5%88%b0%e6%b3%a1%e5%88%a9%e7%9f%a9%e9%98%b5" aria-label="从二次量子化到泡利矩阵">从二次量子化到泡利矩阵</a>
+                </li>
+            </ul>
+            </li>
             </ul>
         </div>
         </details>
@@ -556,6 +575,201 @@ $$</p>
 \end{aligned}
 \end{equation}
 $$</p>
+<h1 id="泡利矩阵构造方法">泡利矩阵构造方法<a hidden class="anchor" aria-hidden="true" href="#泡利矩阵构造方法">#</a></h1>
+<p>在<a href="https://muartz.com/posts/phy/tight-binding-model" target="_blank" rel="noopener nofollow noreferrer" >紧束缚模型-石墨烯</a>中我们已经谈到过单层石墨烯的紧束缚模型近似下的哈密顿量:</p>
+<blockquote>
+<p>$$
+h_{\vec{K}}(\vec{q})\approx\hbar v_{F}
+\begin{bmatrix}
+0 &amp; q_{x} - iq_{y} \\
+q_{x} + iq_{y} &amp; 0 \\
+\end{bmatrix}
+=\hbar v_{F}\sigma\cdot\vec{q}
+$$</p>
+<blockquote>
+<p>$v_{F} = \frac{3ta}{2}$, 石墨烯中的等效费米速度.</p>
+</blockquote>
+</blockquote>
+<p>我们可以发现, 拥有自旋意义的泡利矩阵同样可以构造出哈密顿量.</p>
+<h2 id="泡利矩阵的定义和运算">泡利矩阵的定义和运算<a hidden class="anchor" aria-hidden="true" href="#泡利矩阵的定义和运算">#</a></h2>
+<h3 id="单位矩阵">单位矩阵<a hidden class="anchor" aria-hidden="true" href="#单位矩阵">#</a></h3>
+<p>$$
+\sigma_{0} =
+\begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; 1 \\
+\end{bmatrix}
+$$</p>
+<h3 id="泡利矩阵">泡利矩阵<a hidden class="anchor" aria-hidden="true" href="#泡利矩阵">#</a></h3>
+<p>$$
+\sigma_{x}=
+\begin{bmatrix}
+0 &amp; 1 \\
+1 &amp; 0 \\
+\end{bmatrix},
+\sigma_{y}=
+\begin{bmatrix}
+0 &amp; -i \\
+i &amp; 0 \\
+\end{bmatrix},
+\sigma_{z}=
+\begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; -1 \\
+\end{bmatrix}
+$$</p>
+<h3 id="计算性质">计算性质<a hidden class="anchor" aria-hidden="true" href="#计算性质">#</a></h3>
+<p>$$
+\sigma_{x}^2=\sigma_{y}^2=\sigma_{z}^2=\sigma_{0}\\
+\sigma_{x}\cdot\sigma_{y}=i\sigma_{z}\\
+\sigma_{y}\cdot\sigma_{z}=i\sigma_{x}\\
+\sigma_{z}\cdot\sigma_{x}=i\sigma_{y}
+$$</p>
+<p>对易关系:
+$$
+[\sigma_{x},\sigma_{y}]=2i\sigma_{z}\\
+[\sigma_{y},\sigma_{z}]=2i\sigma_{x}\\
+[\sigma_{z},\sigma_{x}]=2i\sigma_{y}
+$$</p>
+<p>反对易关系:
+$$
+\{\sigma_{x},\sigma_{y}\}=2i\sigma_{z}\\
+\{\sigma_{y},\sigma_{z}\}=2i\sigma_{x}\\
+\{\sigma_{z},\sigma_{x}\}=2i\sigma_{y}
+$$</p>
+<h3 id="泡利矩阵的kronecker积">泡利矩阵的Kronecker积<a hidden class="anchor" aria-hidden="true" href="#泡利矩阵的kronecker积">#</a></h3>
+<blockquote>
+<p>矩阵的Kronecker积</p>
+<p>若有 $A = (a_{ij})_{m\times n}, B = (b_{ij})_{p\times q}$ , 则分块矩阵
+$$
+\begin{bmatrix}
+a_{11}B &amp; a_{12}B &amp; \cdots &amp; a_{1n}B \\
+a_{21}B &amp; a_{22}B &amp; \cdots &amp; a_{2n}B \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1}B &amp; a_{m2}B &amp; \cdots &amp; a_{mn}B \\
+\end{bmatrix}_{mp\times nq}
+$$</p>
+<p>为 $A$ 和 $B$ 的Kronecker积, 记作 $A\otimes B$.</p>
+<blockquote>
+<p>例如:
+$$
+\begin{bmatrix}
+a &amp; b \\
+c &amp; d \\
+\end{bmatrix}\otimes
+\begin{bmatrix}
+2\\
+3\\
+\end{bmatrix}=
+\begin{bmatrix}
+2a &amp; 2b \\
+3a &amp; 3b \\
+2c &amp; 2d \\
+3c &amp; 3d \\
+\end{bmatrix},
+$$
+$$
+\begin{bmatrix}
+2\\
+3\\
+\end{bmatrix}\otimes
+\begin{bmatrix}
+a &amp; b \\
+c &amp; d \\
+\end{bmatrix}=
+\begin{bmatrix}
+2a &amp; 2b \\
+2c &amp; 2d \\
+3a &amp; 3b \\
+3c &amp; 3d \\
+\end{bmatrix}.
+$$</p>
+</blockquote>
+</blockquote>
+<p>由此我们可以计算出含有泡利矩阵的Kronecker积.</p>
+<h2 id="从二次量子化到泡利矩阵">从二次量子化到泡利矩阵<a hidden class="anchor" aria-hidden="true" href="#从二次量子化到泡利矩阵">#</a></h2>
+<blockquote>
+<p>该内容参考自博客文章<a href="https://yxli8023.github.io/2021/02/06/Pauli-Ham.html" target="_blank" rel="noopener nofollow noreferrer" >从Pauli矩阵出发构造哈密顿量</a>, 作者<a href="https://yxli8023.github.io/about.html" target="_blank" rel="noopener nofollow noreferrer" >YuXuan</a></p>
+</blockquote>
+<p>凝聚态更关心低能状态下的哈密顿量, 而晶体中电子的能量通常与其动量和位置有关, 所以会将哈密顿量写作动量$k$的函数.</p>
+<p>我们给出一个以动量$k$为参数的哈密顿量:</p>
+<p>$$
+H(\vec{k})=2\lambda_{x}\sin{k_{x}}\sigma_{x}s_{z}\tau_{z}+2\lambda_{y}\sin{k_{y}}\sigma_{y}\tau_{z}+(\zeta_{k}\sigma_{z}-\mu)\tau_{z} + \Delta(\vec{k})\tau_{x}
+$$</p>
+<blockquote>
+<p>该式的引入只是为了介绍泡利矩阵是如何参与到构造哈密顿量的, 其中具体的参数意义可以暂且不理会.
+<span title="你知道的太多了" style="background-color: white; color: white;">如果你对其参数含义实在感兴趣, 猜测得出的含义如下:它是用来描述二维拓扑绝缘体或者拓扑超导体的。其中的$\lambda_x$和$\lambda_y$是自旋轨道耦合项，$\sigma_x$和$\sigma_y$是泡利矩阵，$s_z$是自旋算符，$\tau_z$是粒子-空穴空间的泡利矩阵。$\zeta_k$和$\mu$是质量项，$\Delta(\vec{k})$是超导配对项。</span></p>
+</blockquote>
+<p>原本的哈密顿量写法应该是</p>
+<p>$$
+\hat{H} = \sum_{\vec{k}}\Psi_{k}^{\dagger}H(\vec{k})\Psi_{\vec{k}}
+$$</p>
+<p>我们选定基矢:</p>
+<p>$$
+\Psi_{\dagger} =
+\begin{bmatrix}
+c_{a\uparrow\vec{k}}^{\dagger} &amp; c_{b\uparrow\vec{k}}^{\dagger} &amp; c_{a\downarrow\vec{k}}^{\dagger} &amp; c_{b\downarrow\vec{k}}^{\dagger} &amp; c_{a\downarrow-\vec{k}} &amp; c_{b\downarrow-\vec{k}} &amp; -c_{a\uparrow-\vec{k}} &amp; -c_{b\uparrow-\vec{k}} \\
+\end{bmatrix}
+$$</p>
+<blockquote>
+<p>注意基矢的选定其实是具有高自由度, 你可以对算符的顺序和符号进行任意重排组合, 最后只是影响了哈密顿量的形式, 但是物理意义是不变的.</p>
+</blockquote>
+<blockquote>
+<p>$c_{a\uparrow\vec{k}}^{\dagger}$ 中各指标的含义</p>
+<p>$^{\dagger}$ 代表产生算符, $a$ 表示能带/轨道, $\uparrow$ 表示自旋, $\vec{k}$ 表示动量.</p>
+</blockquote>
+<p>所以 $\Psi_{\vec{k}}$ 相当于一个包含了所有升降算符的极长列向量.由此我们得到了哈密顿量的泡利矩阵形式和二次量子化形式之间的关系.</p>
+<p>不如更具体的例子:</p>
+<p>选择基矢为</p>
+<p>$$
+\Psi_{\vec{k}}=
+\begin{bmatrix}
+C_{a,\uparrow, \vec{k}}\\
+C_{a,\uparrow, -\vec{k}}\\
+C_{a,\downarrow, \vec{k}}\\
+C_{a,\downarrow, -\vec{k}}\\
+C_{b,\uparrow, \vec{k}}\\
+C_{b,\uparrow, -\vec{k}}\\
+C_{b,\downarrow, \vec{k}}\\
+C_{b,\downarrow, -\vec{k}}\\
+\end{bmatrix}
+$$</p>
+<p>$$
+\Psi_{\dagger}=
+\begin{bmatrix}
+C_{a,\uparrow, \vec{k}}^{\dagger} &amp; C_{a,\uparrow, -\vec{k}}^{\dagger} &amp; C_{a,\downarrow, \vec{k}}^{\dagger} &amp; C_{a,\downarrow, -\vec{k}}^{\dagger} &amp; C_{b,\uparrow, \vec{k}}^{\dagger} &amp; C_{b,\uparrow, -\vec{k}}^{\dagger} &amp; C_{b,\downarrow, \vec{k}}^{\dagger} &amp; C_{b,\downarrow, -\vec{k}}^{\dagger} \\
+\end{bmatrix}
+$$</p>
+<p>哈密顿量为</p>
+<p>$$
+H^{BdG}(\vec{k}) = (m_{0}-t_{x}\cos{k_{x}}-t_{y}\cos{k_{y}})\sigma_{z}\tau_{z} + A_{x}\sin{k_{x}}\sigma_{x}\tau_{z} + A_{y}\sin{k_{y}}\sigma_{y}\tau_{z} + \Delta{k}\tau_{x}
+$$</p>
+<blockquote>
+<p>这也提示我们, 因为个人习惯不同, 同一个哈密顿量可能有很多种不同形式的写法. 所以在阅读他人的文章时, 如何识别出其基矢的选择则成为重要的问题.具体的解决方法由原文作者在<a href="https://yxli8023.github.io/2020/07/03/Basis-Chose.html" target="_blank" rel="noopener nofollow noreferrer" >哈密顿量构建时的基矢选择</a>中给出.</p>
+</blockquote>
+<p>将哈密顿量写为二次量子化的形式:</p>
+<p>$$
+\hat{H} = \frac{1}{2}\sum_{\vec{k}}\Psi_{\vec{k}}^{\dagger}H(\vec{k})\Psi_{\vec{k}}
+$$</p>
+<blockquote>
+<p>其中计算 $(m_{0}-t_{x}\cos{k_{x}}-t_{y}\cos{k_{y}})\sigma_{z}\tau_{z}$ 的算子表示即为 $\Psi_{\vec{k}}^{\dagger}\cdot(\tau_{z}\otimes s_{0}\otimes\sigma_{z})\Psi_{\vec{k}}$</p>
+</blockquote>
+<p>最后得到的结果为</p>
+<div class="too-long-formula">
+$$
+\hat{H}=-C_{a,\downarrow,-\vec{k}}C_{a,\downarrow,-\vec{k}}^{\dagger}-C_{a,\uparrow,-\vec{k}}C_{a,\uparrow,-\vec{k}}^{\dagger}+C_{a,\downarrow,\vec{k}}C_{a,\downarrow,\vec{k}}^{\dagger}+C_{a,\uparrow,\vec{k}}C_{a,\uparrow,\vec{k}}^{\dagger}+C_{b,\downarrow,-\vec{k}}C_{b,\downarrow,-\vec{k}}^{\dagger}+C_{b,\uparrow,-\vec{k}}C_{b,\uparrow,-\vec{k}}^{\dagger}-C_{b,\downarrow,\vec{k}}C_{b,\downarrow,\vec{k}}^{\dagger}-C_{b,\uparrow,\vec{k}}C_{b,\uparrow,\vec{k}}^{\dagger}
+$$
+</div>
+<p>利用 Mathematica 可以方便地计算出所有的算符组合形式.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mathematica" data-lang="mathematica"><span style="display:flex;"><span>Clear[<span style="color:#e6db74">&#34;Global`*&#34;</span>]
+</span></span><span style="display:flex;"><span>i <span style="color:#f92672">=</span> PauliMatrix[<span style="color:#ae81ff">0</span>];x <span style="color:#f92672">=</span> PauliMatrix[<span style="color:#ae81ff">1</span>];y <span style="color:#f92672">=</span> PauliMatrix[<span style="color:#ae81ff">2</span>];z <span style="color:#f92672">=</span> PauliMatrix[<span style="color:#ae81ff">3</span>];
+</span></span><span style="display:flex;"><span>m1 <span style="color:#f92672">=</span> KroneckerProduct[z, i, z];
+</span></span><span style="display:flex;"><span>b1 <span style="color:#f92672">=</span> Flatten[Table[{C_{i1,i2,i3}},{i1,{<span style="color:#e6db74">&#34;a&#34;</span>,<span style="color:#e6db74">&#34;b&#34;</span>}},{i2,{<span style="color:#e6db74">&#34;\uparrow&#34;</span>, <span style="color:#e6db74">&#34;\downarrow&#34;</span>}}, {i3, {<span style="color:#e6db74">&#34;k&#34;</span>,<span style="color:#e6db74">&#34;-k&#34;</span>}}], <span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span>b1t <span style="color:#f92672">=</span> Flatten[Table[{C_{i1,i2,i3}<span style="color:#f92672">^</span>{<span style="color:#960050;background-color:#1e0010">\</span>dagger}},{i1,{<span style="color:#e6db74">&#34;a&#34;</span>,<span style="color:#e6db74">&#34;b&#34;</span>}},{i2,{<span style="color:#e6db74">&#34;\uparrow&#34;</span>, <span style="color:#e6db74">&#34;\downarrow&#34;</span>}}, {i3, {<span style="color:#e6db74">&#34;k&#34;</span>,<span style="color:#e6db74">&#34;-k&#34;</span>}}]];
+</span></span><span style="display:flex;"><span>re <span style="color:#f92672">=</span> Style[b1t<span style="color:#960050;background-color:#1e0010">.</span>m1<span style="color:#960050;background-color:#1e0010">.</span>b1, Lighter<span style="color:#f92672">@</span>Blue,<span style="color:#ae81ff">20</span>, FontFamily <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Times New Roman&#34;</span>]
+</span></span></code></pre></div><blockquote>
+<p>其中的 LaTex 格式代码仅供参考, 使用时需要将其转换为 Mathmatica 格式.</p>
+</blockquote>
 
 
         </div>
@@ -795,6 +1009,28 @@ $$</p>
         $(this).css("border-top-right-radius", "unset")
     })
 </script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
 
