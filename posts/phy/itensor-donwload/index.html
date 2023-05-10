@@ -717,7 +717,31 @@ code.has-jax {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
     })
-</script>
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
 
 <script>
     let menu = document.getElementById('menu')
@@ -905,12 +929,7 @@ code.has-jax {
 </body>
 
 
-<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
-<script>
-    var sf = new Snowflakes({
-        speed: 0.3
-    });
-</script>
+
 
 
 <head>
