@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>二次量子化与升降算符 | 计算物理资料库</title>
+<title>ITensor库安装说明 | 计算物理资料库</title>
 <meta name="keywords" content="">
-<meta name="description" content="考虑多粒子体系时的量子力学">
+<meta name="description" content="ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)">
 <meta name="author" content="Muartz">
-<link rel="canonical" href="https://Muatyz.github.io/posts/phy/sec-quantization/">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/calphy/itensor-donwload/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
@@ -109,16 +109,16 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta property="og:title" content="二次量子化与升降算符" />
-<meta property="og:description" content="考虑多粒子体系时的量子力学" />
+<meta property="og:title" content="ITensor库安装说明" />
+<meta property="og:description" content="ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Muatyz.github.io/posts/phy/sec-quantization/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-05-08T00:18:23+08:00" />
-<meta property="article:modified_time" content="2022-05-08T00:18:23+08:00" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/calphy/itensor-donwload/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-05T00:18:23+08:00" />
+<meta property="article:modified_time" content="2022-05-05T00:18:23+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="二次量子化与升降算符"/>
-<meta name="twitter:description" content="考虑多粒子体系时的量子力学"/>
+<meta name="twitter:title" content="ITensor库安装说明"/>
+<meta name="twitter:description" content="ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)"/>
 
 
 <script type="application/ld+json">
@@ -139,12 +139,19 @@ code.has-jax {
           "position":  2 ,
           "name": "🧱 PHY",
           "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "💻 Computation Physics",
+          "item": "https://Muatyz.github.io/posts/phy/calphy/"
         }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
-      "name": "二次量子化与升降算符",
-      "item": "https://Muatyz.github.io/posts/phy/sec-quantization/"
+      "position":  4 ,
+      "name": "ITensor库安装说明",
+      "item": "https://Muatyz.github.io/posts/phy/calphy/itensor-donwload/"
     }
   ]
 }
@@ -153,24 +160,24 @@ code.has-jax {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "二次量子化与升降算符",
-  "name": "二次量子化与升降算符",
-  "description": "考虑多粒子体系时的量子力学",
+  "headline": "ITensor库安装说明",
+  "name": "ITensor库安装说明",
+  "description": "ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)",
   "keywords": [
     ""
   ],
-  "articleBody": "全同性和对称性 对于多粒子体系, 我们可以将单单变量波函数扩展为 $N$ 变量波函数, 该波函数可以通过乘上某系数进行归一化.\n某系统中具有两个电子, 可以被看作是两个独立波函数 $\\psi_{1}(x_{1})$ 和 $\\psi_{2}(x_{2})$, 则 $\\psi(x_{1},x_{2})=\\psi_{1}(x_{1})\\psi_{2}(x_{2})$. 用狄拉克标记即为 $|\\psi_{1}\\rangle|\\psi_{2}\\rangle$. 其坐标表象可以通过 $$ (\\langle x_{1}|\\langle x_{2}|)(|\\psi_{1}\\rangle|\\psi_{2}\\rangle) = \\langle x_{1}|\\psi_{1}\\rangle\\langle x_{2}|\\psi_{2}\\rangle = \\psi_{1}(x_{1})\\psi_{2}(x_{2}) $$ 导出.\n对于全同性粒子, 有一个重要的概念是全同性.\n我们使用系数 $\\zeta$ 来描述交换对称性和交换反对称性.\n$\\zeta = +1$, 即服从玻色统计, 交换对称. 自旋为整数, 因为可以多个全同粒子同时处于同一个量子态, 所以在低温可以出现凝聚现象.常见的玻色子: 光子.\n$\\zeta = -1$, 即服从费米统计, 交换反对称, 自旋为半整数. 满足泡利不相容原理, 即费米子不会出现在同一量子态中. 常见的费米子: 电子, 中子, 质子.\n物质粒子都是费米子, 传递力作用的粒子都是玻色子.\n我们对一个含两个费米子的系统进行描述, 分别处于 $\\psi_{1}(\\vec{r})$ 和 $\\psi_2(\\vec{r})$, 进行反对称化构造:\n$$ \\Psi(\\vec{r_{1}},\\vec{r_{2}}) = \\frac{1}{\\sqrt{2}}(\\psi_{1}(\\vec{r_1})\\psi_{2}(\\vec{r_2})-\\psi_{2}(\\vec{r_{1}})\\psi_{1}(\\vec{r_{2}}))=\\frac{1}{\\sqrt{2}} \\left| \\begin{array}{cccc} \\psi_{1}(\\vec{r_{1}}) \u0026 \\psi_{1}(\\vec{r_{2}}) \\\\ \\psi_{2}(\\vec{r_{1}}) \u0026 \\psi_{2}(\\vec{r_{2}}) \\\\ \\end{array} \\right| $$\n可以观察到, 如果交换 $\\vec{r_{1}}$ 和 $\\vec{r_{2}}$, 波函数就会反号, 这符合费米子的定义.\n如果数量继续增加, 比如三个:\n$$ \\Psi(\\vec{r_{1}},\\vec{r_{2}},\\vec{r_{3}})=\\frac{1}{\\sqrt{3!}} \\left| \\begin{array}{cccc} \\psi_{1}(\\vec{r_{1}})\u0026\\psi_{1}(\\vec{r_{2}})\u0026\\psi_{1}(\\vec{r_{3}})\\\\ \\psi_{2}(\\vec{r_{1}})\u0026\\psi_{2}(\\vec{r_{2}})\u0026\\psi_{2}(\\vec{r_{3}})\\\\ \\psi_{3}(\\vec{r_{1}})\u0026\\psi_{3}(\\vec{r_{2}})\u0026\\psi_{3}(\\vec{r_{3}})\\\\ \\end{array} \\right| $$\n从而归纳得到 $N$ 个全同费米子的波函数为:\n$$ \\Psi(\\vec{r_{1}},\\vec{r_{2}},…,\\vec{r_{N}}) = \\frac{1}{\\sqrt{N!}} \\left| \\begin{array}{cccc} \\psi_{1}(\\vec{r_{1}}) \u0026 \\psi_{1}(\\vec{r_{2}}) \u0026 \\cdots \u0026 \\psi_{1}(\\vec{r_{N}}) \\\\ \\psi_{2}(\\vec{r_{1}}) \u0026 \\psi_{2}(\\vec{r_{2}}) \u0026 \\cdots \u0026 \\psi_{2}(\\vec{r_{N}}) \\\\ \\vdots \u0026 \\vdots \u0026 \\ddots \u0026 \\vdots \\\\ \\psi_{N}(\\vec{r_{1}}) \u0026 \\psi_{N}(\\vec{r_{2}}) \u0026 \\cdots \u0026 \\psi_{N}(\\vec{r_{N}}) \\\\ \\end{array} \\right|. $$\n用统计观点来看待 $\\frac{1}{\\sqrt{N!}}$ 系数的产生\n任意两个费米子的坐标 $\\vec{r_{i}}$ 和 $\\vec{r_{j}}$ 都是不同的, 且交换后波函数反号. 那么这就是一个排列数问题, 即对于 $N$ 个费米子, 存在着 $A_{N}^{N} = N!$ 中排列方式.\n又因为我们要求波函数具有归一性, 即波函数做内积为$1$, 而每一个独立的 $\\Pi_{i}\\psi_{i}$ 其内积为 $1$, 而这样的 $\\Pi_{i}\\psi_{i}$ 一共有 $N!$ 个, 所以我们需要除以 $N!$ 使得波函数具有归一性. $N!$ 几何平均到波函数上, 就得到了 $\\frac{1}{\\sqrt{N!}}$ 系数.\n由此我们得到了全同费米子的波函数.\n而对于玻色子, 情况就要简单得多, 因为交换时不产生负号. 那么我们可以用最简单的方式写出系统的波函数:\n$$ \\Psi(\\vec{r_{1}},\\vec{r_{2}},…,\\vec{r_{N}}) = \\frac{1}{\\sqrt{N!}}\\sum_{P}\\prod_{i}\\psi_{P_{i}}(\\vec{r_{i}}) $$\n$P$ 指 $N$ 个粒子所有可能的置换\n我们前面提到过可以用 $\\zeta$ 来描述交换对称性和交换反对称性, 那么我们可以将同一的式子来描述多粒子体系:\n$$ \\Psi(\\vec{r_{1}},\\vec{r_{2}},…,\\vec{r_{N}}) = \\frac{1}{\\sqrt{N!}}\\sum_{P}\\zeta^{P}\\prod_{i}\\psi_{P_{i}}(\\vec{r_{i}}) $$\n由此我们得出了多体波函数的斯莱特行列式(Slater Determinant)形式.\n粒子数表象\u0026Fock Space 即使只是抄写多体波函数的表达式, 也会让人丧失计算的欲望. 更简洁的方法是使用占据数, 或者被称为粒子数表象的方法.\n我们无需知道哪个粒子在哪一个具体的态上, 只需要知道每一个态上有多少个粒子就可以了. 比如我们写作\n$$ |n_{1},n_{2},…,n_{i},…n_{N}\\rangle, (\\sum_{i}n_{i}=N) $$\n就是表达第一个态上有 $n_{1}$ 个粒子, 第二个态上有 $n_{2}$ 个粒子, 以此类推. 这样的表述同样能够构造出多粒子波函数.\n粒子观点和场观点\n这一段内容来自于知乎答主 Kyle Zhang 在二次量子化算是量子场论吗?中的回答.其中的内容通俗有趣.\n“明天有冷空气过境\"就不叫场观点, 这叫粒子观点, 因为它描述了一团粒子在时空背景上的运动.(Lagrangian Description)\n但对于同一件事情, 天气预报员若换一种说法:“明天本地的温度将会降低”.\n这就叫场观点, 因为它描述了温度在某一固定点上的值, 把各个点上的温度汇总起来就形成了一个\"温度场”.(Eulerian Description)\nLagrangian 描述就像随波逐流的小船, 描述一个具有内禀性质的实体的运动:苹果从树上落到了牛顿的头上; Eulerian 描述就像抛了锚的小船, 描述在一个固定点某个性质的变化: 树上湮灭了一个苹果, 牛顿的头上产生了一个苹果.\n",
-  "wordCount" : "1332",
+  "articleBody": "在某文件夹下创建ITensor文件夹。在该文件夹内执行\ngit clone https://github.com/ITensor/ITensor itensor 得到以itensor命名的编译源文件。这个文件夹名字可以自己改。\n前置：安装lapack和blas依赖库. sudo apt-get update sudo apt-get install libblas-dev liblapack-dev 检验是否正确安装:\ndpkg -L libblas-dev dpkg -L liblapack-dev 若能弹出对应路径说明安装成功。在这里留心安装的具体路径, 之后设置BLAS_LAPACK_LIBFLAGS可能会用到\n在终端执行\ncd itensor 进入下载的库文件所在的文件夹.\ncp options.mk.sample options.mk 将示例mk文件另存为mk文件.并且执行\nsudo nano options.mk 以nano编辑器打开配置文件。配置文件里默认的平台是MacOS，我们用的是WSL2,所以将\nPLATFORM=macos BLAS_LAPACK_LIBFLAGS=-framework Accelerate 这两行注释掉，而将下面的\n#PLATFORM=lapack #BLAS_LAPACK_LIBFLAGS=-lpthread -L/usr/lib -lblas -llapack 取消注释。注意看自己的BLAS_LAPACK_LIBFLAGS是否需要修改.比如我的就应该是-L/usr/lib/x86_64-linux-gnu.ctrl+O，ENTER保存。ctrl+X退出。\n依然是在itensor目录下，在bash终端执行\nmake 等待终端执行完成。\n为了能够在ITensor源文件所在文件夹以外的路径使用Itensor, 应该遵循以下步骤。\n将itensor/tutorial/project_template下的所有文件(Makefile,myappname.cc,myclass.h,当然说明书README.md无关紧要)复制粘贴到含有main函数代码的cpp文件所在的文件夹中;\n修改LIBRARY_DIR.这个路径和options.mk所在的文件夹的路径是相同的.(如果有/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor/options.mk,那么就将\nLIBRARY_DIR=$(HOME)/itensor 改写为\nLIBRARY_DIR=/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor 即可;\n修改APPNAME.这个是你的程序的名字.我给自己的程序源文件主程序起名为ctnmodel.cc, 所以 APP=myappname 改为\nAPP=ctnmodel 增加依赖库.模板里的myclass.h是用来测试的,在实际过程中可以替换为自己的头文件;\n编译的源文件名字,只要完成了APP的修改就无需改动.\n然后在bash终端执行\nmake 编译出执行文件.\n注意\n示例的Makefile并没有添加可执行权限，如果你想在bash终端中进行执行，那么你可以\nchmod +x ctnmodel (ctnmodel换成你自己程序的名字)\n或者直接在你的Makefile里面找到build和debug的行， 然后分别添加\nchmod +x $(APP) 和\nchmod +x $(APP)-g 最后形成这样的表达：\nbuild: $(APP) #这一行是为了添加可执行权限，如果你不需要，可以将其注释掉 chmod +x $(APP) debug: $(APP)-g #同上 chmod +x $(APP)-g 你可以通过在终端执行\n./ctnmodel (ctnmodel换成你的程序的名字)来完成程序的执行.这些模板都是由Makefile来进行管理的,所以对于vscode的编译执行功能没有得到充分发挥.\n待续:vscode的配置.\n",
+  "wordCount" : "1115",
   "inLanguage": "en",
-  "datePublished": "2022-05-08T00:18:23+08:00",
-  "dateModified": "2022-05-08T00:18:23+08:00",
+  "datePublished": "2022-05-05T00:18:23+08:00",
+  "dateModified": "2022-05-05T00:18:23+08:00",
   "author":[{
     "@type": "Person",
     "name": "Muartz"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://Muatyz.github.io/posts/phy/sec-quantization/"
+    "@id": "https://Muatyz.github.io/posts/phy/calphy/itensor-donwload/"
   },
   "publisher": {
     "@type": "Organization",
@@ -289,12 +296,12 @@ code.has-jax {
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a></div>
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/calphy/">💻 Computation Physics</a></div>
             <h1 class="post-title">
-                二次量子化与升降算符
+                ITensor库安装说明
             </h1>
             <div class="post-description">
-                考虑多粒子体系时的量子力学
+                ITensor是依托于Lapack和Blas库的张量计算库, 这也注定其只能在Linux系统上使用(?)
             </div>
             <div class="post-meta">
 
@@ -315,7 +322,7 @@ code.has-jax {
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2022-05-08
+        <span>2022-05-05
             &nbsp;&nbsp;
         </span>
     </span>
@@ -328,7 +335,7 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1332字
+        <span>1115字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -411,9 +418,7 @@ code.has-jax {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e5%85%a8%e5%90%8c%e6%80%a7%e5%92%8c%e5%af%b9%e7%a7%b0%e6%80%a7" aria-label="全同性和对称性">全同性和对称性</a></li>
-                <li>
-                    <a href="#%e7%b2%92%e5%ad%90%e6%95%b0%e8%a1%a8%e8%b1%a1fock-space" aria-label="粒子数表象&amp;amp;Fock Space">粒子数表象&amp;Fock Space</a>
+                    <a href="#%e5%89%8d%e7%bd%ae%e5%ae%89%e8%a3%85lapack%e5%92%8cblas%e4%be%9d%e8%b5%96%e5%ba%93" aria-label="前置：安装lapack和blas依赖库.">前置：安装lapack和blas依赖库.</a>
                 </li>
             </ul>
         </div>
@@ -478,97 +483,168 @@ code.has-jax {
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><h1 id="全同性和对称性">全同性和对称性<a hidden class="anchor" aria-hidden="true" href="#全同性和对称性">#</a></h1>
-<p>对于多粒子体系, 我们可以将单单变量波函数扩展为 $N$ 变量波函数, 该波函数可以通过乘上某系数进行归一化.</p>
-<blockquote>
-<p>某系统中具有两个电子, 可以被看作是两个独立波函数 $\psi_{1}(x_{1})$ 和 $\psi_{2}(x_{2})$, 则 $\psi(x_{1},x_{2})=\psi_{1}(x_{1})\psi_{2}(x_{2})$. 用狄拉克标记即为 $|\psi_{1}\rangle|\psi_{2}\rangle$. 其坐标表象可以通过
-$$
-(\langle x_{1}|\langle x_{2}|)(|\psi_{1}\rangle|\psi_{2}\rangle) = \langle x_{1}|\psi_{1}\rangle\langle x_{2}|\psi_{2}\rangle = \psi_{1}(x_{1})\psi_{2}(x_{2})
-$$
-导出.</p>
-</blockquote>
-<p>对于全同性粒子, 有一个重要的概念是<strong>全同性</strong>.</p>
-<p>我们使用系数 $\zeta$ 来描述交换对称性和交换反对称性.</p>
-<ul>
+        <div class="post-content"><p>在某文件夹下创建ITensor文件夹。在该文件夹内执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/ITensor/ITensor itensor
+</span></span></code></pre></div><p>得到以itensor命名的编译源文件。这个文件夹名字可以自己改。</p>
+<h1 id="前置安装lapack和blas依赖库">前置：安装lapack和blas依赖库.<a hidden class="anchor" aria-hidden="true" href="#前置安装lapack和blas依赖库">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt-get install libblas-dev liblapack-dev
+</span></span></code></pre></div><p>检验是否正确安装:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dpkg -L libblas-dev
+</span></span><span style="display:flex;"><span>dpkg -L liblapack-dev
+</span></span></code></pre></div><p>若能弹出对应路径说明安装成功。在这里留心安装的具体路径,
+之后设置<code>BLAS_LAPACK_LIBFLAGS</code>可能会用到</p>
+<hr>
+<p>在终端执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd itensor
+</span></span></code></pre></div><p>进入下载的库文件所在的文件夹.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp options.mk.sample options.mk
+</span></span></code></pre></div><p>将示例mk文件另存为mk文件.并且执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano options.mk
+</span></span></code></pre></div><p>以nano编辑器打开配置文件。配置文件里默认的平台是MacOS，我们用的是WSL2,所以将</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mk" data-lang="mk"><span style="display:flex;"><span>PLATFORM<span style="color:#f92672">=</span>macos
+</span></span><span style="display:flex;"><span>BLAS_LAPACK_LIBFLAGS<span style="color:#f92672">=</span>-framework Accelerate
+</span></span></code></pre></div><p>这两行注释掉，而将下面的</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mk" data-lang="mk"><span style="display:flex;"><span><span style="color:#75715e">#PLATFORM=lapack
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#BLAS_LAPACK_LIBFLAGS=-lpthread -L/usr/lib -lblas -llapack
+</span></span></span></code></pre></div><p>取消注释。注意看自己的<code>BLAS_LAPACK_LIBFLAGS</code>是否需要修改.比如我的就应该是<code>-L/usr/lib/x86_64-linux-gnu</code>.ctrl+O，ENTER保存。ctrl+X退出。</p>
+<p>依然是在itensor目录下，在bash终端执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
+</span></span></code></pre></div><p>等待终端执行完成。</p>
+<p>为了能够在ITensor源文件所在文件夹以外的路径使用Itensor,
+应该遵循以下步骤。</p>
+<ol>
 <li>
-<p>$\zeta = +1$, 即服从玻色统计, 交换对称. 自旋为整数, 因为可以多个全同粒子同时处于同一个量子态, 所以在低温可以出现凝聚现象.常见的玻色子: 光子.</p>
+<p>将itensor/tutorial/project_template下的所有文件(Makefile,myappname.cc,myclass.h,当然说明书README.md无关紧要)复制粘贴到含有main函数代码的cpp文件所在的文件夹中;</p>
 </li>
 <li>
-<p>$\zeta = -1$, 即服从费米统计, 交换反对称, 自旋为半整数. 满足泡利不相容原理, 即费米子不会出现在同一量子态中. 常见的费米子: 电子, 中子, 质子.</p>
+<p>修改LIBRARY_DIR.这个路径和options.mk所在的文件夹的路径是相同的.(如果有/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor/options.mk,那么就将</p>
 </li>
-</ul>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>LIBRARY_DIR<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>HOME<span style="color:#66d9ef">)</span>/itensor
+</span></span></code></pre></div><p>改写为</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>LIBRARY_DIR<span style="color:#f92672">=</span>/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor
+</span></span></code></pre></div><p>即可;</p>
+<ol start="3">
+<li>修改APPNAME.这个是你的程序的名字.我给自己的程序源文件主程序起名为ctnmodel.cc,
+所以</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>APP<span style="color:#f92672">=</span>myappname
+</span></span></code></pre></div><p>改为</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>APP<span style="color:#f92672">=</span>ctnmodel
+</span></span></code></pre></div><ol start="4">
+<li>
+<p>增加依赖库.模板里的myclass.h是用来测试的,在实际过程中可以替换为自己的头文件;</p>
+</li>
+<li>
+<p>编译的源文件名字,只要完成了APP的修改就无需改动.</p>
+</li>
+</ol>
+<p>然后在bash终端执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
+</span></span></code></pre></div><p>编译出执行文件.</p>
 <blockquote>
-<p>物质粒子都是费米子, 传递力作用的粒子都是玻色子.</p>
-</blockquote>
-<p>我们对一个含两个费米子的系统进行描述, 分别处于 $\psi_{1}(\vec{r})$ 和 $\psi_2(\vec{r})$, 进行反对称化构造:</p>
-<p>$$
-\Psi(\vec{r_{1}},\vec{r_{2}}) = \frac{1}{\sqrt{2}}(\psi_{1}(\vec{r_1})\psi_{2}(\vec{r_2})-\psi_{2}(\vec{r_{1}})\psi_{1}(\vec{r_{2}}))=\frac{1}{\sqrt{2}}
-\left|
-\begin{array}{cccc}
-\psi_{1}(\vec{r_{1}})  &amp;  \psi_{1}(\vec{r_{2}}) \\
-\psi_{2}(\vec{r_{1}})  &amp;  \psi_{2}(\vec{r_{2}}) \\
-\end{array}
-\right|
-$$</p>
-<p>可以观察到, 如果交换 $\vec{r_{1}}$ 和 $\vec{r_{2}}$, 波函数就会反号, 这符合费米子的定义.</p>
-<p>如果数量继续增加, 比如三个:</p>
-<p>$$
-\Psi(\vec{r_{1}},\vec{r_{2}},\vec{r_{3}})=\frac{1}{\sqrt{3!}}
-\left|
-\begin{array}{cccc}
-\psi_{1}(\vec{r_{1}})&amp;\psi_{1}(\vec{r_{2}})&amp;\psi_{1}(\vec{r_{3}})\\
-\psi_{2}(\vec{r_{1}})&amp;\psi_{2}(\vec{r_{2}})&amp;\psi_{2}(\vec{r_{3}})\\
-\psi_{3}(\vec{r_{1}})&amp;\psi_{3}(\vec{r_{2}})&amp;\psi_{3}(\vec{r_{3}})\\
-\end{array}
-\right|
-$$</p>
-<p>从而归纳得到 $N$ 个全同费米子的波函数为:</p>
-<p>$$
-\Psi(\vec{r_{1}},\vec{r_{2}},&hellip;,\vec{r_{N}}) = \frac{1}{\sqrt{N!}}
-\left|
-\begin{array}{cccc}
-\psi_{1}(\vec{r_{1}})  &amp;  \psi_{1}(\vec{r_{2}}) &amp; \cdots &amp; \psi_{1}(\vec{r_{N}}) \\
-\psi_{2}(\vec{r_{1}})  &amp;  \psi_{2}(\vec{r_{2}}) &amp; \cdots &amp; \psi_{2}(\vec{r_{N}}) \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-\psi_{N}(\vec{r_{1}})  &amp;  \psi_{N}(\vec{r_{2}}) &amp; \cdots &amp; \psi_{N}(\vec{r_{N}}) \\
-\end{array}
-\right|.
-$$</p>
-<blockquote>
-<p>用统计观点来看待 $\frac{1}{\sqrt{N!}}$ 系数的产生</p>
-<p>任意两个费米子的坐标 $\vec{r_{i}}$ 和 $\vec{r_{j}}$ 都是不同的, 且交换后波函数反号. 那么这就是一个排列数问题, 即对于 $N$ 个费米子, 存在着 $A_{N}^{N} = N!$ 中排列方式.</p>
-<p>又因为我们要求波函数具有归一性, 即波函数做内积为$1$, 而每一个独立的 $\Pi_{i}\psi_{i}$ 其内积为 $1$, 而这样的 $\Pi_{i}\psi_{i}$ 一共有 $N!$ 个, 所以我们需要除以 $N!$ 使得波函数具有归一性. $N!$ 几何平均到波函数上, 就得到了 $\frac{1}{\sqrt{N!}}$ 系数.</p>
-</blockquote>
-<p>由此我们得到了全同费米子的波函数.</p>
-<p>而对于玻色子, 情况就要简单得多, 因为交换时不产生负号. 那么我们可以用最简单的方式写出系统的波函数:</p>
-<p>$$
-\Psi(\vec{r_{1}},\vec{r_{2}},&hellip;,\vec{r_{N}}) = \frac{1}{\sqrt{N!}}\sum_{P}\prod_{i}\psi_{P_{i}}(\vec{r_{i}})
-$$</p>
-<blockquote>
-<p>$P$ 指 $N$ 个粒子所有可能的置换</p>
-</blockquote>
-<p>我们前面提到过可以用 $\zeta$ 来描述交换对称性和交换反对称性, 那么我们可以将同一的式子来描述多粒子体系:</p>
-<p>$$
-\Psi(\vec{r_{1}},\vec{r_{2}},&hellip;,\vec{r_{N}}) = \frac{1}{\sqrt{N!}}\sum_{P}\zeta^{P}\prod_{i}\psi_{P_{i}}(\vec{r_{i}})
-$$</p>
-<p>由此我们得出了多体波函数的斯莱特行列式(Slater Determinant)形式.</p>
-<h1 id="粒子数表象fock-space">粒子数表象&amp;Fock Space<a hidden class="anchor" aria-hidden="true" href="#粒子数表象fock-space">#</a></h1>
-<p>即使只是抄写多体波函数的表达式, 也会让人丧失计算的欲望. 更简洁的方法是使用<strong>占据数</strong>, 或者被称为粒子数表象的方法.</p>
-<p>我们无需知道哪个粒子在哪一个具体的态上, 只需要知道每一个态上有多少个粒子就可以了. 比如我们写作</p>
-<p>$$
-|n_{1},n_{2},&hellip;,n_{i},&hellip;n_{N}\rangle, (\sum_{i}n_{i}=N)
-$$</p>
-<p>就是表达第一个态上有 $n_{1}$ 个粒子, 第二个态上有 $n_{2}$ 个粒子, 以此类推. 这样的表述同样能够构造出多粒子波函数.</p>
-<blockquote>
-<p>粒子观点和场观点</p>
-<blockquote>
-<p>这一段内容来自于知乎答主 Kyle Zhang 在<a href="https://www.zhihu.com/question/487738312/answer/2146881005" target="_blank" rel="noopener nofollow noreferrer" >二次量子化算是量子场论吗?</a>中的回答.其中的内容通俗有趣.</p>
-</blockquote>
-<p>&ldquo;明天有冷空气过境&quot;就不叫场观点, 这叫粒子观点, 因为它描述了一团粒子在时空背景上的运动.(Lagrangian Description)</p>
-<p>但对于同一件事情, 天气预报员若换一种说法:&ldquo;明天本地的温度将会降低&rdquo;.</p>
-<p>这就叫场观点, 因为它描述了温度在某一固定点上的值, 把各个点上的温度汇总起来就形成了一个&quot;温度场&rdquo;.(Eulerian Description)</p>
-<p>Lagrangian 描述就像随波逐流的小船, 描述一个具有内禀性质的实体的运动:苹果从树上落到了牛顿的头上; Eulerian 描述就像抛了锚的小船, 描述在一个固定点某个性质的变化: 树上湮灭了一个苹果, 牛顿的头上产生了一个苹果.</p>
-</blockquote>
+<p><strong>注意</strong></p>
+<p>示例的Makefile并没有添加可执行权限，如果你想在bash终端中进行执行，那么你可以</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x ctnmodel
+</span></span></code></pre></div><p>(ctnmodel换成你自己程序的名字)</p>
+<p>或者直接在你的Makefile里面找到build和debug的行，
+然后分别添加</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chmod +x $(APP)
+</span></span></code></pre></div><p>和</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chmod +x $(APP)-g
+</span></span></code></pre></div><p>最后形成这样的表达：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>build: $(APP)
+</span></span><span style="display:flex;"><span>#这一行是为了添加可执行权限，如果你不需要，可以将其注释掉
+</span></span><span style="display:flex;"><span>  chmod +x $(APP)
+</span></span><span style="display:flex;"><span>debug: $(APP)-g
+</span></span><span style="display:flex;"><span>#同上
+</span></span><span style="display:flex;"><span>  chmod +x $(APP)-g
+</span></span></code></pre></div></blockquote>
+<p>你可以通过在终端执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./ctnmodel
+</span></span></code></pre></div><p>(ctnmodel换成你的程序的名字)来完成程序的执行.这些模板都是由Makefile来进行管理的,所以对于vscode的编译执行功能没有得到充分发挥.</p>
+<p>待续:vscode的配置.</p>
+<!-- 一个解决的办法是在VSCode里配置includePath.
+
+你可以在工程文件夹里新建一个c_pp_properties.json并且写入以下内容:
+
+```json
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**/*.h",
+                "${workspaceFolder}/**/*.hpp",
+                "/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor/*"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
+
+```
+
+新建一个tasks.json并且写入以下内容:
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "debug",
+            "type": "shell",
+            "command": "make debug",
+            "group": "build",
+            "problemMatcher": "$gcc"
+        }
+    ]
+}
+```
+
+新建launch.json文件并且写入:
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/ctnmodel",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
+``` -->
 
 
         </div>
@@ -576,15 +652,15 @@ $$</p>
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://Muatyz.github.io/posts/exp/muon-lifetime/">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/calphy/itensor-mannual/">
     <span class="title">« 上一页</span>
     <br>
-    <span>使用塑料闪烁体测量介子的寿命</span>
+    <span>ITensor基础语法说明</span>
   </a>
-  <a class="next" href="https://Muatyz.github.io/posts/phy/tbg-fig-python/">
+  <a class="next" href="https://Muatyz.github.io/posts/phy/cmp/mera-method/">
     <span class="title">下一页 »</span>
     <br>
-    <span>使用Python绘制转角石墨烯</span>
+    <span>发源于重整化(Renormalization)的MERA算法</span>
   </a>
 </nav>
 

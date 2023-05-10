@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://Muatyz.github.io/posts/phy/calphy/</loc>
+    <lastmod>2022-05-05T00:18:23+08:00</lastmod>
+  </url><url>
     <loc>https://Muatyz.github.io/about/</loc>
     <lastmod>2023-05-04T14:57:28+08:00</lastmod>
   </url><url>
@@ -29,6 +32,9 @@
     <loc>https://Muatyz.github.io/tags/</loc>
     <lastmod>2022-05-10T00:18:15+08:00</lastmod>
   </url><url>
+    <loc>https://Muatyz.github.io/posts/phy/cmp/</loc>
+    <lastmod>2022-05-08T00:18:23+08:00</lastmod>
+  </url><url>
     <loc>https://Muatyz.github.io/tags/numerical-calculation/</loc>
     <lastmod>2022-05-08T00:18:23+08:00</lastmod>
   </url><url>
@@ -38,34 +44,34 @@
     <loc>https://Muatyz.github.io/categories/physics/</loc>
     <lastmod>2022-05-08T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/sec-quantization/</loc>
+    <loc>https://Muatyz.github.io/posts/phy/cmp/sec-quantization/</loc>
     <lastmod>2022-05-08T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/tbg-fig-python/</loc>
+    <loc>https://Muatyz.github.io/posts/phy/cmp/tbg-fig-python/</loc>
     <lastmod>2022-05-08T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/</loc>
     <lastmod>2022-05-08T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/itensor-mannual/</loc>
+    <loc>https://Muatyz.github.io/posts/phy/calphy/itensor-mannual/</loc>
     <lastmod>2022-05-05T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/itensor-donwload/</loc>
+    <loc>https://Muatyz.github.io/posts/phy/calphy/itensor-donwload/</loc>
     <lastmod>2022-05-05T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/mera-method/</loc>
+    <loc>https://Muatyz.github.io/posts/phy/cmp/mera-method/</loc>
     <lastmod>2022-05-05T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/hamiltonian/</loc>
+    <loc>https://Muatyz.github.io/posts/phy/cmp/hamiltonian/</loc>
     <lastmod>2022-05-05T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/tight-binding-model/</loc>
+    <loc>https://Muatyz.github.io/posts/phy/cmp/tight-binding-model/</loc>
     <lastmod>2022-05-05T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/calphy/</loc>
+    <loc>https://Muatyz.github.io/posts/phy/calphy/calphy/</loc>
     <lastmod>2022-05-05T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/tbg-nu-cal/</loc>
+    <loc>https://Muatyz.github.io/posts/phy/cmp/tbg-nu-cal/</loc>
     <lastmod>2022-05-05T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/tags/life/</loc>
