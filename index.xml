@@ -9,6 +9,15 @@
     <copyright>Muartz</copyright>
     <lastBuildDate>Tue, 10 May 2022 00:18:15 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>🤝友链</title>
+      <link>https://Muatyz.github.io/links/</link>
+      <pubDate>Wed, 10 May 2023 15:15:53 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/links/</guid>
+      <description>Sulv&amp;#39;s Blog 一个记录技术、阅读、生活的博客 有意栽花花满枝 心中有光、点亮生活 👉友链格式 名称： Blog-Name 网址： https://www.blogurl 图标： https://www.blogurl/img/Title.png 描述： Description of the site 👉友链申请要求 秉承互换友链原则、文章定期更新、不能有太多广告、个人描述字数控制在15字内</description>
+    </item>
+    
+    <item>
       <title>🙋🏻‍♂️关于</title>
       <link>https://Muatyz.github.io/about/</link>
       <pubDate>Thu, 04 May 2023 14:57:28 +0800</pubDate>
@@ -108,7 +117,7 @@
     </item>
     
     <item>
-      <title>Life</title>
+      <title>你可能需要特殊手段才能读取里面的内容</title>
       <link>https://Muatyz.github.io/posts/life/life/</link>
       <pubDate>Thu, 05 May 2022 00:18:15 +0800</pubDate>
       
@@ -135,12 +144,12 @@
     </item>
     
     <item>
-      <title>🤝友链</title>
-      <link>https://Muatyz.github.io/links/</link>
-      <pubDate>Sat, 06 Nov 2021 15:15:53 +0800</pubDate>
+      <title>为Github添加LFS支持</title>
+      <link>https://Muatyz.github.io/posts/cs/github-lfs/</link>
+      <pubDate>Thu, 05 May 2022 00:17:58 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/links/</guid>
-      <description>Sulv&amp;#39;s Blog 一个记录技术、阅读、生活的博客 有意栽花花满枝 心中有光、点亮生活 👉友链格式 名称： Blog-Name 网址： https://www.blogurl 图标： https://www.blogurl/img/Title.png 描述： Description of the site 👉友链申请要求 秉承互换友链原则、文章定期更新、不能有太多广告、个人描述字数控制在15字内</description>
+      <guid>https://Muatyz.github.io/posts/cs/github-lfs/</guid>
+      <description>当你向Github提交代码时, 如果文件大小超过了100Mb的限制, 那么你的提交将会被拒绝. 这时候LFS就很有必要了.</description>
     </item>
     
     

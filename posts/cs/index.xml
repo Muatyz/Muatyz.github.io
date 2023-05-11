@@ -17,5 +17,14 @@
       <description>使用Visual Studio进行git管理非常方便, 但是不清楚其背后的提交, 合并等原理是不可行的.</description>
     </item>
     
+    <item>
+      <title>为Github添加LFS支持</title>
+      <link>https://Muatyz.github.io/posts/cs/github-lfs/</link>
+      <pubDate>Thu, 05 May 2022 00:17:58 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/cs/github-lfs/</guid>
+      <description>当你向Github提交代码时, 如果文件大小超过了100Mb的限制, 那么你的提交将会被拒绝. 这时候LFS就很有必要了.</description>
+    </item>
+    
   </channel>
 </rss>

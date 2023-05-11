@@ -298,6 +298,17 @@ code.has-jax {
 </tbody>
 </table>
 <p>本站已对 Twikoo 添加了 KaTex 支持.</p>
+<script>
+  function generateText(prompt) {
+    const apiUrl = '/api/generateText?prompt=' + prompt;
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const generatedText = data.message;
+        // 在这里处理生成的文本
+      });
+  }
+</script>
 
 
         </div>
