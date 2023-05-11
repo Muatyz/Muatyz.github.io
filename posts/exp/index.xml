@@ -9,6 +9,15 @@
     <copyright>Muartz</copyright>
     <lastBuildDate>Tue, 10 May 2022 00:18:15 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/exp/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[课设]DCI方案中快电子加热的软X射线诊断研究</title>
+      <link>https://Muatyz.github.io/posts/exp/dci-soft-x-ray/</link>
+      <pubDate>Tue, 10 May 2022 00:18:15 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/exp/dci-soft-x-ray/</guid>
+      <description>指导老师: 张杰, 远晓辉 助教: 李璟隆 涉密内容警告 经过和助教的交流, 得知聚变涉及的内容比较敏感, 相关的代码必然不可能直接展示在本文中, 所以下面所有的代码均为 ChatGPT 给出的示例性代码以供思路上的参考. 研究背景 传统的中心点火方案存在两个问题: 同时压缩和加热带来的不可控性; 加热效率较低. 所以设计</description>
+    </item>
+    
+    <item>
       <title>使用塑料闪烁体测量介子的寿命</title>
       <link>https://Muatyz.github.io/posts/exp/muon-lifetime/</link>
       <pubDate>Tue, 10 May 2022 00:18:15 +0800</pubDate>
