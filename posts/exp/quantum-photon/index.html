@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>量子光学基础 | 计算物理资料库</title>
+<meta name="keywords" content="Exp, quantum, photon">
+<meta name="description" content="实验目的 了解量子纠缠态的概念、性质及其在量子信息领域的应用, 进而深刻理解量 子力学的本质与精髓; 学习光子纠缠源的制备原理, 学习相关的非线性光学的知识, 如自发参量放 大与振荡、相位匹配、自发参量下转换等; 学习量子光学实验中涉及的基本实验仪器的原理和使用方法。如光纤传输和 耦合的理论与技术">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/exp/quantum-photon/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="量子光学基础" />
+<meta property="og:description" content="实验目的 了解量子纠缠态的概念、性质及其在量子信息领域的应用, 进而深刻理解量 子力学的本质与精髓; 学习光子纠缠源的制备原理, 学习相关的非线性光学的知识, 如自发参量放 大与振荡、相位匹配、自发参量下转换等; 学习量子光学实验中涉及的基本实验仪器的原理和使用方法。如光纤传输和 耦合的理论与技术" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/exp/quantum-photon/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-10T00:18:15+08:00" />
+<meta property="article:modified_time" content="2022-05-10T00:18:15+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="量子光学基础"/>
+<meta name="twitter:description" content="实验目的 了解量子纠缠态的概念、性质及其在量子信息领域的应用, 进而深刻理解量 子力学的本质与精髓; 学习光子纠缠源的制备原理, 学习相关的非线性光学的知识, 如自发参量放 大与振荡、相位匹配、自发参量下转换等; 学习量子光学实验中涉及的基本实验仪器的原理和使用方法。如光纤传输和 耦合的理论与技术"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "⛏️ 实验",
+          "item": "https://Muatyz.github.io/posts/exp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "量子光学基础",
+      "item": "https://Muatyz.github.io/posts/exp/quantum-photon/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "量子光学基础",
+  "name": "量子光学基础",
+  "description": "实验目的 了解量子纠缠态的概念、性质及其在量子信息领域的应用, 进而深刻理解量 子力学的本质与精髓; 学习光子纠缠源的制备原理, 学习相关的非线性光学的知识, 如自发参量放 大与振荡、相位匹配、自发参量下转换等; 学习量子光学实验中涉及的基本实验仪器的原理和使用方法。如光纤传输和 耦合的理论与技术",
+  "keywords": [
+    "Exp", "quantum", "photon"
+  ],
+  "articleBody": "实验目的 了解量子纠缠态的概念、性质及其在量子信息领域的应用, 进而深刻理解量 子力学的本质与精髓; 学习光子纠缠源的制备原理, 学习相关的非线性光学的知识, 如自发参量放 大与振荡、相位匹配、自发参量下转换等; 学习量子光学实验中涉及的基本实验仪器的原理和使用方法。如光纤传输和 耦合的理论与技术, 单光子计数器, 符合门, 半波片, 极化片等实验装置的 使用方法。让学生熟练掌握光学实验的光路调节和各种光学元件的调整技术。 学习对光子纠缠源产生的光子纠缠对比度的符合测量方法, 并通过测量验算 Bell 不等式 实验原理 量子纠缠态 在任何量子力学表象中, 都无法表示为组成它的各子系统 量子态矢的直积形式.\n这些子系统之间表现出相互纠缠的不可分特性, 即使它们空间分离, 对一个子系统的观察也必然影响另一个子系统的测量结果\n4个Bell态(纠缠都最高的态)\n$$ |\\Psi_{1,2}\\rangle = \\frac{1}{\\sqrt{2}}(|0\\rangle |1\\rangle \\pm |1\\rangle |0\\rangle)\\\\ |\\Psi_{3,4}\\rangle = \\frac{1}{\\sqrt{2}}(|0\\rangle |0\\rangle \\pm |1\\rangle |1\\rangle) $$\n量子不可克隆原理\n由于量子力学的态叠加原理, 量子系统的任意未知量子态, 不可能在不遭受破坏的前提下, 以 100％ 成功的概率被克隆到另一个量子体系上。正是由于量子纠缠态的这种非定域的关联性和不可克隆性, 使得量子通讯有更多的优越性. 量子信息处理允许信息、即量子态的相干叠加, 当我们用量子态来加载信息时, 量子通信系统可以在如下几个方面超越经典通信系统：绝对安全性、高效率和高通道容量。\n双光子偏振纠缠态的制备方法与发展历程 利用非线性晶体中的自发参量下转换 (SPDC——spontaneous parametric down-conversion) 过程实现双光子纠缠的产生和操纵，探测简便，纠缠纯度高，相干性保持距离长，所以应用也最为广泛。\n可用于作为纠缠源检验 Bell 不等式, 从而证明量子力学匪局域性的存在。\nEPR 佯谬和 Bell 不等式 量子力学完备性的前提:\n任何两个互不接触且不能直接作用的系统, 对其中任意一个系统的测量, 量子力学的预言都必须是正确的; 若对一个系统没有干扰, 那么如果能确定地预测一个物理量地值, 那么对于这一物理量必然存在一个对应的物理实在元素; 不存在超距作用, 即对其中一个系统做的任何物理操作, 都不应该对另一个系统有任何影响. 基于定域实在论和隐变量存在提出的二粒子自旋纠缠态关联函数的不等式:\n$$ |P(\\vec{a},\\vec{b})-P(\\vec{a},\\vec{c})|\\leq 1+P(\\vec{b},\\vec{c}) $$\n$$ P(\\vec{a}, \\vec{b}) = \\int \\rho(\\lambda)A(\\vec{a}, \\lambda)B(\\vec{b}, \\lambda)d\\lambda $$\n而对于量子力学, 该关系将会不成立.\nCHSH 不等式是一种容易在实验上进行检验的 Bell 不等式:\n$$ S = |E(\\phi_{A}\\phi_{B})-E(\\phi_{A}\\phi_{B}’)+E(\\phi_{A}’\\phi_{B})+E(\\phi_{A}’\\phi_{B}’)| \u003c 2 $$\n$$ E(\\phi_{A}, \\phi_{B}) = \\frac{N_{\\phi_{A}\\phi_{A}} + N_{\\phi_{B}\\phi_{B}} - N_{\\phi_{A}\\phi_{B}} -N_{\\phi_{B}\\phi_{A}}}{N_{\\phi_{A}\\phi_{A}} + N_{\\phi_{B}\\phi_{B}} + N_{\\phi_{A}\\phi_{B}} + N_{\\phi_{B}\\phi_{A}}} $$\n$N_{\\phi_{A}\\phi_{B}}$ 为 AB 两路极化片分别为 $\\phi_{A}$ 和 $\\phi_{B}$ 时的符合计数.\n非线性光学 线性光学: $$ P = \\epsilon_{0}\\chi_{0}E $$\n非线性光学: $$ P = \\epsilon_{0}\\left[\\chi^{(1)}E + \\chi^{(2)}E^{2} + \\chi^{(3)}E^{3} + \\cdots + \\chi^{(n)}E^{n} + \\cdots\\right] $$\n$\\chi^{(i)}$ 被称为 $i$ 阶极化率.\n光学参量放大和振荡 设 $\\omega_{p}$ 的强光波(泵浦光)入射到介质, 同时如何 $\\omega_{s}(\\omega_{s} \u003c \\omega_{p})$ 的弱光波(信号光), 便可能产生 $\\omega_{i} = \\omega_{p} - \\omega_{s}$ 的\"空闲光\".\n泵浦光又可以和空闲光茶品得到信号光频率 $\\omega_{s} = \\omega_{p} - \\omega_{i}$ 的光, 使得信号光放大, 这就是光学参量放大效应.\n当泵浦光足够强时, 参数放大会转换为参量振荡. 此时即使没有信号光入射, 也可以产生一对输出光, 其频率之和等于泵浦光频率.\nManley-Rowe 关系式:\n$$ \\frac{d}{dz}(I_{1} + I_{2} + I_{3})\\\\ \\Rightarrow I_{1} + I_{2} + I_{3} = 0 $$\n三个光波的总能量是不变的, 也就是说能量只在光波之间交换, 介质并不参与, 只起到媒介作用.\n自发参量转换(SPDC, 相位匹配) SPDC 的产生类似于上述参量混频过程, 但是区别在于只有一束泵浦光作用在非线性晶体上. 量子真空噪声和原子相互作用产生自发辐射, 自发辐射产生的光子与泵浦光在非线性晶体中进行混频.\n也就是说, SPDC 光场是自发辐射的参量放大过程. 而且, 这个过程产生的双光子具有量子相关性, 具有频率, 时间, 偏振和自旋纠缠特性和全同时间涨落.\nSPDC 广场的空间分布取决于非线性晶体折射率的色散特性和泵浦光场电场波矢与晶体光轴之间的夹角 $\\theta$.\n相位匹配 光波之间要满足的守恒定律:\n$$ \\begin{aligned} \\text{能量守恒}: \\omega_{p} = \\omega_{s} + \\omega_{i} \\\\ \\text{动量守恒}: \\vec{k_{p}} = \\vec{k_{s}} + \\vec{k_{i}} \\end{aligned} $$ 只有入射光束在介质中的配置满足动量守恒, 参量过程才会实现. 这个条件也被称为相位匹配条件.\n$I$ 型和 $II$ 型自发参量下转换 根据晶体相位匹配的类型可以将参量下转换分为两种类型:\n$I$ 型: $$ e \\rightarrow o + o $$\n即产生的双光子偏振相同且均垂直于泵浦光的偏振方向;\n$II$ 型: $$ o \\rightarrow e + o $$\n即产生的双光子对的偏振方向互相垂直.\n准相位匹配 传统量子纠缠光源的缺点\n传统光源一般基于 BBO 晶体, 由于在 BBO 晶体中存在走离效应, 补偿的不完美会影响到纠缠品质;而 BBO 晶体本身的非线性系数限制使得在增加泵浦功率从而获得更高亮度的光源时, 更高阶的光子项也将不能再忽视.\n下转换光强所满足的表达式:\n$$ I\\propto e^{-\\Delta kd}d^{2}\\sin{c^{2}\\frac{\\Delta kd}{2}} $$\n$\\Delta k$ 为相位失配量, $d$ 为晶体长度.\n相位匹配 $\\Delta k = 0$ 非常难以实现, 所以通常的失配状态下光强将会呈现出周期性振荡的现象.\n所以如果能够周期性地反转晶体的极化矢量方向, 那么每个周期内的光强增长都会累积起来, 从而使得晶体的非线性系数大大增强.\n相位匹配条件就变为了 $$ \\Delta k = k_{p} - k_{i} - k_{s} - \\frac{2\\pi}{\\Lambda} = 0 $$\n$\\Lambda$ 为极化周期, $2\\pi/\\Lambda$ 相当于增加了一个光栅波矢.\n实验室中所用的周期极化晶体为磷酸氧钛钾(PPKTP).\n实验装置 $405$ nm 激光先被耦合仅单模光纤中的好处:\n半导体激光器的光斑模式通常为椭圆, 用单模光纤做空间滤波可以使泵浦光的空间模式为 Gaussian 基模; 如果激光器指向性有问题, 也只需要将前部的耦合重新恢复, 不会影响到后面已经调好的光路, 提高了系统的便携性和稳定性. 光束使用耦合器自带的微透镜完成了会聚过程, 节约空间. $\\frac{1}{4}$ 波片(QWP), $\\frac{1}{2}$ 波片(HWP)和偏振分束器使得泵浦光是水平偏振的线偏光;\n第二轮 $\\frac{1}{4}$ 波片(QWP), $\\frac{1}{2}$ 波片(HWP) 用于调节泵浦光相位从而制备最大纠缠态.\n双色镜(DM)用于分离泵浦光和下转换光.\n泵浦光经过双色镜透射后进入双色偏振分束器(DPBS), 水平偏振光和垂直偏振光被其分开, 分别沿着顺时针和逆时针在 Sagnac 环内行进, 绕行一周后离开 Sagnac 环.\n逆时针绕环. 两个光量子为 $|H\\rangle_{i}, |V\\rangle_{s}$, 半波片放置在 45° 实现极化反转, 系统的量子态变为 $|H\\rangle_{s}, |V\\rangle_{i}$. DPBS 的出口处, 一段接受透射的 $|H\\rangle_{s}$ 光子, 另一端接受到反射的 $|V\\rangle_{i}$ 光子. 顺时针绕环. 泵浦光 $|V\\rangle_{p}$ 先被半波片(HWP)转化为 $|H\\rangle_{p}$, 能够发生相位匹配从而下转换产生 $|H\\rangle_{i}$ 和 $|V\\rangle_{s}$. DPBS的出口处, 一端接收到透射的 $|H\\rangle_{s}$ 光子, 另一端接收到反射的 $|V\\rangle_{s}$ 光子. 由于是双向泵浦, 所以环内的相位是自稳的, 即使有微小差异也是有被动器件引起的, 容易通过改变泵浦光来补偿. 最终系统的量子态处于这样的纠缠态:\n$$ |\\varphi\\rangle = \\frac{1}{\\sqrt{2}}(|H\\rangle_{A}|V\\rangle_{B} + |H\\rangle_{B}|V\\rangle_{A}) $$\n单模光纤使用 $f = 300$ mm 的透镜进行模式匹配, 每个单模光纤前面都插入了极化片用于进行符合测量.\n最后纠缠光子通过长通滤波片由光纤耦合器收集, 被送到 InGaAs 雪崩二极管单光子探测器上转变为电信号.\n波片, 分束器, 偏振分束器 波片 在波片表面平行的平面内存在两个特殊方向, 当光子的电矢量振动方向平行于这两个方向(快轴方向和满洲方向)时, 出射光的偏振不会发生改变. 而一般性的偏振光子入射到波片上时, 其偏振会按照这两个昂想进行分解.一束平行光正入射时, 由于波片对 o 光和 e 光的折射率 $n_{o}, n_{e}$ 不同, 所以经过厚为 $d$ 的波片后, 两个光会出现一个相位差\n$$ \\varphi = \\frac{2\\pi}{\\lambda}(n_{e}-n_{o})d $$\n所以对于半波片/$\\frac{1}{2}$波片, 就有 $$ (n_{e}-n_{o})d = \\pm\\frac{\\lambda}{2}\\Rightarrow\\varphi = (2m+1)\\pi, $$\n同理, 有$\\frac{1}{4}$ 波片\n$$ \\varphi = (2m+1)\\frac{\\pi}{2} $$\n当波片光轴与水平方向称 $\\theta$ 时, 我们用琼斯矩阵来描述两个波片:\n$$ U_{HWP} = \\begin{bmatrix} \\cos{2\\theta} \u0026 \\sin{2\\theta} \\\\ \\sin{2\\theta} \u0026 -\\cos{2\\theta} \\\\ \\end{bmatrix}\\\\ U_{QWP} = \\begin{bmatrix} \\cos^{2}{\\theta} + i\\sin^{2}{\\theta} \u0026 (1 - i)\\cos{\\theta}\\sin{\\theta} \\\\ (1 - i)\\cos{\\theta}\\sin{\\theta} \u0026 \\sin^{2}{\\theta} + i \\cos^{2}{\\theta} \\\\ \\end{bmatrix} $$\n分束器, 偏振分束器 分束器: 通过镀膜使得某个波段的光子按照一定的几率发生透射或者反射; 偏振分束器: 基于双折射原理, 按照光子的偏振决定透射还是反射. $$ |a\\rangle = \\frac{i}{\\sqrt{2}}|c\\rangle + \\frac{1}{\\sqrt{2}}|d\\rangle\\\\ |b\\rangle = \\frac{1}{\\sqrt{2}}|c\\rangle + \\frac{i}{\\sqrt{2}}|d\\rangle $$\n这表明, 无论从哪一路输入, 最后都可以在两个输出口以 $50%$ 的概率得到光子. 其中的 $i$ 表示的因为反射产生的相位.\n而偏振分束器则是对光子的偏振投影测量, 在理想状态下透射的是水平偏振的光子, 反射的是水平偏振的光子.\n单模光纤 只允许一种模式在光纤中存在, 被称之为单模光纤. 这是因为内芯尺寸较小(5$\\mu$m).\n如果在单模光纤中引入不对称因素使得偏振模式不简并, 就被称为保偏光纤.\n多模光纤因为允许多个模式存在, 不同模式有不同的传输速度, 容易使量子比特发生退相干.\n单模光纤的作用:\n对偏振的影响.\n光线本身的不对称, 弯曲引起的应力, 环境条件的不一致, 都会使得单模光纤中产生双折射, 这种双折射随机且含时, 所以会改变其中的光子偏振态. 这种改变在退相干效应发生前都是可以通过步长来消除的幺正变换.\n退相干效应. 当光纤的长度很长的时候, 偏振模色散效应和色度色散都会使得两个偏振态由相干叠加变为混态.\n偏振模色散:光纤中两个偏振方向的传输速度不同引起的. 这是因为光纤的折射率随机变化, 这也导致偏振模色散效应本质上是随机的. 当偏振模色散导致两个偏振方向的时间间隔大于播报的相干长度时, 退相干效应就会发生.\n色度色散是因为波包不可能严格单色, 所以带宽内不同频率的成分由于群速度不同而使得波包变宽.\n单光子计数技术 单光子计数要求能对极微弱光进行探测, 而硅雪崩光电二极管(APD)因为在近红外波段量子效率高, 增益大, 也你能覆盖可见区所以被采用为实验的探测器.\n使用单光子计数技术可以将被淹没在背景噪声中的弱光信号提取出来.\n在实验中的 APD 工作电压高于雪崩电压, 这异于一般情况, 被称为盖革模式.\n盖革模式\n工作电压大于半导体二极管的雪崩电压.\n该模式下噪声会很大, 需要降低工作温度.\n在 APD 上施加负偏置电压, 大部分时间处于就绪阶段. 当接收到一个光子, 两端电压就会在 fs 级别时间内降到比雪崩电压低一些, 通过输出电阻产生一个脉冲信号. 当流经 APD 的电流小于其熄灭阈值时, 雪崩就会停止, 恢复到就绪状态. 恢复时间越充分, 信号高度就会越大.\n发生雪崩后的有一段时间无法接受光子, 被称为\"死时间\". 死时间越小, 光子探测效率越高. 所以需要尽快抑制光子产生信号后的雪崩.\n无源抑制. 在计数率要求不高的情况下使用; 有源抑制. 在量子通信计数率高的实验中采用. 单光子有两个评测指标. 这两个指标直接影响到密钥生成效率和量子信道安全性的评估.\n量子效率 根据材料和波长不同, 量子效率也会发生不同.\n噪声等效功率(NEP) 和量子效率 $\\eta$ 和暗计数水平有关.\n$$ \\text{NEP} = \\frac{h \\nu}{\\eta}\\sqrt{2R} $$\n符合测量 入射光子经过 PPKTP 晶体下转换产生的一对光子被分别被不同的单光子探测器探测, 然后生成一个具有一定波形, 幅度和宽度的定时脉冲被送到符合电路的两个输入端, 符合后产生一个输出脉冲被计数器记录表示一次符合.\n真符合: 来源于同一事件的两个脉冲产生的符合; 偶然符合: 拉源于不同事件, 且在时间上偶然重合的信号产生的符合. TAC 将两个探测器产生的信号间的时间差转换为电压幅值信号, 通过多道分析仪统计时间差, 并且通过软件将这些数据显示并记录在计算机上.\n实验步骤 确定半波片和极化片的光轴;\n光路及光学元件的初步调节;\n根据 PPKTP 的中心高度确定整个光路的高度;\n确定半波片的光轴方向和偏振片的偏振方向;\n耦合器(Coupler)的聚焦和准直;\n细调光路, 测量符合对比度曲线\n进一步细调光路使得两路光子计数和符合计数最大; 分别测量一路偏振片方向为$0°,90°,45°,-45°,-22.5°,67.5°$时, 另一路偏振片的偏振方向在$[0, 360)$ 范围内均匀变化的符合计数, 并且画出对应的对比度曲线. Bell 不等式的实验测量 验证纠缠量子态的非局域性.\n$$ S = |E(\\phi_{A}\\phi_{B})-E(\\phi_{A}\\phi_{B}’)+E(\\phi_{A}’\\phi_{B})+E(\\phi_{A}’\\phi_{B}’)| \u003c 2 $$\n$$ E(\\phi_{A}, \\phi_{B}) = \\frac{N_{\\phi_{A}\\phi_{A}} + N_{\\phi_{B}\\phi_{B}} - N_{\\phi_{A}\\phi_{B}} -N_{\\phi_{B}\\phi_{A}}}{N_{\\phi_{A}\\phi_{A}} + N_{\\phi_{B}\\phi_{B}} + N_{\\phi_{A}\\phi_{B}} + N_{\\phi_{B}\\phi_{A}}} $$\n$N_{\\phi_{A}\\phi_{B}}$ 为 AB 两路极化片分别为 $\\phi_{A}$ 和 $\\phi_{B}$ 时的符合计数.\n思考题 反打光系统起什么作用? “答案” 哪些参数指标被用于考察我们所制备的纠缠源是否优质, 什么因素影响纠缠源的质量? “答案” 测得的符合计数曲线如何分析? “答案” 查阅文献并论述测量 Bell 不等式应选取什么偏振片角度的计数读数, 为什么? “答案” 找一个简单的通讯方案, 设计一个利用纠缠源验证方案的实验; “答案” 查阅文献并结合本次实验测量结果探究量子纠缠, Bell 不等式的深层意义. “答案” “实验报告格式” 1. 标题 2. 摘要 3. 简介 4. 方法、材料和程序 5. 结果和讨论 6. 对问题的回答和更多讨论 7. 结论 8. 附录 ",
+  "wordCount" : "4748",
+  "inLanguage": "en",
+  "datePublished": "2022-05-10T00:18:15+08:00",
+  "dateModified": "2022-05-10T00:18:15+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/exp/quantum-photon/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "计算物理资料库",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/exp/">⛏️ 实验</a></div>
+            <h1 class="post-title">
+                量子光学基础
+            </h1>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2022-05-10
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>4748字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>10分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/exp/" style="color: var(--secondary)!important;">Exp</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">文章目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%ae%9e%e9%aa%8c%e7%9b%ae%e7%9a%84" aria-label="实验目的">实验目的</a></li>
+                <li>
+                    <a href="#%e5%ae%9e%e9%aa%8c%e5%8e%9f%e7%90%86" aria-label="实验原理">实验原理</a><ul>
+                        
+                <li>
+                    <a href="#%e9%87%8f%e5%ad%90%e7%ba%a0%e7%bc%a0%e6%80%81" aria-label="量子纠缠态">量子纠缠态</a></li>
+                <li>
+                    <a href="#%e5%8f%8c%e5%85%89%e5%ad%90%e5%81%8f%e6%8c%af%e7%ba%a0%e7%bc%a0%e6%80%81%e7%9a%84%e5%88%b6%e5%a4%87%e6%96%b9%e6%b3%95%e4%b8%8e%e5%8f%91%e5%b1%95%e5%8e%86%e7%a8%8b" aria-label="双光子偏振纠缠态的制备方法与发展历程">双光子偏振纠缠态的制备方法与发展历程</a></li>
+                <li>
+                    <a href="#epr-%e4%bd%af%e8%b0%ac%e5%92%8c-bell-%e4%b8%8d%e7%ad%89%e5%bc%8f" aria-label="EPR 佯谬和 Bell 不等式">EPR 佯谬和 Bell 不等式</a></li>
+                <li>
+                    <a href="#%e9%9d%9e%e7%ba%bf%e6%80%a7%e5%85%89%e5%ad%a6" aria-label="非线性光学">非线性光学</a><ul>
+                        
+                <li>
+                    <a href="#%e5%85%89%e5%ad%a6%e5%8f%82%e9%87%8f%e6%94%be%e5%a4%a7%e5%92%8c%e6%8c%af%e8%8d%a1" aria-label="光学参量放大和振荡">光学参量放大和振荡</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%87%aa%e5%8f%91%e5%8f%82%e9%87%8f%e8%bd%ac%e6%8d%a2spdc-%e7%9b%b8%e4%bd%8d%e5%8c%b9%e9%85%8d" aria-label="自发参量转换(SPDC, 相位匹配)">自发参量转换(SPDC, 相位匹配)</a><ul>
+                        
+                <li>
+                    <a href="#%e7%9b%b8%e4%bd%8d%e5%8c%b9%e9%85%8d" aria-label="相位匹配">相位匹配</a></li>
+                <li>
+                    <a href="#i-%e5%9e%8b%e5%92%8c-ii-%e5%9e%8b%e8%87%aa%e5%8f%91%e5%8f%82%e9%87%8f%e4%b8%8b%e8%bd%ac%e6%8d%a2" aria-label="$I$ 型和 $II$ 型自发参量下转换">$I$ 型和 $II$ 型自发参量下转换</a></li>
+                <li>
+                    <a href="#%e5%87%86%e7%9b%b8%e4%bd%8d%e5%8c%b9%e9%85%8d" aria-label="准相位匹配">准相位匹配</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%9e%e9%aa%8c%e8%a3%85%e7%bd%ae" aria-label="实验装置">实验装置</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b3%a2%e7%89%87-%e5%88%86%e6%9d%9f%e5%99%a8-%e5%81%8f%e6%8c%af%e5%88%86%e6%9d%9f%e5%99%a8" aria-label="波片, 分束器, 偏振分束器">波片, 分束器, 偏振分束器</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b3%a2%e7%89%87" aria-label="波片">波片</a></li>
+                <li>
+                    <a href="#%e5%88%86%e6%9d%9f%e5%99%a8-%e5%81%8f%e6%8c%af%e5%88%86%e6%9d%9f%e5%99%a8" aria-label="分束器, 偏振分束器">分束器, 偏振分束器</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8d%95%e6%a8%a1%e5%85%89%e7%ba%a4" aria-label="单模光纤">单模光纤</a></li>
+                <li>
+                    <a href="#%e5%8d%95%e5%85%89%e5%ad%90%e8%ae%a1%e6%95%b0%e6%8a%80%e6%9c%af" aria-label="单光子计数技术">单光子计数技术</a><ul>
+                        
+                <li>
+                    <a href="#%e9%87%8f%e5%ad%90%e6%95%88%e7%8e%87" aria-label="量子效率">量子效率</a></li>
+                <li>
+                    <a href="#%e5%99%aa%e5%a3%b0%e7%ad%89%e6%95%88%e5%8a%9f%e7%8e%87nep" aria-label="噪声等效功率(NEP)">噪声等效功率(NEP)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%ac%a6%e5%90%88%e6%b5%8b%e9%87%8f" aria-label="符合测量">符合测量</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%9e%e9%aa%8c%e6%ad%a5%e9%aa%a4" aria-label="实验步骤">实验步骤</a></li>
+                <li>
+                    <a href="#%e6%80%9d%e8%80%83%e9%a2%98" aria-label="思考题">思考题</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="实验目的">实验目的<a hidden class="anchor" aria-hidden="true" href="#实验目的">#</a></h1>
+<ul>
+<li>了解量子纠缠态的概念、性质及其在量子信息领域的应用, 进而深刻理解量
+子力学的本质与精髓;</li>
+<li>学习光子纠缠源的制备原理, 学习相关的非线性光学的知识,  如自发参量放
+大与振荡、相位匹配、自发参量下转换等;</li>
+<li>学习量子光学实验中涉及的基本实验仪器的原理和使用方法。如光纤传输和
+耦合的理论与技术, 单光子计数器, 符合门, 半波片, 极化片等实验装置的
+使用方法。让学生熟练掌握光学实验的光路调节和各种光学元件的调整技术。</li>
+<li>学习对光子纠缠源产生的光子纠缠对比度的符合测量方法, 并通过测量验算
+Bell 不等式</li>
+</ul>
+<h1 id="实验原理">实验原理<a hidden class="anchor" aria-hidden="true" href="#实验原理">#</a></h1>
+<h2 id="量子纠缠态">量子纠缠态<a hidden class="anchor" aria-hidden="true" href="#量子纠缠态">#</a></h2>
+<blockquote>
+<p>在任何量子力学表象中, 都无法表示为组成它的各子系统
+量子态矢的直积形式.</p>
+<p>这些子系统之间表现出相互纠缠的不可分特性, 即使它们空间分离, 对一个子系统的观察也必然影响另一个子系统的测量结果</p>
+</blockquote>
+<p>4个Bell态(纠缠都最高的态)</p>
+<p>$$
+|\Psi_{1,2}\rangle = \frac{1}{\sqrt{2}}(|0\rangle |1\rangle \pm |1\rangle |0\rangle)\\
+|\Psi_{3,4}\rangle = \frac{1}{\sqrt{2}}(|0\rangle |0\rangle \pm |1\rangle |1\rangle)
+$$</p>
+<blockquote>
+<p>量子不可克隆原理</p>
+<p>由于量子力学的态叠加原理, 量子系统的任意未知量子态, 不可能在不遭受破坏的前提下, 以 100％ 成功的概率被克隆到另一个量子体系上。正是由于量子纠缠态的这种非定域的关联性和不可克隆性, 使得量子通讯有更多的优越性. 量子信息处理允许信息、即量子态的相干叠加, 当我们用量子态来加载信息时, 量子通信系统可以在如下几个方面超越经典通信系统：绝对安全性、高效率和高通道容量。</p>
+</blockquote>
+<h2 id="双光子偏振纠缠态的制备方法与发展历程">双光子偏振纠缠态的制备方法与发展历程<a hidden class="anchor" aria-hidden="true" href="#双光子偏振纠缠态的制备方法与发展历程">#</a></h2>
+<p>利用非线性晶体中的自发参量下转换 (SPDC——spontaneous parametric down-conversion) 过程实现双光子纠缠的产生和操纵，探测简便，纠缠纯度高，相干性保持距离长，所以应用也最为广泛。</p>
+<p>可用于作为纠缠源检验 Bell 不等式, 从而证明量子力学匪局域性的存在。</p>
+<h2 id="epr-佯谬和-bell-不等式">EPR 佯谬和 Bell 不等式<a hidden class="anchor" aria-hidden="true" href="#epr-佯谬和-bell-不等式">#</a></h2>
+<p>量子力学完备性的前提:</p>
+<ul>
+<li>任何两个互不接触且不能直接作用的系统, 对其中任意一个系统的测量, 量子力学的预言都必须是正确的;</li>
+<li>若对一个系统没有干扰, 那么如果能确定地预测一个物理量地值, 那么对于这一物理量必然存在一个对应的物理实在元素;</li>
+<li>不存在超距作用, 即对其中一个系统做的任何物理操作, 都不应该对另一个系统有任何影响.</li>
+</ul>
+<p>基于定域实在论和隐变量存在提出的二粒子自旋纠缠态关联函数的不等式:</p>
+<p>$$
+|P(\vec{a},\vec{b})-P(\vec{a},\vec{c})|\leq 1+P(\vec{b},\vec{c})
+$$</p>
+<blockquote>
+<p>$$
+P(\vec{a}, \vec{b}) = \int \rho(\lambda)A(\vec{a}, \lambda)B(\vec{b}, \lambda)d\lambda
+$$</p>
+</blockquote>
+<p>而对于量子力学, 该关系将会不成立.</p>
+<p>CHSH 不等式是一种容易在实验上进行检验的 Bell 不等式:</p>
+<p>$$
+S = |E(\phi_{A}\phi_{B})-E(\phi_{A}\phi_{B}&rsquo;)+E(\phi_{A}&rsquo;\phi_{B})+E(\phi_{A}&rsquo;\phi_{B}&rsquo;)| &lt; 2
+$$</p>
+<blockquote>
+<p>$$
+E(\phi_{A}, \phi_{B}) = \frac{N_{\phi_{A}\phi_{A}} + N_{\phi_{B}\phi_{B}} - N_{\phi_{A}\phi_{B}} -N_{\phi_{B}\phi_{A}}}{N_{\phi_{A}\phi_{A}} + N_{\phi_{B}\phi_{B}} + N_{\phi_{A}\phi_{B}} + N_{\phi_{B}\phi_{A}}}
+$$</p>
+<p>$N_{\phi_{A}\phi_{B}}$ 为 AB 两路极化片分别为 $\phi_{A}$ 和 $\phi_{B}$ 时的符合计数.</p>
+</blockquote>
+<h2 id="非线性光学">非线性光学<a hidden class="anchor" aria-hidden="true" href="#非线性光学">#</a></h2>
+<p>线性光学:
+$$
+P = \epsilon_{0}\chi_{0}E
+$$</p>
+<p>非线性光学:
+$$
+P = \epsilon_{0}\left[\chi^{(1)}E + \chi^{(2)}E^{2} + \chi^{(3)}E^{3} + \cdots + \chi^{(n)}E^{n} + \cdots\right]
+$$</p>
+<blockquote>
+<p>$\chi^{(i)}$ 被称为 $i$ 阶极化率.</p>
+</blockquote>
+<h3 id="光学参量放大和振荡">光学参量放大和振荡<a hidden class="anchor" aria-hidden="true" href="#光学参量放大和振荡">#</a></h3>
+<p>设 $\omega_{p}$ 的强光波(泵浦光)入射到介质, 同时如何 $\omega_{s}(\omega_{s} &lt; \omega_{p})$ 的弱光波(信号光), 便可能产生 $\omega_{i} = \omega_{p} - \omega_{s}$ 的&quot;空闲光&quot;.</p>
+<p>泵浦光又可以和空闲光茶品得到信号光频率 $\omega_{s} = \omega_{p} - \omega_{i}$ 的光, 使得信号光放大, 这就是<strong>光学参量放大效应</strong>.</p>
+<p>当泵浦光足够强时, 参数放大会转换为参量振荡. 此时即使没有信号光入射, 也可以产生一对输出光, 其频率之和等于泵浦光频率.</p>
+<p>Manley-Rowe 关系式:</p>
+<p>$$
+\frac{d}{dz}(I_{1} + I_{2} + I_{3})\\
+\Rightarrow I_{1} + I_{2} + I_{3} = 0
+$$</p>
+<blockquote>
+<p>三个光波的总能量是不变的, 也就是说能量只在光波之间交换, 介质并不参与, 只起到媒介作用.</p>
+</blockquote>
+<h2 id="自发参量转换spdc-相位匹配">自发参量转换(SPDC, 相位匹配)<a hidden class="anchor" aria-hidden="true" href="#自发参量转换spdc-相位匹配">#</a></h2>
+<p>SPDC 的产生类似于上述参量混频过程, 但是区别在于只有一束泵浦光作用在非线性晶体上. 量子真空噪声和原子相互作用产生自发辐射, 自发辐射产生的光子与泵浦光在非线性晶体中进行混频.</p>
+<p>也就是说, SPDC 光场是自发辐射的参量放大过程. 而且, 这个过程产生的双光子具有量子相关性, 具有频率, 时间, 偏振和自旋纠缠特性和全同时间涨落.</p>
+<p>SPDC 广场的空间分布取决于非线性晶体折射率的色散特性和泵浦光场电场波矢与晶体光轴之间的夹角 $\theta$.</p>
+<h3 id="相位匹配">相位匹配<a hidden class="anchor" aria-hidden="true" href="#相位匹配">#</a></h3>
+<p>光波之间要满足的守恒定律:</p>
+<p>$$
+\begin{aligned}
+\text{能量守恒}: \omega_{p} = \omega_{s} + \omega_{i}  \\
+\text{动量守恒}: \vec{k_{p}} = \vec{k_{s}} + \vec{k_{i}}
+\end{aligned}
+$$
+只有入射光束在介质中的配置满足动量守恒, 参量过程才会实现. 这个条件也被称为<strong>相位匹配条件</strong>.</p>
+<h3 id="i-型和-ii-型自发参量下转换">$I$ 型和 $II$ 型自发参量下转换<a hidden class="anchor" aria-hidden="true" href="#i-型和-ii-型自发参量下转换">#</a></h3>
+<p>根据晶体相位匹配的类型可以将参量下转换分为两种类型:</p>
+<p>$I$ 型:
+$$
+e \rightarrow o + o
+$$</p>
+<p>即产生的双光子偏振相同且均垂直于泵浦光的偏振方向;</p>
+<p>$II$ 型:
+$$
+o \rightarrow e + o
+$$</p>
+<p>即产生的双光子对的偏振方向互相垂直.</p>
+<h3 id="准相位匹配">准相位匹配<a hidden class="anchor" aria-hidden="true" href="#准相位匹配">#</a></h3>
+<blockquote>
+<p>传统量子纠缠光源的缺点</p>
+<p>传统光源一般基于 BBO 晶体, 由于在 BBO 晶体中存在走离效应, 补偿的不完美会影响到纠缠品质;而 BBO 晶体本身的非线性系数限制使得在增加泵浦功率从而获得更高亮度的光源时, 更高阶的光子项也将不能再忽视.</p>
+</blockquote>
+<p>下转换光强所满足的表达式:</p>
+<p>$$
+I\propto e^{-\Delta kd}d^{2}\sin{c^{2}\frac{\Delta kd}{2}}
+$$</p>
+<blockquote>
+<p>$\Delta k$ 为相位失配量, $d$ 为晶体长度.</p>
+</blockquote>
+<p>相位匹配 $\Delta k = 0$ 非常难以实现, 所以通常的失配状态下光强将会呈现出周期性振荡的现象.</p>
+<p>所以如果能够周期性地反转晶体的极化矢量方向, 那么每个周期内的光强增长都会累积起来, 从而使得晶体的非线性系数大大增强.</p>
+<p>相位匹配条件就变为了
+$$
+\Delta k = k_{p} - k_{i} - k_{s} - \frac{2\pi}{\Lambda} = 0
+$$</p>
+<blockquote>
+<p>$\Lambda$ 为极化周期, $2\pi/\Lambda$ 相当于增加了一个光栅波矢.</p>
+</blockquote>
+<p>实验室中所用的周期极化晶体为磷酸氧钛钾(PPKTP).</p>
+<h1 id="实验装置">实验装置<a hidden class="anchor" aria-hidden="true" href="#实验装置">#</a></h1>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/16/AeULHNVF8rCiBOw.png" alt="实验装置图"  />
+</p>
+<p>$405$ nm 激光先被耦合仅单模光纤中的好处:</p>
+<ul>
+<li>半导体激光器的光斑模式通常为椭圆, 用单模光纤做空间滤波可以使泵浦光的空间模式为 Gaussian 基模;</li>
+<li>如果激光器指向性有问题, 也只需要将前部的耦合重新恢复, 不会影响到后面已经调好的光路, 提高了系统的便携性和稳定性.</li>
+<li>光束使用耦合器自带的微透镜完成了会聚过程, 节约空间.</li>
+</ul>
+<p>$\frac{1}{4}$ 波片(QWP), $\frac{1}{2}$ 波片(HWP)和偏振分束器使得泵浦光是水平偏振的线偏光;</p>
+<p>第二轮 $\frac{1}{4}$ 波片(QWP), $\frac{1}{2}$ 波片(HWP) 用于调节泵浦光相位从而制备最大纠缠态.</p>
+<p>双色镜(DM)用于分离泵浦光和下转换光.</p>
+<p>泵浦光经过双色镜透射后进入双色偏振分束器(DPBS), 水平偏振光和垂直偏振光被其分开, 分别沿着顺时针和逆时针在 Sagnac 环内行进, 绕行一周后离开 Sagnac 环.</p>
+<ul>
+<li>逆时针绕环.
+两个光量子为 $|H\rangle_{i}, |V\rangle_{s}$, 半波片放置在 45° 实现极化反转, 系统的量子态变为 $|H\rangle_{s}, |V\rangle_{i}$. DPBS 的出口处, 一段接受透射的 $|H\rangle_{s}$ 光子, 另一端接受到反射的 $|V\rangle_{i}$ 光子.</li>
+<li>顺时针绕环.
+泵浦光 $|V\rangle_{p}$ 先被半波片(HWP)转化为 $|H\rangle_{p}$, 能够发生相位匹配从而下转换产生 $|H\rangle_{i}$ 和 $|V\rangle_{s}$. DPBS的出口处, 一端接收到透射的 $|H\rangle_{s}$ 光子, 另一端接收到反射的 $|V\rangle_{s}$ 光子.</li>
+</ul>
+<p>由于是双向泵浦, 所以环内的相位是自稳的, 即使有微小差异也是有被动器件引起的, 容易通过改变泵浦光来补偿. 最终系统的量子态处于这样的纠缠态:</p>
+<p>$$
+|\varphi\rangle = \frac{1}{\sqrt{2}}(|H\rangle_{A}|V\rangle_{B} + |H\rangle_{B}|V\rangle_{A})
+$$</p>
+<p>单模光纤使用 $f = 300$ mm 的透镜进行模式匹配, 每个单模光纤前面都插入了极化片用于进行符合测量.</p>
+<p>最后纠缠光子通过长通滤波片由光纤耦合器收集, 被送到 InGaAs 雪崩二极管单光子探测器上转变为电信号.</p>
+<h2 id="波片-分束器-偏振分束器">波片, 分束器, 偏振分束器<a hidden class="anchor" aria-hidden="true" href="#波片-分束器-偏振分束器">#</a></h2>
+<h3 id="波片">波片<a hidden class="anchor" aria-hidden="true" href="#波片">#</a></h3>
+<p>在波片表面平行的平面内存在两个特殊方向, 当光子的电矢量振动方向平行于这两个方向(快轴方向和满洲方向)时, 出射光的偏振不会发生改变. 而一般性的偏振光子入射到波片上时, 其偏振会按照这两个昂想进行分解.一束平行光正入射时, 由于波片对 o 光和 e 光的折射率 $n_{o}, n_{e}$ 不同, 所以经过厚为 $d$ 的波片后, 两个光会出现一个相位差</p>
+<p>$$
+\varphi = \frac{2\pi}{\lambda}(n_{e}-n_{o})d
+$$</p>
+<p>所以对于半波片/$\frac{1}{2}$波片, 就有
+$$
+(n_{e}-n_{o})d = \pm\frac{\lambda}{2}\Rightarrow\varphi = (2m+1)\pi,
+$$</p>
+<p>同理, 有$\frac{1}{4}$ 波片</p>
+<p>$$
+\varphi = (2m+1)\frac{\pi}{2}
+$$</p>
+<p>当波片光轴与水平方向称 $\theta$ 时, 我们用琼斯矩阵来描述两个波片:</p>
+<p>$$
+U_{HWP} = \begin{bmatrix}
+\cos{2\theta} &amp; \sin{2\theta} \\
+\sin{2\theta} &amp; -\cos{2\theta} \\
+\end{bmatrix}\\
+U_{QWP} = \begin{bmatrix}
+\cos^{2}{\theta} + i\sin^{2}{\theta} &amp; (1 - i)\cos{\theta}\sin{\theta} \\
+(1 - i)\cos{\theta}\sin{\theta} &amp; \sin^{2}{\theta} + i \cos^{2}{\theta} \\
+\end{bmatrix}
+$$</p>
+<h3 id="分束器-偏振分束器">分束器, 偏振分束器<a hidden class="anchor" aria-hidden="true" href="#分束器-偏振分束器">#</a></h3>
+<ul>
+<li>分束器: 通过镀膜使得某个波段的光子按照一定的几率发生透射或者反射;</li>
+<li>偏振分束器: 基于双折射原理, 按照光子的偏振决定透射还是反射.</li>
+</ul>
+<p>$$
+|a\rangle = \frac{i}{\sqrt{2}}|c\rangle + \frac{1}{\sqrt{2}}|d\rangle\\
+|b\rangle = \frac{1}{\sqrt{2}}|c\rangle + \frac{i}{\sqrt{2}}|d\rangle
+$$</p>
+<p>这表明, 无论从哪一路输入, 最后都可以在两个输出口以 $50%$ 的概率得到光子. 其中的 $i$ 表示的因为反射产生的相位.</p>
+<p>而偏振分束器则是对光子的偏振投影测量, 在理想状态下透射的是水平偏振的光子, 反射的是水平偏振的光子.</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/16/5aZ9qO3JbMBgisV.png" alt="偏振分束器原理图"  />
+</p>
+<h2 id="单模光纤">单模光纤<a hidden class="anchor" aria-hidden="true" href="#单模光纤">#</a></h2>
+<p>只允许一种模式在光纤中存在, 被称之为<strong>单模光纤</strong>. 这是因为内芯尺寸较小(5$\mu$m).</p>
+<p>如果在单模光纤中引入不对称因素使得偏振模式不简并, 就被称为<strong>保偏光纤</strong>.</p>
+<p>多模光纤因为允许多个模式存在, 不同模式有不同的传输速度, 容易使量子比特发生退相干.</p>
+<p>单模光纤的作用:</p>
+<ul>
+<li>
+<p>对偏振的影响.</p>
+<p>光线本身的不对称, 弯曲引起的应力, 环境条件的不一致, 都会使得单模光纤中产生双折射, 这种双折射随机且含时, 所以会改变其中的光子偏振态. 这种改变在退相干效应发生前都是可以通过步长来消除的幺正变换.</p>
+</li>
+<li>
+<p>退相干效应. 当光纤的长度很长的时候, <strong>偏振模色散效应</strong>和<strong>色度色散</strong>都会使得两个偏振态由相干叠加变为混态.</p>
+<p>偏振模色散:光纤中两个偏振方向的传输速度不同引起的. 这是因为光纤的折射率随机变化, 这也导致偏振模色散效应本质上是随机的. 当偏振模色散导致两个偏振方向的时间间隔大于播报的相干长度时, 退相干效应就会发生.</p>
+<p>色度色散是因为波包不可能严格单色, 所以带宽内不同频率的成分由于群速度不同而使得波包变宽.</p>
+</li>
+</ul>
+<h2 id="单光子计数技术">单光子计数技术<a hidden class="anchor" aria-hidden="true" href="#单光子计数技术">#</a></h2>
+<p>单光子计数要求能对极微弱光进行探测, 而硅雪崩光电二极管(APD)因为在近红外波段量子效率高, 增益大, 也你能覆盖可见区所以被采用为实验的探测器.</p>
+<p>使用单光子计数技术可以将被淹没在背景噪声中的弱光信号提取出来.</p>
+<p>在实验中的 APD 工作电压高于雪崩电压, 这异于一般情况, 被称为盖革模式.</p>
+<blockquote>
+<p>盖革模式</p>
+<p>工作电压大于半导体二极管的雪崩电压.</p>
+</blockquote>
+<p>该模式下噪声会很大, 需要降低工作温度.</p>
+<p>在 APD 上施加负偏置电压, 大部分时间处于就绪阶段. 当接收到一个光子, 两端电压就会在 fs 级别时间内降到比雪崩电压低一些, 通过输出电阻产生一个脉冲信号. 当流经 APD 的电流小于其熄灭阈值时, 雪崩就会停止, 恢复到就绪状态. 恢复时间越充分, 信号高度就会越大.</p>
+<p>发生雪崩后的有一段时间无法接受光子, 被称为&quot;死时间&quot;. 死时间越小, 光子探测效率越高. 所以需要尽快抑制光子产生信号后的雪崩.</p>
+<ul>
+<li>无源抑制. 在计数率要求不高的情况下使用;</li>
+<li>有源抑制. 在量子通信计数率高的实验中采用.</li>
+</ul>
+<p>单光子有两个评测指标. 这两个指标直接影响到密钥生成效率和量子信道安全性的评估.</p>
+<h3 id="量子效率">量子效率<a hidden class="anchor" aria-hidden="true" href="#量子效率">#</a></h3>
+<p>根据材料和波长不同, 量子效率也会发生不同.</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/16/XumT5JqLkdgDNt9.png" alt="三种材料的不同波长下的量子效率"  />
+</p>
+<h3 id="噪声等效功率nep">噪声等效功率(NEP)<a hidden class="anchor" aria-hidden="true" href="#噪声等效功率nep">#</a></h3>
+<p>和量子效率 $\eta$ 和暗计数水平有关.</p>
+<p>$$
+\text{NEP} = \frac{h \nu}{\eta}\sqrt{2R}
+$$</p>
+<h2 id="符合测量">符合测量<a hidden class="anchor" aria-hidden="true" href="#符合测量">#</a></h2>
+<p>入射光子经过 PPKTP 晶体<strong>下转换</strong>产生的一对光子被分别被不同的单光子探测器探测, 然后生成一个具有一定波形, 幅度和宽度的定时脉冲被送到符合电路的两个输入端, 符合后产生一个输出脉冲被计数器记录表示一次符合.</p>
+<ul>
+<li>真符合: 来源于同一事件的两个脉冲产生的符合;</li>
+<li>偶然符合: 拉源于不同事件, 且在时间上偶然重合的信号产生的符合.</li>
+</ul>
+<p>TAC 将两个探测器产生的信号间的时间差转换为电压幅值信号, 通过多道分析仪统计时间差, 并且通过软件将这些数据显示并记录在计算机上.</p>
+<h1 id="实验步骤">实验步骤<a hidden class="anchor" aria-hidden="true" href="#实验步骤">#</a></h1>
+<ol>
+<li>
+<p>确定半波片和极化片的光轴;</p>
+</li>
+<li>
+<p>光路及光学元件的初步调节;</p>
+<ul>
+<li>
+<p>根据 PPKTP 的中心高度确定整个光路的高度;</p>
+</li>
+<li>
+<p>确定半波片的光轴方向和偏振片的偏振方向;</p>
+</li>
+<li>
+<p>耦合器(Coupler)的聚焦和准直;</p>
+</li>
+</ul>
+</li>
+<li>
+<p>细调光路, 测量符合对比度曲线</p>
+<ul>
+<li>进一步细调光路使得两路光子计数和符合计数最大;</li>
+<li>分别测量一路偏振片方向为$0°,90°,45°,-45°,-22.5°,67.5°$时, 另一路偏振片的偏振方向在$[0, 360)$ 范围内均匀变化的符合计数, 并且画出对应的对比度曲线.</li>
+</ul>
+</li>
+<li>
+<p>Bell 不等式的实验测量
+验证纠缠量子态的非局域性.</p>
+<blockquote>
+<p>$$
+S = |E(\phi_{A}\phi_{B})-E(\phi_{A}\phi_{B}&rsquo;)+E(\phi_{A}&rsquo;\phi_{B})+E(\phi_{A}&rsquo;\phi_{B}&rsquo;)| &lt; 2
+$$</p>
+<blockquote>
+<p>$$
+E(\phi_{A}, \phi_{B}) = \frac{N_{\phi_{A}\phi_{A}} + N_{\phi_{B}\phi_{B}} - N_{\phi_{A}\phi_{B}} -N_{\phi_{B}\phi_{A}}}{N_{\phi_{A}\phi_{A}} + N_{\phi_{B}\phi_{B}} + N_{\phi_{A}\phi_{B}} + N_{\phi_{B}\phi_{A}}}
+$$</p>
+<p>$N_{\phi_{A}\phi_{B}}$ 为 AB 两路极化片分别为 $\phi_{A}$ 和 $\phi_{B}$ 时的符合计数.</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<h1 id="思考题">思考题<a hidden class="anchor" aria-hidden="true" href="#思考题">#</a></h1>
+<ol>
+<li>反打光系统起什么作用?
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>“答案”<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"></div>
+
+ </div>
+
+ </div></li>
+<li>哪些参数指标被用于考察我们所制备的纠缠源是否优质, 什么因素影响纠缠源的质量?
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>“答案”<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"></div>
+
+ </div>
+
+ </div></li>
+<li>测得的符合计数曲线如何分析?
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>“答案”<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"></div>
+
+ </div>
+
+ </div></li>
+<li>查阅文献并论述测量 Bell 不等式应选取什么偏振片角度的计数读数, 为什么?
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>“答案”<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"></div>
+
+ </div>
+
+ </div></li>
+<li>找一个简单的通讯方案, 设计一个利用纠缠源验证方案的实验;
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>“答案”<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"></div>
+
+ </div>
+
+ </div></li>
+<li>查阅文献并结合本次实验测量结果探究量子纠缠, Bell 不等式的深层意义.
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>“答案”<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"></div>
+
+ </div>
+
+ </div></li>
+</ol>
+<!-- shorcodes语法 -->
+<!-- 类型选择:tip、note、abstract、info、success、question、warning、failure、danger、bug、example、quote -->
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>“实验报告格式”<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><pre><code>1. 标题
+2. 摘要
+3. 简介
+4. 方法、材料和程序
+5. 结果和讨论
+6. 对问题的回答和更多讨论
+7. 结论
+8. 附录
+</code></pre>
+</div>
+
+ </div>
+
+ </div>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://Muatyz.github.io/" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://Muatyz.github.io/" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/exp/muon-lifetime/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>使用塑料闪烁体测量介子的寿命</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/phy/cmp/tbg-moireband-python/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Python计算转角石墨烯能带</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '📄复制';
+
+        function copyingDone() {
+            copybutton.innerText = '👌🏻已复制!';
+            setTimeout(() => {
+                copybutton.innerText = '📄复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>

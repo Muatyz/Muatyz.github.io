@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>⛏️ 实验 | 计算物理资料库</title>
+<title>Python计算转角石墨烯能带 | 计算物理资料库</title>
 <meta name="keywords" content="">
-<meta name="description" content="纸上得来终觉浅，绝知此事要躬行">
+<meta name="description" content="使用Python编程计算石墨烯能带">
 <meta name="author" content="Muartz">
-<link rel="canonical" href="https://Muatyz.github.io/posts/exp/">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/cmp/tbg-moireband-python/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
@@ -18,7 +19,6 @@
 <link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://Muatyz.github.io/posts/exp/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,6 +56,8 @@
 
     </style>
 </noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
@@ -107,14 +109,16 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta property="og:title" content="⛏️ 实验" />
-<meta property="og:description" content="纸上得来终觉浅，绝知此事要躬行" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://Muatyz.github.io/posts/exp/" />
+<meta property="og:title" content="Python计算转角石墨烯能带" />
+<meta property="og:description" content="使用Python编程计算石墨烯能带" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/cmp/tbg-moireband-python/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-08T00:18:23+08:00" />
+<meta property="article:modified_time" content="2022-05-08T00:18:23+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="⛏️ 实验"/>
-<meta name="twitter:description" content="纸上得来终觉浅，绝知此事要躬行"/>
+<meta name="twitter:title" content="Python计算转角石墨烯能带"/>
+<meta name="twitter:description" content="使用Python编程计算石墨烯能带"/>
 
 
 <script type="application/ld+json">
@@ -128,19 +132,66 @@ code.has-jax {
           "position":  1 ,
           "name": "📚文章",
           "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🔧 Condensed Matter Physics",
+          "item": "https://Muatyz.github.io/posts/phy/cmp/"
         }, 
     {
       "@type": "ListItem",
-      "position":  2 ,
-      "name": "⛏️ 实验",
-      "item": "https://Muatyz.github.io/posts/exp/"
+      "position":  4 ,
+      "name": "Python计算转角石墨烯能带",
+      "item": "https://Muatyz.github.io/posts/phy/cmp/tbg-moireband-python/"
     }
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python计算转角石墨烯能带",
+  "name": "Python计算转角石墨烯能带",
+  "description": "使用Python编程计算石墨烯能带",
+  "keywords": [
+    ""
+  ],
+  "articleBody": " 本文内容来自 GitHub 的 Zihao Wang 所开发的开源项目 twisted_bilayer_graphene, 如有条件可进入链接为其 Star 以提供支持.\n在转角双层石墨烯的数值计算综述 中我们已经提到过有关紧束缚模型和低能连续模型(也有称之为低能有效模型, 如关济寰的石墨烯紧束缚模型到低能有效模型的推导). 而 Zihao Wang 的项目中也是基于 Moiré bands in twisted double-layer graphene 论文所提出的连续模型给出的, 所以对于目前正在焦虑于如何使用 ITensor 的密度矩阵重整化群方法来计算能带的本人来说, 是一个很好的用来借鉴与学习的对象.\n为了学习如何将物理图像化为代码进行计算, 这里我将源代码一步步拆解分别解说, 读者可以结合原项目中的 Jupyter Notebook 阅读体会.\n",
+  "wordCount" : "257",
+  "inLanguage": "en",
+  "datePublished": "2022-05-08T00:18:23+08:00",
+  "dateModified": "2022-05-08T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/cmp/tbg-moireband-python/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "计算物理资料库",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     (function () {
         let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
@@ -233,27 +284,26 @@ code.has-jax {
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a></div>
-  <h1>⛏️ 实验</h1>
-  <div class="post-description">
-    纸上得来终觉浅，绝知此事要躬行
-  </div>
-</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
 
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>[课设]DCI方案中快电子加热的软X射线诊断研究
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        
-        ...
-      </p>
-    </section>
-    <footer class="entry-footer">
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/cmp/">🔧 Condensed Matter Physics</a></div>
+            <h1 class="post-title">
+                Python计算转角石墨烯能带
+            </h1>
+            <div class="post-description">
+                使用Python编程计算石墨烯能带
+            </div>
+            <div class="post-meta">
 
 <style>
     i[id*="post_meta_style"] {
@@ -272,7 +322,7 @@ code.has-jax {
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2022-05-10
+        <span>2022-05-08
             &nbsp;&nbsp;
         </span>
     </span>
@@ -285,89 +335,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>4766字
+        <span>257字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>10分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>Muartz, 胡骁芃
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://Muatyz.github.io/tags/exp/" style="color: var(--secondary)!important;">Exp</a>
-            </span>
-        </span>
-    </span>
-</span>
-</footer>
-  </div> 
-<figure class="entry-cover"><img loading="lazy" src="https://s2.loli.net/2023/05/11/Pn6mipEA4ry8L2d.png" alt="ICF高级专业研修班">
-</figure>
-  <a class="entry-link" aria-label="post link to [课设]DCI方案中快电子加热的软X射线诊断研究" href="https://Muatyz.github.io/posts/exp/dci-soft-x-ray/"></a>
-</article>
-
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>使用塑料闪烁体测量介子的寿命
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        
-        ...
-      </p>
-    </section>
-    <footer class="entry-footer">
-
-<style>
-    i[id*="post_meta_style"] {
-        display: flex;
-        align-items: center;
-        margin: 0 0 10px 0;
-    }
-
-    .parent-post-meta {
-        display: flex;
-        flex-wrap: wrap;
-        opacity: 0.8;
-    }
-</style>
-
-<span class="parent-post-meta">
-    <span id="post_meta_style_1">
-        <span class="fa fa-calendar-check-o"></span>
-        <span>2022-05-10
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    
-    
-    
-    
-    
-    
-    
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>3207字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>7分钟
+        <span>1分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -381,96 +355,123 @@ code.has-jax {
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://Muatyz.github.io/tags/exp/" style="color: var(--secondary)!important;">Exp</a>
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">numerical calculation</a>
             </span>
         </span>
     </span>
 </span>
-</footer>
-  </div> 
-<figure class="entry-cover"><img loading="lazy" src="https://s2.loli.net/2023/05/10/JZcLpHyG25RWQMi.png" alt="">
-</figure>
-  <a class="entry-link" aria-label="post link to 使用塑料闪烁体测量介子的寿命" href="https://Muatyz.github.io/posts/exp/muon-lifetime/"></a>
-</article>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
 
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>量子光学基础
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        
-        ...
-      </p>
-    </section>
-    <footer class="entry-footer">
+</div>
+        </header> 
+        <div class="post-content"><blockquote>
+<p>本文内容来自 GitHub 的 <a href="https://github.com/zihaophys" target="_blank" rel="noopener nofollow noreferrer" >Zihao Wang</a> 所开发的开源项目 <a href="https://github.com/zihaophys/twisted_bilayer_graphene" target="_blank" rel="noopener nofollow noreferrer" >twisted_bilayer_graphene</a>, 如有条件可进入链接为其 Star 以提供支持.</p>
+</blockquote>
+<p>在<a href="https://muartz.com/posts/phy/cmp/tbg-nu-cal/" target="_blank" rel="noopener nofollow noreferrer" >转角双层石墨烯的数值计算综述</a> 中我们已经提到过有关紧束缚模型和低能连续模型(也有称之为低能有效模型, 如关济寰的<a href="https://www.guanjihuan.com/archives/10963#comment-18192" target="_blank" rel="noopener nofollow noreferrer" >石墨烯紧束缚模型到低能有效模型的推导</a>). 而 Zihao Wang 的项目中也是基于 <a href="https://muartz.com/posts/read/moire-bands/" target="_blank" rel="noopener nofollow noreferrer" >Moiré bands in twisted double-layer graphene</a> 论文所提出的连续模型给出的, 所以对于目前正在焦虑于如何使用 ITensor 的密度矩阵重整化群方法来计算能带的本人来说, 是一个很好的用来借鉴与学习的对象.</p>
+<p>为了学习如何将物理图像化为代码进行计算, 这里我将源代码一步步拆解分别解说, 读者可以结合原项目中的 Jupyter Notebook 阅读体会.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/exp/quantum-photon/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>量子光学基础</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/phy/cmp/sec-quantization/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>二次量子化与升降算符</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
 
 <style>
-    i[id*="post_meta_style"] {
-        display: flex;
-        align-items: center;
-        margin: 0 0 10px 0;
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
     }
-
-    .parent-post-meta {
-        display: flex;
-        flex-wrap: wrap;
-        opacity: 0.8;
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
     }
 </style>
 
-<span class="parent-post-meta">
-    <span id="post_meta_style_1">
-        <span class="fa fa-calendar-check-o"></span>
-        <span>2022-05-10
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    
-    
-    
-    
-    
-    
-    
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>4748字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>10分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>Muartz
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://Muatyz.github.io/tags/exp/" style="color: var(--secondary)!important;">Exp</a>
-            </span>
-        </span>
-    </span>
-</span>
-</footer>
-  </div> 
-  <a class="entry-link" aria-label="post link to 量子光学基础" href="https://Muatyz.github.io/posts/exp/quantum-photon/"></a>
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
 </article>
-
-<br />
-<br />
-
-<br />
 </main>
 
 <footer class="footer">
@@ -592,6 +593,76 @@ code.has-jax {
                 clipboardData.setData('text/html', htmlData);
                 clipboardData.setData('text/plain', textData);
             }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '📄复制';
+
+        function copyingDone() {
+            copybutton.innerText = '👌🏻已复制!';
+            setTimeout(() => {
+                copybutton.innerText = '📄复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
         }
     });
 </script>
