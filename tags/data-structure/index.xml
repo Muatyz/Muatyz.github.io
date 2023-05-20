@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>data structure on 计算物理资料库</title>
+    <link>https://Muatyz.github.io/tags/data-structure/</link>
+    <description>Recent content in data structure on 计算物理资料库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Muartz</copyright>
+    <lastBuildDate>Fri, 05 May 2023 12:20:21 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构经典代码</title>
+      <link>https://Muatyz.github.io/posts/cs/datastructure/template-code/</link>
+      <pubDate>Fri, 05 May 2023 12:20:21 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/cs/datastructure/template-code/</guid>
+      <description>序言 本文记录学习的经典数据结构的实现, 由于原严蔚敏的书中使用的代码为C with &amp;amp;, 因此在真正的实现上是需要依赖于 cpp 的, 因此本文在具体的实现上为了能够&amp;quot;真正使用&amp;quot;有一些细节上的改动. 在本文中的 ElemType 使用以下语句定义: #ifndef ElemType #define ElemType int #endif List Static Sequence List #define MaxSize 50 //数据类型为ElemType,</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Wed, 18 May 2022 00:18:15 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 May 2023 12:20:21 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🤝友链</title>
       <link>https://Muatyz.github.io/links/</link>
@@ -15,6 +15,24 @@
       
       <guid>https://Muatyz.github.io/links/</guid>
       <description>Sulv&amp;#39;s Blog 一个记录技术、阅读、生活的博客 有意栽花花满枝 心中有光、点亮生活 宣嘉乐 致远学者 👉友链格式 名称： Blog-Name 网址： https://www.blogurl 图标： https://www.blogurl/img/Title.png 描述： Description of the site 👉友链申请要求 秉承互换友链原则、文章定期更新、不能有太多广告、个人描述字数控制在15字内</description>
+    </item>
+    
+    <item>
+      <title>数据结构经典代码</title>
+      <link>https://Muatyz.github.io/posts/cs/datastructure/template-code/</link>
+      <pubDate>Fri, 05 May 2023 12:20:21 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/cs/datastructure/template-code/</guid>
+      <description>序言 本文记录学习的经典数据结构的实现, 由于原严蔚敏的书中使用的代码为C with &amp;amp;, 因此在真正的实现上是需要依赖于 cpp 的, 因此本文在具体的实现上为了能够&amp;quot;真正使用&amp;quot;有一些细节上的改动. 在本文中的 ElemType 使用以下语句定义: #ifndef ElemType #define ElemType int #endif List Static Sequence List #define MaxSize 50 //数据类型为ElemType,</description>
+    </item>
+    
+    <item>
+      <title>课设</title>
+      <link>https://Muatyz.github.io/posts/cs/intro-two-cs-project2/</link>
+      <pubDate>Fri, 05 May 2023 12:20:21 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/cs/intro-two-cs-project2/</guid>
+      <description>引航中断会导致港口运营效率较低, 因此对统计数据进行分析可以对引航作业点的移动提供风险评估和决策辅助</description>
     </item>
     
     <item>

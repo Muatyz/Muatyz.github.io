@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Wed, 11 May 2022 00:17:58 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 May 2023 12:20:21 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>课设</title>
+      <link>https://Muatyz.github.io/posts/cs/intro-two-cs-project2/</link>
+      <pubDate>Fri, 05 May 2023 12:20:21 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/cs/intro-two-cs-project2/</guid>
+      <description>引航中断会导致港口运营效率较低, 因此对统计数据进行分析可以对引航作业点的移动提供风险评估和决策辅助</description>
+    </item>
+    
     <item>
       <title>为Github添加LFS支持</title>
       <link>https://Muatyz.github.io/posts/cs/github-lfs/</link>
