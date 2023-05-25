@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh" dir="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -163,7 +163,7 @@ code.has-jax {
   ],
   "articleBody": "背景 使用 Vercel 为 Hugo 添加 ChatGPT 支持的时候, 你需要在自己的 Github 仓库中添加大量的 Next.JS 依赖库, 而这些依赖库中很有可能会有着大小超过 100Mb 的文件, 使用 Visual Studio 进行提交就会被返回拒绝结果.\nremote: Resolving deltas: 100% (2535/2535), done. remote: error: Trace: 6d0ed0592a6b86e73e465451399567df9dd5b6d3664a9c9a2d14b61efb135a5d remote: error: See https://gh.io/lfs for more information. remote: error: File node_modules/@next/swc-win32-x64-msvc/next-swc.win32-x64-msvc.node is 117.24 MB; this exceeds GitHub's file size limit of 100.00 MB remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com. To https://github.com/Muatyz/chatgpt-api.git ! [remote rejected] master -\u003e master (pre-receive hook declined) error: failed to push some refs to 'https://github.com/Muatyz/chatgpt-api.git' “ChatGPT的回答” 这个错误的意思是你尝试推送到GitHub仓库的一个分支上，但其中一个文件的大小超出了GitHub的文件大小限制，该文件是 node_modules/@next/swc-win32-x64-msvc/next-swc.win32-x64-msvc.node，它的大小为117.24MB，而GitHub的限制是100MB。\n由于这个限制，GitHub拒绝了推送，并给出了建议使用Git Large File Storage（LFS）的错误消息。 Git LFS是一个Git扩展程序，用于存储大文件，它会在本地仓库中存储文件的指针，并在需要时下载它们。\n如果您想继续推送这个分支，您需要使用Git LFS来存储该文件。\n所以我们需要为 Github 仓库添加 LFS 支持.\nLFS安装 介绍 LFS(Large File Storage)将超出大小限制的文件存储在了单独的地址, 并且返回一个指针存储在原仓库中, 这样就可以在不超出大小限制的情况下提交代码了.\n方法 我的博客代码主要使用的 Windows 系统编辑的, 所以下面也将主要介绍有关于在 Windows 系统下的安装方法.\n到 Git LFS 官网 下载安装包, 并安装.\n在你的本地仓库的根目录下启用终端, 并且执行\ngit lfs install 以完成 LFS 的初始化.\n根据终端所警告的路径, 使用\ngit lfs track \"path/to/file\" 来跟踪你的文件, 例如:\ngit lfs track \"node_modules/@next/swc-win32-x64-msvc/next-swc.win32-x64-msvc.node\" 以跟踪 node_modules/@next/swc-win32-x64-msvc/next-swc.win32-x64-msvc.node 这个文件.\n*在仓库界面设置 LFS 支持.\n在网页端进入你的仓库, “Settings” -\u003e “General” -\u003e “Archives”, 为 “Include Git LFS objects in archives” 勾选上.\n完成本地仓库的提交并且推送到远程仓库:\ngit add . git commit -m \"add LFS tracking for large file\" git push origin master 这样就能够在 LFS 支持下成功推送所有的代码文件.\ncreate mode 100644 node_modules/zod/package.json create mode 100644 package-lock.json create mode 100644 package.json Uploading LFS objects: 100% (1/1), 123 MB | 0 B/s, done. Enumerating objects: 7113, done. Counting objects: 100% (7113/7113), done. Delta compression using up to 20 threads Compressing objects: 100% (6878/6878), done. Writing objects: 100% (7112/7112), 12.01 MiB | 4.39 MiB/s, done.Total 7112 (delta 2532), reused 0 (delta 0), pack-reused 0 remote: Resolving deltas: 100% (2532/2532), done. To https://github.com/Muatyz/chatgpt-api.git 6254ba2..154978d master -\u003e master “注意” 当你在使用 LFS 对大文件进行标记时, 请先确保该文件从未被推送过(比如在我们的情境中, 是先被警告了文件超限然后再进行标记的, 这种情况下就是文件已经被推送过了), 所以我们需要先对原代码进行备份(该指令会对所有更改涉及的文件进行删除!), 然后使用\ngit fetch origin git reset --hard origin/master 来回退到改动前的文件夹.然后将备份的文件重新写入到该文件夹内, 再根据上面的步骤进行标记, 提交和推送. 这算不上是一种聪明的办法, 但是确实能够解决问题. 你也可以选择将大文件删除后再重新进行标记和提交.\n",
   "wordCount" : "1070",
-  "inLanguage": "en",
+  "inLanguage": "zh",
   "image":"https://git-lfs.com/images/graphic.gif","datePublished": "2022-05-11T00:17:58+08:00",
   "dateModified": "2022-05-11T00:17:58+08:00",
   "author":[{
@@ -410,7 +410,7 @@ code.has-jax {
     <div class="toc">
         <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">文章目录</span>
+            <span class="details">目录</span>
         </summary>
 
         <div class="inner"><ul>
@@ -796,12 +796,12 @@ code.has-jax {
         const container = codeblock.parentNode.parentNode;
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = '📄复制';
+        copybutton.innerText = '复制';
 
         function copyingDone() {
-            copybutton.innerText = '👌🏻已复制!';
+            copybutton.innerText = '已复制！';
             setTimeout(() => {
-                copybutton.innerText = '📄复制';
+                copybutton.innerText = '复制';
             }, 2000);
         }
 

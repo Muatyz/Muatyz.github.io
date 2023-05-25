@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh" dir="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -168,7 +168,7 @@ code.has-jax {
   ],
   "articleBody": " 本文内容来自 GitHub 的 Zihao Wang 所开发的开源项目 twisted_bilayer_graphene, 如有条件可进入链接为其 Star 以提供支持.\n在转角双层石墨烯的数值计算综述 中我们已经提到过有关紧束缚模型和低能连续模型(也有称之为低能有效模型, 如关济寰的石墨烯紧束缚模型到低能有效模型的推导). 而 Zihao Wang 的项目中也是基于 Moiré bands in twisted double-layer graphene 论文所提出的连续模型给出的, 所以对于目前正在焦虑于如何使用 ITensor 的密度矩阵重整化群方法来计算能带的本人来说, 是一个很好的用来借鉴与学习的对象.\n为了学习如何将物理图像化为代码进行计算, 这里我将源代码一步步拆解分别解说, 读者可以结合原项目中的 Jupyter Notebook 阅读体会.\n注意: 对源代码有轻微改动\n非魔角下的双层石墨烯 常量与参数 # 引入基础库 from numpy import * import matplotlib.pyplot as plt import numpy as np # 定义常数 theta = 5.00 # 旋转角, 度 omega = 110.7 # 跃迁参数, meV d = 1.420 # 层间距, 埃 hv = 1.5 * d * 2970 # 单层石墨烯的费米速度, meV * 埃 N = 5 # 截断范围 valley = -1 # 狄拉克点取点, +1 for K, -1 for K' KDens = 100 # K点密度 # 跃迁参数 theta = theta * np.pi / 180.0 # 弧度 I = complex(0,1) # 单位虚数 ei120 = np.cos(2*np.pi/3) + valley * I * np.sin(2*np.pi/3) # 120度的旋转虚数 ei240 = np.cos(4*np.pi/3) - valley * I * np.sin(4*np.pi/3) # 240度的旋转虚数 b1m = 8 * np.pi * np.sin(theta/2) / 3 / d * np.array([0.5, -np.sqrt(3)/2]) # 摩尔晶格倒格矢 b2m = 8 * np.pi * np.sin(theta/2) / 3 / d * np.array([0.5, np.sqrt(3)/2]) # 摩尔晶格倒格矢 qb = 8 * np.pi * np.sin(theta/2) / 3 / np.sqrt(3) / d * array([0, -1]) K1 = 8 * np.pi * np.sin(theta/2) / 3 / np.sqrt(3) / d * array([-np.sqrt(3)/2, -0.5]) # K点 K2 = 8 * np.pi * np.sin(theta/2) / 3 / np.sqrt(3) / d * array([-np.sqrt(3)/2, 0.5]) # K'点 跃迁矩阵 ## 采用最近邻跃迁假设 Tqb = omega * np.array([[1 , 1], [1 , 1 ]], dtype = complex) # T_{qb} Tqtr = omega * np.array([[ei120, 1], [ei240, ei120]], dtype = complex) # T_{qtr} Tqtl = omega * np.array([[ei240, 1], [ei120, ei240]], dtype = complex) # T_{qtl} ## 求跃迁矩阵的共轭转置(D == dagger) TqbD = np.array(np.matrix(Tqb).H) TqtrD = np.array(np.matrix(Tqtr).H) TqtlD = np.array(np.matrix(Tqtl).H) 晶格定义 # 定义晶格 L = [] invL = np.zeros((2 * N + 1, 2 * N + 1), int) # 晶格坐标索引 # 生成晶格网络, 将格点的坐标保存在L列表中 def Lattice(n): count = 0 for i in np.arange(-n, n + 1): for j in np.arange(-n, n + 1): L.append([i, j]) invL[i+n, j+n] = count # 坐标为(i, j)的格点对应的索引count保存于invL[i + n, j + n]中 count = count + 1 for i in np.arange(-n, n + 1): for j in np.arange(-n, n + 1): L.append([i, j]) Lattice(N) # 生成晶格网络 siteN = (2 * N + 1)**2 # 晶格格点总数 L = np.array(L) # 转换为numpy数组 哈密顿量函数构造 def Hamiltonian(kx, ky): H = array(zeros((4 * siteN, 4 * siteN)), dtype=complex) for i in np.arange(siteN): #diagonal term ix = L[i, 0] iy = L[i, 1] ax = kx - valley * K1[0] + ix * b1m[0] + iy * b2m[0] ay = ky - valley * K1[1] + ix * b1m[1] + iy * b2m[1] qx = np.cos(theta/2) * ax + np.sin(theta/2) * ay qy =-np.sin(theta/2) * ax + np.cos(theta/2) * ay H[2 *i, 2 *i +1] = hv * (valley *qx - I *qy) H[2 *i +1, 2 *i] = hv * (valley *qx + I *qy) #off-diagonal term j = i + siteN H[2*j, 2*i] = TqbD[0, 0] H[2*j, 2*i+1] = TqbD[0, 1] H[2*j+1, 2*i] = TqbD[1, 0] H[2*j+1, 2*i+1] = TqbD[1, 1] if (iy != valley*N): j = invL[ix+N, iy+valley*1+N] + siteN H[2*j, 2*i] = TqtrD[0, 0] H[2*j, 2*i+1] = TqtrD[0, 1] H[2*j+1, 2*i] = TqtrD[1, 0] H[2*j+1, 2*i+1] = TqtrD[1, 1] if (ix != -valley*N): j = invL[ix-valley*1+N, iy+N] + siteN H[2*j, 2*i] = TqtlD[0, 0] H[2*j, 2*i+1] = TqtlD[0, 1] H[2*j+1, 2*i] = TqtlD[1, 0] H[2*j+1, 2*i+1] = TqtlD[1, 1] for i in np.arange(siteN, 2*siteN): #diagnoal term j = i - siteN ix = L[j, 0] iy = L[j, 1] ax = kx - valley*K2[0] + ix*b1m[0] + iy*b2m[0] ay = ky - valley*K2[1] + ix*b1m[1] + iy*b2m[1] qx = cos(theta/2) * ax - sin(theta/2) * ay qy = sin(theta/2) * ax + cos(theta/2) * ay H[2*i, 2*i+1] = hv * (valley*qx - I*qy) H[2*i+1, 2*i] = hv * (valley*qx + I*qy) #off-diagonal term H[2*j, 2*i] = Tqb[0, 0] H[2*j, 2*i+1] = Tqb[0, 1] H[2*j+1, 2*i] = Tqb[1, 0] H[2*j+1, 2*i+1] = Tqb[1, 1] if (iy != (-valley*N)): j = invL[ix+N, iy-valley*1+N] H[2*j, 2*i] = Tqtr[0, 0] H[2*j, 2*i+1] = Tqtr[0, 1] H[2*j+1, 2*i] = Tqtr[1, 0] H[2*j+1, 2*i+1] = Tqtr[1, 1] if (ix != valley*N): j = invL[ix+valley*1+N, iy+N] H[2*j, 2*i] = Tqtl[0, 0] H[2*j, 2*i+1] = Tqtl[0, 1] H[2*j+1, 2*i] = Tqtl[1, 0] H[2*j+1, 2*i+1] = Tqtl[1, 1] eigenvalue,featurevector=np.linalg.eig(H) eig_vals_sorted = np.sort(eigenvalue) # eig_vecs_sorted = featurevector[:,eigenvalue.argsort()] e=eig_vals_sorted return e ",
   "wordCount" : "1162",
-  "inLanguage": "en",
+  "inLanguage": "zh",
   "datePublished": "2022-05-08T00:18:23+08:00",
   "dateModified": "2022-05-08T00:18:23+08:00",
   "author":[{
@@ -413,7 +413,7 @@ code.has-jax {
     <div class="toc">
         <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">文章目录</span>
+            <span class="details">目录</span>
         </summary>
 
         <div class="inner"><ul>
@@ -640,10 +640,10 @@ code.has-jax {
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://Muatyz.github.io/posts/exp/quantum-photon/">
+  <a class="prev" href="https://Muatyz.github.io/posts/exp/muon-lifetime/">
     <span class="title">« 上一页</span>
     <br>
-    <span>量子光学基础</span>
+    <span>使用塑料闪烁体测量介子的寿命</span>
   </a>
   <a class="next" href="https://Muatyz.github.io/posts/phy/cmp/sec-quantization/">
     <span class="title">下一页 »</span>
@@ -819,12 +819,12 @@ code.has-jax {
         const container = codeblock.parentNode.parentNode;
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = '📄复制';
+        copybutton.innerText = '复制';
 
         function copyingDone() {
-            copybutton.innerText = '👌🏻已复制!';
+            copybutton.innerText = '已复制！';
             setTimeout(() => {
-                copybutton.innerText = '📄复制';
+                copybutton.innerText = '复制';
             }, 2000);
         }
 

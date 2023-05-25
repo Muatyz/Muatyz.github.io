@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh" dir="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -161,7 +161,7 @@ code.has-jax {
   ],
   "articleBody": "get commit 在当前分支创建一个提交记录\n分支 创建新分支\ngit branch 创建分支后直接使用\ngit commit 并不会在新分支产生提交记录, 这是因为没有切换到新分支.\ngit 工具会使用*来提示你目前所在的分支.\ngit checkout 切换到名为 branch-name 的分支, 这个时候提交就可以在该分支下产生新提交记录了.\n把这两个功能整合起来的命令:\ngit checkout -b 合并 对于同一父节点有着不同的分支, 这两个分支表示各有一个独立提交.\n把branch-name 合并到 main 里:\ngit merge 这会产生一个新节点 C4, 其父节点为 main 和 branch-name 的最新提交记录所表示的结点(C2和C3).\n在此基础上再将 main 合并到 branch-name, 因为此时 main 继承自 branch-name, 所以只会把 branch-name 代表的指针移动到最后产生的结点(C4)\nRebase 这是另一种合并分支的方法, 就是去除一系列的提交记录, 将其在另一个地方逐一执行. 这可以让代码库的提交历史变得更清晰.\n假设 main 和 bugFix 的分支自结点C1, 各自的最新提交记录结点为 C2 和 C3, 目前所在分支是 bugFix.\nC2 和 C3的工作可以是并行的.\n现在使用 rebase 命令实现合并, 这会使得两个分支的功能像是顺序实现的.\ngit rebase main 这会产生一个新结点C3', 其父节点为 C2, main 停留在 C2, bugFix 停留在 C3', 目前所在分支仍然为 bugFix.\n现在我们需要使 main 得到更新:\ngit checkout main;git merge bugFix; 因为 bugFix 继承自 main, 所以git 要做到以上指令, 只需要将 main 指针移动到 C3' 即可.\n目前所在分支为 main.\n分离 如何在提交树上移动?\nHead 是一个对当前分支的符号引用, 它用来指代当前分支的最新提交记录. 这也意味着 Head 会随着你的提交而更新.\n现在我们要让 HEAD 指向 具体的提交记录而并非分支名.\n假设这样一个状态:main*指针指向最新提交记录C1, HEAD 指向 main.\n即\nHEAD -\u003e main -\u003e C1\n我们执行命令:\ngit checkout C1 这样就变成了\nHEAD -\u003e C1\n当然在具体的操作实践中, 结点的记录不会像 C1 这样简单, 而是一个更复杂的哈希值(可以长达40位!).\n相对引用 Git 对于哈希值的处理有一定的智能, 它允许你可以只使用哈希值的前几个字符来指代对应的提交记录, 而无需将哈希值完整写出.\n你可以通过\ngit log 来查看提交记录的哈希值.\n如果是通过相对引用, 就可以不用使用哈希值.\n两种常见的移动方法:\n使用^向上移动一个提交记录\n具体用法是将^加在引用名称的后面, 比如\ngit checkout main^ 将 HEAD 切换到 main 的父节点.\nHEAD 本身也可以作为引用名称的对象.\n使用~向上移动 num 个提交记录\ngit checkout HEAD~4 这将使得 HEAD 指针移到 HEAD 的第四个父节点.\n使用 -f 来让分支指向另一个提交.(-f 代表强制)\ngit branch -f main HEAD~3 这会将 main 分支强制指向 HEAD 的第3级父提交.\n撤销变更 有两种实现方法:\ngit reset\n这会使得提交记录回溯, 原来指向的提交记录会被代码库忽略.\n但是原提交记录所作出变更还在, 只是没有加入暂存区.\n这个只适用于本地代码库, 对于远程分支是无效的.\ngit revert C2\n为了将撤销更改分享给别人, 需要用到这个指令.\n这会产生一个新的提交记录结点C2’, 这个更改是用来撤销C2的. 即 C2’ 状态也就是 C1.\n注意辨别两个指令在使用的时候所使用的坐标是谁.\n整理提交记录 现在我们需要处理更复杂的工作流了.\ngit cherry-pick 假设 C2 和 C5 分支自共有父节点 C1, 而C2后的提交记录分别是C3, C4.\n现在main指针指向 C5, side 指针指向 C4. 且当前所在分支为main.(git 工具会提示你main*)\n我们执行\ngit cherry-pick C2 C4 这会使得 C5 后依次出现新提交记录 C2' 和 C4', 并且 main* 指向C4'.\n交互式 rebase 在我们并不清楚提交记录的哈希值的时候, git 提供了一个方法.\n--interactive 或者 -i, 这会使 Git 打开一个 UI 界面并列出提交记录的哈希值和提交说明.\n在实际操作中, 这个 UI 窗口可能仅仅只是一个文本编辑器中的界面. VS Code 中的代码管理会比这个更人性化一些.\n具体来说里面有若干个提交记录, 通过鼠标点击拖动来调整或者忽略这些结点顺序.\n只取一个提交记录 为了调试而在代码中添加了一些调试命令, 这部分代码在正式的 使用中显然是不会用到的.\n实际上我们只需要’刚好能解决问题并且没有任何调试代码’的那一个提交记录就可以了.\n我们可以借助之前所学的命令来达成这一目的.\ngit rebase -i\ngit cherry-pick\ngit checkout main; git cherry-pick bugFix; 或者\ngit rebase -i main bugFix; git branch -f main HEAD 提交的技巧 假设在 newImage 分支进行了一次提交, 又在这个提交基础上创建了 caption 分支, 然后又在 caption 分支上进行了一次提交.\n现在如果要对 newImage 中的提交进行修改, 就需要进行一些修改和排序.\n",
   "wordCount" : "1664",
-  "inLanguage": "en",
+  "inLanguage": "zh",
   "datePublished": "2022-05-05T00:17:58+08:00",
   "dateModified": "2022-05-05T00:17:58+08:00",
   "author":[{
@@ -405,7 +405,7 @@ code.has-jax {
     <div class="toc">
         <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">文章目录</span>
+            <span class="details">目录</span>
         </summary>
 
         <div class="inner"><ul>
@@ -816,12 +816,12 @@ code.has-jax {
         const container = codeblock.parentNode.parentNode;
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = '📄复制';
+        copybutton.innerText = '复制';
 
         function copyingDone() {
-            copybutton.innerText = '👌🏻已复制!';
+            copybutton.innerText = '已复制！';
             setTimeout(() => {
-                copybutton.innerText = '📄复制';
+                copybutton.innerText = '复制';
             }, 2000);
         }
 

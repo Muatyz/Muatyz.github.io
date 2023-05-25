@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh" dir="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -168,7 +168,7 @@ code.has-jax {
   ],
   "articleBody": "在某文件夹下创建ITensor文件夹。在该文件夹内执行\ngit clone https://github.com/ITensor/ITensor itensor 得到以itensor命名的编译源文件。这个文件夹名字可以自己改。\n前置：安装lapack和blas依赖库. sudo apt-get update sudo apt-get install libblas-dev liblapack-dev 检验是否正确安装:\ndpkg -L libblas-dev dpkg -L liblapack-dev 若能弹出对应路径说明安装成功。在这里留心安装的具体路径, 之后设置BLAS_LAPACK_LIBFLAGS可能会用到\n在终端执行\ncd itensor 进入下载的库文件所在的文件夹.\ncp options.mk.sample options.mk 将示例mk文件另存为mk文件.并且执行\nsudo nano options.mk 以nano编辑器打开配置文件。配置文件里默认的平台是MacOS，我们用的是WSL2,所以将\nPLATFORM=macos BLAS_LAPACK_LIBFLAGS=-framework Accelerate 这两行注释掉，而将下面的\n#PLATFORM=lapack #BLAS_LAPACK_LIBFLAGS=-lpthread -L/usr/lib -lblas -llapack 取消注释。注意看自己的BLAS_LAPACK_LIBFLAGS是否需要修改.比如我的就应该是-L/usr/lib/x86_64-linux-gnu.ctrl+O，ENTER保存。ctrl+X退出。\n依然是在itensor目录下，在bash终端执行\nmake 等待终端执行完成。\n为了能够在ITensor源文件所在文件夹以外的路径使用Itensor, 应该遵循以下步骤。\n将itensor/tutorial/project_template下的所有文件(Makefile,myappname.cc,myclass.h,当然说明书README.md无关紧要)复制粘贴到含有main函数代码的cpp文件所在的文件夹中;\n修改LIBRARY_DIR.这个路径和options.mk所在的文件夹的路径是相同的.(如果有/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor/options.mk,那么就将\nLIBRARY_DIR=$(HOME)/itensor 改写为\nLIBRARY_DIR=/mnt/e/wsl/ubuntu2204/cpp/itensorCalculation/ITensor/itensor 即可;\n修改APPNAME.这个是你的程序的名字.我给自己的程序源文件主程序起名为ctnmodel.cc, 所以 APP=myappname 改为\nAPP=ctnmodel 增加依赖库.模板里的myclass.h是用来测试的,在实际过程中可以替换为自己的头文件;\n编译的源文件名字,只要完成了APP的修改就无需改动.\n然后在bash终端执行\nmake 编译出执行文件.\n注意\n示例的Makefile并没有添加可执行权限，如果你想在bash终端中进行执行，那么你可以\nchmod +x ctnmodel (ctnmodel换成你自己程序的名字)\n或者直接在你的Makefile里面找到build和debug的行， 然后分别添加\nchmod +x $(APP) 和\nchmod +x $(APP)-g 最后形成这样的表达：\nbuild: $(APP) #这一行是为了添加可执行权限，如果你不需要，可以将其注释掉 chmod +x $(APP) debug: $(APP)-g #同上 chmod +x $(APP)-g 你可以通过在终端执行\n./ctnmodel (ctnmodel换成你的程序的名字)来完成程序的执行.这些模板都是由Makefile来进行管理的,所以对于vscode的编译执行功能没有得到充分发挥.\n待续:vscode的配置.\n",
   "wordCount" : "1115",
-  "inLanguage": "en",
+  "inLanguage": "zh",
   "datePublished": "2022-05-05T00:18:23+08:00",
   "dateModified": "2022-05-05T00:18:23+08:00",
   "author":[{
@@ -413,7 +413,7 @@ code.has-jax {
     <div class="toc">
         <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">文章目录</span>
+            <span class="details">目录</span>
         </summary>
 
         <div class="inner"><ul>
@@ -831,12 +831,12 @@ code.has-jax {
         const container = codeblock.parentNode.parentNode;
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = '📄复制';
+        copybutton.innerText = '复制';
 
         function copyingDone() {
-            copybutton.innerText = '👌🏻已复制!';
+            copybutton.innerText = '已复制！';
             setTimeout(() => {
-                copybutton.innerText = '📄复制';
+                copybutton.innerText = '复制';
             }, 2000);
         }
 

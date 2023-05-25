@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh" dir="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -168,7 +168,7 @@ code.has-jax {
   ],
   "articleBody": "全同性和对称性 对于多粒子体系, 我们可以将单单变量波函数扩展为 $N$ 变量波函数, 该波函数可以通过乘上某系数进行归一化.\n某系统中具有两个电子, 可以被看作是两个独立波函数 $\\psi_{1}(x_{1})$ 和 $\\psi_{2}(x_{2})$, 则 $\\psi(x_{1},x_{2})=\\psi_{1}(x_{1})\\psi_{2}(x_{2})$. 用狄拉克标记即为 $|\\psi_{1}\\rangle|\\psi_{2}\\rangle$. 其坐标表象可以通过 $$ (\\langle x_{1}|\\langle x_{2}|)(|\\psi_{1}\\rangle|\\psi_{2}\\rangle) = \\langle x_{1}|\\psi_{1}\\rangle\\langle x_{2}|\\psi_{2}\\rangle = \\psi_{1}(x_{1})\\psi_{2}(x_{2}) $$ 导出.\n对于全同性粒子, 有一个重要的概念是全同性.\n我们使用系数 $\\zeta$ 来描述交换对称性和交换反对称性.\n$\\zeta = +1$, 即服从玻色统计, 交换对称. 自旋为整数, 因为可以多个全同粒子同时处于同一个量子态, 所以在低温可以出现凝聚现象.常见的玻色子: 光子.\n$\\zeta = -1$, 即服从费米统计, 交换反对称, 自旋为半整数. 满足泡利不相容原理, 即费米子不会出现在同一量子态中. 常见的费米子: 电子, 中子, 质子.\n物质粒子都是费米子, 传递力作用的粒子都是玻色子.\n我们对一个含两个费米子的系统进行描述, 分别处于 $\\psi_{1}(\\vec{r})$ 和 $\\psi_2(\\vec{r})$, 进行反对称化构造:\n$$ \\Psi(\\vec{r_{1}},\\vec{r_{2}}) = \\frac{1}{\\sqrt{2}}(\\psi_{1}(\\vec{r_1})\\psi_{2}(\\vec{r_2})-\\psi_{2}(\\vec{r_{1}})\\psi_{1}(\\vec{r_{2}}))=\\frac{1}{\\sqrt{2}} \\left| \\begin{array}{cccc} \\psi_{1}(\\vec{r_{1}}) \u0026 \\psi_{1}(\\vec{r_{2}}) \\\\ \\psi_{2}(\\vec{r_{1}}) \u0026 \\psi_{2}(\\vec{r_{2}}) \\\\ \\end{array} \\right| $$\n可以观察到, 如果交换 $\\vec{r_{1}}$ 和 $\\vec{r_{2}}$, 波函数就会反号, 这符合费米子的定义.\n如果数量继续增加, 比如三个:\n$$ \\Psi(\\vec{r_{1}},\\vec{r_{2}},\\vec{r_{3}})=\\frac{1}{\\sqrt{3!}} \\left| \\begin{array}{cccc} \\psi_{1}(\\vec{r_{1}})\u0026\\psi_{1}(\\vec{r_{2}})\u0026\\psi_{1}(\\vec{r_{3}})\\\\ \\psi_{2}(\\vec{r_{1}})\u0026\\psi_{2}(\\vec{r_{2}})\u0026\\psi_{2}(\\vec{r_{3}})\\\\ \\psi_{3}(\\vec{r_{1}})\u0026\\psi_{3}(\\vec{r_{2}})\u0026\\psi_{3}(\\vec{r_{3}})\\\\ \\end{array} \\right| $$\n从而归纳得到 $N$ 个全同费米子的波函数为:\n$$ \\Psi(\\vec{r_{1}},\\vec{r_{2}},…,\\vec{r_{N}}) = \\frac{1}{\\sqrt{N!}} \\left| \\begin{array}{cccc} \\psi_{1}(\\vec{r_{1}}) \u0026 \\psi_{1}(\\vec{r_{2}}) \u0026 \\cdots \u0026 \\psi_{1}(\\vec{r_{N}}) \\\\ \\psi_{2}(\\vec{r_{1}}) \u0026 \\psi_{2}(\\vec{r_{2}}) \u0026 \\cdots \u0026 \\psi_{2}(\\vec{r_{N}}) \\\\ \\vdots \u0026 \\vdots \u0026 \\ddots \u0026 \\vdots \\\\ \\psi_{N}(\\vec{r_{1}}) \u0026 \\psi_{N}(\\vec{r_{2}}) \u0026 \\cdots \u0026 \\psi_{N}(\\vec{r_{N}}) \\\\ \\end{array} \\right|. $$\n用统计观点来看待 $\\frac{1}{\\sqrt{N!}}$ 系数的产生\n任意两个费米子的坐标 $\\vec{r_{i}}$ 和 $\\vec{r_{j}}$ 都是不同的, 且交换后波函数反号. 那么这就是一个排列数问题, 即对于 $N$ 个费米子, 存在着 $A_{N}^{N} = N!$ 中排列方式.\n又因为我们要求波函数具有归一性, 即波函数做内积为$1$, 而每一个独立的 $\\Pi_{i}\\psi_{i}$ 其内积为 $1$, 而这样的 $\\Pi_{i}\\psi_{i}$ 一共有 $N!$ 个, 所以我们需要除以 $N!$ 使得波函数具有归一性. $N!$ 几何平均到波函数上, 就得到了 $\\frac{1}{\\sqrt{N!}}$ 系数.\n由此我们得到了全同费米子的波函数.\n而对于玻色子, 情况就要简单得多, 因为交换时不产生负号. 那么我们可以用最简单的方式写出系统的波函数:\n$$ \\Psi(\\vec{r_{1}},\\vec{r_{2}},…,\\vec{r_{N}}) = \\frac{1}{\\sqrt{N!}}\\sum_{P}\\prod_{i}\\psi_{P_{i}}(\\vec{r_{i}}) $$\n$P$ 指 $N$ 个粒子所有可能的置换\n我们前面提到过可以用 $\\zeta$ 来描述交换对称性和交换反对称性, 那么我们可以将同一的式子来描述多粒子体系:\n$$ \\Psi(\\vec{r_{1}},\\vec{r_{2}},…,\\vec{r_{N}}) = \\frac{1}{\\sqrt{N!}}\\sum_{P}\\zeta^{P}\\prod_{i}\\psi_{P_{i}}(\\vec{r_{i}}) $$\n由此我们得出了多体波函数的斯莱特行列式(Slater Determinant)形式.\n粒子数表象\u0026Fock Space 即使只是抄写多体波函数的表达式, 也会让人丧失计算的欲望. 更简洁的方法是使用占据数, 或者被称为粒子数表象的方法.\n我们无需知道哪个粒子在哪一个具体的态上, 只需要知道每一个态上有多少个粒子就可以了. 比如我们写作\n$$ |n_{1},n_{2},…,n_{i},…n_{N}\\rangle, (\\sum_{i}n_{i}=N) $$\n就是表达第一个态上有 $n_{1}$ 个粒子, 第二个态上有 $n_{2}$ 个粒子, 以此类推. 这样的表述同样能够构造出多粒子波函数.\n粒子观点和场观点\n这一段内容来自于知乎答主 Kyle Zhang 在二次量子化算是量子场论吗?中的回答.其中的内容通俗有趣.\n“明天有冷空气过境\"就不叫场观点, 这叫粒子观点, 因为它描述了一团粒子在时空背景上的运动.(Lagrangian Description)\n但对于同一件事情, 天气预报员若换一种说法:“明天本地的温度将会降低”.\n这就叫场观点, 因为它描述了温度在某一固定点上的值, 把各个点上的温度汇总起来就形成了一个\"温度场”.(Eulerian Description)\nLagrangian 描述就像随波逐流的小船, 描述一个具有内禀性质的实体的运动:苹果从树上落到了牛顿的头上; Eulerian 描述就像抛了锚的小船, 描述在一个固定点某个性质的变化: 树上湮灭了一个苹果, 牛顿的头上产生了一个苹果.\n",
   "wordCount" : "1332",
-  "inLanguage": "en",
+  "inLanguage": "zh",
   "datePublished": "2022-05-08T00:18:23+08:00",
   "dateModified": "2022-05-08T00:18:23+08:00",
   "author":[{
@@ -413,7 +413,7 @@ code.has-jax {
     <div class="toc">
         <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">文章目录</span>
+            <span class="details">目录</span>
         </summary>
 
         <div class="inner"><ul>
@@ -762,12 +762,12 @@ $$</p>
         const container = codeblock.parentNode.parentNode;
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = '📄复制';
+        copybutton.innerText = '复制';
 
         function copyingDone() {
-            copybutton.innerText = '👌🏻已复制!';
+            copybutton.innerText = '已复制！';
             setTimeout(() => {
-                copybutton.innerText = '📄复制';
+                copybutton.innerText = '复制';
             }, 2000);
         }
 
