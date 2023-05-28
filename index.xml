@@ -144,6 +144,15 @@
     </item>
     
     <item>
+      <title>多体: 密度泛函理论</title>
+      <link>https://Muatyz.github.io/posts/phy/cmp/density-generalized-function-theory/</link>
+      <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/cmp/density-generalized-function-theory/</guid>
+      <description>多电子体系和密度泛函理论</description>
+    </item>
+    
+    <item>
       <title>发源于重整化(Renormalization)的MERA算法</title>
       <link>https://Muatyz.github.io/posts/phy/cmp/mera-method/</link>
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
@@ -240,15 +249,6 @@
       
       <guid>https://Muatyz.github.io/posts/cs/github-mannual/</guid>
       <description>使用Visual Studio进行git管理非常方便, 但是不清楚其背后的提交, 合并等原理是不可行的.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/density-generalized-function-theory/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/phy/cmp/density-generalized-function-theory/</guid>
-      <description>--- title: &amp;ldquo;多体: 密度泛函理论&amp;rdquo; date: 2022-05-05T00:18:23+08:00 lastmod: 2022-05-05T00:18:23+08:00 author: [&amp;ldquo;Muartz&amp;rdquo;] keywords: categories: physics tags: physics numerical calculation description: &amp;ldquo;多电子体系和密度泛函理论&amp;rdquo; weight: slug: &amp;quot;&amp;quot; draft: false # 是否为草稿 comments: true reward: false # 打赏 mermaid: true #是否开启mermaid showToc: true # 显示目录 TocOpen: true # 自动展开目录 hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等 disableShare: true # 底</description>
     </item>
     
     
