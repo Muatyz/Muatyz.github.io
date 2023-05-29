@@ -159,8 +159,8 @@ code.has-jax {
   "keywords": [
     ""
   ],
-  "articleBody": "标记以下心仪的 fumo 的再贩时间.\n名词解释\n受注生产\n“受注生产” 是指根据顾客的订单进行生产也就是说, Gift 社并不会提前生产一定数量的商品，而是根据订单量进行生产。这种销售方式可以确保商品的品质和数量，同时也可以避免因为生产过剩而导致的库存积压问题。\n通贩\n指通过网络等渠道进行销售的方式。顾客可以在Gift社的官方网站或其他合作伙伴的网站上进行购买，商品会通过快递等方式直接送达顾客手中。这种销售方式方便快捷，可以让顾客在家中就能轻松购买到心仪的商品。\n角色-型号 可能的再贩时间 *芙兰朵露 -20 cm 2023年8月 *蕾米莉亚 -20 cm 2023年8月 *十六夜咲夜 -20 cm 2023年8月 ",
-  "wordCount" : "285",
+  "articleBody": "标记以下心仪的 fumo 的再贩时间.\n名词解释\n受注生产\n“受注生产” 是指根据顾客的订单进行生产也就是说, Gift 社并不会提前生产一定数量的商品，而是根据订单量进行生产。这种销售方式可以确保商品的品质和数量，同时也可以避免因为生产过剩而导致的库存积压问题。\n通贩\n指通过网络等渠道进行销售的方式。顾客可以在Gift社的官方网站或其他合作伙伴的网站上进行购买，商品会通过快递等方式直接送达顾客手中。这种销售方式方便快捷，可以让顾客在家中就能轻松购买到心仪的商品。\n角色-型号 可能的再贩时间 *芙兰朵露 -20 cm 2023年8月 *蕾米莉亚 -20 cm 2023年8月 *十六夜咲夜 -20 cm 2023年8月 红美铃(v1.5) 时间线:\n2023.05.22 下订单, 选择支付方式为 PayPal; 2023.05.23 收到 AmiAmi 的请款邮件. 由于支付失败, 修改订单支付方式为银联; 2023.05.23 修改订单支付方式失败, 被系统自动改回 PayPal; 2023.05.23 完成 Paypal 支付, 收到支付确认邮件; 2023.05.29 向 AmiAmi 发送发货咨询邮件, 随后收到回复以及当天的发货邮件; ",
+  "wordCount" : "404",
   "inLanguage": "zh",
   "datePublished": "2022-05-05T00:18:15+08:00",
   "dateModified": "2022-05-05T00:18:15+08:00",
@@ -325,7 +325,7 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>285字
+        <span>404字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -398,7 +398,80 @@ code.has-jax {
                 </span>
 
 </div>
-        </header> 
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%ba%a2%e7%be%8e%e9%93%83v15" aria-label="红美铃(v1.5)">红美铃(v1.5)</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
         <div class="post-content"><p>标记以下心仪的 fumo 的再贩时间.</p>
 <!-- 注意:使用`*`标记的是指并不是预购而是根据库存可能会再次开放购物车, 所以可能未必有货. -->
 <p>名词解释</p>
@@ -432,6 +505,15 @@ code.has-jax {
 </tr>
 </tbody>
 </table>
+<h1 id="红美铃v15">红美铃(v1.5)<a hidden class="anchor" aria-hidden="true" href="#红美铃v15">#</a></h1>
+<p>时间线:</p>
+<ul>
+<li>2023.05.22 下订单, 选择支付方式为 PayPal;</li>
+<li>2023.05.23 收到 AmiAmi 的请款邮件. 由于支付失败, 修改订单支付方式为银联;</li>
+<li>2023.05.23 修改订单支付方式失败, 被系统自动改回 PayPal;</li>
+<li>2023.05.23 完成 Paypal 支付, 收到支付确认邮件;</li>
+<li>2023.05.29 向 AmiAmi 发送发货咨询邮件, 随后收到回复以及当天的发货邮件;</li>
+</ul>
 
 
         </div>

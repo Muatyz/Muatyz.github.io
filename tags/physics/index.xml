@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Sun, 08 May 2022 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>半导体基础</title>
+      <link>https://Muatyz.github.io/posts/phy/cmp/semi-conductor/</link>
+      <pubDate>Mon, 29 May 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/cmp/semi-conductor/</guid>
+      <description>区别于金属和半金属的存在, 重点关注其价带和导带.</description>
+    </item>
+    
     <item>
       <title>Python计算转角石墨烯能带</title>
       <link>https://Muatyz.github.io/posts/phy/cmp/tbg-moireband-python/</link>
