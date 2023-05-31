@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>强关联模型的基石: Hubbard Model | 计算物理资料库</title>
+<title>布洛赫电子动力学 | 计算物理资料库</title>
 <meta name="keywords" content="">
-<meta name="description" content="Hubbard Model 是固体物理的入门知识, 基于能带理论进行推广.">
+<meta name="description" content="从动力学方程出发研究布洛赫电子的性质">
 <meta name="author" content="Muartz">
-<link rel="canonical" href="https://Muatyz.github.io/posts/phy/cmp/hubbard-model/">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/cmp/dynamic-of-bloch-electrons/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
@@ -109,16 +109,16 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta property="og:title" content="强关联模型的基石: Hubbard Model" />
-<meta property="og:description" content="Hubbard Model 是固体物理的入门知识, 基于能带理论进行推广." />
+<meta property="og:title" content="布洛赫电子动力学" />
+<meta property="og:description" content="从动力学方程出发研究布洛赫电子的性质" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Muatyz.github.io/posts/phy/cmp/hubbard-model/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-05-05T00:18:23+08:00" />
-<meta property="article:modified_time" content="2022-05-05T00:18:23+08:00" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/cmp/dynamic-of-bloch-electrons/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-31T00:18:23+08:00" />
+<meta property="article:modified_time" content="2023-05-31T00:18:23+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="强关联模型的基石: Hubbard Model"/>
-<meta name="twitter:description" content="Hubbard Model 是固体物理的入门知识, 基于能带理论进行推广."/>
+<meta name="twitter:title" content="布洛赫电子动力学"/>
+<meta name="twitter:description" content="从动力学方程出发研究布洛赫电子的性质"/>
 
 
 <script type="application/ld+json">
@@ -150,8 +150,8 @@ code.has-jax {
     {
       "@type": "ListItem",
       "position":  4 ,
-      "name": "强关联模型的基石: Hubbard Model",
-      "item": "https://Muatyz.github.io/posts/phy/cmp/hubbard-model/"
+      "name": "布洛赫电子动力学",
+      "item": "https://Muatyz.github.io/posts/phy/cmp/dynamic-of-bloch-electrons/"
     }
   ]
 }
@@ -160,24 +160,24 @@ code.has-jax {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "强关联模型的基石: Hubbard Model",
-  "name": "强关联模型的基石: Hubbard Model",
-  "description": "Hubbard Model 是固体物理的入门知识, 基于能带理论进行推广.",
+  "headline": "布洛赫电子动力学",
+  "name": "布洛赫电子动力学",
+  "description": "从动力学方程出发研究布洛赫电子的性质",
   "keywords": [
     ""
   ],
-  "articleBody": "本文用作 ITensor 数值求解 Hubbard Model 的前置理论知识.\n背景 因为离子质量远大于电子, 所以可以假定离子构成静态的晶格, 所以我们可以写出哈密顿量:\n$$ H = \\sum_{i = 1}^{N}\\left(\\frac{|\\vec{p_{i}}|^{2}}{2m} + V_{I}(\\vec{x_{i}})\\right)+\\sum_{1\\leq i",
-  "wordCount" : "1420",
+  "articleBody": "一般的洛伦兹力方程: $$ \\hbar\\frac{\\mathrm{d}\\vec{k}}{\\mathrm{d}t} = - e\\vec{v}\\times\\vec{B} $$\n$\\frac{\\mathrm{d}\\vec{k}}{\\mathrm{d}t}$ 显然会始终垂直于 $\\vec{v}$ 和 $\\vec{B}$.\n因此沿着 $\\vec{B}$ 方向的波矢将会保持不变.\n能带电子的群速度:\n$$ \\vec{v} = \\frac{1}{\\hbar}\\nabla_{k}E(\\vec{k}) $$\n所以根据上面的推测, $\\frac{\\mathrm{d}\\vec{k}}{\\mathrm{d}t}$ 将会垂直于 $\\nabla_{k}E(\\vec{k})$\n在均匀外磁场下, 实空间和动量空间中电子都做回旋运动.\n实空间和动量空间回旋运动的关系 $$ \\begin{aligned} \u0026 \\hbar\\frac{\\mathrm{d}\\vec{k}}{\\mathrm{d}t} = -e\\frac{\\mathrm{d}\\vec{r}}{\\mathrm{d}t}\\times\\vec{B}\\\\ \u0026 \\hbar\\hat{B}\\times\\frac{\\mathrm{d}\\vec{k}}{\\mathrm{d}t} = -e\\hat{B}\\times(\\frac{\\mathrm{d}\\vec{r}}{\\mathrm{d}t}\\times B\\hat{B})\\\\ \u0026=-eB\\left[\\frac{\\mathrm{d}\\vec{r}}{\\mathrm{d}t}-\\left(\\hat{B}\\cdot\\frac{\\mathrm{d}\\vec{r}}{\\mathrm{d}t}\\right)\\hat{B}\\right]\\\\ \u0026 \\Rightarrow \\hat{B}\\times\\frac{\\mathrm{d}\\vec{k}}{\\mathrm{d}t} = -\\frac{eB}{\\hbar}\\frac{\\mathrm{d}\\vec{r}_{\\perp}}{\\mathrm{d}t} \\end{aligned} $$ 即有实空间和倒空间运动方向呈现垂直关系. k 空间中的电子回旋频率 不妨以自由电子近似下的球形等能面为例, 且取 $k_{z} = 0$.\n即有回旋运动周期\n$$ T = \\frac{\\oint\\mathrm{d}k}{|\\mathrm{d}\\vec{k}/\\mathrm{d}t|}\\\\ = \\frac{2\\pi K}{\\frac{1}{\\hbar}evB}=\\frac{2\\pi}{eB}\\color{red}{\\frac{\\hbar K}{v}} = \\frac{2\\pi\\color{red}{m}}{eB} $$\n所以对应的回旋频率:\n$$ \\omega_{c} = \\frac{2\\pi}{T} = \\frac{eB}{m_{c}^{*}} $$\n这是一个普适结论, 即使是非自由电子近似, 对应的 $m_{c}^{*}$ 是有效回旋质量\n$m_{c}^{*}$ 不一定等于能带有效质量 $m^{*}$\n磁场中运动的能量量子化 朗道能级 考虑抛物线型色散关系 不考虑自旋和磁场的相互作用(塞曼分裂) 我们就可以获得朗道能级:\n$$ E(k) = \\frac{\\hbar^{2}}{2m}k_{z}^{2} + \\left(n + \\frac{1}{2}\\right)\\hbar\\omega_{c} $$\n平行 $\\vec{B}$: 能量准连续; 垂直 $\\vec{B}$: 分离能级. 朗道能级简并度 每个朗道能级上能够允许多少个电子存在?\n无磁场时 $x-y$ 平面内: $$ E(\\vec{k}) = \\frac{\\hbar^{2}}{2m}(k_{x}^{2} + k_{y}^{2}) $$\n有磁场时 $x-y$ 平面内的所有能态全部简并到朗道能级.\n相邻的两个朗道环 $L_{n}, L_{n+1}$ 所围面积内的全部电子态简并到了同一能级.\n而这一壳层中的态数目为\n$$ n_{k} = \\Delta A \\times \\frac{S}{4\\pi^{2}}\\\\ = \\pi\\left[\\Delta(k_{x}^{2} + k_{y}^{2})\\right]\\times \\frac{S}{4\\pi^{2}}\\\\ = \\frac{2\\pi m\\Delta E}{\\hbar^{2}}\\times \\frac{S}{4\\pi^{2}}\\\\ = \\frac{2\\pi m\\hbar\\omega_{c}}{\\hbar^{2}}\\times \\frac{S}{4\\pi^{2}}\\\\ = \\frac{4\\pi^{2}eB}{h}\\times \\frac{S}{4\\pi^{2}} = \\frac{eBS}{\\hbar} $$\n所以朗道能级的简并度 $p$ 为\n$$ p = 2n_{k} = \\frac{2e}{h}BS = \\frac{BS}{\\Phi_{0}} $$\n$\\Phi_{0} = \\frac{h}{2e} \\approx 2.067\\times 10^{-15} (\\text{Wb})$ 为磁通量子\n因为磁通量子数量级很小, 所以稍微大一些的 $B$ 都会造成极高度的简并.\n能带电子的轨道量子化 假定 $$ B = 1(\\text{T}), \\hbar\\omega_{c} = 10^{-4}(\\text{eV}) $$ 则朗道能级数的量级约为 $n$ ~ $10^{4}$\n所以属于高量子态条件.\n对于高量子态条件, 可以利用经典量子论来处理.\n闭合回旋轨道的波尔-索末菲量子化条件 $$ \\oint\\vec{p}\\cdot\\mathrm{d}\\vec{r} = (n + \\gamma)\\cdot 2\\pi\\hbar $$\n$\\vec{p} = \\hbar\\vec{k} - e\\vec{A}$, $n$ 为整数, $\\gamma = 1/2$ 为常数.\n所以可以得到\n$$ A_{r} = \\frac{2\\pi\\hbar}{eB}(n + \\gamma) $$\n$A_{r}$ 为电子在实空间中轨道垂直磁场的面积. 上式推导用到了环量定理.\n而我们已经推导出实空间和倒空间运动之间的关系\n$$ \\hat{B} \\times \\frac{\\mathrm{d}\\vec{k}}{\\mathrm{d}t} = -\\frac{eB}{\\hbar}\\frac{\\mathrm{d}\\vec{r}_{\\perp}}{\\mathrm{d}t} $$\n所以我们可以得到两空间回旋面积之比\n$$ \\frac{A_{k}}{A_{r}} = \\left(\\frac{eB}{\\hbar}\\right)^{2} $$\n所以可以得到倒空间中回旋面积\n$$ A_{k} = \\frac{2\\pi eB}{\\hbar}(n + \\gamma) $$\n这就是倒空间中的轨道量子化条件.\n若保持回旋面积 $A_{k}$ 不变, 变换一下公式形式:\n$$ \\frac{1}{B} = \\frac{2\\pi e}{\\hbar A_{k}}(n + \\gamma) $$\n所以\n$$ \\Delta\\left(\\frac{1}{B}\\right) = \\left(\\frac{1}{B_{n+1}} - \\frac{1}{B_{n}}\\right)\\\\ = \\frac{2\\pi e}{\\hbar}\\frac{1}{A_{k}} $$\n所以只要测得物理量 $B^{-1}$ 的变化周期, 我们就可以得到倒空间中电子的回旋面积 $A_{k}$.\nde Hass-Van Alphen 效应 考虑二维情形且忽略自旋, 即有\n这种振荡以 $\\frac{1}{B}$ 为周期. 且\n$$ \\Delta\\left(\\frac{1}{B}\\right) = \\frac{2\\pi e}{\\hbar} \\cdot\\frac{1}{A_{k_{F}}} $$\n其中 $A_{k_{F}}$ 的示意图:\n",
+  "wordCount" : "915",
   "inLanguage": "zh",
-  "datePublished": "2022-05-05T00:18:23+08:00",
-  "dateModified": "2022-05-05T00:18:23+08:00",
+  "datePublished": "2023-05-31T00:18:23+08:00",
+  "dateModified": "2023-05-31T00:18:23+08:00",
   "author":[{
     "@type": "Person",
     "name": "Muartz"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://Muatyz.github.io/posts/phy/cmp/hubbard-model/"
+    "@id": "https://Muatyz.github.io/posts/phy/cmp/dynamic-of-bloch-electrons/"
   },
   "publisher": {
     "@type": "Organization",
@@ -298,10 +298,10 @@ code.has-jax {
         <header class="post-header">
             <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/cmp/">🔧 Condensed Matter Physics</a></div>
             <h1 class="post-title">
-                强关联模型的基石: Hubbard Model
+                布洛赫电子动力学
             </h1>
             <div class="post-description">
-                Hubbard Model 是固体物理的入门知识, 基于能带理论进行推广.
+                从动力学方程出发研究布洛赫电子的性质
             </div>
             <div class="post-meta">
 
@@ -322,7 +322,7 @@ code.has-jax {
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2022-05-05
+        <span>2023-05-31
             &nbsp;&nbsp;
         </span>
     </span>
@@ -335,13 +335,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1420字
+        <span>915字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>3分钟
+        <span>2分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -356,6 +356,7 @@ code.has-jax {
         <span>
             <span class="post-tags-meta">
                 <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/condensed-matter-physics/" style="color: var(--secondary)!important;">condensed matter physics</a>
             </span>
         </span>
     </span>
@@ -417,13 +418,19 @@ code.has-jax {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e8%83%8c%e6%99%af" aria-label="背景">背景</a></li>
+                    <a href="#k-%e7%a9%ba%e9%97%b4%e4%b8%ad%e7%9a%84%e7%94%b5%e5%ad%90%e5%9b%9e%e6%97%8b%e9%a2%91%e7%8e%87" aria-label="k 空间中的电子回旋频率"><strong>k</strong> 空间中的电子回旋频率</a></li>
                 <li>
-                    <a href="#%e4%ba%8c%e6%ac%a1%e9%87%8f%e5%ad%90%e5%8c%96" aria-label="二次量子化">二次量子化</a></li>
+                    <a href="#%e7%a3%81%e5%9c%ba%e4%b8%ad%e8%bf%90%e5%8a%a8%e7%9a%84%e8%83%bd%e9%87%8f%e9%87%8f%e5%ad%90%e5%8c%96" aria-label="磁场中运动的能量量子化">磁场中运动的能量量子化</a><ul>
+                        
                 <li>
-                    <a href="#%e4%b8%80%e8%88%ac%e5%85%ac%e5%bc%8f" aria-label="一般公式">一般公式</a></li>
+                    <a href="#%e6%9c%97%e9%81%93%e8%83%bd%e7%ba%a7" aria-label="朗道能级">朗道能级</a></li>
                 <li>
-                    <a href="#hubbard-model" aria-label="Hubbard Model">Hubbard Model</a>
+                    <a href="#%e6%9c%97%e9%81%93%e8%83%bd%e7%ba%a7%e7%ae%80%e5%b9%b6%e5%ba%a6" aria-label="朗道能级简并度">朗道能级简并度</a></li>
+                <li>
+                    <a href="#%e8%83%bd%e5%b8%a6%e7%94%b5%e5%ad%90%e7%9a%84%e8%bd%a8%e9%81%93%e9%87%8f%e5%ad%90%e5%8c%96" aria-label="能带电子的轨道量子化">能带电子的轨道量子化</a></li></ul>
+                </li>
+                <li>
+                    <a href="#de-hass-van-alphen-%e6%95%88%e5%ba%94" aria-label="de Hass-Van Alphen 效应">de Hass-Van Alphen 效应</a>
                 </li>
             </ul>
         </div>
@@ -488,140 +495,173 @@ code.has-jax {
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><p>本文用作 ITensor 数值求解 Hubbard Model 的前置理论知识.</p>
-<h1 id="背景">背景<a hidden class="anchor" aria-hidden="true" href="#背景">#</a></h1>
-<p>因为离子质量远大于电子, 所以可以假定离子构成<strong>静态</strong>的晶格, 所以我们可以写出哈密顿量:</p>
-<p>$$
-H = \sum_{i = 1}^{N}\left(\frac{|\vec{p_{i}}|^{2}}{2m} + V_{I}(\vec{x_{i}})\right)+\sum_{1\leq i&lt;j\leq N} V_{C}(\vec{x_{i}}-\vec{x_{j}})
-$$</p>
-<blockquote>
-<p>$N$ 是电子数, $V_{I}(\vec{x})$ 是离子的周期势, $V_{C}(\vec{x}) = \frac{e^2}{||\vec{x}||}$ 是电子间的库伦排斥作用.</p>
-</blockquote>
-<p>这个式子虽然已经做出很大程度的近似, 但是仍然由于太过复杂无法进行精确求解. 一种方法是, 对场进行进一步的近似:</p>
-<p>$$
-H = \sum_{i = 1}^{N} \left(\frac{|\vec{p_{i}}|^{2}}{2m} + V(\vec{x_{i}})\right) + \sum_{1\leq i&lt;j\leq N} U(\vec{x_{i}},\vec{x_{j}})
-$$</p>
-<blockquote>
-<p>$$
-V(\vec{x}) = V_{I}(\vec{x}) + V_{A}(\vec{x})
+        <div class="post-content"><p>一般的洛伦兹力方程:
 $$
-$$
-U(\vec{x}, \vec{y}) = V_{C}(\vec{x}-\vec{y}) - \frac{1}{N - 1}(V_{A}(\vec{x}) + V_{A}(\vec{y}))
+\hbar\frac{\mathrm{d}\vec{k}}{\mathrm{d}t} = - e\vec{v}\times\vec{B}
 $$</p>
 <blockquote>
-<p>$V_{A}(\vec{x})$ 是辅助势.</p>
+<p>$\frac{\mathrm{d}\vec{k}}{\mathrm{d}t}$ 显然会始终垂直于 $\vec{v}$ 和 $\vec{B}$.</p>
+<p>因此沿着 $\vec{B}$ 方向的波矢将会保持不变.</p>
 </blockquote>
-</blockquote>
-<p>H 的平均场近似, 就相当于令 $U(\vec{x}, \vec{y}) = 0$, 这就需要选取合适的 $V_{A}$ 使得单体哈密顿量</p>
+<p>能带电子的群速度:</p>
 <p>$$
-h(\vec{x}, \vec{p}) = \frac{|\vec{p}|^2}{2m} + V(\vec{x})
+\vec{v} = \frac{1}{\hbar}\nabla_{k}E(\vec{k})
 $$</p>
-<p>的本征态之间的有效二体势 $U(\vec{x}, \vec{y})$ 很小, 或者 $U(\vec{x},\vec{y})$ 在范围和强度上远小于库伦势 $V_{C}(\vec{x}-\vec{y})$.</p>
+<blockquote>
+<p>所以根据上面的推测, $\frac{\mathrm{d}\vec{k}}{\mathrm{d}t}$ 将会垂直于 $\nabla_{k}E(\vec{k})$</p>
+</blockquote>
+<p>在均匀外磁场下, 实空间和动量空间中电子都做回旋运动.</p>
 <div class="details admonition tip open">
 
  <div class="details-summary admonition-title">
 
- <i class="icon fas fa-lightbulb fa-fw"></i>物理图像<i class="details-icon fas fa-angle-right fa-fw"></i>
+ <i class="icon fas fa-lightbulb fa-fw"></i>实空间和动量空间回旋运动的关系<i class="details-icon fas fa-angle-right fa-fw"></i>
 
  </div>
 
  <div class="details-content">
 
- <div class="admonition-content">假定大量($N$)个电子都处于哈密顿量 $\hat{H}$ 的基态 $\Psi_{0}$, 如果在该体系的局域中放入一个电子, 那么它将感受到离子周期势和其它电子基态的静电势(并且这个静电势受到密度$|\psi_{0}(\vec{x_{1}},\dots,\vec{x_{N}})|^{2}$ 的影响) 的叠加. 这个势能和离子势同周期且符号相反, 因此会起到屏蔽的作用.
-当然实际上, 加入电子也会引起基态密度的微小变化, 但是放入电子只会产生微弱的居于效应这一点是不会改变的.</div>
+ <div class="admonition-content">$$
+\begin{aligned}
+&amp; \hbar\frac{\mathrm{d}\vec{k}}{\mathrm{d}t} = -e\frac{\mathrm{d}\vec{r}}{\mathrm{d}t}\times\vec{B}\\
+&amp; \hbar\hat{B}\times\frac{\mathrm{d}\vec{k}}{\mathrm{d}t} = -e\hat{B}\times(\frac{\mathrm{d}\vec{r}}{\mathrm{d}t}\times B\hat{B})\\
+&amp;=-eB\left[\frac{\mathrm{d}\vec{r}}{\mathrm{d}t}-\left(\hat{B}\cdot\frac{\mathrm{d}\vec{r}}{\mathrm{d}t}\right)\hat{B}\right]\\
+&amp; \Rightarrow \hat{B}\times\frac{\mathrm{d}\vec{k}}{\mathrm{d}t} = -\frac{eB}{\hbar}\frac{\mathrm{d}\vec{r}_{\perp}}{\mathrm{d}t}
+\end{aligned}
+$$
+即有实空间和倒空间运动方向呈现垂直关系.
+<img loading="lazy" src="https://s2.loli.net/2023/05/31/sdaxcDCynZJe3pb.png" alt="方向关系"  /></div>
 
  </div>
 
  </div>
-<h1 id="二次量子化">二次量子化<a hidden class="anchor" aria-hidden="true" href="#二次量子化">#</a></h1>
-<p>现在我们尝试使用二次量子化的观点来重写平均场近似下的哈密顿量. 如果要进行二次量子化, 就需要使用合适的基. 在这里我们考虑使用单体哈密顿量 $\hat{h}$ 的本征态, 因为单体势 $V(\vec{x})$ 是周期性的, 所以 $\hat{h}$ 的本征函数必然呈现为布洛赫(Bloch)波的形式:</p>
+<h1 id="k-空间中的电子回旋频率"><strong>k</strong> 空间中的电子回旋频率<a hidden class="anchor" aria-hidden="true" href="#k-空间中的电子回旋频率">#</a></h1>
+<p>不妨以自由电子近似下的球形等能面为例, 且取 $k_{z} = 0$.</p>
+<p>即有回旋运动周期</p>
 <p>$$
-\varphi_{\alpha,\vec{k}}(\vec{x}) = e^{i\vec{k}\cdot\vec{x}}u_{\alpha, \vec{k}}(\vec{x})
+T = \frac{\oint\mathrm{d}k}{|\mathrm{d}\vec{k}/\mathrm{d}t|}\\
+= \frac{2\pi K}{\frac{1}{\hbar}evB}=\frac{2\pi}{eB}\color{red}{\frac{\hbar K}{v}} = \frac{2\pi\color{red}{m}}{eB}
+$$</p>
+<p>所以对应的回旋频率:</p>
+<p>$$
+\omega_{c} = \frac{2\pi}{T} = \frac{eB}{m_{c}^{*}}
 $$</p>
 <blockquote>
-<p>$u_{\alpha. \vec{k}}$ 是与晶格同周期的函数, $\vec{k}$ 是准动量, $\alpha$ 是能带指标.</p>
+<p>这是一个普适结论, 即使是非自由电子近似, 对应的 $m_{c}^{*}$ 是<strong>有效回旋质量</strong></p>
+<p>$m_{c}^{*}$ 不一定等于能带有效质量 $m^{*}$</p>
 </blockquote>
-<p>我们将其写作为本征方程的形式:</p>
-<p>$$
-\hat{h}\varphi_{\alpha, \vec{k}}(\vec{x}) = \epsilon_{\alpha, \vec{k}}\varphi_{\alpha, \vec{k}}(\vec{x})
-$$</p>
+<h1 id="磁场中运动的能量量子化">磁场中运动的能量量子化<a hidden class="anchor" aria-hidden="true" href="#磁场中运动的能量量子化">#</a></h1>
+<h2 id="朗道能级">朗道能级<a hidden class="anchor" aria-hidden="true" href="#朗道能级">#</a></h2>
 <blockquote>
-<p>$\vec{k}$ 遍历整个第一布里渊区, $\varphi_{\alpha, \vec{k}}$ 构成单体态的一组基.</p>
+<ul>
+<li>考虑抛物线型色散关系</li>
+<li>不考虑自旋和磁场的相互作用(塞曼分裂)</li>
+</ul>
 </blockquote>
-<p>由<a href="https://muartz.com/posts/phy/cmp/tight-binding-model/#wannier%E5%87%BD%E6%95%B0" target="_blank" rel="noopener nofollow noreferrer" >Wannier 函数</a>构造方法可知, 存在 $\phi_{\alpha}(\vec{x}-\vec{R_{i}})$ 提供互补的单体基($\vec{R_{i}}$ 是格矢)</p>
+<p>我们就可以获得<a href="https://muartz.com/posts/phy/qp/laundau-energy" target="_blank" rel="noopener nofollow noreferrer" >朗道能级</a>:</p>
 <p>$$
-\phi_{\alpha}(\vec{x}) = \frac{1}{\sqrt{N}}\sum_{\vec{k}}\varphi_{\alpha, \vec{k}}(\vec{x})
+E(k) = \frac{\hbar^{2}}{2m}k_{z}^{2} + \left(n + \frac{1}{2}\right)\hbar\omega_{c}
 $$</p>
 <blockquote>
-<p>$L$ 代表离子数. Wannier 函数 $\phi_{\alpha}(\vec{x}-\vec{R_{i}})$ 以 $\vec{R_{i}}$ 为中心, 不同的 $\alpha, i$正交.</p>
+<ul>
+<li>平行 $\vec{B}$: 能量准连续;</li>
+<li>垂直 $\vec{B}$: 分离能级.</li>
+</ul>
 </blockquote>
-<p>所以我们可以通过傅里叶变换的方式将布洛赫波函数表示为 Wannier 函数的线性组合:</p>
-<p>$$
-\varphi_{\alpha, \vec{k}} = \frac{1}{\sqrt{L}}\sum_{i}e^{i\vec{k}\cdot\vec{R_{i}}}\phi_{\alpha}(\vec{x}-\vec{R_{i}})
-$$</p>
-<p>对于布洛赫态 $\varphi_{\alpha, \vec{k}}$ 中自旋为 $a$ 的电子, 存在产生算符 $c_{\alpha,\vec{k}, a}^{\dagger}$. 我们写出其傅里叶变换后(即 $c_{\alpha, i, a}^{\dagger}$ )的形式:</p>
-<p>$$
-c_{\alpha, i, a}^{\dagger} = \frac{1}{\sqrt{L}}\sum_{\vec{k}}e^{-i\vec{k}\cdot\vec{R_{i}}}c_{\alpha, \vec{k}, a}^{\dagger}
-$$</p>
-<p>所以我们就可以得出场算符的形式:</p>
-<p>$$
-\Psi_{a}^{\dagger}(\vec{x}) = \sum_{\alpha, \vec{k}}\varphi_{\alpha, \vec{k}}(\vec{x})c_{\alpha, \vec{k}, a}^{\dagger} = \sum_{\alpha, i}\phi_{\alpha}^{*}(\vec{x} - \vec{R_{i}})c_{\alpha, i, a}^{\dagger}
-$$</p>
+<h2 id="朗道能级简并度">朗道能级简并度<a hidden class="anchor" aria-hidden="true" href="#朗道能级简并度">#</a></h2>
 <blockquote>
-<p>该算符表示在 $\vec{x}$ 处产生一个自旋为 $a$ 的电子. $A^{*}$ 表示对 $A$ 取复共轭.</p>
+<p>每个朗道能级上能够允许多少个电子存在?</p>
 </blockquote>
-<h1 id="一般公式">一般公式<a hidden class="anchor" aria-hidden="true" href="#一般公式">#</a></h1>
-<p>根据以上的推导, 我们可以将原哈密顿量以二次量子化的形式写出来:</p>
-<p>$$
-\hat{H} = \sum_{a = \uparrow, \downarrow}\iiint\Psi_{a}^{\dagger}(\vec{x})\hat{h}\Psi_{a}(\vec{x})dx^{3} + \frac{1}{2}\sum_{a, b = \uparrow, \downarrow}\iiint\iiint \Psi_{a}^{\dagger}(\vec{x})\Psi_{b}^{\dagger}(\vec{y})U(\vec{x},\vec{y})\Psi_{b}(\vec{y})\Psi_{a}(\vec{x})dx^3 dy^3
-$$</p>
-<blockquote>
-<p>上面的积分符号显得有些冗杂, 你也可以写作下面的形式:</p>
-<p>$$
-\hat{H} = \sum_{a = \uparrow, \downarrow}\int\Psi_{a}^{\dagger}(\vec{x})\hat{h}\Psi_{a}(\vec{x})dx^{3} + \frac{1}{2}\sum_{a, b = \uparrow, \downarrow}\int \Psi_{a}^{\dagger}(\vec{x})\Psi_{b}^{\dagger}(\vec{y})U(\vec{x},\vec{y})\Psi_{b}(\vec{y})\Psi_{a}(\vec{x})dx^3 dy^3
-$$</p>
-</blockquote>
-<p>然后使用 Wannier 基将哈密顿量写作二次量子化的形式：</p>
-<p>$$
-\hat{H} = \sum_{\alpha, i, j, a}t_{ij}^{\alpha}c_{\alpha,i,a}^{\dagger}c_{\alpha,j,a}+\frac{1}{2}\sum_{\alpha,\beta,\gamma,\delta,i,j,k,l}\sum_{a,b}U_{ijkl}^{\alpha\beta\gamma\delta}c_{\alpha,i,a}^{\dagger}c_{\beta,j,b}^{\dagger}c_{\gamma,k,b}c_{\delta,l,a}
-$$</p>
-<blockquote>
-<p>跃迁矩阵元:</p>
-<p>$$
-t_{ij}^{\alpha} = \iiint \phi_{\alpha}^{*}(\vec{x}-\vec{R_{i}})\hat{h}\phi_{\alpha}(\vec{x}-\vec{R_{i}})\mathrm{dx}^{3} = \frac{1}{L}\sum_{\vec{k}}e^{i\vec{k}\cdot(\vec{R_{i}}-\vec{R_{j}})}\epsilon_{\alpha,\vec{k}}
-$$</p>
-<p>相互作用参数写作重叠积分形式:</p>
-<p>$$
-U_{ijkl}^{\alpha\beta\gamma\delta} = \iiint\iiint\phi_{\alpha}^{*}(\vec{x}-\vec{R_{i}})\phi_{\beta}^{*}(\vec{y}-\vec{R{j}})U(\vec{x},\vec{y})\phi_{\gamma}(\vec{y}-\vec{R_{k}})\phi_{\delta}(\vec{x}-\vec{R_{l}})\mathrm{dx}^{3}\mathrm{dy}^{3}
-$$</p>
-<p>相互作用参数相比于跃迁矩阵元很小时, 在最低阶近似下可以取为0, 而仅在微扰论中考虑. 这种方法就是能带理论.</p>
-</blockquote>
-<h1 id="hubbard-model">Hubbard Model<a hidden class="anchor" aria-hidden="true" href="#hubbard-model">#</a></h1>
-<p>Hubbard Model 的得出就是对于二次量子化后的哈密顿量的一些假设, 即原子内的库仑相互作用 $U_{ijkl}^{\alpha\beta\gamma\delta}$ 相比于原子间相互作用参数很大, 同时相比于跃迁矩阵元不可忽略.</p>
-<p>如果带间的相互作用很弱, 而且 $\alpha = 1$ 以外的能带都远离费米能级, 我们只关心费米能级附近的区间时, 高能带的影响就可以被视为改变导带中的电子跃迁和相互作用的参数.</p>
-<p>$$
-\hat{H} = \sum_{ij}t_{ij}c_{i,a}^{\dagger}c_{j,a} + \frac{U}{2}\sum_{i}c_{i,a}^{\dagger}c_{i,b}^{\dagger}c_{i,b}c_{i,a}
-$$</p>
-<blockquote>
-<p>跃迁矩阵元 $t_{ij}$ 需要在密度泛函理论中才能准确算出. 而 U 的得出更为困难, 需要理论和实验交叉对比得出.</p>
-</blockquote>
-<p>如果做出进一步的简化要求, 即 Wannier 函数 $\phi_{\alpha}(\vec{x}-\vec{R_{i}})$ 强局域于 $\vec{R_{i}}$, 哈密顿量退化为<a href="https://muartz.com/posts/phy/cmp/tight-binding-model/" target="_blank" rel="noopener nofollow noreferrer" >紧束缚模型</a>:</p>
-<p>$$
-\hat{H} = -t\sum_{\langle i,j\rangle}\hat{c}_{i,a}^{\dagger}\hat{c}_{j,a} + U\sum_{i}\hat{n}_{i,\uparrow}\hat{n}_{i,\downarrow}
-$$</p>
-<blockquote>
-<p>粒子数算符
+<ul>
+<li>无磁场时</li>
+</ul>
+<p>$x-y$ 平面内:
 $$
-\hat{n}_{i,\uparrow} = \hat{c}_{i,\uparrow}^{\dagger}\hat{c}_{i,\uparrow}
-$$
-和
-$$
-\hat{n}_{i,\downarrow} = \hat{c}_{i,\downarrow}^{\dagger}\hat{c}_{i,\downarrow}
+E(\vec{k}) = \frac{\hbar^{2}}{2m}(k_{x}^{2} + k_{y}^{2})
 $$</p>
-</blockquote>
+<ul>
+<li>有磁场时</li>
+</ul>
+<p>$x-y$ 平面内的所有能态全部简并到朗道能级.</p>
+<p>相邻的两个朗道环 $L_{n}, L_{n+1}$ 所围面积内的全部电子态简并到了同一能级.</p>
+<p>而这一壳层中的态数目为</p>
+<p>$$
+n_{k} = \Delta A \times \frac{S}{4\pi^{2}}\\
+= \pi\left[\Delta(k_{x}^{2} + k_{y}^{2})\right]\times \frac{S}{4\pi^{2}}\\
+= \frac{2\pi m\Delta E}{\hbar^{2}}\times \frac{S}{4\pi^{2}}\\
+= \frac{2\pi m\hbar\omega_{c}}{\hbar^{2}}\times \frac{S}{4\pi^{2}}\\
+= \frac{4\pi^{2}eB}{h}\times \frac{S}{4\pi^{2}} = \frac{eBS}{\hbar}
+$$</p>
+<p>所以朗道能级的简并度 $p$ 为</p>
+<p>$$
+p = 2n_{k} = \frac{2e}{h}BS = \frac{BS}{\Phi_{0}}
+$$</p>
 <blockquote>
-<p>$\langle i,j\rangle$ 是指对最近邻有序对求和. 最近邻见有着相同的跃迁强度 $-t$.</p>
+<p>$\Phi_{0} = \frac{h}{2e} \approx 2.067\times 10^{-15} (\text{Wb})$ 为磁通量子</p>
+<p>因为磁通量子数量级很小, 所以稍微大一些的 $B$ 都会造成极高度的简并.</p>
 </blockquote>
+<h2 id="能带电子的轨道量子化">能带电子的轨道量子化<a hidden class="anchor" aria-hidden="true" href="#能带电子的轨道量子化">#</a></h2>
+<blockquote>
+<p>假定
+$$
+B = 1(\text{T}), \hbar\omega_{c} = 10^{-4}(\text{eV})
+$$
+则朗道能级数的量级约为 $n$ ~ $10^{4}$</p>
+<p>所以属于高量子态条件.</p>
+</blockquote>
+<p>对于高量子态条件, 可以利用经典量子论来处理.</p>
+<blockquote>
+<p>闭合回旋轨道的波尔-索末菲量子化条件
+$$
+\oint\vec{p}\cdot\mathrm{d}\vec{r} = (n + \gamma)\cdot 2\pi\hbar
+$$</p>
+<blockquote>
+<p>$\vec{p} = \hbar\vec{k} - e\vec{A}$, $n$ 为整数, $\gamma = 1/2$ 为常数.</p>
+</blockquote>
+</blockquote>
+<p>所以可以得到</p>
+<p>$$
+A_{r} = \frac{2\pi\hbar}{eB}(n + \gamma)
+$$</p>
+<blockquote>
+<p>$A_{r}$ 为电子在实空间中轨道垂直磁场的面积. 上式推导用到了环量定理.</p>
+</blockquote>
+<p>而我们已经推导出实空间和倒空间运动之间的关系</p>
+<p>$$
+\hat{B} \times \frac{\mathrm{d}\vec{k}}{\mathrm{d}t} = -\frac{eB}{\hbar}\frac{\mathrm{d}\vec{r}_{\perp}}{\mathrm{d}t}
+$$</p>
+<p>所以我们可以得到两空间回旋面积之比</p>
+<p>$$
+\frac{A_{k}}{A_{r}} = \left(\frac{eB}{\hbar}\right)^{2}
+$$</p>
+<p>所以可以得到倒空间中回旋面积</p>
+<p>$$
+A_{k} = \frac{2\pi eB}{\hbar}(n + \gamma)
+$$</p>
+<blockquote>
+<p>这就是倒空间中的轨道量子化条件.</p>
+</blockquote>
+<p>若保持回旋面积 $A_{k}$ 不变, 变换一下公式形式:</p>
+<p>$$
+\frac{1}{B} = \frac{2\pi e}{\hbar A_{k}}(n + \gamma)
+$$</p>
+<p>所以</p>
+<p>$$
+\Delta\left(\frac{1}{B}\right) = \left(\frac{1}{B_{n+1}} - \frac{1}{B_{n}}\right)\\
+= \frac{2\pi e}{\hbar}\frac{1}{A_{k}}
+$$</p>
+<p>所以只要测得物理量 $B^{-1}$ 的变化周期, 我们就可以得到倒空间中电子的回旋面积 $A_{k}$.</p>
+<h1 id="de-hass-van-alphen-效应">de Hass-Van Alphen 效应<a hidden class="anchor" aria-hidden="true" href="#de-hass-van-alphen-效应">#</a></h1>
+<p>考虑二维情形且忽略自旋, 即有</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/31/g5dTeWJXpFU734v.png" alt="朗道能级"  />
+</p>
+<p>这种振荡以 $\frac{1}{B}$ 为周期. 且</p>
+<p>$$
+\Delta\left(\frac{1}{B}\right) = \frac{2\pi e}{\hbar} \cdot\frac{1}{A_{k_{F}}}
+$$</p>
+<p>其中 $A_{k_{F}}$ 的示意图:</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/31/1yWzVdHEb2RviN5.png" alt="极值轨道"  />
+</p>
 
 
         </div>
@@ -629,15 +669,10 @@ $$</p>
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://Muatyz.github.io/posts/phy/qp/laundau-energy/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>朗道能级</span>
-  </a>
-  <a class="next" href="https://Muatyz.github.io/posts/phy/cmp/tbg-nu-cal/">
+  <a class="next" href="https://Muatyz.github.io/posts/phy/cmp/semi-conductor/">
     <span class="title">下一页 »</span>
     <br>
-    <span>转角双层石墨烯的数值计算综述</span>
+    <span>半导体基础</span>
   </a>
 </nav>
 
