@@ -166,8 +166,8 @@ code.has-jax {
   "keywords": [
     "perturbation", "quantum"
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "近似方法 在数值求解物理问题时我们会使用很多近似技巧, 但是实际上, 即使只是在理论物理范畴, 大多数问题也是无法严格求解的. 近似方法有两类:\n微扰法; 找到某个小参数($\\epsilon,\\lambda,\\dots$)将所求的物理量进行级数展开, 从而近似求解. 展开方法可以是泰勒展开, 洛朗展开, 渐近展开等.\n变分法. 也被称为变分原理.\n不含时非简并微扰 推导 现在我们知道哈密顿量\n$$ \\hat{H} = \\hat{H}_{0} + \\delta\\hat{H} $$\n$\\delta\\hat{H}$ 是一个小量.\n其中 $\\hat{H}_{0}$ 是容易求解的, 即有\n$$ \\hat{H}_{0}|n^{0}\\rangle = E_{n}^{0}|n^{0}\\rangle (n\\in\\mathbb{N}) $$\n这里我们简单阐述各个指标的含义. $$ E_{\\color{red}{n}}^{\\color{blue}{0}} $$\n$\\color{red}{n}$: 指的是第几能级;\n$\\color{blue}{0}$: 指的是第几级修正. 因为这里求的是 $\\hat{H}_{0}$ 的本征值和本征态, 所以当然上标都是 $0$.\n因为我们讨论的是不含时非简并微扰, 即有 $$ E_{0}^{0} \u003c E_{1}^{0} \u003c E_{2}^{0} \u003c \\dots $$\n现在我们引入辅助参数 $\\lambda$, 从而将哈密顿量写作 $\\lambda$ 的函数:\n$$ \\hat{H}(\\lambda) = \\hat{H}_{0} + \\lambda\\delta\\hat{H} $$\n我们可以推测, 哈密顿量 $\\hat{H}(\\lambda)$ 的本征态和本征能量也会成为 $\\lambda$ 的连续函数.\n$$ \\hat{H}(\\lambda)|\\psi_{n}(\\lambda)\\rangle = E_{n}(\\lambda)|\\psi_{n}(\\lambda)\\rangle $$\n$\\lambda$ 在实际应用中可以对应一个实在的无量纲物理量:\n相对论效应: $\\lambda = \\frac{v}{c}$; 自旋轨道耦合: $\\lambda = \\alpha = \\frac{e^{2}}{\\hbar c} = \\frac{1}{137}$, 即精细结构常数; 弱电磁场. 现在我们对 $\\hat{H}(\\lambda)$ 的本征态 $|n(\\lambda)\\rangle$, 本征能量 $E_{n}(\\lambda)$ 写作 $\\lambda$ 的级数展开:\n$$ |\\color{red}{n}(\\lambda)\\rangle = |\\color{red}{n}^{\\color{blue}{0}}\\rangle + \\underbrace{\\lambda|\\color{red}{n}^{\\color{blue}{1}}\\rangle + \\lambda^{2}|\\color{red}{n}^{\\color{blue}{2}}\\rangle + \\lambda^{3}|\\color{red}{n}^{\\color{blue}{3}}\\rangle + \\dots}_{|\\delta \\color{red}{n}\\rangle}\\\\ E_{\\color{red}{n}}(\\lambda) = E_{\\color{red}{n}}^{\\color{blue}{0}} + \\underbrace{\\lambda E_{\\color{red}{n}}^{\\color{blue}{1}} + \\lambda^{2}E_{\\color{red}{n}}^{\\color{blue}{2}} + \\lambda^{3}E_{\\color{red}{n}}^{\\color{blue}{3}} + \\dots}_{\\delta E_{\\color{red}{n}}} $$\n各指标的具体含义: $$ |\\color{red}{n}^{\\color{blue}{1}}\\rangle, E_{\\color{red}{n}}^{\\color{blue}{1}} $$\n$\\color{red}{n}$: 指的是第几能级;\n$\\color{blue}{1}$: 指的是第几级修正.\n设想 $\\delta\\hat{H}$ 为一个矩阵, 则求解矩阵元 $\\delta{H}_{mn}$ 的方法是\n$$ \\left\\langle m^{0}\\left|\\delta\\hat{H}\\right|n^{0}\\right\\rangle $$\n$|n^{0}\\rangle$ 是通过 $\\hat{H}_{0}$ 求解出的本征态. 即满足 $$ \\hat{H}_{0}|n^{0}\\rangle = E_{n}^{0}|n^{0}\\rangle $$\n为了计算方便, 我们设定本征态的修正项 $|n^{i}\\rangle$ 总是和 $|n^{0}\\rangle$ 正交, 即\n$$ \\langle n^{0} | n^{i}\\rangle = 0(\\forall i\\in \\mathbb{N}^*) $$\n因为任意阶的修正项都与 $|n^{0}\\rangle$ 正交, 所以作为这些修正项的线性组合的整体修正 $|\\delta n\\rangle$ 当然也和 $|n^{0}\\rangle$ 正交:\n$$ \\langle n^{0} | \\delta n\\rangle = 0 $$\n这样就会使计算 $|n\\rangle$ 的内积简单很多:\n$$ \\langle n|n\\rangle = \\langle n^{0} + \\delta n|n^{0} + \\delta n\\rangle = \\langle n^{0}|n^{0}\\rangle + \\underbrace{\\langle n^{0}|\\delta n\\rangle + \\langle \\delta n| n^{0}\\rangle}_{0} + \\langle \\delta n|\\delta n\\rangle = 1 + \\langle \\delta n|\\delta n\\rangle $$\n也就是说这里的 $|n\\rangle$ 尚未被归一化, 可以通过\n$$ |n\\rangle_{\\text{Norm}} = \\frac{|n\\rangle}{\\sqrt{\\langle n|n\\rangle}} $$\n来完成.\nNorm = Normalization. 在实际应用的时候我们未必需要归一化, 这只是我们另外添加的条件. 大多数情况下只关心能量的问题.\n对矩阵元涉及的本征态 $|n^{0}\\rangle, |m^{0}\\rangle$, 我们令其与整体波函数 $|n\\rangle$ 作内积:\n$$ \\langle n^{0}|n\\rangle = \\overbrace{\\langle n^{0}|n^{0}\\rangle}^{\\text{相同本征态内积归一}} + \\langle n^{0}|\\delta n\\rangle = 1 + \\langle n^{0}|\\delta n\\rangle = 1;\\\\ \\langle m^{0}|n\\rangle = \\underbrace{\\langle m^{0}|n^{0}\\rangle}_{\\text{不同本征态彼此正交}} + \\langle m^{0}|\\delta n\\rangle = \\langle m^{0}|\\delta n\\rangle. (m\\neq n) $$\n我们假定零级本征态 $|n^{0}\\rangle$ 具有正交归一性.\n完整薛定谔方程的两边展开不同的部分(左边为哈密顿量, 右边为波函数)\n$$ (\\hat{H}_{0} + \\lambda\\delta\\hat{H})|n\\rangle = E_{n}(|n^{0}\\rangle + |\\delta n\\rangle) $$\n现在我们要得到方程组:\n两边左乘 $\\langle n^{0}|$: $$ \\color{red}{\\text{L}}:\\langle n^{0}|\\hat{H}_{0} + \\lambda\\delta\\hat{H}|n\\rangle = \\\\ \\langle n^{0}|\\hat{H}_{0} + \\lambda\\delta\\hat{H}|n^{0} + \\delta n\\rangle = \\langle n^{0}|\\hat{H}_{0}|n^{0}\\rangle + \\langle n^{0}|\\hat{H}|\\delta{n}\\rangle + \\langle n^{0}|\\lambda\\delta\\hat{H}|n^{0}\\rangle + \\langle n^{0}|\\lambda\\delta\\hat{H}|\\delta n\\rangle\\\\ = \\langle n^{0}|\\hat{H}_{0}|n^{0}\\rangle + \\langle n^{0}|\\hat{H}|\\delta{n}\\rangle + \\langle n^{0}|\\hat{H}|n\\rangle = \\boxed{E_{n}^{0} + \\langle n^{0}|\\lambda\\delta\\hat{H}|n\\rangle};\\\\ \\color{blue}{\\text{R}}:E_{n}\\langle n^{0}|(|n^{0}\\rangle + |\\delta n\\rangle) = E_{n}(\\langle n^{0}|n^{0}\\rangle + \\langle n^{0}|\\delta n\\rangle) = E_{n}(1 + 0) = \\boxed{E_{n}} $$\n因为 $\\color{red}{\\text{L}} = \\color{blue}{\\text{R}}$, 即有\n$$ E_{n} - E_{n}^{0} = \\lambda\\langle n^{0}|\\delta\\hat{H}|n\\rangle $$\n两边左乘 $\\langle m^{0}|$, 且 $m\\neq n$: $$ \\color{red}{\\text{L}}:\\langle m^{0}|\\hat{H}_{0} + \\lambda\\delta\\hat{H}|n\\rangle = \\left(\\langle m^{0}|\\hat{H}_{0}\\right)|n\\rangle + \\langle m^{0}|\\lambda\\delta\\hat{H}|n\\rangle = \\boxed{E_{m}^{0}\\langle m^{0}|n\\rangle + \\lambda\\langle m^{0}|\\delta\\hat{H}|n\\rangle}\\\\ \\color{blue}{\\text{R}}:\\langle m^{0}|E_{n}(|n^{0}+\\delta n\\rangle) = E_{n}(\\langle m^{0}|n^{0} + |\\delta n\\rangle) = E_{n}(0 + \\rangle m^{0}|\\delta n\\rangle) = \\boxed{E_{n}\\langle m^{0}|\\delta n\\rangle} $$\n因为 $\\color{red}{\\text{L}} = \\color{blue}{\\text{R}}$, 即有\n$$ (E_{n} - E_{m}^{0})\\langle m^{0}|\\delta n\\rangle = \\lambda\\langle m^{0}|\\delta\\hat{H}|n\\rangle, (m\\neq n) $$\n由此我们得到\n$$ \\begin{cases} E_{n} - E_{n}^{0} = \\lambda\\langle n^{0}|\\delta\\hat{H}|n\\rangle\\\\ (E_{n} - E_{m}^{0})\\langle m^{0}|\\delta n\\rangle = \\lambda\\langle m^{0}|\\delta\\hat{H}|n\\rangle, (m\\neq n) \\end{cases} $$\n我们已经知道完整的本征态和本征能量对 $\\lambda$ 级数展开 $$ |\\color{red}{n}(\\lambda)\\rangle = |\\color{red}{n}^{\\color{blue}{0}}\\rangle + \\underbrace{\\lambda|\\color{red}{n}^{\\color{blue}{1}}\\rangle + \\lambda^{2}|\\color{red}{n}^{\\color{blue}{2}}\\rangle + \\lambda^{3}|\\color{red}{n}^{\\color{blue}{3}}\\rangle + \\dots}_{|\\delta \\color{red}{n}\\rangle}\\\\ E_{\\color{red}{n}}(\\lambda) = E_{\\color{red}{n}}^{\\color{blue}{0}} + \\underbrace{\\lambda E_{\\color{red}{n}}^{\\color{blue}{1}} + \\lambda^{2}E_{\\color{red}{n}}^{\\color{blue}{2}} + \\lambda^{3}E_{\\color{red}{n}}^{\\color{blue}{3}} + \\dots}_{\\delta E_{\\color{red}{n}}} $$\n将展开的级数分别导入到两个方程组中:\n$$ \\text{1:}\\color{red}{\\lambda} E_{n}^{1} + \\color{green}{\\lambda^{2}}E_{n}^{2} + \\color{blue}{\\lambda^{3}}E_{n}^{3} + \\dots = \\lambda\\langle n^{0}|\\delta\\hat{H}(|n^{0}\\rangle + \\lambda|n^{1}\\rangle + \\lambda^{2}|n^{2}\\rangle + \\lambda^{3}|n^{3}\\rangle + \\dots)\\\\ =\\color{red}{\\lambda}\\langle n^{0}|\\delta\\hat{H}|n^{0}\\rangle + \\color{green}{\\lambda^{2}}\\langle n^{0}|\\delta\\hat{H}|n^{1}\\rangle + \\color{blue}{\\lambda^{3}}\\langle n^{0}|\\delta\\hat{H}|n^{2}\\rangle + \\dots\\\\ \\text{2:}(E_{n}^{0} - E_{m}^{0} + \\lambda E_{n}^{1} + \\lambda^{2}E_{n}^{2} + \\dots)(\\lambda\\langle m^{0}|n^{1}\\rangle + \\lambda^{2}\\langle m^{0}|n^{2}\\rangle + \\dots) =\\\\ \\lambda\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle + \\lambda^{2}\\langle m^{0}|\\delta\\hat{H}|n^{1}\\rangle + \\dots $$\n相同的 $\\lambda^{i}$ 项对应的系数相同, 这就是无穷多个修正项方程组成的方程组. 根据所需要的修正深度选取对应的级数.\n所以我们可以得到\n一阶修正 比较 $\\color{red}{\\lambda}$ 的系数\n一阶能量修正 $$ \\boxed{E_{n}^{1} = \\langle n^{0}|\\delta\\hat{H}|n^{0}\\rangle} $$\n一阶波函数修正: 因为有\n$$ \\langle m^{0}|n^{1}\\rangle = \\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}} $$\n一般性地, 有投影公式\n$$ |n^{1}\\rangle = \\sum_{m} c_{n,m}|m^{0}\\rangle $$\n而\n系数 $c_{m,n}$ 是做内积得到的, 即\n$$ c_{m,n} = \\langle m^{0}|n^{1}\\rangle $$\n我们已经推导出了 $m\\neq n$ 的系数, 对于 $m = n$ 时, 有\n$$ \\langle m^{0}|n^{1}\\rangle = \\langle n^{0}|n^{1}\\rangle = 0 $$\n我们已经设定任意阶修正项 $|n^{i}\\rangle$ 都与零级本征态 $|n^{0}\\rangle$ 正交.\n所以我们可以舍弃 $m = n$ 这一系数, 从而有\n$$ \\boxed{|n^{1}\\rangle = \\sum_{m\\neq n}\\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}}|m^{0}\\rangle} $$\n二阶修正 比较 $\\color{green}{\\lambda^{2}}$ 的系数:\n二阶能量修正 $$ E_{n}^{2} = \\langle n^{0}|\\delta\\hat{H}|\\n^{1}\\rangle $$\n将上面 $|n^{1}\\rangle$ 的公式导入, 即有\n$$ E_{n}^{2} = \\langle n^{0}|\\delta\\hat{H}|\\left(\\sum_{m\\neq n}\\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}}|m^{0}\\rangle\\right) = \\sum_{m\\neq n}\\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}}\\langle n^{0}|\\delta\\hat{H}|m^{0}\\rangle\\\\ \\Downarrow\\\\ \\boxed{E_{n}^{2} = \\sum_{m\\neq n}\\frac{|\\delta H_{mn}|^{2}}{E_{n}^{0}-E_{m}^{0}}} $$\n二阶波函数修正 因为\n$$ (E_{n}^{0} - E_{m}^{0})\\langle m^{0}|n^{2}\\rangle + \\langle n^{0}|\\delta\\hat{H}|n^{0}\\rangle \\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}} = \\sum_{k\\neq n}\\frac{\\langle m^{0}|\\delta\\hat{H}|k^{0}\\rangle\\langle k^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{k}^{0}}\\\\ \\Downarrow\\\\ \\boxed{\\langle m^{0}|n^{2}\\rangle = \\sum_{k\\neq n}\\frac{\\langle m^{0}|\\delta\\hat{H}|k^{0}\\rangle\\langle k^{0}|\\delta\\hat{H}|n^{0}\\rangle}{(E_{n}^{0}-E_{m}^{0})(E_{n}^{0} - E_{k}^{0})} - \\frac{\\langle n^{0}|\\delta\\hat{H}|n^{0}\\rangle\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{(E_{n}^{0} - E_{m}^{0})^{2}}} $$\n总结 如果令 $\\lambda = 1$, 就可以得到\n能量展开式 $$ E_{n} = E_{n}^{0} + E_{n}^{1} + E_{n}^{2} + \\dots $$\n本征态展开式 $$ |n\\rangle = |n^{0}\\rangle + |n^{1}\\rangle + |n^{2}\\rangle + \\dots $$\n能量修正 $$ E_{n}^{1} = \\delta H_{nn} = \\langle n^{0}|\\delta\\hat{H}|n^{0}\\rangle\\\\ E_{n}^{2} = \\sum_{m\\neq n}\\frac{|\\delta H_{mn}|^{2}}{E_{n}^{0} - E_{m}^{0}} $$\n本征态波函数修正 $$ \\langle m^{0}|n^{1}\\rangle = \\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}}\\\\ \\langle m^{0}|n^{2}\\rangle = \\sum_{k\\neq n}\\frac{\\delta H_{mk}\\delta H_{kn}}{(E_{n}^{0} - E_{m}^{0})(E_{n}^{0} - E_{k}^{0})} - \\frac{\\delta H_{nn}\\delta H_{mn}}{(E_{n}^{0} - E_{m}^{0})^{2}} $$\n对于基态修正, 有 $$ E_{0}^{2} = \\sum_{m\\in\\mathbb{N}^{*}}\\frac{|\\delta H_{m0}|^{2}}{(E_{0}^{0} - E_{m}^{0})} $$ 因为本征值升序排列, 所以二阶微扰总是降低基态能量.\n对于第 $n$ 本征态的二阶能量修正, 即有 $$ E_{n}^{2} = \\sum_{m n}\\frac{|\\delta H_{mn}|^{2}}{E_{n}^{0} - E_{m}^{0}} $$ 第一项总是为正, 第二项总是为负, 即高能级更高, 低能级更低.\n例子 二能级系统 $$ \\hat{H} = \\hat{H}_{0} + \\delta\\hat{H} = \\begin{pmatrix} E_{0}^{0} \u0026 0\\\\ 0 \u0026 E_{1}^{0} \\end{pmatrix} + \\begin{pmatrix} 0 \u0026 \\lambda\\\\ \\lambda \u0026 0 \\end{pmatrix} =\\begin{pmatrix} \\overline{E} - \\Delta \u0026 0\\\\ 0 \u0026 \\overline{E} + \\Delta \\end{pmatrix} + \\begin{pmatrix} 0 \u0026 \\lambda\\\\ \\lambda \u0026 0 \\end{pmatrix}\\\\ = \\overline{E}\\hat{I} - \\Delta\\hat{\\sigma}_{z} + \\lambda\\hat{\\sigma}_{x} $$\n因为 $\\delta\\hat{H}$ 对角矩阵元为 $0$, 所以一阶能量修正为 $0$.\n所以二阶能量修正:\n$$ E_{0}^{2} = \\frac{|\\delta H_{01}|^{2}}{E_{0}^{0} - E_{1}^{0}} = \\color{red}{-\\frac{\\lambda^{2}}{2\\Delta}}\\\\ E_{1}^{2} = \\frac{|\\delta H_{10}|^{2}}{E_{1}^{0} - E_{0}^{0}} = \\color{red}{\\frac{\\lambda^{2}}{2\\Delta}} $$\n即微扰使得基态能量更低, 激发态能量更高.\n为了和微扰法得出的结论进行比较, 我们可以对这个哈密顿量进行精确求解.\n即有 $$ \\begin{vmatrix} \\overline{E}\\begin{pmatrix} 1 \u0026 0 \\\\ 0 \u0026 1 \\end{pmatrix} - \\begin{pmatrix} \\overline{E} - \\Delta \u0026 \\lambda\\\\ \\lambda \u0026 \\overline{E} + \\Delta \\end{pmatrix} \\end{vmatrix} = 0\\\\ $$\n解得\n$$ E_{\\pm} = \\overline{E} \\pm \\sqrt{\\Delta^{2} + \\lambda^{2}} $$\n取 $\\lambda \\ll \\Delta$ 极限, 即有\n$$ E_{\\pm} = \\overline{E} \\pm \\Delta\\sqrt{1 + \\left(\\frac{\\lambda}{\\Delta}\\right)^{2}} = \\overline{E} \\pm \\Delta \\color{red}{\\pm \\frac{\\lambda^{2}}{2\\Delta}} $$\n第二项显然就是二级近似.\n谐振子的非谐微扰 考虑哈密顿量\n$$ \\hat{H} = \\underbrace{\\frac{p^{2}}{2m} + \\frac{1}{2}m\\omega^{2}x^{2}}_{\\hat{H}_{0}} + \\underbrace{\\lambda x^{4}}_{\\delta\\hat{H}} $$\n对于一般谐振子的 $\\hat{H}_{0}$, 我们已经知道\n$$ E_{n}^{0} = \\left(n + \\frac{1}{2}\\right)\\hbar\\omega\\\\ |n^{0}\\rangle = \\frac{1}{\\sqrt{n!}}\\left(\\hat{a}^{\\dagger}\\right)^{n}|0^{0}\\rangle $$\n$|0^{0}\\rangle$ 为 $\\hat{H}_{0}$ 的基态, $|0\\rangle$ 是 $\\hat{H}$ 的基态, 注意区分.\n$\\hat{a}^{\\dagger}$ 是产生算符, 通过 $$ \\hat{x} = \\sqrt{\\frac{\\hbar}{2m\\omega}}\\left(\\hat{a} + \\hat{a}^{\\dagger}\\right)\\\\ \\hat{p} = -i\\sqrt{\\frac{m\\hbar\\omega}{2}}\\left(\\hat{a} - \\hat{a}^{\\dagger}\\right) $$ 定义. 并且有 $$ \\hat{a}|0^{0}\\rangle = 0 $$\n一阶微扰 $$ E_{0}^{1} = \\langle 0^{0}|\\delta\\hat{H}|0^{0}\\rangle = \\lambda\\langle 0^{0}|x^{4}|0^{0}\\rangle\\\\ = \\lambda\\left(\\frac{\\hbar}{2m\\omega}\\right)^{2}\\langle 0^{0}|\\left(\\hat{a} + \\hat{a}^{\\dagger}\\right)^{4}|0^{0}\\rangle\\\\ = \\lambda\\left(\\frac{\\hbar}{2m\\omega}\\right)^{2}\\langle\\psi|\\psi\\rangle $$\n$$ \\left(\\hat{a} + \\hat{a}^{\\dagger}\\right)|0^{0}\\rangle = |1^{0}\\rangle\\\\ |\\psi\\rangle = \\left(\\hat{a} + \\hat{a}^{\\dagger}\\right)^{2}|0^{0}\\rangle = \\left(\\hat{a} + \\hat{a}^{\\dagger}\\right)|1^{0}\\rangle = \\sqrt{2}|2^{0}\\rangle + |0^{0}\\rangle $$\n所以\n$$ \\langle\\psi|\\psi\\rangle = (\\langle 0^{0}| + \\sqrt{2}\\rangle 2^{0}|)(|0^{0}\\rangle + \\sqrt{2}|2^{2}\\rangle) = \\langle 0^{0}|0^{0}\\rangle + 2\\langle 2^{0}|2^{0}\\rangle = 3 $$\n代回到原一阶能量修正项中, 即有\n$$ E_{0}^{1} = \\frac{3\\lambda}{4}\\left(\\frac{\\hbar}{m\\omega}\\right)^{2} $$\n除了使用升降算符计算外, 也可以使用积分法来计算得到 $E_{0}^{1}$\n$$ \\langle x|0\\rangle = e^{-\\frac{x^{2}}{2a^{2}}}, \\left(a = \\sqrt{\\frac{\\hbar}{2m\\omega}}\\right)\\\\ E_{0}^{1} = \\lambda\\langle 0|x^{4}|0\\rangle = \\lambda\\frac{\\int\\mathrm{d}x x^{4}e^{-\\frac{x^{2}}{2a^{2}}}}{\\int\\mathrm{d}x e^{-\\frac{x^{2}}{2a^{2}}}} = 3a^{2} = \\frac{3\\lambda}{4}\\left(\\frac{\\hbar}{m\\omega}\\right)^{2} $$\n不含时简并定态微扰论 ",
+  "wordCount" : "2284",
   "inLanguage": "zh",
   "datePublished": "2022-05-05T00:18:23+08:00",
   "dateModified": "2022-05-05T00:18:23+08:00",
@@ -335,13 +335,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>0字
+        <span>2284字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>0分钟
+        <span>5分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -409,7 +409,467 @@ code.has-jax {
                 </span>
 
 </div>
-        </header> 
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e8%bf%91%e4%bc%bc%e6%96%b9%e6%b3%95" aria-label="近似方法">近似方法</a></li>
+                <li>
+                    <a href="#%e4%b8%8d%e5%90%ab%e6%97%b6%e9%9d%9e%e7%ae%80%e5%b9%b6%e5%be%ae%e6%89%b0" aria-label="不含时非简并微扰">不含时非简并微扰</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8e%a8%e5%af%bc" aria-label="推导">推导</a></li>
+                <li>
+                    <a href="#%e4%b8%80%e9%98%b6%e4%bf%ae%e6%ad%a3" aria-label="一阶修正">一阶修正</a></li>
+                <li>
+                    <a href="#%e4%ba%8c%e9%98%b6%e4%bf%ae%e6%ad%a3" aria-label="二阶修正">二阶修正</a></li>
+                <li>
+                    <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a></li>
+                <li>
+                    <a href="#%e4%be%8b%e5%ad%90" aria-label="例子">例子</a><ul>
+                        
+                <li>
+                    <a href="#%e4%ba%8c%e8%83%bd%e7%ba%a7%e7%b3%bb%e7%bb%9f" aria-label="二能级系统">二能级系统</a></li>
+                <li>
+                    <a href="#%e8%b0%90%e6%8c%af%e5%ad%90%e7%9a%84%e9%9d%9e%e8%b0%90%e5%be%ae%e6%89%b0" aria-label="谐振子的非谐微扰">谐振子的非谐微扰</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%8d%e5%90%ab%e6%97%b6%e7%ae%80%e5%b9%b6%e5%ae%9a%e6%80%81%e5%be%ae%e6%89%b0%e8%ae%ba" aria-label="不含时简并定态微扰论">不含时简并定态微扰论</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="近似方法">近似方法<a hidden class="anchor" aria-hidden="true" href="#近似方法">#</a></h1>
+<p>在数值求解物理问题时我们会使用很多近似技巧, 但是实际上, 即使只是在理论物理范畴, 大多数问题也是<strong>无法严格求解</strong>的. 近似方法有两类:</p>
+<ol>
+<li>微扰法;</li>
+</ol>
+<p>找到某个小参数($\epsilon,\lambda,\dots$)将所求的物理量进行级数展开, 从而近似求解. 展开方法可以是泰勒展开, 洛朗展开, 渐近展开等.</p>
+<ol start="2">
+<li>变分法.</li>
+</ol>
+<p>也被称为变分原理.</p>
+<h1 id="不含时非简并微扰">不含时非简并微扰<a hidden class="anchor" aria-hidden="true" href="#不含时非简并微扰">#</a></h1>
+<h2 id="推导">推导<a hidden class="anchor" aria-hidden="true" href="#推导">#</a></h2>
+<p>现在我们知道哈密顿量</p>
+<p>$$
+\hat{H} = \hat{H}_{0} + \delta\hat{H}
+$$</p>
+<blockquote>
+<p>$\delta\hat{H}$ 是一个小量.</p>
+</blockquote>
+<p>其中 $\hat{H}_{0}$ 是容易求解的, 即有</p>
+<p>$$
+\hat{H}_{0}|n^{0}\rangle = E_{n}^{0}|n^{0}\rangle (n\in\mathbb{N})
+$$</p>
+<blockquote>
+<p>这里我们简单阐述各个指标的含义.
+$$
+E_{\color{red}{n}}^{\color{blue}{0}}
+$$</p>
+<p>$\color{red}{n}$: 指的是第几能级;</p>
+<p>$\color{blue}{0}$: 指的是第几级修正. 因为这里求的是 $\hat{H}_{0}$ 的本征值和本征态, 所以当然上标都是 $0$.</p>
+</blockquote>
+<blockquote>
+<p>因为我们讨论的是不含时<strong>非简并</strong>微扰, 即有
+$$
+E_{0}^{0} &lt; E_{1}^{0} &lt; E_{2}^{0} &lt; \dots
+$$</p>
+</blockquote>
+<p>现在我们引入辅助参数 $\lambda$, 从而将哈密顿量写作 $\lambda$ 的函数:</p>
+<p>$$
+\hat{H}(\lambda) = \hat{H}_{0} + \lambda\delta\hat{H}
+$$</p>
+<p>我们可以推测, 哈密顿量 $\hat{H}(\lambda)$ 的本征态和本征能量也会成为 $\lambda$ 的<strong>连续</strong>函数.</p>
+<p>$$
+\hat{H}(\lambda)|\psi_{n}(\lambda)\rangle = E_{n}(\lambda)|\psi_{n}(\lambda)\rangle
+$$</p>
+<blockquote>
+<p>$\lambda$ 在实际应用中可以对应一个实在的无量纲物理量:</p>
+<ul>
+<li>相对论效应: $\lambda = \frac{v}{c}$;</li>
+<li>自旋轨道耦合: $\lambda = \alpha = \frac{e^{2}}{\hbar c} = \frac{1}{137}$, 即精细结构常数;</li>
+<li>弱电磁场.</li>
+</ul>
+</blockquote>
+<p>现在我们对 $\hat{H}(\lambda)$ 的本征态 $|n(\lambda)\rangle$, 本征能量 $E_{n}(\lambda)$ 写作 $\lambda$ 的级数展开:</p>
+<p>$$
+|\color{red}{n}(\lambda)\rangle = |\color{red}{n}^{\color{blue}{0}}\rangle + \underbrace{\lambda|\color{red}{n}^{\color{blue}{1}}\rangle + \lambda^{2}|\color{red}{n}^{\color{blue}{2}}\rangle + \lambda^{3}|\color{red}{n}^{\color{blue}{3}}\rangle + \dots}_{|\delta \color{red}{n}\rangle}\\
+E_{\color{red}{n}}(\lambda) = E_{\color{red}{n}}^{\color{blue}{0}} + \underbrace{\lambda E_{\color{red}{n}}^{\color{blue}{1}} + \lambda^{2}E_{\color{red}{n}}^{\color{blue}{2}} + \lambda^{3}E_{\color{red}{n}}^{\color{blue}{3}} + \dots}_{\delta E_{\color{red}{n}}}
+$$</p>
+<blockquote>
+<p>各指标的具体含义:
+$$
+|\color{red}{n}^{\color{blue}{1}}\rangle, E_{\color{red}{n}}^{\color{blue}{1}}
+$$</p>
+<p>$\color{red}{n}$: 指的是第几能级;</p>
+<p>$\color{blue}{1}$: 指的是第几级修正.</p>
+</blockquote>
+<p>设想 $\delta\hat{H}$ 为一个矩阵, 则求解矩阵元 $\delta{H}_{mn}$ 的方法是</p>
+<p>$$
+\left\langle m^{0}\left|\delta\hat{H}\right|n^{0}\right\rangle
+$$</p>
+<blockquote>
+<p>$|n^{0}\rangle$ 是通过 $\hat{H}_{0}$ 求解出的本征态.
+即满足
+$$
+\hat{H}_{0}|n^{0}\rangle = E_{n}^{0}|n^{0}\rangle
+$$</p>
+</blockquote>
+<p>为了计算方便, 我们设定本征态的修正项 $|n^{i}\rangle$ 总是和 $|n^{0}\rangle$ 正交, 即</p>
+<p>$$
+\langle n^{0} | n^{i}\rangle = 0(\forall i\in \mathbb{N}^*)
+$$</p>
+<p>因为任意阶的修正项都与 $|n^{0}\rangle$ 正交, 所以作为这些修正项的线性组合的整体修正 $|\delta n\rangle$ 当然也和 $|n^{0}\rangle$ 正交:</p>
+<p>$$
+\langle n^{0} | \delta n\rangle = 0
+$$</p>
+<p>这样就会使计算 $|n\rangle$ 的内积简单很多:</p>
+<p>$$
+\langle n|n\rangle = \langle n^{0} + \delta n|n^{0} + \delta n\rangle = \langle n^{0}|n^{0}\rangle + \underbrace{\langle n^{0}|\delta n\rangle + \langle \delta n| n^{0}\rangle}_{0} + \langle \delta n|\delta n\rangle = 1 + \langle \delta n|\delta n\rangle
+$$</p>
+<p>也就是说这里的 $|n\rangle$ 尚未被归一化, 可以通过</p>
+<p>$$
+|n\rangle_{\text{Norm}} = \frac{|n\rangle}{\sqrt{\langle n|n\rangle}}
+$$</p>
+<p>来完成.</p>
+<blockquote>
+<p>Norm = Normalization. 在实际应用的时候我们未必需要归一化, 这只是我们另外添加的条件. 大多数情况下只关心能量的问题.</p>
+</blockquote>
+<p>对矩阵元涉及的本征态 $|n^{0}\rangle, |m^{0}\rangle$, 我们令其与整体波函数 $|n\rangle$ 作内积:</p>
+<p>$$
+\langle n^{0}|n\rangle = \overbrace{\langle n^{0}|n^{0}\rangle}^{\text{相同本征态内积归一}} + \langle n^{0}|\delta n\rangle = 1 + \langle n^{0}|\delta n\rangle = 1;\\
+\langle m^{0}|n\rangle = \underbrace{\langle m^{0}|n^{0}\rangle}_{\text{不同本征态彼此正交}} + \langle m^{0}|\delta n\rangle = \langle m^{0}|\delta n\rangle. (m\neq n)
+$$</p>
+<blockquote>
+<p>我们假定零级本征态 $|n^{0}\rangle$ 具有正交归一性.</p>
+</blockquote>
+<p>完整薛定谔方程的两边展开不同的部分(左边为哈密顿量, 右边为波函数)</p>
+<p>$$
+(\hat{H}_{0} + \lambda\delta\hat{H})|n\rangle = E_{n}(|n^{0}\rangle + |\delta n\rangle)
+$$</p>
+<p>现在我们要得到方程组:</p>
+<ol>
+<li>两边左乘 $\langle n^{0}|$:</li>
+</ol>
+<p>$$
+\color{red}{\text{L}}:\langle n^{0}|\hat{H}_{0} + \lambda\delta\hat{H}|n\rangle = \\
+\langle n^{0}|\hat{H}_{0} + \lambda\delta\hat{H}|n^{0} + \delta n\rangle = \langle n^{0}|\hat{H}_{0}|n^{0}\rangle + \langle n^{0}|\hat{H}|\delta{n}\rangle + \langle n^{0}|\lambda\delta\hat{H}|n^{0}\rangle + \langle n^{0}|\lambda\delta\hat{H}|\delta n\rangle\\
+= \langle n^{0}|\hat{H}_{0}|n^{0}\rangle + \langle n^{0}|\hat{H}|\delta{n}\rangle + \langle n^{0}|\hat{H}|n\rangle = \boxed{E_{n}^{0} + \langle n^{0}|\lambda\delta\hat{H}|n\rangle};\\
+\color{blue}{\text{R}}:E_{n}\langle n^{0}|(|n^{0}\rangle + |\delta n\rangle) = E_{n}(\langle n^{0}|n^{0}\rangle + \langle n^{0}|\delta n\rangle) = E_{n}(1 + 0) = \boxed{E_{n}}
+$$</p>
+<p>因为 $\color{red}{\text{L}} = \color{blue}{\text{R}}$, 即有</p>
+<p>$$
+E_{n} - E_{n}^{0} = \lambda\langle n^{0}|\delta\hat{H}|n\rangle
+$$</p>
+<ol start="2">
+<li>两边左乘 $\langle m^{0}|$, 且 $m\neq n$:</li>
+</ol>
+<p>$$
+\color{red}{\text{L}}:\langle m^{0}|\hat{H}_{0} + \lambda\delta\hat{H}|n\rangle = \left(\langle m^{0}|\hat{H}_{0}\right)|n\rangle + \langle m^{0}|\lambda\delta\hat{H}|n\rangle = \boxed{E_{m}^{0}\langle m^{0}|n\rangle + \lambda\langle m^{0}|\delta\hat{H}|n\rangle}\\
+\color{blue}{\text{R}}:\langle m^{0}|E_{n}(|n^{0}+\delta n\rangle) = E_{n}(\langle m^{0}|n^{0} + |\delta n\rangle) = E_{n}(0 + \rangle m^{0}|\delta n\rangle) = \boxed{E_{n}\langle m^{0}|\delta n\rangle}
+$$</p>
+<p>因为 $\color{red}{\text{L}} = \color{blue}{\text{R}}$, 即有</p>
+<p>$$
+(E_{n} - E_{m}^{0})\langle m^{0}|\delta n\rangle = \lambda\langle m^{0}|\delta\hat{H}|n\rangle, (m\neq n)
+$$</p>
+<p>由此我们得到</p>
+<p>$$
+\begin{cases}
+E_{n} - E_{n}^{0} = \lambda\langle n^{0}|\delta\hat{H}|n\rangle\\
+(E_{n} - E_{m}^{0})\langle m^{0}|\delta n\rangle = \lambda\langle m^{0}|\delta\hat{H}|n\rangle, (m\neq n)
+\end{cases}
+$$</p>
+<blockquote>
+<p>我们已经知道完整的本征态和本征能量对 $\lambda$ 级数展开
+$$
+|\color{red}{n}(\lambda)\rangle = |\color{red}{n}^{\color{blue}{0}}\rangle + \underbrace{\lambda|\color{red}{n}^{\color{blue}{1}}\rangle + \lambda^{2}|\color{red}{n}^{\color{blue}{2}}\rangle + \lambda^{3}|\color{red}{n}^{\color{blue}{3}}\rangle + \dots}_{|\delta \color{red}{n}\rangle}\\
+E_{\color{red}{n}}(\lambda) = E_{\color{red}{n}}^{\color{blue}{0}} + \underbrace{\lambda E_{\color{red}{n}}^{\color{blue}{1}} + \lambda^{2}E_{\color{red}{n}}^{\color{blue}{2}} + \lambda^{3}E_{\color{red}{n}}^{\color{blue}{3}} + \dots}_{\delta E_{\color{red}{n}}}
+$$</p>
+</blockquote>
+<p>将展开的级数分别导入到两个方程组中:</p>
+<p>$$
+\text{1:}\color{red}{\lambda} E_{n}^{1} + \color{green}{\lambda^{2}}E_{n}^{2} + \color{blue}{\lambda^{3}}E_{n}^{3} + \dots = \lambda\langle n^{0}|\delta\hat{H}(|n^{0}\rangle + \lambda|n^{1}\rangle + \lambda^{2}|n^{2}\rangle + \lambda^{3}|n^{3}\rangle + \dots)\\
+=\color{red}{\lambda}\langle n^{0}|\delta\hat{H}|n^{0}\rangle + \color{green}{\lambda^{2}}\langle n^{0}|\delta\hat{H}|n^{1}\rangle + \color{blue}{\lambda^{3}}\langle n^{0}|\delta\hat{H}|n^{2}\rangle + \dots\\
+\text{2:}(E_{n}^{0} - E_{m}^{0} + \lambda E_{n}^{1} + \lambda^{2}E_{n}^{2} + \dots)(\lambda\langle m^{0}|n^{1}\rangle + \lambda^{2}\langle m^{0}|n^{2}\rangle + \dots)
+=\\
+\lambda\langle m^{0}|\delta\hat{H}|n^{0}\rangle + \lambda^{2}\langle m^{0}|\delta\hat{H}|n^{1}\rangle + \dots
+$$</p>
+<p>相同的 $\lambda^{i}$ 项对应的系数相同, 这就是无穷多个修正项方程组成的方程组. 根据所需要的修正深度选取对应的级数.</p>
+<p>所以我们可以得到</p>
+<h2 id="一阶修正">一阶修正<a hidden class="anchor" aria-hidden="true" href="#一阶修正">#</a></h2>
+<p>比较 $\color{red}{\lambda}$ 的系数</p>
+<ol>
+<li>一阶能量修正</li>
+</ol>
+<p>$$
+\boxed{E_{n}^{1} = \langle n^{0}|\delta\hat{H}|n^{0}\rangle}
+$$</p>
+<ol start="2">
+<li>一阶波函数修正:</li>
+</ol>
+<p>因为有</p>
+<p>$$
+\langle m^{0}|n^{1}\rangle = \frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}}
+$$</p>
+<p>一般性地, 有投影公式</p>
+<p>$$
+|n^{1}\rangle = \sum_{m} c_{n,m}|m^{0}\rangle
+$$</p>
+<p>而</p>
+<p>系数 $c_{m,n}$ 是做内积得到的, 即</p>
+<p>$$
+c_{m,n} = \langle m^{0}|n^{1}\rangle
+$$</p>
+<p>我们已经推导出了 $m\neq n$ 的系数, 对于 $m = n$ 时, 有</p>
+<p>$$
+\langle m^{0}|n^{1}\rangle = \langle n^{0}|n^{1}\rangle = 0
+$$</p>
+<blockquote>
+<p>我们已经设定任意阶修正项 $|n^{i}\rangle$ 都与零级本征态 $|n^{0}\rangle$ 正交.</p>
+</blockquote>
+<p>所以我们可以舍弃 $m = n$ 这一系数, 从而有</p>
+<p>$$
+\boxed{|n^{1}\rangle = \sum_{m\neq n}\frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}}|m^{0}\rangle}
+$$</p>
+<h2 id="二阶修正">二阶修正<a hidden class="anchor" aria-hidden="true" href="#二阶修正">#</a></h2>
+<p>比较 $\color{green}{\lambda^{2}}$ 的系数:</p>
+<ol>
+<li>二阶能量修正</li>
+</ol>
+<p>$$
+E_{n}^{2} = \langle n^{0}|\delta\hat{H}|\n^{1}\rangle
+$$</p>
+<p>将上面 $|n^{1}\rangle$ 的公式导入, 即有</p>
+<p>$$
+E_{n}^{2} = \langle n^{0}|\delta\hat{H}|\left(\sum_{m\neq n}\frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}}|m^{0}\rangle\right) = \sum_{m\neq n}\frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}}\langle n^{0}|\delta\hat{H}|m^{0}\rangle\\
+\Downarrow\\
+\boxed{E_{n}^{2} = \sum_{m\neq n}\frac{|\delta H_{mn}|^{2}}{E_{n}^{0}-E_{m}^{0}}}
+$$</p>
+<ol start="2">
+<li>二阶波函数修正</li>
+</ol>
+<p>因为</p>
+<p>$$
+(E_{n}^{0} - E_{m}^{0})\langle m^{0}|n^{2}\rangle + \langle n^{0}|\delta\hat{H}|n^{0}\rangle \frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}} = \sum_{k\neq n}\frac{\langle m^{0}|\delta\hat{H}|k^{0}\rangle\langle k^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{k}^{0}}\\
+\Downarrow\\
+\boxed{\langle m^{0}|n^{2}\rangle = \sum_{k\neq n}\frac{\langle m^{0}|\delta\hat{H}|k^{0}\rangle\langle k^{0}|\delta\hat{H}|n^{0}\rangle}{(E_{n}^{0}-E_{m}^{0})(E_{n}^{0} - E_{k}^{0})} - \frac{\langle n^{0}|\delta\hat{H}|n^{0}\rangle\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{(E_{n}^{0} - E_{m}^{0})^{2}}}
+$$</p>
+<h2 id="总结">总结<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h2>
+<p>如果令 $\lambda = 1$, 就可以得到</p>
+<ol>
+<li>能量展开式</li>
+</ol>
+<p>$$
+E_{n} = E_{n}^{0} + E_{n}^{1} + E_{n}^{2} + \dots
+$$</p>
+<ol start="2">
+<li>本征态展开式</li>
+</ol>
+<p>$$
+|n\rangle = |n^{0}\rangle + |n^{1}\rangle + |n^{2}\rangle + \dots
+$$</p>
+<ol start="3">
+<li>能量修正</li>
+</ol>
+<p>$$
+E_{n}^{1} = \delta H_{nn} = \langle n^{0}|\delta\hat{H}|n^{0}\rangle\\
+E_{n}^{2} = \sum_{m\neq n}\frac{|\delta H_{mn}|^{2}}{E_{n}^{0} - E_{m}^{0}}
+$$</p>
+<ol start="4">
+<li>本征态波函数修正</li>
+</ol>
+<p>$$
+\langle m^{0}|n^{1}\rangle = \frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}}\\
+\langle m^{0}|n^{2}\rangle = \sum_{k\neq n}\frac{\delta H_{mk}\delta H_{kn}}{(E_{n}^{0} - E_{m}^{0})(E_{n}^{0} - E_{k}^{0})} - \frac{\delta H_{nn}\delta H_{mn}}{(E_{n}^{0} - E_{m}^{0})^{2}}
+$$</p>
+<blockquote>
+<p>对于基态修正, 有
+$$
+E_{0}^{2} = \sum_{m\in\mathbb{N}^{*}}\frac{|\delta H_{m0}|^{2}}{(E_{0}^{0} - E_{m}^{0})}
+$$
+因为本征值升序排列, 所以二阶微扰总是降低基态能量.</p>
+</blockquote>
+<blockquote>
+<p>对于第 $n$ 本征态的二阶能量修正, 即有
+$$
+E_{n}^{2} = \sum_{m&lt;n}\frac{|\delta H_{mn}|^{2}}{E_{n}^{0} - E_{m}^{0}} + \sum_{m &gt; n}\frac{|\delta H_{mn}|^{2}}{E_{n}^{0} - E_{m}^{0}}
+$$
+第一项总是为正, 第二项总是为负, 即高能级更高, 低能级更低.</p>
+</blockquote>
+<h2 id="例子">例子<a hidden class="anchor" aria-hidden="true" href="#例子">#</a></h2>
+<h3 id="二能级系统">二能级系统<a hidden class="anchor" aria-hidden="true" href="#二能级系统">#</a></h3>
+<p>$$
+\hat{H} = \hat{H}_{0} + \delta\hat{H} =
+\begin{pmatrix}
+E_{0}^{0} &amp; 0\\
+0 &amp; E_{1}^{0}
+\end{pmatrix} +
+\begin{pmatrix}
+0 &amp; \lambda\\
+\lambda &amp; 0
+\end{pmatrix}
+=\begin{pmatrix}
+\overline{E} - \Delta &amp; 0\\
+0 &amp; \overline{E} + \Delta
+\end{pmatrix} +
+\begin{pmatrix}
+0 &amp; \lambda\\
+\lambda &amp; 0
+\end{pmatrix}\\
+= \overline{E}\hat{I} - \Delta\hat{\sigma}_{z} + \lambda\hat{\sigma}_{x}
+$$</p>
+<p>因为 $\delta\hat{H}$ 对角矩阵元为 $0$, 所以一阶能量修正为 $0$.</p>
+<p>所以二阶能量修正:</p>
+<p>$$
+E_{0}^{2} = \frac{|\delta H_{01}|^{2}}{E_{0}^{0} - E_{1}^{0}} = \color{red}{-\frac{\lambda^{2}}{2\Delta}}\\
+E_{1}^{2} = \frac{|\delta H_{10}|^{2}}{E_{1}^{0} - E_{0}^{0}} = \color{red}{\frac{\lambda^{2}}{2\Delta}}
+$$</p>
+<blockquote>
+<p>即微扰使得基态能量更低, 激发态能量更高.</p>
+</blockquote>
+<p>为了和微扰法得出的结论进行比较, 我们可以对这个哈密顿量进行精确求解.</p>
+<p>即有
+$$
+\begin{vmatrix}
+\overline{E}\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix} -
+\begin{pmatrix}
+\overline{E} - \Delta &amp; \lambda\\
+\lambda &amp; \overline{E} + \Delta
+\end{pmatrix}
+\end{vmatrix} = 0\\
+$$</p>
+<p>解得</p>
+<p>$$
+E_{\pm} = \overline{E} \pm \sqrt{\Delta^{2} + \lambda^{2}}
+$$</p>
+<p>取 $\lambda \ll \Delta$ 极限, 即有</p>
+<p>$$
+E_{\pm} = \overline{E} \pm \Delta\sqrt{1 + \left(\frac{\lambda}{\Delta}\right)^{2}} = \overline{E} \pm \Delta \color{red}{\pm \frac{\lambda^{2}}{2\Delta}}
+$$</p>
+<p>第二项显然就是二级近似.</p>
+<h3 id="谐振子的非谐微扰">谐振子的非谐微扰<a hidden class="anchor" aria-hidden="true" href="#谐振子的非谐微扰">#</a></h3>
+<p>考虑哈密顿量</p>
+<p>$$
+\hat{H} = \underbrace{\frac{p^{2}}{2m} + \frac{1}{2}m\omega^{2}x^{2}}_{\hat{H}_{0}} + \underbrace{\lambda x^{4}}_{\delta\hat{H}}
+$$</p>
+<p>对于一般谐振子的 $\hat{H}_{0}$, 我们已经知道</p>
+<p>$$
+E_{n}^{0} = \left(n + \frac{1}{2}\right)\hbar\omega\\
+|n^{0}\rangle = \frac{1}{\sqrt{n!}}\left(\hat{a}^{\dagger}\right)^{n}|0^{0}\rangle
+$$</p>
+<blockquote>
+<p>$|0^{0}\rangle$ 为 $\hat{H}_{0}$ 的基态, $|0\rangle$ 是 $\hat{H}$ 的基态, 注意区分.</p>
+<p>$\hat{a}^{\dagger}$ 是产生算符, 通过
+$$
+\hat{x} = \sqrt{\frac{\hbar}{2m\omega}}\left(\hat{a} + \hat{a}^{\dagger}\right)\\
+\hat{p} = -i\sqrt{\frac{m\hbar\omega}{2}}\left(\hat{a} - \hat{a}^{\dagger}\right)
+$$
+定义. 并且有
+$$
+\hat{a}|0^{0}\rangle = 0
+$$</p>
+</blockquote>
+<ol>
+<li>一阶微扰</li>
+</ol>
+<p>$$
+E_{0}^{1} = \langle 0^{0}|\delta\hat{H}|0^{0}\rangle = \lambda\langle 0^{0}|x^{4}|0^{0}\rangle\\
+= \lambda\left(\frac{\hbar}{2m\omega}\right)^{2}\langle 0^{0}|\left(\hat{a} + \hat{a}^{\dagger}\right)^{4}|0^{0}\rangle\\
+= \lambda\left(\frac{\hbar}{2m\omega}\right)^{2}\langle\psi|\psi\rangle
+$$</p>
+<blockquote>
+<p>$$
+\left(\hat{a} + \hat{a}^{\dagger}\right)|0^{0}\rangle = |1^{0}\rangle\\
+|\psi\rangle = \left(\hat{a} + \hat{a}^{\dagger}\right)^{2}|0^{0}\rangle = \left(\hat{a} + \hat{a}^{\dagger}\right)|1^{0}\rangle = \sqrt{2}|2^{0}\rangle + |0^{0}\rangle
+$$</p>
+</blockquote>
+<p>所以</p>
+<p>$$
+\langle\psi|\psi\rangle = (\langle 0^{0}| + \sqrt{2}\rangle 2^{0}|)(|0^{0}\rangle + \sqrt{2}|2^{2}\rangle) = \langle 0^{0}|0^{0}\rangle + 2\langle 2^{0}|2^{0}\rangle = 3
+$$</p>
+<p>代回到原一阶能量修正项中, 即有</p>
+<p>$$
+E_{0}^{1} = \frac{3\lambda}{4}\left(\frac{\hbar}{m\omega}\right)^{2}
+$$</p>
+<p>除了使用升降算符计算外, 也可以使用积分法来计算得到 $E_{0}^{1}$</p>
+<p>$$
+\langle x|0\rangle = e^{-\frac{x^{2}}{2a^{2}}}, \left(a = \sqrt{\frac{\hbar}{2m\omega}}\right)\\
+E_{0}^{1} = \lambda\langle 0|x^{4}|0\rangle = \lambda\frac{\int\mathrm{d}x x^{4}e^{-\frac{x^{2}}{2a^{2}}}}{\int\mathrm{d}x e^{-\frac{x^{2}}{2a^{2}}}} = 3a^{2} = \frac{3\lambda}{4}\left(\frac{\hbar}{m\omega}\right)^{2}
+$$</p>
+<h1 id="不含时简并定态微扰论">不含时简并定态微扰论<a hidden class="anchor" aria-hidden="true" href="#不含时简并定态微扰论">#</a></h1>
+
+
+        </div>
 
         <footer class="post-footer">
             
