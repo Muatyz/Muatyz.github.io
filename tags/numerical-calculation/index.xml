@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Mon, 29 May 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/numerical-calculation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/numerical-calculation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>矢量和张量</title>
+      <link>https://Muatyz.github.io/posts/phy/ed/vector-analysis/</link>
+      <pubDate>Mon, 19 Jun 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/ed/vector-analysis/</guid>
+      <description>自由变换矢量和张量是物理学的基础工具.</description>
+    </item>
+    
     <item>
       <title>半导体基础</title>
       <link>https://Muatyz.github.io/posts/phy/cmp/semi-conductor/</link>

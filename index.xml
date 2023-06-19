@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Fri, 09 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>量子测量</title>
+      <link>https://Muatyz.github.io/posts/phy/qp/quantum-measurement/</link>
+      <pubDate>Mon, 19 Jun 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/qp/quantum-measurement/</guid>
+      <description>学习如何使用物理的语言来定义测量.</description>
+    </item>
+    
+    <item>
+      <title>矢量和张量</title>
+      <link>https://Muatyz.github.io/posts/phy/ed/vector-analysis/</link>
+      <pubDate>Mon, 19 Jun 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/ed/vector-analysis/</guid>
+      <description>自由变换矢量和张量是物理学的基础工具.</description>
+    </item>
+    
     <item>
       <title>微扰论</title>
       <link>https://Muatyz.github.io/posts/phy/qp/perturbation-theory/</link>
@@ -105,6 +123,15 @@
       
       <guid>https://Muatyz.github.io/about/</guid>
       <description>该站点用于记录每日所学新知 Interest: Condensed Matter Physics, Numerical Calculation Profile: Undergraduate 本站已对 Twikoo 添加了 KaTex 支持. 和ChatGPT聊聊天.该链接已经由 Cloudflare 进行加速, 可以自由访问.</description>
+    </item>
+    
+    <item>
+      <title>密度矩阵</title>
+      <link>https://Muatyz.github.io/posts/phy/qp/density-matrix/</link>
+      <pubDate>Sun, 19 Jun 2022 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/qp/density-matrix/</guid>
+      <description>投影算符 定义 假设对于一个物理量算符 $\hat{R}$, 其本征方程为 $$ \hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots) $$ 我们引入投影算符: $$ \hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}| $$ 所以显然有 $$ \hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle $$ 性质 厄密性 $$ \hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger} $$ 幂等性(Idempotent) $$ \hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k} $$ 完备性 $$ \sum_{k}\hat{\pi}_{k} = I $$ 证明: 对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开: $$ |\psi\rangle = c_{1}|\psi_{1}\rangle + c_{2}|\psi_{2}\rangle + \dots + c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle} $$ 那么将投影算符和作</description>
     </item>
     
     <item>
