@@ -166,8 +166,8 @@ code.has-jax {
   "keywords": [
     ""
   ],
-  "articleBody": "量子测量理论 Intro 假定系统的初始状态为 $|\\psi\\rangle$, 那么对应的密度矩阵为其投影算符 $\\hat{\\pi} = |\\psi\\rangle\\langle\\psi|$.\n我们将物理量算符展开为投影算符形式:\n$$ \\hat{R} = \\sum_{n}r_{n}|\\varphi_{n}\\rangle\\langle\\varphi_{n}| = \\sum_{n}r_{n}\\hat{\\pi}_{n} $$\n我们已经知道, 如果要对态 $|\\psi\\rangle$ 测量物理量 $\\hat{R}$, 那么测得结果为 $r_{n}$ 的概率为\n$$ p_{n} = |\\langle\\psi|\\varphi_{n}\\rangle|^{2} = \\langle\\psi|\\varphi_{n}\\rangle\\langle\\varphi_{n}|\\psi\\rangle = \\langle\\psi|\\hat{\\pi}_{n}|\\psi\\rangle $$\n并且我们测得结果为 $r_{n}$ 后, 系统的状态必定为 $|\\varphi_{n}\\rangle$. 此时的密度矩阵为\n$$ \\hat{\\rho}_{n} = |\\varphi_{n}\\rangle\\langle\\varphi_{n}| = \\frac{|\\varphi_{n}\\rangle \\color{red}{p_{n}}\\langle\\varphi_{n}|}{\\color{red}{p_{n}}} =\\frac{|\\varphi_{n}\\rangle\\color{red}{\\langle\\varphi_{n}|\\psi\\rangle\\langle\\psi|\\varphi_{n}\\rangle}\\langle\\varphi_{n}|}{\\color{red}{\\langle\\psi|\\varphi_{n}\\rangle\\langle\\varphi_{n}|\\psi\\rangle}} =\\hat{\\pi}_{n} $$\n如果只是测量但是结果未知, 即 非选择性测量, 那么测量后的系统状态为物理量 $\\hat{R}$ 所有本征态的概率叠加:\n$$ \\begin{aligned} \\hat{\\rho} = \\sum_{n}p_{n}|\\varphi_{n}\\rangle\\langle\\varphi_{n}| = \\sum_{n}p_{n}\\frac{\\hat{\\pi}_{n}|\\psi\\rangle\\langle\\psi|\\hat{\\pi}_{n}}{\\langle\\psi|\\hat{\\pi}_{n}|\\psi\\rangle} = \\sum_{n}\\hat{\\pi}_{n}|\\psi\\rangle\\langle\\psi|\\hat{\\pi}_{n} \\end{aligned} $$\n将该讨论推广到混合态的情况:\n$$ \\hat{\\rho} = \\sum_{k}\\omega_{k}|\\psi_{k}\\rangle\\langle\\psi_{k}| $$\n那么测量得到 $r_{n}$ 的概率为\n$$ p_{n} = \\text{Tr}\\left(\\hat{\\rho}\\hat{\\pi}_{n}\\right) = \\sum_{k}\\omega_{k}\\langle\\psi_{k}|\\hat{\\pi}_{n}|\\psi_{k}\\rangle $$\n结果为 $r_{n}$ 时, 系统的状态为\n$$ \\hat{\\rho}_{n} = |\\varphi_{n}\\rangle\\langle\\varphi_{n}| = \\frac{|\\varphi_{n}\\rangle p_{n}\\langle\\varphi_{n}|}{p_{n}} = \\frac{\\left|\\varphi_{n}\\rangle \\left(\\sum_{k}\\omega_{k}\\langle\\psi_{k}|\\hat{\\pi}_{n}|\\psi_{k}\\rangle\\right)\\langle\\varphi_{n}\\right|}{\\text{Tr}\\left(\\hat{\\rho}\\hat{\\pi}_{n}\\right)} = \\frac{\\hat{\\pi}_{n}\\hat{\\rho}\\hat{\\pi}_{n}}{\\text{Tr}\\left(\\hat{\\rho}\\hat{\\pi}_{n}\\right)} $$\n如果是非选择性测量, 则测量后的系统状态为 $\\hat{R}$ 所有本征态的概率叠加:\n$$ \\hat{\\rho} = \\sum_{n}\\hat{\\pi}_{n}\\hat{\\rho}\\hat{\\pi}_{n} $$\n在上面的讨论中, 投影算符 $\\hat{\\pi}$ 经常出现, 所以量子系统的测量被称为 投影测量.\n冯诺依曼测量理论 仪器的初态为基态 $|0\\rangle$, 微观系统和测量仪器耦合为复合系统, 初始状态为 $|\\psi\\rangle\\otimes|0\\rangle$;\n测量过程分为两步: (1)系统和仪器相互作用, 使得仪器的态变化; (2)测量仪器的状态;\n当系统处于 $\\hat{R}$ 的本征态 $|\\varphi_{n}\\rangle$ 下, 都会对应一个仪器态张成的 Hilbert Space 中的幺正变换 $\\hat{u}_{n}$, 这代表了仪器状态的演化方式. 即当系统的状态为 $|\\varphi_{n}\\rangle$, 则仪器的态为 $|\\zeta_{n}\\rangle = \\hat{u}_{n}|0\\rangle$.\n$\\{|\\zeta_{n}\\rangle\\}$ 被称为仪器的 指针状态(Pointer states).\n现在我们构造复合系统的幺正变换:\n$$ \\hat{U} = \\sum_{n}\\hat{\\pi}_{n}\\otimes\\hat{u}_{n} $$\n$\\hat{\\pi}_{n}$ 作用在系统上, $\\hat{u}_{n}$ 作用在仪器上.\n$\\hat{U}$的幺正性\n$$ \\hat{U}\\hat{U}^{\\dagger} = \\hat{U}^{\\dagger}\\hat{U} = \\hat{I}\\otimes\\hat{I} $$\n所以有\n$$ \\text{初态:}|\\Psi\\rangle = |\\psi\\rangle\\otimes|0\\rangle\\\\ \\Downarrow{\\text{演化}}\\\\ \\text{终态:}|\\Psi’\\rangle = \\hat{U}|\\psi\\rangle\\otimes|0\\rangle = \\sum_{n}\\hat{\\pi}_{n}|\\psi\\rangle\\otimes|\\zeta_{n}\\rangle $$\n在一般情况下不同的演化算符 $\\hat{u}_{n},\\hat{u}_{m}$ 之间没有关系, 为了研究方便, 可以假设指针状态之间彼此正交, 即\n$$ \\langle\\zeta_{m}|\\zeta_{n}\\rangle = \\langle 0|\\hat{u}_{m}^{\\dagger}\\hat{u}_{n}|0\\rangle = \\delta_{mn} $$\n现在对仪器的这一系列指针状态 $\\{|\\zeta_{n}\\rangle\\}$ 进行投影测量. 那么测量得到 $|\\zeta_{n}\\rangle$ 的概率为\n$$ p_{n} = \\langle\\Psi’|\\left(\\color{lightblue}{\\hat{I}\\otimes|\\zeta_{n}\\rangle\\langle\\zeta_{n}|}\\right)|\\Psi’\\rangle = \\langle\\psi|\\hat{\\pi}_{n}|\\psi\\rangle $$\n$\\color{lightblue}{\\hat{I}\\otimes|\\zeta_{n}\\rangle\\langle\\zeta_{n}|}$ 的意思是测量了仪器而没有对系统产生任何作用.\n如此测量得到 $|\\zeta_{n}\\rangle$ 后复合系统的状态变为\n$$ (|\\varphi_{n}\\rangle\\otimes|\\zeta_{n}\\rangle)(\\langle\\varphi_{n}|\\otimes\\langle\\zeta_{n}|) = \\hat{\\pi}_{n}\\otimes|\\zeta_{n}\\rangle\\langle\\zeta_{n}| $$\n同理, 如果测量后结果未知, 则复合系统的状态为\n$$ \\hat{\\rho}^{\\text{Total}} = \\sum_{n}p_{n}\\hat{\\pi}_{n}\\otimes|\\zeta_{n}\\rangle\\langle\\zeta_{n}| = \\sum_{n}\\hat{\\pi}_{n}|\\psi\\rangle\\langle\\psi|\\hat{\\pi}_{n}\\otimes|\\zeta_{n}\\rangle\\langle\\zeta_{n}| $$\n如果我们只关心系统的状态, 我们可以求系统的约化密度矩阵, 也就是对 $\\hat{\\rho}^{\\text{Total}}$ 求仪器部分的 Hilbert Space 进行求迹:\n$$ \\hat{\\rho} = \\text{Tr}\\left(\\hat{\\rho}^{\\text{Total}}\\right) = \\sum_{n}\\hat{\\pi}_{n}|\\psi\\rangle\\langle\\psi|\\hat{\\pi}_{n} $$\n广义测量理论 我们假定指针状态 $\\{|\\zeta_{n}\\rangle\\}$ 之间彼此正交, 但是实际情况下并非如此(比如, 仪器可能并不完美). 我们可以设法指针的状态可以由另一组彼此正交的状态 $\\{|\\eta_{n}\\rangle\\}$ 进行线性表示. 这种处理被称为 广义测量.\n所以我们将仪器的指针状态 $|\\zeta_{n}\\rangle$ 使用正交基 $\\{|\\eta_{m}\\rangle\\}$ 进行展开:\n$$ |\\zeta_{n}\\rangle = \\sum_{m}C_{nm}|\\eta_{m}\\rangle $$\n所以复合系统的状态也可以展开为正交基 $\\{|\\eta_{m}\\rangle\\}$ 的形式:\n$$ |\\Psi’\\rangle = \\hat{U}|\\psi\\rangle\\otimes|0\\rangle = \\sum_{n}\\hat{\\pi}_{n}|\\psi\\rangle\\otimes|\\zeta_{n}\\rangle = \\sum_{n,m}C_{nm}\\hat{\\pi}_{n}|\\psi\\rangle\\otimes|\\eta_{m}\\rangle = \\sum_{n}\\hat{M}_{n}|\\psi\\rangle\\otimes|\\eta_{n}\\rangle $$\n$$ \\hat{M}_{n} = \\sum_{m}C_{mn}\\hat{\\pi}_{n} $$ 被称作 Kraus 算符.\n通常不具有幺正性.\n但是复合系统的演化算符 $\\hat{U}$ 满足幺正要求, 所以 $|\\Psi’\\rangle$ 具有归一性:\n$$ \\langle\\Psi’|\\Psi’\\rangle = \\sum_{m,n}\\langle\\hat{M}_{n}^{\\dagger}\\hat{M}_{m}|\\psi\\rangle\\langle\\eta_{n}|\\eta_{m}\\rangle = \\sum_{m,n}\\langle\\psi|\\hat{M}_{n}^{\\dagger}\\hat{M}_{m}|\\psi\\rangle\\delta_{nm} = \\sum_{n}\\langle\\psi|\\hat{M}_{n}^{\\dagger}\\hat{M}_{n}|\\psi\\rangle = 1 $$\n因为对任意 $|\\psi\\rangle$ 都满足, 所以需要有\n$$ \\sum_{n}\\hat{M}_{n}^{\\dagger}\\hat{M}_{n} = \\hat{I} $$\n为了方便, 可以引入正算符值测度(POVM):\n$$ \\hat{E}_{n} = \\hat{M}_{n}^{\\dagger}\\hat{M}_{n} $$\nPOVM 的性质\n厄密性 $$ \\hat{E}_{n}^{\\dagger} = \\hat{E}_{n} $$ 正定性 $$ \\forall |\\psi\\rangle,\\quad\\langle\\psi|\\hat{E}_{n}|\\psi\\rangle\\geq 0 $$ 完备性 $$ \\sum_{n}\\hat{E}_{n} = \\hat{I} $$ ",
-  "wordCount" : "1150",
+  "articleBody": "量子测量理论 Intro 假定系统的初始状态为 $|\\psi\\rangle$, 那么对应的密度矩阵为其投影算符 $\\hat{\\pi} = |\\psi\\rangle\\langle\\psi|$.\n我们将物理量算符展开为投影算符形式:\n$$ \\hat{R} = \\sum_{n}r_{n}|\\varphi_{n}\\rangle\\langle\\varphi_{n}| = \\sum_{n}r_{n}\\hat{\\pi}_{n} $$\n我们已经知道, 如果要对态 $|\\psi\\rangle$ 测量物理量 $\\hat{R}$, 那么测得结果为 $r_{n}$ 的概率为\n$$ p_{n} = |\\langle\\psi|\\varphi_{n}\\rangle|^{2} = \\langle\\psi|\\varphi_{n}\\rangle\\langle\\varphi_{n}|\\psi\\rangle = \\langle\\psi|\\hat{\\pi}_{n}|\\psi\\rangle $$\n并且我们测得结果为 $r_{n}$ 后, 系统的状态必定为 $|\\varphi_{n}\\rangle$. 此时的密度矩阵为\n$$ \\hat{\\rho}_{n} = |\\varphi_{n}\\rangle\\langle\\varphi_{n}| = \\frac{|\\varphi_{n}\\rangle \\color{red}{p_{n}}\\langle\\varphi_{n}|}{\\color{red}{p_{n}}} =\\frac{|\\varphi_{n}\\rangle\\color{red}{\\langle\\varphi_{n}|\\psi\\rangle\\langle\\psi|\\varphi_{n}\\rangle}\\langle\\varphi_{n}|}{\\color{red}{\\langle\\psi|\\varphi_{n}\\rangle\\langle\\varphi_{n}|\\psi\\rangle}} =\\hat{\\pi}_{n} $$\n如果只是测量但是结果未知, 即 非选择性测量, 那么测量后的系统状态为物理量 $\\hat{R}$ 所有本征态的概率叠加:\n$$ \\begin{aligned} \\hat{\\rho} = \\sum_{n}p_{n}|\\varphi_{n}\\rangle\\langle\\varphi_{n}| = \\sum_{n}p_{n}\\frac{\\hat{\\pi}_{n}|\\psi\\rangle\\langle\\psi|\\hat{\\pi}_{n}}{\\langle\\psi|\\hat{\\pi}_{n}|\\psi\\rangle} = \\sum_{n}\\hat{\\pi}_{n}|\\psi\\rangle\\langle\\psi|\\hat{\\pi}_{n} \\end{aligned} $$\n将该讨论推广到混合态的情况:\n$$ \\hat{\\rho} = \\sum_{k}\\omega_{k}|\\psi_{k}\\rangle\\langle\\psi_{k}| $$\n那么测量得到 $r_{n}$ 的概率为\n$$ p_{n} = \\text{Tr}\\left(\\hat{\\rho}\\hat{\\pi}_{n}\\right) = \\sum_{k}\\omega_{k}\\langle\\psi_{k}|\\hat{\\pi}_{n}|\\psi_{k}\\rangle $$\n结果为 $r_{n}$ 时, 系统的状态为\n$$ \\hat{\\rho}_{n} = |\\varphi_{n}\\rangle\\langle\\varphi_{n}| = \\frac{|\\varphi_{n}\\rangle p_{n}\\langle\\varphi_{n}|}{p_{n}} = \\frac{\\left|\\varphi_{n}\\rangle \\left(\\sum_{k}\\omega_{k}\\langle\\psi_{k}|\\hat{\\pi}_{n}|\\psi_{k}\\rangle\\right)\\langle\\varphi_{n}\\right|}{\\text{Tr}\\left(\\hat{\\rho}\\hat{\\pi}_{n}\\right)} = \\frac{\\hat{\\pi}_{n}\\hat{\\rho}\\hat{\\pi}_{n}}{\\text{Tr}\\left(\\hat{\\rho}\\hat{\\pi}_{n}\\right)} $$\n如果是非选择性测量, 则测量后的系统状态为 $\\hat{R}$ 所有本征态的概率叠加:\n$$ \\hat{\\rho} = \\sum_{n}\\hat{\\pi}_{n}\\hat{\\rho}\\hat{\\pi}_{n} $$\n在上面的讨论中, 投影算符 $\\hat{\\pi}$ 经常出现, 所以量子系统的测量被称为 投影测量.\n冯诺依曼测量理论 仪器的初态为基态 $|0\\rangle$, 微观系统和测量仪器耦合为复合系统, 初始状态为 $|\\psi\\rangle\\otimes|0\\rangle$;\n测量过程分为两步: (1)系统和仪器相互作用, 使得仪器的态变化; (2)测量仪器的状态;\n当系统处于 $\\hat{R}$ 的本征态 $|\\varphi_{n}\\rangle$ 下, 都会对应一个仪器态张成的 Hilbert Space 中的幺正变换 $\\hat{u}_{n}$, 这代表了仪器状态的演化方式. 即当系统的状态为 $|\\varphi_{n}\\rangle$, 则仪器的态为 $|\\zeta_{n}\\rangle = \\hat{u}_{n}|0\\rangle$.\n$\\{|\\zeta_{n}\\rangle\\}$ 被称为仪器的 指针状态(Pointer states).\n现在我们构造复合系统的幺正变换:\n$$ \\hat{U} = \\sum_{n}\\hat{\\pi}_{n}\\otimes\\hat{u}_{n} $$\n$\\hat{\\pi}_{n}$ 作用在系统上, $\\hat{u}_{n}$ 作用在仪器上.\n$\\hat{U}$的幺正性\n$$ \\hat{U}\\hat{U}^{\\dagger} = \\hat{U}^{\\dagger}\\hat{U} = \\hat{I}\\otimes\\hat{I} $$\n所以有\n$$ \\text{初态:}|\\Psi\\rangle = |\\psi\\rangle\\otimes|0\\rangle\\\\ \\Downarrow{\\text{演化}}\\\\ \\text{终态:}|\\Psi’\\rangle = \\hat{U}|\\psi\\rangle\\otimes|0\\rangle = \\sum_{n}\\hat{\\pi}_{n}|\\psi\\rangle\\otimes|\\zeta_{n}\\rangle $$\n在一般情况下不同的演化算符 $\\hat{u}_{n},\\hat{u}_{m}$ 之间没有关系, 为了研究方便, 可以假设指针状态之间彼此正交, 即\n$$ \\langle\\zeta_{m}|\\zeta_{n}\\rangle = \\langle 0|\\hat{u}_{m}^{\\dagger}\\hat{u}_{n}|0\\rangle = \\delta_{mn} $$\n现在对仪器的这一系列指针状态 $\\{|\\zeta_{n}\\rangle\\}$ 进行投影测量. 那么测量得到 $|\\zeta_{n}\\rangle$ 的概率为\n$$ p_{n} = \\langle\\Psi’|\\left(\\color{lightblue}{\\hat{I}\\otimes|\\zeta_{n}\\rangle\\langle\\zeta_{n}|}\\right)|\\Psi’\\rangle = \\langle\\psi|\\hat{\\pi}_{n}|\\psi\\rangle $$\n$\\color{lightblue}{\\hat{I}\\otimes|\\zeta_{n}\\rangle\\langle\\zeta_{n}|}$ 的意思是测量了仪器而没有对系统产生任何作用.\n如此测量得到 $|\\zeta_{n}\\rangle$ 后复合系统的状态变为\n$$ (|\\varphi_{n}\\rangle\\otimes|\\zeta_{n}\\rangle)(\\langle\\varphi_{n}|\\otimes\\langle\\zeta_{n}|) = \\hat{\\pi}_{n}\\otimes|\\zeta_{n}\\rangle\\langle\\zeta_{n}| $$\n同理, 如果测量后结果未知, 则复合系统的状态为\n$$ \\hat{\\rho}^{\\text{Total}} = \\sum_{n}p_{n}\\hat{\\pi}_{n}\\otimes|\\zeta_{n}\\rangle\\langle\\zeta_{n}| = \\sum_{n}\\hat{\\pi}_{n}|\\psi\\rangle\\langle\\psi|\\hat{\\pi}_{n}\\otimes|\\zeta_{n}\\rangle\\langle\\zeta_{n}| $$\n如果我们只关心系统的状态, 我们可以求系统的约化密度矩阵, 也就是对 $\\hat{\\rho}^{\\text{Total}}$ 求仪器部分的 Hilbert Space 进行求迹:\n$$ \\hat{\\rho} = \\text{Tr}\\left(\\hat{\\rho}^{\\text{Total}}\\right) = \\sum_{n}\\hat{\\pi}_{n}|\\psi\\rangle\\langle\\psi|\\hat{\\pi}_{n} $$\n广义测量理论 我们假定指针状态 $\\{|\\zeta_{n}\\rangle\\}$ 之间彼此正交, 但是实际情况下并非如此(比如, 仪器可能并不完美). 我们可以设法指针的状态可以由另一组彼此正交的状态 $\\{|\\eta_{n}\\rangle\\}$ 进行线性表示. 这种处理被称为 广义测量.\n所以我们将仪器的指针状态 $|\\zeta_{n}\\rangle$ 使用正交基 $\\{|\\eta_{m}\\rangle\\}$ 进行展开:\n$$ |\\zeta_{n}\\rangle = \\sum_{m}C_{nm}|\\eta_{m}\\rangle $$\n所以复合系统的状态也可以展开为正交基 $\\{|\\eta_{m}\\rangle\\}$ 的形式:\n$$ |\\Psi’\\rangle = \\hat{U}|\\psi\\rangle\\otimes|0\\rangle = \\sum_{n}\\hat{\\pi}_{n}|\\psi\\rangle\\otimes|\\zeta_{n}\\rangle = \\sum_{n,m}C_{nm}\\hat{\\pi}_{n}|\\psi\\rangle\\otimes|\\eta_{m}\\rangle = \\sum_{n}\\hat{M}_{n}|\\psi\\rangle\\otimes|\\eta_{n}\\rangle $$\n$$ \\hat{M}_{n} = \\sum_{m}C_{mn}\\hat{\\pi}_{n} $$ 被称作 Kraus 算符.\n通常不具有幺正性.\n但是复合系统的演化算符 $\\hat{U}$ 满足幺正要求, 所以 $|\\Psi’\\rangle$ 具有归一性:\n$$ \\langle\\Psi’|\\Psi’\\rangle = \\sum_{m,n}\\langle\\hat{M}_{n}^{\\dagger}\\hat{M}_{m}|\\psi\\rangle\\langle\\eta_{n}|\\eta_{m}\\rangle = \\sum_{m,n}\\langle\\psi|\\hat{M}_{n}^{\\dagger}\\hat{M}_{m}|\\psi\\rangle\\delta_{nm} = \\sum_{n}\\langle\\psi|\\hat{M}_{n}^{\\dagger}\\hat{M}_{n}|\\psi\\rangle = 1 $$\n因为对任意 $|\\psi\\rangle$ 都满足, 所以需要有\n$$ \\sum_{n}\\hat{M}_{n}^{\\dagger}\\hat{M}_{n} = \\hat{I} $$\n为了方便, 可以引入正算符值测度(POVM):\n$$ \\hat{E}_{n} = \\hat{M}_{n}^{\\dagger}\\hat{M}_{n} $$\nPOVM 的性质\n厄密性 $$ \\hat{E}_{n}^{\\dagger} = \\hat{E}_{n} $$ 正定性 $$ \\forall |\\psi\\rangle,\\quad\\langle\\psi|\\hat{E}_{n}|\\psi\\rangle\\geq 0 $$ 完备性 $$ \\sum_{n}\\hat{E}_{n} = \\hat{I} $$ 广义测量结果为 $|\\eta_{n}\\rangle$ 的概率为\n$$ p_{n} = \\langle|\\hat{M}_{n}^{\\dagger}\\hat{M}_{n}|\\psi\\rangle = \\langle\\psi|\\hat{E}_{n}|\\psi\\rangle $$\n并且测量后的复合系统的状态为\n$$ \\frac{\\hat{M}_{n}|\\psi\\rangle\\otimes|\\eta_{n}\\rangle}{||\\hat{M}_{n}|\\psi\\rangle||} $$\n系统状态为\n$$ \\frac{\\hat{M}_{n}|\\psi\\rangle}{||\\hat{M}_{n}|\\psi\\rangle||} = \\frac{\\hat{M}_{n}|\\psi\\rangle}{\\sqrt{\\langle\\psi|\\hat{M}_{n}^{\\dagger}\\hat{M}_{n}|\\psi\\rangle}} $$\n非选择测量后的状态为\n$$ \\begin{aligned} \\hat{\\rho}’ \u0026= \\sum_{n}\\langle\\psi|\\hat{M}_{n}^{\\dagger}\\hat{M}_{n}|\\psi\\rangle\\frac{\\hat{M}_{n}|\\psi\\rangle}{||\\hat{M}_{n}|\\psi\\rangle||}\\frac{\\langle\\psi|\\hat{M}_{n}^{\\dagger}}{||\\hat{M}_{n}\\rangle||}\\\\ \u0026=\\sum_{n}\\hat{M}_{n}|\\psi\\rangle\\langle\\psi|\\hat{M}_{n}^{\\dagger} \\end{aligned} $$\n现在将讨论推广到混合态 $\\hat{\\rho}$ 的情形, 那么广义测量得到结果为 $n$ 的概率为\n$$ p_{n} = \\text{Tr}\\left(\\hat{\\rho}\\hat{E}_{n}\\right) $$\n并且测量后的状态一定为\n$$ \\hat{\\rho}_{n}’ = \\frac{\\hat{M}_{n}\\hat{\\rho}\\hat{M}_{n}^{\\dagger}}{\\text{Tr}\\left(\\hat{\\rho}\\hat{E}_{n}\\right)} $$\n非选择测量则为\n$$ \\hat{\\rho}’ = \\sum_{n}\\hat{M}_{n}\\hat{\\rho}\\hat{M}_{n}^{\\dagger} $$\n$\\hat{E}_{n}$ 完备性确保了 $\\text{Tr}\\left(\\hat{\\rho}’\\right) = 1$, 所以 $\\hat{\\rho}’$ 仍然是合法的密度矩阵.\n系统与仪器的复合系统的密度状态为 $|\\Psi’\\rangle\\langle\\Psi’|$\n$|\\Psi’\\rangle = \\hat{U}|\\psi\\rangle\\otimes|0\\rangle$.\n因为我们只关心系统状态, 所以就求系统的约化密度矩阵\n$$ \\hat{\\rho} = \\text{Tr}_{\\text{仪器}}\\left(|\\Psi’\\rangle\\langle\\Psi’|\\right) = \\sum_{n}\\hat{M}_{n}\\hat{\\rho}\\hat{M}_{n}^{\\dagger} $$\n在投影测量中, 如果第一次测量为 $n$, 那么第二次测量也必定得到结果 $n$.\n广义测量就不一样了. 第一次测量为 $n$, 则系统状态为\n$$ |\\psi’\\rangle = \\frac{\\hat{M}_{n}|\\psi\\rangle}{||\\hat{M}_{n}|\\psi\\rangle||} $$\n那么第二次测量结果为 $m$ 的概率为\n$$ p(m|n) = \\langle\\psi’|\\hat{M}_{m}^{\\dagger}\\hat{M}_{m}|\\psi’\\rangle = \\frac{\\langle\\psi\\hat{M}_{n}^{\\dagger}\\hat{M}_{m}^{\\dagger}\\hat{M}_{m}\\hat{M}_{n}|\\psi\\rangle}{\\langle\\psi|\\hat{M}_{n}^{\\dagger}\\hat{M}_{n}|\\psi\\rangle} $$\n所以第二次测量也有可能得到其他值的概率并不为零. 但是当 $\\hat{M}_{m}\\hat{M}_{n} = \\hat{M}_{n}\\delta_{mn}$, 也就是 $\\hat{M}_{n}$ 是相互正交的投影算符时, 就会退化成为投影算符.\n非选择性测量的系统状态\n$$ \\hat{\\rho}’ = \\sum_{n}\\hat{M}_{n}\\hat{\\rho}\\hat{M}_{n}^{\\dagger} $$\n这就是算符的线性变化, 被称为 量子通道.\n线性性 $$ \\epsilon\\left(\\alpha_{1}\\hat{\\rho}_{1} + \\alpha_{2}\\hat{\\rho}_{2}\\right) = \\alpha_{1}\\epsilon\\left(\\hat{\\rho}_{1}\\right) + \\alpha_{2}\\epsilon\\left(\\hat{\\rho}_{2}\\right) $$\n厄密性 $$ \\hat{\\rho}^{\\dagger} = \\hat{\\rho} \\Rightarrow \\epsilon\\left(\\hat{\\rho}\\right)^{\\dagger} = \\epsilon\\left(\\hat{\\rho}\\right) $$\n正定性 $$ \\hat{\\rho}\\geq 0 \\Rightarrow \\epsilon\\left(\\hat{\\rho}\\right)\\geq 0 $$\n迹不变性 $$ \\text{Tr}\\left[\\epsilon\\left(\\hat{\\rho}\\right)\\right] = \\text{Tr}\\left(\\hat{\\rho}\\right) $$\n如果 $\\hat{\\rho}$ 是密度矩阵, 那么 $\\epsilon\\left(\\hat{\\rho}\\right)$ 也会是密度矩阵.\n对于量子开放系统, 密度矩阵随着时间的演化为\n$$ \\hat{\\rho}’ = \\epsilon\\left(\\hat{\\rho}\\right) = \\sum_{a}\\hat{M}_{a}\\hat{\\rho}\\hat{M}_{a}^{\\dagger} $$\n",
+  "wordCount" : "1690",
   "inLanguage": "zh",
   "datePublished": "2023-06-19T00:18:23+08:00",
   "dateModified": "2023-06-19T00:18:23+08:00",
@@ -335,13 +335,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1150字
+        <span>1690字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>3分钟
+        <span>4分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -632,6 +632,94 @@ $$
 $$</li>
 </ol>
 </blockquote>
+<p>广义测量结果为 $|\eta_{n}\rangle$ 的概率为</p>
+<p>$$
+p_{n} = \langle|\hat{M}_{n}^{\dagger}\hat{M}_{n}|\psi\rangle = \langle\psi|\hat{E}_{n}|\psi\rangle
+$$</p>
+<p>并且测量后的复合系统的状态为</p>
+<p>$$
+\frac{\hat{M}_{n}|\psi\rangle\otimes|\eta_{n}\rangle}{||\hat{M}_{n}|\psi\rangle||}
+$$</p>
+<p>系统状态为</p>
+<p>$$
+\frac{\hat{M}_{n}|\psi\rangle}{||\hat{M}_{n}|\psi\rangle||} = \frac{\hat{M}_{n}|\psi\rangle}{\sqrt{\langle\psi|\hat{M}_{n}^{\dagger}\hat{M}_{n}|\psi\rangle}}
+$$</p>
+<p>非选择测量后的状态为</p>
+<p>$$
+\begin{aligned}
+\hat{\rho}&rsquo; &amp;= \sum_{n}\langle\psi|\hat{M}_{n}^{\dagger}\hat{M}_{n}|\psi\rangle\frac{\hat{M}_{n}|\psi\rangle}{||\hat{M}_{n}|\psi\rangle||}\frac{\langle\psi|\hat{M}_{n}^{\dagger}}{||\hat{M}_{n}\rangle||}\\
+&amp;=\sum_{n}\hat{M}_{n}|\psi\rangle\langle\psi|\hat{M}_{n}^{\dagger}
+\end{aligned}
+$$</p>
+<p>现在将讨论推广到混合态 $\hat{\rho}$ 的情形, 那么广义测量得到结果为 $n$ 的概率为</p>
+<p>$$
+p_{n} = \text{Tr}\left(\hat{\rho}\hat{E}_{n}\right)
+$$</p>
+<p>并且测量后的状态一定为</p>
+<p>$$
+\hat{\rho}_{n}&rsquo; = \frac{\hat{M}_{n}\hat{\rho}\hat{M}_{n}^{\dagger}}{\text{Tr}\left(\hat{\rho}\hat{E}_{n}\right)}
+$$</p>
+<p>非选择测量则为</p>
+<p>$$
+\hat{\rho}&rsquo; = \sum_{n}\hat{M}_{n}\hat{\rho}\hat{M}_{n}^{\dagger}
+$$</p>
+<blockquote>
+<p>$\hat{E}_{n}$ 完备性确保了 $\text{Tr}\left(\hat{\rho}&rsquo;\right) = 1$, 所以 $\hat{\rho}&rsquo;$ 仍然是合法的密度矩阵.</p>
+</blockquote>
+<p>系统与仪器的复合系统的密度状态为 $|\Psi&rsquo;\rangle\langle\Psi&rsquo;|$</p>
+<blockquote>
+<p>$|\Psi&rsquo;\rangle = \hat{U}|\psi\rangle\otimes|0\rangle$.</p>
+</blockquote>
+<p>因为我们只关心系统状态, 所以就求系统的约化密度矩阵</p>
+<p>$$
+\hat{\rho} = \text{Tr}_{\text{仪器}}\left(|\Psi&rsquo;\rangle\langle\Psi&rsquo;|\right) = \sum_{n}\hat{M}_{n}\hat{\rho}\hat{M}_{n}^{\dagger}
+$$</p>
+<p>在投影测量中, 如果第一次测量为 $n$, 那么第二次测量也必定得到结果 $n$.</p>
+<p>广义测量就不一样了. 第一次测量为 $n$, 则系统状态为</p>
+<p>$$
+|\psi&rsquo;\rangle = \frac{\hat{M}_{n}|\psi\rangle}{||\hat{M}_{n}|\psi\rangle||}
+$$</p>
+<p>那么第二次测量结果为 $m$ 的概率为</p>
+<p>$$
+p(m|n) = \langle\psi&rsquo;|\hat{M}_{m}^{\dagger}\hat{M}_{m}|\psi&rsquo;\rangle = \frac{\langle\psi\hat{M}_{n}^{\dagger}\hat{M}_{m}^{\dagger}\hat{M}_{m}\hat{M}_{n}|\psi\rangle}{\langle\psi|\hat{M}_{n}^{\dagger}\hat{M}_{n}|\psi\rangle}
+$$</p>
+<p>所以第二次测量也有可能得到其他值的概率并不为零. 但是当 $\hat{M}_{m}\hat{M}_{n} = \hat{M}_{n}\delta_{mn}$, 也就是 $\hat{M}_{n}$ 是相互正交的投影算符时, 就会退化成为投影算符.</p>
+<blockquote>
+<p><strong>非选择性测量的系统状态</strong></p>
+<p>$$
+\hat{\rho}&rsquo; = \sum_{n}\hat{M}_{n}\hat{\rho}\hat{M}_{n}^{\dagger}
+$$</p>
+</blockquote>
+<p>这就是算符的线性变化, 被称为 <strong>量子通道</strong>.</p>
+<ol>
+<li>线性性</li>
+</ol>
+<p>$$
+\epsilon\left(\alpha_{1}\hat{\rho}_{1} + \alpha_{2}\hat{\rho}_{2}\right) = \alpha_{1}\epsilon\left(\hat{\rho}_{1}\right) + \alpha_{2}\epsilon\left(\hat{\rho}_{2}\right)
+$$</p>
+<ol start="2">
+<li>厄密性</li>
+</ol>
+<p>$$
+\hat{\rho}^{\dagger} = \hat{\rho} \Rightarrow \epsilon\left(\hat{\rho}\right)^{\dagger} = \epsilon\left(\hat{\rho}\right)
+$$</p>
+<ol start="3">
+<li>正定性</li>
+</ol>
+<p>$$
+\hat{\rho}\geq 0 \Rightarrow \epsilon\left(\hat{\rho}\right)\geq 0
+$$</p>
+<ol start="4">
+<li>迹不变性</li>
+</ol>
+<p>$$
+\text{Tr}\left[\epsilon\left(\hat{\rho}\right)\right] = \text{Tr}\left(\hat{\rho}\right)
+$$</p>
+<p>如果 $\hat{\rho}$ 是密度矩阵, 那么 $\epsilon\left(\hat{\rho}\right)$ 也会是密度矩阵.</p>
+<p>对于量子开放系统, 密度矩阵随着时间的演化为</p>
+<p>$$
+\hat{\rho}&rsquo; = \epsilon\left(\hat{\rho}\right) = \sum_{a}\hat{M}_{a}\hat{\rho}\hat{M}_{a}^{\dagger}
+$$</p>
 
 
         </div>
@@ -639,6 +727,11 @@ $$</li>
         <footer class="post-footer">
             
 <nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/qp/quantum-entropy/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>量子熵</span>
+  </a>
   <a class="next" href="https://Muatyz.github.io/posts/phy/ed/vector-analysis/">
     <span class="title">下一页 »</span>
     <br>
