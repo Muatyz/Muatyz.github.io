@@ -166,8 +166,8 @@ code.has-jax {
   "keywords": [
     ""
   ],
-  "articleBody": "复合系统的密度矩阵 复合系统 对于两个量子系统 $S^{(1)}, S^{(2)}$, 各自的 Hilbert Space 为 $\\mathcal{H}^{(1)}, \\mathcal{H}^{(2)}$, $\\{\\left|\\varphi_{i}^{(1)}\\right\\rangle\\}, \\{\\left|\\varphi_{j}^{(2)}\\right\\rangle\\}$ 为两个空间的标准正交基.\n将两个系统合并为更大的复合系统\n$$ S = S^{(1)}\\oplus S^{(2)} $$\n其对应的 Hilbert Space 为\n$$ \\mathcal{H} = \\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)} $$\n其标准正交基为\n$$ \\{\\left|\\varphi_{i}^{(1)}\\right\\rangle\\}\\otimes\\{\\left|\\varphi_{j}^{(2)}\\right\\rangle\\} $$\n所以\n$$ \\forall |\\Psi\\rangle \\in \\mathcal{H},\\quad|\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\varphi_{j}^{(2)}\\right\\rangle $$\n$\\hat{A}^{(1)}$ 和 $\\hat{A}^{(2)}$ 分别为 $S^{1}$ 和 $S^{2}$ 的物理量算子, 所以 $\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}$ 是复合系统 $S^{(1)}\\oplus S^{(2)}$ 的物理量算子.\n我们定义这个复合算子的计算方法:\n$$ \\left(\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right)\\left(\\left|\\varphi^{(1)}\\right\\rangle\\otimes\\left|\\varphi^{(2)}\\right\\rangle\\right) = \\left(\\hat{A}^{(1)}\\left|\\varphi^{(1)}\\right\\rangle\\right)\\otimes\\left(\\hat{A}^{(2)}\\left|\\varphi^{(2)}\\right\\rangle\\right) $$\n对于复合系统 $S$ 中的算符 $\\hat{A}$, 我们都可以将其展开为子系统算符 $\\hat{A}^{(1)},\\hat{A}^{(2)}$ 直积的线性组合:\n$$ \\hat{A} = \\sum_{\\alpha}\\hat{A}_{\\alpha}^{(1)}\\otimes\\hat{A}_{\\alpha}^{(2)} $$\n特殊情况\n$\\hat{A}^{(1)}\\otimes\\hat{I}^{(2)}$ 表示只对第一个系统产生作用, 第二个系统相当于没有进行任何操作; $\\hat{I}^{(1)}\\otimes\\hat{A}^{(2)}$ 表示只对第二个系统产生作用, 第一个系统相当于没有进行任何操作. 标记 $\\hat{\\rho}$ 为复合系统 $S$ 的密度矩阵. 如果 $S^{(1)},S^{(2)}$ 没有关联, 那么 $\\hat{\\rho}$ 就可以表示为两个子系统的密度矩阵的直积:\n$$ \\hat{\\rho} = \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)} $$\n一般情况下, 这个关系是不成立的, 即 $\\hat{\\rho} \\neq \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)}$.\n现在求复合物理量算子 $\\hat{A}$ 的平均值:\n$$ \\begin{aligned} \\left\\langle\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right\\rangle_{\\hat{\\rho}} \u0026=\\text{Tr}\\left(\\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)}\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right)\\\\ \u0026= \\left[\\text{Tr}_{(1)}\\left(\\hat{\\rho}^{(1)}\\hat{A}^{(1)}\\right)\\right]\\left[\\text{Tr}_{(2)}\\left(\\hat{\\rho}^{(2)}\\hat{A}^{(2)}\\right)\\right]\\\\ \u0026= \\left\\langle\\hat{A}^{(2)}\\right\\rangle_{\\hat{\\rho}^{(1)}}\\left\\langle\\hat{A}^{(2)}\\right\\rangle_{\\hat{\\rho}^{(2)}} \\end{aligned} $$\n$\\text{Tr}_{(1)}, \\text{Tr}_{2}$ 分别是对 $\\mathcal{H}^{(1)}, \\mathcal{H}^{(2)}$ 的求迹.\n对于求偏迹, 有\n$$ \\text{Tr} = \\text{Tr}_{(1)}\\text{Tr}_{(2)} $$\n前面我们已经说过一般两个子系统有关联, 所以\n$$ \\left\\langle\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right\\rangle \\neq\\left\\langle\\hat{A}^{(1)}\\right\\rangle \\left\\langle\\hat{A}^{(2)}\\right\\rangle $$\n约化密度矩阵 我们可以定义系统 $S^{(1)},S^{(2)}$ 的约化密度矩阵:\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho},\\quad\\hat{\\rho}^{(2)} = \\text{Tr}_{(1)}\\hat{\\rho} $$\n那么对于复合系统下的 $\\hat{\\rho}$ 求子系统算符 $\\hat{A}^{(1)}, \\hat{A}^{(2)}$ 的平均值:\n$$ \\begin{aligned} \\left\\langle\\hat{A}^{(1)}\\right\\rangle_{\\hat{\\rho}} \u0026= \\text{Tr}\\left(\\hat{A}^{1}\\hat{\\rho}\\right) = \\left(\\text{Tr}_{(1)}\\text{Tr}_{(2)}\\right)\\left(\\hat{A}^{(1)}\\hat{\\rho}\\right)\\\\ \u0026 = \\left(\\text{Tr}_{(1)}\\hat{A}^{(1)}\\right)\\left(\\text{Tr}_{(2)}\\hat{\\rho}\\right) = \\text{Tr}_{(1)}\\hat{A}^{(1)}\\hat{\\rho}^{(1)} \\end{aligned} $$\n同理可以得到 $\\langle\\hat{A}^{(2)}\\rangle_{\\hat{\\rho}} = \\text{Tr}_{(2)}\\hat{A}^{(2)}\\hat{\\rho}^{(2)}$.\n所以如果我们只是想计算子系统 $S^{(1)}$ 的物理量期望, 那么无需知道复合系统 $S$ 完整的 $\\hat{\\rho}$, 而只需要知道其约化密度矩阵 $\\hat{\\rho}^{(1)}$ 即可.\n对于一个复合系统的纯态 $|\\Psi\\rangle$, 可以展开\n$$ |\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\varphi_{j}^{(2)}\\right\\rangle $$\n对应的密度矩阵即为投影算符\n$$ \\hat{\\rho} = |\\Psi\\rangle\\langle\\Psi| = \\sum_{i,j}\\sum_{a,b}c_{ia}c_{jb}^{*}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\left\\langle\\varphi_{j}^{(1)}\\right|\\otimes\\left|\\varphi_{a}\\right\\rangle\\left\\langle\\varphi_{b}^{(2)}\\right| $$\n所以子系统 $S^{(1)}$ 的约化密度矩阵为\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho} = \\sum_{i,j}\\sum_{a}c_{ia}c_{ja}^{*}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\left\\langle\\varphi_{j}^{(1)}\\right| $$\n同理\n$$ \\hat{\\rho}^{(2)} = \\text{Tr}_{(1)}\\hat{\\rho} = \\sum_{a,b}\\sum_{i}c_{ia}c_{ib}^{*}\\left|\\varphi_{a}^{(2)}\\right\\rangle\\left\\langle\\varphi_{b}^{(2)}\\right| $$\n$\\hat{\\rho}^{(1)},\\hat{\\rho}^{(2)}$ 一般都不对应纯态.\n若复合系统的初态为纯态\n$$ |\\Psi\\rangle = |\\psi^{(1)}\\rangle\\otimes|\\psi^{(2)}\\rangle $$\n如果两个系统之间没有相互作用, 那么复合系统的的哈密顿量可以写作两个子系统的哈密顿量之和:\n$$ \\hat{H} = \\hat{H}^{(1)} + \\hat{H}^{(2)} $$\n因为没有相互作用, 所以 $$ \\left[\\hat{H}^{(1)},\\hat{H}^{(2)}\\right] = 0 $$\n那么复合系统的演化算符也可以表示为两个演化算符的直积:\n$$ \\hat{U}(t) = e^{-\\frac{i\\hat{H}t}{\\hbar}}= e^{-\\frac{i\\hat{H}^{(1)}t}{\\hbar}}\\otimes e^{-\\frac{i\\hat{H}^{(2)}t}{\\hbar}} = \\hat{U}^{(1)}(t)\\otimes\\hat{U}^{(2)}(t) $$\n两个演化算符相互对应: $$ \\left[\\hat{U}^{(1)}(t),\\hat{U}^{(2)}(t)\\right] = 0 $$\n所以在后面的时刻, 复合系统的态始终保持为直积态:\n$$ \\left|\\Psi(t)\\right\\rangle = \\left|\\psi^{(1)}(t)\\right\\rangle\\otimes\\left|\\psi^{(2)}(t)\\right\\rangle $$\n而两个系统之间有相互作用时, 情况就没有这么简单了. 这种情况被称为 量子纠缠.\nSchmidt 分解 Lemma\n两个子系统 $S^{(1)},S^{(2)}$ 组成复合系统 $S$. 这个复合系统中的任意一个纯态 $|\\Psi\\rangle\\in\\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)}$, 都可以通过 $\\mathcal{H}^{(1)},\\mathcal{H}^{(2)}$ 中的标准正交基 $\\left\\{\\left|\\chi_{i}^{(1)}\\right\\rangle\\right\\}, \\left\\{\\left|\\chi_{j}^{(2)}\\right\\rangle\\right\\}$ 进行展开:\n$$ |\\Psi\\rangle = \\sum_{i}\\alpha_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\chi_{i}^{(2)}\\right\\rangle $$\n这种展开被称为 Schmidt 分解. $\\left\\{\\left|\\chi_{i}^{(1)}\\right\\rangle\\right\\}, \\left\\{\\left|\\chi_{j}^{(2)}\\right\\rangle\\right\\}$ 叫做 Schmidt 基, $\\{\\alpha_{i}\\}$ 是 Schmidt 系数.\n证明 法一 子系统 $S^{(1)}$ 的密度矩阵可以进行对角化:\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\left(|\\Psi\\rangle\\langle\\Psi|\\right) = \\sum_{i}p_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left\\langle\\chi_{i}^{(1)}\\right| $$\n$|\\chi_{i}^{(1)}\\rangle$ 是 $\\hat{\\rho}^{(1)}$ 的本征态, 对应的本征值为 $p_{i}$. 选择这一系列本征态 $\\{|\\chi_{i}^{(1)}\\rangle\\}$ 作为空间 $\\mathcal{H}^{(1)}$ 的基底, 同理 $\\left|\\phi_{i}^{(2)}\\right\\rangle$ 作为空间 $\\mathcal{H}^{(2)}$ 的基底.\n所以将 $|\\Psi\\rangle$ 展开 $$ |\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\phi_{j}^{(2)}\\right\\rangle $$\n所以我们可以定义\n$$ \\left|\\psi_{i}^{(2)}\\right\\rangle = \\sum_{j}a_{ij}\\left|\\phi_{j}^{(2)}\\right\\rangle $$\n所以就可以将 $|\\Psi\\rangle$ 展开为\n$$ |\\Psi\\rangle = \\sum_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\psi_{i}^{(2)}\\right\\rangle $$\n所以就有\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\left(|\\Psi\\rangle\\langle\\Psi|\\right) = \\sum_{i,j}\\left(\\left|\\chi_{i}^{(1)}\\right\\rangle\\left\\langle\\psi_{i}^{(2)}\\right|\\right)\\left(\\left|\\psi_{j}^{(2)}\\right\\rangle\\left\\langle\\chi_{j}^{(1)}\\right|\\right) $$\n因为 $S^{(1)}$ 的密度矩阵可以完成对角化, 所以\n$$ \\left\\langle\\psi_{i}^{(2)}\\right|\\left|\\psi_{j}^{(2)}\\right\\rangle = p_{i}\\delta_{ij} $$\n为了使其归一化, 可以如下处理\n$$ \\left|\\chi_{i}^{(2)}\\right\\rangle = \\frac{1}{\\sqrt{p_{i}}}\\left|\\psi_{i}^{(2)}\\right\\rangle $$\n所以我们就有\n$$ |\\Psi\\rangle = \\sum_{i}\\sqrt{p_{i}}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\chi_{i}^{(2)}\\right\\rangle $$\n法二 首先考虑最简单的情况, 即 $\\text{dim}\\mathcal{H}^{(1)} = \\text{dim}\\mathcal{H}^{(2)}$, 选择 $\\mathcal{H}^{(1)},\\mathcal{H}^{(2)}$ 的基 $\\left\\{\\left|\\varphi_{i}^{(1)}\\right\\rangle\\right\\}, \\left\\{\\left|\\varphi_{j}^{(2)}\\right\\rangle\\right\\}$ 将 $|\\Psi\\rangle$ 展开:\n$$ |\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\left|\\varphi_{j}^{(2)}\\right\\rangle $$\n将系数矩阵 $[c_{ij}]$ 记作 $\\overleftrightarrow{c}$, 对该矩阵进行奇异值分解, 即有\n$$ \\overleftrightarrow{c} = \\overleftrightarrow{u}\\overleftrightarrow{d}\\overleftrightarrow{v} $$\n$\\overleftrightarrow{d} = \\text{diag}(c_{1},c_{2},\\dots,c_{N}),\\quad\\alpha_{i}\\geq 0$.\n所以就有\n$$ |\\Psi\\rangle = \\sum_{i,j,k}u_{ij}d_{jj}v_{jk}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\varphi_{k}^{(2)}\\right\\rangle $$\n$d_{jj}$ 就是对角元素 $\\alpha_{j}$.\n所以定义\n$$ \\left|\\chi_{j}^{(1)}\\right\\rangle = \\sum_{i}u_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\\\ \\left|\\chi_{j}^{(2)}\\right\\rangle = \\sum_{k}v_{jk}\\left|\\varphi_{k}^{(2)}\\right\\rangle $$\n因此就可以改写为\n$$ |\\Psi\\rangle = \\sum_{j}\\alpha_{j}\\left|\\chi_{j}^{(1)}\\right\\rangle\\otimes\\left|\\chi_{j}^{(2)}\\right\\rangle $$\n推广到一般情况, 即两者的维度不同. 不妨设 $\\text{dim}\\mathcal{H}^{(1)} \u003c \\text{dim}\\mathcal{H}^{(2)}$, 我们可以使用 $0$ 来填充额外 $[c_{ij}]$ 位置.\n$\\alpha_{j}$ 即为 Schmidt 系数, 且 $\\alpha_{j} = \\sqrt{p_{i}}$.\n非零的 Schmidt 系数 $\\alpha_{i}$ 个数 $n_{s}$ 被称为 Schmidt 数, 并且有关系 $$ n_{s} = \\text{Min}\\left\\{\\text{dim}\\mathcal{H}^{(1)},\\text{dim}\\mathcal{H}^{(2)}\\right\\} $$\n当 $|\\Psi\\rangle = |\\varphi^{(1)}\\rangle\\otimes|\\varphi^{(2)}\\rangle$, 即为直积态, 那么 $\\hat{\\rho}^{(1)} = |\\varphi^{(1)}\\rangle\\langle\\varphi^{(1)}|,\\hat{\\rho}^{(2)} = |\\varphi^{(2)}\\rangle\\langle\\varphi^{(2)}|$ 也都是纯态.\n当 $|\\Psi\\rangle$ 并非直积态时, 则 Schmidt 数 $n_{s} \u003e 1$, 此时 $\\hat{\\rho}^{(1)},\\hat{\\rho}^{(2)}$ 都是混合态, 即 $S^{(1)},S^{(2)}$ 相互纠缠.\n如果有 $\\mathcal{H}^{(1)},\\mathcal{H}^{(2)}$ 中的幺正变换 $\\hat{U}^{(1)},\\hat{U}^{(2)}$, 即有演化后的态为 $\\hat{U}^{(1)}|\\Psi\\rangle,\\hat{U}^{(2)}|\\Psi\\rangle$, 和 $|\\Psi\\rangle$ 具有相同的 Schmidt 系数和 Schmidt 数.\nSchmidt 系数和 Schmidt 数在 $\\mathcal{H} = \\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)}$ 中的幺正变化下没有不变性, 所以要改变两个子系统之间的量子纠缠, 必须要令两者相互作用.\n讨论 如果已知纯态 $|\\Psi\\rangle$ 的 Schmidt 分解\n$$ |\\Psi\\rangle = \\sum_{i}\\alpha_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\chi_{i}^{(2)}\\right\\rangle $$\n所以我们可以写出两个子系统的密度矩阵\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho} = \\sum_{i}|\\alpha_{i}|^{2}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left\\langle\\chi_{i}^{(1)}\\right|\\\\ \\hat{\\rho}^{(2)} = \\text{Tr}_{{(1)}}\\hat{\\rho} = \\sum_{i}|\\alpha_{i}|^{2}\\left|\\chi_{i}^{(2)}\\right\\rangle\\left\\langle\\chi_{i}^{(2)}\\right| $$\n所以 $\\hat{\\rho}^{(1)}$ 和 $\\hat{\\rho}^{(2)}$ 具有相同的一组特征值. 当复合系统并非纯态时, 该结论不再成立.\n对于系统 $S^{(1)}$ 中的非纯态 $\\hat{\\rho}^{(1)}$, 都可以找到一个子系统 $S^{(2)}$ 进行复合, 得到纯态\n$$ \\hat{\\rho} = |\\Psi\\rangle\\langle\\Psi| $$\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho} $$\n这种操作被称为 纯化. 因为 $\\hat{\\rho} \\neq \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)}$, 所以两个系统 $S^{(1)},S^{(2)}$ 是纠缠的.\n任意给定密度矩阵的一种分解方法\n$$ \\hat{\\rho} = \\sum_{i}\\omega_{i}|\\psi_{i}\\rangle\\langle\\psi_{i}| $$\n我们都可以构造对应的纯化方法\n$$ |\\Psi\\rangle = \\sum_{i}\\sqrt{\\omega_{i}}|\\psi_{i}\\rangle\\otimes|\\phi_{i}\\rangle $$\n$\\{||phi_{i}\\rangle\\}$ 是正交归一的量子态.\n量子熵 定义 对于一个密度矩阵 $\\hat{\\rho}$, 可以援引热力学中熵的定义方法, 定义 冯诺依曼熵:\n$$ S\\left(\\hat{\\rho}\\right) = -\\text{Tr}\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) $$\n将 $\\hat{\\rho}$ 展开为其本征态的外积线性组合\n$$ \\hat{\\rho} = \\sum_{i}p_{i}|\\varphi_{i}\\rangle\\langle\\varphi_{i}|\\\\ \\langle\\varphi_{i}|\\varphi_{j}\\rangle = \\delta_{ij},\\quad 0\\leq p_{i}\\leq 1,\\quad\\sum_{i}p_{i} = 1 $$\n即有\n$$ S\\left(\\hat{\\rho}\\right) = -\\sum_{i}p_{i}\\log{p_{i}} = S_{\\text{GS}}[\\{p_{i}\\}] $$\n性质 $S\\left(\\hat{\\rho}\\right)\\geq 0$, 并且有 $$ \\hat{\\rho} = |\\psi\\rangle\\langle\\psi|\\Leftrightarrow S\\left(\\hat{\\rho}\\right) = 0 $$\n当 $\\text{dim}\\mathcal{H} = D$, 即有 $$ S\\left(\\hat{\\rho}\\right)\\leq \\log{D} = S_{\\text{max}} $$\n$\\hat{\\rho}_{0} = \\frac{1}{D}\\hat{I}$ 有最大熵, 这个情况下所有态等是等概率分布的.\n幺正变化不变性 $$ \\forall \\hat{U},\\quad S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{U}\\hat{\\rho}\\hat{U}^{\\dagger}\\right) $$\n凸性 $$ \\forall\\lambda\\in(0,1),\\quad S\\left(\\lambda\\hat{\\rho}_{1} + (1-\\lambda)\\hat{\\rho}_{2}\\right) \\geq \\lambda S\\left(\\hat{\\rho}_{1}\\right) + (1-\\lambda)S\\left(\\hat{\\rho}_{2}\\right) $$\n次可加性 复合系统为 $\\mathcal{H} = \\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)}$, 有\n$$ S\\left(\\hat{\\rho}\\right) \\leq S\\left(\\hat{\\rho}^{(1)}\\right) + S\\left(\\hat{\\rho}^{(2)}\\right) $$\n$\\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho}, \\hat{\\rho}^{(2)} = \\text{Tr}_{(1)}\\hat{\\rho}$. $$ S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{\\rho}^{(1)}\\right) + S\\left(\\hat{\\rho}^{(2)}\\right) \\Leftrightarrow \\hat{\\rho} = \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)} $$\n复合系统的熵小于子系统的熵之和.\n比如极端情况下, 比如 $\\hat{\\rho} = |\\psi$ 为纯态时, 其熵为 $0$:\n$$ S\\left(\\hat{\\rho}\\right) = 0 $$\n子系统的熵相等并且大于 $0$:\n$$ S\\left(\\hat{\\rho}^{(1)}\\right) = S\\left(\\hat{\\rho}^{(2)}\\right) = -\\sum_{i}|\\alpha_{i}|^{2}\\log{|\\alpha_{i}|^{2}} \u003e 0 $$\n强次可加性 $$ S\\left(\\hat{\\rho}_{\\text{ABC}}\\right) + S\\left(\\hat{\\rho}_{\\text{B}}\\right) \\leq S\\left(\\hat{\\rho}_{\\text{AB}}\\right) + S\\left(\\hat{\\rho}_{\\text{BC}}\\right) $$\n极大熵原理 Hilbert Space 中的概率分布被称为 量子系综. 极大熵原理是指, 冯诺依曼熵在平衡态系综取得极大值.\n微正则 考虑孤立系统, 哈密顿量为 $\\hat{H}$, 在能量壳层 $(E,E+\\mathrm{d}E)$ 中, 并且 $\\mathrm{d}E \\ll k_{B}T$. 在这个能量范围内的所有本征态张成一个 Hilbert Space. 我们设定这个空间的维度是 $E,\\mathrm{d}E$ 的函数:\n$$ \\text{dim}\\mathcal{H} = \\Omega(E,\\mathrm{d}E) $$\n这个 Hilbert Space 的基底为 $\\{|1\\rangle,|2\\rangle,\\dots,|\\Omega\\rangle\\}$. 为了使诺伊曼熵最大, 密度矩阵应当为 微正则系综:\n$$ \\hat{\\rho}_{\\text{MC}} = \\frac{\\hat{I}}{\\Omega(E,\\mathrm{d}E)} = \\frac{1}{\\Omega}\\sum_{i = 1}^{\\Omega}|i\\rangle\\langle i| $$\n这个混合态中, $(E,E+\\mathrm{d}E)$ 能量壳层中的任意本征态的概率都是 $\\frac{1}{\\Omega}$, 即 $\\hat{\\rho}_{\\text{MC}}$ 对应经典统计物理中的等概率分布.\n幺正不变性\n$$ S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{U}\\hat{\\rho}\\hat{U}^{\\dagger}\\right) $$\n根据幺正不变性, 我们可以只考虑对角化的密度矩阵:\n$$ \\hat{\\rho} = \\sum_{i}p_{i}|\\varphi_{i}\\rangle\\langle\\varphi_{i}|\\\\ S\\left(\\hat{\\rho}\\right) = -\\sum_{i}p_{i}\\log{p_{i}} = S_{\\text{GS}}[\\{p_{i}\\}] $$\n我们可以使用拉格朗日乘子法来求解熵极大化的概率分布. 概率分布有约束 $\\sum_{i}p_{i} = 1$, 所以有\n$$ \\hat{S} = S - \\lambda\\left(\\sum_{i}p_{i} - 1\\right) $$\n求一级变分为 $0$:\n$$ \\delta\\left[-\\sum_{i}p_{i}\\log{p_{i}}-\\lambda\\left(\\sum_{i}p_{i} - 1\\right)\\right] = 0\\Rightarrow \\sum_{i}\\left(-\\log{p_{i}} - 1 - \\lambda\\right)\\delta p_{i} = 0 $$\n也就是说, 使得熵极大化的分布为\n$$ p_{i} = e^{-\\alpha - 1} $$\n也就是说 $p_{i}$ 与 $i$ 无关, 也就是说 $p_{i}$ 就是微正则分布\n$$ p_{i} = \\frac{1}{\\Omega(E,\\mathrm{d}E)} $$\n对应的密度矩阵为微正则系综\n$$ \\hat{\\rho} = \\hat{\\rho}_{\\text{MC}} = \\frac{\\hat{I}}{\\Omega(E,\\mathrm{d}E)} $$\n正则系综 ",
-  "wordCount" : "2268",
+  "articleBody": "复合系统的密度矩阵 复合系统 对于两个量子系统 $S^{(1)}, S^{(2)}$, 各自的 Hilbert Space 为 $\\mathcal{H}^{(1)}, \\mathcal{H}^{(2)}$, $\\{\\left|\\varphi_{i}^{(1)}\\right\\rangle\\}, \\{\\left|\\varphi_{j}^{(2)}\\right\\rangle\\}$ 为两个空间的标准正交基.\n将两个系统合并为更大的复合系统\n$$ S = S^{(1)}\\oplus S^{(2)} $$\n其对应的 Hilbert Space 为\n$$ \\mathcal{H} = \\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)} $$\n其标准正交基为\n$$ \\{\\left|\\varphi_{i}^{(1)}\\right\\rangle\\}\\otimes\\{\\left|\\varphi_{j}^{(2)}\\right\\rangle\\} $$\n所以\n$$ \\forall |\\Psi\\rangle \\in \\mathcal{H},\\quad|\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\varphi_{j}^{(2)}\\right\\rangle $$\n$\\hat{A}^{(1)}$ 和 $\\hat{A}^{(2)}$ 分别为 $S^{1}$ 和 $S^{2}$ 的物理量算子, 所以 $\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}$ 是复合系统 $S^{(1)}\\oplus S^{(2)}$ 的物理量算子.\n我们定义这个复合算子的计算方法:\n$$ \\left(\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right)\\left(\\left|\\varphi^{(1)}\\right\\rangle\\otimes\\left|\\varphi^{(2)}\\right\\rangle\\right) = \\left(\\hat{A}^{(1)}\\left|\\varphi^{(1)}\\right\\rangle\\right)\\otimes\\left(\\hat{A}^{(2)}\\left|\\varphi^{(2)}\\right\\rangle\\right) $$\n对于复合系统 $S$ 中的算符 $\\hat{A}$, 我们都可以将其展开为子系统算符 $\\hat{A}^{(1)},\\hat{A}^{(2)}$ 直积的线性组合:\n$$ \\hat{A} = \\sum_{\\alpha}\\hat{A}_{\\alpha}^{(1)}\\otimes\\hat{A}_{\\alpha}^{(2)} $$\n特殊情况\n$\\hat{A}^{(1)}\\otimes\\hat{I}^{(2)}$ 表示只对第一个系统产生作用, 第二个系统相当于没有进行任何操作; $\\hat{I}^{(1)}\\otimes\\hat{A}^{(2)}$ 表示只对第二个系统产生作用, 第一个系统相当于没有进行任何操作. 标记 $\\hat{\\rho}$ 为复合系统 $S$ 的密度矩阵. 如果 $S^{(1)},S^{(2)}$ 没有关联, 那么 $\\hat{\\rho}$ 就可以表示为两个子系统的密度矩阵的直积:\n$$ \\hat{\\rho} = \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)} $$\n一般情况下, 这个关系是不成立的, 即 $\\hat{\\rho} \\neq \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)}$.\n现在求复合物理量算子 $\\hat{A}$ 的平均值:\n$$ \\begin{aligned} \\left\\langle\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right\\rangle_{\\hat{\\rho}} \u0026=\\text{Tr}\\left(\\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)}\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right)\\\\ \u0026= \\left[\\text{Tr}_{(1)}\\left(\\hat{\\rho}^{(1)}\\hat{A}^{(1)}\\right)\\right]\\left[\\text{Tr}_{(2)}\\left(\\hat{\\rho}^{(2)}\\hat{A}^{(2)}\\right)\\right]\\\\ \u0026= \\left\\langle\\hat{A}^{(2)}\\right\\rangle_{\\hat{\\rho}^{(1)}}\\left\\langle\\hat{A}^{(2)}\\right\\rangle_{\\hat{\\rho}^{(2)}} \\end{aligned} $$\n$\\text{Tr}_{(1)}, \\text{Tr}_{2}$ 分别是对 $\\mathcal{H}^{(1)}, \\mathcal{H}^{(2)}$ 的求迹.\n对于求偏迹, 有\n$$ \\text{Tr} = \\text{Tr}_{(1)}\\text{Tr}_{(2)} $$\n前面我们已经说过一般两个子系统有关联, 所以\n$$ \\left\\langle\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right\\rangle \\neq\\left\\langle\\hat{A}^{(1)}\\right\\rangle \\left\\langle\\hat{A}^{(2)}\\right\\rangle $$\n约化密度矩阵 我们可以定义系统 $S^{(1)},S^{(2)}$ 的约化密度矩阵:\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho},\\quad\\hat{\\rho}^{(2)} = \\text{Tr}_{(1)}\\hat{\\rho} $$\n那么对于复合系统下的 $\\hat{\\rho}$ 求子系统算符 $\\hat{A}^{(1)}, \\hat{A}^{(2)}$ 的平均值:\n$$ \\begin{aligned} \\left\\langle\\hat{A}^{(1)}\\right\\rangle_{\\hat{\\rho}} \u0026= \\text{Tr}\\left(\\hat{A}^{1}\\hat{\\rho}\\right) = \\left(\\text{Tr}_{(1)}\\text{Tr}_{(2)}\\right)\\left(\\hat{A}^{(1)}\\hat{\\rho}\\right)\\\\ \u0026 = \\left(\\text{Tr}_{(1)}\\hat{A}^{(1)}\\right)\\left(\\text{Tr}_{(2)}\\hat{\\rho}\\right) = \\text{Tr}_{(1)}\\hat{A}^{(1)}\\hat{\\rho}^{(1)} \\end{aligned} $$\n同理可以得到 $\\langle\\hat{A}^{(2)}\\rangle_{\\hat{\\rho}} = \\text{Tr}_{(2)}\\hat{A}^{(2)}\\hat{\\rho}^{(2)}$.\n所以如果我们只是想计算子系统 $S^{(1)}$ 的物理量期望, 那么无需知道复合系统 $S$ 完整的 $\\hat{\\rho}$, 而只需要知道其约化密度矩阵 $\\hat{\\rho}^{(1)}$ 即可.\n对于一个复合系统的纯态 $|\\Psi\\rangle$, 可以展开\n$$ |\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\varphi_{j}^{(2)}\\right\\rangle $$\n对应的密度矩阵即为投影算符\n$$ \\hat{\\rho} = |\\Psi\\rangle\\langle\\Psi| = \\sum_{i,j}\\sum_{a,b}c_{ia}c_{jb}^{*}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\left\\langle\\varphi_{j}^{(1)}\\right|\\otimes\\left|\\varphi_{a}\\right\\rangle\\left\\langle\\varphi_{b}^{(2)}\\right| $$\n所以子系统 $S^{(1)}$ 的约化密度矩阵为\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho} = \\sum_{i,j}\\sum_{a}c_{ia}c_{ja}^{*}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\left\\langle\\varphi_{j}^{(1)}\\right| $$\n同理\n$$ \\hat{\\rho}^{(2)} = \\text{Tr}_{(1)}\\hat{\\rho} = \\sum_{a,b}\\sum_{i}c_{ia}c_{ib}^{*}\\left|\\varphi_{a}^{(2)}\\right\\rangle\\left\\langle\\varphi_{b}^{(2)}\\right| $$\n$\\hat{\\rho}^{(1)},\\hat{\\rho}^{(2)}$ 一般都不对应纯态.\n若复合系统的初态为纯态\n$$ |\\Psi\\rangle = |\\psi^{(1)}\\rangle\\otimes|\\psi^{(2)}\\rangle $$\n如果两个系统之间没有相互作用, 那么复合系统的的哈密顿量可以写作两个子系统的哈密顿量之和:\n$$ \\hat{H} = \\hat{H}^{(1)} + \\hat{H}^{(2)} $$\n因为没有相互作用, 所以 $$ \\left[\\hat{H}^{(1)},\\hat{H}^{(2)}\\right] = 0 $$\n那么复合系统的演化算符也可以表示为两个演化算符的直积:\n$$ \\hat{U}(t) = e^{-\\frac{i\\hat{H}t}{\\hbar}}= e^{-\\frac{i\\hat{H}^{(1)}t}{\\hbar}}\\otimes e^{-\\frac{i\\hat{H}^{(2)}t}{\\hbar}} = \\hat{U}^{(1)}(t)\\otimes\\hat{U}^{(2)}(t) $$\n两个演化算符相互对应: $$ \\left[\\hat{U}^{(1)}(t),\\hat{U}^{(2)}(t)\\right] = 0 $$\n所以在后面的时刻, 复合系统的态始终保持为直积态:\n$$ \\left|\\Psi(t)\\right\\rangle = \\left|\\psi^{(1)}(t)\\right\\rangle\\otimes\\left|\\psi^{(2)}(t)\\right\\rangle $$\n而两个系统之间有相互作用时, 情况就没有这么简单了. 这种情况被称为 量子纠缠.\nSchmidt 分解 Lemma\n两个子系统 $S^{(1)},S^{(2)}$ 组成复合系统 $S$. 这个复合系统中的任意一个纯态 $|\\Psi\\rangle\\in\\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)}$, 都可以通过 $\\mathcal{H}^{(1)},\\mathcal{H}^{(2)}$ 中的标准正交基 $\\left\\{\\left|\\chi_{i}^{(1)}\\right\\rangle\\right\\}, \\left\\{\\left|\\chi_{j}^{(2)}\\right\\rangle\\right\\}$ 进行展开:\n$$ |\\Psi\\rangle = \\sum_{i}\\alpha_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\chi_{i}^{(2)}\\right\\rangle $$\n这种展开被称为 Schmidt 分解. $\\left\\{\\left|\\chi_{i}^{(1)}\\right\\rangle\\right\\}, \\left\\{\\left|\\chi_{j}^{(2)}\\right\\rangle\\right\\}$ 叫做 Schmidt 基, $\\{\\alpha_{i}\\}$ 是 Schmidt 系数.\n证明 法一 子系统 $S^{(1)}$ 的密度矩阵可以进行对角化:\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\left(|\\Psi\\rangle\\langle\\Psi|\\right) = \\sum_{i}p_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left\\langle\\chi_{i}^{(1)}\\right| $$\n$|\\chi_{i}^{(1)}\\rangle$ 是 $\\hat{\\rho}^{(1)}$ 的本征态, 对应的本征值为 $p_{i}$. 选择这一系列本征态 $\\{|\\chi_{i}^{(1)}\\rangle\\}$ 作为空间 $\\mathcal{H}^{(1)}$ 的基底, 同理 $\\left|\\phi_{i}^{(2)}\\right\\rangle$ 作为空间 $\\mathcal{H}^{(2)}$ 的基底.\n所以将 $|\\Psi\\rangle$ 展开 $$ |\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\phi_{j}^{(2)}\\right\\rangle $$\n所以我们可以定义\n$$ \\left|\\psi_{i}^{(2)}\\right\\rangle = \\sum_{j}a_{ij}\\left|\\phi_{j}^{(2)}\\right\\rangle $$\n所以就可以将 $|\\Psi\\rangle$ 展开为\n$$ |\\Psi\\rangle = \\sum_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\psi_{i}^{(2)}\\right\\rangle $$\n所以就有\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\left(|\\Psi\\rangle\\langle\\Psi|\\right) = \\sum_{i,j}\\left(\\left|\\chi_{i}^{(1)}\\right\\rangle\\left\\langle\\psi_{i}^{(2)}\\right|\\right)\\left(\\left|\\psi_{j}^{(2)}\\right\\rangle\\left\\langle\\chi_{j}^{(1)}\\right|\\right) $$\n因为 $S^{(1)}$ 的密度矩阵可以完成对角化, 所以\n$$ \\left\\langle\\psi_{i}^{(2)}\\right|\\left|\\psi_{j}^{(2)}\\right\\rangle = p_{i}\\delta_{ij} $$\n为了使其归一化, 可以如下处理\n$$ \\left|\\chi_{i}^{(2)}\\right\\rangle = \\frac{1}{\\sqrt{p_{i}}}\\left|\\psi_{i}^{(2)}\\right\\rangle $$\n所以我们就有\n$$ |\\Psi\\rangle = \\sum_{i}\\sqrt{p_{i}}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\chi_{i}^{(2)}\\right\\rangle $$\n法二 首先考虑最简单的情况, 即 $\\text{dim}\\mathcal{H}^{(1)} = \\text{dim}\\mathcal{H}^{(2)}$, 选择 $\\mathcal{H}^{(1)},\\mathcal{H}^{(2)}$ 的基 $\\left\\{\\left|\\varphi_{i}^{(1)}\\right\\rangle\\right\\}, \\left\\{\\left|\\varphi_{j}^{(2)}\\right\\rangle\\right\\}$ 将 $|\\Psi\\rangle$ 展开:\n$$ |\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\left|\\varphi_{j}^{(2)}\\right\\rangle $$\n将系数矩阵 $[c_{ij}]$ 记作 $\\overleftrightarrow{c}$, 对该矩阵进行奇异值分解, 即有\n$$ \\overleftrightarrow{c} = \\overleftrightarrow{u}\\overleftrightarrow{d}\\overleftrightarrow{v} $$\n$\\overleftrightarrow{d} = \\text{diag}(c_{1},c_{2},\\dots,c_{N}),\\quad\\alpha_{i}\\geq 0$.\n所以就有\n$$ |\\Psi\\rangle = \\sum_{i,j,k}u_{ij}d_{jj}v_{jk}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\varphi_{k}^{(2)}\\right\\rangle $$\n$d_{jj}$ 就是对角元素 $\\alpha_{j}$.\n所以定义\n$$ \\left|\\chi_{j}^{(1)}\\right\\rangle = \\sum_{i}u_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\\\ \\left|\\chi_{j}^{(2)}\\right\\rangle = \\sum_{k}v_{jk}\\left|\\varphi_{k}^{(2)}\\right\\rangle $$\n因此就可以改写为\n$$ |\\Psi\\rangle = \\sum_{j}\\alpha_{j}\\left|\\chi_{j}^{(1)}\\right\\rangle\\otimes\\left|\\chi_{j}^{(2)}\\right\\rangle $$\n推广到一般情况, 即两者的维度不同. 不妨设 $\\text{dim}\\mathcal{H}^{(1)} \u003c \\text{dim}\\mathcal{H}^{(2)}$, 我们可以使用 $0$ 来填充额外 $[c_{ij}]$ 位置.\n$\\alpha_{j}$ 即为 Schmidt 系数, 且 $\\alpha_{j} = \\sqrt{p_{i}}$.\n非零的 Schmidt 系数 $\\alpha_{i}$ 个数 $n_{s}$ 被称为 Schmidt 数, 并且有关系 $$ n_{s} = \\text{Min}\\left\\{\\text{dim}\\mathcal{H}^{(1)},\\text{dim}\\mathcal{H}^{(2)}\\right\\} $$\n当 $|\\Psi\\rangle = |\\varphi^{(1)}\\rangle\\otimes|\\varphi^{(2)}\\rangle$, 即为直积态, 那么 $\\hat{\\rho}^{(1)} = |\\varphi^{(1)}\\rangle\\langle\\varphi^{(1)}|,\\hat{\\rho}^{(2)} = |\\varphi^{(2)}\\rangle\\langle\\varphi^{(2)}|$ 也都是纯态.\n当 $|\\Psi\\rangle$ 并非直积态时, 则 Schmidt 数 $n_{s} \u003e 1$, 此时 $\\hat{\\rho}^{(1)},\\hat{\\rho}^{(2)}$ 都是混合态, 即 $S^{(1)},S^{(2)}$ 相互纠缠.\n如果有 $\\mathcal{H}^{(1)},\\mathcal{H}^{(2)}$ 中的幺正变换 $\\hat{U}^{(1)},\\hat{U}^{(2)}$, 即有演化后的态为 $\\hat{U}^{(1)}|\\Psi\\rangle,\\hat{U}^{(2)}|\\Psi\\rangle$, 和 $|\\Psi\\rangle$ 具有相同的 Schmidt 系数和 Schmidt 数.\nSchmidt 系数和 Schmidt 数在 $\\mathcal{H} = \\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)}$ 中的幺正变化下没有不变性, 所以要改变两个子系统之间的量子纠缠, 必须要令两者相互作用.\n讨论 如果已知纯态 $|\\Psi\\rangle$ 的 Schmidt 分解\n$$ |\\Psi\\rangle = \\sum_{i}\\alpha_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\chi_{i}^{(2)}\\right\\rangle $$\n所以我们可以写出两个子系统的密度矩阵\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho} = \\sum_{i}|\\alpha_{i}|^{2}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left\\langle\\chi_{i}^{(1)}\\right|\\\\ \\hat{\\rho}^{(2)} = \\text{Tr}_{{(1)}}\\hat{\\rho} = \\sum_{i}|\\alpha_{i}|^{2}\\left|\\chi_{i}^{(2)}\\right\\rangle\\left\\langle\\chi_{i}^{(2)}\\right| $$\n所以 $\\hat{\\rho}^{(1)}$ 和 $\\hat{\\rho}^{(2)}$ 具有相同的一组特征值. 当复合系统并非纯态时, 该结论不再成立.\n对于系统 $S^{(1)}$ 中的非纯态 $\\hat{\\rho}^{(1)}$, 都可以找到一个子系统 $S^{(2)}$ 进行复合, 得到纯态\n$$ \\hat{\\rho} = |\\Psi\\rangle\\langle\\Psi| $$\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho} $$\n这种操作被称为 纯化. 因为 $\\hat{\\rho} \\neq \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)}$, 所以两个系统 $S^{(1)},S^{(2)}$ 是纠缠的.\n任意给定密度矩阵的一种分解方法\n$$ \\hat{\\rho} = \\sum_{i}\\omega_{i}|\\psi_{i}\\rangle\\langle\\psi_{i}| $$\n我们都可以构造对应的纯化方法\n$$ |\\Psi\\rangle = \\sum_{i}\\sqrt{\\omega_{i}}|\\psi_{i}\\rangle\\otimes|\\phi_{i}\\rangle $$\n$\\{||phi_{i}\\rangle\\}$ 是正交归一的量子态.\n量子熵 定义 对于一个密度矩阵 $\\hat{\\rho}$, 可以援引热力学中熵的定义方法, 定义 冯诺依曼熵:\n$$ S\\left(\\hat{\\rho}\\right) = -\\text{Tr}\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) $$\n将 $\\hat{\\rho}$ 展开为其本征态的外积线性组合\n$$ \\hat{\\rho} = \\sum_{i}p_{i}|\\varphi_{i}\\rangle\\langle\\varphi_{i}|\\\\ \\langle\\varphi_{i}|\\varphi_{j}\\rangle = \\delta_{ij},\\quad 0\\leq p_{i}\\leq 1,\\quad\\sum_{i}p_{i} = 1 $$\n即有\n$$ S\\left(\\hat{\\rho}\\right) = -\\sum_{i}p_{i}\\log{p_{i}} = S_{\\text{GS}}[\\{p_{i}\\}] $$\n性质 $S\\left(\\hat{\\rho}\\right)\\geq 0$, 并且有 $$ \\hat{\\rho} = |\\psi\\rangle\\langle\\psi|\\Leftrightarrow S\\left(\\hat{\\rho}\\right) = 0 $$\n当 $\\text{dim}\\mathcal{H} = D$, 即有 $$ S\\left(\\hat{\\rho}\\right)\\leq \\log{D} = S_{\\text{max}} $$\n$\\hat{\\rho}_{0} = \\frac{1}{D}\\hat{I}$ 有最大熵, 这个情况下所有态等是等概率分布的.\n幺正变化不变性 $$ \\forall \\hat{U},\\quad S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{U}\\hat{\\rho}\\hat{U}^{\\dagger}\\right) $$\n凸性 $$ \\forall\\lambda\\in(0,1),\\quad S\\left(\\lambda\\hat{\\rho}_{1} + (1-\\lambda)\\hat{\\rho}_{2}\\right) \\geq \\lambda S\\left(\\hat{\\rho}_{1}\\right) + (1-\\lambda)S\\left(\\hat{\\rho}_{2}\\right) $$\n次可加性 复合系统为 $\\mathcal{H} = \\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)}$, 有\n$$ S\\left(\\hat{\\rho}\\right) \\leq S\\left(\\hat{\\rho}^{(1)}\\right) + S\\left(\\hat{\\rho}^{(2)}\\right) $$\n$\\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho}, \\hat{\\rho}^{(2)} = \\text{Tr}_{(1)}\\hat{\\rho}$. $$ S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{\\rho}^{(1)}\\right) + S\\left(\\hat{\\rho}^{(2)}\\right) \\Leftrightarrow \\hat{\\rho} = \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)} $$\n复合系统的熵小于子系统的熵之和.\n比如极端情况下, 比如 $\\hat{\\rho} = |\\psi$ 为纯态时, 其熵为 $0$:\n$$ S\\left(\\hat{\\rho}\\right) = 0 $$\n子系统的熵相等并且大于 $0$:\n$$ S\\left(\\hat{\\rho}^{(1)}\\right) = S\\left(\\hat{\\rho}^{(2)}\\right) = -\\sum_{i}|\\alpha_{i}|^{2}\\log{|\\alpha_{i}|^{2}} \u003e 0 $$\n强次可加性 $$ S\\left(\\hat{\\rho}_{\\text{ABC}}\\right) + S\\left(\\hat{\\rho}_{\\text{B}}\\right) \\leq S\\left(\\hat{\\rho}_{\\text{AB}}\\right) + S\\left(\\hat{\\rho}_{\\text{BC}}\\right) $$\n极大熵原理 Hilbert Space 中的概率分布被称为 量子系综. 极大熵原理是指, 冯诺依曼熵在平衡态系综取得极大值.\n微正则 考虑孤立系统, 哈密顿量为 $\\hat{H}$, 在能量壳层 $(E,E+\\mathrm{d}E)$ 中, 并且 $\\mathrm{d}E \\ll k_{B}T$. 在这个能量范围内的所有本征态张成一个 Hilbert Space. 我们设定这个空间的维度是 $E,\\mathrm{d}E$ 的函数:\n$$ \\text{dim}\\mathcal{H} = \\Omega(E,\\mathrm{d}E) $$\n这个 Hilbert Space 的基底为 $\\{|1\\rangle,|2\\rangle,\\dots,|\\Omega\\rangle\\}$. 为了使诺伊曼熵最大, 密度矩阵应当为 微正则系综:\n$$ \\hat{\\rho}_{\\text{MC}} = \\frac{\\hat{I}}{\\Omega(E,\\mathrm{d}E)} = \\frac{1}{\\Omega}\\sum_{i = 1}^{\\Omega}|i\\rangle\\langle i| $$\n这个混合态中, $(E,E+\\mathrm{d}E)$ 能量壳层中的任意本征态的概率都是 $\\frac{1}{\\Omega}$, 即 $\\hat{\\rho}_{\\text{MC}}$ 对应经典统计物理中的等概率分布.\n幺正不变性\n$$ S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{U}\\hat{\\rho}\\hat{U}^{\\dagger}\\right) $$\n根据幺正不变性, 我们可以只考虑对角化的密度矩阵:\n$$ \\hat{\\rho} = \\sum_{i}p_{i}|\\varphi_{i}\\rangle\\langle\\varphi_{i}|\\\\ S\\left(\\hat{\\rho}\\right) = -\\sum_{i}p_{i}\\log{p_{i}} = S_{\\text{GS}}[\\{p_{i}\\}] $$\n我们可以使用拉格朗日乘子法来求解熵极大化的概率分布. 概率分布有约束 $\\sum_{i}p_{i} = 1$, 所以有\n$$ \\hat{S} = S - \\lambda\\left(\\sum_{i}p_{i} - 1\\right) $$\n求一级变分为 $0$:\n$$ \\delta\\left[-\\sum_{i}p_{i}\\log{p_{i}}-\\lambda\\left(\\sum_{i}p_{i} - 1\\right)\\right] = 0\\Rightarrow \\sum_{i}\\left(-\\log{p_{i}} - 1 - \\lambda\\right)\\delta p_{i} = 0 $$\n也就是说, 使得熵极大化的分布为\n$$ p_{i} = e^{-\\alpha - 1} $$\n也就是说 $p_{i}$ 与 $i$ 无关, 也就是说 $p_{i}$ 就是微正则分布\n$$ p_{i} = \\frac{1}{\\Omega(E,\\mathrm{d}E)} $$\n对应的密度矩阵为微正则系综\n$$ \\hat{\\rho} = \\hat{\\rho}_{\\text{MC}} = \\frac{\\hat{I}}{\\Omega(E,\\mathrm{d}E)} $$\n正则系综 考虑一个系统, 它与外界有微弱的相互作用, 因此会与外界有能量交换. 系统的能量将不再确定.\n然而在平衡态下, 系统的平均能量是确定值:\n$$ \\text{Tr}\\left(\\hat{\\rho}\\hat{H}\\right) = E $$\n现在对诺伊曼熵进行极大化处理, 约束条件为平均能量受到固定. 因为系统能量可以取任意值, 所以这个操作需要在整个无穷维 Hilbert Space 内完成. 此时系统的平衡态密度矩阵变为正则系综:\n$$ \\hat{\\rho}_{\\text{C}} = \\frac{1}{Z}e^{-\\beta\\hat{H}} $$\n$Z$ 是配分函数, 是一个归一化因子:\n$$ Z = \\text{Tr}\\left(e^{-\\beta\\hat{H}}\\right) $$\n所以亥姆霍兹自由能为\n$$ F = -T\\log{Z} = -T\\log{\\text{Tr}\\left(e^{-\\beta\\hat{H}}\\right)} $$\n我们根据约束条件构造熵的泛函:\n$$ \\hat{S} = -\\text{Tr}\\left(\\hat{\\rho}\\log{\\rho}\\right) - \\alpha\\left(\\text{Tr}\\hat{\\rho} - 1\\right) - \\beta\\left[\\text{Tr}\\left(\\hat{\\rho}\\hat{H}\\right) - E\\right] $$\n现在对上述泛函求一级变分, 并且假定虚微分和求迹具有可交换性:\n$$ \\delta\\text{Tr}\\hat{A} = \\text{Tr}\\delta\\hat{A} $$\n所以\n$$ \\begin{aligned} \\delta{\\hat{S}} \u0026 = \\delta\\left\\{-\\text{Tr}\\left(\\hat{\\rho}\\log{\\rho}\\right) - \\alpha\\left(\\text{Tr}\\hat{\\rho} - 1\\right) - \\beta\\left[\\text{Tr}\\left(\\hat{\\rho}\\hat{H}\\right) - E\\right]\\right\\}\\\\ \u0026 = -\\text{Tr}\\delta\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) - \\alpha\\text{Tr}\\delta\\hat{\\rho} - \\beta\\text{Tr}\\delta\\left(\\hat{\\rho}\\hat{H}\\right)\\\\ \u0026 = -\\text{Tr}\\delta\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) - \\alpha\\text{Tr}\\delta\\hat{\\rho} - \\delta\\text{Tr}\\delta\\hat{\\rho}\\hat{H} \\end{aligned} $$\n虚微分的乘法律\n$$ \\delta\\left(\\hat{A}\\hat{B}\\right) = \\left(\\delta\\hat{A}\\right)\\hat{B} + \\hat{A}\\left(\\delta\\hat{B}\\right) $$\n利用乘法展开可以求得\n$$ \\delta\\text{Tr}\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) = \\text{Tr}\\left[\\left(\\delta\\hat{\\rho}\\right)\\log{\\hat{\\rho}}\\right] + \\text{Tr}\\left[\\hat{\\rho}\\left(\\delta\\log{\\hat{\\rho}}\\right)\\right] $$\n一般情况下,\n$$ \\left[\\hat{\\rho},\\delta\\hat{\\rho}\\right] \\neq 0 $$\n所以\n$$ \\delta\\log{\\hat{\\rho}} \\neq \\hat{\\rho}^{-1}\\delta\\hat{\\rho} $$\n但是我们可以引入另一个符号\n$$ \\hat{A} = \\log{\\hat{\\rho}} $$\n所以就可以将上式改写为\n$$ \\begin{aligned} \\text{Tr}\\left[\\hat{\\rho}\\left(\\log{\\hat{\\rho}}\\right)\\right] \u0026 = \\text{Tr}\\left[e^{\\hat{A}}\\left(\\delta\\hat{A}\\right)\\right]\\\\ \u0026 = \\text{Tr}\\left[\\left(1 + \\hat{A} + \\frac{1}{2}\\hat{A}^{2} + \\frac{1}{6}\\hat{A}^{3} + \\dots\\right)\\left(\\delta\\hat{A}\\right)\\right]\\\\ \u0026 = \\text{Tr}\\left[\\delta\\left(1 + \\hat{A} + \\frac{1}{2}\\hat{A}^{2} + \\frac{1}{6}\\hat{A}^{3} + \\dots\\right)\\right]\\\\ \u0026 = \\delta\\text{Tr}\\left(e^{\\hat{A}}\\right) = \\delta\\text{Tr}\\hat{\\rho} \\end{aligned} $$\n虚微分的指数律\n$$ \\text{Tr}\\delta\\hat{A}^{n} = n\\text{Tr}\\left[\\hat{A}^{n-1}\\left(\\delta\\hat{A}\\right)\\right]\\\\ \\delta\\hat{A}^{n} \\neq n\\hat{A}^{n-1}\\delta\\hat{A} $$\n所以\n$$ \\delta\\text{Tr}\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) = \\text{Tr}\\left[\\left(\\delta\\hat{\\rho}\\right)\\log{\\hat{\\rho}}\\right] + \\text{Tr}\\left(\\delta\\hat{\\rho}\\right) $$\n所以熵的虚微分化为\n$$ \\delta\\hat{S} = -\\text{Tr}\\left[\\delta\\hat{\\rho}\\left(\\log{\\hat{\\rho}} + \\hat{I} + \\alpha\\hat{I} + \\beta\\hat{H}\\right)\\right] $$\n取虚微分为 $0$, 即得到正则系综关系:\n$$ \\log{\\hat{\\rho}} = -(1 + \\alpha)\\hat{I} - \\beta\\hat{H}\\\\ \\Rightarrow \\hat{\\rho} = \\hat{\\rho}_{\\text{C}} = \\frac{1}{Z}e^{-\\beta\\hat{H}} $$\n系统哈密顿量 $\\hat{H}$ 是体积 $V$ 的函数, 所以由其求出的能量本征值, 正则配分函数都会是体积 $V$ 的函数,\n亥姆霍兹自由能:\n$$ F = -T\\log{Z} = -T\\log{\\left(\\sum_{n}e^{-\\beta E_{n}}\\right)} $$\n所以能量自由能为\n$$ E = \\frac{\\partial \\beta F}{\\partial \\beta} = \\text{Tr}\\left(\\hat{\\rho}_{\\text{C}}\\hat{H}\\right) $$\n自由能对温度的求偏导:\n$$ \\begin{aligned} \\frac{\\partial F}{\\partial T} \u0026= -\\log{Z} - \\frac{1}{Z}\\sum_{n}\\beta E_{n}e^{-\\beta E_{n}}\\\\ \u0026 = \\sum_{n}\\frac{e^{-\\beta E_{n}}}{Z}\\log{\\frac{e^{-\\beta E_{n}}}{Z}}\\\\ \u0026 = \\text{Tr}\\left(\\hat{\\rho}_{\\text{C}}\\log{\\hat{\\rho}_{\\text{C}}}\\right) = -S\\left[\\hat{\\rho}_{\\text{C}}\\right] \\end{aligned} $$\n也就是正则系综的诺伊曼熵. 诺伊曼熵和热力学熵在平衡态熵是相等的, 即有\n$$ S = -\\frac{\\partial F}{\\partial T} $$\n自由能对体积进行求偏导:\n$$ \\frac{\\partial F}{\\partial V} = \\frac{1}{Z}\\sum_{n}\\frac{\\partial E_{n}}{\\partial V}e^{-\\beta E_{n}} = -P $$\n所以正则系综中的亥姆霍兹自由能的微分为\n$$ \\mathrm{d}F = -S\\mathrm{d}T - P\\mathrm{d}V $$\n再次引入粒子数变量 $N$, 即有化学势 $\\mu$ 的定义:\n$$ \\mathrm{d}F = -S\\mathrm{d}T - P\\mathrm{d}V + \\mu\\mathrm{d}N $$\n$\\mu = \\frac{\\partial F}{\\partial N}$\n这些微分关系都和平衡态热力学中的微分关系相同, 也就是说, 极大诺伊曼熵远离是平衡态热力学的基础.\n巨正则系综 如今在系统能够和环境进行能量交换的基础上, 添加一个条件: 系统可以和环境交换粒子. 所以, 系统的粒子数将会是任意值.\n平衡态下, 系统的能量和粒子数有确定的平均值.\n这里讨论的当然只有一种粒子. 当系统中含有多种粒子时, 需要为每一种粒子单独引入化学势.\n所以现在总共有三个约束条件:\n$$ \\begin{aligned} \\text{Tr}\\hat{\\rho} \u0026= 1\\\\ \\text{Tr}\\left(\\hat{\\rho}\\hat{E}\\right) \u0026= E\\\\ \\text{Tr}\\left(\\hat{\\rho}\\hat{N}\\right) \u0026= N \\end{aligned} $$\n重复使用拉格朗日乘子法进行推导, 就能得到巨正则系综关系:\n$$ \\hat{\\rho} = \\hat{\\rho}_{\\text{GC}} = \\frac{1}{\\mathcal{Z}}e^{-\\beta\\left(\\hat{H} - \\mu\\hat{N}\\right)} $$\n$\\mu$ 为化学势, $\\beta = \\frac{1}{T}$, $\\mathcal{Z}$ 为巨正则分配函数:\n$$ \\mathcal{Z} = \\text{Tr}e^{-\\beta\\left(\\hat{H}-\\mu\\hat{N}\\right)} $$\n从巨正则配分函数导出巨势:\n$$ \\Phi = -T\\log{\\mathcal{Z}} $$\n巨势的微分展开为\n$$ \\mathrm{d}\\Phi = -S\\mathrm{d}T - P\\mathrm{d}V - N\\mathrm{d}\\mu $$\n热力学的 $Gibbs-Duhem$ 关系:\n$$ \\Phi = F-\\mu N = -PV $$\nFermi-Dirac 分布和 Bose-Einstein 分布 对于无相互作用的全同粒子组成的平衡态分布, 最好的方法是使用巨正则系综. 因为没有相互作用, 所以不同的单粒子能级相互独立, 只需要讨论一个能级即可.\nFermi-Dirac 分布 对于费米子, 每一个能级上最多只能占据一个粒子, 所以单粒子能级的系统只有两个状态:\n$$ \\begin{aligned} \\left|\\begin{array}{c|c} \\hline n \u0026 E \\\\ \\hline 0 \u0026 0 \\\\ \\hline 1 \u0026 \\epsilon_{\\mathbf{k}}\\\\ \\hline \\end{array}\\right| \\end{aligned} $$\n所以系统的 Hilbert Space 为二维的, 单能级系统的的巨正则配分函数为\n$$ \\mathcal{Z} = 1 + e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)} $$\n所以单粒子态上粒子数为 $0$ 或 $1$ 的平衡态概率为\n$$ p_{0} = \\frac{1}{1 + e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)}},\\quad p_{1} = \\frac{e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)}}{1 + e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)}} $$\n所以平均粒子数为\n$$ \\langle n_{\\mathbf{k}}\\rangle_{\\text{FD}} =0\\cdot p_{0} + 1\\cdot p_{1}= \\frac{1}{e^{\\beta(\\epsilon_{\\mathbf{k}}-\\mu)} + 1} $$\nBose-Einstein 分布 玻色子系综中, 每个能级的粒子数没有上限, 所以 Hilbert Space 维度无穷. 则系统的巨正则配分函数为\n$$ \\mathcal{Z} = 1 + e^{-\\beta(\\epsilon_{\\mathbf{k}}-\\mu)} + e^{-2\\beta(\\epsilon_{\\mathbf{k}}-\\mu)} + e^{-3\\beta(\\epsilon_{\\mathbf{k}}-\\mu)} + \\dots = \\frac{1}{1-e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)}} $$\n所以某能级上的粒子数为 $n$ 的概率为\n$$ p_{n} = \\left[1-e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)}\\right]e^{-n\\beta(\\epsilon_{\\mathbf{k}} - \\mu)} $$\n该能级的平均粒子占有数为\n$$ \\langle n_{\\mathbf{k}}\\rangle = \\sum_{n = 0}^{\\infty}np_{n} = \\frac{1}{e^{\\beta(\\epsilon_{\\mathbf{k}}-\\mu)} - 1} $$\n当 $\\epsilon_{\\mathbf{k}} \u003c \\mu$, $\\langle n_{\\mathbf{k}}\\rangle$ 将会是负值, 这将是反常的. 所以这种情况是不可能的. 单粒子能级趋于化学势时, 基态的粒子占有数趋于发散, 这就是 玻色-爱因斯坦凝聚.\n孤立系统密度矩阵演化 假定一孤立系统的密度矩阵的初态为\n$$ \\hat{\\rho}(0) = \\sum_{i}p_{i}|\\varphi_{i}\\rangle\\langle\\varphi_{i}| $$\n后面的各量子态 $|\\varphi_{i}\\rangle$ 按照薛定谔方程独立演化:\n$$ i\\hbar\\frac{\\partial}{\\partial t}|\\varphi_{i}(t)\\rangle = \\hat{H}|\\varphi_{i}(t)\\rangle $$\n所以\n$$ |\\varphi_{i}(t)\\rangle = e^{-\\frac{i\\hat{H}t}{\\hbar}}|\\varphi_{i}(0)\\rangle = \\hat{U}(t)|\\varphi_{i}(0)\\rangle\\\\ \\langle\\varphi_{i}(t)| = \\langle\\varphi_{i}(0)|e^{\\frac{i\\hat{H}t}{\\hbar}} = \\langle\\varphi_{i}(0)|\\hat{U}^{\\dagger}(t) $$\n所以密度矩阵的演化为\n$$ \\hat{\\rho}(t) = \\sum_{i}p_{i}|\\varphi_{i}(t)\\rangle\\langle\\varphi_{i}(t)| = \\hat{U}(t)\\hat{\\rho}(0)\\hat{U}^{\\dagger}(t) $$\n对密度矩阵进行求时间偏导:\n$$ \\begin{aligned} i\\hbar\\frac{\\partial\\hat{\\rho}(t)}{\\partial t} \u0026= i\\hbar\\sum_{i}p_{i}\\frac{\\partial}{\\partial t}|\\varphi_{i}(t)\\rangle\\langle\\varphi_{i}(t)|\\\\ \u0026 = \\sum_{i}\\left(\\hat{H}|\\varphi_{i}(t)\\rangle\\langle\\varphi_{i}(t)|-|\\varphi_{i}(t)\\rangle\\langle\\varphi_{i}(t)|\\hat{H}\\right) \\end{aligned} $$\n由此得到 冯诺依曼方程\n$$ \\boxed{i\\hbar\\frac{\\partial \\hat{\\rho}(t)}{\\partial t} = \\left[\\hat{H},\\hat{\\rho}(t)\\right]} $$\n冯诺依曼熵的幺正变换不变性\n$$ S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{U}\\hat{\\rho}\\hat{U}^{\\dagger}\\right) $$\n孤立系统的冯诺依曼熵的演化:\n$$ S\\left(\\hat{\\rho}(t)\\right) = S\\left(\\hat{U}(t)\\hat{\\rho}(0)\\hat{U}^{\\dagger}(t)\\right) = S\\left(\\hat{\\rho}(0)\\right) $$\n也就是孤立系统的冯诺依曼熵不随时间变化.\n热力学第二定律中描述的熵是热力学熵而非冯诺依曼熵, 即平衡态下的系统. 也就是说, 上述结论和热力学第二定律并不矛盾.\n大多数情况下系统和环境的相互作用都是很强的, 所以上述的孤立系统很少存在, 即不遵从冯诺依曼方程. 也就是说, 系统的熵并非守恒量.\n",
+  "wordCount" : "4014",
   "inLanguage": "zh",
   "datePublished": "2023-06-22T00:18:23+08:00",
   "dateModified": "2023-06-22T00:18:23+08:00",
@@ -335,13 +335,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>2268字
+        <span>4014字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>5分钟
+        <span>9分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -454,10 +454,21 @@ code.has-jax {
                 <li>
                     <a href="#%e5%be%ae%e6%ad%a3%e5%88%99" aria-label="微正则">微正则</a></li>
                 <li>
-                    <a href="#%e6%ad%a3%e5%88%99%e7%b3%bb%e7%bb%bc" aria-label="正则系综">正则系综</a>
+                    <a href="#%e6%ad%a3%e5%88%99%e7%b3%bb%e7%bb%bc" aria-label="正则系综">正则系综</a></li>
+                <li>
+                    <a href="#%e5%b7%a8%e6%ad%a3%e5%88%99%e7%b3%bb%e7%bb%bc" aria-label="巨正则系综">巨正则系综</a></li>
+                <li>
+                    <a href="#fermi-dirac-%e5%88%86%e5%b8%83%e5%92%8c-bose-einstein-%e5%88%86%e5%b8%83" aria-label="Fermi-Dirac 分布和 Bose-Einstein 分布">Fermi-Dirac 分布和 Bose-Einstein 分布</a><ul>
+                        
+                <li>
+                    <a href="#fermi-dirac-%e5%88%86%e5%b8%83" aria-label="Fermi-Dirac 分布">Fermi-Dirac 分布</a></li>
+                <li>
+                    <a href="#bose-einstein-%e5%88%86%e5%b8%83" aria-label="Bose-Einstein 分布">Bose-Einstein 分布</a></li></ul>
+                </li></ul>
                 </li>
-            </ul>
-            </li>
+                <li>
+                    <a href="#%e5%ad%a4%e7%ab%8b%e7%b3%bb%e7%bb%9f%e5%af%86%e5%ba%a6%e7%9f%a9%e9%98%b5%e6%bc%94%e5%8c%96" aria-label="孤立系统密度矩阵演化">孤立系统密度矩阵演化</a>
+                </li>
             </ul>
             </li>
             </ul>
@@ -880,6 +891,254 @@ $$</p>
 \hat{\rho} = \hat{\rho}_{\text{MC}} = \frac{\hat{I}}{\Omega(E,\mathrm{d}E)}
 $$</p>
 <h3 id="正则系综">正则系综<a hidden class="anchor" aria-hidden="true" href="#正则系综">#</a></h3>
+<p>考虑一个系统, 它与外界有微弱的相互作用, 因此会与外界有能量交换. 系统的能量将不再确定.</p>
+<p>然而在平衡态下, 系统的平均能量是确定值:</p>
+<p>$$
+\text{Tr}\left(\hat{\rho}\hat{H}\right) = E
+$$</p>
+<p>现在对诺伊曼熵进行极大化处理, 约束条件为平均能量受到固定. 因为系统能量可以取任意值, 所以这个操作需要在整个无穷维 Hilbert Space 内完成. 此时系统的平衡态密度矩阵变为正则系综:</p>
+<p>$$
+\hat{\rho}_{\text{C}} = \frac{1}{Z}e^{-\beta\hat{H}}
+$$</p>
+<blockquote>
+<p>$Z$ 是配分函数, 是一个归一化因子:</p>
+<p>$$
+Z = \text{Tr}\left(e^{-\beta\hat{H}}\right)
+$$</p>
+</blockquote>
+<p>所以亥姆霍兹自由能为</p>
+<p>$$
+F = -T\log{Z} = -T\log{\text{Tr}\left(e^{-\beta\hat{H}}\right)}
+$$</p>
+<p>我们根据约束条件构造熵的泛函:</p>
+<p>$$
+\hat{S} = -\text{Tr}\left(\hat{\rho}\log{\rho}\right) - \alpha\left(\text{Tr}\hat{\rho} - 1\right) - \beta\left[\text{Tr}\left(\hat{\rho}\hat{H}\right) - E\right]
+$$</p>
+<p>现在对上述泛函求一级变分, 并且假定虚微分和求迹具有可交换性:</p>
+<p>$$
+\delta\text{Tr}\hat{A} = \text{Tr}\delta\hat{A}
+$$</p>
+<p>所以</p>
+<p>$$
+\begin{aligned}
+\delta{\hat{S}} &amp; = \delta\left\{-\text{Tr}\left(\hat{\rho}\log{\rho}\right) - \alpha\left(\text{Tr}\hat{\rho} - 1\right) - \beta\left[\text{Tr}\left(\hat{\rho}\hat{H}\right) - E\right]\right\}\\
+&amp; = -\text{Tr}\delta\left(\hat{\rho}\log{\hat{\rho}}\right) - \alpha\text{Tr}\delta\hat{\rho} - \beta\text{Tr}\delta\left(\hat{\rho}\hat{H}\right)\\
+&amp; = -\text{Tr}\delta\left(\hat{\rho}\log{\hat{\rho}}\right) - \alpha\text{Tr}\delta\hat{\rho} - \delta\text{Tr}\delta\hat{\rho}\hat{H}
+\end{aligned}
+$$</p>
+<blockquote>
+<p><strong>虚微分的乘法律</strong></p>
+<p>$$
+\delta\left(\hat{A}\hat{B}\right) = \left(\delta\hat{A}\right)\hat{B} + \hat{A}\left(\delta\hat{B}\right)
+$$</p>
+</blockquote>
+<p>利用乘法展开可以求得</p>
+<p>$$
+\delta\text{Tr}\left(\hat{\rho}\log{\hat{\rho}}\right) = \text{Tr}\left[\left(\delta\hat{\rho}\right)\log{\hat{\rho}}\right] + \text{Tr}\left[\hat{\rho}\left(\delta\log{\hat{\rho}}\right)\right]
+$$</p>
+<p>一般情况下,</p>
+<p>$$
+\left[\hat{\rho},\delta\hat{\rho}\right] \neq 0
+$$</p>
+<p>所以</p>
+<p>$$
+\delta\log{\hat{\rho}} \neq \hat{\rho}^{-1}\delta\hat{\rho}
+$$</p>
+<p>但是我们可以引入另一个符号</p>
+<p>$$
+\hat{A} = \log{\hat{\rho}}
+$$</p>
+<p>所以就可以将上式改写为</p>
+<p>$$
+\begin{aligned}
+\text{Tr}\left[\hat{\rho}\left(\log{\hat{\rho}}\right)\right] &amp; = \text{Tr}\left[e^{\hat{A}}\left(\delta\hat{A}\right)\right]\\
+&amp; = \text{Tr}\left[\left(1 + \hat{A} + \frac{1}{2}\hat{A}^{2} + \frac{1}{6}\hat{A}^{3} + \dots\right)\left(\delta\hat{A}\right)\right]\\
+&amp; = \text{Tr}\left[\delta\left(1 + \hat{A} + \frac{1}{2}\hat{A}^{2} + \frac{1}{6}\hat{A}^{3} + \dots\right)\right]\\
+&amp; = \delta\text{Tr}\left(e^{\hat{A}}\right) = \delta\text{Tr}\hat{\rho}
+\end{aligned}
+$$</p>
+<blockquote>
+<p><strong>虚微分的指数律</strong></p>
+<p>$$
+\text{Tr}\delta\hat{A}^{n} = n\text{Tr}\left[\hat{A}^{n-1}\left(\delta\hat{A}\right)\right]\\
+\delta\hat{A}^{n} \neq n\hat{A}^{n-1}\delta\hat{A}
+$$</p>
+</blockquote>
+<p>所以</p>
+<p>$$
+\delta\text{Tr}\left(\hat{\rho}\log{\hat{\rho}}\right) = \text{Tr}\left[\left(\delta\hat{\rho}\right)\log{\hat{\rho}}\right] + \text{Tr}\left(\delta\hat{\rho}\right)
+$$</p>
+<p>所以熵的虚微分化为</p>
+<p>$$
+\delta\hat{S} = -\text{Tr}\left[\delta\hat{\rho}\left(\log{\hat{\rho}} + \hat{I} + \alpha\hat{I} + \beta\hat{H}\right)\right]
+$$</p>
+<p>取虚微分为 $0$, 即得到正则系综关系:</p>
+<p>$$
+\log{\hat{\rho}} = -(1 + \alpha)\hat{I} - \beta\hat{H}\\
+\Rightarrow \hat{\rho} = \hat{\rho}_{\text{C}} = \frac{1}{Z}e^{-\beta\hat{H}}
+$$</p>
+<p>系统哈密顿量 $\hat{H}$ 是体积 $V$ 的函数, 所以由其求出的能量本征值, 正则配分函数都会是体积 $V$ 的函数,</p>
+<p>亥姆霍兹自由能:</p>
+<p>$$
+F = -T\log{Z} = -T\log{\left(\sum_{n}e^{-\beta E_{n}}\right)}
+$$</p>
+<p>所以能量自由能为</p>
+<p>$$
+E = \frac{\partial \beta F}{\partial \beta} = \text{Tr}\left(\hat{\rho}_{\text{C}}\hat{H}\right)
+$$</p>
+<p>自由能对温度的求偏导:</p>
+<p>$$
+\begin{aligned}
+\frac{\partial F}{\partial T} &amp;= -\log{Z} - \frac{1}{Z}\sum_{n}\beta E_{n}e^{-\beta E_{n}}\\
+&amp; = \sum_{n}\frac{e^{-\beta E_{n}}}{Z}\log{\frac{e^{-\beta E_{n}}}{Z}}\\
+&amp; = \text{Tr}\left(\hat{\rho}_{\text{C}}\log{\hat{\rho}_{\text{C}}}\right) = -S\left[\hat{\rho}_{\text{C}}\right]
+\end{aligned}
+$$</p>
+<p>也就是正则系综的诺伊曼熵. 诺伊曼熵和热力学熵在平衡态熵是相等的, 即有</p>
+<p>$$
+S = -\frac{\partial F}{\partial T}
+$$</p>
+<p>自由能对体积进行求偏导:</p>
+<p>$$
+\frac{\partial F}{\partial V} = \frac{1}{Z}\sum_{n}\frac{\partial E_{n}}{\partial V}e^{-\beta E_{n}} = -P
+$$</p>
+<p>所以正则系综中的亥姆霍兹自由能的微分为</p>
+<p>$$
+\mathrm{d}F = -S\mathrm{d}T - P\mathrm{d}V
+$$</p>
+<p>再次引入粒子数变量 $N$, 即有化学势 $\mu$ 的定义:</p>
+<p>$$
+\mathrm{d}F = -S\mathrm{d}T - P\mathrm{d}V + \mu\mathrm{d}N
+$$</p>
+<blockquote>
+<p>$\mu = \frac{\partial F}{\partial N}$</p>
+</blockquote>
+<p>这些微分关系都和平衡态热力学中的微分关系相同, 也就是说, 极大诺伊曼熵远离是平衡态热力学的基础.</p>
+<h3 id="巨正则系综">巨正则系综<a hidden class="anchor" aria-hidden="true" href="#巨正则系综">#</a></h3>
+<p>如今在系统能够和环境进行能量交换的基础上, 添加一个条件: <strong>系统可以和环境交换粒子</strong>. 所以, 系统的粒子数将会是任意值.</p>
+<p>平衡态下, 系统的能量和粒子数有确定的平均值.</p>
+<blockquote>
+<p>这里讨论的当然只有一种粒子. 当系统中含有多种粒子时, 需要为每一种粒子单独引入化学势.</p>
+</blockquote>
+<p>所以现在总共有三个约束条件:</p>
+<p>$$
+\begin{aligned}
+\text{Tr}\hat{\rho} &amp;= 1\\
+\text{Tr}\left(\hat{\rho}\hat{E}\right) &amp;= E\\
+\text{Tr}\left(\hat{\rho}\hat{N}\right) &amp;= N
+\end{aligned}
+$$</p>
+<p>重复使用拉格朗日乘子法进行推导, 就能得到巨正则系综关系:</p>
+<p>$$
+\hat{\rho} = \hat{\rho}_{\text{GC}} = \frac{1}{\mathcal{Z}}e^{-\beta\left(\hat{H} - \mu\hat{N}\right)}
+$$</p>
+<blockquote>
+<p>$\mu$ 为化学势, $\beta = \frac{1}{T}$, $\mathcal{Z}$ 为巨正则分配函数:</p>
+<p>$$
+\mathcal{Z} = \text{Tr}e^{-\beta\left(\hat{H}-\mu\hat{N}\right)}
+$$</p>
+</blockquote>
+<p>从巨正则配分函数导出<strong>巨势</strong>:</p>
+<p>$$
+\Phi = -T\log{\mathcal{Z}}
+$$</p>
+<p>巨势的微分展开为</p>
+<p>$$
+\mathrm{d}\Phi = -S\mathrm{d}T - P\mathrm{d}V - N\mathrm{d}\mu
+$$</p>
+<p>热力学的 $Gibbs-Duhem$ 关系:</p>
+<p>$$
+\Phi = F-\mu N = -PV
+$$</p>
+<h3 id="fermi-dirac-分布和-bose-einstein-分布">Fermi-Dirac 分布和 Bose-Einstein 分布<a hidden class="anchor" aria-hidden="true" href="#fermi-dirac-分布和-bose-einstein-分布">#</a></h3>
+<p>对于无相互作用的全同粒子组成的平衡态分布, 最好的方法是使用巨正则系综. 因为没有相互作用, 所以不同的单粒子能级相互独立, 只需要讨论一个能级即可.</p>
+<h4 id="fermi-dirac-分布">Fermi-Dirac 分布<a hidden class="anchor" aria-hidden="true" href="#fermi-dirac-分布">#</a></h4>
+<p>对于费米子, 每一个能级上最多只能占据一个粒子, 所以单粒子能级的系统只有两个状态:</p>
+<p>$$
+\begin{aligned}
+\left|\begin{array}{c|c}
+\hline
+n &amp; E \\
+\hline
+0 &amp; 0 \\
+\hline
+1 &amp; \epsilon_{\mathbf{k}}\\
+\hline
+\end{array}\right|
+\end{aligned}
+$$</p>
+<p>所以系统的 Hilbert Space 为二维的, 单能级系统的的巨正则配分函数为</p>
+<p>$$
+\mathcal{Z} = 1 + e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}
+$$</p>
+<p>所以单粒子态上粒子数为 $0$ 或 $1$ 的平衡态概率为</p>
+<p>$$
+p_{0} = \frac{1}{1 + e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}},\quad p_{1} = \frac{e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}}{1 + e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}}
+$$</p>
+<p>所以平均粒子数为</p>
+<p>$$
+\langle n_{\mathbf{k}}\rangle_{\text{FD}} =0\cdot p_{0} + 1\cdot p_{1}= \frac{1}{e^{\beta(\epsilon_{\mathbf{k}}-\mu)} + 1}
+$$</p>
+<h4 id="bose-einstein-分布">Bose-Einstein 分布<a hidden class="anchor" aria-hidden="true" href="#bose-einstein-分布">#</a></h4>
+<p>玻色子系综中, 每个能级的粒子数没有上限, 所以 Hilbert Space 维度无穷. 则系统的巨正则配分函数为</p>
+<p>$$
+\mathcal{Z} = 1 + e^{-\beta(\epsilon_{\mathbf{k}}-\mu)} + e^{-2\beta(\epsilon_{\mathbf{k}}-\mu)} + e^{-3\beta(\epsilon_{\mathbf{k}}-\mu)} + \dots = \frac{1}{1-e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}}
+$$</p>
+<p>所以某能级上的粒子数为 $n$ 的概率为</p>
+<p>$$
+p_{n} = \left[1-e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}\right]e^{-n\beta(\epsilon_{\mathbf{k}} - \mu)}
+$$</p>
+<p>该能级的平均粒子占有数为</p>
+<p>$$
+\langle n_{\mathbf{k}}\rangle = \sum_{n = 0}^{\infty}np_{n} = \frac{1}{e^{\beta(\epsilon_{\mathbf{k}}-\mu)} - 1}
+$$</p>
+<blockquote>
+<p>当 $\epsilon_{\mathbf{k}} &lt; \mu$, $\langle n_{\mathbf{k}}\rangle$ 将会是负值, 这将是反常的. 所以这种情况是不可能的. 单粒子能级趋于化学势时, 基态的粒子占有数趋于发散, 这就是 <strong>玻色-爱因斯坦凝聚</strong>.</p>
+</blockquote>
+<h2 id="孤立系统密度矩阵演化">孤立系统密度矩阵演化<a hidden class="anchor" aria-hidden="true" href="#孤立系统密度矩阵演化">#</a></h2>
+<p>假定一孤立系统的密度矩阵的初态为</p>
+<p>$$
+\hat{\rho}(0) = \sum_{i}p_{i}|\varphi_{i}\rangle\langle\varphi_{i}|
+$$</p>
+<p>后面的各量子态 $|\varphi_{i}\rangle$ 按照薛定谔方程独立演化:</p>
+<p>$$
+i\hbar\frac{\partial}{\partial t}|\varphi_{i}(t)\rangle = \hat{H}|\varphi_{i}(t)\rangle
+$$</p>
+<p>所以</p>
+<p>$$
+|\varphi_{i}(t)\rangle = e^{-\frac{i\hat{H}t}{\hbar}}|\varphi_{i}(0)\rangle = \hat{U}(t)|\varphi_{i}(0)\rangle\\
+\langle\varphi_{i}(t)| = \langle\varphi_{i}(0)|e^{\frac{i\hat{H}t}{\hbar}} = \langle\varphi_{i}(0)|\hat{U}^{\dagger}(t)
+$$</p>
+<p>所以密度矩阵的演化为</p>
+<p>$$
+\hat{\rho}(t) = \sum_{i}p_{i}|\varphi_{i}(t)\rangle\langle\varphi_{i}(t)| = \hat{U}(t)\hat{\rho}(0)\hat{U}^{\dagger}(t)
+$$</p>
+<p>对密度矩阵进行求时间偏导:</p>
+<p>$$
+\begin{aligned}
+i\hbar\frac{\partial\hat{\rho}(t)}{\partial t} &amp;= i\hbar\sum_{i}p_{i}\frac{\partial}{\partial t}|\varphi_{i}(t)\rangle\langle\varphi_{i}(t)|\\
+&amp; = \sum_{i}\left(\hat{H}|\varphi_{i}(t)\rangle\langle\varphi_{i}(t)|-|\varphi_{i}(t)\rangle\langle\varphi_{i}(t)|\hat{H}\right)
+\end{aligned}
+$$</p>
+<p>由此得到 <strong>冯诺依曼方程</strong></p>
+<p>$$
+\boxed{i\hbar\frac{\partial \hat{\rho}(t)}{\partial t} = \left[\hat{H},\hat{\rho}(t)\right]}
+$$</p>
+<blockquote>
+<p>冯诺依曼熵的<strong>幺正变换不变性</strong></p>
+<p>$$
+S\left(\hat{\rho}\right) = S\left(\hat{U}\hat{\rho}\hat{U}^{\dagger}\right)
+$$</p>
+</blockquote>
+<p>孤立系统的冯诺依曼熵的演化:</p>
+<p>$$
+S\left(\hat{\rho}(t)\right) = S\left(\hat{U}(t)\hat{\rho}(0)\hat{U}^{\dagger}(t)\right) = S\left(\hat{\rho}(0)\right)
+$$</p>
+<p>也就是孤立系统的冯诺依曼熵不随时间变化.</p>
+<blockquote>
+<p>热力学第二定律中描述的熵是热力学熵而非冯诺依曼熵, 即平衡态下的系统. 也就是说, 上述结论和热力学第二定律并不矛盾.</p>
+</blockquote>
+<p>大多数情况下系统和环境的相互作用都是很强的, 所以上述的孤立系统很少存在, 即不遵从冯诺依曼方程. 也就是说, 系统的熵并非守恒量.</p>
 
 
         </div>
@@ -887,6 +1146,11 @@ $$</p>
         <footer class="post-footer">
             
 <nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/qp/scattering-method/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>散射理论</span>
+  </a>
   <a class="next" href="https://Muatyz.github.io/posts/phy/qp/quantum-measurement/">
     <span class="title">下一页 »</span>
     <br>

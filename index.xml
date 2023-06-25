@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Thu, 22 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>散射理论</title>
+      <link>https://Muatyz.github.io/posts/phy/qp/scattering-method/</link>
+      <pubDate>Fri, 23 Jun 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/qp/scattering-method/</guid>
+      <description>在原子物理中我们学习过散射理论, 那么在量子力学中如何研究散射?</description>
+    </item>
+    
     <item>
       <title>量子熵</title>
       <link>https://Muatyz.github.io/posts/phy/qp/quantum-entropy/</link>
@@ -149,7 +158,7 @@
       <pubDate>Wed, 18 May 2022 00:18:15 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/life/toho-project/</guid>
-      <description>本文记录对 東方 Project 全原作 STG 游戏的游玩记录. 本文不提供任何游戏资源, 请支持正版. 参考资料 THB Wiki 引言 東方紅魔郷 ~ the Embodiment of Scarlet Devil</description>
+      <description>本文记录对 東方 Project 全原作 STG 游戏的游玩记录. 本文不提供任何游戏资源, 请支持正版. 参考资料 THB Wiki 引言 東方紅魔郷 ~ the Embodiment of Scarlet Devil Normal &lt;!DOCTYPE HTML&gt;</description>
     </item>
     
     <item>

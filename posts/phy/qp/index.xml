@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Thu, 22 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/phy/qp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/phy/qp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>散射理论</title>
+      <link>https://Muatyz.github.io/posts/phy/qp/scattering-method/</link>
+      <pubDate>Fri, 23 Jun 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/qp/scattering-method/</guid>
+      <description>在原子物理中我们学习过散射理论, 那么在量子力学中如何研究散射?</description>
+    </item>
+    
     <item>
       <title>量子熵</title>
       <link>https://Muatyz.github.io/posts/phy/qp/quantum-entropy/</link>
