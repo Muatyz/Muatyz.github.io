@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Fri, 23 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>拉普拉斯方程</title>
+      <link>https://Muatyz.github.io/posts/phy/mpm/laplace/</link>
+      <pubDate>Thu, 29 Jun 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/mpm/laplace/</guid>
+      <description>总结拉普拉斯方程的求解思路</description>
+    </item>
+    
+    <item>
+      <title>静电场</title>
+      <link>https://Muatyz.github.io/posts/phy/ed/field/</link>
+      <pubDate>Tue, 27 Jun 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/ed/field/</guid>
+      <description>以大纲方法重新梳理静电场的公式</description>
+    </item>
+    
     <item>
       <title>散射理论</title>
       <link>https://Muatyz.github.io/posts/phy/qp/scattering-method/</link>
@@ -36,12 +54,12 @@
     </item>
     
     <item>
-      <title>矢量和张量</title>
+      <title>矢量分析</title>
       <link>https://Muatyz.github.io/posts/phy/ed/vector-analysis/</link>
       <pubDate>Mon, 19 Jun 2023 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/phy/ed/vector-analysis/</guid>
-      <description>自由变换矢量和张量是物理学的基础工具.</description>
+      <description>自由变换矢量和张量以及相应的计算是物理学的基础工具.</description>
     </item>
     
     <item>
@@ -158,7 +176,7 @@
       <pubDate>Wed, 18 May 2022 00:18:15 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/life/toho-project/</guid>
-      <description>本文记录对 東方 Project 全原作 STG 游戏的游玩记录. 本文不提供任何游戏资源, 请支持正版. 参考资料 THB Wiki 引言 東方紅魔郷 ~ the Embodiment of Scarlet Devil Normal &lt;!DOCTYPE HTML&gt;</description>
+      <description>本文记录对 東方 Project 全原作 STG 游戏的游玩记录. 本文不提供任何游戏资源, 请支持正版. 参考资料 THB Wiki 引言 東方紅魔郷 ~ the Embodiment of Scarlet Devil Normal &lt;!DOCTYPE HTML&gt; Extra &lt;!DOCTYPE HTML&gt;</description>
     </item>
     
     <item>

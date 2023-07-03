@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Fri, 23 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>拉普拉斯方程</title>
+      <link>https://Muatyz.github.io/posts/phy/mpm/laplace/</link>
+      <pubDate>Thu, 29 Jun 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/mpm/laplace/</guid>
+      <description>总结拉普拉斯方程的求解思路</description>
+    </item>
+    
+    <item>
+      <title>静电场</title>
+      <link>https://Muatyz.github.io/posts/phy/ed/field/</link>
+      <pubDate>Tue, 27 Jun 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/ed/field/</guid>
+      <description>以大纲方法重新梳理静电场的公式</description>
+    </item>
+    
     <item>
       <title>散射理论</title>
       <link>https://Muatyz.github.io/posts/phy/qp/scattering-method/</link>
@@ -36,12 +54,12 @@
     </item>
     
     <item>
-      <title>矢量和张量</title>
+      <title>矢量分析</title>
       <link>https://Muatyz.github.io/posts/phy/ed/vector-analysis/</link>
       <pubDate>Mon, 19 Jun 2023 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/phy/ed/vector-analysis/</guid>
-      <description>自由变换矢量和张量是物理学的基础工具.</description>
+      <description>自由变换矢量和张量以及相应的计算是物理学的基础工具.</description>
     </item>
     
     <item>
