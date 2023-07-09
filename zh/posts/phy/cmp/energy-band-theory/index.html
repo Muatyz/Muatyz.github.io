@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>能带论 | 计算物理资料库</title>
+<meta name="keywords" content="band, physics">
+<meta name="description" content="电子能带论">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/zh/posts/phy/cmp/energy-band-theory/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="能带论" />
+<meta property="og:description" content="电子能带论" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/zh/posts/phy/cmp/energy-band-theory/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-02T00:18:23+08:00" />
+<meta property="article:modified_time" content="2022-06-02T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="能带论"/>
+<meta name="twitter:description" content="电子能带论"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/zh/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/zh/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🔧 Condensed Matter Physics",
+          "item": "https://Muatyz.github.io/zh/posts/phy/cmp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "能带论",
+      "item": "https://Muatyz.github.io/zh/posts/phy/cmp/energy-band-theory/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "能带论",
+  "name": "能带论",
+  "description": "电子能带论",
+  "keywords": [
+    "band", "physics"
+  ],
+  "articleBody": "基本近似 在密度泛函中我们已经提到过完整的哈密顿量形式.\n$$ \\hat{H}_{T} = \\underbrace{\\sum_{i}\\frac{|\\vec{p_{i}}|^2}{2m}}_{\\text{价电子动能}} + \\underbrace{\\sum_{n}\\frac{|\\vec{p_{n}}|^2}{2M_{n}}}_{原子实动能} + \\underbrace{\\frac{1}{2}\\sum_{ij}’\\frac{e^2}{|\\vec{r_{i}}-\\vec{r_{j}}|}}_{电子间库伦势} + \\underbrace{\\frac{1}{2}\\sum_{nn’}’\\frac{Z_{n}Z_{n’}e^{2}}{|\\vec{R_{n}}-\\vec{R_{n’}}|}}_{原子实间库伦势} + \\underbrace{\\sum_{n,i}V_{n}(\\vec{r_{i}}-\\vec{R_{n}})}_{电子和原子实之间的相互作用} \\\\ +\\underbrace{\\hat{H}_{R}}_{相对论修正} $$\n$\\hat{H}_{R}$ 被称为 ‘Relativistic Corrections’, 包括了自旋-轨道的耦合项.\n从第一性原理出发写出的哈密顿量当然是非常复杂的, 要进行计算就需要对其进行近似.\n波恩-奥本海默绝热近似 将电子和离子实分开, 描述电子的时候认为离子实固定不动.\n电子的哈密顿量(离子实位置不变) $$ \\hat{H}_{e} = \\sum_{i}\\left[\\frac{\\vec{p}_{i}^{2}}{2m} + \\sum_{n}V_{n}(\\vec{r}_{i} - \\vec{R}_{n})\\right] + \\frac{1}{2}\\sum_{ij}’\\frac{e^{2}}{|\\vec{r}_{i} - \\vec{r}_{j}|} $$\n离子实的哈密顿量(决定声子) $$ \\hat{H}_{c} = \\sum_{n}\\frac{\\vec{p}_{n}^{2}}{2M_{n}}+\\frac{1}{2}\\sum_{nn’}’\\frac{Z_{n}Z_{n’}e^{2}}{|\\vec{R}_{n} - \\vec{R}_{n’}|} + \\underbrace{V_{\\text{ec}}(\\{\\vec{R}_{n}\\})}_{\\hat{H}_{e}\\text{基态对应的离子实所受的电子势场}} $$\n在此过程中电子与声子之间无相互作用.\n平均场近似(单电子近似) 将电子-电子之间的库伦相互作用和电子-离子实之间的库伦相互作用视为等效的平均势场, 每一个电子都在这样的平均势场中运动.\n则原先的\n$$ \\hat{H}_{e} = \\sum_{i}\\left[\\frac{\\vec{p}_{i}^{2}}{2m} + \\sum_{n}V_{n}(\\vec{r}_{i} - \\vec{R}_{n})\\right] + \\frac{1}{2}\\sum_{ij}’\\frac{e^{2}}{|\\vec{r}_{i} - \\vec{r}_{j}|} $$\n写为\n$$ \\hat{H}_{e} = \\sum_{i}\\hat{H}\\left(\\vec{r}_{i}, \\{\\vec{R}_{n}\\}\\right)\\\\ \\hat{H}\\left(\\vec{r},\\{\\vec{R}_{n}\\}\\right) = \\frac{\\vec{p}^{2}}{2m} + \\underbrace{V(\\vec{r},\\{\\vec{R}_{n}\\})}_{\\text{平均场}} $$\n周期性势场近似 平均场是严格周期性势场, 具有和晶体一样的对称性.\n$$ V\\left(\\vec{r}, \\{\\vec{R}_{n}\\}\\right) = V\\left(\\vec{r}\\right) = V\\left(\\vec{r} + \\vec{R}_{n}\\right) $$\n对于单电子而言, 其定态哈密顿量即为我们熟知的\n$$ \\hat{H} = -\\frac{\\hbar^{2}}{2m}\\nabla^{2} + V(\\vec{r}) $$\n那么如何求得周期性势场中的单电子波函数? 首先我们要明确, 虽然哈密顿量是正格矢的周期函数, 但是该条件下的波函数并非正格矢的周期函数.\n即\n$$ \\hat{H}\\left(\\vec{r} + \\vec{R}\\right) = \\hat{H}\\left(\\vec{r}\\right)\\\\ \\varphi\\left(\\vec{r} + \\vec{R}\\right)\\neq \\varphi\\left(\\vec{r}\\right) $$\n布洛赫定理(Bloch’s Theorem) 推导 周期性势场中的电子波函数是一种调幅平面波:\n$$ \\varphi\\left(\\vec{r}\\right) = e^{i\\vec{k}\\cdot\\vec{r}}u_{k}\\left(\\vec{r}\\right)\\\\ u_{k}\\left(\\vec{r} + \\vec{R}\\right) = u_{k}\\left(\\vec{r}\\right) $$\n$$ \\varphi\\left(\\vec{r} + \\vec{R}\\right) = e^{i\\vec{k}\\cdot\\vec{R}}\\varphi\\left(\\vec{r}\\right) $$\n布洛赫波不会衰减, 移动变化一个正格矢只会变化其相位.\n定理证明 定义平移算符 $\\hat{T}_{R}$, 满足\n$$ \\hat{T}_{R}f\\left(\\vec{r}\\right) = f\\left(\\vec{r} + \\vec{R}\\right) $$\n所以\n$$ \\hat{H}_{R}(\\hat{H}\\varphi) = \\hat{H}\\left(\\vec{r} + \\vec{R}\\right)\\varphi\\left(\\vec{r} + \\vec{R}\\right)\\\\ = \\hat{H}\\left(\\vec{r}\\right)\\varphi\\left(\\vec{r} + \\vec{R}\\right)\\\\ = \\hat{H}\\hat{T}_{R}\\varphi $$\n即\n$$ \\hat{T}_{R}\\hat{H} = \\hat{H}\\hat{T}_{R} $$\n或者说, $[\\hat{T}_{R}, \\hat{H}]=0$, 即两者对易.\n所以两算符有共同本征态, 不妨令 $\\varphi\\left(\\vec{r}\\right)$ 为 $\\hat{T}_{R}$ 的本征函数.\n$$ \\hat{T}_{R}\\varphi(\\vec{r}) = c_{R}\\varphi(\\vec{r})\\\\ \\Rightarrow \\varphi\\left(\\vec{r} + \\vec{R}\\right) = c_{R}\\varphi\\left(\\vec{r}\\right) $$\n对波函数进行归一化条件, 即有\n$$ 1 = \\int\\left|\\varphi\\left(\\vec{r} + \\vec{R}\\right)\\right|^{2}\\mathrm{d}\\vec{r} = \\int\\left|c_{R}\\varphi\\left(\\vec{r}\\right)\\right|^2\\mathrm{d}\\vec{r} = 1\\\\ \\Rightarrow \\left|c_{R}\\right|^{2}\\int\\left|\\varphi\\left(\\vec{r}\\right)\\right|^{2}\\mathrm{d}\\vec{r} = 1\\\\ \\Rightarrow \\left|c_{R}\\right|^{2} = 1\\Rightarrow c_{R} = e^{i\\beta\\left(\\vec{R}\\right)} $$\n而平移算符具有叠加性质\n$$ \\hat{T}_{R_{1}}\\hat{T}_{R_{2}}\\varphi = \\hat{T}_{R_{1} + R_{2}}\\varphi\\\\ \\Rightarrow c_{R_{1}}c_{R_{2}} = c_{R_{1} + R_{2}}\\\\ \\Rightarrow e^{i\\beta\\left(\\vec{R}_{1}\\right)}e^{i\\beta\\left(\\vec{R}_{2}\\right)} = e^{i\\beta\\left(\\vec{R}_{1} + \\vec{R}_{2}\\right)} $$\n所以 $\\beta\\left(\\vec{R}\\right)$ 是 $\\vec{R}$ 的线性函数, 即\n$$ \\beta\\left(\\vec{R}\\right) = \\vec{k}\\cdot\\vec{R}\\\\ c_{R} = e^{i\\vec{k}\\cdot\\vec{R}} $$\n所以平移算符即为\n$$ \\hat{T}_{R} = \\varphi\\left(\\vec{r} + \\vec{R}\\right) = c_{R}\\varphi\\left(\\vec{r}\\right) = e^{i\\vec{k}\\cdot\\vec{R}}\\varphi\\left(\\vec{r}\\right) $$\n分立波矢 考虑周期性边界条件, 边界取为 $N = N_{1}\\times N_{2}\\times N_{3}$ 个原胞.\n则\n$$ \\varphi\\left(\\vec{r} + N_{i}\\vec{a}_{i}\\right) = \\varphi\\left(\\vec{r}\\right) $$\n又根据布洛赫定理, 即有\n$$ \\varphi\\left(\\vec{r} + N_{i}\\vec{a}_{i}\\right) = e^{i\\vec{k}\\cdot N_{i}\\vec{a}_{i}}\\varphi\\left(\\vec{r}\\right) $$\n所以得出\n$$ e^{i\\vec{k}\\cdot N_{i}\\vec{a}_{i}} = 1 $$\n因此\n$$ \\vec{k} = \\frac{l_{1}}{N_{1}}\\vec{b}_{1} + \\frac{l_{2}}{N_{2}}\\vec{b}_{2} + \\frac{l_{3}}{N_{3}}\\vec{b}_{3} $$\n$k$ 点的密度为 $n_{k} = \\left(\\frac{L}{2\\pi}\\right)^{3} = \\frac{V}{8\\pi^{3}}$.\n倒格子原胞的体积为\n$$ \\vec{b}_{1}\\cdot\\left(\\vec{b}_{2}\\times\\vec{b}_{3}\\right) = \\frac{(2\\pi)^{3}}{\\Omega} = \\frac{(2\\pi)^{3}}{V/N} $$\n所以倒格子原胞中的 $k$ 点数目为\n$$ N_{k} = n_{k}\\cdot \\Omega^{*} = N $$\n波矢特性 晶体的平移对称性:\n$$ e^{i\\vec{G}\\cdot\\vec{R}} = 1 $$\n即有\n$$ e^{i\\left(\\vec{k}+\\vec{G}\\right)}\\varphi\\left(\\vec{r}\\right) = e^{i\\vec{k}\\cdot\\vec{R}}e^{i\\vec{G}\\cdot\\vec{R}}\\varphi\\left(\\vec{r}\\right) = e^{i\\vec{k}\\cdot\\vec{R}}\\varphi\\left(\\vec{r}\\right) $$\n所以 $\\vec{k}$ 和 $\\vec{k}’ = \\vec{k} + \\vec{G}$ 实际上是等价的.\n因此布洛赫波的波矢只需要考虑第一布里渊区内的波矢即可, 第一布里渊区以外的 $k$ 点都可以通过若干个 $\\vec{G}$ 平移到第一布里渊区.\n能谱特征 单电子波函数\n$$ \\left[-\\frac{\\hbar^{2}}{2m}\\nabla^{2} + V\\left(\\vec{r}\\right)\\right]\\varphi\\left(\\vec{r}\\right) = E\\varphi\\left(\\vec{r}\\right) $$\n代入布洛赫波形式的波函数 $\\varphi\\left(\\vec{r}\\right) = e^{i\\vec{k}\\cdot\\vec{r}}u_{k}\\left(\\vec{r}\\right)$, 即有\n$$ \\left[-\\frac{\\hbar^{2}}{2m}\\nabla^{2} + V\\left(\\vec{r}\\right)\\right]e^{i\\vec{k}\\cdot\\vec{r}}u_{k}\\left(\\vec{r}\\right) = E\\left(\\vec{k}\\right)e^{i\\vec{k}\\cdot\\vec{r}}u_{k}\\left(\\vec{r}\\right)\\\\ \\Downarrow{\\text{两边左乘}e^{-i\\vec{k}\\cdot\\vec{r}}}\\\\ e^{-i\\vec{k}\\cdot\\vec{r}}\\left[-\\frac{\\hbar^{2}}{2m}\\nabla^{2} + V\\left(\\vec{r}\\right)\\right]e^{i\\vec{k}\\cdot\\vec{r}}u_{k}\\left(\\vec{r}\\right) = e^{-i\\vec{k}\\cdot\\vec{r}}E\\left(\\vec{k}\\right)e^{i\\vec{k}\\cdot\\vec{r}}u_{k}\\left(\\vec{r}\\right)\\\\ \\Downarrow\\\\ \\left[\\frac{\\hbar^{2}}{2m}\\left(-i\\nabla+\\vec{k}\\right)^{2} + V\\left(\\vec{r}\\right)\\right]u_{k}(\\vec{r}) = E_{k}u_{k}\\left(\\vec{r}\\right)\\\\ \\Downarrow\\\\ \\hat{H}_{k}u_{k}\\left(\\vec{r}\\right) = E\\left(\\vec{k}\\right)u_{k}\\left(\\vec{k}\\right) $$\n$u_{k}\\left(\\vec{r}\\right)$ 需要满足周期性边界条件 $$ u_{k}\\left(\\vec{r} + \\vec{R}\\right) = u_{k}\\left(\\vec{r}\\right) $$ 所以要求解能量本征值, 其实只需要在晶格的一个原胞内进行就可以达到目的.\n我们可以得出以下初步结论:\n能量本征值是分立的, 并且使用指标 $n$ 来区分它们($E_{n}$); 每个波矢 $\\vec{k}$ 都对应着无数多个能量 $E_{n}(n\\in\\mathbb{Z})$; 平移对称性 $$ \\varphi_{n,\\vec{k}+\\vec{G}}\\left(\\vec{r}\\right) = \\varphi_{n,\\vec{k}}\\left(\\vec{r}\\right)\\\\ E_{n}\\left(\\vec{k} + \\vec{G}\\right) = E_{n}\\left(\\vec{k}\\right) $$ 即对确定的能级指标 $n$, 能量色散曲线 $E\\left(\\vec{k}\\right)$ 有上下界, 且形成一条能带. 弱周期性近似(近自由电子近似) 使用的是微扰论的思想来求解.\n周期性势场非常微弱; 哈密顿量为自由电子 + 微弱的周期性势场 这种模型通常适用于 $s$ 或者 $p$ 的金属.\n考虑一维自由电子, 其能量为\n$$ E = \\frac{\\hbar^{2}\\color{red}{k^{2}}}{2m} $$\n现在加入一维晶格的周期性势场, 其示意图如下:\n所以现在单电子的哈密顿量为\n$$ \\hat{H} = \\hat{H}_{0} + \\hat{H}’\\\\ \\left(\\hat{H}_{0} = -\\frac{\\hbar^{2}}{2m}\\nabla^{2}\\right) $$\n因为周期性势场的平均值为常数, 为了便于计算不妨将其取值为 $0$.\n对于 $\\hat{H}_{0}$, 可以求得其本征波函数为\n$$ \\varphi_{k}^{0}(x) = \\frac{1}{\\sqrt{L}}e^{ikx} $$\n对应的本征能量则为\n$$ E_{k}^{0} = \\frac{\\hbar^{2}\\vec{k}}{2m} $$\n非简并微扰处理 根据微扰论相关结论, 我们可以知道一级修正\n$$ \\varphi_{k}(x) = \\varphi_{k}^{0}(x) + \\sum_{k’(k’\\neq k)}\\frac{\\langle k’|\\hat{H}’|k\\rangle}{E_{k}^{0} - E_{k’}^{0}}\\varphi_{k’}^{0}(x) $$\n$|k\\rangle$ 为自由电子的本征态.\n具体到我们讨论的情景, 即为\n$$ \\boxed{\\varphi_{k}(x) = \\varphi_{k}^{0}(x) + \\sum_{k’(k’\\neq k)}\\frac{\\langle k’|V(x)|k\\rangle}{E_{k}^{0} - E_{k’}^{0}}\\varphi_{k’}(x)} $$\n考虑矩阵元 $\\langle k’|V(x)|k\\rangle$, 有\n$$ \\langle k’|V(x)|k\\rangle = \\frac{1}{L}\\int e^{-i(k’-k)x}V(x)\\mathrm{d}x $$\n因为晶格具有平移周期性, 即有 $k’ - k = G$\n$$ \\langle k’|V(x)|k\\rangle = \\frac{1}{L}\\int e^{-iGx}V(x)\\mathrm{d}x $$\n势场的傅里叶级数展开 $$ V(x) = \\sum_{G}V_{G}e^{iG\\cdot x}\\\\ V_{G} = \\frac{1}{L}\\int e^{-iGx}V(x)\\mathrm{d}x $$\n所以有\n$$ \\langle k’|V(x)|k \\rangle = V_{G}(G = k’-k) $$\n所以原一级修正表达式可以写为\n$$ \\varphi_{k} = \\varphi_{k}^{0}(x) + \\sum_{k’(k’\\neq k)}\\frac{\\langle k’|V(x)|k\\rangle}{E_{k}^{0}-E_{k’}^{0}}\\varphi_{k’}^{0}(x)\\\\ = \\varphi_{k}^{0}(x) + \\sum_{k’(k’\\neq k)}\\frac{V_{G}}{E_{k}^{0} - E_{k’}^{0}}\\varphi_{k’}^{0}(x) $$\n将平面波函数代入, 得到\n$$ \\varphi_{k}(x) = \\frac{1}{\\sqrt{L}}e^{ikx} + \\sum_{G}\\frac{V_{G}}{\\frac{\\hbar^{2}}{2m}\\left[k^{2} - \\left(k + G\\right)^{2}\\right]}\\frac{1}{\\sqrt{L}}e^{i\\left(k + G\\right)x}\\\\ = \\frac{1}{\\sqrt{L}}\\underbrace{\\left\\{1 + \\sum_{G}\\frac{V_{G}}{\\frac{\\hbar^{2}}{2m}\\left[k^{2} - \\left(k + G\\right)^{2}\\right]}e^{iG\\cdot x}\\right\\}}_{u_{k}(x)} $$\n可以发现, 使用了一级修正之后的波函数仍然是一个布洛赫波的函数\n所以能量的一级修正\n$$ \\langle k|V(x)|k\\rangle = \\frac{1}{L}\\int_{0}^{L}V(x)\\mathrm{d}x = \\langle V\\rangle = 0 $$\n这是因为我们已经假定了周期性势场的平均值为 $0$.\n所以一级修正对于我们的研究而言没有什么意义, 需要进一步考虑能量的二级修正.\n$$ E_{k} = E_{k}^{0} + E_{k}^{1} + \\color{red}{E_{k}^{2}} + \\dots $$\n$$ \\boxed{\\color{red}{E_{k}^{2}} = \\sum_{k’}\\frac{|\\langle k’|V(x)|k\\rangle|^{2}}{E_{k}^{0} - E_{k’}^{0}} = \\sum_{G}\\frac{|V_{G}|^{2}}{\\frac{\\hbar^{2}}{2m}\\left[k^{2}-\\left(k + G\\right)^{2}\\right]}} $$\n我们可以分出两种情况对该式进行分析:\n远离布里渊区边界, 即 $(k + G)^{2} \\gg k^{2}$; 则修正项可以忽略, 可以将该情形考虑为自由电子\n在布里渊区边界, 即 $(k + G)^{2} = k^{2}$. 这个时候分母为 $0$, 即出现发散情况. 我们采用的非简并微扰方法无法处理这种情况. 所以需要考虑简并微扰论的方法来处理在布里渊区边界上的问题.\n简并微扰处理 在一维情况下, 可以将布里渊区边界附近的能量近似为二重简并 $\\varphi_{k}^{0}$ 和 $\\varphi_{k’}^{0}(x)$.\n所以构建其线性组合为新的波函数为\n$$ \\varphi(x) = a\\varphi_{k}^{0}(x) + b\\varphi_{k’}^{0}(x) $$\n将这个波函数带入到单电子的薛定谔方程中:\n$$ \\left[-\\frac{\\hbar^{2}}{2m}\\frac{\\mathrm{d}^{2}}{\\mathrm{d}x^{2}} + V(x) - E\\right]\\varphi(x) = 0\\\\ \\Rightarrow a\\left[E_{k}^{0} - E + V(x)\\right]\\varphi_{k}^{0} + b\\left[E_{k’}^{0} - E + V(x)\\right]\\varphi_{k’}^{0} = 0 $$\n分别左乘 $\\varphi_{k}^{0*}$ 和 $\\varphi_{k’}^{0*}$ 并且积分, 得到方程组\n$$ \\int\\varphi_{k}^{0*}\\left\\{a\\left[E_{k}^{0} - E + V(x)\\right]\\varphi_{k}^{0} + b\\left[E_{k’}^{0} - E + V(x)\\right]\\varphi_{k’}^{0}\\right\\}\\mathrm{d}x = 0\\\\ \\int\\varphi_{k’}^{0*}\\left\\{a\\left[E_{k}^{0} - E + V(x)\\right]\\varphi_{k}^{0} + b\\left[E_{k’}^{0} - E + V(x)\\right]\\varphi_{k’}^{0}\\right\\}\\mathrm{d}x = 0 $$\n因为 $\\langle V\\rangle = 0$, 所以可以进一步化简得到\n$$ \\left(E_{k}^{0} - E\\right)\\color{red}{a} + V_{G}^{*}\\color{red}{b} = 0\\\\ V_{G}\\color{red}{a} + (E_{k’}^{0} - E)\\color{red}{b} = 0 $$\n利用线性代数相关知识可知, 方程组若有解, 则应满足系数行列式为 $0$:\n$$ \\begin{vmatrix} E_{k}^{0} - E \u0026 V_{G}^{*}\\\\ V_{G} \u0026 E_{k’}^{0} - E \\end{vmatrix} = 0 \\Rightarrow\\\\ (E_{k}^{0} - E)(E_{k’}^{0} - E) - |V_{G}|^{2} = 0\\\\ \\Rightarrow\\\\ E_{k\\pm} = \\frac{1}{2}\\left\\{\\left(E_{k}^{0} + E_{k’}^{0}\\right)\\pm\\sqrt{(E_{k}^{0} + E_{k’}^{0})^{2} + 4|V_{G}|^{2}}\\right\\} $$\n同样地, 我们分出两种情况对该表达式进行分析:\n布里渊区边界处($E_{k}^{0} = E_{k’}^{0}$) $$ E_{k\\pm} = E_{k}^{0}\\pm|V_{G}| $$\n即在布里渊区的边界有能隙被打开.\n远离布里渊区($|E_{k}^{0} - E_{k’}^{0}|\\gg|V_{G}|$) $$ E_{k\\pm}= \\begin{cases} E_{k’}^{0} + \\frac{|V_{G}|^{2}}{E_{k’}^{0} - E_{k}^{0}}\\\\ E_{k}^{0} + \\frac{|V_{G}|^{2}}{E_{k’}^{0} - E_{k}^{0}}\\\\ \\end{cases} $$\n即能量高的态, 能量会变得更高; 能量低的态, 能量会变得更低.\n靠近布里渊区边界($|E_{k}^{0} - E_{k’}^{0}|\\ll|V_{G}|$) 则修正后能量特化为\n$$ E_{k\\pm} = \\frac{1}{2}\\left\\{E_{k}^{0} + E_{k’}^{0} \\pm\\left[2|V_{G}| + \\frac{(E_{k’}^{0} - E_{k}^{0})^{2}}{4|V_{G}|}\\right]\\right\\} $$\n如果非常靠近布里渊区边界, 即 $k + \\frac{G}{2}\\approx 0$, 则\n$$ E_{k}^{0} + E_{k’}^{0} = \\frac{\\hbar^{2}}{2m}\\left[k^{2} + (k + G)^{2}\\right] = \\frac{\\hbar^{2}}{2m}\\left[\\left(k + \\frac{G}{2} - \\frac{G}{2}\\right)^{2} + \\left(k + \\frac{G}{2} + \\frac{G}{2}\\right)^{2}\\right]\\\\ = 2E_{0} + \\frac{\\hbar^{2}}{m}\\left(k + \\frac{G}{2}\\right)^{2} $$\n将该结果代回到能量修正项中:\n$$ E_{k\\pm} = (E_{0} \\pm |V_{G}|) + \\frac{\\hbar^{2}}{2m}\\left(k + \\frac{G}{2}\\right)^{2} \\pm \\frac{(E_{k’}^{0} - E_{k}^{0})^{2}}{8|V_{G}|} $$\n详细计算 $(E_{k’}^{0} - E_{k}^{0})^{2}$:\n$$ (E_{k’}^{0} - E_{k}^{0})^{2} = \\left(\\frac{\\hbar^{2}}{2m}\\right)^{2}[k’^{2} - k^{2}]^{2} = \\left(\\frac{\\hbar^{2}}{2m}\\right)^{2}[(k’ + k)(k’ - k)]^{2}\\\\ = \\left(\\frac{\\hbar^{2}}{2m}\\right)^{2}G^{2}(2k + G)^{2} = 4\\left(\\frac{\\hbar^{2}}{2m}\\right)^{2}G^{2}\\left(k + \\frac{G}{2}\\right)^{2} $$\n于是得到该情况下的能带\n$$ E_{k\\pm} \\approx (E_{0}\\pm |V_{G}|) + \\frac{\\hbar^{2}}{2m}\\left(k + \\frac{G}{2}\\right)^{2} \\pm \\left(\\frac{\\hbar^{2}}{2m}\\right)^{2} \\frac{G^{2}}{2|V_{G}|}\\left(k + \\frac{G}{2}\\right)^{2} $$\n即该情况下的色散曲线为抛物线.\n物理图像理解 布里渊区的边界为\n$$ k = -\\frac{\\pi}{a}, k’=\\frac{\\pi}{a} $$\n而波函数为\n$$ \\varphi(x) = a\\varphi_{k}^{0}(x) + b\\varphi_{k’}^{0}(x) $$\n$$ E_{+}:a = -b\\Rightarrow \\varphi_{+} \\propto -e^{-i\\frac{\\pi}{a}x} + e^{i\\frac{\\pi}{a}x} = 2i\\sin{\\frac{\\pi x}{a}}\\\\ E_{-}:a = b\\Rightarrow \\varphi_{-} \\propto e^{-i\\frac{\\pi}{a}x} + e^{i\\frac{\\pi}{a}x} = 2\\cos{\\frac{\\pi x}{a}}\\\\ $$\n这是一种驻波. 相当于在布里渊区的边界发生了布拉格反射现象.\n布拉格反射\n$$ (k + G)^{2} = k^{2} $$\n$\\varphi_{-}$ 趋向于靠近离子实, 势能更低; $\\varphi_{+}$ 趋向于离开离子实, 势能更低.\nKronig-Penney Model 推导 设有周期性方势阱\n$$ V(x) = \\begin{cases} 0 \u0026 x\\in[0,a]\\\\ U_{0} \u0026 x\\in[a,a+b] \\end{cases}\\\\ (V(x+a+b)=V(x)) $$\n我们按照形式解的方式写出波函数:\n$$ \\begin{cases} \\psi(x) = Ae^{iKx} + Be^{-iKx} \u0026 \\epsilon = \\frac{\\hbar^{2}K^{2}}{2m} \u0026 (x\\in[0,a])\\\\ \\psi(x) = Ce^{Qx} + De^{-Qx} \u0026 U_{0} -\\epsilon = \\frac{\\hbar^{2}Q^{2}}{2m} \u0026 (x\\in[-b,0]) \\end{cases} $$\n因为是周期势, 所以波函数解一定是布洛赫形式.\n连续性方程(波函数连续 \u0026 一阶导数连续)\n$$ \\begin{aligned} \\begin{cases} A + B \u0026= C + D\\\\ iK(A-B) \u0026= Q(C - D)\\\\ Ae^{iKa} + Be^{-iKa} \u0026= (Ce^{-Qb} + De^{Qb})e^{ik(a+b)}\\\\ iK(A^{iKa} - Be^{-iKa}) \u0026= Q(Ce^{-Qb} - De^{Qb})e^{ik(a+b)} \\end{cases} \\end{aligned} $$\n这实际上是一个四元一次方程组, 如果方程有解, 则系数矩阵的行列式一定为 $0$.\n$$ \\frac{Q^{2}-K^{2}}{2QK}\\sinh{Qb}\\sin{Ka} + \\cosh{Qb}\\cos{Ka} = \\cos{k(a+b)} $$\n$\\delta$ 势近似 取周期性 $\\delta$ 势对上述结论进行近似, 即条件\n$$ b\\rightarrow 0;U_{0}\\rightarrow \\infty; \\frac{Q^{2}ba}{2} = P $$\n即可得到\n$$ \\frac{Q^[2]-K^{2}}{2QK}\\sinh{Qb} = \\frac{P}{Ka};\\cosh{Qb} = 1\\\\ \\Downarrow\\\\ \\boxed{\\frac{P}{Ka}\\sin{Ka} + \\cos{Ka} = \\cos{ka}} $$\n$$ \\epsilon = \\frac{\\hbar^{2}K^{2}}{2m}, (-1\\leq \\cos{ka} \\leq 1) $$\n周期势中的电子波动方程 对具有周期性的物理量进行傅里叶变换是常见的处理方法. 对一周期性势场进行傅里叶级数展开:\n$$ U(x) = \\sum_{G}U_{G}e^{iGx} $$\n同理, 对电子波函数进行傅里叶级数展开\n$$ \\psi(x) = \\sum_{k}C(k)e^{ikx} $$\n前面我们已经讨论过如何将 $k$ 约定在第一布里渊区进行讨论. 我们可以借助倒格矢 $G$ 来做到这一点:\n$$ \\psi_{k}(x) = \\sum_{G}C(k - G)e^{i(k - G)x} $$\n于是波动方程\n$$ \\left(\\frac{p^{2}}{2m} + U(x)\\right)\\psi(x) = \\epsilon\\psi(x)\\\\ \\Downarrow{\\mathcal{F}[U(x)],\\mathcal{F}[\\psi(x)]}\\\\ \\sum_{k}\\frac{\\hbar^{2}}{2m}k^{2}C(k)e^{ikx} + \\sum_{G}\\sum_{k}U_{G}C(k)e^{i(k + G)x} = \\epsilon\\sum_{k}C(k)e^{ikx}\\\\ \\Downarrow\\\\ \\sum_{k}\\left[\\frac{\\hbar^{2}k^{2}}{2m}C(k)e^{ikx}-\\epsilon C(k)e^{ikx} + \\sum_{G}U_{G}C(k -G)e^{ikx}\\right] = 0\\\\ \\Downarrow\\\\ \\left(\\frac{\\hbar^{2}k^{2}}{2m}-\\epsilon\\right)C(k) + \\sum_{G}C(k-G)=0 $$\n这就是关于傅里叶系数 $C(k)$ 的线性方程组, 即中心方程.\n如果该方程组有解, 则其系数矩阵的行列式必定为 $0$. 原则上行列式应该为无限长宽, 但是实际上取一定截断也可以获得足够近似的能量 $\\epsilon$.\n设 $g$ 为最小的倒格矢 $G$, 且势能中的傅里叶分量 $U_{g} = U$. 则中心方程系数行列式为\n$$ \\left|\\begin{array}{c|ccccc|c} \\ddots \u0026 \\vdots \u0026 \\vdots \u0026\\vdots \u0026\\vdots \u0026\\vdots \u0026 \\ddots\\\\ \\hline \\dots \u0026 \\lambda_{k-2g}-\\epsilon \u0026 U \u0026 0 \u0026 0 \u0026 0 \u0026 \\dots\\\\ \\dots \u0026 U \u0026 \\lambda_{k-g} -\\epsilon \u0026 U \u0026 0 \u0026 0 \u0026 \\dots\\\\ \\dots \u0026 0 \u0026 U \u0026 \\lambda_{k}-\\epsilon \u0026 U \u0026 0 \u0026 \\dots\\\\ \\dots \u0026 0 \u0026 0 \u0026 U \u0026 \\lambda_{k+g} -\\epsilon \u0026 U \u0026 \\dots\\\\ \\dots \u0026 0 \u0026 0 \u0026 0 \u0026 U \u0026 \\lambda_{k+2g} \u0026 \\dots\\\\ \\hline \\ddots \u0026 \\vdots \u0026 \\vdots \u0026\\vdots \u0026\\vdots \u0026\\vdots \u0026 \\ddots\\\\ \\end{array}\\right| = 0 $$\n这里就是取的 $5\\times 5$ 截断的示意图.\n空格点近似 推导 前面我们已经谈到过, 能带结构可以表示在第一布里渊区中. 如果能带能量可以近似为自由电子的能量 $$ \\epsilon_{\\mathbf{k}} = \\frac{\\hbar^{2}\\mathbf{k}^{2}}{2m} $$\n那么我们也应该将自由电子的能量表示在第一布里渊区.\n实际上电子的波矢当然不一定在第一布里渊区内, 但是我们知道每个 $\\mathbf{k}$ 点一定存在第一布里渊区中的 $\\mathbf{k}’$ 点与之对应. 也就是说, 我们需要确定一个倒格子矢量 $\\mathbf{G}$, 使得\n$$ \\mathbf{k}’ + \\mathbf{G} = \\mathbf{k} $$\n那么映射后的自由电子能量即为\n$$ \\epsilon(k_{x},k_{y},k_{z}) = \\frac{\\hbar^{2}(\\mathbf{k}+ \\mathbf{G})^{2}}{2m} = \\frac{\\hbar^{2}}{2m}\\left[(k_{x} + G_{x})^{2} + (k_{y} + G_{y})^{2} + (k_{z} + G_{z})^{2}\\right] $$\n例子 假定为低能自由电子能带, 求简单立方晶格中 $[100]$ 方向的能量色散函数.\n两种晶面表示指标\n假设晶面在各轴的截距为 $a_{1},a_{2},a_{3}$. 则\n$\\left(a_{1}^{-1}, a_{2}^{-1}, a_{3}^{-1}\\right)$; $[a_{1},a_{2},a_{3}]$. 上划线表示负号, 如 $[u\\overline{v}w]$. 接下来我们需要按照能级简并来对各类 $G$ 进行分类. 简单立方晶格的倒格子基矢的长度为 $\\frac{2\\pi}{a}$, 所以倒格矢 $G$ 的分量也必然是 $\\frac{2\\pi}{a}$ 的整倍数. 所以我们用另一种方法来区分 $G$, 即将其写为 $G\\cdot\\frac{a}{2\\pi}$. 比如\n$$ \\vec{G} = \\frac{2\\pi}{a}(0,0,0)\\Rightarrow \\frac{Ga}{2\\pi}:[000] $$\n因为我们已经假定是求 $[100]$ 方向的色散, 所以 $\\vec{k} = k_{x} \\hat{x}$, 因此原本的自由电子能量特化为公式\n$$ \\epsilon(\\vec{k}) = \\frac{\\hbar^{2}}{2m}\\left[(k_{x} + G_{x})^{2} + G_{y}^{2} + G_{z}^{2}\\right] $$\n而不同的 $\\frac{Ga}{2\\pi}$ 相当于把对应的倒格矢分量填入各 $G_{i}$ 中. 比如\n$$ \\frac{Ga}{2\\pi}:[xyz]\\Rightarrow\\epsilon(\\vec{k})=\\epsilon(k_{x}00)= (k_{x}+x\\cdot\\frac{2\\pi}{a})^{2} + (y\\cdot\\frac{2\\pi}{a})^{2} + (z\\cdot\\frac{2\\pi}{a})^{2} $$\n列出所有可能的 $\\frac{Ga}{2\\pi}:[xyz]$, 求解能量并且按照简并将其聚类, 就可以得到色散关系.\n这里我们不需要将所有的 $\\frac{Ga}{2\\pi}$ 都列出来, 因为 $k$ 是无穷大的, 也没有必要也不可能完全写出. 我们可以写几个简单的, 靠近第一布里渊区的.\n$$ \\begin{array}{|c|c|c|c|} \\hline \\text{能带} \u0026 \\frac{Ga}{2\\pi} \u0026 \\epsilon(000) \u0026 \\epsilon(k_{x}00)\\\\ \\hline 1 \u0026 000 \u0026 0 \u0026 k_{x}^{2} \\\\ \\hline 2,3 \u0026 100,\\overline{1}00\u0026 \\left(\\frac{2\\pi}{a}\\right)^{2} \u0026 \\left(k_{x}\\pm\\frac{2\\pi}{a}\\right)^{2}\\\\ \\hline 4,5,6,7 \u0026 010,0\\overline{1}0,001,00\\overline{1} \u0026 \\left(\\frac{2\\pi}{a}\\right)^{2} \u0026 k_{x}^{2} + \\left(\\frac{2\\pi}{a}\\right)^{2}\\\\ \\hline 8,9,10,11 \u0026 110,101,1\\overline{1}0,10\\overline{1} \u0026 2\\left(\\frac{2\\pi}{a}\\right)^{2} \u0026 \\left(k_{x} + \\frac{2\\pi}{a}\\right)^{2} + \\left(\\frac{2\\pi}{a}\\right)^{2}\\\\ \\hline 12,13,14,15 \u0026 \\overline{1}10,\\overline{1}01,\\overline{11}0,\\overline{1}0\\overline{1} \u0026 2\\left(\\frac{2\\pi}{a}\\right)^{2} \u0026 \\left(k_{x} - \\frac{2\\pi}{a}\\right)^{2} + \\left(\\frac{2\\pi}{a}\\right)^{2}\\\\ \\hline 16,17,18,19 \u0026 011,0\\overline{1}1,01\\overline{1},0\\overline{1}\\overline{1} \u0026 2\\left(\\frac{2\\pi}{a}\\right)^{2} \u0026 k_{x}^{2} + 2\\left(\\frac{2\\pi}{a}\\right)^{2}\\\\ \\hline \\end{array} $$\n对应的能带图即为\n在布里渊区的边界处, 即 $\\frac{G}{2}$, 假设 $U_{G}$ 与自由电子的动能相比较小, 而 $$ k^{2} = \\left(\\frac{G}{2}\\right)^{2}, (k - G)^{2} = \\left(\\frac{G}{2}\\right)^{2}. $$\n前面我们已经知道中心方程的具体形式, 所以我们这里仅保留 $C(\\frac{G}{2}), C(-\\frac{G}{2})$ 两个系数, 即有\n$$ \\left|\\begin{array} \\lambda-\\epsilon \u0026 U \\\\ U \u0026 \\lambda - \\epsilon \\\\ \\end{array}\\right|=0\\\\ \\Downarrow\\\\ \\epsilon_{\\pm} = \\lambda \\pm U = \\frac{\\hbar^{2}}{2m}\\left(\\frac{G}{2}\\right)^{2}\\pm U $$\n观察到两个系数比值为 $$ \\frac{C\\left(-\\frac{G}{2}\\right)}{C\\left(\\frac{G}{2}\\right)} = \\frac{\\epsilon-\\lambda}{U} = \\pm 1 $$\n这和我们前面使用简并微扰处理得出的结论相同.\n在波矢 $k$ 点在布里渊区边界 $\\frac{G}{2}$ 附近时, 即有 $$ \\left|\\begin{array} \\lambda_{k}-\\epsilon \u0026 U\\\\ U \u0026 \\lambda_{k-G}-\\epsilon \\\\ \\end{array}\\right| = 0\\\\ \\Downarrow(\\widetilde{K}=k-\\frac{G}{2})\\\\ \\epsilon_{\\widetilde{K}}(\\pm) \\approx \\frac{\\hbar^{2}}{2m}\\left[\\left(\\frac{G}{2}\\right)^{2} + \\widetilde{K}^{2}\\right]\\pm\\left[U+\\frac{2\\lambda}{U}\\frac{\\hbar^{2}\\widetilde{K}^{2}}{2m}\\right] = \\epsilon_{\\pm} + \\frac{\\hbar^{2}\\widetilde{K}^{2}}{2m}\\left(1\\pm\\frac{2\\lambda}{U}\\right). $$\n几何结构因子和能隙的关系 我们使用以下几个参数:\n$\\vec{d}_{i}$, 第 $i$ 个原子在原胞中的位置, 可以理解为相对位置矢量;\n$V(\\vec{r})$, 是空间上 $\\vec{r}$ 位置的总势场;\n$v_{i}(\\vec{r}-\\vec{d}_{i})$ 是原胞中第 $i$ 个原子产生的势场.\n我们可以推断: 总势场应当是原胞中所有原子的势场之和, 即写作\n$$ V(\\vec{r}) = \\sum_{i}v_{i}(\\vec{r} - \\vec{d}_{i}) $$\n将 $v_{i}(\\vec{r} - \\vec{d}_{i})$ 进行傅里叶展开:\n$$ v_{i}(\\vec{r}-\\vec{d}_{i}) = \\sum_{\\vec{G}_{n}}v_{i}(\\vec{G}_{n})e^{i\\vec{G}_{n}\\cdot\\left(\\vec{r}-\\vec{d}_{i}\\right)}\\\\ \\Downarrow\\\\ V(\\vec{r} = \\sum_{i})\\sum_{\\vec{G}_{n}}v_{i}(\\vec{G}_{n})e^{i\\vec{G}_{n}\\cdot\\left(\\vec{r}-\\vec{d}_{i}\\right)} = \\sum_{\\vec{G}_{n}}\\color{red}{\\sum_{i}v_{i}(\\vec{G}_{n})e^{-i\\vec{G}_{n}\\cdot\\vec{d}_{i}}}e^{i\\vec{G}_{n}\\cdot\\vec{r}}\\\\ \\Downarrow\\\\ V(\\vec{r}) = \\sum_{\\vec{G}_{n}}\\color{red}{V(\\vec{G}_{n})}e^{i\\vec{G}_{n}\\cdot\\vec{r}}\\left(\\color{red}{V(\\vec{G}_{n}) = \\sum_{i}v_{i}(\\vec{G}_{n})e^{i\\vec{G}_{n}\\cdot\\vec{d}_{i}}}\\right) $$\n这里的 $V(\\vec{G}_{n})$ 即被称为能隙的几何形状因子.\n类比 X 光散射中的几何结构因子 $$ S(\\vec{G}) = \\sum_{i}f_{i}(\\vec{G})e^{-i\\vec{G}\\cdot\\vec{d}_{i}} $$\n如果复式原胞中的基元是同种原子, 那么几何结构因子将会特化为\n$$ V(\\vec{G}_{n}) = v(\\vec{G}_{n})\\sum_{i}e^{-i\\vec{G}_{n}\\cdot\\vec{d}_{i}} $$\nGa(31), Ge(32), As(33) 是相邻元素, 纯 Ge 和 GaAs 的晶体结构都是类金刚石结构, 但是前者可以在特定布里渊区边界出现无能隙现象.\n",
+  "wordCount" : "4842",
+  "inLanguage": "zh",
+  "datePublished": "2023-06-02T00:18:23+08:00",
+  "dateModified": "2022-06-02T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/zh/posts/phy/cmp/energy-band-theory/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "计算物理资料库",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/zh/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/zh/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/zh/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/zh/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/zh/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/zh/posts/phy/cmp/">🔧 Condensed Matter Physics</a></div>
+            <h1 class="post-title">
+                能带论
+            </h1>
+            <div class="post-description">
+                电子能带论
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>20212-23-120
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>4842字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>10分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/zh/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/zh/tags/condensed-matter-physics/" style="color: var(--secondary)!important;">condensed matter physics</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%9f%ba%e6%9c%ac%e8%bf%91%e4%bc%bc" aria-label="基本近似">基本近似</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b3%a2%e6%81%a9-%e5%a5%a5%e6%9c%ac%e6%b5%b7%e9%bb%98%e7%bb%9d%e7%83%ad%e8%bf%91%e4%bc%bc" aria-label="波恩-奥本海默绝热近似">波恩-奥本海默绝热近似</a></li>
+                <li>
+                    <a href="#%e5%b9%b3%e5%9d%87%e5%9c%ba%e8%bf%91%e4%bc%bc%e5%8d%95%e7%94%b5%e5%ad%90%e8%bf%91%e4%bc%bc" aria-label="平均场近似(单电子近似)">平均场近似(单电子近似)</a></li>
+                <li>
+                    <a href="#%e5%91%a8%e6%9c%9f%e6%80%a7%e5%8a%bf%e5%9c%ba%e8%bf%91%e4%bc%bc" aria-label="周期性势场近似">周期性势场近似</a><ul>
+                        
+                <li>
+                    <a href="#%e5%b8%83%e6%b4%9b%e8%b5%ab%e5%ae%9a%e7%90%86blochs-theorem" aria-label="布洛赫定理(Bloch&amp;rsquo;s Theorem)">布洛赫定理(Bloch&rsquo;s Theorem)</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8e%a8%e5%af%bc" aria-label="推导">推导</a></li>
+                <li>
+                    <a href="#%e5%88%86%e7%ab%8b%e6%b3%a2%e7%9f%a2" aria-label="分立波矢">分立波矢</a></li>
+                <li>
+                    <a href="#%e6%b3%a2%e7%9f%a2%e7%89%b9%e6%80%a7" aria-label="波矢特性">波矢特性</a></li>
+                <li>
+                    <a href="#%e8%83%bd%e8%b0%b1%e7%89%b9%e5%be%81" aria-label="能谱特征">能谱特征</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%bc%b1%e5%91%a8%e6%9c%9f%e6%80%a7%e8%bf%91%e4%bc%bc%e8%bf%91%e8%87%aa%e7%94%b1%e7%94%b5%e5%ad%90%e8%bf%91%e4%bc%bc" aria-label="弱周期性近似(近自由电子近似)">弱周期性近似(近自由电子近似)</a><ul>
+                        
+                <li>
+                    <a href="#%e9%9d%9e%e7%ae%80%e5%b9%b6%e5%be%ae%e6%89%b0%e5%a4%84%e7%90%86" aria-label="非简并微扰处理">非简并微扰处理</a></li>
+                <li>
+                    <a href="#%e7%ae%80%e5%b9%b6%e5%be%ae%e6%89%b0%e5%a4%84%e7%90%86" aria-label="简并微扰处理">简并微扰处理</a></li>
+                <li>
+                    <a href="#kronig-penney-model" aria-label="Kronig-Penney Model">Kronig-Penney Model</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8e%a8%e5%af%bc-1" aria-label="推导">推导</a></li>
+                <li>
+                    <a href="#delta-%e5%8a%bf%e8%bf%91%e4%bc%bc" aria-label="$\delta$ 势近似">$\delta$ 势近似</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%91%a8%e6%9c%9f%e5%8a%bf%e4%b8%ad%e7%9a%84%e7%94%b5%e5%ad%90%e6%b3%a2%e5%8a%a8%e6%96%b9%e7%a8%8b" aria-label="周期势中的电子波动方程">周期势中的电子波动方程</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%a9%ba%e6%a0%bc%e7%82%b9%e8%bf%91%e4%bc%bc" aria-label="空格点近似">空格点近似</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8e%a8%e5%af%bc-2" aria-label="推导">推导</a></li>
+                <li>
+                    <a href="#%e4%be%8b%e5%ad%90" aria-label="例子">例子</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%87%a0%e4%bd%95%e7%bb%93%e6%9e%84%e5%9b%a0%e5%ad%90%e5%92%8c%e8%83%bd%e9%9a%99%e7%9a%84%e5%85%b3%e7%b3%bb" aria-label="几何结构因子和能隙的关系">几何结构因子和能隙的关系</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="基本近似">基本近似<a hidden class="anchor" aria-hidden="true" href="#基本近似">#</a></h1>
+<p>在<a href="https://muartz.com/posts/phy/cmp/density-generalized-function-theory/" target="_blank" rel="noopener nofollow noreferrer" >密度泛函</a>中我们已经提到过完整的哈密顿量形式.</p>
+<blockquote>
+<p>$$
+\hat{H}_{T} = \underbrace{\sum_{i}\frac{|\vec{p_{i}}|^2}{2m}}_{\text{价电子动能}} +
+\underbrace{\sum_{n}\frac{|\vec{p_{n}}|^2}{2M_{n}}}_{原子实动能} +
+\underbrace{\frac{1}{2}\sum_{ij}&rsquo;\frac{e^2}{|\vec{r_{i}}-\vec{r_{j}}|}}_{电子间库伦势} +
+\underbrace{\frac{1}{2}\sum_{nn&rsquo;}&rsquo;\frac{Z_{n}Z_{n&rsquo;}e^{2}}{|\vec{R_{n}}-\vec{R_{n&rsquo;}}|}}_{原子实间库伦势} +
+\underbrace{\sum_{n,i}V_{n}(\vec{r_{i}}-\vec{R_{n}})}_{电子和原子实之间的相互作用} \\
++\underbrace{\hat{H}_{R}}_{相对论修正}
+$$</p>
+<blockquote>
+<p>$\hat{H}_{R}$ 被称为 &lsquo;Relativistic Corrections&rsquo;, 包括了自旋-轨道的耦合项.</p>
+</blockquote>
+</blockquote>
+<p>从第一性原理出发写出的哈密顿量当然是非常复杂的, 要进行计算就需要对其进行近似.</p>
+<h2 id="波恩-奥本海默绝热近似">波恩-奥本海默绝热近似<a hidden class="anchor" aria-hidden="true" href="#波恩-奥本海默绝热近似">#</a></h2>
+<p>将电子和离子实分开, 描述电子的时候认为离子实固定不动.</p>
+<ul>
+<li>电子的哈密顿量(离子实位置不变)</li>
+</ul>
+<p>$$
+\hat{H}_{e} = \sum_{i}\left[\frac{\vec{p}_{i}^{2}}{2m} + \sum_{n}V_{n}(\vec{r}_{i} - \vec{R}_{n})\right] + \frac{1}{2}\sum_{ij}&rsquo;\frac{e^{2}}{|\vec{r}_{i} - \vec{r}_{j}|}
+$$</p>
+<ul>
+<li>离子实的哈密顿量(决定声子)</li>
+</ul>
+<p>$$
+\hat{H}_{c} = \sum_{n}\frac{\vec{p}_{n}^{2}}{2M_{n}}+\frac{1}{2}\sum_{nn&rsquo;}&rsquo;\frac{Z_{n}Z_{n&rsquo;}e^{2}}{|\vec{R}_{n} - \vec{R}_{n&rsquo;}|} + \underbrace{V_{\text{ec}}(\{\vec{R}_{n}\})}_{\hat{H}_{e}\text{基态对应的离子实所受的电子势场}}
+$$</p>
+<blockquote>
+<p>在此过程中电子与声子之间无相互作用.</p>
+</blockquote>
+<h2 id="平均场近似单电子近似">平均场近似(单电子近似)<a hidden class="anchor" aria-hidden="true" href="#平均场近似单电子近似">#</a></h2>
+<p>将电子-电子之间的库伦相互作用和电子-离子实之间的库伦相互作用视为等效的平均势场, 每一个电子都在这样的平均势场中运动.</p>
+<p>则原先的</p>
+<p>$$
+\hat{H}_{e} = \sum_{i}\left[\frac{\vec{p}_{i}^{2}}{2m} + \sum_{n}V_{n}(\vec{r}_{i} - \vec{R}_{n})\right] + \frac{1}{2}\sum_{ij}&rsquo;\frac{e^{2}}{|\vec{r}_{i} - \vec{r}_{j}|}
+$$</p>
+<p>写为</p>
+<p>$$
+\hat{H}_{e} = \sum_{i}\hat{H}\left(\vec{r}_{i}, \{\vec{R}_{n}\}\right)\\
+\hat{H}\left(\vec{r},\{\vec{R}_{n}\}\right) = \frac{\vec{p}^{2}}{2m} + \underbrace{V(\vec{r},\{\vec{R}_{n}\})}_{\text{平均场}}
+$$</p>
+<h2 id="周期性势场近似">周期性势场近似<a hidden class="anchor" aria-hidden="true" href="#周期性势场近似">#</a></h2>
+<p>平均场是严格周期性势场, 具有和晶体一样的对称性.</p>
+<p>$$
+V\left(\vec{r}, \{\vec{R}_{n}\}\right) = V\left(\vec{r}\right) = V\left(\vec{r} + \vec{R}_{n}\right)
+$$</p>
+<p>对于单电子而言, 其定态哈密顿量即为我们熟知的</p>
+<p>$$
+\hat{H} = -\frac{\hbar^{2}}{2m}\nabla^{2} + V(\vec{r})
+$$</p>
+<p>那么如何求得周期性势场中的单电子波函数? 首先我们要明确, 虽然哈密顿量是正格矢的周期函数, 但是该条件下的波函数并非正格矢的周期函数.</p>
+<p>即</p>
+<p>$$
+\hat{H}\left(\vec{r} + \vec{R}\right) = \hat{H}\left(\vec{r}\right)\\
+\varphi\left(\vec{r} + \vec{R}\right)\neq \varphi\left(\vec{r}\right)
+$$</p>
+<h3 id="布洛赫定理blochs-theorem">布洛赫定理(Bloch&rsquo;s Theorem)<a hidden class="anchor" aria-hidden="true" href="#布洛赫定理blochs-theorem">#</a></h3>
+<h4 id="推导">推导<a hidden class="anchor" aria-hidden="true" href="#推导">#</a></h4>
+<p>周期性势场中的电子波函数是一种调幅平面波:</p>
+<p>$$
+\varphi\left(\vec{r}\right) = e^{i\vec{k}\cdot\vec{r}}u_{k}\left(\vec{r}\right)\\
+u_{k}\left(\vec{r} + \vec{R}\right) = u_{k}\left(\vec{r}\right)
+$$</p>
+<blockquote>
+<p>$$
+\varphi\left(\vec{r} + \vec{R}\right) = e^{i\vec{k}\cdot\vec{R}}\varphi\left(\vec{r}\right)
+$$</p>
+</blockquote>
+<p>布洛赫波不会衰减, 移动变化一个正格矢只会变化其相位.</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>定理证明<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>定义平移算符 $\hat{T}_{R}$, 满足</p>
+<p>$$
+\hat{T}_{R}f\left(\vec{r}\right) = f\left(\vec{r} + \vec{R}\right)
+$$</p>
+<p>所以</p>
+<p>$$
+\hat{H}_{R}(\hat{H}\varphi) = \hat{H}\left(\vec{r} + \vec{R}\right)\varphi\left(\vec{r} + \vec{R}\right)\\
+= \hat{H}\left(\vec{r}\right)\varphi\left(\vec{r} + \vec{R}\right)\\
+= \hat{H}\hat{T}_{R}\varphi
+$$</p>
+<p>即</p>
+<p>$$
+\hat{T}_{R}\hat{H} = \hat{H}\hat{T}_{R}
+$$</p>
+<blockquote>
+<p>或者说, $[\hat{T}_{R}, \hat{H}]=0$, 即两者对易.</p>
+</blockquote>
+<p>所以两算符有共同本征态, 不妨令 $\varphi\left(\vec{r}\right)$ 为 $\hat{T}_{R}$ 的本征函数.</p>
+<p>$$
+\hat{T}_{R}\varphi(\vec{r}) = c_{R}\varphi(\vec{r})\\
+\Rightarrow \varphi\left(\vec{r} + \vec{R}\right) = c_{R}\varphi\left(\vec{r}\right)
+$$</p>
+<p>对波函数进行归一化条件, 即有</p>
+<p>$$
+1 = \int\left|\varphi\left(\vec{r} + \vec{R}\right)\right|^{2}\mathrm{d}\vec{r} = \int\left|c_{R}\varphi\left(\vec{r}\right)\right|^2\mathrm{d}\vec{r} = 1\\
+\Rightarrow \left|c_{R}\right|^{2}\int\left|\varphi\left(\vec{r}\right)\right|^{2}\mathrm{d}\vec{r} = 1\\
+\Rightarrow \left|c_{R}\right|^{2} = 1\Rightarrow c_{R} = e^{i\beta\left(\vec{R}\right)}
+$$</p>
+<p>而平移算符具有叠加性质</p>
+<p>$$
+\hat{T}_{R_{1}}\hat{T}_{R_{2}}\varphi = \hat{T}_{R_{1} + R_{2}}\varphi\\
+\Rightarrow c_{R_{1}}c_{R_{2}} = c_{R_{1} + R_{2}}\\
+\Rightarrow e^{i\beta\left(\vec{R}_{1}\right)}e^{i\beta\left(\vec{R}_{2}\right)} = e^{i\beta\left(\vec{R}_{1} + \vec{R}_{2}\right)}
+$$</p>
+<p>所以 $\beta\left(\vec{R}\right)$ 是 $\vec{R}$ 的线性函数, 即</p>
+<p>$$
+\beta\left(\vec{R}\right) = \vec{k}\cdot\vec{R}\\
+c_{R} = e^{i\vec{k}\cdot\vec{R}}
+$$</p>
+<p>所以平移算符即为</p>
+<p>$$
+\hat{T}_{R} = \varphi\left(\vec{r} + \vec{R}\right) = c_{R}\varphi\left(\vec{r}\right) = e^{i\vec{k}\cdot\vec{R}}\varphi\left(\vec{r}\right)
+$$</p>
+</div>
+
+ </div>
+
+ </div>
+<h4 id="分立波矢">分立波矢<a hidden class="anchor" aria-hidden="true" href="#分立波矢">#</a></h4>
+<p>考虑周期性边界条件, 边界取为 $N = N_{1}\times N_{2}\times N_{3}$ 个原胞.</p>
+<p>则</p>
+<p>$$
+\varphi\left(\vec{r} + N_{i}\vec{a}_{i}\right) = \varphi\left(\vec{r}\right)
+$$</p>
+<p>又根据布洛赫定理, 即有</p>
+<p>$$
+\varphi\left(\vec{r} + N_{i}\vec{a}_{i}\right) = e^{i\vec{k}\cdot N_{i}\vec{a}_{i}}\varphi\left(\vec{r}\right)
+$$</p>
+<p>所以得出</p>
+<p>$$
+e^{i\vec{k}\cdot N_{i}\vec{a}_{i}} = 1
+$$</p>
+<p>因此</p>
+<p>$$
+\vec{k} = \frac{l_{1}}{N_{1}}\vec{b}_{1} + \frac{l_{2}}{N_{2}}\vec{b}_{2} + \frac{l_{3}}{N_{3}}\vec{b}_{3}
+$$</p>
+<p>$k$ 点的密度为 $n_{k} = \left(\frac{L}{2\pi}\right)^{3} = \frac{V}{8\pi^{3}}$.</p>
+<p>倒格子原胞的体积为</p>
+<p>$$
+\vec{b}_{1}\cdot\left(\vec{b}_{2}\times\vec{b}_{3}\right) = \frac{(2\pi)^{3}}{\Omega} = \frac{(2\pi)^{3}}{V/N}
+$$</p>
+<p>所以倒格子原胞中的 $k$ 点数目为</p>
+<p>$$
+N_{k} = n_{k}\cdot \Omega^{*} = N
+$$</p>
+<h4 id="波矢特性">波矢特性<a hidden class="anchor" aria-hidden="true" href="#波矢特性">#</a></h4>
+<p>晶体的平移对称性:</p>
+<p>$$
+e^{i\vec{G}\cdot\vec{R}} = 1
+$$</p>
+<p>即有</p>
+<p>$$
+e^{i\left(\vec{k}+\vec{G}\right)}\varphi\left(\vec{r}\right) = e^{i\vec{k}\cdot\vec{R}}e^{i\vec{G}\cdot\vec{R}}\varphi\left(\vec{r}\right) = e^{i\vec{k}\cdot\vec{R}}\varphi\left(\vec{r}\right)
+$$</p>
+<p>所以 $\vec{k}$ 和 $\vec{k}&rsquo; = \vec{k} + \vec{G}$ 实际上是等价的.</p>
+<blockquote>
+<p>因此布洛赫波的波矢只需要考虑第一布里渊区内的波矢即可, 第一布里渊区以外的 $k$ 点都可以通过若干个 $\vec{G}$ 平移到第一布里渊区.</p>
+</blockquote>
+<h4 id="能谱特征">能谱特征<a hidden class="anchor" aria-hidden="true" href="#能谱特征">#</a></h4>
+<blockquote>
+<p>单电子波函数</p>
+<p>$$
+\left[-\frac{\hbar^{2}}{2m}\nabla^{2} + V\left(\vec{r}\right)\right]\varphi\left(\vec{r}\right) = E\varphi\left(\vec{r}\right)
+$$</p>
+</blockquote>
+<p>代入布洛赫波形式的波函数 $\varphi\left(\vec{r}\right) = e^{i\vec{k}\cdot\vec{r}}u_{k}\left(\vec{r}\right)$, 即有</p>
+<p>$$
+\left[-\frac{\hbar^{2}}{2m}\nabla^{2} + V\left(\vec{r}\right)\right]e^{i\vec{k}\cdot\vec{r}}u_{k}\left(\vec{r}\right) = E\left(\vec{k}\right)e^{i\vec{k}\cdot\vec{r}}u_{k}\left(\vec{r}\right)\\
+\Downarrow{\text{两边左乘}e^{-i\vec{k}\cdot\vec{r}}}\\
+e^{-i\vec{k}\cdot\vec{r}}\left[-\frac{\hbar^{2}}{2m}\nabla^{2} + V\left(\vec{r}\right)\right]e^{i\vec{k}\cdot\vec{r}}u_{k}\left(\vec{r}\right) = e^{-i\vec{k}\cdot\vec{r}}E\left(\vec{k}\right)e^{i\vec{k}\cdot\vec{r}}u_{k}\left(\vec{r}\right)\\
+\Downarrow\\
+\left[\frac{\hbar^{2}}{2m}\left(-i\nabla+\vec{k}\right)^{2} + V\left(\vec{r}\right)\right]u_{k}(\vec{r}) = E_{k}u_{k}\left(\vec{r}\right)\\
+\Downarrow\\
+\hat{H}_{k}u_{k}\left(\vec{r}\right) = E\left(\vec{k}\right)u_{k}\left(\vec{k}\right)
+$$</p>
+<blockquote>
+<p>$u_{k}\left(\vec{r}\right)$ 需要满足周期性边界条件
+$$
+u_{k}\left(\vec{r} + \vec{R}\right) = u_{k}\left(\vec{r}\right)
+$$
+所以要求解能量本征值, 其实只需要在晶格的<strong>一个原胞</strong>内进行就可以达到目的.</p>
+</blockquote>
+<p>我们可以得出以下初步结论:</p>
+<ol>
+<li>能量本征值是分立的, 并且使用指标 $n$ 来区分它们($E_{n}$);</li>
+<li>每个波矢 $\vec{k}$ 都对应着无数多个能量 $E_{n}(n\in\mathbb{Z})$;</li>
+<li>平移对称性
+$$
+\varphi_{n,\vec{k}+\vec{G}}\left(\vec{r}\right) = \varphi_{n,\vec{k}}\left(\vec{r}\right)\\
+E_{n}\left(\vec{k} + \vec{G}\right) = E_{n}\left(\vec{k}\right)
+$$
+即对确定的能级指标 $n$, 能量色散曲线 $E\left(\vec{k}\right)$ 有上下界, 且形成一条<strong>能带</strong>.</li>
+</ol>
+<h2 id="弱周期性近似近自由电子近似">弱周期性近似(近自由电子近似)<a hidden class="anchor" aria-hidden="true" href="#弱周期性近似近自由电子近似">#</a></h2>
+<p>使用的是微扰论的思想来求解.</p>
+<blockquote>
+<ul>
+<li>周期性势场非常微弱;</li>
+<li>哈密顿量为自由电子 + 微弱的周期性势场</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>这种模型通常适用于 $s$ 或者 $p$ 的金属.</p>
+</blockquote>
+<p>考虑一维自由电子, 其能量为</p>
+<p>$$
+E = \frac{\hbar^{2}\color{red}{k^{2}}}{2m}
+$$</p>
+<p>现在加入一维晶格的周期性势场, 其示意图如下:</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/06/02/9zHOkgPT1Y2wmev.png" alt="一维晶格的周期性势场"  />
+</p>
+<p>所以现在单电子的哈密顿量为</p>
+<p>$$
+\hat{H} = \hat{H}_{0} + \hat{H}&rsquo;\\
+\left(\hat{H}_{0} = -\frac{\hbar^{2}}{2m}\nabla^{2}\right)
+$$</p>
+<p>因为周期性势场的平均值为<strong>常数</strong>, 为了便于计算不妨将其取值为 $0$.</p>
+<p>对于 $\hat{H}_{0}$, 可以求得其本征波函数为</p>
+<p>$$
+\varphi_{k}^{0}(x) = \frac{1}{\sqrt{L}}e^{ikx}
+$$</p>
+<p>对应的本征能量则为</p>
+<p>$$
+E_{k}^{0} = \frac{\hbar^{2}\vec{k}}{2m}
+$$</p>
+<h3 id="非简并微扰处理">非简并微扰处理<a hidden class="anchor" aria-hidden="true" href="#非简并微扰处理">#</a></h3>
+<p>根据<a href="https://muartz.com/posts/phy/qp/perturbation-theory/" target="_blank" rel="noopener nofollow noreferrer" >微扰论</a>相关结论, 我们可以知道一级修正</p>
+<p>$$
+\varphi_{k}(x) = \varphi_{k}^{0}(x) + \sum_{k&rsquo;(k&rsquo;\neq k)}\frac{\langle k&rsquo;|\hat{H}&rsquo;|k\rangle}{E_{k}^{0} - E_{k&rsquo;}^{0}}\varphi_{k&rsquo;}^{0}(x)
+$$</p>
+<blockquote>
+<p>$|k\rangle$ 为自由电子的本征态.</p>
+</blockquote>
+<p>具体到我们讨论的情景, 即为</p>
+<p>$$
+\boxed{\varphi_{k}(x) = \varphi_{k}^{0}(x) + \sum_{k&rsquo;(k&rsquo;\neq k)}\frac{\langle k&rsquo;|V(x)|k\rangle}{E_{k}^{0} - E_{k&rsquo;}^{0}}\varphi_{k&rsquo;}(x)}
+$$</p>
+<p>考虑矩阵元 $\langle k&rsquo;|V(x)|k\rangle$, 有</p>
+<p>$$
+\langle k&rsquo;|V(x)|k\rangle = \frac{1}{L}\int e^{-i(k&rsquo;-k)x}V(x)\mathrm{d}x
+$$</p>
+<blockquote>
+<p>因为晶格具有平移周期性, 即有 $k&rsquo; - k = G$</p>
+</blockquote>
+<p>$$
+\langle k&rsquo;|V(x)|k\rangle = \frac{1}{L}\int e^{-iGx}V(x)\mathrm{d}x
+$$</p>
+<blockquote>
+<p>势场的傅里叶级数展开
+$$
+V(x) = \sum_{G}V_{G}e^{iG\cdot x}\\
+V_{G} = \frac{1}{L}\int e^{-iGx}V(x)\mathrm{d}x
+$$</p>
+</blockquote>
+<p>所以有</p>
+<p>$$
+\langle k&rsquo;|V(x)|k \rangle = V_{G}(G = k&rsquo;-k)
+$$</p>
+<p>所以原一级修正表达式可以写为</p>
+<p>$$
+\varphi_{k} = \varphi_{k}^{0}(x) + \sum_{k&rsquo;(k&rsquo;\neq k)}\frac{\langle k&rsquo;|V(x)|k\rangle}{E_{k}^{0}-E_{k&rsquo;}^{0}}\varphi_{k&rsquo;}^{0}(x)\\
+= \varphi_{k}^{0}(x) + \sum_{k&rsquo;(k&rsquo;\neq k)}\frac{V_{G}}{E_{k}^{0} - E_{k&rsquo;}^{0}}\varphi_{k&rsquo;}^{0}(x)
+$$</p>
+<p>将平面波函数代入, 得到</p>
+<p>$$
+\varphi_{k}(x) = \frac{1}{\sqrt{L}}e^{ikx} + \sum_{G}\frac{V_{G}}{\frac{\hbar^{2}}{2m}\left[k^{2} - \left(k + G\right)^{2}\right]}\frac{1}{\sqrt{L}}e^{i\left(k + G\right)x}\\
+= \frac{1}{\sqrt{L}}\underbrace{\left\{1 + \sum_{G}\frac{V_{G}}{\frac{\hbar^{2}}{2m}\left[k^{2} - \left(k + G\right)^{2}\right]}e^{iG\cdot x}\right\}}_{u_{k}(x)}
+$$</p>
+<blockquote>
+<p>可以发现, 使用了一级修正之后的波函数仍然是一个布洛赫波的函数</p>
+</blockquote>
+<p>所以能量的一级修正</p>
+<p>$$
+\langle k|V(x)|k\rangle = \frac{1}{L}\int_{0}^{L}V(x)\mathrm{d}x = \langle V\rangle = 0
+$$</p>
+<blockquote>
+<p>这是因为我们已经假定了周期性势场的平均值为 $0$.</p>
+</blockquote>
+<p>所以一级修正对于我们的研究而言没有什么意义, 需要进一步考虑能量的二级修正.</p>
+<blockquote>
+<p>$$
+E_{k} = E_{k}^{0} + E_{k}^{1} + \color{red}{E_{k}^{2}} + \dots
+$$</p>
+</blockquote>
+<p>$$
+\boxed{\color{red}{E_{k}^{2}} = \sum_{k&rsquo;}\frac{|\langle k&rsquo;|V(x)|k\rangle|^{2}}{E_{k}^{0} - E_{k&rsquo;}^{0}} = \sum_{G}\frac{|V_{G}|^{2}}{\frac{\hbar^{2}}{2m}\left[k^{2}-\left(k + G\right)^{2}\right]}}
+$$</p>
+<p>我们可以分出两种情况对该式进行分析:</p>
+<ol>
+<li>远离布里渊区边界, 即 $(k + G)^{2} \gg k^{2}$;</li>
+</ol>
+<p>则修正项可以忽略, 可以将该情形考虑为自由电子</p>
+<ol start="2">
+<li>在布里渊区边界, 即 $(k + G)^{2} = k^{2}$.</li>
+</ol>
+<p>这个时候分母为 $0$, 即出现发散情况. 我们采用的非简并微扰方法无法处理这种情况. 所以需要考虑简并微扰论的方法来处理在布里渊区边界上的问题.</p>
+<h3 id="简并微扰处理">简并微扰处理<a hidden class="anchor" aria-hidden="true" href="#简并微扰处理">#</a></h3>
+<p>在一维情况下, 可以将布里渊区边界附近的能量近似为二重简并 $\varphi_{k}^{0}$ 和 $\varphi_{k&rsquo;}^{0}(x)$.</p>
+<p>所以构建其线性组合为新的波函数为</p>
+<p>$$
+\varphi(x) = a\varphi_{k}^{0}(x) + b\varphi_{k&rsquo;}^{0}(x)
+$$</p>
+<p>将这个波函数带入到单电子的薛定谔方程中:</p>
+<p>$$
+\left[-\frac{\hbar^{2}}{2m}\frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} + V(x) - E\right]\varphi(x) = 0\\
+\Rightarrow a\left[E_{k}^{0} - E + V(x)\right]\varphi_{k}^{0} + b\left[E_{k&rsquo;}^{0} - E + V(x)\right]\varphi_{k&rsquo;}^{0} = 0
+$$</p>
+<p>分别左乘 $\varphi_{k}^{0*}$ 和 $\varphi_{k&rsquo;}^{0*}$ 并且积分, 得到方程组</p>
+<p>$$
+\int\varphi_{k}^{0*}\left\{a\left[E_{k}^{0} - E + V(x)\right]\varphi_{k}^{0} + b\left[E_{k&rsquo;}^{0} - E + V(x)\right]\varphi_{k&rsquo;}^{0}\right\}\mathrm{d}x = 0\\
+\int\varphi_{k&rsquo;}^{0*}\left\{a\left[E_{k}^{0} - E + V(x)\right]\varphi_{k}^{0} + b\left[E_{k&rsquo;}^{0} - E + V(x)\right]\varphi_{k&rsquo;}^{0}\right\}\mathrm{d}x = 0
+$$</p>
+<p>因为 $\langle V\rangle = 0$, 所以可以进一步化简得到</p>
+<p>$$
+\left(E_{k}^{0} - E\right)\color{red}{a} + V_{G}^{*}\color{red}{b} = 0\\
+V_{G}\color{red}{a} + (E_{k&rsquo;}^{0} - E)\color{red}{b} = 0
+$$</p>
+<p>利用线性代数相关知识可知, 方程组若有解, 则应满足系数行列式为 $0$:</p>
+<p>$$
+\begin{vmatrix}
+E_{k}^{0} - E &amp; V_{G}^{*}\\
+V_{G} &amp; E_{k&rsquo;}^{0} - E
+\end{vmatrix} = 0
+\Rightarrow\\
+(E_{k}^{0} - E)(E_{k&rsquo;}^{0} - E) - |V_{G}|^{2} = 0\\
+\Rightarrow\\
+E_{k\pm} = \frac{1}{2}\left\{\left(E_{k}^{0} + E_{k&rsquo;}^{0}\right)\pm\sqrt{(E_{k}^{0} + E_{k&rsquo;}^{0})^{2} + 4|V_{G}|^{2}}\right\}
+$$</p>
+<p>同样地, 我们分出两种情况对该表达式进行分析:</p>
+<ol>
+<li>布里渊区边界处($E_{k}^{0} = E_{k&rsquo;}^{0}$)</li>
+</ol>
+<p>$$
+E_{k\pm} = E_{k}^{0}\pm|V_{G}|
+$$</p>
+<p>即在布里渊区的边界有能隙被打开.</p>
+<ol start="2">
+<li>远离布里渊区($|E_{k}^{0} - E_{k&rsquo;}^{0}|\gg|V_{G}|$)</li>
+</ol>
+<p>$$
+E_{k\pm}=
+\begin{cases}
+E_{k&rsquo;}^{0} + \frac{|V_{G}|^{2}}{E_{k&rsquo;}^{0} - E_{k}^{0}}\\
+E_{k}^{0}  + \frac{|V_{G}|^{2}}{E_{k&rsquo;}^{0} - E_{k}^{0}}\\
+\end{cases}
+$$</p>
+<blockquote>
+<p>即能量高的态, 能量会变得更高; 能量低的态, 能量会变得更低.</p>
+</blockquote>
+<ol start="3">
+<li>靠近布里渊区边界($|E_{k}^{0} - E_{k&rsquo;}^{0}|\ll|V_{G}|$)</li>
+</ol>
+<p>则修正后能量特化为</p>
+<p>$$
+E_{k\pm} = \frac{1}{2}\left\{E_{k}^{0} + E_{k&rsquo;}^{0} \pm\left[2|V_{G}| + \frac{(E_{k&rsquo;}^{0} - E_{k}^{0})^{2}}{4|V_{G}|}\right]\right\}
+$$</p>
+<p>如果非常靠近布里渊区边界, 即 $k + \frac{G}{2}\approx 0$, 则</p>
+<p>$$
+E_{k}^{0} + E_{k&rsquo;}^{0} = \frac{\hbar^{2}}{2m}\left[k^{2} + (k + G)^{2}\right] = \frac{\hbar^{2}}{2m}\left[\left(k + \frac{G}{2} - \frac{G}{2}\right)^{2} + \left(k + \frac{G}{2} + \frac{G}{2}\right)^{2}\right]\\
+= 2E_{0} + \frac{\hbar^{2}}{m}\left(k + \frac{G}{2}\right)^{2}
+$$</p>
+<p>将该结果代回到能量修正项中:</p>
+<p>$$
+E_{k\pm} = (E_{0} \pm |V_{G}|) + \frac{\hbar^{2}}{2m}\left(k + \frac{G}{2}\right)^{2} \pm \frac{(E_{k&rsquo;}^{0} - E_{k}^{0})^{2}}{8|V_{G}|}
+$$</p>
+<p>详细计算 $(E_{k&rsquo;}^{0} - E_{k}^{0})^{2}$:</p>
+<p>$$
+(E_{k&rsquo;}^{0} - E_{k}^{0})^{2} = \left(\frac{\hbar^{2}}{2m}\right)^{2}[k&rsquo;^{2} - k^{2}]^{2} = \left(\frac{\hbar^{2}}{2m}\right)^{2}[(k&rsquo; + k)(k&rsquo; - k)]^{2}\\
+= \left(\frac{\hbar^{2}}{2m}\right)^{2}G^{2}(2k + G)^{2} = 4\left(\frac{\hbar^{2}}{2m}\right)^{2}G^{2}\left(k + \frac{G}{2}\right)^{2}
+$$</p>
+<p>于是得到该情况下的能带</p>
+<p>$$
+E_{k\pm} \approx (E_{0}\pm |V_{G}|) + \frac{\hbar^{2}}{2m}\left(k + \frac{G}{2}\right)^{2} \pm \left(\frac{\hbar^{2}}{2m}\right)^{2} \frac{G^{2}}{2|V_{G}|}\left(k + \frac{G}{2}\right)^{2}
+$$</p>
+<p>即该情况下的色散曲线为抛物线.</p>
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>物理图像理解<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>布里渊区的边界为</p>
+<p>$$
+k = -\frac{\pi}{a}, k&rsquo;=\frac{\pi}{a}
+$$</p>
+<p>而波函数为</p>
+<p>$$
+\varphi(x) = a\varphi_{k}^{0}(x) + b\varphi_{k&rsquo;}^{0}(x)
+$$</p>
+<p>$$
+E_{+}:a = -b\Rightarrow \varphi_{+} \propto -e^{-i\frac{\pi}{a}x} + e^{i\frac{\pi}{a}x} = 2i\sin{\frac{\pi x}{a}}\\
+E_{-}:a =  b\Rightarrow \varphi_{-} \propto e^{-i\frac{\pi}{a}x} + e^{i\frac{\pi}{a}x} = 2\cos{\frac{\pi x}{a}}\\
+$$</p>
+<p>这是一种驻波. 相当于在布里渊区的边界发生了布拉格反射现象.</p>
+<blockquote>
+<p>布拉格反射</p>
+<p>$$
+(k + G)^{2} = k^{2}
+$$</p>
+</blockquote>
+<p>$\varphi_{-}$ 趋向于靠近离子实, 势能更低; $\varphi_{+}$ 趋向于离开离子实, 势能更低.</p>
+</div>
+
+ </div>
+
+ </div>
+<h3 id="kronig-penney-model">Kronig-Penney Model<a hidden class="anchor" aria-hidden="true" href="#kronig-penney-model">#</a></h3>
+<h4 id="推导-1">推导<a hidden class="anchor" aria-hidden="true" href="#推导-1">#</a></h4>
+<p>设有周期性方势阱</p>
+<p>$$
+V(x) = \begin{cases}
+0 &amp; x\in[0,a]\\
+U_{0} &amp; x\in[a,a+b]
+\end{cases}\\
+(V(x+a+b)=V(x))
+$$</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/06/04/tf9o6zwQ1PKND2F.png" alt="周期性方势阱"  />
+</p>
+<p>我们按照形式解的方式写出波函数:</p>
+<p>$$
+\begin{cases}
+\psi(x) = Ae^{iKx} + Be^{-iKx} &amp; \epsilon = \frac{\hbar^{2}K^{2}}{2m} &amp; (x\in[0,a])\\
+\psi(x) = Ce^{Qx} + De^{-Qx} &amp; U_{0} -\epsilon = \frac{\hbar^{2}Q^{2}}{2m} &amp; (x\in[-b,0])
+\end{cases}
+$$</p>
+<ul>
+<li>
+<p>因为是周期势, 所以波函数解一定是布洛赫形式.</p>
+</li>
+<li>
+<p>连续性方程(波函数连续 &amp; 一阶导数连续)</p>
+</li>
+</ul>
+<p>$$
+\begin{aligned}
+\begin{cases}
+A + B &amp;= C + D\\
+iK(A-B) &amp;= Q(C - D)\\
+Ae^{iKa} + Be^{-iKa} &amp;= (Ce^{-Qb} + De^{Qb})e^{ik(a+b)}\\
+iK(A^{iKa} - Be^{-iKa}) &amp;= Q(Ce^{-Qb} - De^{Qb})e^{ik(a+b)}
+\end{cases}
+\end{aligned}
+$$</p>
+<p>这实际上是一个四元一次方程组, 如果方程有解, 则系数矩阵的行列式一定为 $0$.</p>
+<p>$$
+\frac{Q^{2}-K^{2}}{2QK}\sinh{Qb}\sin{Ka} + \cosh{Qb}\cos{Ka} = \cos{k(a+b)}
+$$</p>
+<h4 id="delta-势近似">$\delta$ 势近似<a hidden class="anchor" aria-hidden="true" href="#delta-势近似">#</a></h4>
+<p>取周期性 $\delta$ 势对上述结论进行近似, 即条件</p>
+<p>$$
+b\rightarrow 0;U_{0}\rightarrow \infty; \frac{Q^{2}ba}{2} = P
+$$</p>
+<p>即可得到</p>
+<p>$$
+\frac{Q^[2]-K^{2}}{2QK}\sinh{Qb} = \frac{P}{Ka};\cosh{Qb} = 1\\
+\Downarrow\\
+\boxed{\frac{P}{Ka}\sin{Ka} + \cos{Ka} = \cos{ka}}
+$$</p>
+<blockquote>
+<p>$$
+\epsilon = \frac{\hbar^{2}K^{2}}{2m}, (-1\leq \cos{ka} \leq 1)
+$$</p>
+</blockquote>
+<h3 id="周期势中的电子波动方程">周期势中的电子波动方程<a hidden class="anchor" aria-hidden="true" href="#周期势中的电子波动方程">#</a></h3>
+<p>对具有周期性的物理量进行傅里叶变换是常见的处理方法. 对一周期性势场进行傅里叶级数展开:</p>
+<p>$$
+U(x) = \sum_{G}U_{G}e^{iGx}
+$$</p>
+<p>同理, 对电子波函数进行傅里叶级数展开</p>
+<p>$$
+\psi(x) = \sum_{k}C(k)e^{ikx}
+$$</p>
+<p>前面我们已经讨论过如何将 $k$ 约定在第一布里渊区进行讨论. 我们可以借助倒格矢 $G$ 来做到这一点:</p>
+<p>$$
+\psi_{k}(x) = \sum_{G}C(k - G)e^{i(k - G)x}
+$$</p>
+<p>于是波动方程</p>
+<p>$$
+\left(\frac{p^{2}}{2m} + U(x)\right)\psi(x) = \epsilon\psi(x)\\
+\Downarrow{\mathcal{F}[U(x)],\mathcal{F}[\psi(x)]}\\
+\sum_{k}\frac{\hbar^{2}}{2m}k^{2}C(k)e^{ikx} + \sum_{G}\sum_{k}U_{G}C(k)e^{i(k + G)x} = \epsilon\sum_{k}C(k)e^{ikx}\\
+\Downarrow\\
+\sum_{k}\left[\frac{\hbar^{2}k^{2}}{2m}C(k)e^{ikx}-\epsilon C(k)e^{ikx} + \sum_{G}U_{G}C(k -G)e^{ikx}\right] = 0\\
+\Downarrow\\
+\left(\frac{\hbar^{2}k^{2}}{2m}-\epsilon\right)C(k) + \sum_{G}C(k-G)=0
+$$</p>
+<p>这就是关于傅里叶系数 $C(k)$ 的线性方程组, 即<strong>中心方程</strong>.</p>
+<p>如果该方程组有解, 则其系数矩阵的行列式必定为 $0$. 原则上行列式应该为无限长宽, 但是实际上取一定截断也可以获得足够近似的能量 $\epsilon$.</p>
+<p>设 $g$ 为最小的倒格矢 $G$, 且势能中的傅里叶分量 $U_{g} = U$. 则中心方程系数行列式为</p>
+<p>$$
+\left|\begin{array}{c|ccccc|c}
+\ddots &amp; \vdots &amp; \vdots &amp;\vdots &amp;\vdots &amp;\vdots &amp; \ddots\\
+\hline
+\dots  &amp; \lambda_{k-2g}-\epsilon &amp; U &amp; 0 &amp; 0 &amp; 0 &amp; \dots\\
+\dots &amp; U &amp; \lambda_{k-g} -\epsilon &amp; U &amp; 0 &amp; 0 &amp; \dots\\
+\dots &amp; 0 &amp;  U  &amp; \lambda_{k}-\epsilon &amp; U &amp; 0 &amp; \dots\\
+\dots &amp; 0 &amp;  0  &amp;  U &amp; \lambda_{k+g} -\epsilon &amp; U &amp; \dots\\
+\dots &amp; 0 &amp;  0  &amp;  0 &amp; U &amp; \lambda_{k+2g} &amp; \dots\\
+\hline
+\ddots &amp; \vdots &amp; \vdots &amp;\vdots &amp;\vdots &amp;\vdots &amp; \ddots\\
+\end{array}\right| = 0
+$$</p>
+<p>这里就是取的 $5\times 5$ 截断的示意图.</p>
+<h2 id="空格点近似">空格点近似<a hidden class="anchor" aria-hidden="true" href="#空格点近似">#</a></h2>
+<h3 id="推导-2">推导<a hidden class="anchor" aria-hidden="true" href="#推导-2">#</a></h3>
+<p>前面我们已经谈到过, 能带结构可以表示在第一布里渊区中. 如果能带能量可以近似为自由电子的能量
+$$
+\epsilon_{\mathbf{k}} = \frac{\hbar^{2}\mathbf{k}^{2}}{2m}
+$$</p>
+<p>那么我们也应该将自由电子的能量表示在第一布里渊区.</p>
+<p>实际上电子的波矢当然不一定在第一布里渊区内, 但是我们知道每个 $\mathbf{k}$ 点一定存在第一布里渊区中的 $\mathbf{k}&rsquo;$ 点与之对应. 也就是说, 我们需要确定一个倒格子矢量 $\mathbf{G}$, 使得</p>
+<p>$$
+\mathbf{k}&rsquo; + \mathbf{G} = \mathbf{k}
+$$</p>
+<p>那么映射后的自由电子能量即为</p>
+<p>$$
+\epsilon(k_{x},k_{y},k_{z}) = \frac{\hbar^{2}(\mathbf{k}+ \mathbf{G})^{2}}{2m} = \frac{\hbar^{2}}{2m}\left[(k_{x} + G_{x})^{2} + (k_{y} + G_{y})^{2} + (k_{z} + G_{z})^{2}\right]
+$$</p>
+<h3 id="例子">例子<a hidden class="anchor" aria-hidden="true" href="#例子">#</a></h3>
+<p>假定为低能自由电子能带, 求简单立方晶格中 $[100]$ 方向的能量色散函数.</p>
+<blockquote>
+<p>两种晶面表示指标</p>
+<p>假设晶面在各轴的截距为 $a_{1},a_{2},a_{3}$. 则</p>
+<ul>
+<li>$\left(a_{1}^{-1}, a_{2}^{-1}, a_{3}^{-1}\right)$;</li>
+<li>$[a_{1},a_{2},a_{3}]$. 上划线表示负号, 如 $[u\overline{v}w]$.</li>
+</ul>
+</blockquote>
+<p>接下来我们需要按照能级简并来对各类 $G$ 进行分类. 简单立方晶格的倒格子基矢的长度为 $\frac{2\pi}{a}$, 所以倒格矢 $G$ 的分量也必然是 $\frac{2\pi}{a}$ 的整倍数. 所以我们用另一种方法来区分 $G$, 即将其写为 $G\cdot\frac{a}{2\pi}$. 比如</p>
+<p>$$
+\vec{G} = \frac{2\pi}{a}(0,0,0)\Rightarrow \frac{Ga}{2\pi}:[000]
+$$</p>
+<p>因为我们已经假定是求 $[100]$ 方向的色散, 所以 $\vec{k} = k_{x} \hat{x}$, 因此原本的自由电子能量特化为公式</p>
+<p>$$
+\epsilon(\vec{k}) = \frac{\hbar^{2}}{2m}\left[(k_{x} + G_{x})^{2} + G_{y}^{2} + G_{z}^{2}\right]
+$$</p>
+<p>而不同的 $\frac{Ga}{2\pi}$ 相当于把对应的倒格矢分量填入各 $G_{i}$ 中. 比如</p>
+<p>$$
+\frac{Ga}{2\pi}:[xyz]\Rightarrow\epsilon(\vec{k})=\epsilon(k_{x}00)=
+(k_{x}+x\cdot\frac{2\pi}{a})^{2} + (y\cdot\frac{2\pi}{a})^{2} + (z\cdot\frac{2\pi}{a})^{2}
+$$</p>
+<p>列出所有可能的 $\frac{Ga}{2\pi}:[xyz]$, 求解能量并且按照简并将其聚类, 就可以得到色散关系.</p>
+<p>这里我们不需要将所有的 $\frac{Ga}{2\pi}$ 都列出来, 因为 $k$ 是无穷大的, 也没有必要也不可能完全写出. 我们可以写几个简单的, 靠近第一布里渊区的.</p>
+<p>$$
+\begin{array}{|c|c|c|c|}
+\hline
+\text{能带} &amp; \frac{Ga}{2\pi} &amp; \epsilon(000) &amp; \epsilon(k_{x}00)\\
+\hline
+1           &amp; 000            &amp;  0             &amp; k_{x}^{2} \\
+\hline
+2,3         &amp; 100,\overline{1}00&amp; \left(\frac{2\pi}{a}\right)^{2} &amp; \left(k_{x}\pm\frac{2\pi}{a}\right)^{2}\\
+\hline
+4,5,6,7     &amp; 010,0\overline{1}0,001,00\overline{1} &amp; \left(\frac{2\pi}{a}\right)^{2} &amp; k_{x}^{2} + \left(\frac{2\pi}{a}\right)^{2}\\
+\hline
+8,9,10,11   &amp; 110,101,1\overline{1}0,10\overline{1} &amp; 2\left(\frac{2\pi}{a}\right)^{2} &amp; \left(k_{x} + \frac{2\pi}{a}\right)^{2} + \left(\frac{2\pi}{a}\right)^{2}\\
+\hline
+12,13,14,15 &amp; \overline{1}10,\overline{1}01,\overline{11}0,\overline{1}0\overline{1} &amp; 2\left(\frac{2\pi}{a}\right)^{2} &amp; \left(k_{x} - \frac{2\pi}{a}\right)^{2} + \left(\frac{2\pi}{a}\right)^{2}\\
+\hline
+16,17,18,19 &amp; 011,0\overline{1}1,01\overline{1},0\overline{1}\overline{1} &amp; 2\left(\frac{2\pi}{a}\right)^{2} &amp; k_{x}^{2} + 2\left(\frac{2\pi}{a}\right)^{2}\\
+\hline
+\end{array}
+$$</p>
+<p>对应的能带图即为</p>
+<img src="https://s2.loli.net/2023/06/04/LjAaTZIhM5vpGyn.png" alt="简单立方晶格能带" style="width: 30%;">
+<ol>
+<li>在布里渊区的边界处, 即 $\frac{G}{2}$, 假设 $U_{G}$ 与自由电子的动能相比较小, 而</li>
+</ol>
+<p>$$
+k^{2} = \left(\frac{G}{2}\right)^{2}, (k - G)^{2} = \left(\frac{G}{2}\right)^{2}.
+$$</p>
+<p>前面我们已经知道<a href="https://muartz.com/posts/phy/cmp/energy-band-theory/#%E5%91%A8%E6%9C%9F%E5%8A%BF%E4%B8%AD%E7%9A%84%E7%94%B5%E5%AD%90%E6%B3%A2%E5%8A%A8%E6%96%B9%E7%A8%8B" target="_blank" rel="noopener nofollow noreferrer" >中心方程</a>的具体形式, 所以我们这里仅保留 $C(\frac{G}{2}), C(-\frac{G}{2})$ 两个系数, 即有</p>
+<p>$$
+\left|\begin{array}
+\lambda-\epsilon &amp; U \\
+U &amp; \lambda - \epsilon \\
+\end{array}\right|=0\\
+\Downarrow\\
+\epsilon_{\pm} = \lambda \pm U = \frac{\hbar^{2}}{2m}\left(\frac{G}{2}\right)^{2}\pm U
+$$</p>
+<blockquote>
+<p>观察到两个系数比值为
+$$
+\frac{C\left(-\frac{G}{2}\right)}{C\left(\frac{G}{2}\right)} = \frac{\epsilon-\lambda}{U} = \pm 1
+$$</p>
+</blockquote>
+<p>这和我们前面使用<a href="https://muartz.com/posts/phy/cmp/energy-band-theory/#%E7%AE%80%E5%B9%B6%E5%BE%AE%E6%89%B0%E5%A4%84%E7%90%86" target="_blank" rel="noopener nofollow noreferrer" >简并微扰处理</a>得出的结论相同.</p>
+<ol start="2">
+<li>在波矢 $k$ 点在布里渊区边界 $\frac{G}{2}$ 附近时, 即有</li>
+</ol>
+<p>$$
+\left|\begin{array}
+\lambda_{k}-\epsilon &amp; U\\
+U &amp; \lambda_{k-G}-\epsilon \\
+\end{array}\right| = 0\\
+\Downarrow(\widetilde{K}=k-\frac{G}{2})\\
+\epsilon_{\widetilde{K}}(\pm) \approx \frac{\hbar^{2}}{2m}\left[\left(\frac{G}{2}\right)^{2} + \widetilde{K}^{2}\right]\pm\left[U+\frac{2\lambda}{U}\frac{\hbar^{2}\widetilde{K}^{2}}{2m}\right] = \epsilon_{\pm} + \frac{\hbar^{2}\widetilde{K}^{2}}{2m}\left(1\pm\frac{2\lambda}{U}\right).
+$$</p>
+<h1 id="几何结构因子和能隙的关系">几何结构因子和能隙的关系<a hidden class="anchor" aria-hidden="true" href="#几何结构因子和能隙的关系">#</a></h1>
+<p>我们使用以下几个参数:</p>
+<ul>
+<li>
+<p>$\vec{d}_{i}$, 第 $i$ 个原子在原胞中的位置, 可以理解为相对位置矢量;</p>
+</li>
+<li>
+<p>$V(\vec{r})$, 是空间上 $\vec{r}$ 位置的总势场;</p>
+</li>
+<li>
+<p>$v_{i}(\vec{r}-\vec{d}_{i})$ 是原胞中第 $i$ 个原子产生的势场.</p>
+</li>
+</ul>
+<p>我们可以推断: 总势场应当是原胞中所有原子的势场之和, 即写作</p>
+<p>$$
+V(\vec{r}) = \sum_{i}v_{i}(\vec{r} - \vec{d}_{i})
+$$</p>
+<p>将 $v_{i}(\vec{r} - \vec{d}_{i})$ 进行傅里叶展开:</p>
+<p>$$
+v_{i}(\vec{r}-\vec{d}_{i}) = \sum_{\vec{G}_{n}}v_{i}(\vec{G}_{n})e^{i\vec{G}_{n}\cdot\left(\vec{r}-\vec{d}_{i}\right)}\\
+\Downarrow\\
+V(\vec{r} = \sum_{i})\sum_{\vec{G}_{n}}v_{i}(\vec{G}_{n})e^{i\vec{G}_{n}\cdot\left(\vec{r}-\vec{d}_{i}\right)} = \sum_{\vec{G}_{n}}\color{red}{\sum_{i}v_{i}(\vec{G}_{n})e^{-i\vec{G}_{n}\cdot\vec{d}_{i}}}e^{i\vec{G}_{n}\cdot\vec{r}}\\
+\Downarrow\\
+V(\vec{r}) = \sum_{\vec{G}_{n}}\color{red}{V(\vec{G}_{n})}e^{i\vec{G}_{n}\cdot\vec{r}}\left(\color{red}{V(\vec{G}_{n}) = \sum_{i}v_{i}(\vec{G}_{n})e^{i\vec{G}_{n}\cdot\vec{d}_{i}}}\right)
+$$</p>
+<p>这里的 $V(\vec{G}_{n})$ 即被称为能隙的<strong>几何形状因子</strong>.</p>
+<blockquote>
+<p>类比 X 光散射中的几何结构因子
+$$
+S(\vec{G}) = \sum_{i}f_{i}(\vec{G})e^{-i\vec{G}\cdot\vec{d}_{i}}
+$$</p>
+</blockquote>
+<p>如果复式原胞中的基元是同种原子, 那么几何结构因子将会特化为</p>
+<p>$$
+V(\vec{G}_{n}) = v(\vec{G}_{n})\sum_{i}e^{-i\vec{G}_{n}\cdot\vec{d}_{i}}
+$$</p>
+<p>Ga(31), Ge(32), As(33) 是相邻元素, 纯 Ge 和 GaAs 的晶体结构都是类金刚石结构, 但是前者可以在特定布里渊区边界出现无能隙现象.</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/06/05/juygbQ7XISHkKJN.png" alt="Ge和GaAs的能带对比"  />
+</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/zh/posts/phy/cmp/topological/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>能带拓扑性质</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/zh/posts/phy/cmp/dynamic-of-bloch-electrons/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>布洛赫电子动力学</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>

@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>量子熵 | 计算物理资料库</title>
+<meta name="keywords" content="">
+<meta name="description" content="Schmidt 分解是线性代数中的一种处理方法, 如何应用在量子力学中?">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/zh/posts/phy/qp/quantum-entropy/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="量子熵" />
+<meta property="og:description" content="Schmidt 分解是线性代数中的一种处理方法, 如何应用在量子力学中?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/zh/posts/phy/qp/quantum-entropy/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-22T00:18:23+08:00" />
+<meta property="article:modified_time" content="2023-06-22T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="量子熵"/>
+<meta name="twitter:description" content="Schmidt 分解是线性代数中的一种处理方法, 如何应用在量子力学中?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/zh/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/zh/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "➿ Quantum Physics",
+          "item": "https://Muatyz.github.io/zh/posts/phy/qp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "量子熵",
+      "item": "https://Muatyz.github.io/zh/posts/phy/qp/quantum-entropy/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "量子熵",
+  "name": "量子熵",
+  "description": "Schmidt 分解是线性代数中的一种处理方法, 如何应用在量子力学中?",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "复合系统的密度矩阵 复合系统 对于两个量子系统 $S^{(1)}, S^{(2)}$, 各自的 Hilbert Space 为 $\\mathcal{H}^{(1)}, \\mathcal{H}^{(2)}$, $\\{\\left|\\varphi_{i}^{(1)}\\right\\rangle\\}, \\{\\left|\\varphi_{j}^{(2)}\\right\\rangle\\}$ 为两个空间的标准正交基.\n将两个系统合并为更大的复合系统\n$$ S = S^{(1)}\\oplus S^{(2)} $$\n其对应的 Hilbert Space 为\n$$ \\mathcal{H} = \\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)} $$\n其标准正交基为\n$$ \\{\\left|\\varphi_{i}^{(1)}\\right\\rangle\\}\\otimes\\{\\left|\\varphi_{j}^{(2)}\\right\\rangle\\} $$\n所以\n$$ \\forall |\\Psi\\rangle \\in \\mathcal{H},\\quad|\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\varphi_{j}^{(2)}\\right\\rangle $$\n$\\hat{A}^{(1)}$ 和 $\\hat{A}^{(2)}$ 分别为 $S^{1}$ 和 $S^{2}$ 的物理量算子, 所以 $\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}$ 是复合系统 $S^{(1)}\\oplus S^{(2)}$ 的物理量算子.\n我们定义这个复合算子的计算方法:\n$$ \\left(\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right)\\left(\\left|\\varphi^{(1)}\\right\\rangle\\otimes\\left|\\varphi^{(2)}\\right\\rangle\\right) = \\left(\\hat{A}^{(1)}\\left|\\varphi^{(1)}\\right\\rangle\\right)\\otimes\\left(\\hat{A}^{(2)}\\left|\\varphi^{(2)}\\right\\rangle\\right) $$\n对于复合系统 $S$ 中的算符 $\\hat{A}$, 我们都可以将其展开为子系统算符 $\\hat{A}^{(1)},\\hat{A}^{(2)}$ 直积的线性组合:\n$$ \\hat{A} = \\sum_{\\alpha}\\hat{A}_{\\alpha}^{(1)}\\otimes\\hat{A}_{\\alpha}^{(2)} $$\n特殊情况\n$\\hat{A}^{(1)}\\otimes\\hat{I}^{(2)}$ 表示只对第一个系统产生作用, 第二个系统相当于没有进行任何操作; $\\hat{I}^{(1)}\\otimes\\hat{A}^{(2)}$ 表示只对第二个系统产生作用, 第一个系统相当于没有进行任何操作. 标记 $\\hat{\\rho}$ 为复合系统 $S$ 的密度矩阵. 如果 $S^{(1)},S^{(2)}$ 没有关联, 那么 $\\hat{\\rho}$ 就可以表示为两个子系统的密度矩阵的直积:\n$$ \\hat{\\rho} = \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)} $$\n一般情况下, 这个关系是不成立的, 即 $\\hat{\\rho} \\neq \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)}$.\n现在求复合物理量算子 $\\hat{A}$ 的平均值:\n$$ \\begin{aligned} \\left\\langle\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right\\rangle_{\\hat{\\rho}} \u0026=\\text{Tr}\\left(\\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)}\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right)\\\\ \u0026= \\left[\\text{Tr}_{(1)}\\left(\\hat{\\rho}^{(1)}\\hat{A}^{(1)}\\right)\\right]\\left[\\text{Tr}_{(2)}\\left(\\hat{\\rho}^{(2)}\\hat{A}^{(2)}\\right)\\right]\\\\ \u0026= \\left\\langle\\hat{A}^{(2)}\\right\\rangle_{\\hat{\\rho}^{(1)}}\\left\\langle\\hat{A}^{(2)}\\right\\rangle_{\\hat{\\rho}^{(2)}} \\end{aligned} $$\n$\\text{Tr}_{(1)}, \\text{Tr}_{2}$ 分别是对 $\\mathcal{H}^{(1)}, \\mathcal{H}^{(2)}$ 的求迹.\n对于求偏迹, 有\n$$ \\text{Tr} = \\text{Tr}_{(1)}\\text{Tr}_{(2)} $$\n前面我们已经说过一般两个子系统有关联, 所以\n$$ \\left\\langle\\hat{A}^{(1)}\\otimes\\hat{A}^{(2)}\\right\\rangle \\neq\\left\\langle\\hat{A}^{(1)}\\right\\rangle \\left\\langle\\hat{A}^{(2)}\\right\\rangle $$\n约化密度矩阵 我们可以定义系统 $S^{(1)},S^{(2)}$ 的约化密度矩阵:\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho},\\quad\\hat{\\rho}^{(2)} = \\text{Tr}_{(1)}\\hat{\\rho} $$\n那么对于复合系统下的 $\\hat{\\rho}$ 求子系统算符 $\\hat{A}^{(1)}, \\hat{A}^{(2)}$ 的平均值:\n$$ \\begin{aligned} \\left\\langle\\hat{A}^{(1)}\\right\\rangle_{\\hat{\\rho}} \u0026= \\text{Tr}\\left(\\hat{A}^{1}\\hat{\\rho}\\right) = \\left(\\text{Tr}_{(1)}\\text{Tr}_{(2)}\\right)\\left(\\hat{A}^{(1)}\\hat{\\rho}\\right)\\\\ \u0026 = \\left(\\text{Tr}_{(1)}\\hat{A}^{(1)}\\right)\\left(\\text{Tr}_{(2)}\\hat{\\rho}\\right) = \\text{Tr}_{(1)}\\hat{A}^{(1)}\\hat{\\rho}^{(1)} \\end{aligned} $$\n同理可以得到 $\\langle\\hat{A}^{(2)}\\rangle_{\\hat{\\rho}} = \\text{Tr}_{(2)}\\hat{A}^{(2)}\\hat{\\rho}^{(2)}$.\n所以如果我们只是想计算子系统 $S^{(1)}$ 的物理量期望, 那么无需知道复合系统 $S$ 完整的 $\\hat{\\rho}$, 而只需要知道其约化密度矩阵 $\\hat{\\rho}^{(1)}$ 即可.\n对于一个复合系统的纯态 $|\\Psi\\rangle$, 可以展开\n$$ |\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\varphi_{j}^{(2)}\\right\\rangle $$\n对应的密度矩阵即为投影算符\n$$ \\hat{\\rho} = |\\Psi\\rangle\\langle\\Psi| = \\sum_{i,j}\\sum_{a,b}c_{ia}c_{jb}^{*}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\left\\langle\\varphi_{j}^{(1)}\\right|\\otimes\\left|\\varphi_{a}\\right\\rangle\\left\\langle\\varphi_{b}^{(2)}\\right| $$\n所以子系统 $S^{(1)}$ 的约化密度矩阵为\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho} = \\sum_{i,j}\\sum_{a}c_{ia}c_{ja}^{*}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\left\\langle\\varphi_{j}^{(1)}\\right| $$\n同理\n$$ \\hat{\\rho}^{(2)} = \\text{Tr}_{(1)}\\hat{\\rho} = \\sum_{a,b}\\sum_{i}c_{ia}c_{ib}^{*}\\left|\\varphi_{a}^{(2)}\\right\\rangle\\left\\langle\\varphi_{b}^{(2)}\\right| $$\n$\\hat{\\rho}^{(1)},\\hat{\\rho}^{(2)}$ 一般都不对应纯态.\n若复合系统的初态为纯态\n$$ |\\Psi\\rangle = |\\psi^{(1)}\\rangle\\otimes|\\psi^{(2)}\\rangle $$\n如果两个系统之间没有相互作用, 那么复合系统的的哈密顿量可以写作两个子系统的哈密顿量之和:\n$$ \\hat{H} = \\hat{H}^{(1)} + \\hat{H}^{(2)} $$\n因为没有相互作用, 所以 $$ \\left[\\hat{H}^{(1)},\\hat{H}^{(2)}\\right] = 0 $$\n那么复合系统的演化算符也可以表示为两个演化算符的直积:\n$$ \\hat{U}(t) = e^{-\\frac{i\\hat{H}t}{\\hbar}}= e^{-\\frac{i\\hat{H}^{(1)}t}{\\hbar}}\\otimes e^{-\\frac{i\\hat{H}^{(2)}t}{\\hbar}} = \\hat{U}^{(1)}(t)\\otimes\\hat{U}^{(2)}(t) $$\n两个演化算符相互对应: $$ \\left[\\hat{U}^{(1)}(t),\\hat{U}^{(2)}(t)\\right] = 0 $$\n所以在后面的时刻, 复合系统的态始终保持为直积态:\n$$ \\left|\\Psi(t)\\right\\rangle = \\left|\\psi^{(1)}(t)\\right\\rangle\\otimes\\left|\\psi^{(2)}(t)\\right\\rangle $$\n而两个系统之间有相互作用时, 情况就没有这么简单了. 这种情况被称为 量子纠缠.\nSchmidt 分解 Lemma\n两个子系统 $S^{(1)},S^{(2)}$ 组成复合系统 $S$. 这个复合系统中的任意一个纯态 $|\\Psi\\rangle\\in\\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)}$, 都可以通过 $\\mathcal{H}^{(1)},\\mathcal{H}^{(2)}$ 中的标准正交基 $\\left\\{\\left|\\chi_{i}^{(1)}\\right\\rangle\\right\\}, \\left\\{\\left|\\chi_{j}^{(2)}\\right\\rangle\\right\\}$ 进行展开:\n$$ |\\Psi\\rangle = \\sum_{i}\\alpha_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\chi_{i}^{(2)}\\right\\rangle $$\n这种展开被称为 Schmidt 分解. $\\left\\{\\left|\\chi_{i}^{(1)}\\right\\rangle\\right\\}, \\left\\{\\left|\\chi_{j}^{(2)}\\right\\rangle\\right\\}$ 叫做 Schmidt 基, $\\{\\alpha_{i}\\}$ 是 Schmidt 系数.\n证明 法一 子系统 $S^{(1)}$ 的密度矩阵可以进行对角化:\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\left(|\\Psi\\rangle\\langle\\Psi|\\right) = \\sum_{i}p_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left\\langle\\chi_{i}^{(1)}\\right| $$\n$|\\chi_{i}^{(1)}\\rangle$ 是 $\\hat{\\rho}^{(1)}$ 的本征态, 对应的本征值为 $p_{i}$. 选择这一系列本征态 $\\{|\\chi_{i}^{(1)}\\rangle\\}$ 作为空间 $\\mathcal{H}^{(1)}$ 的基底, 同理 $\\left|\\phi_{i}^{(2)}\\right\\rangle$ 作为空间 $\\mathcal{H}^{(2)}$ 的基底.\n所以将 $|\\Psi\\rangle$ 展开 $$ |\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\phi_{j}^{(2)}\\right\\rangle $$\n所以我们可以定义\n$$ \\left|\\psi_{i}^{(2)}\\right\\rangle = \\sum_{j}a_{ij}\\left|\\phi_{j}^{(2)}\\right\\rangle $$\n所以就可以将 $|\\Psi\\rangle$ 展开为\n$$ |\\Psi\\rangle = \\sum_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\psi_{i}^{(2)}\\right\\rangle $$\n所以就有\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\left(|\\Psi\\rangle\\langle\\Psi|\\right) = \\sum_{i,j}\\left(\\left|\\chi_{i}^{(1)}\\right\\rangle\\left\\langle\\psi_{i}^{(2)}\\right|\\right)\\left(\\left|\\psi_{j}^{(2)}\\right\\rangle\\left\\langle\\chi_{j}^{(1)}\\right|\\right) $$\n因为 $S^{(1)}$ 的密度矩阵可以完成对角化, 所以\n$$ \\left\\langle\\psi_{i}^{(2)}\\right|\\left|\\psi_{j}^{(2)}\\right\\rangle = p_{i}\\delta_{ij} $$\n为了使其归一化, 可以如下处理\n$$ \\left|\\chi_{i}^{(2)}\\right\\rangle = \\frac{1}{\\sqrt{p_{i}}}\\left|\\psi_{i}^{(2)}\\right\\rangle $$\n所以我们就有\n$$ |\\Psi\\rangle = \\sum_{i}\\sqrt{p_{i}}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left|\\chi_{i}^{(2)}\\right\\rangle $$\n法二 首先考虑最简单的情况, 即 $\\text{dim}\\mathcal{H}^{(1)} = \\text{dim}\\mathcal{H}^{(2)}$, 选择 $\\mathcal{H}^{(1)},\\mathcal{H}^{(2)}$ 的基 $\\left\\{\\left|\\varphi_{i}^{(1)}\\right\\rangle\\right\\}, \\left\\{\\left|\\varphi_{j}^{(2)}\\right\\rangle\\right\\}$ 将 $|\\Psi\\rangle$ 展开:\n$$ |\\Psi\\rangle = \\sum_{i,j}c_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\left|\\varphi_{j}^{(2)}\\right\\rangle $$\n将系数矩阵 $[c_{ij}]$ 记作 $\\overleftrightarrow{c}$, 对该矩阵进行奇异值分解, 即有\n$$ \\overleftrightarrow{c} = \\overleftrightarrow{u}\\overleftrightarrow{d}\\overleftrightarrow{v} $$\n$\\overleftrightarrow{d} = \\text{diag}(c_{1},c_{2},\\dots,c_{N}),\\quad\\alpha_{i}\\geq 0$.\n所以就有\n$$ |\\Psi\\rangle = \\sum_{i,j,k}u_{ij}d_{jj}v_{jk}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\varphi_{k}^{(2)}\\right\\rangle $$\n$d_{jj}$ 就是对角元素 $\\alpha_{j}$.\n所以定义\n$$ \\left|\\chi_{j}^{(1)}\\right\\rangle = \\sum_{i}u_{ij}\\left|\\varphi_{i}^{(1)}\\right\\rangle\\\\ \\left|\\chi_{j}^{(2)}\\right\\rangle = \\sum_{k}v_{jk}\\left|\\varphi_{k}^{(2)}\\right\\rangle $$\n因此就可以改写为\n$$ |\\Psi\\rangle = \\sum_{j}\\alpha_{j}\\left|\\chi_{j}^{(1)}\\right\\rangle\\otimes\\left|\\chi_{j}^{(2)}\\right\\rangle $$\n推广到一般情况, 即两者的维度不同. 不妨设 $\\text{dim}\\mathcal{H}^{(1)} \u003c \\text{dim}\\mathcal{H}^{(2)}$, 我们可以使用 $0$ 来填充额外 $[c_{ij}]$ 位置.\n$\\alpha_{j}$ 即为 Schmidt 系数, 且 $\\alpha_{j} = \\sqrt{p_{i}}$.\n非零的 Schmidt 系数 $\\alpha_{i}$ 个数 $n_{s}$ 被称为 Schmidt 数, 并且有关系 $$ n_{s} = \\text{Min}\\left\\{\\text{dim}\\mathcal{H}^{(1)},\\text{dim}\\mathcal{H}^{(2)}\\right\\} $$\n当 $|\\Psi\\rangle = |\\varphi^{(1)}\\rangle\\otimes|\\varphi^{(2)}\\rangle$, 即为直积态, 那么 $\\hat{\\rho}^{(1)} = |\\varphi^{(1)}\\rangle\\langle\\varphi^{(1)}|,\\hat{\\rho}^{(2)} = |\\varphi^{(2)}\\rangle\\langle\\varphi^{(2)}|$ 也都是纯态.\n当 $|\\Psi\\rangle$ 并非直积态时, 则 Schmidt 数 $n_{s} \u003e 1$, 此时 $\\hat{\\rho}^{(1)},\\hat{\\rho}^{(2)}$ 都是混合态, 即 $S^{(1)},S^{(2)}$ 相互纠缠.\n如果有 $\\mathcal{H}^{(1)},\\mathcal{H}^{(2)}$ 中的幺正变换 $\\hat{U}^{(1)},\\hat{U}^{(2)}$, 即有演化后的态为 $\\hat{U}^{(1)}|\\Psi\\rangle,\\hat{U}^{(2)}|\\Psi\\rangle$, 和 $|\\Psi\\rangle$ 具有相同的 Schmidt 系数和 Schmidt 数.\nSchmidt 系数和 Schmidt 数在 $\\mathcal{H} = \\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)}$ 中的幺正变化下没有不变性, 所以要改变两个子系统之间的量子纠缠, 必须要令两者相互作用.\n讨论 如果已知纯态 $|\\Psi\\rangle$ 的 Schmidt 分解\n$$ |\\Psi\\rangle = \\sum_{i}\\alpha_{i}\\left|\\chi_{i}^{(1)}\\right\\rangle\\otimes\\left|\\chi_{i}^{(2)}\\right\\rangle $$\n所以我们可以写出两个子系统的密度矩阵\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho} = \\sum_{i}|\\alpha_{i}|^{2}\\left|\\chi_{i}^{(1)}\\right\\rangle\\left\\langle\\chi_{i}^{(1)}\\right|\\\\ \\hat{\\rho}^{(2)} = \\text{Tr}_{{(1)}}\\hat{\\rho} = \\sum_{i}|\\alpha_{i}|^{2}\\left|\\chi_{i}^{(2)}\\right\\rangle\\left\\langle\\chi_{i}^{(2)}\\right| $$\n所以 $\\hat{\\rho}^{(1)}$ 和 $\\hat{\\rho}^{(2)}$ 具有相同的一组特征值. 当复合系统并非纯态时, 该结论不再成立.\n对于系统 $S^{(1)}$ 中的非纯态 $\\hat{\\rho}^{(1)}$, 都可以找到一个子系统 $S^{(2)}$ 进行复合, 得到纯态\n$$ \\hat{\\rho} = |\\Psi\\rangle\\langle\\Psi| $$\n$$ \\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho} $$\n这种操作被称为 纯化. 因为 $\\hat{\\rho} \\neq \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)}$, 所以两个系统 $S^{(1)},S^{(2)}$ 是纠缠的.\n任意给定密度矩阵的一种分解方法\n$$ \\hat{\\rho} = \\sum_{i}\\omega_{i}|\\psi_{i}\\rangle\\langle\\psi_{i}| $$\n我们都可以构造对应的纯化方法\n$$ |\\Psi\\rangle = \\sum_{i}\\sqrt{\\omega_{i}}|\\psi_{i}\\rangle\\otimes|\\phi_{i}\\rangle $$\n$\\{||phi_{i}\\rangle\\}$ 是正交归一的量子态.\n量子熵 定义 对于一个密度矩阵 $\\hat{\\rho}$, 可以援引热力学中熵的定义方法, 定义 冯诺依曼熵:\n$$ S\\left(\\hat{\\rho}\\right) = -\\text{Tr}\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) $$\n将 $\\hat{\\rho}$ 展开为其本征态的外积线性组合\n$$ \\hat{\\rho} = \\sum_{i}p_{i}|\\varphi_{i}\\rangle\\langle\\varphi_{i}|\\\\ \\langle\\varphi_{i}|\\varphi_{j}\\rangle = \\delta_{ij},\\quad 0\\leq p_{i}\\leq 1,\\quad\\sum_{i}p_{i} = 1 $$\n即有\n$$ S\\left(\\hat{\\rho}\\right) = -\\sum_{i}p_{i}\\log{p_{i}} = S_{\\text{GS}}[\\{p_{i}\\}] $$\n性质 $S\\left(\\hat{\\rho}\\right)\\geq 0$, 并且有 $$ \\hat{\\rho} = |\\psi\\rangle\\langle\\psi|\\Leftrightarrow S\\left(\\hat{\\rho}\\right) = 0 $$\n当 $\\text{dim}\\mathcal{H} = D$, 即有 $$ S\\left(\\hat{\\rho}\\right)\\leq \\log{D} = S_{\\text{max}} $$\n$\\hat{\\rho}_{0} = \\frac{1}{D}\\hat{I}$ 有最大熵, 这个情况下所有态等是等概率分布的.\n幺正变化不变性 $$ \\forall \\hat{U},\\quad S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{U}\\hat{\\rho}\\hat{U}^{\\dagger}\\right) $$\n凸性 $$ \\forall\\lambda\\in(0,1),\\quad S\\left(\\lambda\\hat{\\rho}_{1} + (1-\\lambda)\\hat{\\rho}_{2}\\right) \\geq \\lambda S\\left(\\hat{\\rho}_{1}\\right) + (1-\\lambda)S\\left(\\hat{\\rho}_{2}\\right) $$\n次可加性 复合系统为 $\\mathcal{H} = \\mathcal{H}^{(1)}\\otimes\\mathcal{H}^{(2)}$, 有\n$$ S\\left(\\hat{\\rho}\\right) \\leq S\\left(\\hat{\\rho}^{(1)}\\right) + S\\left(\\hat{\\rho}^{(2)}\\right) $$\n$\\hat{\\rho}^{(1)} = \\text{Tr}_{(2)}\\hat{\\rho}, \\hat{\\rho}^{(2)} = \\text{Tr}_{(1)}\\hat{\\rho}$. $$ S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{\\rho}^{(1)}\\right) + S\\left(\\hat{\\rho}^{(2)}\\right) \\Leftrightarrow \\hat{\\rho} = \\hat{\\rho}^{(1)}\\otimes\\hat{\\rho}^{(2)} $$\n复合系统的熵小于子系统的熵之和.\n比如极端情况下, 比如 $\\hat{\\rho} = |\\psi$ 为纯态时, 其熵为 $0$:\n$$ S\\left(\\hat{\\rho}\\right) = 0 $$\n子系统的熵相等并且大于 $0$:\n$$ S\\left(\\hat{\\rho}^{(1)}\\right) = S\\left(\\hat{\\rho}^{(2)}\\right) = -\\sum_{i}|\\alpha_{i}|^{2}\\log{|\\alpha_{i}|^{2}} \u003e 0 $$\n强次可加性 $$ S\\left(\\hat{\\rho}_{\\text{ABC}}\\right) + S\\left(\\hat{\\rho}_{\\text{B}}\\right) \\leq S\\left(\\hat{\\rho}_{\\text{AB}}\\right) + S\\left(\\hat{\\rho}_{\\text{BC}}\\right) $$\n极大熵原理 Hilbert Space 中的概率分布被称为 量子系综. 极大熵原理是指, 冯诺依曼熵在平衡态系综取得极大值.\n微正则 考虑孤立系统, 哈密顿量为 $\\hat{H}$, 在能量壳层 $(E,E+\\mathrm{d}E)$ 中, 并且 $\\mathrm{d}E \\ll k_{B}T$. 在这个能量范围内的所有本征态张成一个 Hilbert Space. 我们设定这个空间的维度是 $E,\\mathrm{d}E$ 的函数:\n$$ \\text{dim}\\mathcal{H} = \\Omega(E,\\mathrm{d}E) $$\n这个 Hilbert Space 的基底为 $\\{|1\\rangle,|2\\rangle,\\dots,|\\Omega\\rangle\\}$. 为了使诺伊曼熵最大, 密度矩阵应当为 微正则系综:\n$$ \\hat{\\rho}_{\\text{MC}} = \\frac{\\hat{I}}{\\Omega(E,\\mathrm{d}E)} = \\frac{1}{\\Omega}\\sum_{i = 1}^{\\Omega}|i\\rangle\\langle i| $$\n这个混合态中, $(E,E+\\mathrm{d}E)$ 能量壳层中的任意本征态的概率都是 $\\frac{1}{\\Omega}$, 即 $\\hat{\\rho}_{\\text{MC}}$ 对应经典统计物理中的等概率分布.\n幺正不变性\n$$ S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{U}\\hat{\\rho}\\hat{U}^{\\dagger}\\right) $$\n根据幺正不变性, 我们可以只考虑对角化的密度矩阵:\n$$ \\hat{\\rho} = \\sum_{i}p_{i}|\\varphi_{i}\\rangle\\langle\\varphi_{i}|\\\\ S\\left(\\hat{\\rho}\\right) = -\\sum_{i}p_{i}\\log{p_{i}} = S_{\\text{GS}}[\\{p_{i}\\}] $$\n我们可以使用拉格朗日乘子法来求解熵极大化的概率分布. 概率分布有约束 $\\sum_{i}p_{i} = 1$, 所以有\n$$ \\hat{S} = S - \\lambda\\left(\\sum_{i}p_{i} - 1\\right) $$\n求一级变分为 $0$:\n$$ \\delta\\left[-\\sum_{i}p_{i}\\log{p_{i}}-\\lambda\\left(\\sum_{i}p_{i} - 1\\right)\\right] = 0\\Rightarrow \\sum_{i}\\left(-\\log{p_{i}} - 1 - \\lambda\\right)\\delta p_{i} = 0 $$\n也就是说, 使得熵极大化的分布为\n$$ p_{i} = e^{-\\alpha - 1} $$\n也就是说 $p_{i}$ 与 $i$ 无关, 也就是说 $p_{i}$ 就是微正则分布\n$$ p_{i} = \\frac{1}{\\Omega(E,\\mathrm{d}E)} $$\n对应的密度矩阵为微正则系综\n$$ \\hat{\\rho} = \\hat{\\rho}_{\\text{MC}} = \\frac{\\hat{I}}{\\Omega(E,\\mathrm{d}E)} $$\n正则系综 考虑一个系统, 它与外界有微弱的相互作用, 因此会与外界有能量交换. 系统的能量将不再确定.\n然而在平衡态下, 系统的平均能量是确定值:\n$$ \\text{Tr}\\left(\\hat{\\rho}\\hat{H}\\right) = E $$\n现在对诺伊曼熵进行极大化处理, 约束条件为平均能量受到固定. 因为系统能量可以取任意值, 所以这个操作需要在整个无穷维 Hilbert Space 内完成. 此时系统的平衡态密度矩阵变为正则系综:\n$$ \\hat{\\rho}_{\\text{C}} = \\frac{1}{Z}e^{-\\beta\\hat{H}} $$\n$Z$ 是配分函数, 是一个归一化因子:\n$$ Z = \\text{Tr}\\left(e^{-\\beta\\hat{H}}\\right) $$\n所以亥姆霍兹自由能为\n$$ F = -T\\log{Z} = -T\\log{\\text{Tr}\\left(e^{-\\beta\\hat{H}}\\right)} $$\n我们根据约束条件构造熵的泛函:\n$$ \\hat{S} = -\\text{Tr}\\left(\\hat{\\rho}\\log{\\rho}\\right) - \\alpha\\left(\\text{Tr}\\hat{\\rho} - 1\\right) - \\beta\\left[\\text{Tr}\\left(\\hat{\\rho}\\hat{H}\\right) - E\\right] $$\n现在对上述泛函求一级变分, 并且假定虚微分和求迹具有可交换性:\n$$ \\delta\\text{Tr}\\hat{A} = \\text{Tr}\\delta\\hat{A} $$\n所以\n$$ \\begin{aligned} \\delta{\\hat{S}} \u0026 = \\delta\\left\\{-\\text{Tr}\\left(\\hat{\\rho}\\log{\\rho}\\right) - \\alpha\\left(\\text{Tr}\\hat{\\rho} - 1\\right) - \\beta\\left[\\text{Tr}\\left(\\hat{\\rho}\\hat{H}\\right) - E\\right]\\right\\}\\\\ \u0026 = -\\text{Tr}\\delta\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) - \\alpha\\text{Tr}\\delta\\hat{\\rho} - \\beta\\text{Tr}\\delta\\left(\\hat{\\rho}\\hat{H}\\right)\\\\ \u0026 = -\\text{Tr}\\delta\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) - \\alpha\\text{Tr}\\delta\\hat{\\rho} - \\delta\\text{Tr}\\delta\\hat{\\rho}\\hat{H} \\end{aligned} $$\n虚微分的乘法律\n$$ \\delta\\left(\\hat{A}\\hat{B}\\right) = \\left(\\delta\\hat{A}\\right)\\hat{B} + \\hat{A}\\left(\\delta\\hat{B}\\right) $$\n利用乘法展开可以求得\n$$ \\delta\\text{Tr}\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) = \\text{Tr}\\left[\\left(\\delta\\hat{\\rho}\\right)\\log{\\hat{\\rho}}\\right] + \\text{Tr}\\left[\\hat{\\rho}\\left(\\delta\\log{\\hat{\\rho}}\\right)\\right] $$\n一般情况下,\n$$ \\left[\\hat{\\rho},\\delta\\hat{\\rho}\\right] \\neq 0 $$\n所以\n$$ \\delta\\log{\\hat{\\rho}} \\neq \\hat{\\rho}^{-1}\\delta\\hat{\\rho} $$\n但是我们可以引入另一个符号\n$$ \\hat{A} = \\log{\\hat{\\rho}} $$\n所以就可以将上式改写为\n$$ \\begin{aligned} \\text{Tr}\\left[\\hat{\\rho}\\left(\\log{\\hat{\\rho}}\\right)\\right] \u0026 = \\text{Tr}\\left[e^{\\hat{A}}\\left(\\delta\\hat{A}\\right)\\right]\\\\ \u0026 = \\text{Tr}\\left[\\left(1 + \\hat{A} + \\frac{1}{2}\\hat{A}^{2} + \\frac{1}{6}\\hat{A}^{3} + \\dots\\right)\\left(\\delta\\hat{A}\\right)\\right]\\\\ \u0026 = \\text{Tr}\\left[\\delta\\left(1 + \\hat{A} + \\frac{1}{2}\\hat{A}^{2} + \\frac{1}{6}\\hat{A}^{3} + \\dots\\right)\\right]\\\\ \u0026 = \\delta\\text{Tr}\\left(e^{\\hat{A}}\\right) = \\delta\\text{Tr}\\hat{\\rho} \\end{aligned} $$\n虚微分的指数律\n$$ \\text{Tr}\\delta\\hat{A}^{n} = n\\text{Tr}\\left[\\hat{A}^{n-1}\\left(\\delta\\hat{A}\\right)\\right]\\\\ \\delta\\hat{A}^{n} \\neq n\\hat{A}^{n-1}\\delta\\hat{A} $$\n所以\n$$ \\delta\\text{Tr}\\left(\\hat{\\rho}\\log{\\hat{\\rho}}\\right) = \\text{Tr}\\left[\\left(\\delta\\hat{\\rho}\\right)\\log{\\hat{\\rho}}\\right] + \\text{Tr}\\left(\\delta\\hat{\\rho}\\right) $$\n所以熵的虚微分化为\n$$ \\delta\\hat{S} = -\\text{Tr}\\left[\\delta\\hat{\\rho}\\left(\\log{\\hat{\\rho}} + \\hat{I} + \\alpha\\hat{I} + \\beta\\hat{H}\\right)\\right] $$\n取虚微分为 $0$, 即得到正则系综关系:\n$$ \\log{\\hat{\\rho}} = -(1 + \\alpha)\\hat{I} - \\beta\\hat{H}\\\\ \\Rightarrow \\hat{\\rho} = \\hat{\\rho}_{\\text{C}} = \\frac{1}{Z}e^{-\\beta\\hat{H}} $$\n系统哈密顿量 $\\hat{H}$ 是体积 $V$ 的函数, 所以由其求出的能量本征值, 正则配分函数都会是体积 $V$ 的函数,\n亥姆霍兹自由能:\n$$ F = -T\\log{Z} = -T\\log{\\left(\\sum_{n}e^{-\\beta E_{n}}\\right)} $$\n所以能量自由能为\n$$ E = \\frac{\\partial \\beta F}{\\partial \\beta} = \\text{Tr}\\left(\\hat{\\rho}_{\\text{C}}\\hat{H}\\right) $$\n自由能对温度的求偏导:\n$$ \\begin{aligned} \\frac{\\partial F}{\\partial T} \u0026= -\\log{Z} - \\frac{1}{Z}\\sum_{n}\\beta E_{n}e^{-\\beta E_{n}}\\\\ \u0026 = \\sum_{n}\\frac{e^{-\\beta E_{n}}}{Z}\\log{\\frac{e^{-\\beta E_{n}}}{Z}}\\\\ \u0026 = \\text{Tr}\\left(\\hat{\\rho}_{\\text{C}}\\log{\\hat{\\rho}_{\\text{C}}}\\right) = -S\\left[\\hat{\\rho}_{\\text{C}}\\right] \\end{aligned} $$\n也就是正则系综的诺伊曼熵. 诺伊曼熵和热力学熵在平衡态熵是相等的, 即有\n$$ S = -\\frac{\\partial F}{\\partial T} $$\n自由能对体积进行求偏导:\n$$ \\frac{\\partial F}{\\partial V} = \\frac{1}{Z}\\sum_{n}\\frac{\\partial E_{n}}{\\partial V}e^{-\\beta E_{n}} = -P $$\n所以正则系综中的亥姆霍兹自由能的微分为\n$$ \\mathrm{d}F = -S\\mathrm{d}T - P\\mathrm{d}V $$\n再次引入粒子数变量 $N$, 即有化学势 $\\mu$ 的定义:\n$$ \\mathrm{d}F = -S\\mathrm{d}T - P\\mathrm{d}V + \\mu\\mathrm{d}N $$\n$\\mu = \\frac{\\partial F}{\\partial N}$\n这些微分关系都和平衡态热力学中的微分关系相同, 也就是说, 极大诺伊曼熵远离是平衡态热力学的基础.\n巨正则系综 如今在系统能够和环境进行能量交换的基础上, 添加一个条件: 系统可以和环境交换粒子. 所以, 系统的粒子数将会是任意值.\n平衡态下, 系统的能量和粒子数有确定的平均值.\n这里讨论的当然只有一种粒子. 当系统中含有多种粒子时, 需要为每一种粒子单独引入化学势.\n所以现在总共有三个约束条件:\n$$ \\begin{aligned} \\text{Tr}\\hat{\\rho} \u0026= 1\\\\ \\text{Tr}\\left(\\hat{\\rho}\\hat{E}\\right) \u0026= E\\\\ \\text{Tr}\\left(\\hat{\\rho}\\hat{N}\\right) \u0026= N \\end{aligned} $$\n重复使用拉格朗日乘子法进行推导, 就能得到巨正则系综关系:\n$$ \\hat{\\rho} = \\hat{\\rho}_{\\text{GC}} = \\frac{1}{\\mathcal{Z}}e^{-\\beta\\left(\\hat{H} - \\mu\\hat{N}\\right)} $$\n$\\mu$ 为化学势, $\\beta = \\frac{1}{T}$, $\\mathcal{Z}$ 为巨正则分配函数:\n$$ \\mathcal{Z} = \\text{Tr}e^{-\\beta\\left(\\hat{H}-\\mu\\hat{N}\\right)} $$\n从巨正则配分函数导出巨势:\n$$ \\Phi = -T\\log{\\mathcal{Z}} $$\n巨势的微分展开为\n$$ \\mathrm{d}\\Phi = -S\\mathrm{d}T - P\\mathrm{d}V - N\\mathrm{d}\\mu $$\n热力学的 $Gibbs-Duhem$ 关系:\n$$ \\Phi = F-\\mu N = -PV $$\nFermi-Dirac 分布和 Bose-Einstein 分布 对于无相互作用的全同粒子组成的平衡态分布, 最好的方法是使用巨正则系综. 因为没有相互作用, 所以不同的单粒子能级相互独立, 只需要讨论一个能级即可.\nFermi-Dirac 分布 对于费米子, 每一个能级上最多只能占据一个粒子, 所以单粒子能级的系统只有两个状态:\n$$ \\begin{aligned} \\left|\\begin{array}{c|c} \\hline n \u0026 E \\\\ \\hline 0 \u0026 0 \\\\ \\hline 1 \u0026 \\epsilon_{\\mathbf{k}}\\\\ \\hline \\end{array}\\right| \\end{aligned} $$\n所以系统的 Hilbert Space 为二维的, 单能级系统的的巨正则配分函数为\n$$ \\mathcal{Z} = 1 + e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)} $$\n所以单粒子态上粒子数为 $0$ 或 $1$ 的平衡态概率为\n$$ p_{0} = \\frac{1}{1 + e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)}},\\quad p_{1} = \\frac{e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)}}{1 + e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)}} $$\n所以平均粒子数为\n$$ \\langle n_{\\mathbf{k}}\\rangle_{\\text{FD}} =0\\cdot p_{0} + 1\\cdot p_{1}= \\frac{1}{e^{\\beta(\\epsilon_{\\mathbf{k}}-\\mu)} + 1} $$\nBose-Einstein 分布 玻色子系综中, 每个能级的粒子数没有上限, 所以 Hilbert Space 维度无穷. 则系统的巨正则配分函数为\n$$ \\mathcal{Z} = 1 + e^{-\\beta(\\epsilon_{\\mathbf{k}}-\\mu)} + e^{-2\\beta(\\epsilon_{\\mathbf{k}}-\\mu)} + e^{-3\\beta(\\epsilon_{\\mathbf{k}}-\\mu)} + \\dots = \\frac{1}{1-e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)}} $$\n所以某能级上的粒子数为 $n$ 的概率为\n$$ p_{n} = \\left[1-e^{-\\beta(\\epsilon_{\\mathbf{k}} - \\mu)}\\right]e^{-n\\beta(\\epsilon_{\\mathbf{k}} - \\mu)} $$\n该能级的平均粒子占有数为\n$$ \\langle n_{\\mathbf{k}}\\rangle = \\sum_{n = 0}^{\\infty}np_{n} = \\frac{1}{e^{\\beta(\\epsilon_{\\mathbf{k}}-\\mu)} - 1} $$\n当 $\\epsilon_{\\mathbf{k}} \u003c \\mu$, $\\langle n_{\\mathbf{k}}\\rangle$ 将会是负值, 这将是反常的. 所以这种情况是不可能的. 单粒子能级趋于化学势时, 基态的粒子占有数趋于发散, 这就是 玻色-爱因斯坦凝聚.\n孤立系统密度矩阵演化 假定一孤立系统的密度矩阵的初态为\n$$ \\hat{\\rho}(0) = \\sum_{i}p_{i}|\\varphi_{i}\\rangle\\langle\\varphi_{i}| $$\n后面的各量子态 $|\\varphi_{i}\\rangle$ 按照薛定谔方程独立演化:\n$$ i\\hbar\\frac{\\partial}{\\partial t}|\\varphi_{i}(t)\\rangle = \\hat{H}|\\varphi_{i}(t)\\rangle $$\n所以\n$$ |\\varphi_{i}(t)\\rangle = e^{-\\frac{i\\hat{H}t}{\\hbar}}|\\varphi_{i}(0)\\rangle = \\hat{U}(t)|\\varphi_{i}(0)\\rangle\\\\ \\langle\\varphi_{i}(t)| = \\langle\\varphi_{i}(0)|e^{\\frac{i\\hat{H}t}{\\hbar}} = \\langle\\varphi_{i}(0)|\\hat{U}^{\\dagger}(t) $$\n所以密度矩阵的演化为\n$$ \\hat{\\rho}(t) = \\sum_{i}p_{i}|\\varphi_{i}(t)\\rangle\\langle\\varphi_{i}(t)| = \\hat{U}(t)\\hat{\\rho}(0)\\hat{U}^{\\dagger}(t) $$\n对密度矩阵进行求时间偏导:\n$$ \\begin{aligned} i\\hbar\\frac{\\partial\\hat{\\rho}(t)}{\\partial t} \u0026= i\\hbar\\sum_{i}p_{i}\\frac{\\partial}{\\partial t}|\\varphi_{i}(t)\\rangle\\langle\\varphi_{i}(t)|\\\\ \u0026 = \\sum_{i}\\left(\\hat{H}|\\varphi_{i}(t)\\rangle\\langle\\varphi_{i}(t)|-|\\varphi_{i}(t)\\rangle\\langle\\varphi_{i}(t)|\\hat{H}\\right) \\end{aligned} $$\n由此得到 冯诺依曼方程\n$$ \\boxed{i\\hbar\\frac{\\partial \\hat{\\rho}(t)}{\\partial t} = \\left[\\hat{H},\\hat{\\rho}(t)\\right]} $$\n冯诺依曼熵的幺正变换不变性\n$$ S\\left(\\hat{\\rho}\\right) = S\\left(\\hat{U}\\hat{\\rho}\\hat{U}^{\\dagger}\\right) $$\n孤立系统的冯诺依曼熵的演化:\n$$ S\\left(\\hat{\\rho}(t)\\right) = S\\left(\\hat{U}(t)\\hat{\\rho}(0)\\hat{U}^{\\dagger}(t)\\right) = S\\left(\\hat{\\rho}(0)\\right) $$\n也就是孤立系统的冯诺依曼熵不随时间变化.\n热力学第二定律中描述的熵是热力学熵而非冯诺依曼熵, 即平衡态下的系统. 也就是说, 上述结论和热力学第二定律并不矛盾.\n大多数情况下系统和环境的相互作用都是很强的, 所以上述的孤立系统很少存在, 即不遵从冯诺依曼方程. 也就是说, 系统的熵并非守恒量.\n",
+  "wordCount" : "4014",
+  "inLanguage": "zh",
+  "datePublished": "2023-06-22T00:18:23+08:00",
+  "dateModified": "2023-06-22T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/zh/posts/phy/qp/quantum-entropy/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "计算物理资料库",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/zh/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/zh/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/zh/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/zh/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/zh/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/zh/posts/phy/qp/">➿ Quantum Physics</a></div>
+            <h1 class="post-title">
+                量子熵
+            </h1>
+            <div class="post-description">
+                Schmidt 分解是线性代数中的一种处理方法, 如何应用在量子力学中?
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>222212-23-120
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>4014字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>9分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/zh/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/zh/tags/quantum/" style="color: var(--secondary)!important;">quantum</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%a4%8d%e5%90%88%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%af%86%e5%ba%a6%e7%9f%a9%e9%98%b5" aria-label="复合系统的密度矩阵">复合系统的密度矩阵</a><ul>
+                        
+                <li>
+                    <a href="#%e5%a4%8d%e5%90%88%e7%b3%bb%e7%bb%9f" aria-label="复合系统">复合系统</a></li>
+                <li>
+                    <a href="#%e7%ba%a6%e5%8c%96%e5%af%86%e5%ba%a6%e7%9f%a9%e9%98%b5" aria-label="约化密度矩阵">约化密度矩阵</a></li></ul>
+                </li>
+                <li>
+                    <a href="#schmidt-%e5%88%86%e8%a7%a3" aria-label="Schmidt 分解">Schmidt 分解</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#%e8%af%81%e6%98%8e" aria-label="证明">证明</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b3%95%e4%b8%80" aria-label="法一">法一</a></li>
+                <li>
+                    <a href="#%e6%b3%95%e4%ba%8c" aria-label="法二">法二</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%ae%a8%e8%ae%ba" aria-label="讨论">讨论</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#%e9%87%8f%e5%ad%90%e7%86%b5" aria-label="量子熵">量子熵</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ae%9a%e4%b9%89" aria-label="定义">定义</a></li>
+                <li>
+                    <a href="#%e6%80%a7%e8%b4%a8" aria-label="性质">性质</a></li>
+                <li>
+                    <a href="#%e6%9e%81%e5%a4%a7%e7%86%b5%e5%8e%9f%e7%90%86" aria-label="极大熵原理">极大熵原理</a><ul>
+                        
+                <li>
+                    <a href="#%e5%be%ae%e6%ad%a3%e5%88%99" aria-label="微正则">微正则</a></li>
+                <li>
+                    <a href="#%e6%ad%a3%e5%88%99%e7%b3%bb%e7%bb%bc" aria-label="正则系综">正则系综</a></li>
+                <li>
+                    <a href="#%e5%b7%a8%e6%ad%a3%e5%88%99%e7%b3%bb%e7%bb%bc" aria-label="巨正则系综">巨正则系综</a></li>
+                <li>
+                    <a href="#fermi-dirac-%e5%88%86%e5%b8%83%e5%92%8c-bose-einstein-%e5%88%86%e5%b8%83" aria-label="Fermi-Dirac 分布和 Bose-Einstein 分布">Fermi-Dirac 分布和 Bose-Einstein 分布</a><ul>
+                        
+                <li>
+                    <a href="#fermi-dirac-%e5%88%86%e5%b8%83" aria-label="Fermi-Dirac 分布">Fermi-Dirac 分布</a></li>
+                <li>
+                    <a href="#bose-einstein-%e5%88%86%e5%b8%83" aria-label="Bose-Einstein 分布">Bose-Einstein 分布</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ad%a4%e7%ab%8b%e7%b3%bb%e7%bb%9f%e5%af%86%e5%ba%a6%e7%9f%a9%e9%98%b5%e6%bc%94%e5%8c%96" aria-label="孤立系统密度矩阵演化">孤立系统密度矩阵演化</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="复合系统的密度矩阵">复合系统的密度矩阵<a hidden class="anchor" aria-hidden="true" href="#复合系统的密度矩阵">#</a></h1>
+<h2 id="复合系统">复合系统<a hidden class="anchor" aria-hidden="true" href="#复合系统">#</a></h2>
+<p>对于两个量子系统 $S^{(1)}, S^{(2)}$, 各自的 Hilbert Space 为 $\mathcal{H}^{(1)}, \mathcal{H}^{(2)}$, $\{\left|\varphi_{i}^{(1)}\right\rangle\}, \{\left|\varphi_{j}^{(2)}\right\rangle\}$ 为两个空间的标准正交基.</p>
+<p>将两个系统合并为更大的复合系统</p>
+<p>$$
+S = S^{(1)}\oplus S^{(2)}
+$$</p>
+<p>其对应的 Hilbert Space 为</p>
+<p>$$
+\mathcal{H} = \mathcal{H}^{(1)}\otimes\mathcal{H}^{(2)}
+$$</p>
+<p>其标准正交基为</p>
+<p>$$
+\{\left|\varphi_{i}^{(1)}\right\rangle\}\otimes\{\left|\varphi_{j}^{(2)}\right\rangle\}
+$$</p>
+<p>所以</p>
+<p>$$
+\forall |\Psi\rangle \in \mathcal{H},\quad|\Psi\rangle = \sum_{i,j}c_{ij}\left|\varphi_{i}^{(1)}\right\rangle\otimes\left|\varphi_{j}^{(2)}\right\rangle
+$$</p>
+<p>$\hat{A}^{(1)}$ 和 $\hat{A}^{(2)}$ 分别为 $S^{1}$ 和 $S^{2}$ 的物理量算子, 所以 $\hat{A}^{(1)}\otimes\hat{A}^{(2)}$ 是复合系统 $S^{(1)}\oplus S^{(2)}$ 的物理量算子.</p>
+<p>我们定义这个复合算子的计算方法:</p>
+<p>$$
+\left(\hat{A}^{(1)}\otimes\hat{A}^{(2)}\right)\left(\left|\varphi^{(1)}\right\rangle\otimes\left|\varphi^{(2)}\right\rangle\right) = \left(\hat{A}^{(1)}\left|\varphi^{(1)}\right\rangle\right)\otimes\left(\hat{A}^{(2)}\left|\varphi^{(2)}\right\rangle\right)
+$$</p>
+<p>对于复合系统 $S$ 中的算符 $\hat{A}$, 我们都可以将其展开为子系统算符 $\hat{A}^{(1)},\hat{A}^{(2)}$ 直积的线性组合:</p>
+<p>$$
+\hat{A} = \sum_{\alpha}\hat{A}_{\alpha}^{(1)}\otimes\hat{A}_{\alpha}^{(2)}
+$$</p>
+<blockquote>
+<p>特殊情况</p>
+<ol>
+<li>$\hat{A}^{(1)}\otimes\hat{I}^{(2)}$ 表示只对第一个系统产生作用, 第二个系统相当于没有进行任何操作;</li>
+<li>$\hat{I}^{(1)}\otimes\hat{A}^{(2)}$ 表示只对第二个系统产生作用, 第一个系统相当于没有进行任何操作.</li>
+</ol>
+</blockquote>
+<p>标记 $\hat{\rho}$ 为复合系统 $S$ 的密度矩阵. 如果 $S^{(1)},S^{(2)}$ <strong>没有关联</strong>, 那么 $\hat{\rho}$ 就可以表示为两个子系统的密度矩阵的直积:</p>
+<p>$$
+\hat{\rho} = \hat{\rho}^{(1)}\otimes\hat{\rho}^{(2)}
+$$</p>
+<p>一般情况下, 这个关系是不成立的, 即 $\hat{\rho} \neq \hat{\rho}^{(1)}\otimes\hat{\rho}^{(2)}$.</p>
+<p>现在求复合物理量算子 $\hat{A}$ 的平均值:</p>
+<p>$$
+\begin{aligned}
+\left\langle\hat{A}^{(1)}\otimes\hat{A}^{(2)}\right\rangle_{\hat{\rho}} &amp;=\text{Tr}\left(\hat{\rho}^{(1)}\otimes\hat{\rho}^{(2)}\hat{A}^{(1)}\otimes\hat{A}^{(2)}\right)\\
+&amp;= \left[\text{Tr}_{(1)}\left(\hat{\rho}^{(1)}\hat{A}^{(1)}\right)\right]\left[\text{Tr}_{(2)}\left(\hat{\rho}^{(2)}\hat{A}^{(2)}\right)\right]\\
+&amp;= \left\langle\hat{A}^{(2)}\right\rangle_{\hat{\rho}^{(1)}}\left\langle\hat{A}^{(2)}\right\rangle_{\hat{\rho}^{(2)}}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>$\text{Tr}_{(1)}, \text{Tr}_{2}$ 分别是对 $\mathcal{H}^{(1)}, \mathcal{H}^{(2)}$ 的求迹.</p>
+<p>对于求偏迹, 有</p>
+<p>$$
+\text{Tr} = \text{Tr}_{(1)}\text{Tr}_{(2)}
+$$</p>
+</blockquote>
+<p>前面我们已经说过一般两个子系统有关联, 所以</p>
+<p>$$
+\left\langle\hat{A}^{(1)}\otimes\hat{A}^{(2)}\right\rangle \neq\left\langle\hat{A}^{(1)}\right\rangle \left\langle\hat{A}^{(2)}\right\rangle
+$$</p>
+<h2 id="约化密度矩阵">约化密度矩阵<a hidden class="anchor" aria-hidden="true" href="#约化密度矩阵">#</a></h2>
+<p>我们可以定义系统 $S^{(1)},S^{(2)}$ 的约化密度矩阵:</p>
+<p>$$
+\hat{\rho}^{(1)} = \text{Tr}_{(2)}\hat{\rho},\quad\hat{\rho}^{(2)} = \text{Tr}_{(1)}\hat{\rho}
+$$</p>
+<p>那么对于复合系统下的 $\hat{\rho}$ 求子系统算符 $\hat{A}^{(1)}, \hat{A}^{(2)}$ 的平均值:</p>
+<p>$$
+\begin{aligned}
+\left\langle\hat{A}^{(1)}\right\rangle_{\hat{\rho}} &amp;= \text{Tr}\left(\hat{A}^{1}\hat{\rho}\right) = \left(\text{Tr}_{(1)}\text{Tr}_{(2)}\right)\left(\hat{A}^{(1)}\hat{\rho}\right)\\
+&amp; = \left(\text{Tr}_{(1)}\hat{A}^{(1)}\right)\left(\text{Tr}_{(2)}\hat{\rho}\right) = \text{Tr}_{(1)}\hat{A}^{(1)}\hat{\rho}^{(1)}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>同理可以得到 $\langle\hat{A}^{(2)}\rangle_{\hat{\rho}} = \text{Tr}_{(2)}\hat{A}^{(2)}\hat{\rho}^{(2)}$.</p>
+</blockquote>
+<p>所以如果我们只是想计算子系统 $S^{(1)}$ 的物理量期望, 那么无需知道复合系统 $S$ 完整的 $\hat{\rho}$, 而只需要知道其约化密度矩阵 $\hat{\rho}^{(1)}$ 即可.</p>
+<p>对于一个复合系统的<strong>纯态</strong> $|\Psi\rangle$, 可以展开</p>
+<p>$$
+|\Psi\rangle = \sum_{i,j}c_{ij}\left|\varphi_{i}^{(1)}\right\rangle\otimes\left|\varphi_{j}^{(2)}\right\rangle
+$$</p>
+<p>对应的密度矩阵即为投影算符</p>
+<p>$$
+\hat{\rho} = |\Psi\rangle\langle\Psi| = \sum_{i,j}\sum_{a,b}c_{ia}c_{jb}^{*}\left|\varphi_{i}^{(1)}\right\rangle\left\langle\varphi_{j}^{(1)}\right|\otimes\left|\varphi_{a}\right\rangle\left\langle\varphi_{b}^{(2)}\right|
+$$</p>
+<p>所以子系统 $S^{(1)}$ 的约化密度矩阵为</p>
+<p>$$
+\hat{\rho}^{(1)} = \text{Tr}_{(2)}\hat{\rho} = \sum_{i,j}\sum_{a}c_{ia}c_{ja}^{*}\left|\varphi_{i}^{(1)}\right\rangle\left\langle\varphi_{j}^{(1)}\right|
+$$</p>
+<p>同理</p>
+<p>$$
+\hat{\rho}^{(2)} = \text{Tr}_{(1)}\hat{\rho} = \sum_{a,b}\sum_{i}c_{ia}c_{ib}^{*}\left|\varphi_{a}^{(2)}\right\rangle\left\langle\varphi_{b}^{(2)}\right|
+$$</p>
+<blockquote>
+<p>$\hat{\rho}^{(1)},\hat{\rho}^{(2)}$ 一般都不对应纯态.</p>
+</blockquote>
+<p>若复合系统的初态为纯态</p>
+<p>$$
+|\Psi\rangle = |\psi^{(1)}\rangle\otimes|\psi^{(2)}\rangle
+$$</p>
+<p>如果两个系统之间没有相互作用, 那么复合系统的的哈密顿量可以写作两个子系统的哈密顿量之和:</p>
+<p>$$
+\hat{H} = \hat{H}^{(1)} + \hat{H}^{(2)}
+$$</p>
+<blockquote>
+<p>因为没有相互作用, 所以
+$$
+\left[\hat{H}^{(1)},\hat{H}^{(2)}\right] = 0
+$$</p>
+</blockquote>
+<p>那么复合系统的演化算符也可以表示为两个演化算符的直积:</p>
+<p>$$
+\hat{U}(t) = e^{-\frac{i\hat{H}t}{\hbar}}= e^{-\frac{i\hat{H}^{(1)}t}{\hbar}}\otimes e^{-\frac{i\hat{H}^{(2)}t}{\hbar}} = \hat{U}^{(1)}(t)\otimes\hat{U}^{(2)}(t)
+$$</p>
+<blockquote>
+<p>两个演化算符相互对应:
+$$
+\left[\hat{U}^{(1)}(t),\hat{U}^{(2)}(t)\right] = 0
+$$</p>
+</blockquote>
+<p>所以在后面的时刻, 复合系统的态始终保持为直积态:</p>
+<p>$$
+\left|\Psi(t)\right\rangle = \left|\psi^{(1)}(t)\right\rangle\otimes\left|\psi^{(2)}(t)\right\rangle
+$$</p>
+<p>而两个系统之间有相互作用时, 情况就没有这么简单了. 这种情况被称为 <strong>量子纠缠</strong>.</p>
+<h1 id="schmidt-分解">Schmidt 分解<a hidden class="anchor" aria-hidden="true" href="#schmidt-分解">#</a></h1>
+<blockquote>
+<p><strong>Lemma</strong></p>
+<p>两个子系统 $S^{(1)},S^{(2)}$ 组成复合系统 $S$. 这个复合系统中的任意一个纯态 $|\Psi\rangle\in\mathcal{H}^{(1)}\otimes\mathcal{H}^{(2)}$, 都可以通过 $\mathcal{H}^{(1)},\mathcal{H}^{(2)}$ 中的标准正交基 $\left\{\left|\chi_{i}^{(1)}\right\rangle\right\}, \left\{\left|\chi_{j}^{(2)}\right\rangle\right\}$ 进行展开:</p>
+<p>$$
+|\Psi\rangle = \sum_{i}\alpha_{i}\left|\chi_{i}^{(1)}\right\rangle\left|\chi_{i}^{(2)}\right\rangle
+$$</p>
+<p>这种展开被称为 <strong>Schmidt 分解</strong>. $\left\{\left|\chi_{i}^{(1)}\right\rangle\right\}, \left\{\left|\chi_{j}^{(2)}\right\rangle\right\}$ 叫做 Schmidt 基, $\{\alpha_{i}\}$ 是 Schmidt 系数.</p>
+</blockquote>
+<h3 id="证明">证明<a hidden class="anchor" aria-hidden="true" href="#证明">#</a></h3>
+<h4 id="法一">法一<a hidden class="anchor" aria-hidden="true" href="#法一">#</a></h4>
+<p>子系统 $S^{(1)}$ 的密度矩阵可以进行对角化:</p>
+<p>$$
+\hat{\rho}^{(1)} = \text{Tr}_{(2)}\left(|\Psi\rangle\langle\Psi|\right) = \sum_{i}p_{i}\left|\chi_{i}^{(1)}\right\rangle\left\langle\chi_{i}^{(1)}\right|
+$$</p>
+<blockquote>
+<p>$|\chi_{i}^{(1)}\rangle$ 是 $\hat{\rho}^{(1)}$ 的本征态, 对应的本征值为 $p_{i}$.
+选择这一系列本征态 $\{|\chi_{i}^{(1)}\rangle\}$ 作为空间 $\mathcal{H}^{(1)}$ 的基底, 同理 $\left|\phi_{i}^{(2)}\right\rangle$ 作为空间 $\mathcal{H}^{(2)}$ 的基底.</p>
+</blockquote>
+<p>所以将 $|\Psi\rangle$ 展开
+$$
+|\Psi\rangle = \sum_{i,j}c_{ij}\left|\chi_{i}^{(1)}\right\rangle\left|\phi_{j}^{(2)}\right\rangle
+$$</p>
+<p>所以我们可以定义</p>
+<p>$$
+\left|\psi_{i}^{(2)}\right\rangle = \sum_{j}a_{ij}\left|\phi_{j}^{(2)}\right\rangle
+$$</p>
+<p>所以就可以将 $|\Psi\rangle$ 展开为</p>
+<p>$$
+|\Psi\rangle = \sum_{i}\left|\chi_{i}^{(1)}\right\rangle\left|\psi_{i}^{(2)}\right\rangle
+$$</p>
+<p>所以就有</p>
+<p>$$
+\hat{\rho}^{(1)} = \text{Tr}_{(2)}\left(|\Psi\rangle\langle\Psi|\right) = \sum_{i,j}\left(\left|\chi_{i}^{(1)}\right\rangle\left\langle\psi_{i}^{(2)}\right|\right)\left(\left|\psi_{j}^{(2)}\right\rangle\left\langle\chi_{j}^{(1)}\right|\right)
+$$</p>
+<p>因为 $S^{(1)}$ 的密度矩阵可以完成对角化, 所以</p>
+<p>$$
+\left\langle\psi_{i}^{(2)}\right|\left|\psi_{j}^{(2)}\right\rangle = p_{i}\delta_{ij}
+$$</p>
+<p>为了使其归一化, 可以如下处理</p>
+<p>$$
+\left|\chi_{i}^{(2)}\right\rangle = \frac{1}{\sqrt{p_{i}}}\left|\psi_{i}^{(2)}\right\rangle
+$$</p>
+<p>所以我们就有</p>
+<p>$$
+|\Psi\rangle = \sum_{i}\sqrt{p_{i}}\left|\chi_{i}^{(1)}\right\rangle\left|\chi_{i}^{(2)}\right\rangle
+$$</p>
+<h4 id="法二">法二<a hidden class="anchor" aria-hidden="true" href="#法二">#</a></h4>
+<p>首先考虑最简单的情况, 即 $\text{dim}\mathcal{H}^{(1)} = \text{dim}\mathcal{H}^{(2)}$, 选择 $\mathcal{H}^{(1)},\mathcal{H}^{(2)}$ 的基 $\left\{\left|\varphi_{i}^{(1)}\right\rangle\right\}, \left\{\left|\varphi_{j}^{(2)}\right\rangle\right\}$ 将 $|\Psi\rangle$ 展开:</p>
+<p>$$
+|\Psi\rangle = \sum_{i,j}c_{ij}\left|\varphi_{i}^{(1)}\right\rangle\left|\varphi_{j}^{(2)}\right\rangle
+$$</p>
+<p>将系数矩阵 $[c_{ij}]$ 记作 $\overleftrightarrow{c}$, 对该矩阵进行奇异值分解, 即有</p>
+<p>$$
+\overleftrightarrow{c} = \overleftrightarrow{u}\overleftrightarrow{d}\overleftrightarrow{v}
+$$</p>
+<blockquote>
+<p>$\overleftrightarrow{d} = \text{diag}(c_{1},c_{2},\dots,c_{N}),\quad\alpha_{i}\geq 0$.</p>
+</blockquote>
+<p>所以就有</p>
+<p>$$
+|\Psi\rangle = \sum_{i,j,k}u_{ij}d_{jj}v_{jk}\left|\varphi_{i}^{(1)}\right\rangle\otimes\left|\varphi_{k}^{(2)}\right\rangle
+$$</p>
+<blockquote>
+<p>$d_{jj}$ 就是对角元素 $\alpha_{j}$.</p>
+</blockquote>
+<p>所以定义</p>
+<p>$$
+\left|\chi_{j}^{(1)}\right\rangle = \sum_{i}u_{ij}\left|\varphi_{i}^{(1)}\right\rangle\\
+\left|\chi_{j}^{(2)}\right\rangle = \sum_{k}v_{jk}\left|\varphi_{k}^{(2)}\right\rangle
+$$</p>
+<p>因此就可以改写为</p>
+<p>$$
+|\Psi\rangle = \sum_{j}\alpha_{j}\left|\chi_{j}^{(1)}\right\rangle\otimes\left|\chi_{j}^{(2)}\right\rangle
+$$</p>
+<p>推广到一般情况, 即两者的维度不同. 不妨设 $\text{dim}\mathcal{H}^{(1)} &lt; \text{dim}\mathcal{H}^{(2)}$, 我们可以使用 $0$ 来填充额外 $[c_{ij}]$ 位置.</p>
+<blockquote>
+<p>$\alpha_{j}$ 即为 Schmidt 系数, 且 $\alpha_{j} = \sqrt{p_{i}}$.</p>
+<p>非零的 Schmidt 系数 $\alpha_{i}$ 个数 $n_{s}$ 被称为 Schmidt 数, 并且有关系
+$$
+n_{s} = \text{Min}\left\{\text{dim}\mathcal{H}^{(1)},\text{dim}\mathcal{H}^{(2)}\right\}
+$$</p>
+</blockquote>
+<p>当 $|\Psi\rangle = |\varphi^{(1)}\rangle\otimes|\varphi^{(2)}\rangle$, 即为直积态, 那么 $\hat{\rho}^{(1)} = |\varphi^{(1)}\rangle\langle\varphi^{(1)}|,\hat{\rho}^{(2)} = |\varphi^{(2)}\rangle\langle\varphi^{(2)}|$ 也都是纯态.</p>
+<p>当 $|\Psi\rangle$ 并非直积态时, 则 Schmidt 数 $n_{s} &gt; 1$, 此时 $\hat{\rho}^{(1)},\hat{\rho}^{(2)}$ 都是混合态, 即 $S^{(1)},S^{(2)}$ 相互纠缠.</p>
+<p>如果有 $\mathcal{H}^{(1)},\mathcal{H}^{(2)}$ 中的幺正变换 $\hat{U}^{(1)},\hat{U}^{(2)}$, 即有演化后的态为 $\hat{U}^{(1)}|\Psi\rangle,\hat{U}^{(2)}|\Psi\rangle$, 和 $|\Psi\rangle$ 具有相同的 Schmidt 系数和 Schmidt 数.</p>
+<p>Schmidt 系数和 Schmidt 数在 $\mathcal{H} = \mathcal{H}^{(1)}\otimes\mathcal{H}^{(2)}$ 中的幺正变化下没有不变性, 所以要改变两个子系统之间的量子纠缠, 必须要令两者相互作用.</p>
+<h3 id="讨论">讨论<a hidden class="anchor" aria-hidden="true" href="#讨论">#</a></h3>
+<p>如果已知纯态 $|\Psi\rangle$ 的 Schmidt 分解</p>
+<p>$$
+|\Psi\rangle = \sum_{i}\alpha_{i}\left|\chi_{i}^{(1)}\right\rangle\otimes\left|\chi_{i}^{(2)}\right\rangle
+$$</p>
+<p>所以我们可以写出两个子系统的密度矩阵</p>
+<p>$$
+\hat{\rho}^{(1)} = \text{Tr}_{(2)}\hat{\rho} = \sum_{i}|\alpha_{i}|^{2}\left|\chi_{i}^{(1)}\right\rangle\left\langle\chi_{i}^{(1)}\right|\\
+\hat{\rho}^{(2)} = \text{Tr}_{{(1)}}\hat{\rho} = \sum_{i}|\alpha_{i}|^{2}\left|\chi_{i}^{(2)}\right\rangle\left\langle\chi_{i}^{(2)}\right|
+$$</p>
+<p>所以 $\hat{\rho}^{(1)}$ 和 $\hat{\rho}^{(2)}$ 具有相同的一组特征值. 当复合系统并非纯态时, 该结论不再成立.</p>
+<p>对于系统 $S^{(1)}$ 中的非纯态 $\hat{\rho}^{(1)}$, 都可以找到一个子系统 $S^{(2)}$ 进行复合, 得到纯态</p>
+<p>$$
+\hat{\rho} = |\Psi\rangle\langle\Psi|
+$$</p>
+<blockquote>
+<p>$$
+\hat{\rho}^{(1)} = \text{Tr}_{(2)}\hat{\rho}
+$$</p>
+</blockquote>
+<p>这种操作被称为 <strong>纯化</strong>. 因为 $\hat{\rho} \neq \hat{\rho}^{(1)}\otimes\hat{\rho}^{(2)}$, 所以两个系统 $S^{(1)},S^{(2)}$ 是纠缠的.</p>
+<p>任意给定密度矩阵的一种分解方法</p>
+<p>$$
+\hat{\rho} = \sum_{i}\omega_{i}|\psi_{i}\rangle\langle\psi_{i}|
+$$</p>
+<p>我们都可以构造对应的纯化方法</p>
+<p>$$
+|\Psi\rangle = \sum_{i}\sqrt{\omega_{i}}|\psi_{i}\rangle\otimes|\phi_{i}\rangle
+$$</p>
+<blockquote>
+<p>$\{||phi_{i}\rangle\}$ 是正交归一的量子态.</p>
+</blockquote>
+<h1 id="量子熵">量子熵<a hidden class="anchor" aria-hidden="true" href="#量子熵">#</a></h1>
+<h2 id="定义">定义<a hidden class="anchor" aria-hidden="true" href="#定义">#</a></h2>
+<p>对于一个密度矩阵 $\hat{\rho}$, 可以援引热力学中熵的定义方法, 定义 <strong>冯诺依曼熵</strong>:</p>
+<p>$$
+S\left(\hat{\rho}\right) = -\text{Tr}\left(\hat{\rho}\log{\hat{\rho}}\right)
+$$</p>
+<p>将 $\hat{\rho}$ 展开为其本征态的外积线性组合</p>
+<p>$$
+\hat{\rho} = \sum_{i}p_{i}|\varphi_{i}\rangle\langle\varphi_{i}|\\
+\langle\varphi_{i}|\varphi_{j}\rangle = \delta_{ij},\quad 0\leq p_{i}\leq 1,\quad\sum_{i}p_{i} = 1
+$$</p>
+<p>即有</p>
+<p>$$
+S\left(\hat{\rho}\right) = -\sum_{i}p_{i}\log{p_{i}} = S_{\text{GS}}[\{p_{i}\}]
+$$</p>
+<h2 id="性质">性质<a hidden class="anchor" aria-hidden="true" href="#性质">#</a></h2>
+<ol>
+<li>$S\left(\hat{\rho}\right)\geq 0$, 并且有</li>
+</ol>
+<p>$$
+\hat{\rho} = |\psi\rangle\langle\psi|\Leftrightarrow S\left(\hat{\rho}\right) = 0
+$$</p>
+<ol start="2">
+<li>当 $\text{dim}\mathcal{H} = D$, 即有</li>
+</ol>
+<p>$$
+S\left(\hat{\rho}\right)\leq \log{D} = S_{\text{max}}
+$$</p>
+<p>$\hat{\rho}_{0} = \frac{1}{D}\hat{I}$ 有最大熵, 这个情况下所有态等是等概率分布的.</p>
+<ol start="3">
+<li>幺正变化不变性</li>
+</ol>
+<p>$$
+\forall \hat{U},\quad S\left(\hat{\rho}\right) = S\left(\hat{U}\hat{\rho}\hat{U}^{\dagger}\right)
+$$</p>
+<ol start="4">
+<li>凸性</li>
+</ol>
+<p>$$
+\forall\lambda\in(0,1),\quad S\left(\lambda\hat{\rho}_{1} + (1-\lambda)\hat{\rho}_{2}\right) \geq \lambda S\left(\hat{\rho}_{1}\right) + (1-\lambda)S\left(\hat{\rho}_{2}\right)
+$$</p>
+<ol start="5">
+<li>次可加性</li>
+</ol>
+<p>复合系统为 $\mathcal{H} = \mathcal{H}^{(1)}\otimes\mathcal{H}^{(2)}$, 有</p>
+<p>$$
+S\left(\hat{\rho}\right) \leq S\left(\hat{\rho}^{(1)}\right) + S\left(\hat{\rho}^{(2)}\right)
+$$</p>
+<blockquote>
+<p>$\hat{\rho}^{(1)} = \text{Tr}_{(2)}\hat{\rho}, \hat{\rho}^{(2)} = \text{Tr}_{(1)}\hat{\rho}$.
+$$
+S\left(\hat{\rho}\right) = S\left(\hat{\rho}^{(1)}\right) + S\left(\hat{\rho}^{(2)}\right) \Leftrightarrow \hat{\rho} = \hat{\rho}^{(1)}\otimes\hat{\rho}^{(2)}
+$$</p>
+</blockquote>
+<p>复合系统的熵小于子系统的熵之和.</p>
+<p>比如极端情况下, 比如 $\hat{\rho} = |\psi$ 为纯态时, 其熵为 $0$:</p>
+<p>$$
+S\left(\hat{\rho}\right) = 0
+$$</p>
+<p>子系统的熵相等并且大于 $0$:</p>
+<p>$$
+S\left(\hat{\rho}^{(1)}\right) = S\left(\hat{\rho}^{(2)}\right) = -\sum_{i}|\alpha_{i}|^{2}\log{|\alpha_{i}|^{2}} &gt; 0
+$$</p>
+<ol start="6">
+<li>强次可加性</li>
+</ol>
+<p>$$
+S\left(\hat{\rho}_{\text{ABC}}\right) + S\left(\hat{\rho}_{\text{B}}\right) \leq S\left(\hat{\rho}_{\text{AB}}\right) + S\left(\hat{\rho}_{\text{BC}}\right)
+$$</p>
+<h2 id="极大熵原理">极大熵原理<a hidden class="anchor" aria-hidden="true" href="#极大熵原理">#</a></h2>
+<p>Hilbert Space 中的概率分布被称为 <strong>量子系综</strong>. 极大熵原理是指, 冯诺依曼熵在平衡态系综取得极大值.</p>
+<h3 id="微正则">微正则<a hidden class="anchor" aria-hidden="true" href="#微正则">#</a></h3>
+<p>考虑孤立系统, 哈密顿量为 $\hat{H}$, 在能量壳层 $(E,E+\mathrm{d}E)$ 中, 并且 $\mathrm{d}E \ll k_{B}T$. 在这个能量范围内的所有本征态张成一个 Hilbert Space. 我们设定这个空间的维度是 $E,\mathrm{d}E$ 的函数:</p>
+<p>$$
+\text{dim}\mathcal{H} = \Omega(E,\mathrm{d}E)
+$$</p>
+<p>这个 Hilbert Space 的基底为 $\{|1\rangle,|2\rangle,\dots,|\Omega\rangle\}$. 为了使诺伊曼熵最大, 密度矩阵应当为 <strong>微正则系综</strong>:</p>
+<p>$$
+\hat{\rho}_{\text{MC}} = \frac{\hat{I}}{\Omega(E,\mathrm{d}E)} = \frac{1}{\Omega}\sum_{i = 1}^{\Omega}|i\rangle\langle i|
+$$</p>
+<blockquote>
+<p>这个混合态中, $(E,E+\mathrm{d}E)$ 能量壳层中的任意本征态的概率都是 $\frac{1}{\Omega}$, 即 $\hat{\rho}_{\text{MC}}$ 对应经典统计物理中的等概率分布.</p>
+</blockquote>
+<blockquote>
+<p><strong>幺正不变性</strong></p>
+<p>$$
+S\left(\hat{\rho}\right) = S\left(\hat{U}\hat{\rho}\hat{U}^{\dagger}\right)
+$$</p>
+</blockquote>
+<p>根据幺正不变性, 我们可以只考虑对角化的密度矩阵:</p>
+<p>$$
+\hat{\rho} = \sum_{i}p_{i}|\varphi_{i}\rangle\langle\varphi_{i}|\\
+S\left(\hat{\rho}\right) = -\sum_{i}p_{i}\log{p_{i}} = S_{\text{GS}}[\{p_{i}\}]
+$$</p>
+<p>我们可以使用拉格朗日乘子法来求解熵极大化的概率分布. 概率分布有约束 $\sum_{i}p_{i} = 1$, 所以有</p>
+<p>$$
+\hat{S} = S - \lambda\left(\sum_{i}p_{i} - 1\right)
+$$</p>
+<p>求一级变分为 $0$:</p>
+<p>$$
+\delta\left[-\sum_{i}p_{i}\log{p_{i}}-\lambda\left(\sum_{i}p_{i} - 1\right)\right] = 0\Rightarrow \sum_{i}\left(-\log{p_{i}} - 1 - \lambda\right)\delta p_{i} = 0
+$$</p>
+<p>也就是说, 使得熵极大化的分布为</p>
+<p>$$
+p_{i} = e^{-\alpha - 1}
+$$</p>
+<p>也就是说 $p_{i}$ 与 $i$ 无关, 也就是说 $p_{i}$ 就是微正则分布</p>
+<p>$$
+p_{i} = \frac{1}{\Omega(E,\mathrm{d}E)}
+$$</p>
+<p>对应的密度矩阵为微正则系综</p>
+<p>$$
+\hat{\rho} = \hat{\rho}_{\text{MC}} = \frac{\hat{I}}{\Omega(E,\mathrm{d}E)}
+$$</p>
+<h3 id="正则系综">正则系综<a hidden class="anchor" aria-hidden="true" href="#正则系综">#</a></h3>
+<p>考虑一个系统, 它与外界有微弱的相互作用, 因此会与外界有能量交换. 系统的能量将不再确定.</p>
+<p>然而在平衡态下, 系统的平均能量是确定值:</p>
+<p>$$
+\text{Tr}\left(\hat{\rho}\hat{H}\right) = E
+$$</p>
+<p>现在对诺伊曼熵进行极大化处理, 约束条件为平均能量受到固定. 因为系统能量可以取任意值, 所以这个操作需要在整个无穷维 Hilbert Space 内完成. 此时系统的平衡态密度矩阵变为正则系综:</p>
+<p>$$
+\hat{\rho}_{\text{C}} = \frac{1}{Z}e^{-\beta\hat{H}}
+$$</p>
+<blockquote>
+<p>$Z$ 是配分函数, 是一个归一化因子:</p>
+<p>$$
+Z = \text{Tr}\left(e^{-\beta\hat{H}}\right)
+$$</p>
+</blockquote>
+<p>所以亥姆霍兹自由能为</p>
+<p>$$
+F = -T\log{Z} = -T\log{\text{Tr}\left(e^{-\beta\hat{H}}\right)}
+$$</p>
+<p>我们根据约束条件构造熵的泛函:</p>
+<p>$$
+\hat{S} = -\text{Tr}\left(\hat{\rho}\log{\rho}\right) - \alpha\left(\text{Tr}\hat{\rho} - 1\right) - \beta\left[\text{Tr}\left(\hat{\rho}\hat{H}\right) - E\right]
+$$</p>
+<p>现在对上述泛函求一级变分, 并且假定虚微分和求迹具有可交换性:</p>
+<p>$$
+\delta\text{Tr}\hat{A} = \text{Tr}\delta\hat{A}
+$$</p>
+<p>所以</p>
+<p>$$
+\begin{aligned}
+\delta{\hat{S}} &amp; = \delta\left\{-\text{Tr}\left(\hat{\rho}\log{\rho}\right) - \alpha\left(\text{Tr}\hat{\rho} - 1\right) - \beta\left[\text{Tr}\left(\hat{\rho}\hat{H}\right) - E\right]\right\}\\
+&amp; = -\text{Tr}\delta\left(\hat{\rho}\log{\hat{\rho}}\right) - \alpha\text{Tr}\delta\hat{\rho} - \beta\text{Tr}\delta\left(\hat{\rho}\hat{H}\right)\\
+&amp; = -\text{Tr}\delta\left(\hat{\rho}\log{\hat{\rho}}\right) - \alpha\text{Tr}\delta\hat{\rho} - \delta\text{Tr}\delta\hat{\rho}\hat{H}
+\end{aligned}
+$$</p>
+<blockquote>
+<p><strong>虚微分的乘法律</strong></p>
+<p>$$
+\delta\left(\hat{A}\hat{B}\right) = \left(\delta\hat{A}\right)\hat{B} + \hat{A}\left(\delta\hat{B}\right)
+$$</p>
+</blockquote>
+<p>利用乘法展开可以求得</p>
+<p>$$
+\delta\text{Tr}\left(\hat{\rho}\log{\hat{\rho}}\right) = \text{Tr}\left[\left(\delta\hat{\rho}\right)\log{\hat{\rho}}\right] + \text{Tr}\left[\hat{\rho}\left(\delta\log{\hat{\rho}}\right)\right]
+$$</p>
+<p>一般情况下,</p>
+<p>$$
+\left[\hat{\rho},\delta\hat{\rho}\right] \neq 0
+$$</p>
+<p>所以</p>
+<p>$$
+\delta\log{\hat{\rho}} \neq \hat{\rho}^{-1}\delta\hat{\rho}
+$$</p>
+<p>但是我们可以引入另一个符号</p>
+<p>$$
+\hat{A} = \log{\hat{\rho}}
+$$</p>
+<p>所以就可以将上式改写为</p>
+<p>$$
+\begin{aligned}
+\text{Tr}\left[\hat{\rho}\left(\log{\hat{\rho}}\right)\right] &amp; = \text{Tr}\left[e^{\hat{A}}\left(\delta\hat{A}\right)\right]\\
+&amp; = \text{Tr}\left[\left(1 + \hat{A} + \frac{1}{2}\hat{A}^{2} + \frac{1}{6}\hat{A}^{3} + \dots\right)\left(\delta\hat{A}\right)\right]\\
+&amp; = \text{Tr}\left[\delta\left(1 + \hat{A} + \frac{1}{2}\hat{A}^{2} + \frac{1}{6}\hat{A}^{3} + \dots\right)\right]\\
+&amp; = \delta\text{Tr}\left(e^{\hat{A}}\right) = \delta\text{Tr}\hat{\rho}
+\end{aligned}
+$$</p>
+<blockquote>
+<p><strong>虚微分的指数律</strong></p>
+<p>$$
+\text{Tr}\delta\hat{A}^{n} = n\text{Tr}\left[\hat{A}^{n-1}\left(\delta\hat{A}\right)\right]\\
+\delta\hat{A}^{n} \neq n\hat{A}^{n-1}\delta\hat{A}
+$$</p>
+</blockquote>
+<p>所以</p>
+<p>$$
+\delta\text{Tr}\left(\hat{\rho}\log{\hat{\rho}}\right) = \text{Tr}\left[\left(\delta\hat{\rho}\right)\log{\hat{\rho}}\right] + \text{Tr}\left(\delta\hat{\rho}\right)
+$$</p>
+<p>所以熵的虚微分化为</p>
+<p>$$
+\delta\hat{S} = -\text{Tr}\left[\delta\hat{\rho}\left(\log{\hat{\rho}} + \hat{I} + \alpha\hat{I} + \beta\hat{H}\right)\right]
+$$</p>
+<p>取虚微分为 $0$, 即得到正则系综关系:</p>
+<p>$$
+\log{\hat{\rho}} = -(1 + \alpha)\hat{I} - \beta\hat{H}\\
+\Rightarrow \hat{\rho} = \hat{\rho}_{\text{C}} = \frac{1}{Z}e^{-\beta\hat{H}}
+$$</p>
+<p>系统哈密顿量 $\hat{H}$ 是体积 $V$ 的函数, 所以由其求出的能量本征值, 正则配分函数都会是体积 $V$ 的函数,</p>
+<p>亥姆霍兹自由能:</p>
+<p>$$
+F = -T\log{Z} = -T\log{\left(\sum_{n}e^{-\beta E_{n}}\right)}
+$$</p>
+<p>所以能量自由能为</p>
+<p>$$
+E = \frac{\partial \beta F}{\partial \beta} = \text{Tr}\left(\hat{\rho}_{\text{C}}\hat{H}\right)
+$$</p>
+<p>自由能对温度的求偏导:</p>
+<p>$$
+\begin{aligned}
+\frac{\partial F}{\partial T} &amp;= -\log{Z} - \frac{1}{Z}\sum_{n}\beta E_{n}e^{-\beta E_{n}}\\
+&amp; = \sum_{n}\frac{e^{-\beta E_{n}}}{Z}\log{\frac{e^{-\beta E_{n}}}{Z}}\\
+&amp; = \text{Tr}\left(\hat{\rho}_{\text{C}}\log{\hat{\rho}_{\text{C}}}\right) = -S\left[\hat{\rho}_{\text{C}}\right]
+\end{aligned}
+$$</p>
+<p>也就是正则系综的诺伊曼熵. 诺伊曼熵和热力学熵在平衡态熵是相等的, 即有</p>
+<p>$$
+S = -\frac{\partial F}{\partial T}
+$$</p>
+<p>自由能对体积进行求偏导:</p>
+<p>$$
+\frac{\partial F}{\partial V} = \frac{1}{Z}\sum_{n}\frac{\partial E_{n}}{\partial V}e^{-\beta E_{n}} = -P
+$$</p>
+<p>所以正则系综中的亥姆霍兹自由能的微分为</p>
+<p>$$
+\mathrm{d}F = -S\mathrm{d}T - P\mathrm{d}V
+$$</p>
+<p>再次引入粒子数变量 $N$, 即有化学势 $\mu$ 的定义:</p>
+<p>$$
+\mathrm{d}F = -S\mathrm{d}T - P\mathrm{d}V + \mu\mathrm{d}N
+$$</p>
+<blockquote>
+<p>$\mu = \frac{\partial F}{\partial N}$</p>
+</blockquote>
+<p>这些微分关系都和平衡态热力学中的微分关系相同, 也就是说, 极大诺伊曼熵远离是平衡态热力学的基础.</p>
+<h3 id="巨正则系综">巨正则系综<a hidden class="anchor" aria-hidden="true" href="#巨正则系综">#</a></h3>
+<p>如今在系统能够和环境进行能量交换的基础上, 添加一个条件: <strong>系统可以和环境交换粒子</strong>. 所以, 系统的粒子数将会是任意值.</p>
+<p>平衡态下, 系统的能量和粒子数有确定的平均值.</p>
+<blockquote>
+<p>这里讨论的当然只有一种粒子. 当系统中含有多种粒子时, 需要为每一种粒子单独引入化学势.</p>
+</blockquote>
+<p>所以现在总共有三个约束条件:</p>
+<p>$$
+\begin{aligned}
+\text{Tr}\hat{\rho} &amp;= 1\\
+\text{Tr}\left(\hat{\rho}\hat{E}\right) &amp;= E\\
+\text{Tr}\left(\hat{\rho}\hat{N}\right) &amp;= N
+\end{aligned}
+$$</p>
+<p>重复使用拉格朗日乘子法进行推导, 就能得到巨正则系综关系:</p>
+<p>$$
+\hat{\rho} = \hat{\rho}_{\text{GC}} = \frac{1}{\mathcal{Z}}e^{-\beta\left(\hat{H} - \mu\hat{N}\right)}
+$$</p>
+<blockquote>
+<p>$\mu$ 为化学势, $\beta = \frac{1}{T}$, $\mathcal{Z}$ 为巨正则分配函数:</p>
+<p>$$
+\mathcal{Z} = \text{Tr}e^{-\beta\left(\hat{H}-\mu\hat{N}\right)}
+$$</p>
+</blockquote>
+<p>从巨正则配分函数导出<strong>巨势</strong>:</p>
+<p>$$
+\Phi = -T\log{\mathcal{Z}}
+$$</p>
+<p>巨势的微分展开为</p>
+<p>$$
+\mathrm{d}\Phi = -S\mathrm{d}T - P\mathrm{d}V - N\mathrm{d}\mu
+$$</p>
+<p>热力学的 $Gibbs-Duhem$ 关系:</p>
+<p>$$
+\Phi = F-\mu N = -PV
+$$</p>
+<h3 id="fermi-dirac-分布和-bose-einstein-分布">Fermi-Dirac 分布和 Bose-Einstein 分布<a hidden class="anchor" aria-hidden="true" href="#fermi-dirac-分布和-bose-einstein-分布">#</a></h3>
+<p>对于无相互作用的全同粒子组成的平衡态分布, 最好的方法是使用巨正则系综. 因为没有相互作用, 所以不同的单粒子能级相互独立, 只需要讨论一个能级即可.</p>
+<h4 id="fermi-dirac-分布">Fermi-Dirac 分布<a hidden class="anchor" aria-hidden="true" href="#fermi-dirac-分布">#</a></h4>
+<p>对于费米子, 每一个能级上最多只能占据一个粒子, 所以单粒子能级的系统只有两个状态:</p>
+<p>$$
+\begin{aligned}
+\left|\begin{array}{c|c}
+\hline
+n &amp; E \\
+\hline
+0 &amp; 0 \\
+\hline
+1 &amp; \epsilon_{\mathbf{k}}\\
+\hline
+\end{array}\right|
+\end{aligned}
+$$</p>
+<p>所以系统的 Hilbert Space 为二维的, 单能级系统的的巨正则配分函数为</p>
+<p>$$
+\mathcal{Z} = 1 + e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}
+$$</p>
+<p>所以单粒子态上粒子数为 $0$ 或 $1$ 的平衡态概率为</p>
+<p>$$
+p_{0} = \frac{1}{1 + e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}},\quad p_{1} = \frac{e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}}{1 + e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}}
+$$</p>
+<p>所以平均粒子数为</p>
+<p>$$
+\langle n_{\mathbf{k}}\rangle_{\text{FD}} =0\cdot p_{0} + 1\cdot p_{1}= \frac{1}{e^{\beta(\epsilon_{\mathbf{k}}-\mu)} + 1}
+$$</p>
+<h4 id="bose-einstein-分布">Bose-Einstein 分布<a hidden class="anchor" aria-hidden="true" href="#bose-einstein-分布">#</a></h4>
+<p>玻色子系综中, 每个能级的粒子数没有上限, 所以 Hilbert Space 维度无穷. 则系统的巨正则配分函数为</p>
+<p>$$
+\mathcal{Z} = 1 + e^{-\beta(\epsilon_{\mathbf{k}}-\mu)} + e^{-2\beta(\epsilon_{\mathbf{k}}-\mu)} + e^{-3\beta(\epsilon_{\mathbf{k}}-\mu)} + \dots = \frac{1}{1-e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}}
+$$</p>
+<p>所以某能级上的粒子数为 $n$ 的概率为</p>
+<p>$$
+p_{n} = \left[1-e^{-\beta(\epsilon_{\mathbf{k}} - \mu)}\right]e^{-n\beta(\epsilon_{\mathbf{k}} - \mu)}
+$$</p>
+<p>该能级的平均粒子占有数为</p>
+<p>$$
+\langle n_{\mathbf{k}}\rangle = \sum_{n = 0}^{\infty}np_{n} = \frac{1}{e^{\beta(\epsilon_{\mathbf{k}}-\mu)} - 1}
+$$</p>
+<blockquote>
+<p>当 $\epsilon_{\mathbf{k}} &lt; \mu$, $\langle n_{\mathbf{k}}\rangle$ 将会是负值, 这将是反常的. 所以这种情况是不可能的. 单粒子能级趋于化学势时, 基态的粒子占有数趋于发散, 这就是 <strong>玻色-爱因斯坦凝聚</strong>.</p>
+</blockquote>
+<h2 id="孤立系统密度矩阵演化">孤立系统密度矩阵演化<a hidden class="anchor" aria-hidden="true" href="#孤立系统密度矩阵演化">#</a></h2>
+<p>假定一孤立系统的密度矩阵的初态为</p>
+<p>$$
+\hat{\rho}(0) = \sum_{i}p_{i}|\varphi_{i}\rangle\langle\varphi_{i}|
+$$</p>
+<p>后面的各量子态 $|\varphi_{i}\rangle$ 按照薛定谔方程独立演化:</p>
+<p>$$
+i\hbar\frac{\partial}{\partial t}|\varphi_{i}(t)\rangle = \hat{H}|\varphi_{i}(t)\rangle
+$$</p>
+<p>所以</p>
+<p>$$
+|\varphi_{i}(t)\rangle = e^{-\frac{i\hat{H}t}{\hbar}}|\varphi_{i}(0)\rangle = \hat{U}(t)|\varphi_{i}(0)\rangle\\
+\langle\varphi_{i}(t)| = \langle\varphi_{i}(0)|e^{\frac{i\hat{H}t}{\hbar}} = \langle\varphi_{i}(0)|\hat{U}^{\dagger}(t)
+$$</p>
+<p>所以密度矩阵的演化为</p>
+<p>$$
+\hat{\rho}(t) = \sum_{i}p_{i}|\varphi_{i}(t)\rangle\langle\varphi_{i}(t)| = \hat{U}(t)\hat{\rho}(0)\hat{U}^{\dagger}(t)
+$$</p>
+<p>对密度矩阵进行求时间偏导:</p>
+<p>$$
+\begin{aligned}
+i\hbar\frac{\partial\hat{\rho}(t)}{\partial t} &amp;= i\hbar\sum_{i}p_{i}\frac{\partial}{\partial t}|\varphi_{i}(t)\rangle\langle\varphi_{i}(t)|\\
+&amp; = \sum_{i}\left(\hat{H}|\varphi_{i}(t)\rangle\langle\varphi_{i}(t)|-|\varphi_{i}(t)\rangle\langle\varphi_{i}(t)|\hat{H}\right)
+\end{aligned}
+$$</p>
+<p>由此得到 <strong>冯诺依曼方程</strong></p>
+<p>$$
+\boxed{i\hbar\frac{\partial \hat{\rho}(t)}{\partial t} = \left[\hat{H},\hat{\rho}(t)\right]}
+$$</p>
+<blockquote>
+<p>冯诺依曼熵的<strong>幺正变换不变性</strong></p>
+<p>$$
+S\left(\hat{\rho}\right) = S\left(\hat{U}\hat{\rho}\hat{U}^{\dagger}\right)
+$$</p>
+</blockquote>
+<p>孤立系统的冯诺依曼熵的演化:</p>
+<p>$$
+S\left(\hat{\rho}(t)\right) = S\left(\hat{U}(t)\hat{\rho}(0)\hat{U}^{\dagger}(t)\right) = S\left(\hat{\rho}(0)\right)
+$$</p>
+<p>也就是孤立系统的冯诺依曼熵不随时间变化.</p>
+<blockquote>
+<p>热力学第二定律中描述的熵是热力学熵而非冯诺依曼熵, 即平衡态下的系统. 也就是说, 上述结论和热力学第二定律并不矛盾.</p>
+</blockquote>
+<p>大多数情况下系统和环境的相互作用都是很强的, 所以上述的孤立系统很少存在, 即不遵从冯诺依曼方程. 也就是说, 系统的熵并非守恒量.</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/zh/posts/phy/qp/scattering-method/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>散射理论</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/zh/posts/phy/qp/quantum-measurement/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>量子测量</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>

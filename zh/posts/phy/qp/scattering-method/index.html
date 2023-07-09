@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>散射理论 | 计算物理资料库</title>
+<meta name="keywords" content="">
+<meta name="description" content="在原子物理中我们学习过散射理论, 那么在量子力学中如何研究散射?">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/zh/posts/phy/qp/scattering-method/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="散射理论" />
+<meta property="og:description" content="在原子物理中我们学习过散射理论, 那么在量子力学中如何研究散射?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/zh/posts/phy/qp/scattering-method/" />
+<meta property="og:image" content="https://s2.loli.net/2023/06/23/a4T9lEyt2JgNbr7.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-23T00:18:23+08:00" />
+<meta property="article:modified_time" content="2023-06-23T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2023/06/23/a4T9lEyt2JgNbr7.png" />
+<meta name="twitter:title" content="散射理论"/>
+<meta name="twitter:description" content="在原子物理中我们学习过散射理论, 那么在量子力学中如何研究散射?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/zh/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/zh/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "➿ Quantum Physics",
+          "item": "https://Muatyz.github.io/zh/posts/phy/qp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "散射理论",
+      "item": "https://Muatyz.github.io/zh/posts/phy/qp/scattering-method/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "散射理论",
+  "name": "散射理论",
+  "description": "在原子物理中我们学习过散射理论, 那么在量子力学中如何研究散射?",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "经典散射理论 Intro 假设粒子从无穷远处入射, 方向为 $\\hat{z}$, 动能为 $E$. $b$ 是粒子与 $z$ 轴的距离. 现在可以计算出射角度 $\\theta$ 作为 $b$ 和 $E$ 的函数 $\\theta(b,E)$.\n假定入射粒子流的能量 $E$ 和碰撞系数 $b$ 均匀, 那么入射横截面 $\\mathrm{d}\\sigma$ 有\n$$ \\mathrm{d}\\sigma = b\\color{red}{\\mathrm{d}\\phi}\\mathrm{d}b $$\n立体角微分为\n$$ \\mathrm{d}\\Omega = \\sin{\\theta}\\mathrm{d}\\theta\\color{red}{\\mathrm{d}\\phi} $$\n对公共部分进行替换联立:\n$$ \\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega} = \\frac{b}{\\sin{\\theta}}\\left|\\frac{\\mathrm{d}b}{\\mathrm{d}\\theta}\\right| $$\n这就是 微分散射截面 的定义.\n$\\hat{S}_{\\text{in}}$ 是入射粒子的流密度, $\\hat{S}_{\\text{scatt}}$ 是出射流密度. 两者都是矢量, 前者方向为 $\\hat{z}$, 后者方向为 $\\hat{r}$.\n单位时间内穿过横截面 $\\mathrm{d}\\sigma$ 的入射粒子数为 $\\hat{S}_{\\text{in}}\\mathrm{d}\\sigma$; 单位时间内穿过横截面 $r^{2}\\mathrm{d}\\Omega$ 的出射粒子数为 $\\hat{S}_{\\text{scatt}}r^{2}\\mathrm{d}\\Omega$.\n根据粒子数守恒可以导出\n$$ \\hat{S}_{\\text{scatt}}r^{2}\\mathrm{d}\\Omega = \\hat{S}_{\\text{in}}\\mathrm{d}\\sigma $$\n所以微分散射截面可以写作\n$$ \\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega}\\mathrm{d}\\Omega = \\frac{\\hat{S}_{\\text{scatt}}r^{2}\\mathrm{d}\\Omega}{\\hat{S}_{\\text{in}}} = \\frac{\\text{单位时间散射到}\\mathrm{d}\\Omega\\text{内的粒子数}}{\\text{单位时间入射到单位横截面内的粒子数}} $$\n所以总散射截面为\n$$ \\sigma = \\int\\mathrm{d}\\sigma = \\int\\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega}\\mathrm{d}\\Omega $$\n如果散射势能 $V(\\vec{r})$ 处处非 $0$, 那么所有入射粒子均被散射, 也就是说总散射截面将会无穷大.\n经典硬球模型 硬球半径为 $R$, 只有 $b \u003c R$ 的粒子束部分才会被散射.\n$$ b = R\\sin{\\alpha} = R\\sin{\\left(\\frac{\\pi}{2}-\\frac{\\theta}{2}\\right)} = R\\cos{\\frac{\\theta}{2}} $$\n所以微分散射截面为\n$$ \\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega} = \\frac{R^{2}\\cos{\\left(\\frac{\\theta}{2}\\right)}\\sin{\\left(\\frac{\\theta}{2}\\right)}}{2\\sin{\\theta}} = \\frac{R^{2}}{4} $$\n对其积分即有总散射截面:\n$$ \\sigma = \\iint\\sin{\\theta}\\mathrm{d}\\theta\\mathrm{d}\\phi\\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega} = \\pi R^{2} $$\n这正是硬球的最大横截面面积. 这是一个纯粹的几何问题.\n经典卢瑟福散射 散射势能\n$$ V(r) = \\frac{q_{1}q_{2}}{4\\pi\\epsilon_{0}r} $$\n经典力学推导出\n$$ 2bE = \\frac{q_{1}q_{2}}{4\\pi\\epsilon_{0}}\\cot{\\left(\\frac{\\theta}{2}\\right)} $$\n微分散射截面\n$$ \\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega} = \\left(\\frac{q_{1}q_{2}}{16\\pi\\epsilon_{0}E\\sin^{2}{\\left(\\frac{\\theta}{2}\\right)}}\\right)^{2} $$\n取小角度近似 $(\\theta\\ll 1)$, 将会有 $\\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega}\\approx\\theta^{-4}$, 所以总散射截面:\n$$ \\sigma = \\int\\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega}\\mathrm{d}\\Omega\\approx\\int\\theta^{-4}\\sin{\\theta}\\mathrm{d}\\theta\\mathrm{d}\\phi \\rightarrow\\infty $$\n量子散射理论 背景 量子力学中考虑的散射, 其物理图像应当如何考虑? 一个波包从无穷远处入射, 并且与散射源相互作用, 最后出射到无穷远.\n求解波函数的边界条件为粒子从无穷远处以平面波入射, 并且以球面波入射到无穷远. 这正是入射粒子流的稳态情况.\n下面的讨论均为 不含时 的散射.\n定态薛定谔方程的求解 $$ \\left(-\\frac{\\hbar^{2}}{2m}\\nabla^{2} + V(\\mathbf{r})\\right)\\psi(\\mathbf{r}) = E\\psi(\\mathbf{r}) $$\n假定无穷远处势能为 $0$, 粒子动量为 $\\hbar\\mathbf{k}$, 因此\n$$ E = \\frac{\\hbar^{2}\\mathbf{k}^{2}}{2m},\\quad k = \\frac{2mE}{\\hbar} $$\n为了便于研究, 势能只有在 $r\u003c a$ 区域非零, 即 散射区域, 而 中间区域 势能为 $0$. 最外面的 辐射区域 中, 粒子的角动量可以忽略.\n因此有\n$$ -\\frac{\\hbar^{2}}{2m}\\nabla^{2}\\psi(\\mathbf{r}) = E\\psi(\\mathbf{r}) $$\n波函数可以展开为球谐函数的级数:\n$$ \\psi(\\mathbf{r}) = \\sum_{l,m}\\frac{u_{l}(r)}{r}c_{lm}Y_{lm}(\\theta,\\phi) $$\n我们可以去粒子入射方向为 $\\hat{z}$, 所以在势能具有求对称性的情况下, 总波函数将会有 $\\hat{z}$ 轴的对称性, 即对于 $m\\neq 0$ 的项均为 $0$.\n使用分离变量法可以得到\n散射区域的径向方程:\n$$ \\left(-\\frac{\\mathrm{d}^{2}}{\\mathrm{d}r^{2}} + \\frac{l(l + 1)}{r^{2}} + \\frac{2mV(r)}{\\hbar^{2}}\\right)u_{l}(r) = k^{2}u_{l}(r) $$\n中间区域的径向波函数:\n$$ \\left(-\\frac{\\mathrm{d}^{2}}{\\mathrm{d}r^{2}} + \\frac{l(l + 1)}{2}\\right)u_{l}(r) = k^{2}u_{l}(r) $$\n为了对表达式进行简化, 我们可以引入标记 $\\rho = kr$, 将上面方程改写为\n$$ \\begin{aligned} \\left(-\\frac{\\mathrm{d}^{2}}{\\mathrm{d}\\rho^{2}} + \\frac{l(l + 1)}{\\rho^{2}}\\right)u_{l}(\\rho) \u0026= u_{l}(\\rho)\\\\ \\left(-\\frac{1}{\\rho}\\frac{\\mathrm{d}^{2}}{\\mathrm{d}\\rho^{2}}\\rho + \\frac{l(l + 1)}{\\rho^{2}}\\right)R_{l}(r) \u0026= R_{l}(r) \\end{aligned} $$\n根据常微分实方程相关结论, 可以使用通解:\n$$ u_{l}(\\rho) = A_{l}\\rho j_{l}(\\rho) + B_{l}\\rho n_{l}(\\rho) $$\n换为原本的 $r$ 变量:\n$$ u_{l}(\\color{red}{r}) = A_{l} \\color{red}{r}j_{l}(k\\color{red}{r}) + B_{l} \\color{red}{r} n_{l}(k\\color{red}{r}) $$\n$j_{l}(x), n_{l}(x)$ 分别为第一类球贝塞尔函数和第二类球贝塞尔函数. 其近场和远场的渐进行为是 $$ \\rho\\ll 1(\\text{近场}):\\begin{cases} j_{l}(\\rho)\\approx\\frac{\\rho^{l}}{(2l + 1)!!}\\\\ n_{l}(\\rho)\\approx -\\frac{(2l - 1)!!}{\\rho^{l + 1}} \\end{cases}\\\\ \\rho\\gg 1(\\text{远场}):\\begin{cases} j_{l}(\\rho)\\approx\\frac{\\sin{\\left(\\rho-\\frac{l\\pi}{2}\\right)}}{\\rho}\\\\ n_{l}(\\rho)\\approx-\\frac{\\cos{\\left(\\rho - \\frac{l\\pi}{2}\\right)}}{\\rho} \\end{cases} $$\n原点处, $j_{l}(\\rho)\\rightarrow 0, n_{l}(\\rho)\\rightarrow\\infty$\n在辐射区域, 即远场近似, 忽略角动量项:\n$$ -\\frac{\\mathrm{d}^{2}}{\\mathrm{d}\\rho^{2}}u_{l}(\\rho) = u_{l}(\\rho) $$\nHankel 函数\n球贝塞尔函数可以写作球 Hankel 函数的线性组合: $$ h_{l}^{(1)}(\\rho) = j_{l}(\\rho) + i n_{l}(\\rho)\\\\ h_{l}^{(2)}(\\rho) = j_{l}(\\rho) - i n_{l}(\\rho) $$\n球 Hankel 函数在远场的渐进行为:\n$$ \\begin{aligned} \\text{出射球面波:}h_{l}^{(1)}(\\rho) \\approx (-i)^{l+1}\\frac{e^{i\\rho}}{\\rho} \u0026= \\frac{1}{i}\\frac{e^{i\\left(\\rho-\\frac{l\\pi}{2}\\right)}}{\\rho}\\\\ \\text{入射球面波:}h_{l}^{(2)}(\\rho) \\approx i^{l + 1}\\frac{e^{-i\\rho}}{\\rho} \u0026=-\\frac{1}{i}\\frac{e^{-i\\left(\\rho - \\frac{l\\pi}{2}\\right)}}{\\rho} \\end{aligned} $$\n径向波函数重新写为\n$$ u_{l}(\\rho) = A_{l}’\\rho h_{l}^{(1)} + B_{l}’\\rho h_{l}^{(2)}(\\rho) $$\n的形式.\n在辐射区域使用远场近似:\n$$ \\psi(\\mathbf{r})\\approx e^{ikz} + \\sum_{l,m}\\left(A_{l}’\\frac{e^{i\\rho}}{\\rho} + B_{l}’\\frac{e^{-i\\rho}}{\\rho}\\right)c_{lm}Y_{lm}(\\theta,\\phi) $$\n第一项是 入射平面波, 第二项是 散射球面波.\n我们也可以将入射波按照同样的方式进行 Hankel 波函数展开, 但是没有这个必要.\n因为第二项的运动应该是由散射中心向无穷远处运动, 这个与向中心汇聚的入射球面波的物理过程不符合.\n在辐射区域, 波函数的远场近似为\n$$ \\lim_{r\\rightarrow\\infty}\\psi(\\mathbf{r}) = \\psi_{\\text{in}} + \\psi_{\\text{scatt}} = e^{ikz} + f(\\theta,\\phi)\\frac{e^{ikr}}{r} $$\n$$ \\begin{aligned} \\text{入射平面波:}\\psi_{\\text{in}} \u0026= e^{ikz}\\\\ \\text{散射球状波:}\\psi_{\\text{scatt}} \u0026= f(\\theta,\\phi)\\frac{e^{ikr}}{r} \\end{aligned} $$\n$f(\\theta,\\phi)$ 是散射振幅: $$ f(\\theta,\\phi) = \\sum_{l,m}k^{-1}A_{l}‘c_{lm}Y_{lm}(\\theta,\\phi) $$\n薛定谔方程具有时间对称性, 所以原解的复共轭\n$$ \\lim_{r\\rightarrow\\infty}\\psi^{*} = e^{-ikz} + f^{*}(\\theta,\\phi)\\frac{e^{-ikr}}{r} $$\n但是这个解无法在实验上真正观察到, 因为我们只能测量局部的物理量或者散射实验中的某些特定角度, 而无法玩确定波函数的形式.\n概率流与散射截面 概率流\n$$ \\mathbf{S} = \\frac{\\hbar}{m}\\text{Im}\\left(\\psi^{*}\\nabla\\psi\\right) $$\n在定态中, 概率流满足\n$$ \\nabla\\cdot\\mathbf{S} = 0 $$\n将远场近似的波函数代入到概率流的表达式:\n$$ \\begin{aligned} \\mathbf{S} \u0026= \\frac{\\hbar}{m}\\text{Im}\\left[\\left(\\psi^{*}_{\\text{in}} + \\psi^{*}_{\\text{scatt}}\\right)\\nabla\\left(\\psi_{\\text{in}} + \\psi_{\\text{scatt}}\\right)\\right]\\\\ \u0026 = \\frac{\\hbar}{m}\\text{Im}\\left(\\psi^{*}_{\\text{in}}\\nabla\\psi_{\\text{in}}\\right) + \\frac{\\hbar}{m}\\text{Im}\\left(\\psi^{*}_{\\text{scatt}}\\nabla\\psi_{\\text{scatt}}\\right) + \\left(\\text{交叉项}\\right) \\end{aligned} $$\n第一项是入射波的概率流, 第二项是散射波的概率流.\n由于实验中入射光的宽度有限, 所以交叉项在实验中无法被观测到. 所以我们可以这样处理: **总概率流是入射与散射的线性叠加.\n入射概率流为\n$$ \\mathbf{S}_{\\text{in}} = \\frac{\\hbar}{m}\\text{Im}\\left(e^{-ikz}\\nabla e^{ikz}\\right) = \\frac{\\hbar k}{m}\\hat{z} = v\\hat{z} $$\n$v = \\frac{\\hbar k}{m}$, 为入射波的速度. 入射概率流的大小就是速度, 方向为 $\\hat{z}$.\nNabla 算子的球坐标下的表示为\n$$ \\nabla = \\hat{r}\\frac{\\partial }{\\partial r} + \\frac{\\hat{\\theta}}{r}\\frac{\\partial }{\\partial\\theta} + \\frac{\\hat{\\varphi}}{r\\sin{\\theta}}\\frac{\\partial }{\\partial\\varphi} $$\n所以散射概率流为\n$$ \\mathbf{S}_{\\text{scatt}} = \\frac{\\hbar}{m}\\text{Im}\\left[\\frac{1}{r}e^{-ikr}f^{*}(\\theta,\\varphi)\\nabla\\frac{1}{r}e^{ikr}f(\\theta,\\varphi)\\right] $$\n辐射区域内, 因为远场近似即有 $\\frac{1}{r}$ 是小量.\n只取 $\\frac{1}{r}$ 的最低阶:\n$$ \\nabla\\frac{1}{r}e^{ikr}f(\\theta,\\varphi) = \\frac{ik\\hat{r}}{r}e^{ikr}f(\\theta,\\varphi) + \\mathcal{O}\\left(\\frac{1}{r^{2}}\\right) $$\n所以将上述结果重新代入到散射概率流中:\n$$ \\begin{aligned} \\mathbf{S}_{\\text{scatt}} \u0026\\approx \\frac{\\hbar}{m}\\text{Im}\\left\\{\\frac{1}{r}e^{-ikr}f^{*}\\frac{ik\\hat{r}}{r}e^{ikr}f\\right\\}\\\\ \u0026 = \\frac{\\hbar k}{m}\\frac{\\hat{r}}{r^{2}}|f|^{2} + \\mathcal{O}\\left(\\frac{1}{r^{3}}\\right)\\\\ \u0026 = \\frac{\\hbar k|f|^{2}}{mr^{2}}\\hat{r} + \\mathcal{O}\\left(\\frac{1}{r^{3}}\\right) \\end{aligned} $$\n单位时间内穿过立体角 $\\mathrm{d}\\Omega$ 的被散射粒子数:\n$$ \\mathbf{S}_{\\text{scatt}}\\cdot\\mathrm{d}\\mathbf{\\sigma} = \\frac{\\hbar k|f|^{2}}{mr^{2}}r^{2}\\mathrm{d}\\Omega = \\frac{\\hbar k|f|^{2}}{m}\\mathrm{d}\\Omega $$\n单位时间穿过单位横截面的入射粒子数为\n$$ \\mathbf{S}_{\\text{in}}\\cdot\\hat{z} = \\frac{\\hbar k}{m} $$\n将上述讨论代入到经典的散射理论中:\n$$ \\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega}(\\theta,\\varphi) = \\frac{|\\mathbf{S}_{\\text{scatt}}\\cdot\\mathrm{d}\\mathbf{a}|}{|\\mathbf{S}_{\\text{in}}\\cdot\\hat{z}|} = |f(\\theta,\\varphi)|^{2} $$\n总散射截面即为上式对立体角求积分:\n$$ \\sigma = \\int\\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega}(\\theta,\\varphi)\\mathrm{d}\\Omega $$\n概率流交叉项 $$ \\begin{aligned} \\left(\\text{交叉项}\\right) \u0026= \\frac{\\hbar}{m}\\text{Im}\\left[e^{-ikz}\\nabla\\frac{f}{r}e^{ikr} + e^{ikz}\\nabla\\frac{f^{*}}{r}e^{-ikr}\\right]\\\\ \u0026 = \\frac{\\hbar}{m}\\text{Im}\\left[e^{-ikz}\\frac{f}{r}e^{ikr}ik\\hat{r} + e^{ikz}\\frac{f^{*}}{r}e^{-ikr}(-ik)\\hat{r}\\right] \\end{aligned} $$\n分波法 推导 瑞利公式 $$ \\begin{aligned} e^{ikz} \u0026 = \\sqrt{4\\pi}\\sum_{l=0}^{\\infty}\\sqrt{2l+1}i^{l}Y_{l0}(\\theta)j_{l}(kr)\\\\ \u0026 = \\sum_{l = 0}^{\\infty}(2l + 1)i^{l}P_{l}(\\cos{\\theta})j_{l}(kr)\\\\ \u0026 = \\sqrt{4\\pi}\\sum_{l = 0}^{\\infty}\\sqrt{2l + 1}i^{l}Y_{l0}\\frac{1}{2}\\left(h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr)\\right)\\\\ \u0026 \\approx\\sqrt{4\\pi}\\sum_{l = 0}^{\\infty}\\sqrt{2l + 1}i^{l}Y_{l0}(\\theta)\\frac{1}{2i}\\left(\\frac{e^{i\\left(kr-\\frac{l\\pi}{2}\\right)}}{kr} - \\frac{e^{-i\\left(kr - \\frac{l\\pi}{2}\\right)}}{kr}\\right) \\end{aligned} $$\n第一项和第二项分别为发散和汇聚的球面波.\n对于散射波函数, 在散射区域外可以写出\n$$ \\psi(\\mathbf{r}) = \\sqrt{4\\pi}\\sum_{l = 0}^{\\infty}\\sqrt{2l + 1}i^{l}Y_{l0}(\\theta)\\frac{1}{2}\\left(\\hat{A}_{l}h_{l}^{(1)}(kr) + \\hat{B}_{l}h_{l}^{(2)}(kr)\\right) $$\n使用远场近似:\n$$ \\psi(\\mathbf{r}) = \\sqrt{4\\pi}\\sum_{l = 0}^{\\infty}\\sqrt{2l + 1}i^{l}Y_{l0}(\\theta)\\frac{1}{2i}\\left(\\hat{A}_{l}\\frac{e^{i\\left(kr - \\frac{l\\pi}{2}\\right)}}{kr} - \\hat{B}_{l}\\frac{e^{-i\\left(kr-\\frac{l\\pi}{2}\\right)}}{kr}\\right) $$\n$$ \\psi_{\\text{scatt}} = \\psi(\\mathbf{r}) - e^{ikz}\\approx f(\\theta,\\phi)\\frac{e^{ikr}}{r} $$ 这个球面波发散.\n所以 $\\hat{B}_{l} = 1$.\n入射波函数为\n$$ \\begin{aligned} (\\psi_{l})_{\\text{in}} \u0026 = \\left(h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr)\\right)Y_{l0}(\\theta,\\phi)\\\\ \u0026 \\approx\\frac{1}{i}\\left(\\frac{e^{i\\left(kr - \\frac{l\\pi}{2}\\right)}}{kr} - \\frac{e^{-i\\left(kr - \\frac{l\\pi}{2}\\right)}}{kr}\\right)Y_{l0}(\\theta,\\phi) \\end{aligned} $$\n在散射区域外面, 入射波和散射波的总和为\n$$ \\psi_{l} = \\left(\\hat{A}_{l}h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr)\\right)Y_{l0}(\\theta,\\phi)\\rightarrow \\frac{1}{i}\\left(\\hat{A}_{l}\\frac{e^{i\\left(kr-\\frac{l\\pi}{2}\\right)}}{kr} - \\frac{e^{-i\\left(kr-\\frac{l\\pi}{2}\\right)}}{kr}\\right)Y_{l0}(\\theta,\\phi) $$\n现在根据波函数来计算概率流:\n$$ \\mathbf{S}_{\\text{tot}} = \\frac{\\hbar}{m}\\text{Im}(\\psi_{l}^{*}\\nabla\\psi_{l}) = \\frac{\\hbar\\hat{r}}{mkr^{2}}\\left(|\\hat{A}_{l}|^{2} - 1\\right)|Y_{l0}(\\theta,\\phi)|^{2} + \\mathcal{O}\\left(\\frac{1}{r^{3}}\\right) $$\n$|Y_{l0}(\\theta,\\phi)|^{2}$ 恒正.\n为了满足概率流守恒, 也就是定态下, 使半径足够大, 球面的通量为 $0$:\n$$ \\oint\\mathbf{S}_{\\text{tot}}\\cdot\\mathrm{d}\\mathbf{a} = \\iint r^{2}\\mathrm{d}\\Omega\\frac{\\hbar}{mkr^{2}}\\left(|\\hat{A}_{l}|^{2} - 1\\right)Y_{l0}(\\theta,\\phi)^{2} = \\frac{\\hbar}{mk}\\left(|\\hat{A}_{l}|^{2} - 1\\right) = 0\\\\ \\Downarrow\\\\ |\\hat{A}_{l}| = 1 \\Rightarrow \\hat{A}_{l} = e^{2i\\delta_{l}} $$\n$\\delta_{l}$ 即为 相移.\n将 $\\hat{A}_{l} = e^{2i\\delta_{l}}$ 和 $\\hat{B} = 1$ 代入到 $\\psi_{l}$ 中, 得到\n$$ \\begin{aligned} \\psi_{l} \u0026 = \\left(e^{2i\\delta_{l}}h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr)\\right)Y_{l0}(\\theta,\\phi)\\\\ \u0026 \\rightarrow \\frac{1}{i}\\left(\\frac{e^{i\\left(kr-\\frac{l\\pi}{2} + 2\\delta_{l}\\right)}}{kr} - \\frac{e^{-i\\left(kr-\\frac{l\\pi}{2}\\right)}}{kr}\\right)Y_{l0}(\\theta,\\phi) \\end{aligned} $$\n对于平面波的入射波函数, 在散射区域外的总波函数为\n$$ \\psi(\\mathbf{r}) = \\sqrt{4\\pi}\\sum_{l = 0}^{\\infty}\\sqrt{2l + 1}i^{l}Y_{l0}(\\theta)\\frac{1}{2}\\left(e^{2i\\delta_{l}}h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr)\\right) $$\n采用远场近似, 即有\n$$ \\psi(\\mathbf{r}) = \\sqrt{4\\pi}\\sum_{l = 0}^{\\infty}\\sqrt{2l + 1}i^{l}Y_{l0}(\\theta)\\frac{1}{2i}\\left(\\frac{e^{i\\left(kr-\\frac{l\\pi}{2} + 2\\delta_{l}\\right)}}{kr} - \\frac{e^{-i\\left(kr - \\frac{l\\pi}{2}\\right)}}{kr}\\right) $$\n和 $$ e^{ikz} \\approx \\sqrt{4\\pi}\\sum_{0}^{\\infty}\\sqrt{2l + 1}i^{l}Y_{l0}(\\theta)\\frac{1}{2i}\\left(\\frac{e^{i\\left(kr-\\frac{l\\pi}{2}\\right)}}{kr} - \\frac{e^{-i\\left(kr-\\frac{l\\pi}{2}\\right)}}{kr}\\right) $$ 相比, 发散球面波的系数发生了相移 $e^{2i\\delta_{l}}$.\n即有\n$$ \\begin{aligned} \\frac{f(\\theta,\\phi)}{r}e^{ikr} \u0026 = f(\\mathbf{r}) - e^{ikz}\\\\ \u0026 = \\sqrt{4\\pi}\\sum_{l=0}^{\\infty}\\sqrt{2l + 1}i^{l}Y_{l0}(\\theta)\\frac{1}{2i}\\left[\\frac{e^{i\\left(kr-\\frac{l\\pi}{2} + 2\\delta_{l}\\right)}}{kr} - \\frac{e^{i\\left(kr-\\frac{l\\pi}{2}\\right)}}{kr}\\right]\\\\ \u0026 = \\sqrt{4\\pi}\\sum_{l=0}^{\\infty}\\sqrt{2l + 1}Y_{l0}(\\theta)\\frac{1}{2i}\\left[\\frac{e^{i\\left(kr + 2\\delta_{l}\\right)}}{kr} - \\frac{e^{ikr}}{kr}\\right]\\\\ \u0026 = \\frac{\\sqrt{4\\pi}}{k}\\sum_{l=0}^{\\infty}\\sqrt{2l + 1}Y_{l0}(\\theta)e^{i\\delta_{l}}\\sin{(\\delta_{l})}\\frac{e^{ikr}}{r} \\end{aligned} $$\n散射振幅的球谐函数展开为\n$$ f(\\theta) = \\frac{\\sqrt{4\\pi}}{k}\\sum_{l=0}^{\\infty}\\sqrt{2l + 1}e^{i\\delta_{l}}\\sin{(\\delta_{l})}Y_{l0}(\\theta)\\\\ = \\frac{1}{k}\\sum_{l = 0}^{\\infty}(2l + 1)e^{i\\delta_{l}}\\sin{(\\delta_{l})}P_{l}(\\theta)\\\\ = \\frac{1}{k}\\sum_{l = 0}^{\\infty}(2l + 1)P_{l}(\\theta)\\frac{e^{2i\\delta_{l}} - 1}{2i} $$\n所以总散射截面:\n$$ \\sigma = \\int\\mathrm{d}\\sigma = \\int\\mathrm{d}\\Omega\\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega} = 2\\pi\\int_{0}^{\\pi}|f(\\theta)|^{2}\\mathrm{d}(\\sin{\\theta})\\mathrm{d}\\theta $$\n勒让德多项式的正交性\n$$ \\int_{-1}^{1}\\mathrm{d}x P_{l}(x)P_{l’}(x) = \\frac{2\\delta_{ll’}}{2l + 1} $$\n所以总散射截面的表达式化为\n$$ \\sigma = \\frac{4\\pi}{k^{2}}\\sum_{l=0}^{\\infty}(2l + 1)\\sin^{2}\\delta_{l} $$\n前进方向的散射振幅为\n$$ f_{\\theta = 0} = \\frac{1}{k}\\sum_{l = 0}^{\\infty}(2l + 1)e^{i\\delta_{l}}\\sin{(\\delta_{l})} $$\n其虚部为\n$$ \\text{Im}f_{\\theta=0} = \\frac{1}{k}\\sum_{l}^{\\infty}(2l + 1)\\sin^{2}{(\\delta_{l})} $$\n对比总散射截面的表达式, 将上式代入:\n$$ \\sigma = \\frac{4\\pi}{k}\\text{Im}f_{\\theta=0} $$\n这就是 光学定理.\n对于总散射截面, 求和可以理解为多个分波:\n$$ \\sigma = \\frac{4\\pi}{k^{2}}\\sum_{l=0}^{\\infty}(2l + 1)\\sin^{2}\\delta_{l} = \\sum_{l = 0}^{\\infty}\\sigma_{l} $$\n标记为 $l$ 的分波, 其上限为 $$ \\sigma_{l}^{\\text{max}} = \\frac{4\\pi(2l + 1)}{k^{2}} $$ 这个上限被称作幺正限制.\n第一类球贝塞尔函数的近场近似: $$ (ka\\ll 1)\\quad j_{l}(\\rho)\\approx\\frac{\\rho^{l}}{(2l + 1)!!},\\quad\\rho\\ll 1 $$ 取对数, 并且使用斯特林公式: $$ \\log{j_{l}(\\rho)} \\approx l\\log{\\frac{\\rho}{l}} $$ 对于大角动量, 即 $\\rho \u003c l$ 区域下, $\\log{j_{l}(\\rho)}$ 将是指数减小, 所以 $\\rho = ka \u003c l$ 下, 势能对入射波函数的影响也是指数减小, 从而基本没有散射.\n在散射区域外面, 径向波函数为\n$$ R_{l}(r) = e^{i\\delta_{l}}h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr) = 2e^{i\\delta_{l}}[\\cos{(\\delta_{l})}j_{l}(kr) - \\sin{(\\delta_{l})}n_{l}(kr)] $$\n其相位是一个常数, 并不随着 $r$ 变化, 并且\n$$ \\tan{\\delta_{l}} = -\\frac{c_{n_{l}}}{c_{j_{l}}} $$\n也就是说, 如果散射区域外的总径向波函数的形式为\n$$ R_{l}(r) = A_{l}j_{l}(kr) + B_{l}n_{l}(kr) $$\n那么\n$$ \\tan{\\delta_{l}} = -\\frac{B_{l}}{A_{l}} $$\n所以为了确定相移, 只需要确定两个系数的比值即可.\n硬球散射 势能函数\n$$ V(\\mathbf{r}) = \\begin{cases} \\infty,\u0026\\quad r\\leq a\\\\ 0,\u0026\\quad r \u003e a \\end{cases} $$\n中间区域和辐射区域的径向波函数为\n$$ R_{l}(r) = A_{l}j_{l}(kr) + B_{l}n_{l}(kr) $$\n边界条件为波函数在球面上处处为 $0$:\n$$ R_{l}(a) = A_{l}j_{l}(ka) + B_{l}n_{l}(ka) = 0 $$\n所以相移可以由\n$$ \\tan{\\delta_{l}} = -\\frac{B_{l}}{A_{l}} = \\frac{j_{l}(ka)}{n_{l}(ka)}\\\\ \\sin^{2}\\delta_{l} = \\frac{\\tan^{2}\\delta_{l}}{1 + \\tan^{2}\\delta_{l}} = \\frac{j_{l}^{2}(ka)}{j_{l}^{2}(ka) + n_{l}^{2}(ka)} $$\n所以硬球散射的总散射截面化为\n$$ \\sigma = \\frac{4\\pi}{k^{2}}\\sum_{l}(2l + 1)\\frac{j_{l}^{2}(ka)}{j_{l}^{2}(ka) + n_{l}^{2}(ka)} $$\n球贝塞尔函数在低能极限 $ka\\ll 1$ 的渐进行为: $$ \\text{近场}\\rho\\ll 1: \\begin{cases} j_{l}(\\rho) \\approx \\frac{\\rho^{l}}{(2l + 1)!!}\\\\ n_{l}(\\rho) \\approx -\\frac{(2l - 1)!!}{\\rho^{l + 1}}\\gg j_{l}(\\rho) \\end{cases} $$\n$$ \\lim_{\\delta_{l}\\ll 1}\\delta_{l}\\approx\\frac{j_{l}(ka)}{n_{l}(ka)}\\approx-\\frac{(ka)^{2l + 1}}{(2l + 1)!!(2l -1)!!}, \\quad ka\\ll 1 $$\n因为 $ka$ 可以足够小, 所以将总截面展开 $ka$ 级数时只需要保留第一项:\n$$ \\sigma\\approx\\frac{4\\pi}{k^{2}}(ka)^{2} = 4\\pi a^{2} $$\n这就是总散射截面的低能极限, 是经典硬球散射总截面的四倍.\n相移一般公式 散射区域 $r \u003c a$ 内的波函数为 $R_{l}(r)$, 散射区域外的径向波函数则是由\n$$ R_{l}(r) = A_{l}j_{l}(kr) + B_{l}n_{l}(kr) $$\n给出, 波函数的连续性方程有\n$$ R_{l}(a) = A_{l}j_{l}(ka) + B_{l}n_{l}(ka)\\\\ aR_{l}’(a) = ka(A_{l}j_{l}’(ka) + B_{l}n_{l}’(ka)) $$\n引入标记\n$$ \\beta_{l} = \\frac{aR_{l}’(a)}{R_{l}(a)} $$\n即有\n$$ \\beta_{l} = ka\\frac{A_{l}j_{l}’(ka) + B_{l}n_{l}’(ka)}{A_{l}j_{l}(ka) + B_{l}n_{l}(ka)} = ka\\frac{j_{l}’(ka) - \\tan{\\delta_{l}}n_{l}’(ka)}{j_{l}(ka) - \\tan{\\delta_{l}}n_{l}(ka)} $$\n所以相移的值为\n$$ \\tan{\\delta_{l}} = \\frac{j_{l}(ka) - \\frac{ka}{\\beta_{l}}j_{l}’(ka)}{n_{l}(ka) - \\frac{ka}{\\beta}n_{l}’(ka)} $$\n如果要用 $\\beta_{l}$ 来表示因子 $e^{2i\\delta_{l}}$, 即有\n$$ \\begin{aligned} e^{2i\\delta_{l}} \u0026= -\\frac{ka(j_{l}’ - in_{l}’) - \\beta(j_{l} - in_{l})}{ka(j_{l}’ + in_{l}’) - \\beta(j_{l} + in_{l})}\\\\ \u0026= -\\left(\\frac{j_{l} - in_{l}}{j_{l} + in_{l}}\\right)\\left[\\frac{\\beta_{l} - ka\\left(\\frac{j_{l}’-in_{l}’}{j_{l}’ + in_{l}’}\\right)}{\\beta_{l}- ka\\left(\\frac{j_{l}’-in_{l}’}{j_{l}’ + in_{l}’}\\right)}\\right] \\end{aligned} $$\n后面的系数即为相移影响.\n玻恩近似 Intro 现在我们讨论更一般的情形, 即 $V(\\mathbf{r})$ 去除球对称性.\n波函数的远场近似为\n$$ \\psi(\\mathbf{r}) = e^{ikz} + \\psi_{\\text{scatt}} = e^{ikz} + \\frac{f(\\theta,\\phi)}{r}e^{ikr} $$\n$f(\\theta,\\phi)$ 为散射振幅.\n散射截面为\n$$ \\frac{\\mathrm{d}\\sigma(\\theta,\\phi)}{\\mathrm{d}\\Omega} = |f(\\theta,\\phi)|^{2} $$\n原本的薛定谔方程为\n$$ -\\frac{\\hbar^{2}}{2m}\\nabla^{2}\\psi + V(\\mathbf{r})\\psi = E\\psi,\\quad E\u003e 0 $$\n现在改写为\n$$ (\\nabla^{2} + k^{2})\\psi = U(\\mathbf{r})\\psi $$\n$$ k = \\frac{\\sqrt{2mE}}{\\hbar}, U(\\mathbf{r}) = \\frac{2mV(\\mathbf{r})}{\\hbar} $$\n我们并不能将上述方程写作 $$ \\psi = (\\nabla^{2} + k^{2})^{-1}U\\psi $$ 因为算符 $(\\nabla^{2} + k^{2})$ 具有 $0$ 本征值, 所以并不可逆.\n格林函数 亥姆霍兹方程:\n$$ (\\nabla^{2} + k^{2})G(\\mathbf{r}) = -\\delta(\\mathbf{r}) $$\n如果 $G(\\mathbf{r})$ 是该方程的解, 那么 $G(\\mathbf{r}) + e^{i\\mathbf{k}\\cdot\\mathbf{r}}$ 也是方程解. 这是因为 $e^{i\\mathbf{k}\\cdot\\mathbf{r}}$ 是该方程的齐次解.\n我们可以引入无穷小量 $\\epsilon \u003e 0$:\n$$ (\\nabla^{2} + k^{2} \\pm i\\epsilon)G^{\\pm}(\\mathbf{r}) = -\\delta(\\mathbf{r}) $$\n对 $G^{\\pm}(\\mathbf{r})$ 进行傅里叶变换, 即有\n$$ \\begin{aligned} G^{\\pm}(\\mathbf{r}) \u0026= \\int\\hat{G}^{\\pm}(\\mathbf{q})e^{i\\mathbf{q}\\cdot\\mathbf{r}}\\frac{\\mathrm{d}^{3}q}{(2\\pi)^{3}}\\\\ \\hat{G}^{\\pm}(\\mathbf{q}) \u0026= \\int G^{\\pm}(\\mathbf{r})e^{-i\\mathbf{q}\\cdot\\mathbf{r}}\\mathrm{d}^{3}r \\end{aligned} $$\n于是有变换后的添加小量参数 $\\epsilon$ 的薛定谔方程:\n$$ (-a^{2} + k^{2} \\pm i\\epsilon)\\hat{G}^{\\pm}(\\mathbf{q}) = -1\\\\ \\Downarrow\\\\ \\hat{G}^{\\pm}(\\mathbf{q}) = \\frac{-1}{-q^{2} + k^{2} \\pm i\\epsilon} $$\n算符 $(\\nabla^{2} + k^{2} \\pm i\\epsilon)$ 的本征函数为平面波, 本征值为 $-q^{2} + k^{2} \\pm i\\epsilon$. 我们引入的 $\\epsilon\u003e0$, 所以 算符 $(\\nabla^{2} + k^{2} \\pm i\\epsilon)$ 可逆.\n$G^{\\pm}(\\mathbf{r})$ 只与 $r = |\\mathbf{r}|$, 所以我们可以设 $\\mathbf{r} = r\\hat{z}$. 令 $\\mathbf{q} = (q,\\theta,\\varphi)$.\n球坐标的动量空间体微元为\n$$ \\int\\mathrm{d}^{3}q = \\int_{0}^{\\infty}q^{2}\\mathrm{d}q\\int_{0}^{\\pi}\\sin{\\theta}\\mathrm{d}\\theta\\int_{0}^{2\\pi}\\mathrm{d}\\varphi $$\n所以对 $e^{i\\mathbf{q}\\cdot\\mathbf{r}}$ 因子进行积分:\n$$ \\int e^{i\\mathbf{q}\\cdot\\mathbf{r}}\\mathrm{d}^{3}q = 2\\pi\\int_{0}^{\\infty}q^{2}\\mathrm{d}q\\int_{0}^{\\pi}e^{iqr\\cos{\\theta}}\\sin{\\theta}\\mathrm{d}\\theta\\\\ = 2\\pi\\int_{0}^{\\infty}q^{2}\\mathrm{d}q\\frac{1}{iqr}e^{iqru}|_{-1}^{+1} = 4\\pi\\int_{0}^{\\infty}\\frac{\\sin{qr}}{qr}q^{2}\\mathrm{d}q $$\n所以\n$$ G^{\\pm}(r) = \\frac{4\\pi}{(2\\pi)^{3}}\\int_{0}^{\\infty}\\frac{\\sin{qr}}{qr}\\frac{-1}{-q^{2} + k^{2} \\pm i\\epsilon}q^{2}\\mathrm{d}q\\\\ = \\frac{-1}{4\\pi^{2}r}\\int_{-\\infty}^{+\\infty}\\frac{q\\sin{(qr)}\\mathrm{d}q}{-q^{2}+k^{2}\\pm i\\epsilon} $$\n利用\n$$ \\frac{-1}{-q^{2} + k^{2} \\pm i\\epsilon} = \\frac{1}{[q-(k\\pm i\\epsilon)][q+(k\\pm i\\epsilon)]}\\\\ \\sin{(qr)} = -\\frac{i}{2}(e^{iqr} - e^{-iqr})\\\\ k^{\\pm} = k\\pm i\\epsilon $$\n就有\n$$ G^{\\pm}(r) = \\frac{-i}{8\\pi^{2}r}\\int_{-\\infty}^{+\\infty}\\frac{q(e^{iqr}-e^{-iqr})}{(q-k^{\\pm})(q+k^{\\pm})}\\mathrm{d}q\\\\ = \\frac{-i}{8\\pi^{2}r}\\left\\{\\int_{-\\infty}^{+\\infty}\\frac{qe^{iqr}\\mathrm{d}q}{(q-k^{\\pm})(q+k^{\\pm})} - \\int_{-\\infty}^{+\\infty}\\frac{qe^{-iqr}\\mathrm{d}q}{(q-k^{\\pm})(q + k^{\\pm})}\\right\\} $$\n留数定理\n函数 $F(z)$ 在 $\\mathbb{C}$ 内解析, 并且逆时针围绕点 $z_{0}$ 积分, 且 $F(z_{0})\\neq 0$, 即有\n$$ \\oint_{\\mathbb{C}}\\frac{F(z)}{z-z_{0}} = 2\\pi iF(z_{0}) $$\n我们借助上述定理进行求解.\n$G^{+}(r)$; $$ G^{+}(r) = \\frac{-i}{8\\pi^{2}r}\\left\\{\\int_{-\\infty}^{+\\infty}\\frac{qe^{iqr}\\mathrm{d}q}{(q-k^{+})(q+k^{+})} - \\int_{-\\infty}^{+\\infty}\\frac{qe^{-iqr}\\mathrm{d}q}{(q-k^{+})(q + k^{+})}\\right\\} $$\n先计算第一项积分. 现在取 $\\mathbb{C}$ 的上半平面作围道, 即有\n$$ \\begin{aligned} I_{1} \u0026= \\oint_{\\mathbb{C},\\text{Im}(q)\u003e0}\\frac{qe^{iqr}\\frac{1}{q + k^{+}}}{(q-k^{+})}\\mathrm{d}q\\\\ \u0026= (2\\pi i)\\frac{k^{+}e^{ik^{+}r}}{2k^{+}} = \\pi i e^{ik^{+}r}\\stackrel{\\epsilon\\rightarrow 0}{\\longrightarrow} \\pi i e^{ikr} \\end{aligned} $$\n同理\n$$ \\begin{aligned} I_{2} \u0026= \\oint_{\\mathbb{C},\\text{Im}(q)\u003c0}\\frac{qe^{-iqr}\\frac{1}{q - k^{+}}}{(q+k^{+})}\\mathrm{d}q\\\\ \u0026= -(2\\pi i)\\frac{-k^{+}e^{ik^{+}r}}{-2k^{+}} = -\\pi i e^{ik^{+}r}\\stackrel{\\epsilon\\rightarrow 0}{\\longrightarrow} -\\pi i e^{ikr} \\end{aligned} $$\n所以就有\n$$ G^{+}(r) = \\frac{-i}{8\\pi^{2}r}(I_{1} - I_{2}) = \\frac{1}{4\\pi r}e^{ikr} $$\n这就是向外传播的球面波.\n$$ \\lim_{k\\rightarrow 0}G^{+}(r) = \\frac{1}{4\\pi r},\\quad(\\text{即库伦势能}) $$\n同理, 我们计算 $G^{-}(r)$.\n$$ G^{-}(r) = \\frac{-i}{8\\pi^{2}r}\\left\\{\\int_{-\\infty}^{+\\infty}\\frac{qe^{iqr}\\mathrm{d}q}{(q-k^{-})(q + k^{-})} - \\int_{-\\infty}^{+\\infty}\\frac{qe^{-iqr}\\mathrm{d}q}{(q - k^{-})(q + k^{+})}\\right\\} $$\n第一个积分:\n$$ \\begin{aligned} I_{1} \u0026= \\oint_{\\mathbb{C},q \u003e 0}\\frac{qe^{iqr}\\frac{1}{q-k^{-}}}{q + k^{-}}\\mathrm{d}q\\\\ \u0026 = (2\\pi i)\\frac{k^{+}e^{-ik^{-}r}}{2k^{-}} = \\pi i e^{ik^{-}r}\\stackrel{\\epsilon\\rightarrow 0}{\\longrightarrow}\\pi ie^{-ikr} \\end{aligned} $$\n第二项积分:\n$$ \\begin{aligned} I_{2} \u0026= \\oint_{\\mathbb{C},q \u003c 0}\\frac{qe^{-iqr}\\frac{1}{q+k^{-}}}{q - k^{-}}\\mathrm{d}q\\\\ \u0026 = -(2\\pi i)\\frac{k^{+}e^{-ik^{-}r}}{2k^{-}} = -\\pi i e^{-ik^{-}r}\\stackrel{\\epsilon\\rightarrow 0}{\\longrightarrow}-\\pi ie^{-ikr} \\end{aligned} $$\n所以就有\n$$ G^{-}(r) = \\frac{-i}{8\\pi^{2}r}(I_{1} - I_{2}) = \\frac{e^{-ikr}}{4\\pi r} $$\n这是向中心汇聚的球面波.\n综上所述, 我们得到了亥姆霍兹的两个解:\n$$ G^{\\pm}(r) = \\frac{e^{\\pm ikr}}{4\\pi r} $$\n$G^{+}(r)$ 是向外传播的球面波, $G^{-}$ 是向心汇聚的球面波. 这个结果在 $\\epsilon\\rightarrow 0$ 的极限下仍然存在.\n我们先讨论最简单的线性组合情况, 即 $G^{+}(r) - G^{-}(r)$. 因为两个单独解都是方程的解, 所以两者的差也是方程的齐次解. 即有\n$$ (\\nabla^{2} + k^{2})[G^{+}(r) - G^{-}(r)] = 0 $$\n$G^{+}(r) - G^{-}(r)$ 除了原点和无穷远处, 都是解析的.\n$$ \\lim_{kr\\ll 1}(G^{+}(r) - G^{-}(r)) = \\lim_{kr\\ll 1}\\left[\\frac{1}{4\\pi r}\\left(e^{ikr} - e^{-ikr}\\right)\\right] = -\\frac{1}{4\\pi r}[2ikr + \\mathcal{o}(kr)^{3}] = -\\frac{ik}{2\\pi} + \\mathcal{o}(kr)^{2} $$\n所以,\n$$ \\forall\\alpha,\\quad G^{\\alpha}(r) = \\alpha G^{+}(r) + (1-\\alpha) G^{-}(r) $$\n也是方程的解, 即亥姆霍兹方程有无穷多的格林函数. 具体的选取需要根据具体的边界条件确定. 对于散射问题, 需要选择 $G^{\\alpha} = G^{+}(r)$, 因为只有向外传播的球面波才是被允许的.\n波恩级数 非齐次亥姆霍兹方程\n$$ (\\nabla^{2} + k^{2})\\psi(\\mathbf{r}) = -f(\\mathbf{r}) $$\n的解可以表示为积分\n$$ \\psi(\\mathbf{r}) = \\psi_{0}(\\mathbf{r}) - \\int G^{\\pm}(|\\mathbf{r} - \\mathbf{r}’|)f(\\mathbf{r}’)\\mathrm{d}^{3}\\mathbf{r}’ $$\n$\\psi_{0}(r)$ 是任意齐次解.\n$$ (\\nabla^{2} + k^{2})\\psi = \\color{red}{U(\\mathbf{r})\\psi}, \\quad k = \\frac{\\sqrt{2mE}}{\\hbar},\\quad U(\\mathbf{r}) = \\frac{2mV(\\mathbf{r})}{\\hbar^{2}} $$\n现在将 $\\color{red}{U(\\mathbf{r})\\psi}$ 作为已知函数从而使用非齐次亥姆霍兹方程的结论, 即有方程的形式解\n$$ \\psi(\\mathbf{r}) = e^{ikz} - \\frac{m}{2\\pi\\hbar^{2}}\\int\\frac{e^{ik|\\mathbf{r} - \\mathbf{r}’|}}{|\\mathbf{r} - \\mathbf{r}’|}V(\\mathbf{r}’)\\psi(\\mathbf{r}’)\\mathrm{d}^{3}\\mathbf{r}' $$\n齐次解选为 $e^{ikz}$ (入射平面波), 格林函数选为 $G^{+}(r)$ (向外传播), 上式化为\n$$ \\psi(\\mathbf{r}) = e^{ikz} - \\frac{m}{2\\pi\\hbar^{2}}\\int\\frac{e^{ik|\\mathbf{r}-\\mathbf{r}’|}}{|\\mathbf{r} - \\mathbf{r}’|}V(\\mathbf{r}’)\\psi(\\mathbf{r}’)\\mathrm{d}^{3}\\mathbf{r}' $$\n这并不是真正的解, 而是将薛定谔方程化为另一个等价的方程.\n引入积分算符 $\\hat{g}$, 用法为\n$$ \\hat{g}\\varphi(\\mathbf{r}) = \\int\\mathrm{d}^{3}\\mathbf{r}‘G(\\mathbf{r}-\\mathbf{r}’)U(\\mathbf{r}’)\\varphi(\\mathbf{r}’) $$\n所以形式解可以按照 $\\hat{g}$ 算子重写为\n$$ |\\psi\\rangle = |\\psi_{0}\\rangle - \\hat{g}|\\psi\\rangle $$\n所以进一步写出微扰级数\n$$ \\begin{aligned} |\\psi\\rangle \u0026= |\\psi_{0}\\rangle -\\hat{g}(|\\psi_{0}\\rangle - \\hat{g}|\\psi\\rangle)\\\\ \u0026 = |\\psi_{0}\\rangle - \\hat{g}|\\psi_{0}\\rangle + \\hat{g}\\hat{g}|\\psi_{0}\\rangle + \\dots\\\\ \u0026 = \\left(\\hat{I} + \\hat{g}\\right)^{-1}|\\psi_{0}\\rangle \\end{aligned} $$\n$\\hat{g}\\propto V$, 所以对 $\\hat{g}$ 展开就是对 $V$ 展开. 当 $V = 0$, $\\psi$ 退化为 $\\psi_{0}$, 即没有散射.\n一阶玻恩近似 即采用\n$$ |\\psi\\rangle = |\\psi_{0}\\rangle + \\hat{g}|\\psi_{0}\\rangle $$\n那么\n$$ \\begin{aligned} \\psi(\\mathbf{r}) \u0026= \\psi_{0}(\\mathbf{r}) - \\int G(\\mathbf{r} - \\mathbf{r}’)U(\\mathbf{r}’)\\psi_{0}(\\mathbf{r}’)\\mathrm{d}^{3}\\mathbf{r}’\\\\ \u0026=e^{ikz} - \\int\\mathrm{d}^{3}\\mathbf{r}’\\frac{e^{ik|\\mathbf{r}-\\mathbf{r}’|}}{4\\pi|\\mathbf{r}-\\mathbf{r}’|}U(\\mathbf{r}’)e^{ikz}\\\\ \u0026 = \\psi_{\\text{in}} + \\psi_{\\text{scatt}} \\end{aligned} $$\n所以散射波函数的一级玻恩近似为\n$$ \\psi_{\\text{scatt}} = -\\int\\mathrm{d}^{3}\\mathbf{r}’\\frac{e^{ik|\\mathbf{r}-\\mathbf{r}’|}}{4\\pi|\\mathbf{r}-\\mathbf{r}’|}U(\\mathbf{r}’)e^{ikz} $$\n$\\mathbf{r}$ 是测量散射截面的位置, $\\mathbf{r}’$ 是对势能积分的坐标.\n$$ \\lim_{r\\gg r’}|\\mathbf{r}-\\mathbf{r}’|^{2} = (\\mathbf{r}-\\mathbf{r}’)\\cdot(\\mathbf{r}-\\mathbf{r}’) = r^{2} + r’^{2} - 2\\mathbf{r}\\cdot\\mathbf{r}’\\approx r^{2}\\left(1 - \\frac{2\\mathbf{r}\\cdot\\mathbf{r}’}{r^{2}}\\right) $$\n对其开根号即有\n$$ |\\mathbf{r}-\\mathbf{r}’| = \\sqrt{r^{2}\\left(1 - \\frac{2\\mathbf{r}\\cdot\\mathbf{r}’}{r^{2}}\\right)}\\approx r\\left(1 - \\frac{\\mathbf{r}\\cdot\\mathbf{r}’}{r^{2}}\\right) = r - \\hat{r}\\cdot\\mathbf{r}’ $$\n定义出射波矢 $\\mathbf{k} = k\\hat{r}$, 入射波矢 $\\mathbf{k}’ = k\\hat{z}$. 即有\n$$ \\begin{aligned} e^{ik|r-r’|} \u0026\\approx e^{ik(r-\\hat{r}\\cdot\\mathbf{r}’)}\\approx e^{i(\\mathbf{k}\\cdot\\mathbf{r} - \\mathbf{k}\\cdot\\mathbf{r}’)} + \\mathcal{O}\\left(\\frac{1}{r}\\right)\\\\ e^{ikz} \u0026= e^{i\\mathbf{k}’\\cdot\\mathbf{r}}\\\\ \\frac{1}{|\\mathbf{r}-\\mathbf{r}’|} \u0026\\approx \\frac{1}{r} + \\mathcal{O}\\left(\\frac{1}{r^{2}}\\right) \\approx \\frac{1}{r} \\end{aligned} $$\n使用上述近似:\n$$ \\psi_{\\text{scatt}} = -\\int\\mathrm{d}^{3}\\mathbf{r}’\\frac{e^{i(\\mathbf{k}\\cdot\\mathbf{r} - \\mathbf{k}\\cdot\\mathbf{r}’)}}{4\\pi r}e^{i\\mathbf{k}\\cdot\\mathbf{r}’}U(\\mathbf{r}’) = -\\color{red}{\\frac{e^{ikr}}{r}}\\frac{m}{2\\pi\\hbar^{2}}\\int\\mathrm{d}^{3}\\mathbf{r}’e^{-i(\\mathbf{k}-\\mathbf{k’})\\cdot\\mathbf{r}’}V(\\mathbf{r}’) $$\n$$ \\psi_{\\text{scatt}} = \\color{red}{\\frac{e^{ikr}}{r}}f(\\theta,\\varphi) $$\n观察共有部分既可以得到散射振幅的表达式\n$$ f(\\theta,\\varphi) = -\\frac{m}{2\\pi\\hbar^{2}}\\int\\mathrm{d}^{3}\\mathbf{r}’ e^{-i(\\mathbf{k} - \\mathbf{k}’)\\cdot\\mathbf{r}’}V(\\mathbf{r}’) $$\n引入出射粒子的动量变化:\n$$ \\mathbf{q} = \\mathbf{k} - \\mathbf{k}’\\\\ |\\mathbf{q}| = |\\mathbf{k} - \\mathbf{k}’| = 2k\\sin{\\frac{\\theta}{2}} $$\n散射振幅中的积分式本身是一种傅里叶变换, 所以我们可以将其改写为\n$$ f(\\theta,\\varphi) = -\\frac{m}{2\\pi\\hbar^{2}}\\hat{V}(\\mathbf{q}) $$\n$\\theta,\\varphi$ 是出射动量 $\\mathbf{k}$ 的球坐标.\nYukawa 势和库伦势 Yukawa 势 $$ V(r) = -\\frac{\\beta}{r}e^{-\\mu r} $$\n先计算出势能的傅里叶变换:\n$$ \\hat{V}(\\mathbf{q}) = \\int\\mathrm{d}^{e}\\mathbf{r} e^{-i\\mathbf{q}\\cdot\\mathbf{r}} V(\\mathbf{r}) = \\frac{4\\pi\\beta}{\\mu^{2} + q^{2}} $$\n将该结果代入到散射振幅中, 即有\n$$ f(\\theta,\\varphi) = -\\frac{m}{2\\pi\\hbar^{2}}\\hat{V}(\\mathbf{q}) = -\\frac{2m\\beta}{\\hbar^{2}(\\mu^{2} + q^{2})} $$\n当 $\\mu\\rightarrow 0,\\beta\\rightarrow\\frac{eQ}{4\\pi\\epsilon_{0}}$, Yukawa 势能就会退化为库伦势能. ($e$ 为入射粒子的电荷, $Q$ 为散射源的电荷.) 能量为 $E = \\frac{\\hbar^{2}k^{2}}{2m}$.\n那么库伦散射的振幅化为\n$$ f(\\theta,\\varphi) = -\\frac{2meQ}{4\\pi\\epsilon_{0}\\hbar^{2}q^{2}} = -\\frac{2meQ}{16\\pi\\epsilon_{0}\\hbar^{2}k^{2}\\sin^{2}\\frac{\\theta}{2}} = -\\frac{eQ}{16\\epsilon_{0}E\\sin^{2}{\\frac{\\theta}{2}}} $$\n库伦势能的微分散射截面的一阶玻恩近似为\n$$ \\frac{\\mathrm{d}\\sigma}{\\mathrm{d}\\Omega} = |f|^{2} = \\left(\\frac{eQ}{16\\pi\\epsilon_{0}E\\sin^{2}\\frac{\\theta}{2}}\\right) $$\n和前面的系数差别不一样, 这里计算出来的结果和经典库伦势能给出的结果完全相同.\n",
+  "wordCount" : "5034",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2023/06/23/a4T9lEyt2JgNbr7.png","datePublished": "2023-06-23T00:18:23+08:00",
+  "dateModified": "2023-06-23T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/zh/posts/phy/qp/scattering-method/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "计算物理资料库",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/zh/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/zh/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/zh/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/zh/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/zh/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/zh/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/zh/posts/phy/qp/">➿ Quantum Physics</a></div>
+            <h1 class="post-title">
+                散射理论
+            </h1>
+            <div class="post-description">
+                在原子物理中我们学习过散射理论, 那么在量子力学中如何研究散射?
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>232312-23-120
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>5034字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>11分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/zh/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/zh/tags/quantum/" style="color: var(--secondary)!important;">quantum</a>
+                &nbsp;<a href="https://Muatyz.github.io/zh/tags/scatter/" style="color: var(--secondary)!important;">scatter</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2023/06/23/a4T9lEyt2JgNbr7.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%bb%8f%e5%85%b8%e6%95%a3%e5%b0%84%e7%90%86%e8%ae%ba" aria-label="经典散射理论">经典散射理论</a><ul>
+                        
+                <li>
+                    <a href="#intro" aria-label="Intro">Intro</a></li>
+                <li>
+                    <a href="#%e7%bb%8f%e5%85%b8%e7%a1%ac%e7%90%83%e6%a8%a1%e5%9e%8b" aria-label="经典硬球模型">经典硬球模型</a></li>
+                <li>
+                    <a href="#%e7%bb%8f%e5%85%b8%e5%8d%a2%e7%91%9f%e7%a6%8f%e6%95%a3%e5%b0%84" aria-label="经典卢瑟福散射">经典卢瑟福散射</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%87%8f%e5%ad%90%e6%95%a3%e5%b0%84%e7%90%86%e8%ae%ba" aria-label="量子散射理论">量子散射理论</a><ul>
+                        
+                <li>
+                    <a href="#%e8%83%8c%e6%99%af" aria-label="背景">背景</a></li>
+                <li>
+                    <a href="#%e5%ae%9a%e6%80%81%e8%96%9b%e5%ae%9a%e8%b0%94%e6%96%b9%e7%a8%8b%e7%9a%84%e6%b1%82%e8%a7%a3" aria-label="定态薛定谔方程的求解">定态薛定谔方程的求解</a></li>
+                <li>
+                    <a href="#%e6%a6%82%e7%8e%87%e6%b5%81%e4%b8%8e%e6%95%a3%e5%b0%84%e6%88%aa%e9%9d%a2" aria-label="概率流与散射截面">概率流与散射截面</a></li>
+                <li>
+                    <a href="#%e6%a6%82%e7%8e%87%e6%b5%81%e4%ba%a4%e5%8f%89%e9%a1%b9" aria-label="概率流交叉项">概率流交叉项</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%88%86%e6%b3%a2%e6%b3%95" aria-label="分波法">分波法</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8e%a8%e5%af%bc" aria-label="推导">推导</a></li>
+                <li>
+                    <a href="#%e7%a1%ac%e7%90%83%e6%95%a3%e5%b0%84" aria-label="硬球散射">硬球散射</a></li>
+                <li>
+                    <a href="#%e7%9b%b8%e7%a7%bb%e4%b8%80%e8%88%ac%e5%85%ac%e5%bc%8f" aria-label="相移一般公式">相移一般公式</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%8e%bb%e6%81%a9%e8%bf%91%e4%bc%bc" aria-label="玻恩近似">玻恩近似</a><ul>
+                        
+                <li>
+                    <a href="#intro-1" aria-label="Intro">Intro</a></li>
+                <li>
+                    <a href="#%e6%a0%bc%e6%9e%97%e5%87%bd%e6%95%b0" aria-label="格林函数">格林函数</a></li>
+                <li>
+                    <a href="#%e6%b3%a2%e6%81%a9%e7%ba%a7%e6%95%b0" aria-label="波恩级数">波恩级数</a></li>
+                <li>
+                    <a href="#%e4%b8%80%e9%98%b6%e7%8e%bb%e6%81%a9%e8%bf%91%e4%bc%bc" aria-label="一阶玻恩近似">一阶玻恩近似</a></li>
+                <li>
+                    <a href="#yukawa-%e5%8a%bf%e5%92%8c%e5%ba%93%e4%bc%a6%e5%8a%bf" aria-label="Yukawa 势和库伦势">Yukawa 势和库伦势</a><ul>
+                        
+                <li>
+                    <a href="#yukawa-%e5%8a%bf" aria-label="Yukawa 势">Yukawa 势</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="经典散射理论">经典散射理论<a hidden class="anchor" aria-hidden="true" href="#经典散射理论">#</a></h1>
+<h2 id="intro">Intro<a hidden class="anchor" aria-hidden="true" href="#intro">#</a></h2>
+<p>假设粒子从无穷远处入射, 方向为 $\hat{z}$, 动能为 $E$. $b$ 是粒子与 $z$ 轴的距离. 现在可以计算出射角度 $\theta$ 作为 $b$ 和 $E$ 的函数 $\theta(b,E)$.</p>
+<p>假定入射粒子流的能量 $E$ 和碰撞系数 $b$ 均匀, 那么入射横截面 $\mathrm{d}\sigma$ 有</p>
+<p>$$
+\mathrm{d}\sigma = b\color{red}{\mathrm{d}\phi}\mathrm{d}b
+$$</p>
+<p>立体角微分为</p>
+<p>$$
+\mathrm{d}\Omega = \sin{\theta}\mathrm{d}\theta\color{red}{\mathrm{d}\phi}
+$$</p>
+<p>对公共部分进行替换联立:</p>
+<p>$$
+\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega} = \frac{b}{\sin{\theta}}\left|\frac{\mathrm{d}b}{\mathrm{d}\theta}\right|
+$$</p>
+<p>这就是 <strong>微分散射截面</strong> 的定义.</p>
+<p>$\hat{S}_{\text{in}}$ 是入射粒子的流密度, $\hat{S}_{\text{scatt}}$ 是出射流密度. 两者都是矢量, 前者方向为 $\hat{z}$, 后者方向为 $\hat{r}$.</p>
+<p>单位时间内穿过横截面 $\mathrm{d}\sigma$ 的入射粒子数为 $\hat{S}_{\text{in}}\mathrm{d}\sigma$; 单位时间内穿过横截面 $r^{2}\mathrm{d}\Omega$ 的出射粒子数为 $\hat{S}_{\text{scatt}}r^{2}\mathrm{d}\Omega$.</p>
+<p>根据粒子数守恒可以导出</p>
+<p>$$
+\hat{S}_{\text{scatt}}r^{2}\mathrm{d}\Omega = \hat{S}_{\text{in}}\mathrm{d}\sigma
+$$</p>
+<p>所以微分散射截面可以写作</p>
+<p>$$
+\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\mathrm{d}\Omega = \frac{\hat{S}_{\text{scatt}}r^{2}\mathrm{d}\Omega}{\hat{S}_{\text{in}}} = \frac{\text{单位时间散射到}\mathrm{d}\Omega\text{内的粒子数}}{\text{单位时间入射到单位横截面内的粒子数}}
+$$</p>
+<p>所以总散射截面为</p>
+<p>$$
+\sigma = \int\mathrm{d}\sigma = \int\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\mathrm{d}\Omega
+$$</p>
+<p>如果散射势能 $V(\vec{r})$ 处处非 $0$, 那么所有入射粒子均被散射, 也就是说总散射截面将会无穷大.</p>
+<h2 id="经典硬球模型">经典硬球模型<a hidden class="anchor" aria-hidden="true" href="#经典硬球模型">#</a></h2>
+<p><img loading="lazy" src="https://s2.loli.net/2023/06/23/sSAhbOP5zdjG3U7.png" alt="经典硬球模型"  />
+</p>
+<blockquote>
+<p>硬球半径为 $R$, 只有 $b &lt; R$ 的粒子束部分才会被散射.</p>
+</blockquote>
+<p>$$
+b = R\sin{\alpha} = R\sin{\left(\frac{\pi}{2}-\frac{\theta}{2}\right)} = R\cos{\frac{\theta}{2}}
+$$</p>
+<p>所以微分散射截面为</p>
+<p>$$
+\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega} = \frac{R^{2}\cos{\left(\frac{\theta}{2}\right)}\sin{\left(\frac{\theta}{2}\right)}}{2\sin{\theta}} = \frac{R^{2}}{4}
+$$</p>
+<p>对其积分即有总散射截面:</p>
+<p>$$
+\sigma = \iint\sin{\theta}\mathrm{d}\theta\mathrm{d}\phi\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega} = \pi R^{2}
+$$</p>
+<p>这正是硬球的最大横截面面积. 这是一个纯粹的几何问题.</p>
+<h2 id="经典卢瑟福散射">经典卢瑟福散射<a hidden class="anchor" aria-hidden="true" href="#经典卢瑟福散射">#</a></h2>
+<blockquote>
+<p>散射势能</p>
+<p>$$
+V(r) = \frac{q_{1}q_{2}}{4\pi\epsilon_{0}r}
+$$</p>
+</blockquote>
+<p>经典力学推导出</p>
+<p>$$
+2bE = \frac{q_{1}q_{2}}{4\pi\epsilon_{0}}\cot{\left(\frac{\theta}{2}\right)}
+$$</p>
+<p>微分散射截面</p>
+<p>$$
+\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega} = \left(\frac{q_{1}q_{2}}{16\pi\epsilon_{0}E\sin^{2}{\left(\frac{\theta}{2}\right)}}\right)^{2}
+$$</p>
+<p>取小角度近似 $(\theta\ll 1)$, 将会有 $\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\approx\theta^{-4}$, 所以总散射截面:</p>
+<p>$$
+\sigma = \int\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\mathrm{d}\Omega\approx\int\theta^{-4}\sin{\theta}\mathrm{d}\theta\mathrm{d}\phi \rightarrow\infty
+$$</p>
+<h1 id="量子散射理论">量子散射理论<a hidden class="anchor" aria-hidden="true" href="#量子散射理论">#</a></h1>
+<h2 id="背景">背景<a hidden class="anchor" aria-hidden="true" href="#背景">#</a></h2>
+<p>量子力学中考虑的散射, 其物理图像应当如何考虑? 一个波包从无穷远处入射, 并且与散射源相互作用, 最后出射到无穷远.</p>
+<p>求解波函数的边界条件为粒子从无穷远处以平面波入射, 并且以球面波入射到无穷远. 这正是入射粒子流的稳态情况.</p>
+<p>下面的讨论均为 <strong>不含时</strong> 的散射.</p>
+<h2 id="定态薛定谔方程的求解">定态薛定谔方程的求解<a hidden class="anchor" aria-hidden="true" href="#定态薛定谔方程的求解">#</a></h2>
+<p>$$
+\left(-\frac{\hbar^{2}}{2m}\nabla^{2} + V(\mathbf{r})\right)\psi(\mathbf{r}) = E\psi(\mathbf{r})
+$$</p>
+<p>假定无穷远处势能为 $0$, 粒子动量为 $\hbar\mathbf{k}$, 因此</p>
+<p>$$
+E = \frac{\hbar^{2}\mathbf{k}^{2}}{2m},\quad k = \frac{2mE}{\hbar}
+$$</p>
+<p>为了便于研究, 势能只有在 $r&lt; a$ 区域非零, 即 <strong>散射区域</strong>, 而 <strong>中间区域</strong> 势能为 $0$. 最外面的 <strong>辐射区域</strong> 中, 粒子的角动量可以忽略.</p>
+<p>因此有</p>
+<p>$$
+-\frac{\hbar^{2}}{2m}\nabla^{2}\psi(\mathbf{r}) = E\psi(\mathbf{r})
+$$</p>
+<p>波函数可以展开为球谐函数的级数:</p>
+<p>$$
+\psi(\mathbf{r}) = \sum_{l,m}\frac{u_{l}(r)}{r}c_{lm}Y_{lm}(\theta,\phi)
+$$</p>
+<p>我们可以去粒子入射方向为 $\hat{z}$, 所以在势能具有求对称性的情况下, 总波函数将会有 $\hat{z}$ 轴的对称性, 即对于 $m\neq 0$ 的项均为 $0$.</p>
+<p>使用分离变量法可以得到</p>
+<p>散射区域的径向方程:</p>
+<p>$$
+\left(-\frac{\mathrm{d}^{2}}{\mathrm{d}r^{2}} + \frac{l(l + 1)}{r^{2}} + \frac{2mV(r)}{\hbar^{2}}\right)u_{l}(r) = k^{2}u_{l}(r)
+$$</p>
+<p>中间区域的径向波函数:</p>
+<p>$$
+\left(-\frac{\mathrm{d}^{2}}{\mathrm{d}r^{2}} + \frac{l(l + 1)}{2}\right)u_{l}(r) = k^{2}u_{l}(r)
+$$</p>
+<p>为了对表达式进行简化, 我们可以引入标记 $\rho = kr$, 将上面方程改写为</p>
+<p>$$
+\begin{aligned}
+\left(-\frac{\mathrm{d}^{2}}{\mathrm{d}\rho^{2}} + \frac{l(l + 1)}{\rho^{2}}\right)u_{l}(\rho) &amp;= u_{l}(\rho)\\
+\left(-\frac{1}{\rho}\frac{\mathrm{d}^{2}}{\mathrm{d}\rho^{2}}\rho + \frac{l(l + 1)}{\rho^{2}}\right)R_{l}(r) &amp;= R_{l}(r)
+\end{aligned}
+$$</p>
+<p>根据常微分实方程相关结论, 可以使用通解:</p>
+<p>$$
+u_{l}(\rho) = A_{l}\rho j_{l}(\rho) + B_{l}\rho n_{l}(\rho)
+$$</p>
+<p>换为原本的 $r$ 变量:</p>
+<p>$$
+u_{l}(\color{red}{r}) = A_{l} \color{red}{r}j_{l}(k\color{red}{r}) + B_{l} \color{red}{r} n_{l}(k\color{red}{r})
+$$</p>
+<blockquote>
+<p>$j_{l}(x), n_{l}(x)$ 分别为第一类球贝塞尔函数和第二类球贝塞尔函数. 其近场和远场的渐进行为是
+$$
+\rho\ll 1(\text{近场}):\begin{cases}
+j_{l}(\rho)\approx\frac{\rho^{l}}{(2l + 1)!!}\\
+n_{l}(\rho)\approx -\frac{(2l - 1)!!}{\rho^{l + 1}}
+\end{cases}\\
+\rho\gg 1(\text{远场}):\begin{cases}
+j_{l}(\rho)\approx\frac{\sin{\left(\rho-\frac{l\pi}{2}\right)}}{\rho}\\
+n_{l}(\rho)\approx-\frac{\cos{\left(\rho - \frac{l\pi}{2}\right)}}{\rho}
+\end{cases}
+$$</p>
+<p>原点处, $j_{l}(\rho)\rightarrow 0, n_{l}(\rho)\rightarrow\infty$</p>
+</blockquote>
+<p>在辐射区域, 即远场近似, 忽略角动量项:</p>
+<p>$$
+-\frac{\mathrm{d}^{2}}{\mathrm{d}\rho^{2}}u_{l}(\rho) = u_{l}(\rho)
+$$</p>
+<blockquote>
+<p><strong>Hankel 函数</strong></p>
+<p>球贝塞尔函数可以写作球 Hankel 函数的线性组合:
+$$
+h_{l}^{(1)}(\rho) = j_{l}(\rho) + i n_{l}(\rho)\\
+h_{l}^{(2)}(\rho) = j_{l}(\rho) - i n_{l}(\rho)
+$$</p>
+</blockquote>
+<p>球 Hankel 函数在远场的渐进行为:</p>
+<p>$$
+\begin{aligned}
+\text{出射球面波:}h_{l}^{(1)}(\rho) \approx (-i)^{l+1}\frac{e^{i\rho}}{\rho} &amp;= \frac{1}{i}\frac{e^{i\left(\rho-\frac{l\pi}{2}\right)}}{\rho}\\
+\text{入射球面波:}h_{l}^{(2)}(\rho) \approx i^{l + 1}\frac{e^{-i\rho}}{\rho} &amp;=-\frac{1}{i}\frac{e^{-i\left(\rho - \frac{l\pi}{2}\right)}}{\rho}
+\end{aligned}
+$$</p>
+<p>径向波函数重新写为</p>
+<p>$$
+u_{l}(\rho) = A_{l}&rsquo;\rho h_{l}^{(1)} + B_{l}&rsquo;\rho h_{l}^{(2)}(\rho)
+$$</p>
+<p>的形式.</p>
+<p>在辐射区域使用远场近似:</p>
+<p>$$
+\psi(\mathbf{r})\approx e^{ikz} + \sum_{l,m}\left(A_{l}&rsquo;\frac{e^{i\rho}}{\rho} + B_{l}&rsquo;\frac{e^{-i\rho}}{\rho}\right)c_{lm}Y_{lm}(\theta,\phi)
+$$</p>
+<blockquote>
+<p>第一项是 <strong>入射平面波</strong>, 第二项是 <strong>散射球面波</strong>.</p>
+</blockquote>
+<p>我们也可以将入射波按照同样的方式进行 Hankel 波函数展开, 但是没有这个必要.</p>
+<blockquote>
+<p>因为第二项的运动应该是由散射中心向无穷远处运动, 这个与向中心汇聚的入射球面波的物理过程不符合.</p>
+</blockquote>
+<p>在辐射区域, 波函数的远场近似为</p>
+<p>$$
+\lim_{r\rightarrow\infty}\psi(\mathbf{r}) = \psi_{\text{in}} + \psi_{\text{scatt}} = e^{ikz} + f(\theta,\phi)\frac{e^{ikr}}{r}
+$$</p>
+<blockquote>
+<p>$$
+\begin{aligned}
+\text{入射平面波:}\psi_{\text{in}} &amp;= e^{ikz}\\
+\text{散射球状波:}\psi_{\text{scatt}} &amp;= f(\theta,\phi)\frac{e^{ikr}}{r}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>$f(\theta,\phi)$ 是散射振幅:
+$$
+f(\theta,\phi) = \sum_{l,m}k^{-1}A_{l}&lsquo;c_{lm}Y_{lm}(\theta,\phi)
+$$</p>
+</blockquote>
+</blockquote>
+<p>薛定谔方程具有时间对称性, 所以原解的复共轭</p>
+<p>$$
+\lim_{r\rightarrow\infty}\psi^{*} = e^{-ikz} + f^{*}(\theta,\phi)\frac{e^{-ikr}}{r}
+$$</p>
+<p>但是这个解无法在实验上真正观察到, 因为我们只能测量局部的物理量或者散射实验中的某些特定角度, 而无法玩确定波函数的形式.</p>
+<h2 id="概率流与散射截面">概率流与散射截面<a hidden class="anchor" aria-hidden="true" href="#概率流与散射截面">#</a></h2>
+<blockquote>
+<p><strong>概率流</strong></p>
+<p>$$
+\mathbf{S} = \frac{\hbar}{m}\text{Im}\left(\psi^{*}\nabla\psi\right)
+$$</p>
+</blockquote>
+<p>在定态中, 概率流满足</p>
+<p>$$
+\nabla\cdot\mathbf{S} = 0
+$$</p>
+<p>将远场近似的波函数代入到概率流的表达式:</p>
+<p>$$
+\begin{aligned}
+\mathbf{S} &amp;= \frac{\hbar}{m}\text{Im}\left[\left(\psi^{*}_{\text{in}} + \psi^{*}_{\text{scatt}}\right)\nabla\left(\psi_{\text{in}} + \psi_{\text{scatt}}\right)\right]\\
+&amp; = \frac{\hbar}{m}\text{Im}\left(\psi^{*}_{\text{in}}\nabla\psi_{\text{in}}\right) + \frac{\hbar}{m}\text{Im}\left(\psi^{*}_{\text{scatt}}\nabla\psi_{\text{scatt}}\right) + \left(\text{交叉项}\right)
+\end{aligned}
+$$</p>
+<blockquote>
+<p>第一项是入射波的概率流, 第二项是散射波的概率流.</p>
+</blockquote>
+<p>由于实验中入射光的宽度有限, 所以交叉项在实验中无法被观测到. 所以我们可以这样处理: **总概率流是入射与散射的线性叠加.</p>
+<p>入射概率流为</p>
+<p>$$
+\mathbf{S}_{\text{in}} = \frac{\hbar}{m}\text{Im}\left(e^{-ikz}\nabla e^{ikz}\right) = \frac{\hbar k}{m}\hat{z} = v\hat{z}
+$$</p>
+<blockquote>
+<p>$v = \frac{\hbar k}{m}$, 为入射波的速度. 入射概率流的大小就是速度, 方向为 $\hat{z}$.</p>
+</blockquote>
+<p>Nabla 算子的球坐标下的表示为</p>
+<p>$$
+\nabla = \hat{r}\frac{\partial }{\partial r} + \frac{\hat{\theta}}{r}\frac{\partial }{\partial\theta} + \frac{\hat{\varphi}}{r\sin{\theta}}\frac{\partial }{\partial\varphi}
+$$</p>
+<p>所以散射概率流为</p>
+<p>$$
+\mathbf{S}_{\text{scatt}} = \frac{\hbar}{m}\text{Im}\left[\frac{1}{r}e^{-ikr}f^{*}(\theta,\varphi)\nabla\frac{1}{r}e^{ikr}f(\theta,\varphi)\right]
+$$</p>
+<p>辐射区域内, 因为远场近似即有 $\frac{1}{r}$ 是小量.</p>
+<p>只取 $\frac{1}{r}$ 的最低阶:</p>
+<p>$$
+\nabla\frac{1}{r}e^{ikr}f(\theta,\varphi) = \frac{ik\hat{r}}{r}e^{ikr}f(\theta,\varphi) + \mathcal{O}\left(\frac{1}{r^{2}}\right)
+$$</p>
+<p>所以将上述结果重新代入到散射概率流中:</p>
+<p>$$
+\begin{aligned}
+\mathbf{S}_{\text{scatt}} &amp;\approx \frac{\hbar}{m}\text{Im}\left\{\frac{1}{r}e^{-ikr}f^{*}\frac{ik\hat{r}}{r}e^{ikr}f\right\}\\
+&amp; = \frac{\hbar k}{m}\frac{\hat{r}}{r^{2}}|f|^{2} + \mathcal{O}\left(\frac{1}{r^{3}}\right)\\
+&amp; = \frac{\hbar k|f|^{2}}{mr^{2}}\hat{r} + \mathcal{O}\left(\frac{1}{r^{3}}\right)
+\end{aligned}
+$$</p>
+<p>单位时间内穿过立体角 $\mathrm{d}\Omega$ 的被散射粒子数:</p>
+<p>$$
+\mathbf{S}_{\text{scatt}}\cdot\mathrm{d}\mathbf{\sigma} = \frac{\hbar k|f|^{2}}{mr^{2}}r^{2}\mathrm{d}\Omega = \frac{\hbar k|f|^{2}}{m}\mathrm{d}\Omega
+$$</p>
+<p>单位时间穿过单位横截面的入射粒子数为</p>
+<p>$$
+\mathbf{S}_{\text{in}}\cdot\hat{z} = \frac{\hbar k}{m}
+$$</p>
+<p>将上述讨论代入到经典的散射理论中:</p>
+<p>$$
+\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}(\theta,\varphi) = \frac{|\mathbf{S}_{\text{scatt}}\cdot\mathrm{d}\mathbf{a}|}{|\mathbf{S}_{\text{in}}\cdot\hat{z}|} = |f(\theta,\varphi)|^{2}
+$$</p>
+<p>总散射截面即为上式对立体角求积分:</p>
+<p>$$
+\sigma = \int\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}(\theta,\varphi)\mathrm{d}\Omega
+$$</p>
+<h2 id="概率流交叉项">概率流交叉项<a hidden class="anchor" aria-hidden="true" href="#概率流交叉项">#</a></h2>
+<p>$$
+\begin{aligned}
+\left(\text{交叉项}\right) &amp;= \frac{\hbar}{m}\text{Im}\left[e^{-ikz}\nabla\frac{f}{r}e^{ikr} + e^{ikz}\nabla\frac{f^{*}}{r}e^{-ikr}\right]\\
+&amp; = \frac{\hbar}{m}\text{Im}\left[e^{-ikz}\frac{f}{r}e^{ikr}ik\hat{r} + e^{ikz}\frac{f^{*}}{r}e^{-ikr}(-ik)\hat{r}\right]
+\end{aligned}
+$$</p>
+<h1 id="分波法">分波法<a hidden class="anchor" aria-hidden="true" href="#分波法">#</a></h1>
+<h2 id="推导">推导<a hidden class="anchor" aria-hidden="true" href="#推导">#</a></h2>
+<blockquote>
+<p><strong>瑞利公式</strong>
+$$
+\begin{aligned}
+e^{ikz} &amp; = \sqrt{4\pi}\sum_{l=0}^{\infty}\sqrt{2l+1}i^{l}Y_{l0}(\theta)j_{l}(kr)\\
+&amp; = \sum_{l = 0}^{\infty}(2l + 1)i^{l}P_{l}(\cos{\theta})j_{l}(kr)\\
+&amp; = \sqrt{4\pi}\sum_{l = 0}^{\infty}\sqrt{2l + 1}i^{l}Y_{l0}\frac{1}{2}\left(h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr)\right)\\
+&amp; \approx\sqrt{4\pi}\sum_{l = 0}^{\infty}\sqrt{2l + 1}i^{l}Y_{l0}(\theta)\frac{1}{2i}\left(\frac{e^{i\left(kr-\frac{l\pi}{2}\right)}}{kr} - \frac{e^{-i\left(kr - \frac{l\pi}{2}\right)}}{kr}\right)
+\end{aligned}
+$$</p>
+<blockquote>
+<p>第一项和第二项分别为发散和汇聚的球面波.</p>
+</blockquote>
+</blockquote>
+<p>对于散射波函数, 在散射区域外可以写出</p>
+<p>$$
+\psi(\mathbf{r}) = \sqrt{4\pi}\sum_{l = 0}^{\infty}\sqrt{2l + 1}i^{l}Y_{l0}(\theta)\frac{1}{2}\left(\hat{A}_{l}h_{l}^{(1)}(kr) + \hat{B}_{l}h_{l}^{(2)}(kr)\right)
+$$</p>
+<p>使用远场近似:</p>
+<p>$$
+\psi(\mathbf{r}) = \sqrt{4\pi}\sum_{l = 0}^{\infty}\sqrt{2l + 1}i^{l}Y_{l0}(\theta)\frac{1}{2i}\left(\hat{A}_{l}\frac{e^{i\left(kr - \frac{l\pi}{2}\right)}}{kr} - \hat{B}_{l}\frac{e^{-i\left(kr-\frac{l\pi}{2}\right)}}{kr}\right)
+$$</p>
+<blockquote>
+<p>$$
+\psi_{\text{scatt}} = \psi(\mathbf{r}) - e^{ikz}\approx f(\theta,\phi)\frac{e^{ikr}}{r}
+$$
+这个球面波发散.</p>
+</blockquote>
+<p>所以 $\hat{B}_{l} = 1$.</p>
+<p>入射波函数为</p>
+<p>$$
+\begin{aligned}
+(\psi_{l})_{\text{in}} &amp; = \left(h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr)\right)Y_{l0}(\theta,\phi)\\
+&amp; \approx\frac{1}{i}\left(\frac{e^{i\left(kr - \frac{l\pi}{2}\right)}}{kr} - \frac{e^{-i\left(kr - \frac{l\pi}{2}\right)}}{kr}\right)Y_{l0}(\theta,\phi)
+\end{aligned}
+$$</p>
+<p>在散射区域外面, 入射波和散射波的总和为</p>
+<p>$$
+\psi_{l} = \left(\hat{A}_{l}h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr)\right)Y_{l0}(\theta,\phi)\rightarrow \frac{1}{i}\left(\hat{A}_{l}\frac{e^{i\left(kr-\frac{l\pi}{2}\right)}}{kr} - \frac{e^{-i\left(kr-\frac{l\pi}{2}\right)}}{kr}\right)Y_{l0}(\theta,\phi)
+$$</p>
+<p>现在根据波函数来计算概率流:</p>
+<p>$$
+\mathbf{S}_{\text{tot}} = \frac{\hbar}{m}\text{Im}(\psi_{l}^{*}\nabla\psi_{l}) = \frac{\hbar\hat{r}}{mkr^{2}}\left(|\hat{A}_{l}|^{2} - 1\right)|Y_{l0}(\theta,\phi)|^{2} + \mathcal{O}\left(\frac{1}{r^{3}}\right)
+$$</p>
+<blockquote>
+<p>$|Y_{l0}(\theta,\phi)|^{2}$ 恒正.</p>
+</blockquote>
+<p>为了满足概率流守恒, 也就是定态下, 使半径足够大, 球面的通量为 $0$:</p>
+<p>$$
+\oint\mathbf{S}_{\text{tot}}\cdot\mathrm{d}\mathbf{a} = \iint r^{2}\mathrm{d}\Omega\frac{\hbar}{mkr^{2}}\left(|\hat{A}_{l}|^{2} - 1\right)Y_{l0}(\theta,\phi)^{2} = \frac{\hbar}{mk}\left(|\hat{A}_{l}|^{2} - 1\right) = 0\\
+\Downarrow\\
+|\hat{A}_{l}| = 1 \Rightarrow \hat{A}_{l} = e^{2i\delta_{l}}
+$$</p>
+<blockquote>
+<p>$\delta_{l}$ 即为 <strong>相移</strong>.</p>
+</blockquote>
+<p>将 $\hat{A}_{l} = e^{2i\delta_{l}}$ 和 $\hat{B} = 1$ 代入到 $\psi_{l}$ 中, 得到</p>
+<p>$$
+\begin{aligned}
+\psi_{l} &amp; = \left(e^{2i\delta_{l}}h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr)\right)Y_{l0}(\theta,\phi)\\
+&amp; \rightarrow \frac{1}{i}\left(\frac{e^{i\left(kr-\frac{l\pi}{2} + 2\delta_{l}\right)}}{kr} - \frac{e^{-i\left(kr-\frac{l\pi}{2}\right)}}{kr}\right)Y_{l0}(\theta,\phi)
+\end{aligned}
+$$</p>
+<p>对于平面波的入射波函数, 在散射区域外的总波函数为</p>
+<p>$$
+\psi(\mathbf{r}) = \sqrt{4\pi}\sum_{l = 0}^{\infty}\sqrt{2l + 1}i^{l}Y_{l0}(\theta)\frac{1}{2}\left(e^{2i\delta_{l}}h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr)\right)
+$$</p>
+<p>采用远场近似, 即有</p>
+<p>$$
+\psi(\mathbf{r}) = \sqrt{4\pi}\sum_{l = 0}^{\infty}\sqrt{2l + 1}i^{l}Y_{l0}(\theta)\frac{1}{2i}\left(\frac{e^{i\left(kr-\frac{l\pi}{2} + 2\delta_{l}\right)}}{kr} - \frac{e^{-i\left(kr - \frac{l\pi}{2}\right)}}{kr}\right)
+$$</p>
+<blockquote>
+<p>和
+$$
+e^{ikz} \approx \sqrt{4\pi}\sum_{0}^{\infty}\sqrt{2l + 1}i^{l}Y_{l0}(\theta)\frac{1}{2i}\left(\frac{e^{i\left(kr-\frac{l\pi}{2}\right)}}{kr} - \frac{e^{-i\left(kr-\frac{l\pi}{2}\right)}}{kr}\right)
+$$
+相比, 发散球面波的系数发生了相移 $e^{2i\delta_{l}}$.</p>
+</blockquote>
+<p>即有</p>
+<p>$$
+\begin{aligned}
+\frac{f(\theta,\phi)}{r}e^{ikr} &amp; = f(\mathbf{r}) - e^{ikz}\\
+&amp; = \sqrt{4\pi}\sum_{l=0}^{\infty}\sqrt{2l + 1}i^{l}Y_{l0}(\theta)\frac{1}{2i}\left[\frac{e^{i\left(kr-\frac{l\pi}{2} + 2\delta_{l}\right)}}{kr} - \frac{e^{i\left(kr-\frac{l\pi}{2}\right)}}{kr}\right]\\
+&amp; = \sqrt{4\pi}\sum_{l=0}^{\infty}\sqrt{2l + 1}Y_{l0}(\theta)\frac{1}{2i}\left[\frac{e^{i\left(kr + 2\delta_{l}\right)}}{kr} - \frac{e^{ikr}}{kr}\right]\\
+&amp; = \frac{\sqrt{4\pi}}{k}\sum_{l=0}^{\infty}\sqrt{2l + 1}Y_{l0}(\theta)e^{i\delta_{l}}\sin{(\delta_{l})}\frac{e^{ikr}}{r}
+\end{aligned}
+$$</p>
+<p>散射振幅的球谐函数展开为</p>
+<p>$$
+f(\theta) = \frac{\sqrt{4\pi}}{k}\sum_{l=0}^{\infty}\sqrt{2l + 1}e^{i\delta_{l}}\sin{(\delta_{l})}Y_{l0}(\theta)\\
+= \frac{1}{k}\sum_{l = 0}^{\infty}(2l + 1)e^{i\delta_{l}}\sin{(\delta_{l})}P_{l}(\theta)\\
+= \frac{1}{k}\sum_{l = 0}^{\infty}(2l + 1)P_{l}(\theta)\frac{e^{2i\delta_{l}} - 1}{2i}
+$$</p>
+<p>所以总散射截面:</p>
+<p>$$
+\sigma = \int\mathrm{d}\sigma = \int\mathrm{d}\Omega\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega} = 2\pi\int_{0}^{\pi}|f(\theta)|^{2}\mathrm{d}(\sin{\theta})\mathrm{d}\theta
+$$</p>
+<blockquote>
+<p><strong>勒让德多项式的正交性</strong></p>
+<p>$$
+\int_{-1}^{1}\mathrm{d}x P_{l}(x)P_{l&rsquo;}(x) = \frac{2\delta_{ll&rsquo;}}{2l + 1}
+$$</p>
+</blockquote>
+<p>所以总散射截面的表达式化为</p>
+<p>$$
+\sigma = \frac{4\pi}{k^{2}}\sum_{l=0}^{\infty}(2l + 1)\sin^{2}\delta_{l}
+$$</p>
+<p>前进方向的散射振幅为</p>
+<p>$$
+f_{\theta = 0} = \frac{1}{k}\sum_{l = 0}^{\infty}(2l + 1)e^{i\delta_{l}}\sin{(\delta_{l})}
+$$</p>
+<p>其虚部为</p>
+<p>$$
+\text{Im}f_{\theta=0} = \frac{1}{k}\sum_{l}^{\infty}(2l + 1)\sin^{2}{(\delta_{l})}
+$$</p>
+<blockquote>
+<p>对比总散射截面的表达式, 将上式代入:</p>
+<p>$$
+\sigma = \frac{4\pi}{k}\text{Im}f_{\theta=0}
+$$</p>
+<p>这就是 <strong>光学定理</strong>.</p>
+</blockquote>
+<p>对于总散射截面, 求和可以理解为多个分波:</p>
+<p>$$
+\sigma = \frac{4\pi}{k^{2}}\sum_{l=0}^{\infty}(2l + 1)\sin^{2}\delta_{l} = \sum_{l = 0}^{\infty}\sigma_{l}
+$$</p>
+<blockquote>
+<p>标记为 $l$ 的分波, 其上限为
+$$
+\sigma_{l}^{\text{max}} = \frac{4\pi(2l + 1)}{k^{2}}
+$$
+这个上限被称作幺正限制.</p>
+</blockquote>
+<blockquote>
+<p>第一类球贝塞尔函数的近场近似:
+$$
+(ka\ll 1)\quad j_{l}(\rho)\approx\frac{\rho^{l}}{(2l + 1)!!},\quad\rho\ll 1
+$$
+取对数, 并且使用斯特林公式:
+$$
+\log{j_{l}(\rho)} \approx l\log{\frac{\rho}{l}}
+$$
+对于大角动量, 即 $\rho &lt; l$ 区域下, $\log{j_{l}(\rho)}$ 将是指数减小, 所以 $\rho = ka &lt; l$ 下, 势能对入射波函数的影响也是指数减小, 从而基本没有散射.</p>
+</blockquote>
+<p>在散射区域外面, 径向波函数为</p>
+<p>$$
+R_{l}(r) = e^{i\delta_{l}}h_{l}^{(1)}(kr) + h_{l}^{(2)}(kr) = 2e^{i\delta_{l}}[\cos{(\delta_{l})}j_{l}(kr) - \sin{(\delta_{l})}n_{l}(kr)]
+$$</p>
+<p>其相位是一个常数, 并不随着 $r$ 变化, 并且</p>
+<p>$$
+\tan{\delta_{l}} = -\frac{c_{n_{l}}}{c_{j_{l}}}
+$$</p>
+<blockquote>
+<p>也就是说, 如果散射区域外的总径向波函数的形式为</p>
+<p>$$
+R_{l}(r) = A_{l}j_{l}(kr) + B_{l}n_{l}(kr)
+$$</p>
+<p>那么</p>
+<p>$$
+\tan{\delta_{l}} = -\frac{B_{l}}{A_{l}}
+$$</p>
+</blockquote>
+<p>所以为了确定相移, 只需要确定两个系数的比值即可.</p>
+<h2 id="硬球散射">硬球散射<a hidden class="anchor" aria-hidden="true" href="#硬球散射">#</a></h2>
+<blockquote>
+<p>势能函数</p>
+<p>$$
+V(\mathbf{r}) = \begin{cases}
+\infty,&amp;\quad r\leq a\\
+0,&amp;\quad r &gt; a
+\end{cases}
+$$</p>
+</blockquote>
+<p>中间区域和辐射区域的径向波函数为</p>
+<p>$$
+R_{l}(r) = A_{l}j_{l}(kr) + B_{l}n_{l}(kr)
+$$</p>
+<p>边界条件为波函数在球面上处处为 $0$:</p>
+<p>$$
+R_{l}(a) = A_{l}j_{l}(ka) + B_{l}n_{l}(ka) = 0
+$$</p>
+<p>所以相移可以由</p>
+<p>$$
+\tan{\delta_{l}} = -\frac{B_{l}}{A_{l}} = \frac{j_{l}(ka)}{n_{l}(ka)}\\
+\sin^{2}\delta_{l} = \frac{\tan^{2}\delta_{l}}{1 + \tan^{2}\delta_{l}} = \frac{j_{l}^{2}(ka)}{j_{l}^{2}(ka) + n_{l}^{2}(ka)}
+$$</p>
+<p>所以硬球散射的总散射截面化为</p>
+<p>$$
+\sigma = \frac{4\pi}{k^{2}}\sum_{l}(2l + 1)\frac{j_{l}^{2}(ka)}{j_{l}^{2}(ka) + n_{l}^{2}(ka)}
+$$</p>
+<blockquote>
+<p>球贝塞尔函数在低能极限 $ka\ll 1$ 的渐进行为:
+$$
+\text{近场}\rho\ll 1:
+\begin{cases}
+j_{l}(\rho) \approx \frac{\rho^{l}}{(2l + 1)!!}\\
+n_{l}(\rho) \approx -\frac{(2l - 1)!!}{\rho^{l + 1}}\gg j_{l}(\rho)
+\end{cases}
+$$</p>
+</blockquote>
+<p>$$
+\lim_{\delta_{l}\ll 1}\delta_{l}\approx\frac{j_{l}(ka)}{n_{l}(ka)}\approx-\frac{(ka)^{2l + 1}}{(2l + 1)!!(2l -1)!!}, \quad ka\ll 1
+$$</p>
+<p>因为 $ka$ 可以足够小, 所以将总截面展开 $ka$ 级数时只需要保留第一项:</p>
+<p>$$
+\sigma\approx\frac{4\pi}{k^{2}}(ka)^{2} = 4\pi a^{2}
+$$</p>
+<p>这就是总散射截面的低能极限, 是经典硬球散射总截面的四倍.</p>
+<h2 id="相移一般公式">相移一般公式<a hidden class="anchor" aria-hidden="true" href="#相移一般公式">#</a></h2>
+<p>散射区域 $r &lt; a$ 内的波函数为 $R_{l}(r)$, 散射区域外的径向波函数则是由</p>
+<p>$$
+R_{l}(r) = A_{l}j_{l}(kr) + B_{l}n_{l}(kr)
+$$</p>
+<p>给出, 波函数的连续性方程有</p>
+<p>$$
+R_{l}(a) = A_{l}j_{l}(ka) + B_{l}n_{l}(ka)\\
+aR_{l}&rsquo;(a) = ka(A_{l}j_{l}&rsquo;(ka) + B_{l}n_{l}&rsquo;(ka))
+$$</p>
+<p>引入标记</p>
+<p>$$
+\beta_{l} = \frac{aR_{l}&rsquo;(a)}{R_{l}(a)}
+$$</p>
+<p>即有</p>
+<p>$$
+\beta_{l} = ka\frac{A_{l}j_{l}&rsquo;(ka) + B_{l}n_{l}&rsquo;(ka)}{A_{l}j_{l}(ka) + B_{l}n_{l}(ka)} = ka\frac{j_{l}&rsquo;(ka) - \tan{\delta_{l}}n_{l}&rsquo;(ka)}{j_{l}(ka) - \tan{\delta_{l}}n_{l}(ka)}
+$$</p>
+<p>所以相移的值为</p>
+<p>$$
+\tan{\delta_{l}} = \frac{j_{l}(ka) - \frac{ka}{\beta_{l}}j_{l}&rsquo;(ka)}{n_{l}(ka) - \frac{ka}{\beta}n_{l}&rsquo;(ka)}
+$$</p>
+<p>如果要用 $\beta_{l}$ 来表示因子 $e^{2i\delta_{l}}$, 即有</p>
+<p>$$
+\begin{aligned}
+e^{2i\delta_{l}} &amp;= -\frac{ka(j_{l}&rsquo; - in_{l}&rsquo;) - \beta(j_{l} - in_{l})}{ka(j_{l}&rsquo; + in_{l}&rsquo;) - \beta(j_{l} + in_{l})}\\
+&amp;= -\left(\frac{j_{l} - in_{l}}{j_{l} + in_{l}}\right)\left[\frac{\beta_{l} - ka\left(\frac{j_{l}&rsquo;-in_{l}&rsquo;}{j_{l}&rsquo; + in_{l}&rsquo;}\right)}{\beta_{l}- ka\left(\frac{j_{l}&rsquo;-in_{l}&rsquo;}{j_{l}&rsquo; + in_{l}&rsquo;}\right)}\right]
+\end{aligned}
+$$</p>
+<p>后面的系数即为相移影响.</p>
+<h1 id="玻恩近似">玻恩近似<a hidden class="anchor" aria-hidden="true" href="#玻恩近似">#</a></h1>
+<h2 id="intro-1">Intro<a hidden class="anchor" aria-hidden="true" href="#intro-1">#</a></h2>
+<p>现在我们讨论更一般的情形, 即 $V(\mathbf{r})$ 去除球对称性.</p>
+<p>波函数的远场近似为</p>
+<p>$$
+\psi(\mathbf{r}) = e^{ikz} + \psi_{\text{scatt}} = e^{ikz} + \frac{f(\theta,\phi)}{r}e^{ikr}
+$$</p>
+<blockquote>
+<p>$f(\theta,\phi)$ 为散射振幅.</p>
+</blockquote>
+<p>散射截面为</p>
+<p>$$
+\frac{\mathrm{d}\sigma(\theta,\phi)}{\mathrm{d}\Omega} = |f(\theta,\phi)|^{2}
+$$</p>
+<p>原本的薛定谔方程为</p>
+<p>$$
+-\frac{\hbar^{2}}{2m}\nabla^{2}\psi + V(\mathbf{r})\psi = E\psi,\quad E&gt; 0
+$$</p>
+<p>现在改写为</p>
+<p>$$
+(\nabla^{2} + k^{2})\psi = U(\mathbf{r})\psi
+$$</p>
+<blockquote>
+<p>$$
+k = \frac{\sqrt{2mE}}{\hbar}, U(\mathbf{r}) = \frac{2mV(\mathbf{r})}{\hbar}
+$$</p>
+</blockquote>
+<blockquote>
+<p>我们并不能将上述方程写作
+$$
+\psi = (\nabla^{2} + k^{2})^{-1}U\psi
+$$
+因为算符 $(\nabla^{2} + k^{2})$ 具有 $0$ 本征值, 所以并不可逆.</p>
+</blockquote>
+<h2 id="格林函数">格林函数<a hidden class="anchor" aria-hidden="true" href="#格林函数">#</a></h2>
+<p>亥姆霍兹方程:</p>
+<p>$$
+(\nabla^{2} + k^{2})G(\mathbf{r}) = -\delta(\mathbf{r})
+$$</p>
+<p>如果 $G(\mathbf{r})$ 是该方程的解, 那么 $G(\mathbf{r}) + e^{i\mathbf{k}\cdot\mathbf{r}}$ 也是方程解. 这是因为 $e^{i\mathbf{k}\cdot\mathbf{r}}$ 是该方程的齐次解.</p>
+<p>我们可以引入无穷小量 $\epsilon &gt; 0$:</p>
+<p>$$
+(\nabla^{2} + k^{2} \pm i\epsilon)G^{\pm}(\mathbf{r}) = -\delta(\mathbf{r})
+$$</p>
+<p>对 $G^{\pm}(\mathbf{r})$ 进行傅里叶变换, 即有</p>
+<p>$$
+\begin{aligned}
+G^{\pm}(\mathbf{r}) &amp;= \int\hat{G}^{\pm}(\mathbf{q})e^{i\mathbf{q}\cdot\mathbf{r}}\frac{\mathrm{d}^{3}q}{(2\pi)^{3}}\\
+\hat{G}^{\pm}(\mathbf{q}) &amp;= \int G^{\pm}(\mathbf{r})e^{-i\mathbf{q}\cdot\mathbf{r}}\mathrm{d}^{3}r
+\end{aligned}
+$$</p>
+<p>于是有变换后的添加小量参数 $\epsilon$ 的薛定谔方程:</p>
+<p>$$
+(-a^{2} + k^{2} \pm i\epsilon)\hat{G}^{\pm}(\mathbf{q}) = -1\\
+\Downarrow\\
+\hat{G}^{\pm}(\mathbf{q}) = \frac{-1}{-q^{2} + k^{2} \pm i\epsilon}
+$$</p>
+<p>算符 $(\nabla^{2} + k^{2} \pm i\epsilon)$ 的本征函数为平面波, 本征值为 $-q^{2} + k^{2} \pm i\epsilon$. 我们引入的 $\epsilon&gt;0$, 所以 算符 $(\nabla^{2} + k^{2} \pm i\epsilon)$ 可逆.</p>
+<p>$G^{\pm}(\mathbf{r})$ 只与 $r = |\mathbf{r}|$, 所以我们可以设 $\mathbf{r} = r\hat{z}$. 令 $\mathbf{q} = (q,\theta,\varphi)$.</p>
+<p>球坐标的动量空间体微元为</p>
+<p>$$
+\int\mathrm{d}^{3}q = \int_{0}^{\infty}q^{2}\mathrm{d}q\int_{0}^{\pi}\sin{\theta}\mathrm{d}\theta\int_{0}^{2\pi}\mathrm{d}\varphi
+$$</p>
+<p>所以对 $e^{i\mathbf{q}\cdot\mathbf{r}}$ 因子进行积分:</p>
+<p>$$
+\int e^{i\mathbf{q}\cdot\mathbf{r}}\mathrm{d}^{3}q = 2\pi\int_{0}^{\infty}q^{2}\mathrm{d}q\int_{0}^{\pi}e^{iqr\cos{\theta}}\sin{\theta}\mathrm{d}\theta\\
+= 2\pi\int_{0}^{\infty}q^{2}\mathrm{d}q\frac{1}{iqr}e^{iqru}|_{-1}^{+1}
+= 4\pi\int_{0}^{\infty}\frac{\sin{qr}}{qr}q^{2}\mathrm{d}q
+$$</p>
+<p>所以</p>
+<p>$$
+G^{\pm}(r) = \frac{4\pi}{(2\pi)^{3}}\int_{0}^{\infty}\frac{\sin{qr}}{qr}\frac{-1}{-q^{2} + k^{2} \pm i\epsilon}q^{2}\mathrm{d}q\\
+= \frac{-1}{4\pi^{2}r}\int_{-\infty}^{+\infty}\frac{q\sin{(qr)}\mathrm{d}q}{-q^{2}+k^{2}\pm i\epsilon}
+$$</p>
+<p>利用</p>
+<blockquote>
+<p>$$
+\frac{-1}{-q^{2} + k^{2} \pm i\epsilon} = \frac{1}{[q-(k\pm i\epsilon)][q+(k\pm i\epsilon)]}\\
+\sin{(qr)} = -\frac{i}{2}(e^{iqr} - e^{-iqr})\\
+k^{\pm} = k\pm i\epsilon
+$$</p>
+</blockquote>
+<p>就有</p>
+<p>$$
+G^{\pm}(r) = \frac{-i}{8\pi^{2}r}\int_{-\infty}^{+\infty}\frac{q(e^{iqr}-e^{-iqr})}{(q-k^{\pm})(q+k^{\pm})}\mathrm{d}q\\
+= \frac{-i}{8\pi^{2}r}\left\{\int_{-\infty}^{+\infty}\frac{qe^{iqr}\mathrm{d}q}{(q-k^{\pm})(q+k^{\pm})} - \int_{-\infty}^{+\infty}\frac{qe^{-iqr}\mathrm{d}q}{(q-k^{\pm})(q + k^{\pm})}\right\}
+$$</p>
+<blockquote>
+<p><strong>留数定理</strong></p>
+<p>函数 $F(z)$ 在 $\mathbb{C}$ 内解析, 并且逆时针围绕点 $z_{0}$ 积分, 且 $F(z_{0})\neq 0$, 即有</p>
+<p>$$
+\oint_{\mathbb{C}}\frac{F(z)}{z-z_{0}} = 2\pi iF(z_{0})
+$$</p>
+</blockquote>
+<p>我们借助上述定理进行求解.</p>
+<ol>
+<li>$G^{+}(r)$;</li>
+</ol>
+<p>$$
+G^{+}(r) = \frac{-i}{8\pi^{2}r}\left\{\int_{-\infty}^{+\infty}\frac{qe^{iqr}\mathrm{d}q}{(q-k^{+})(q+k^{+})} - \int_{-\infty}^{+\infty}\frac{qe^{-iqr}\mathrm{d}q}{(q-k^{+})(q + k^{+})}\right\}
+$$</p>
+<p>先计算第一项积分. 现在取 $\mathbb{C}$ 的上半平面作围道, 即有</p>
+<p>$$
+\begin{aligned}
+I_{1} &amp;= \oint_{\mathbb{C},\text{Im}(q)&gt;0}\frac{qe^{iqr}\frac{1}{q + k^{+}}}{(q-k^{+})}\mathrm{d}q\\
+&amp;= (2\pi i)\frac{k^{+}e^{ik^{+}r}}{2k^{+}} = \pi i e^{ik^{+}r}\stackrel{\epsilon\rightarrow 0}{\longrightarrow}  \pi i e^{ikr}
+\end{aligned}
+$$</p>
+<p>同理</p>
+<p>$$
+\begin{aligned}
+I_{2} &amp;= \oint_{\mathbb{C},\text{Im}(q)&lt;0}\frac{qe^{-iqr}\frac{1}{q - k^{+}}}{(q+k^{+})}\mathrm{d}q\\
+&amp;= -(2\pi i)\frac{-k^{+}e^{ik^{+}r}}{-2k^{+}} = -\pi i e^{ik^{+}r}\stackrel{\epsilon\rightarrow 0}{\longrightarrow}  -\pi i e^{ikr}
+\end{aligned}
+$$</p>
+<p>所以就有</p>
+<p>$$
+G^{+}(r) = \frac{-i}{8\pi^{2}r}(I_{1} - I_{2}) = \frac{1}{4\pi r}e^{ikr}
+$$</p>
+<p>这就是向外传播的球面波.</p>
+<blockquote>
+<p>$$
+\lim_{k\rightarrow 0}G^{+}(r) = \frac{1}{4\pi r},\quad(\text{即库伦势能})
+$$</p>
+</blockquote>
+<p>同理, 我们计算 $G^{-}(r)$.</p>
+<p>$$
+G^{-}(r) = \frac{-i}{8\pi^{2}r}\left\{\int_{-\infty}^{+\infty}\frac{qe^{iqr}\mathrm{d}q}{(q-k^{-})(q + k^{-})} - \int_{-\infty}^{+\infty}\frac{qe^{-iqr}\mathrm{d}q}{(q - k^{-})(q + k^{+})}\right\}
+$$</p>
+<p>第一个积分:</p>
+<p>$$
+\begin{aligned}
+I_{1} &amp;= \oint_{\mathbb{C},q &gt; 0}\frac{qe^{iqr}\frac{1}{q-k^{-}}}{q + k^{-}}\mathrm{d}q\\
+&amp; = (2\pi i)\frac{k^{+}e^{-ik^{-}r}}{2k^{-}} = \pi i e^{ik^{-}r}\stackrel{\epsilon\rightarrow 0}{\longrightarrow}\pi ie^{-ikr}
+\end{aligned}
+$$</p>
+<p>第二项积分:</p>
+<p>$$
+\begin{aligned}
+I_{2} &amp;= \oint_{\mathbb{C},q &lt; 0}\frac{qe^{-iqr}\frac{1}{q+k^{-}}}{q - k^{-}}\mathrm{d}q\\
+&amp; = -(2\pi i)\frac{k^{+}e^{-ik^{-}r}}{2k^{-}} = -\pi i e^{-ik^{-}r}\stackrel{\epsilon\rightarrow 0}{\longrightarrow}-\pi ie^{-ikr}
+\end{aligned}
+$$</p>
+<p>所以就有</p>
+<p>$$
+G^{-}(r) = \frac{-i}{8\pi^{2}r}(I_{1} - I_{2}) = \frac{e^{-ikr}}{4\pi r}
+$$</p>
+<p>这是向中心汇聚的球面波.</p>
+<p>综上所述, 我们得到了亥姆霍兹的两个解:</p>
+<p>$$
+G^{\pm}(r) = \frac{e^{\pm ikr}}{4\pi r}
+$$</p>
+<blockquote>
+<p>$G^{+}(r)$ 是向外传播的球面波, $G^{-}$ 是向心汇聚的球面波. 这个结果在 $\epsilon\rightarrow 0$ 的极限下仍然存在.</p>
+</blockquote>
+<p>我们先讨论最简单的线性组合情况, 即 $G^{+}(r) - G^{-}(r)$. 因为两个单独解都是方程的解, 所以两者的差也是方程的齐次解. 即有</p>
+<p>$$
+(\nabla^{2} + k^{2})[G^{+}(r) - G^{-}(r)] = 0
+$$</p>
+<blockquote>
+<p>$G^{+}(r) - G^{-}(r)$ 除了原点和无穷远处, 都是解析的.</p>
+</blockquote>
+<p>$$
+\lim_{kr\ll 1}(G^{+}(r) - G^{-}(r)) = \lim_{kr\ll 1}\left[\frac{1}{4\pi r}\left(e^{ikr} - e^{-ikr}\right)\right] = -\frac{1}{4\pi r}[2ikr + \mathcal{o}(kr)^{3}] = -\frac{ik}{2\pi} + \mathcal{o}(kr)^{2}
+$$</p>
+<p>所以,</p>
+<p>$$
+\forall\alpha,\quad G^{\alpha}(r) = \alpha G^{+}(r) + (1-\alpha) G^{-}(r)
+$$</p>
+<p>也是方程的解, 即亥姆霍兹方程有无穷多的格林函数. 具体的选取需要根据具体的边界条件确定. 对于散射问题, 需要选择 $G^{\alpha} = G^{+}(r)$, 因为只有向外传播的球面波才是被允许的.</p>
+<h2 id="波恩级数">波恩级数<a hidden class="anchor" aria-hidden="true" href="#波恩级数">#</a></h2>
+<blockquote>
+<p><strong>非齐次亥姆霍兹方程</strong></p>
+<p>$$
+(\nabla^{2} + k^{2})\psi(\mathbf{r}) = -f(\mathbf{r})
+$$</p>
+<p>的解可以表示为积分</p>
+<p>$$
+\psi(\mathbf{r}) = \psi_{0}(\mathbf{r}) - \int G^{\pm}(|\mathbf{r} - \mathbf{r}&rsquo;|)f(\mathbf{r}&rsquo;)\mathrm{d}^{3}\mathbf{r}&rsquo;
+$$</p>
+<blockquote>
+<p>$\psi_{0}(r)$ 是任意齐次解.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>$$
+(\nabla^{2} + k^{2})\psi = \color{red}{U(\mathbf{r})\psi}, \quad k = \frac{\sqrt{2mE}}{\hbar},\quad U(\mathbf{r}) = \frac{2mV(\mathbf{r})}{\hbar^{2}}
+$$</p>
+</blockquote>
+<p>现在将 $\color{red}{U(\mathbf{r})\psi}$ 作为已知函数从而使用非齐次亥姆霍兹方程的结论, 即有方程的形式解</p>
+<p>$$
+\psi(\mathbf{r}) = e^{ikz} - \frac{m}{2\pi\hbar^{2}}\int\frac{e^{ik|\mathbf{r} - \mathbf{r}&rsquo;|}}{|\mathbf{r} - \mathbf{r}&rsquo;|}V(\mathbf{r}&rsquo;)\psi(\mathbf{r}&rsquo;)\mathrm{d}^{3}\mathbf{r}'
+$$</p>
+<p>齐次解选为 $e^{ikz}$ (入射平面波), 格林函数选为 $G^{+}(r)$ (向外传播), 上式化为</p>
+<p>$$
+\psi(\mathbf{r}) = e^{ikz} - \frac{m}{2\pi\hbar^{2}}\int\frac{e^{ik|\mathbf{r}-\mathbf{r}&rsquo;|}}{|\mathbf{r} - \mathbf{r}&rsquo;|}V(\mathbf{r}&rsquo;)\psi(\mathbf{r}&rsquo;)\mathrm{d}^{3}\mathbf{r}'
+$$</p>
+<blockquote>
+<p>这并不是真正的解, 而是将薛定谔方程化为另一个等价的方程.</p>
+</blockquote>
+<p>引入积分算符 $\hat{g}$, 用法为</p>
+<p>$$
+\hat{g}\varphi(\mathbf{r}) = \int\mathrm{d}^{3}\mathbf{r}&lsquo;G(\mathbf{r}-\mathbf{r}&rsquo;)U(\mathbf{r}&rsquo;)\varphi(\mathbf{r}&rsquo;)
+$$</p>
+<p>所以形式解可以按照 $\hat{g}$ 算子重写为</p>
+<p>$$
+|\psi\rangle = |\psi_{0}\rangle - \hat{g}|\psi\rangle
+$$</p>
+<p>所以进一步写出微扰级数</p>
+<p>$$
+\begin{aligned}
+|\psi\rangle &amp;= |\psi_{0}\rangle -\hat{g}(|\psi_{0}\rangle - \hat{g}|\psi\rangle)\\
+&amp; = |\psi_{0}\rangle - \hat{g}|\psi_{0}\rangle + \hat{g}\hat{g}|\psi_{0}\rangle + \dots\\
+&amp; = \left(\hat{I} + \hat{g}\right)^{-1}|\psi_{0}\rangle
+\end{aligned}
+$$</p>
+<blockquote>
+<p>$\hat{g}\propto V$, 所以对 $\hat{g}$ 展开就是对 $V$ 展开. 当 $V = 0$, $\psi$ 退化为 $\psi_{0}$, 即没有散射.</p>
+</blockquote>
+<h2 id="一阶玻恩近似">一阶玻恩近似<a hidden class="anchor" aria-hidden="true" href="#一阶玻恩近似">#</a></h2>
+<p>即采用</p>
+<p>$$
+|\psi\rangle = |\psi_{0}\rangle + \hat{g}|\psi_{0}\rangle
+$$</p>
+<p>那么</p>
+<p>$$
+\begin{aligned}
+\psi(\mathbf{r}) &amp;= \psi_{0}(\mathbf{r}) - \int G(\mathbf{r} - \mathbf{r}&rsquo;)U(\mathbf{r}&rsquo;)\psi_{0}(\mathbf{r}&rsquo;)\mathrm{d}^{3}\mathbf{r}&rsquo;\\
+&amp;=e^{ikz} - \int\mathrm{d}^{3}\mathbf{r}&rsquo;\frac{e^{ik|\mathbf{r}-\mathbf{r}&rsquo;|}}{4\pi|\mathbf{r}-\mathbf{r}&rsquo;|}U(\mathbf{r}&rsquo;)e^{ikz}\\
+&amp; = \psi_{\text{in}} + \psi_{\text{scatt}}
+\end{aligned}
+$$</p>
+<p>所以散射波函数的一级玻恩近似为</p>
+<p>$$
+\psi_{\text{scatt}} = -\int\mathrm{d}^{3}\mathbf{r}&rsquo;\frac{e^{ik|\mathbf{r}-\mathbf{r}&rsquo;|}}{4\pi|\mathbf{r}-\mathbf{r}&rsquo;|}U(\mathbf{r}&rsquo;)e^{ikz}
+$$</p>
+<blockquote>
+<p>$\mathbf{r}$ 是测量散射截面的位置, $\mathbf{r}&rsquo;$ 是对势能积分的坐标.</p>
+</blockquote>
+<p>$$
+\lim_{r\gg r&rsquo;}|\mathbf{r}-\mathbf{r}&rsquo;|^{2} = (\mathbf{r}-\mathbf{r}&rsquo;)\cdot(\mathbf{r}-\mathbf{r}&rsquo;) = r^{2} + r&rsquo;^{2} - 2\mathbf{r}\cdot\mathbf{r}&rsquo;\approx r^{2}\left(1 - \frac{2\mathbf{r}\cdot\mathbf{r}&rsquo;}{r^{2}}\right)
+$$</p>
+<p>对其开根号即有</p>
+<p>$$
+|\mathbf{r}-\mathbf{r}&rsquo;| = \sqrt{r^{2}\left(1 - \frac{2\mathbf{r}\cdot\mathbf{r}&rsquo;}{r^{2}}\right)}\approx r\left(1 - \frac{\mathbf{r}\cdot\mathbf{r}&rsquo;}{r^{2}}\right) = r - \hat{r}\cdot\mathbf{r}&rsquo;
+$$</p>
+<p>定义出射波矢 $\mathbf{k} = k\hat{r}$, 入射波矢 $\mathbf{k}&rsquo; = k\hat{z}$. 即有</p>
+<blockquote>
+<p>$$
+\begin{aligned}
+e^{ik|r-r&rsquo;|} &amp;\approx e^{ik(r-\hat{r}\cdot\mathbf{r}&rsquo;)}\approx e^{i(\mathbf{k}\cdot\mathbf{r} - \mathbf{k}\cdot\mathbf{r}&rsquo;)} + \mathcal{O}\left(\frac{1}{r}\right)\\
+e^{ikz} &amp;= e^{i\mathbf{k}&rsquo;\cdot\mathbf{r}}\\
+\frac{1}{|\mathbf{r}-\mathbf{r}&rsquo;|} &amp;\approx \frac{1}{r} + \mathcal{O}\left(\frac{1}{r^{2}}\right) \approx \frac{1}{r}
+\end{aligned}
+$$</p>
+</blockquote>
+<p>使用上述近似:</p>
+<p>$$
+\psi_{\text{scatt}} = -\int\mathrm{d}^{3}\mathbf{r}&rsquo;\frac{e^{i(\mathbf{k}\cdot\mathbf{r} - \mathbf{k}\cdot\mathbf{r}&rsquo;)}}{4\pi r}e^{i\mathbf{k}\cdot\mathbf{r}&rsquo;}U(\mathbf{r}&rsquo;) = -\color{red}{\frac{e^{ikr}}{r}}\frac{m}{2\pi\hbar^{2}}\int\mathrm{d}^{3}\mathbf{r}&rsquo;e^{-i(\mathbf{k}-\mathbf{k&rsquo;})\cdot\mathbf{r}&rsquo;}V(\mathbf{r}&rsquo;)
+$$</p>
+<blockquote>
+<p>$$
+\psi_{\text{scatt}} = \color{red}{\frac{e^{ikr}}{r}}f(\theta,\varphi)
+$$</p>
+</blockquote>
+<p>观察共有部分既可以得到散射振幅的表达式</p>
+<p>$$
+f(\theta,\varphi) = -\frac{m}{2\pi\hbar^{2}}\int\mathrm{d}^{3}\mathbf{r}&rsquo; e^{-i(\mathbf{k} - \mathbf{k}&rsquo;)\cdot\mathbf{r}&rsquo;}V(\mathbf{r}&rsquo;)
+$$</p>
+<p>引入出射粒子的动量变化:</p>
+<p>$$
+\mathbf{q} = \mathbf{k} - \mathbf{k}&rsquo;\\
+|\mathbf{q}| = |\mathbf{k} - \mathbf{k}&rsquo;| = 2k\sin{\frac{\theta}{2}}
+$$</p>
+<p>散射振幅中的积分式本身是一种傅里叶变换, 所以我们可以将其改写为</p>
+<p>$$
+f(\theta,\varphi) = -\frac{m}{2\pi\hbar^{2}}\hat{V}(\mathbf{q})
+$$</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/06/25/wPR1JW5GaSrHAZv.png" alt="出射动量图示"  />
+
+$\theta,\varphi$ 是出射动量 $\mathbf{k}$ 的球坐标.</p>
+</blockquote>
+<h2 id="yukawa-势和库伦势">Yukawa 势和库伦势<a hidden class="anchor" aria-hidden="true" href="#yukawa-势和库伦势">#</a></h2>
+<h3 id="yukawa-势">Yukawa 势<a hidden class="anchor" aria-hidden="true" href="#yukawa-势">#</a></h3>
+<p>$$
+V(r) = -\frac{\beta}{r}e^{-\mu r}
+$$</p>
+<p>先计算出势能的傅里叶变换:</p>
+<p>$$
+\hat{V}(\mathbf{q}) = \int\mathrm{d}^{e}\mathbf{r} e^{-i\mathbf{q}\cdot\mathbf{r}} V(\mathbf{r}) = \frac{4\pi\beta}{\mu^{2} + q^{2}}
+$$</p>
+<p>将该结果代入到散射振幅中, 即有</p>
+<p>$$
+f(\theta,\varphi) = -\frac{m}{2\pi\hbar^{2}}\hat{V}(\mathbf{q}) = -\frac{2m\beta}{\hbar^{2}(\mu^{2} + q^{2})}
+$$</p>
+<p>当 $\mu\rightarrow 0,\beta\rightarrow\frac{eQ}{4\pi\epsilon_{0}}$, Yukawa 势能就会退化为库伦势能. ($e$ 为入射粒子的电荷, $Q$ 为散射源的电荷.) 能量为 $E = \frac{\hbar^{2}k^{2}}{2m}$.</p>
+<p>那么库伦散射的振幅化为</p>
+<p>$$
+f(\theta,\varphi) = -\frac{2meQ}{4\pi\epsilon_{0}\hbar^{2}q^{2}} = -\frac{2meQ}{16\pi\epsilon_{0}\hbar^{2}k^{2}\sin^{2}\frac{\theta}{2}} = -\frac{eQ}{16\epsilon_{0}E\sin^{2}{\frac{\theta}{2}}}
+$$</p>
+<p>库伦势能的微分散射截面的一阶玻恩近似为</p>
+<p>$$
+\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega} = |f|^{2} = \left(\frac{eQ}{16\pi\epsilon_{0}E\sin^{2}\frac{\theta}{2}}\right)
+$$</p>
+<p>和前面的系数差别不一样, 这里计算出来的结果和经典库伦势能给出的结果完全相同.</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/zh/posts/phy/ed/field/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>静电场</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/zh/posts/phy/qp/quantum-entropy/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>量子熵</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>
