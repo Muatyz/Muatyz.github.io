@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>quantum physics on 计算物理资料库</title>
+    <link>https://Muatyz.github.io/tags/quantum-physics/</link>
+    <description>Recent content in quantum physics on 计算物理资料库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Muartz</copyright>
+    <lastBuildDate>Fri, 09 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/quantum-physics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微扰论</title>
+      <link>https://Muatyz.github.io/posts/phy/qp/perturbation-theory/</link>
+      <pubDate>Fri, 09 Jun 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/qp/perturbation-theory/</guid>
+      <description>使用小量参数并使得物理量对其进行展开, 通过比较齐次项系数得到每阶修正结果.</description>
+    </item>
+    
+    <item>
+      <title>朗道能级</title>
+      <link>https://Muatyz.github.io/posts/phy/qp/laundau-energy/</link>
+      <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/qp/laundau-energy/</guid>
+      <description>电子在均匀磁场中运动时的现象</description>
+    </item>
+    
+  </channel>
+</rss>

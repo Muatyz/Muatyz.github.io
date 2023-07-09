@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>静电场 | 计算物理资料库</title>
+<meta name="keywords" content="">
+<meta name="description" content="以大纲方法重新梳理静电场的公式">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/ed/field/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="静电场" />
+<meta property="og:description" content="以大纲方法重新梳理静电场的公式" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/ed/field/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-27T00:18:23+08:00" />
+<meta property="article:modified_time" content="2023-06-27T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="静电场"/>
+<meta name="twitter:description" content="以大纲方法重新梳理静电场的公式"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "⚛️ Electro-Dynamics",
+          "item": "https://Muatyz.github.io/posts/phy/ed/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "静电场",
+      "item": "https://Muatyz.github.io/posts/phy/ed/field/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "静电场",
+  "name": "静电场",
+  "description": "以大纲方法重新梳理静电场的公式",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "电场 库伦定律 $$ \\mathbf{E}(\\mathbf{r}) = \\sum_{i = 1}^{n}\\frac{q_{i}}{\\mathfrak{s}^{2}}\\hat{\\mathfrak{s}}\\\\ \\Downarrow\\\\ \\mathbf{E}(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon}\\int\\frac{1}{\\mathfrak{s}^{2}}\\hat{\\mathfrak{s}}\\mathrm{d}q $$\n不同类型分布的表达式:\n$$ \\mathbf{E}(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\int_{\\mathcal{P}}\\frac{\\lambda(\\mathbf{r}’)}{\\mathfrak{s}^{2}}\\hat{\\mathfrak{s}}\\mathrm{d}\\mathbf{l}’\\\\ \\mathbf{E}(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\int_{\\mathcal{S}}\\frac{\\sigma(\\mathbf{r}’)}{\\mathfrak{s}^{2}}\\hat{\\mathfrak{s}}\\mathrm{d}\\mathbf{a}’\\\\ \\mathbf{E}(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\int_{\\mathcal{V}}\\frac{\\rho(\\mathbf{r}’)}{\\mathfrak{s}^{2}}\\hat{\\mathfrak{s}}\\mathrm{d}\\mathbf{\\tau}' $$\n通量定理(高斯定理) $$ \\oint\\mathbf{E}\\cdot\\mathrm{d}\\mathbf{a} = \\frac{1}{\\epsilon_{0}}Q_{\\text{ene}} = \\frac{1}{\\epsilon_{0}}\\int_{\\mathcal{V}}\\rho\\mathrm{d}\\tau $$\n散度定理: $$ \\oint_{\\mathcal{S}}\\mathbf{E}\\cdot\\mathrm{d}\\mathbf{a} = \\int_{\\mathcal{V}}(\\nabla\\cdot\\mathbf{E})\\mathrm{d}\\tau $$\n所以有\n$$ \\begin{aligned} \\int_{\\mathcal{V}}(\\nabla\\cdot\\mathbf{E})\\mathrm{d}\\tau \u0026= \\int_{\\mathcal{V}}\\frac{\\rho}{\\epsilon_{0}}\\mathrm{d}\\tau\\\\ \\Downarrow\\\\ (\\nabla\\cdot\\mathbf{E}) \u0026= \\frac{\\rho}{\\epsilon_{0}} \\end{aligned} $$\n电场散度 $$ \\mathbf{E}(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\int_{\\text{All Space}}\\frac{\\hat{\\mathfrak{s}}}{\\mathfrak{s}^{2}}\\rho(\\mathbf{r}’)\\mathrm{d}\\tau' $$\n$$ \\nabla\\cdot\\mathbf{E} = \\frac{1}{4\\pi\\epsilon_{0}}\\int 4\\pi\\delta^{3}(\\mathbf{r} - \\mathbf{r}’)\\rho(\\mathbf{r}’)\\mathrm{d}\\tau’ = \\frac{1}{\\epsilon_{0}}\\rho(\\mathbf{r}) $$\n以上为微分形式, 积分即为\n$$ \\int_{\\mathcal{V}}(\\nabla\\cdot\\mathbf{E})\\mathrm{d}\\tau = \\oint_{\\mathcal{S}}\\mathbf{E}\\cdot\\mathrm{d}\\mathbf{a} = \\frac{1}{\\epsilon_{0}}\\int_{\\mathcal{V}}\\rho(\\mathbf{r})\\mathrm{d}\\tau’ = \\frac{1}{\\epsilon_{0}}Q_{\\text{ene}} $$\n电场旋度 球坐标中 $$ \\mathrm{d}\\mathbf{l} = \\hat{r}\\mathrm{d}r + \\hat{\\theta}r\\mathrm{d}\\theta + \\hat{\\phi}r\\sin{\\theta}\\mathrm{d}\\phi $$\n所以\n$$ \\begin{aligned} \\mathbf{E}\\cdot\\mathrm{d}\\mathbf{l} \u0026= \\frac{1}{4\\pi\\epsilon_{0}}\\frac{q}{r^{2}}\\hat{r}\\\\ \\int_{a}^{b}\\mathbf{E}\\cdot\\mathrm{d}\\mathbf{l} \u0026= \\frac{1}{4\\pi\\epsilon_{0}}\\int_{a}^{b}\\frac{q}{r^{2}}\\mathrm{d}r = \\frac{1}{4\\pi\\epsilon_{0}}\\left(\\frac{q}{r_{a}} - \\frac{q}{r_{b}}\\right) \\end{aligned} $$\n闭合路径下即有\n$$ \\oint\\mathbf{E}\\cdot\\mathrm{d}\\mathbf{l} = 0 $$\n使用 Stokes 定理即有\n$$ \\nabla\\times\\mathbf{E} = 0 $$\n电势 $$ \\mathbf{E} = -\\nabla V $$\nPossion 方程 \u0026 Laplace 方程 导出 既然 $$ \\mathbf{E} = -\\nabla V,\\quad\\nabla\\cdot\\mathbf{E} = \\frac{\\rho}{\\epsilon_{0}},\\quad\\nabla\\times\\mathbf{E} = 0 $$\n得到 Possion 方程:\n$$ \\nabla^{2}V = -\\frac{\\rho}{\\epsilon_{0}} $$\n当 $\\rho=0$, 即考虑区域内无电荷, 即有 Laplace 方程: $$ \\nabla^{2}V = 0 $$\n界面条件(边界条件) $$ \\begin{aligned} E^{\\perp}_{\\text{up}} - E^{\\perp}_{\\text{down}} \u0026= \\frac{\\sigma}{\\epsilon_{0}}\\\\ E^{\\parallel}_{\\text{up}} \u0026= E^{\\parallel}_{\\text{down}} \\end{aligned} $$\n将两者合并即有\n$$ \\mathbf{E}_{\\text{up}} - \\mathbf{E}_{\\text{down}} = \\frac{\\sigma}{\\epsilon_{0}}\\hat{\\mathbf{n}} $$\n使用电势 $V$ 表示:\n$$ \\frac{\\partial V_{\\text{up}}}{\\partial n} - \\frac{\\partial V_{\\text{down}}}{\\partial n} = -\\frac{1}{\\epsilon_{0}}\\sigma\\\\ \\Downarrow\\\\ \\frac{\\partial V}{\\partial n} = \\nabla V\\cdot\\hat{\\mathbf{n}} $$\n电场能量 离散:\n$$ W = \\frac{1}{2}\\sum_{i}^{n}q_{i}\\left(\\sum_{j=1,j\\neq i}\\frac{1}{4\\pi\\epsilon_{0}}\\frac{q_{j}}{\\mathfrak{s}_{ij}}\\right) = \\frac{1}{2}\\sum_{i = 1}^{n}q_{i}V(\\mathbf{r}_{i}) $$\n连续:\n$$ \\begin{aligned} W \u0026= \\frac{1}{2}\\int\\rho V\\mathrm{d}\\tau = \\frac{\\epsilon_{0}}{2}\\int(\\nabla\\cdot\\mathbf{E})V\\mathrm{d}\\tau = \\frac{\\epsilon_{0}}{2}\\oint V\\mathbf{E}\\cdot\\mathrm{d}\\mathbf{a} - \\frac{\\epsilon_{0}}{2}\\int\\mathbf{E}\\cdot(\\nabla V)\\mathrm{d}\\tau\\\\ \u0026= \\frac{\\epsilon_{0}}{2}\\left(\\int_{\\mathcal{V}}E^{2}\\mathrm{d}\\tau + \\oint V\\mathbf{E}\\cdot\\mathrm{d}\\mathbf{a}\\right)\\Rightarrow W = \\frac{\\epsilon_{0}}{2}\\int_{\\text{All Space}}E^{2}\\mathrm{d}\\tau \\end{aligned} $$\n导体 性质 导体内部电场为零;\n导体内部 $\\rho = 0$;\n净电荷分布在导体表面;\n导体是等势体;\n电场垂直于导体表面.\n界面条件 根据上述性质, 有\n$$ \\mathbf{E} = \\frac{\\sigma}{\\epsilon_{0}}\\hat{\\mathbf{n}} $$\n电场在导体带电面处不连续, 受力应当是上下电场的平均:\n$$ \\mathbf{f} = \\sigma\\langle E\\rangle = \\frac{1}{2}(\\mathbf{E}_{\\text{up}} + \\mathbf{E}_{\\text{down}}) = \\frac{1}{2\\epsilon_{0}}\\sigma^{2}\\hat{\\mathbf{n}} $$\n所以静电压力:\n$$ P = \\frac{\\epsilon_{0}}{2}E^{2} $$\n电容 $$ C = \\frac{Q}{V} $$\n平行板电容器 $$ \\sigma = \\frac{Q}{S},\\quad E = \\frac{1}{\\epsilon_{0}}\\frac{Q}{S},\\quad V = \\frac{Q}{\\epsilon_{0}S}d\\\\ \\Downarrow\\\\ C = \\frac{\\epsilon_{0}S}{d} $$\n",
+  "wordCount" : "491",
+  "inLanguage": "zh",
+  "datePublished": "2023-06-27T00:18:23+08:00",
+  "dateModified": "2023-06-27T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/ed/field/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "计算物理资料库",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/ed/">⚛️ Electro-Dynamics</a></div>
+            <h1 class="post-title">
+                静电场
+            </h1>
+            <div class="post-description">
+                以大纲方法重新梳理静电场的公式
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>272712-23-120
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>491字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>1分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/electrodynamic/" style="color: var(--secondary)!important;">electrodynamic</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%94%b5%e5%9c%ba" aria-label="电场">电场</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ba%93%e4%bc%a6%e5%ae%9a%e5%be%8b" aria-label="库伦定律">库伦定律</a></li>
+                <li>
+                    <a href="#%e9%80%9a%e9%87%8f%e5%ae%9a%e7%90%86%e9%ab%98%e6%96%af%e5%ae%9a%e7%90%86" aria-label="通量定理(高斯定理)">通量定理(高斯定理)</a></li>
+                <li>
+                    <a href="#%e7%94%b5%e5%9c%ba%e6%95%a3%e5%ba%a6" aria-label="电场散度">电场散度</a></li>
+                <li>
+                    <a href="#%e7%94%b5%e5%9c%ba%e6%97%8b%e5%ba%a6" aria-label="电场旋度">电场旋度</a></li>
+                <li>
+                    <a href="#%e7%94%b5%e5%8a%bf" aria-label="电势">电势</a></li>
+                <li>
+                    <a href="#possion-%e6%96%b9%e7%a8%8b--laplace-%e6%96%b9%e7%a8%8b" aria-label="Possion 方程 &amp;amp; Laplace 方程">Possion 方程 &amp; Laplace 方程</a><ul>
+                        
+                <li>
+                    <a href="#%e5%af%bc%e5%87%ba" aria-label="导出">导出</a></li>
+                <li>
+                    <a href="#%e7%95%8c%e9%9d%a2%e6%9d%a1%e4%bb%b6%e8%be%b9%e7%95%8c%e6%9d%a1%e4%bb%b6" aria-label="界面条件(边界条件)">界面条件(边界条件)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%94%b5%e5%9c%ba%e8%83%bd%e9%87%8f" aria-label="电场能量">电场能量</a></li>
+                <li>
+                    <a href="#%e5%af%bc%e4%bd%93" aria-label="导体">导体</a><ul>
+                        
+                <li>
+                    <a href="#%e6%80%a7%e8%b4%a8" aria-label="性质">性质</a></li>
+                <li>
+                    <a href="#%e7%95%8c%e9%9d%a2%e6%9d%a1%e4%bb%b6" aria-label="界面条件">界面条件</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%94%b5%e5%ae%b9" aria-label="电容">电容</a><ul>
+                        
+                <li>
+                    <a href="#%e5%b9%b3%e8%a1%8c%e6%9d%bf%e7%94%b5%e5%ae%b9%e5%99%a8" aria-label="平行板电容器">平行板电容器</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="电场">电场<a hidden class="anchor" aria-hidden="true" href="#电场">#</a></h1>
+<h2 id="库伦定律">库伦定律<a hidden class="anchor" aria-hidden="true" href="#库伦定律">#</a></h2>
+<p>$$
+\mathbf{E}(\mathbf{r}) = \sum_{i = 1}^{n}\frac{q_{i}}{\mathfrak{s}^{2}}\hat{\mathfrak{s}}\\
+\Downarrow\\
+\mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\epsilon}\int\frac{1}{\mathfrak{s}^{2}}\hat{\mathfrak{s}}\mathrm{d}q
+$$</p>
+<blockquote>
+<p>不同类型分布的表达式:</p>
+<p>$$
+\mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\epsilon_{0}}\int_{\mathcal{P}}\frac{\lambda(\mathbf{r}&rsquo;)}{\mathfrak{s}^{2}}\hat{\mathfrak{s}}\mathrm{d}\mathbf{l}&rsquo;\\
+\mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\epsilon_{0}}\int_{\mathcal{S}}\frac{\sigma(\mathbf{r}&rsquo;)}{\mathfrak{s}^{2}}\hat{\mathfrak{s}}\mathrm{d}\mathbf{a}&rsquo;\\
+\mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\epsilon_{0}}\int_{\mathcal{V}}\frac{\rho(\mathbf{r}&rsquo;)}{\mathfrak{s}^{2}}\hat{\mathfrak{s}}\mathrm{d}\mathbf{\tau}'
+$$</p>
+</blockquote>
+<h2 id="通量定理高斯定理">通量定理(高斯定理)<a hidden class="anchor" aria-hidden="true" href="#通量定理高斯定理">#</a></h2>
+<p>$$
+\oint\mathbf{E}\cdot\mathrm{d}\mathbf{a} = \frac{1}{\epsilon_{0}}Q_{\text{ene}} =  \frac{1}{\epsilon_{0}}\int_{\mathcal{V}}\rho\mathrm{d}\tau
+$$</p>
+<blockquote>
+<p>散度定理:
+$$
+\oint_{\mathcal{S}}\mathbf{E}\cdot\mathrm{d}\mathbf{a} = \int_{\mathcal{V}}(\nabla\cdot\mathbf{E})\mathrm{d}\tau
+$$</p>
+</blockquote>
+<p>所以有</p>
+<p>$$
+\begin{aligned}
+\int_{\mathcal{V}}(\nabla\cdot\mathbf{E})\mathrm{d}\tau &amp;= \int_{\mathcal{V}}\frac{\rho}{\epsilon_{0}}\mathrm{d}\tau\\
+\Downarrow\\
+(\nabla\cdot\mathbf{E}) &amp;= \frac{\rho}{\epsilon_{0}}
+\end{aligned}
+$$</p>
+<h2 id="电场散度">电场散度<a hidden class="anchor" aria-hidden="true" href="#电场散度">#</a></h2>
+<blockquote>
+<p>$$
+\mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\epsilon_{0}}\int_{\text{All Space}}\frac{\hat{\mathfrak{s}}}{\mathfrak{s}^{2}}\rho(\mathbf{r}&rsquo;)\mathrm{d}\tau'
+$$</p>
+</blockquote>
+<p>$$
+\nabla\cdot\mathbf{E} = \frac{1}{4\pi\epsilon_{0}}\int 4\pi\delta^{3}(\mathbf{r} - \mathbf{r}&rsquo;)\rho(\mathbf{r}&rsquo;)\mathrm{d}\tau&rsquo; = \frac{1}{\epsilon_{0}}\rho(\mathbf{r})
+$$</p>
+<p>以上为微分形式, 积分即为</p>
+<p>$$
+\int_{\mathcal{V}}(\nabla\cdot\mathbf{E})\mathrm{d}\tau = \oint_{\mathcal{S}}\mathbf{E}\cdot\mathrm{d}\mathbf{a} = \frac{1}{\epsilon_{0}}\int_{\mathcal{V}}\rho(\mathbf{r})\mathrm{d}\tau&rsquo; = \frac{1}{\epsilon_{0}}Q_{\text{ene}}
+$$</p>
+<h2 id="电场旋度">电场旋度<a hidden class="anchor" aria-hidden="true" href="#电场旋度">#</a></h2>
+<blockquote>
+<p>球坐标中
+$$
+\mathrm{d}\mathbf{l} = \hat{r}\mathrm{d}r + \hat{\theta}r\mathrm{d}\theta + \hat{\phi}r\sin{\theta}\mathrm{d}\phi
+$$</p>
+</blockquote>
+<p>所以</p>
+<p>$$
+\begin{aligned}
+\mathbf{E}\cdot\mathrm{d}\mathbf{l} &amp;= \frac{1}{4\pi\epsilon_{0}}\frac{q}{r^{2}}\hat{r}\\
+\int_{a}^{b}\mathbf{E}\cdot\mathrm{d}\mathbf{l} &amp;= \frac{1}{4\pi\epsilon_{0}}\int_{a}^{b}\frac{q}{r^{2}}\mathrm{d}r = \frac{1}{4\pi\epsilon_{0}}\left(\frac{q}{r_{a}} - \frac{q}{r_{b}}\right)
+\end{aligned}
+$$</p>
+<p>闭合路径下即有</p>
+<p>$$
+\oint\mathbf{E}\cdot\mathrm{d}\mathbf{l} = 0
+$$</p>
+<p>使用 Stokes 定理即有</p>
+<p>$$
+\nabla\times\mathbf{E} = 0
+$$</p>
+<h2 id="电势">电势<a hidden class="anchor" aria-hidden="true" href="#电势">#</a></h2>
+<p>$$
+\mathbf{E} = -\nabla V
+$$</p>
+<h2 id="possion-方程--laplace-方程">Possion 方程 &amp; Laplace 方程<a hidden class="anchor" aria-hidden="true" href="#possion-方程--laplace-方程">#</a></h2>
+<h3 id="导出">导出<a hidden class="anchor" aria-hidden="true" href="#导出">#</a></h3>
+<blockquote>
+<p>既然
+$$
+\mathbf{E} = -\nabla V,\quad\nabla\cdot\mathbf{E} = \frac{\rho}{\epsilon_{0}},\quad\nabla\times\mathbf{E} = 0
+$$</p>
+</blockquote>
+<p>得到 Possion 方程:</p>
+<p>$$
+\nabla^{2}V = -\frac{\rho}{\epsilon_{0}}
+$$</p>
+<blockquote>
+<p>当 $\rho=0$, 即考虑区域内无电荷, 即有 Laplace 方程:
+$$
+\nabla^{2}V = 0
+$$</p>
+</blockquote>
+<h3 id="界面条件边界条件">界面条件(边界条件)<a hidden class="anchor" aria-hidden="true" href="#界面条件边界条件">#</a></h3>
+<p>$$
+\begin{aligned}
+E^{\perp}_{\text{up}} -  E^{\perp}_{\text{down}} &amp;= \frac{\sigma}{\epsilon_{0}}\\
+E^{\parallel}_{\text{up}} &amp;= E^{\parallel}_{\text{down}}
+\end{aligned}
+$$</p>
+<p>将两者合并即有</p>
+<p>$$
+\mathbf{E}_{\text{up}} - \mathbf{E}_{\text{down}} = \frac{\sigma}{\epsilon_{0}}\hat{\mathbf{n}}
+$$</p>
+<blockquote>
+<p>使用电势 $V$ 表示:</p>
+<p>$$
+\frac{\partial V_{\text{up}}}{\partial n} - \frac{\partial V_{\text{down}}}{\partial n} = -\frac{1}{\epsilon_{0}}\sigma\\
+\Downarrow\\
+\frac{\partial V}{\partial n} = \nabla V\cdot\hat{\mathbf{n}}
+$$</p>
+</blockquote>
+<h2 id="电场能量">电场能量<a hidden class="anchor" aria-hidden="true" href="#电场能量">#</a></h2>
+<p>离散:</p>
+<p>$$
+W = \frac{1}{2}\sum_{i}^{n}q_{i}\left(\sum_{j=1,j\neq i}\frac{1}{4\pi\epsilon_{0}}\frac{q_{j}}{\mathfrak{s}_{ij}}\right) = \frac{1}{2}\sum_{i = 1}^{n}q_{i}V(\mathbf{r}_{i})
+$$</p>
+<p>连续:</p>
+<p>$$
+\begin{aligned}
+W &amp;= \frac{1}{2}\int\rho V\mathrm{d}\tau = \frac{\epsilon_{0}}{2}\int(\nabla\cdot\mathbf{E})V\mathrm{d}\tau = \frac{\epsilon_{0}}{2}\oint V\mathbf{E}\cdot\mathrm{d}\mathbf{a} - \frac{\epsilon_{0}}{2}\int\mathbf{E}\cdot(\nabla V)\mathrm{d}\tau\\
+&amp;= \frac{\epsilon_{0}}{2}\left(\int_{\mathcal{V}}E^{2}\mathrm{d}\tau + \oint V\mathbf{E}\cdot\mathrm{d}\mathbf{a}\right)\Rightarrow W = \frac{\epsilon_{0}}{2}\int_{\text{All Space}}E^{2}\mathrm{d}\tau
+\end{aligned}
+$$</p>
+<h2 id="导体">导体<a hidden class="anchor" aria-hidden="true" href="#导体">#</a></h2>
+<h3 id="性质">性质<a hidden class="anchor" aria-hidden="true" href="#性质">#</a></h3>
+<ol>
+<li>
+<p>导体内部电场为零;</p>
+</li>
+<li>
+<p>导体内部 $\rho = 0$;</p>
+</li>
+<li>
+<p>净电荷分布在导体表面;</p>
+</li>
+<li>
+<p>导体是等势体;</p>
+</li>
+<li>
+<p>电场垂直于导体表面.</p>
+</li>
+</ol>
+<h3 id="界面条件">界面条件<a hidden class="anchor" aria-hidden="true" href="#界面条件">#</a></h3>
+<p>根据上述性质, 有</p>
+<p>$$
+\mathbf{E} = \frac{\sigma}{\epsilon_{0}}\hat{\mathbf{n}}
+$$</p>
+<p>电场在导体带电面处不连续, 受力应当是上下电场的平均:</p>
+<p>$$
+\mathbf{f} = \sigma\langle E\rangle = \frac{1}{2}(\mathbf{E}_{\text{up}} + \mathbf{E}_{\text{down}}) = \frac{1}{2\epsilon_{0}}\sigma^{2}\hat{\mathbf{n}}
+$$</p>
+<p>所以静电压力:</p>
+<p>$$
+P = \frac{\epsilon_{0}}{2}E^{2}
+$$</p>
+<h2 id="电容">电容<a hidden class="anchor" aria-hidden="true" href="#电容">#</a></h2>
+<p>$$
+C = \frac{Q}{V}
+$$</p>
+<h3 id="平行板电容器">平行板电容器<a hidden class="anchor" aria-hidden="true" href="#平行板电容器">#</a></h3>
+<p>$$
+\sigma = \frac{Q}{S},\quad E = \frac{1}{\epsilon_{0}}\frac{Q}{S},\quad V = \frac{Q}{\epsilon_{0}S}d\\
+\Downarrow\\
+C = \frac{\epsilon_{0}S}{d}
+$$</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/mpm/laplace/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>拉普拉斯方程</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/phy/qp/scattering-method/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>散射理论</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>

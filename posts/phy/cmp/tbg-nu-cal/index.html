@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>转角双层石墨烯的数值计算综述 | 计算物理资料库</title>
+<meta name="keywords" content="">
+<meta name="description" content="转角双层石墨烯数值计算方法综述">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/cmp/tbg-nu-cal/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="转角双层石墨烯的数值计算综述" />
+<meta property="og:description" content="转角双层石墨烯数值计算方法综述" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/cmp/tbg-nu-cal/" />
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/LZgi83jnsp4HEu1.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-05T00:18:23+08:00" />
+<meta property="article:modified_time" content="2022-05-05T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2023/05/05/LZgi83jnsp4HEu1.png" />
+<meta name="twitter:title" content="转角双层石墨烯的数值计算综述"/>
+<meta name="twitter:description" content="转角双层石墨烯数值计算方法综述"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🔧 Condensed Matter Physics",
+          "item": "https://Muatyz.github.io/posts/phy/cmp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "转角双层石墨烯的数值计算综述",
+      "item": "https://Muatyz.github.io/posts/phy/cmp/tbg-nu-cal/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "转角双层石墨烯的数值计算综述",
+  "name": "转角双层石墨烯的数值计算综述",
+  "description": "转角双层石墨烯数值计算方法综述",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "内容总结于:\n转角石墨烯的实验研究.胡皓东.2022.上海交通大学 氢元素低维纳米结构制备及近场光学表征.吕博赛.2022.上海交通大学 Moiré bands in twisted double-layer graphene.Rafi Bistritzer and Allan H. MacDonald.2011. PNAS 单层石墨烯 晶格 对于单层石墨烯而言, 晶格基矢可以写作\n$$ \\begin{equation} \\vec{a}_{1} = \\frac{a}{2}(3, \\sqrt{3}),\\vec{a}_{2} = \\frac{a}{2}(3,-\\sqrt{3}). \\end{equation} $$\n$a \\approx 1.42 \\overset{\\circ}{A}$ 为碳碳键长度.\n根据倒格矢公式可以计算出倒格基矢\n$$ \\begin{equation} \\vec{b_1} = \\frac{2 \\pi}{3a} ( 1, \\sqrt{3} ), \\vec{b_2} = \\frac{2 \\pi}{3a} ( 1, -\\sqrt{3}). \\end{equation} $$\n而三个最近邻矢量则是\n$$ \\begin{equation} \\delta_{1} = \\frac{a}{2}(1, \\sqrt{3}), \\delta_{2} = \\frac{a}{2}(1, -\\sqrt{3}), \\delta_{3} = a( -1, 0 ) \\end{equation} $$\n用图示来表达这些矢量:\n狄拉克锥即位于$K,K’$点.\n在后文中所用到的倒格矢 $\\vec{G_1}, \\vec{G_2}$ 即可从该处导出.\n当我们对倒格矢指标求和从而采取截断时, 我们的方法是采用 $\\vec{0}, \\mathcal{G}^{(2)}, \\mathcal{G}^{(3)}$, 它们对应的是\n虚线圈出的范围是指的旋转前的单层石墨烯的第一布里渊区.\n$\\vec{0}, \\mathcal{G}^{(2)}, \\mathcal{G}^{(3)}$ 连接的是三个等效的狄拉克点. 蓝色圆点表示的是旋转后的上下两层石墨烯的狄拉克点.\n紧束缚模型 只考虑最近邻跃迁,即三个最近邻矢量, 可以写出对应的哈密顿量:\n$$ \\begin{equation} \\hat{H} = t\\sum_{i,j = \\langle i\\rangle}a_{i}^{\\dagger}b_{j} + h.c.. \\end{equation} $$\n$t\\approx 2.7 eV$ 为跃迁系数(最近邻跃迁能量), $a_{i}^{\\dagger}$ 为在 $i$ 位置产生一个电子的产生算符, $b_{j}$ 为在 $j$ 位置湮灭一个电子的湮灭算符.\n使用傅里叶变换将升降算符写成动量空间的形式:\n$$ \\begin{equation} a_{i} = \\sum_{\\vec{k}}e^{i\\vec{k}\\cdot\\vec{r_{i, A}}}a_{\\vec{k}}, \\end{equation} $$\n$$ \\begin{equation} b_{i} = \\sum_{\\vec{k}}e^{i\\vec{k}\\cdot\\vec{r_{i, B}}}b_{\\vec{k}}. \\end{equation} $$\n将上式代入到哈密顿量的式子中, 即有\n$$ \\begin{equation} \\hat{H} = \\sum_{\\vec{k}}h(\\vec{k})=t\\sum_{\\vec{k}}f(\\vec{k})a_{\\vec{k}}^{\\dagger}b_{\\vec{k}} + h.c.. \\end{equation} $$\n$f(\\vec{k}) = e^{i\\vec{k}\\cdot\\delta_{1}} + e^{i\\vec{k}\\cdot\\delta_{2}} + e^{i\\vec{k}\\cdot\\delta_{3}} = \\sum_{i = 1}^{3}e^{i\\vec{k}\\cdot\\delta_{i}}$.\n对这个哈密顿量求本征值, 即有本征能量为\n$$ \\begin{equation} E_{\\pm}(\\vec{k}) = \\pm t|f(\\vec{k})| = \\pm t\\sqrt{3 + 2\\cos\\left(\\sqrt{3}k_{x}a\\right) + 4\\cos\\left(\\frac{\\sqrt{3}}{2}k_{x}a\\right)\\cos\\left(\\frac{3}{2}k_{y}a\\right)} \\end{equation} $$\n更具体的计算方法在紧束缚模型-六方晶格\n超晶格-转角双层石墨烯 Commensuration (共格, 相称) 要产生共格现象, 就需要摩尔超晶格的原胞基矢能够由整数个原晶格基矢组成.\n用公式描述即有\n$$ \\begin{equation} \\vec{A}_{1} = n\\vec{a}_1 + m\\vec{a}_2, \\end{equation} $$\n$$ \\begin{equation} \\vec{A}_{2} = -m\\vec{a}_1 + (n + m)\\vec{a}_2 \\end{equation} $$\n在一个摩尔超晶格中往往会含有上千个原子, 大大超过了密度泛函理论的运算上限, 所以需要使用近似方法.\n紧束缚模型 因为层间距离 $\\approx 0.3 nm$, 大于碳碳键长度 $a \\approx 0.14 nm$, 所以不考虑层间杂化.\n写出紧束缚哈密顿量:\n$$ \\begin{equation} \\hat{H} = \\sum_{i,j}\\omega(i,j)c_{i}^{\\dagger}c_{j} + h.c. \\end{equation} $$\n$i,j$ 是原胞中的原子指标, $c_{i}^{\\dagger}$ 为在 $i$ 位置产生一个电子的产生算符, $c_{j}$ 为在 $j$ 位置湮灭一个电子的湮灭算符, $\\omega(i,j)$ 为跃迁参数.\n描述跃迁参数的公式是这样的:\n$$ \\begin{equation} \\omega(i,j) = V_{\\pi}\\left[1-\\left(\\frac{\\vec{d_{ij}}\\cdot\\hat{z}}{d_{ij}}\\right)^2\\right]e^{-\\frac{d_{ij}-a_{0}}{\\delta}} + V_{\\sigma}\\left(\\frac{\\vec{d_{ij}}\\cdot\\hat{z}}{d_{ij}}\\right)e^{-\\frac{d_{ij}-d_{0}}{\\delta}} \\end{equation} $$\n$\\vec{d_{ij}} = \\vec{r_{i}} - \\vec{r_{j}}$ 是原子间位移矢量. 而 $V_{\\pi} = -2.7 eV$ 为 $\\pi$ 键的跃迁参数, $V_{\\sigma} = 0.48 eV$ 为 $\\sigma$ 键的跃迁参数, $a_{0} = 0.142 nm$ 为碳碳键长度, $d_{0} = 0.335 nm$ 为层间距离, $\\delta = 0.045 nm$ 为衰减长度.\n和单层石墨烯中的计算处理一样, 我们需要将这里的升降算符通过傅里叶变换写成动量空间的形式:\n$$ \\begin{equation} c_{i} = \\sum_{\\vec{k}}e^{i\\vec{k}\\cdot(\\vec{r_{i}} + \\vec{R})}c_{\\vec{k}}^{I} \\end{equation} $$\n$\\vec{R}$ 是包含第i个原子的原胞的原点绝对位置, $\\vec{r}_{i}$ 则是相对于原胞内原点的相对位移, $I = 1,\\dots,N$ 则是指的原胞内第 $i$ 个原子.\n代入后得到哈密顿量的动量形式:\n$$ \\begin{equation} \\hat{H} = \\sum_{\\vec{k}}h(\\vec{k}) = \\sum_{\\vec{k}}\\sum_{I,J}h_{IJ}(\\vec{k})c_{\\vec{k}}^{I,\\dagger}c_{\\vec{k}}^{J} + h.c.. \\end{equation} $$\n$h_{IJ}(\\vec{k}) = \\sum_{\\vec{R}}\\omega(\\vec{r_{I}}+\\vec{R},\\vec{r_{J}})e^{i\\vec{k}\\cdot(\\vec{r_{I}}+\\vec{R}-\\vec{r_{J}})}$ 为跃迁矩阵.\n然而, 对于 $N \\approx 10^4$ 的数据规模进行对角化是十分困难的.\n$N \\approx 10^4$ 这个数字来源于这样的计算:摩尔超晶格原胞面积变为原先的 $\\theta^{-2}$ 倍, 则其中的原子数量也增长了 $\\theta^{-2}$ 倍, 所以对于 $\\theta \\approx 1°$ 的TBG, 超晶格的原胞大约存在 $10^{4}$ 个原子.\n紧束缚模型可以准确给出能带结构, 但是其角度是从原子和原子之间的相互作用出发的, 而并不能和摩尔超晶格联系起来.\n连续模型 在低能条件下, 连续模型不仅适用于共格的摩尔超晶体, 也同样适用于并无共格性的叠加晶体.\n建立这样一个哈密顿量, 其中主对角线上的元素是单层石墨烯的狄拉克哈密顿量, 而副对角线上的元素则是描述层间跃迁的隧穿项.\n对于单层的石墨烯, 其狄拉克哈密顿量是这样表示的:\n$$ \\begin{equation} h_{\\vec{K}}(\\vec{q})=\\hbar v_{F}|\\vec{q}| \\begin{bmatrix} 0 \u0026 e^{-i\\theta_{\\vec{q}}} \\\\ e^{i\\theta_{\\vec{q}}} \u0026 0 \\\\ \\end{bmatrix} \\end{equation} $$\n$\\theta_{\\vec{q}} = \\tan^{-1}(q_{y}/q_{x})$\n所以对于相对转角为 $\\theta$ 的双层石墨烯, 其单层的狄拉克哈密顿量可以分别写作:\n$$ \\begin{equation} h_{\\vec{K}}^{1}(\\vec{q})=\\hbar v_{F}|\\vec{q}| \\begin{bmatrix} 0 \u0026 e^{-i(\\theta_{\\vec{q}}+\\theta/2)} \\\\ e^{i(\\theta_{\\vec{q}}+\\theta/2)} \u0026 0 \\\\ \\end{bmatrix} =\\hbar v_{F}\\sigma^{\\theta/2}\\cdot\\vec{q}, \\end{equation} $$\n$$ \\begin{equation} h_{\\vec{K}}^{2}(\\vec{q})=\\hbar v_{F}|\\vec{q}| \\begin{bmatrix} 0 \u0026 e^{-i(\\theta_{\\vec{q}}-\\theta/2)} \\\\ e^{i(\\theta_{\\vec{q}}-\\theta/2)} \u0026 0 \\\\ \\end{bmatrix} =\\hbar v_{F}\\sigma^{-\\theta/2}\\cdot\\vec{q}. \\end{equation} $$\n它们各自作用在单层石墨烯的 $A$, $B$ 子格上, 所以对于整体的哈密顿量而言, 是作用在 $\\begin{bmatrix} \\alpha_{\\vec{q}} \\ \\beta_{\\vec{q}} \\ \\end{bmatrix}$ 这样一个两分量的旋量上的.\n接下来要解决的时层间隧穿项. 我们将层间跃迁的矩阵元写出来:\n$$ \\begin{equation} T_{\\vec{k}\\vec{p}’}^{\\alpha\\beta} = \\langle \\Psi_{\\vec{k}\\alpha}^{(1)}|\\hat{H_{T}}|\\Psi_{\\vec{p}’\\beta}^{(2)}\\rangle \\end{equation} $$\n该矩阵元描述的是一个动量为 $\\vec{p}’=M(\\theta)\\vec{p}$ 的电子,在第二层的 $\\beta$ 子格上, 通过层间跃迁到第一层的 $\\alpha$ 子格上, 成为动量为 $\\vec{k}$ 的态的过程, $M(\\theta)$ 是一个旋转矩阵.\n我们用紧束缚模型的思路将波函数的形式写出来:\n$$ \\begin{equation} |\\Psi_{\\vec{k}\\alpha}^{(1)}\\rangle=\\frac{1}{\\sqrt{N}}\\sum_{\\vec{R}}e^{i\\vec{k}\\cdot(\\vec{R}+\\vec{\\tau_{\\alpha}})}|\\vec{R}+\\vec{\\tau_{\\alpha}}\\rangle, \\end{equation} $$\n$$ \\begin{equation} |\\Psi_{\\vec{p}’\\beta}^{(2)}\\rangle=\\frac{1}{\\sqrt{N}}\\sum_{\\vec{R’}}e^{i\\vec{p}’\\cdot(\\vec{R’}+\\vec{\\tau_{\\beta}}’)}|\\vec{R’}+\\vec{\\tau_{\\beta}}’\\rangle. \\end{equation} $$\n$\\tau_{A} = 0, \\tau_{B} = \\tau$. $\\vec{R}$ 是对所有三角布拉维格子求和的指标.\n我们不妨选取 $AB$ 堆叠处作为原点, 那么就有关系式\n$$ \\begin{equation} \\vec{R’} = M(\\theta)(\\vec{R}-\\tau) + d \\end{equation} $$\n$d$ 是层间间距.\n将波函数代入到层间跃迁矩阵元中, 并且采用两中心近似, 就能得到层间跃迁矩阵元:\n$$ \\begin{equation} T_{\\vec{k}\\vec{p}’}^{\\alpha\\beta}=\\frac{1}{N} \\sum_{\\vec{R}}\\sum_{\\vec{R}’} e^{i[-\\vec{k}(\\vec{R}+\\tau_{\\alpha})+\\vec{p}’(\\vec{R}’+\\tau_{\\beta}’)]} t(\\vec{R}+\\tau_{\\alpha}-\\vec{R}’-\\tau_{\\beta}’) \\end{equation} $$\n两中心近似, 指的是假设电子只和起始原子和终止原子之间的原子相互作用, 而忽略了其他原子的影响. 用公式可以这样描述: $$ \\begin{equation} \\langle\\vec{R}+\\tau_{\\alpha}|\\hat{H_T}|\\vec{R’}+\\tau_{\\beta}’\\rangle = t(\\vec{R}+\\tau_{\\alpha}-\\vec{R}’-\\tau_{\\beta}’) \\end{equation} $$ 因为转角双层石墨烯中碳碳键很小, 所以这个式子用来描述电子跃迁的过程非常好用.\n利用傅里叶变换, 我们可以将两中心近似所用的式子转为动量空间的形式.\n$$ \\begin{equation} T_{\\vec{k}\\vec{p}’}^{\\alpha\\beta}=\\frac{1}{N^2} \\sum_{\\vec{R}}\\sum_{\\vec{R}’}\\sum_{\\vec{q_1}}\\sum_{\\vec{q_2}} e^{i[-\\vec{k}(\\vec{R}+\\tau_{\\alpha})+\\vec{p}’(\\vec{R}’+\\tau_{\\beta}’)]} e^{i[\\vec{q_1}(\\vec{R}+\\tau_{\\alpha})-\\vec{q_2}(\\vec{R}’+\\tau_{\\beta}’)]} \\frac{t_{\\vec{q}}}{\\Omega} \\end{equation} $$\n这个式子非常长, 但是我们可以通过一些和式结论来简化这个式子:\n$$ \\begin{equation} \\sum_{\\vec{R}}e^{i(\\vec{q_1}-\\vec{k})\\vec{R}} = N\\delta_{\\vec{q_1}-\\vec{k}, \\vec{G_1}}, \\end{equation} $$\n$$ \\begin{equation} \\sum_{\\vec{R}’}e^{-i(\\vec{q_2}-\\vec{p}’)(\\vec{R}’-\\vec{d}+\\tau’)} = N\\delta_{\\vec{q_2}-\\vec{p}’, \\vec{G_2}’}. \\end{equation} $$\n最后我们就得到了层间跃迁矩阵元:\n$$ \\begin{equation} T_{\\vec{k}\\vec{p}’}^{\\alpha\\beta}=\\sum_{\\vec{G_1}\\vec{G_2}}\\frac{t_{\\overline{\\vec{k}}+\\vec{G_1}}}{\\Omega} e^{i[\\vec{G_1}\\tau_{\\alpha}-\\vec{G_2}(\\tau_{\\beta}-\\tau)-\\vec{G_2}’\\vec{d}]}\\delta_{\\overline{\\vec{k}}+\\vec{G_1},\\overline{\\vec{p}}’+\\vec{G_2}’} \\end{equation} $$\n$\\Omega$ 是原胞面积, $t_{\\vec{q}}$ 是隧穿幅值 $t(\\vec{r})$ 的傅里叶变换, $\\vec{G_1}, \\vec{G_2}$ 是倒格矢, 上标代表 $\\vec{G}_i = M(\\theta)\\vec{G}_i$. 而上划线则表示动量起点是布里渊区的中心.\n对于狄拉克点附近的动量而言, 如果要让 $t_q$ 值足够大, 那么可以对层间矩阵元 $T_{\\vec{k}\\vec{p}’}^{\\alpha\\beta}$ 中的 $\\vec{G_1}$指标采取截断, 具体来说就是只保留 $\\vec{0},\\mathcal{G}^{(2)}, \\mathcal{G}^{(3)}$ 三项.\n注意到总有关系式 $$ \\begin{equation} \\overline{\\vec{k}} + \\vec{G_1} = \\overline{\\vec{p}}’ + \\vec{G_2}' \\end{equation} $$ 成立\n所以当 $\\vec{G_1}$ 被选定, 实际上对应的 $\\vec{G_2}’$ 可以被选定(这意味着跃迁发生在一层狄拉克点邻域到另一层狄拉克点邻域).\n再回头看看前面晶格部分内容里展示的\n我们假定, 在低能模型下, 只有 $q_b, q_{tr}, q_{tl}$ 对应的三个跃迁过程有意义. 具体到电子态, 即\n$$ |\\vec{k_{\\alpha}}^{(1)}\\rangle \\rightarrow |(\\vec{k}+\\vec{k_{\\theta}})_{\\beta}^{(2)}\\rangle $$\n$$ |\\vec{k_{\\alpha}}^{(1)}\\rangle \\rightarrow |(\\vec{k}+\\vec{k_{\\theta}}-\\vec{G_1})_{\\beta}^{(2)}\\rangle $$\n$$ |\\vec{k_{\\alpha}}^{(1)}\\rangle \\rightarrow |(\\vec{k}+\\vec{k_{\\theta}}-\\vec{G_2})_{\\beta}^{(2)}\\rangle $$\n$$ |k_{\\theta}| = |\\vec{K} - \\vec{K}’| = 2k_{D}\\sin{\\frac{\\theta}{2}} $$\n其对应的跃迁矩阵元中的分量即为\n$$ \\begin{equation} T_{1} = \\frac{t_{k_{D}}}{\\Omega} \\begin{bmatrix} 1 \u0026 1\\\\ 1 \u0026 1\\\\ \\end{bmatrix}, \\end{equation} $$\n$$ \\begin{equation} T_{2} = \\frac{t_{k_{D}}}{\\Omega}e^{-i\\mathcal{G}^{(2)’}\\cdot\\vec{d}} \\begin{bmatrix} e^{-i\\Phi} \u0026 1\\\\ e^{i\\Phi} \u0026 e^{-i\\Phi}\\\\ \\end{bmatrix}, \\end{equation} $$\n$$ \\begin{equation} T_{3} = \\frac{t_{k_D}}{\\Omega}e^{-i\\mathcal{G}^{(3’)}\\cdot\\vec{d}} \\begin{bmatrix} e^{i\\Phi} \u0026 1\\\\ e^{-i\\Phi} \u0026 e^{i\\Phi} \\\\ \\end{bmatrix} \\end{equation} $$\n$\\phi = 2\\pi/3$, 该数值来源于 $\\mathcal{G}^{(2)}\\cdot\\tau$\n四个矩阵元分别指代 $AA, AB, BA, BB$ 四种跃迁的子格排布.\n前面我们已经提到, 对于一个超晶格网络上的态 $|(\\vec{k}+m\\vec{G_1}+n\\vec{G_2})^{1}\\rangle$ 对应三个跃迁过程:\n$$ \\begin{equation} |(\\vec{k}+m\\vec{G_1}+n\\vec{G_2})^{(1)}\\rangle\\rightarrow|(\\vec{k}+\\vec{k_{\\theta}}+m\\vec{G_1}+n\\vec{G_2})^{(2)}\\rangle, \\end{equation} $$\n$$ \\begin{equation} |(\\vec{k}+m\\vec{G_1}+n\\vec{G_2})^{(1)}\\rangle\\rightarrow|(\\vec{k}+\\vec{k_{\\theta}}+(m - 1)\\vec{G_1}+n\\vec{G_2})^{(2)}\\rangle, \\end{equation} $$\n$$ \\begin{equation} |(\\vec{k}+m\\vec{G_1}+n\\vec{G_2})^{(1)}\\rangle\\rightarrow|(\\vec{k}+\\vec{k_{\\theta}}+m\\vec{G_1}+(n - 1)\\vec{G_2})^{(2)}\\rangle \\end{equation} $$\n$$ m = -M, \\dots,-1, 0, 1, \\dots, M $$\n$$ n = -N, \\dots,-1, 0, 1, \\dots, N $$\n一般采取 $M = N = 4$ 的截断即可取得理想计算结果.\n使用指标 $\\vec{q}$ 来替换 $\\vec{k}$, 具体来说是\n$$ \\vec{q} = \\vec{k} - \\vec{K} $$\n所以我们就可以定义基底\n$$ \\begin{equation} |q\\rangle= \\begin{bmatrix} |(\\vec{q}-M\\vec{G_1}-N\\vec{G_2})^{(1)}\\rangle\\\\ |(\\vec{q}-(M-1)\\vec{G_1}-N\\vec{G_2})^{(1)}\\rangle\\\\ \\dots\\\\ |(\\vec{q}+M\\vec{G_1}-N\\vec{G_2})^{(1)}\\rangle\\\\ |(\\vec{q}-M\\vec{G_1}-(N-1)\\vec{G_2})^{(1)}\\rangle\\\\ |(\\vec{q}-(M-1)\\vec{G_1}-(N-1)\\vec{G_2})^{(1)}\\rangle\\\\ \\dots\\\\ |(\\vec{q}+M\\vec{G_1}-(N-1)\\vec{G_2})^{(1)}\\rangle\\\\ |(\\vec{q}+M\\vec{G_1}+N\\vec{G_2})^{(1)}\\rangle\\\\ \\dots\\\\ |(\\vec{q}+\\vec{k_{\\theta}}-M\\vec{G_1}-N\\vec{G_2})^{(2)}\\rangle\\\\ \\dots\\\\ |(\\vec{q}+\\vec{k_{\\theta}}+M\\vec{G_1}+N\\vec{G_2})^{(2)}\\rangle\\\\ \\end{bmatrix} \\end{equation} $$\n计算可知该基底长度为 $(2M+1)(2N+1)$\n其中的每个姿态都对应着 $A/B$ 子格的二分量旋量.\n我们写出整个系统的哈密顿量:\n接下来的公式会很长: 确保你的 Markdown 阅读器支持滑轮显示公式, 或者使用带鱼屏.\n$$ \\begin{equation} h^{\\vec{K}}(\\vec{q})=h_{ij}= \\begin{bmatrix} h_{\\vec{K}}^{(1)}(\\vec{q}-M\\vec{G_1}-N\\vec{G_2}) \u0026 0 \u0026\\dots\u0026 0 \u0026 T^{1} \u0026 0 \u0026 \\dots \u0026 0\\\\ 0 \u0026 h_{\\vec{K}}^{(1)}(\\vec{q}-(M - 1)\\vec{G_1}-N\\vec{G_2}) \u0026\\dots \u0026 0 \u0026 T^{2} \u0026 T^{1} \u0026 \\dots \u0026 0\\\\ \\vdots \u0026 \\vdots \u0026 \\ddots \u0026 \\vdots \u0026 \\vdots \u0026 \\vdots \u0026 \\ddots \u0026 \\vdots\\\\ 0 \u0026 0 \u0026 \\dots \u0026 h_{\\vec{K}}^{(1)}(\\vec{q}+M\\vec{G_1}+N\\vec{G_2}) \u0026 0 \u0026 0 \u0026 \\dots \u0026 T^{1}\\\\ T^{1\\dagger} \u0026 T^{2\\dagger} \u0026 \\dots \u0026 0 \u0026 h_{\\vec{K}}^{(2)}(\\vec{q}+\\vec{k_{\\theta}}-M\\vec{G_1}-N\\vec{G_2}) \u0026 0 \u0026 \\dots \u0026 0\\\\ 0 \u0026 T^{1\\dagger} \u0026 \\dots \u0026 0 \u0026 0 \u0026 h_{\\vec{K}}^{(2)}(\\vec{q}+\\vec{k_{\\theta}}-(M - 1)\\vec{G_1}-N\\vec{G_2}) \u0026 \\dots \u0026 0\\\\ 0 \u0026 0 \u0026 \\dots \u0026 0 \u0026 0 \u0026 0 \u0026 \\cdots \u0026 0\\\\ 0 \u0026 0 \u0026 \\dots \u0026 T^{1\\dagger} \u0026 0 \u0026 0 \u0026 \\dots \u0026 h_{\\vec{K}}^{(2)}(\\vec{q}+\\vec{k_{\\theta}}+M\\vec{G_1}+N\\vec{G_2})\\\\ \\end{bmatrix} \\end{equation} $$\n对角矩阵元是旋转后的单层狄拉克哈密顿量; 非对角元代表态之间的跃迁矩阵. 因为我们只考虑了最近邻跃迁, 所以非对角元只有 $0, T^{1}, T^{2}$ 三种.\n由此得到总哈密顿量\n$$ \\begin{equation} \\hat{H_{ctn}^{\\vec{k}}}=\\sum_{\\vec{q}}h^{\\vec{K}}(\\vec{q})|\\vec{q}\\rangle\\langle\\vec{q}| \\end{equation} $$\n连续模型在这里还需要对进行进一步的修正.\n在上述的模型中， 我们架设了单层石墨烯晶格是刚性的， 即保持参数 $a = 0.142nm$ 和 $d = 0.33nm$ 不变, 但是为了使得系统处于稳定性(也就是 $\\partial_{\\vec{x}}U=0$), 碳原子实际上会尽可能避免靠得太近.\n转角双层石墨烯具有不同的堆叠类型:\n$AA(BB)$ 型: 上下两层子格完全相同, 位置垂直对齐; $AB$ 型: 上层的 $A$ 原子与下层的 $B$ 原子对齐, 而上层的 $B$ 原子与下层的 $A$ 原子并不对齐; $BA$ 型 : 上层的$B$ 原子与下层的 $A$ 原子对齐, 而上层的 $B$ 原子与下层的 $A$ 原子并不对齐. 我们从曹原给出的参考图来体会这三种类型, 以及它们是如何整体体现在晶格网络上的:\n对于转角双层石墨烯, 弛豫效应也会对电子能带产生显著影响.\n弛豫效应\n在这里的语境下指的是材料中的原子位置会因为某些扰动而发生微小位移, 在计算能带的时候需要将这种位移考虑进去.\n$AA$ 堆叠中原子相互靠得很近, 这会使得势能变得更高, 所以会存在一种趋势, 使得 $AA$ 区域发生扭曲与拉伸, 从而接近于 $AB$ 堆叠区域. 这样的趋势会带来两种后果:\n$d_{AA}\u003ed_{AB}=d_{BA}$. 我们将这种行为称为屈伸($\\text{builkling}$)或者褶皱($\\text{corrugation}$); $AA$ 区域面积收缩, 使得 $AA$ 区域转动更大, $AB$ 区域转动更小. 于是就形成了图上右部分的拓扑连接的结构.\n在转角石墨烯中的摩尔能带一文中我们已经知道, 转角双层石墨烯的能谱在 $\\theta\\neq 0$ 时, 与 $\\vec{d}$ 无关. 所以我们可以把 $T_1, T_2, T_3$ 重写一遍:\n$$ \\begin{equation} T_1=w\\begin{bmatrix} 1 \u0026 1\\\\ 1 \u0026 1\\\\ \\end{bmatrix}, \\end{equation} $$\n$$ \\begin{equation} T_2=w\\begin{bmatrix} 1 \u0026 \\omega^{\\star}\\\\ \\omega \u0026 1\\\\ \\end{bmatrix}, \\end{equation} $$\n$$ \\begin{equation} T_3=w\\begin{bmatrix} 1 \u0026 \\omega\\\\ \\omega^{\\star} \u0026 1\\\\ \\end{bmatrix}. \\end{equation} $$\n为了引入弛豫效应, 我们引入 $w’",
+  "wordCount" : "3788",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2023/05/05/LZgi83jnsp4HEu1.png","datePublished": "2022-05-05T00:18:23+08:00",
+  "dateModified": "2022-05-05T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/cmp/tbg-nu-cal/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "计算物理资料库",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/cmp/">🔧 Condensed Matter Physics</a></div>
+            <h1 class="post-title">
+                转角双层石墨烯的数值计算综述
+            </h1>
+            <div class="post-description">
+                转角双层石墨烯数值计算方法综述
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>50512-22-120
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3788字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>8分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">numerical calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2023/05/05/LZgi83jnsp4HEu1.png" alt="AA, AB 与 BA 类型的堆叠">
+    <p>AA, AB 与 BA 类型的堆叠</p>
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%8d%95%e5%b1%82%e7%9f%b3%e5%a2%a8%e7%83%af" aria-label="单层石墨烯">单层石墨烯</a><ul>
+                        
+                <li>
+                    <a href="#%e6%99%b6%e6%a0%bc" aria-label="晶格">晶格</a></li>
+                <li>
+                    <a href="#%e7%b4%a7%e6%9d%9f%e7%bc%9a%e6%a8%a1%e5%9e%8b" aria-label="紧束缚模型">紧束缚模型</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%b6%85%e6%99%b6%e6%a0%bc-%e8%bd%ac%e8%a7%92%e5%8f%8c%e5%b1%82%e7%9f%b3%e5%a2%a8%e7%83%af" aria-label="超晶格-转角双层石墨烯">超晶格-转角双层石墨烯</a><ul>
+                        
+                <li>
+                    <a href="#commensuration-%e5%85%b1%e6%a0%bc-%e7%9b%b8%e7%a7%b0" aria-label="Commensuration (共格, 相称)">Commensuration (共格, 相称)</a></li>
+                <li>
+                    <a href="#%e7%b4%a7%e6%9d%9f%e7%bc%9a%e6%a8%a1%e5%9e%8b-1" aria-label="紧束缚模型">紧束缚模型</a></li>
+                <li>
+                    <a href="#%e8%bf%9e%e7%bb%ad%e6%a8%a1%e5%9e%8b" aria-label="连续模型">连续模型</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><p>内容总结于:</p>
+<ol>
+<li>转角石墨烯的实验研究.胡皓东.2022.上海交通大学</li>
+<li>氢元素低维纳米结构制备及近场光学表征.吕博赛.2022.上海交通大学</li>
+<li>Moiré bands in twisted double-layer graphene.Rafi Bistritzer and Allan H. MacDonald.2011. PNAS</li>
+</ol>
+<h1 id="单层石墨烯">单层石墨烯<a hidden class="anchor" aria-hidden="true" href="#单层石墨烯">#</a></h1>
+<h2 id="晶格">晶格<a hidden class="anchor" aria-hidden="true" href="#晶格">#</a></h2>
+<p>对于单层石墨烯而言, 晶格基矢可以写作</p>
+<p>$$
+\begin{equation}
+\vec{a}_{1} = \frac{a}{2}(3, \sqrt{3}),\vec{a}_{2} = \frac{a}{2}(3,-\sqrt{3}).
+\end{equation}
+$$</p>
+<blockquote>
+<p>$a \approx 1.42 \overset{\circ}{A}$ 为碳碳键长度.</p>
+</blockquote>
+<p>根据倒格矢公式可以计算出倒格基矢</p>
+<p>$$
+\begin{equation}
+\vec{b_1} = \frac{2 \pi}{3a} ( 1, \sqrt{3} ),
+\vec{b_2} = \frac{2 \pi}{3a} ( 1, -\sqrt{3}).
+\end{equation}
+$$</p>
+<p>而三个最近邻矢量则是</p>
+<p>$$
+\begin{equation}
+\delta_{1} = \frac{a}{2}(1, \sqrt{3}),
+\delta_{2} = \frac{a}{2}(1, -\sqrt{3}),
+\delta_{3} = a( -1, 0 )
+\end{equation}
+$$</p>
+<p>用图示来表达这些矢量:</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/05/LD187mXq6oVkwsl.png" alt="grapheneAndbz.png"  />
+</p>
+<blockquote>
+<p>狄拉克锥即位于$K,K&rsquo;$点.</p>
+</blockquote>
+<p>在后文中所用到的倒格矢 $\vec{G_1}, \vec{G_2}$ 即可从该处导出.</p>
+<p>当我们对倒格矢指标求和从而采取截断时, 我们的方法是采用 $\vec{0}, \mathcal{G}^{(2)}, \mathcal{G}^{(3)}$, 它们对应的是</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/05/1xhFPwob6CeacWm.png" alt="0AndG2AndG3.png"  />
+</p>
+<blockquote>
+<p>虚线圈出的范围是指的旋转前的单层石墨烯的第一布里渊区.</p>
+<p>$\vec{0}, \mathcal{G}^{(2)}, \mathcal{G}^{(3)}$ 连接的是三个等效的狄拉克点.
+蓝色圆点表示的是旋转后的上下两层石墨烯的狄拉克点.</p>
+</blockquote>
+<h2 id="紧束缚模型">紧束缚模型<a hidden class="anchor" aria-hidden="true" href="#紧束缚模型">#</a></h2>
+<p>只考虑最近邻跃迁,即三个最近邻矢量, 可以写出对应的哈密顿量:</p>
+<p>$$
+\begin{equation}
+\hat{H} = t\sum_{i,j = \langle i\rangle}a_{i}^{\dagger}b_{j} + h.c..
+\end{equation}
+$$</p>
+<blockquote>
+<p>$t\approx 2.7 eV$ 为跃迁系数(最近邻跃迁能量), $a_{i}^{\dagger}$ 为在 $i$ 位置产生一个电子的产生算符, $b_{j}$ 为在 $j$ 位置湮灭一个电子的湮灭算符.</p>
+</blockquote>
+<p>使用傅里叶变换将升降算符写成动量空间的形式:</p>
+<p>$$
+\begin{equation}
+a_{i} = \sum_{\vec{k}}e^{i\vec{k}\cdot\vec{r_{i, A}}}a_{\vec{k}},
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+b_{i} = \sum_{\vec{k}}e^{i\vec{k}\cdot\vec{r_{i, B}}}b_{\vec{k}}.
+\end{equation}
+$$</p>
+<p>将上式代入到哈密顿量的式子中, 即有</p>
+<p>$$
+\begin{equation}
+\hat{H} = \sum_{\vec{k}}h(\vec{k})=t\sum_{\vec{k}}f(\vec{k})a_{\vec{k}}^{\dagger}b_{\vec{k}} + h.c..
+\end{equation}
+$$</p>
+<blockquote>
+<p>$f(\vec{k}) = e^{i\vec{k}\cdot\delta_{1}} + e^{i\vec{k}\cdot\delta_{2}} + e^{i\vec{k}\cdot\delta_{3}} = \sum_{i = 1}^{3}e^{i\vec{k}\cdot\delta_{i}}$.</p>
+</blockquote>
+<p>对这个哈密顿量求本征值, 即有本征能量为</p>
+<p>$$
+\begin{equation}
+E_{\pm}(\vec{k}) = \pm t|f(\vec{k})|
+= \pm t\sqrt{3 + 2\cos\left(\sqrt{3}k_{x}a\right) + 4\cos\left(\frac{\sqrt{3}}{2}k_{x}a\right)\cos\left(\frac{3}{2}k_{y}a\right)}
+\end{equation}
+$$</p>
+<p>更具体的计算方法在<a href="https://muartz.com/posts/phy/tight-binding-model/#%e8%83%bd%e5%b8%a6%e8%ae%a1%e7%ae%97##%e4%ba%8c%e7%bb%b4%e6%99%b6%e6%a0%bc###%e4%ba%8c%e7%bb%b4%e5%85%ad%e8%a7%92%e6%99%b6%e6%a0%bc%28%e6%9c%80%e5%af%86%e5%a0%86%e7%a7%af%29" target="_blank" rel="noopener nofollow noreferrer" >紧束缚模型-六方晶格</a></p>
+<h1 id="超晶格-转角双层石墨烯">超晶格-转角双层石墨烯<a hidden class="anchor" aria-hidden="true" href="#超晶格-转角双层石墨烯">#</a></h1>
+<h2 id="commensuration-共格-相称">Commensuration (共格, 相称)<a hidden class="anchor" aria-hidden="true" href="#commensuration-共格-相称">#</a></h2>
+<p>要产生共格现象, 就需要摩尔超晶格的原胞基矢能够由整数个原晶格基矢组成.</p>
+<p>用公式描述即有</p>
+<p>$$
+\begin{equation}
+\vec{A}_{1} = n\vec{a}_1 + m\vec{a}_2,
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+\vec{A}_{2} = -m\vec{a}_1 + (n + m)\vec{a}_2
+\end{equation}
+$$</p>
+<hr>
+<blockquote>
+<p>在一个摩尔超晶格中往往会含有上千个原子, 大大超过了密度泛函理论的运算上限, 所以需要使用近似方法.</p>
+</blockquote>
+<h2 id="紧束缚模型-1">紧束缚模型<a hidden class="anchor" aria-hidden="true" href="#紧束缚模型-1">#</a></h2>
+<p>因为层间距离 $\approx 0.3 nm$, 大于碳碳键长度 $a \approx 0.14 nm$, 所以不考虑层间杂化.</p>
+<p>写出紧束缚哈密顿量:</p>
+<p>$$
+\begin{equation}
+\hat{H} = \sum_{i,j}\omega(i,j)c_{i}^{\dagger}c_{j} + h.c.
+\end{equation}
+$$</p>
+<blockquote>
+<p>$i,j$ 是原胞中的原子指标, $c_{i}^{\dagger}$ 为在 $i$ 位置产生一个电子的产生算符, $c_{j}$ 为在 $j$ 位置湮灭一个电子的湮灭算符, $\omega(i,j)$ 为跃迁参数.</p>
+</blockquote>
+<p>描述跃迁参数的公式是这样的:</p>
+<p>$$
+\begin{equation}
+\omega(i,j) = V_{\pi}\left[1-\left(\frac{\vec{d_{ij}}\cdot\hat{z}}{d_{ij}}\right)^2\right]e^{-\frac{d_{ij}-a_{0}}{\delta}} + V_{\sigma}\left(\frac{\vec{d_{ij}}\cdot\hat{z}}{d_{ij}}\right)e^{-\frac{d_{ij}-d_{0}}{\delta}}
+\end{equation}
+$$</p>
+<blockquote>
+<p>$\vec{d_{ij}} = \vec{r_{i}} - \vec{r_{j}}$
+是原子间位移矢量.
+而 $V_{\pi} = -2.7 eV$ 为 $\pi$ 键的跃迁参数,
+$V_{\sigma} = 0.48 eV$ 为 $\sigma$ 键的跃迁参数,
+$a_{0} = 0.142 nm$ 为碳碳键长度,
+$d_{0} = 0.335 nm$ 为层间距离,
+$\delta = 0.045 nm$ 为衰减长度.</p>
+</blockquote>
+<p>和单层石墨烯中的计算处理一样, 我们需要将这里的升降算符通过傅里叶变换写成动量空间的形式:</p>
+<p>$$
+\begin{equation}
+c_{i} = \sum_{\vec{k}}e^{i\vec{k}\cdot(\vec{r_{i}} + \vec{R})}c_{\vec{k}}^{I}
+\end{equation}
+$$</p>
+<blockquote>
+<p>$\vec{R}$ 是包含第i个原子的原胞的原点绝对位置, $\vec{r}_{i}$ 则是相对于原胞内原点的相对位移, $I = 1,\dots,N$ 则是指的原胞内第 $i$ 个原子.</p>
+</blockquote>
+<p>代入后得到哈密顿量的动量形式:</p>
+<p>$$
+\begin{equation}
+\hat{H} = \sum_{\vec{k}}h(\vec{k}) = \sum_{\vec{k}}\sum_{I,J}h_{IJ}(\vec{k})c_{\vec{k}}^{I,\dagger}c_{\vec{k}}^{J} + h.c..
+\end{equation}
+$$</p>
+<blockquote>
+<p>$h_{IJ}(\vec{k}) = \sum_{\vec{R}}\omega(\vec{r_{I}}+\vec{R},\vec{r_{J}})e^{i\vec{k}\cdot(\vec{r_{I}}+\vec{R}-\vec{r_{J}})}$
+为跃迁矩阵.</p>
+</blockquote>
+<p>然而, 对于 $N \approx 10^4$ 的数据规模进行对角化是十分困难的.</p>
+<blockquote>
+<p>$N \approx 10^4$ 这个数字来源于这样的计算:摩尔超晶格原胞面积变为原先的 $\theta^{-2}$ 倍, 则其中的原子数量也增长了 $\theta^{-2}$ 倍, 所以对于 $\theta \approx 1°$ 的TBG, 超晶格的原胞大约存在 $10^{4}$ 个原子.</p>
+</blockquote>
+<p>紧束缚模型可以准确给出能带结构, 但是其角度是从原子和原子之间的相互作用出发的, 而并不能和摩尔超晶格联系起来.</p>
+<h2 id="连续模型">连续模型<a hidden class="anchor" aria-hidden="true" href="#连续模型">#</a></h2>
+<p>在低能条件下, 连续模型不仅适用于共格的摩尔超晶体, 也同样适用于并无共格性的叠加晶体.</p>
+<p>建立这样一个哈密顿量, 其中主对角线上的元素是单层石墨烯的狄拉克哈密顿量, 而副对角线上的元素则是描述层间跃迁的隧穿项.</p>
+<p>对于单层的石墨烯, 其狄拉克哈密顿量是这样表示的:</p>
+<p>$$
+\begin{equation}
+h_{\vec{K}}(\vec{q})=\hbar v_{F}|\vec{q}|
+\begin{bmatrix}
+0 &amp; e^{-i\theta_{\vec{q}}}  \\
+e^{i\theta_{\vec{q}}} &amp; 0   \\
+\end{bmatrix}
+\end{equation}
+$$</p>
+<blockquote>
+<p>$\theta_{\vec{q}} = \tan^{-1}(q_{y}/q_{x})$</p>
+</blockquote>
+<p>所以对于相对转角为 $\theta$ 的双层石墨烯, 其单层的狄拉克哈密顿量可以分别写作:</p>
+<p>$$
+\begin{equation}
+h_{\vec{K}}^{1}(\vec{q})=\hbar v_{F}|\vec{q}|
+\begin{bmatrix}
+0 &amp; e^{-i(\theta_{\vec{q}}+\theta/2)}  \\
+e^{i(\theta_{\vec{q}}+\theta/2)} &amp; 0   \\
+\end{bmatrix}
+=\hbar v_{F}\sigma^{\theta/2}\cdot\vec{q},
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+h_{\vec{K}}^{2}(\vec{q})=\hbar v_{F}|\vec{q}|
+\begin{bmatrix}
+0 &amp; e^{-i(\theta_{\vec{q}}-\theta/2)}  \\
+e^{i(\theta_{\vec{q}}-\theta/2)} &amp; 0   \\
+\end{bmatrix}
+=\hbar v_{F}\sigma^{-\theta/2}\cdot\vec{q}.
+\end{equation}
+$$</p>
+<p>它们各自作用在单层石墨烯的 $A$, $B$ 子格上, 所以对于整体的哈密顿量而言, 是作用在
+$\begin{bmatrix}
+\alpha_{\vec{q}} \
+\beta_{\vec{q}} \
+\end{bmatrix}$
+这样一个两分量的旋量上的.</p>
+<p>接下来要解决的时层间隧穿项.
+我们将层间跃迁的矩阵元写出来:</p>
+<p>$$
+\begin{equation}
+T_{\vec{k}\vec{p}&rsquo;}^{\alpha\beta} =
+\langle \Psi_{\vec{k}\alpha}^{(1)}|\hat{H_{T}}|\Psi_{\vec{p}&rsquo;\beta}^{(2)}\rangle
+\end{equation}
+$$</p>
+<blockquote>
+<p>该矩阵元描述的是一个动量为 $\vec{p}&rsquo;=M(\theta)\vec{p}$ 的电子,在第二层的 $\beta$ 子格上, 通过层间跃迁到第一层的 $\alpha$ 子格上, 成为动量为 $\vec{k}$ 的态的过程, $M(\theta)$ 是一个旋转矩阵.</p>
+</blockquote>
+<p>我们用紧束缚模型的思路将波函数的形式写出来:</p>
+<p>$$
+\begin{equation}
+|\Psi_{\vec{k}\alpha}^{(1)}\rangle=\frac{1}{\sqrt{N}}\sum_{\vec{R}}e^{i\vec{k}\cdot(\vec{R}+\vec{\tau_{\alpha}})}|\vec{R}+\vec{\tau_{\alpha}}\rangle,
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+|\Psi_{\vec{p}&rsquo;\beta}^{(2)}\rangle=\frac{1}{\sqrt{N}}\sum_{\vec{R&rsquo;}}e^{i\vec{p}&rsquo;\cdot(\vec{R&rsquo;}+\vec{\tau_{\beta}}&rsquo;)}|\vec{R&rsquo;}+\vec{\tau_{\beta}}&rsquo;\rangle.
+\end{equation}
+$$</p>
+<blockquote>
+<p>$\tau_{A} = 0, \tau_{B} = \tau$. $\vec{R}$ 是对所有三角布拉维格子求和的指标.</p>
+</blockquote>
+<p>我们不妨选取 $AB$ 堆叠处作为原点, 那么就有关系式</p>
+<p>$$
+\begin{equation}
+\vec{R&rsquo;} = M(\theta)(\vec{R}-\tau) + d
+\end{equation}
+$$</p>
+<blockquote>
+<p>$d$ 是层间间距.</p>
+</blockquote>
+<p>将波函数代入到层间跃迁矩阵元中, 并且采用<strong>两中心近似</strong>, 就能得到层间跃迁矩阵元:</p>
+<p>$$
+\begin{equation}
+T_{\vec{k}\vec{p}&rsquo;}^{\alpha\beta}=\frac{1}{N}
+\sum_{\vec{R}}\sum_{\vec{R}&rsquo;}
+e^{i[-\vec{k}(\vec{R}+\tau_{\alpha})+\vec{p}&rsquo;(\vec{R}&rsquo;+\tau_{\beta}&rsquo;)]}
+t(\vec{R}+\tau_{\alpha}-\vec{R}&rsquo;-\tau_{\beta}&rsquo;)
+\end{equation}
+$$</p>
+<blockquote>
+<p>两中心近似, 指的是假设电子只和起始原子和终止原子之间的原子相互作用, 而忽略了其他原子的影响. 用公式可以这样描述:
+$$
+\begin{equation}
+\langle\vec{R}+\tau_{\alpha}|\hat{H_T}|\vec{R&rsquo;}+\tau_{\beta}&rsquo;\rangle = t(\vec{R}+\tau_{\alpha}-\vec{R}&rsquo;-\tau_{\beta}&rsquo;)
+\end{equation}
+$$
+因为转角双层石墨烯中碳碳键很小, 所以这个式子用来描述电子跃迁的过程非常好用.</p>
+</blockquote>
+<p>利用傅里叶变换, 我们可以将两中心近似所用的式子转为动量空间的形式.</p>
+<p>$$
+\begin{equation}
+T_{\vec{k}\vec{p}&rsquo;}^{\alpha\beta}=\frac{1}{N^2}
+\sum_{\vec{R}}\sum_{\vec{R}&rsquo;}\sum_{\vec{q_1}}\sum_{\vec{q_2}}
+e^{i[-\vec{k}(\vec{R}+\tau_{\alpha})+\vec{p}&rsquo;(\vec{R}&rsquo;+\tau_{\beta}&rsquo;)]}
+e^{i[\vec{q_1}(\vec{R}+\tau_{\alpha})-\vec{q_2}(\vec{R}&rsquo;+\tau_{\beta}&rsquo;)]}
+\frac{t_{\vec{q}}}{\Omega}
+\end{equation}
+$$</p>
+<p>这个式子非常长, 但是我们可以通过一些和式结论来简化这个式子:</p>
+<p>$$
+\begin{equation}
+\sum_{\vec{R}}e^{i(\vec{q_1}-\vec{k})\vec{R}} = N\delta_{\vec{q_1}-\vec{k}, \vec{G_1}},
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+\sum_{\vec{R}&rsquo;}e^{-i(\vec{q_2}-\vec{p}&rsquo;)(\vec{R}&rsquo;-\vec{d}+\tau&rsquo;)} = N\delta_{\vec{q_2}-\vec{p}&rsquo;, \vec{G_2}&rsquo;}.
+\end{equation}
+$$</p>
+<p>最后我们就得到了层间跃迁矩阵元:</p>
+<p>$$
+\begin{equation}
+T_{\vec{k}\vec{p}&rsquo;}^{\alpha\beta}=\sum_{\vec{G_1}\vec{G_2}}\frac{t_{\overline{\vec{k}}+\vec{G_1}}}{\Omega}
+e^{i[\vec{G_1}\tau_{\alpha}-\vec{G_2}(\tau_{\beta}-\tau)-\vec{G_2}&rsquo;\vec{d}]}\delta_{\overline{\vec{k}}+\vec{G_1},\overline{\vec{p}}&rsquo;+\vec{G_2}&rsquo;}
+\end{equation}
+$$</p>
+<blockquote>
+<p>$\Omega$ 是原胞面积,
+$t_{\vec{q}}$ 是隧穿幅值 $t(\vec{r})$ 的傅里叶变换,
+$\vec{G_1}, \vec{G_2}$ 是倒格矢, 上标代表
+$\vec{G}_i = M(\theta)\vec{G}_i$.
+而上划线则表示动量起点是布里渊区的中心.</p>
+</blockquote>
+<p>对于狄拉克点附近的动量而言,  如果要让 $t_q$ 值足够大, 那么可以对层间矩阵元 $T_{\vec{k}\vec{p}&rsquo;}^{\alpha\beta}$ 中的 $\vec{G_1}$指标采取截断,
+具体来说就是只保留 $\vec{0},\mathcal{G}^{(2)}, \mathcal{G}^{(3)}$ 三项.</p>
+<blockquote>
+<p>注意到总有关系式
+$$
+\begin{equation}
+\overline{\vec{k}} + \vec{G_1} = \overline{\vec{p}}&rsquo; + \vec{G_2}'
+\end{equation}
+$$
+成立</p>
+</blockquote>
+<p>所以当 $\vec{G_1}$ 被选定, 实际上对应的 $\vec{G_2}&rsquo;$ 可以被选定(这意味着跃迁发生在一层狄拉克点邻域到另一层狄拉克点邻域).</p>
+<p>再回头看看前面晶格部分内容里展示的</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/05/1xhFPwob6CeacWm.png" alt="0AndG2AndG3.png"  />
+</p>
+<p>我们假定, 在低能模型下, 只有 $q_b, q_{tr}, q_{tl}$ 对应的三个跃迁过程有意义. 具体到电子态, 即</p>
+<p>$$
+|\vec{k_{\alpha}}^{(1)}\rangle \rightarrow
+|(\vec{k}+\vec{k_{\theta}})_{\beta}^{(2)}\rangle
+$$</p>
+<p>$$
+|\vec{k_{\alpha}}^{(1)}\rangle \rightarrow
+|(\vec{k}+\vec{k_{\theta}}-\vec{G_1})_{\beta}^{(2)}\rangle
+$$</p>
+<p>$$
+|\vec{k_{\alpha}}^{(1)}\rangle \rightarrow
+|(\vec{k}+\vec{k_{\theta}}-\vec{G_2})_{\beta}^{(2)}\rangle
+$$</p>
+<blockquote>
+<p>$$
+|k_{\theta}| = |\vec{K} - \vec{K}&rsquo;| = 2k_{D}\sin{\frac{\theta}{2}}
+$$</p>
+</blockquote>
+<p>其对应的跃迁矩阵元中的分量即为</p>
+<p>$$
+\begin{equation}
+T_{1} = \frac{t_{k_{D}}}{\Omega}
+\begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 1\\
+\end{bmatrix},
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+T_{2} = \frac{t_{k_{D}}}{\Omega}e^{-i\mathcal{G}^{(2)&rsquo;}\cdot\vec{d}}
+\begin{bmatrix}
+e^{-i\Phi} &amp; 1\\
+e^{i\Phi} &amp; e^{-i\Phi}\\
+\end{bmatrix},
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+T_{3} = \frac{t_{k_D}}{\Omega}e^{-i\mathcal{G}^{(3&rsquo;)}\cdot\vec{d}}
+\begin{bmatrix}
+e^{i\Phi} &amp; 1\\
+e^{-i\Phi} &amp; e^{i\Phi} \\
+\end{bmatrix}
+\end{equation}
+$$</p>
+<blockquote>
+<p>$\phi = 2\pi/3$, 该数值来源于 $\mathcal{G}^{(2)}\cdot\tau$</p>
+<p>四个矩阵元分别指代 $AA, AB, BA, BB$ 四种跃迁的子格排布.</p>
+</blockquote>
+<p>前面我们已经提到, 对于一个超晶格网络上的态 $|(\vec{k}+m\vec{G_1}+n\vec{G_2})^{1}\rangle$ 对应三个跃迁过程:</p>
+<p>$$
+\begin{equation}
+|(\vec{k}+m\vec{G_1}+n\vec{G_2})^{(1)}\rangle\rightarrow|(\vec{k}+\vec{k_{\theta}}+m\vec{G_1}+n\vec{G_2})^{(2)}\rangle,
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+|(\vec{k}+m\vec{G_1}+n\vec{G_2})^{(1)}\rangle\rightarrow|(\vec{k}+\vec{k_{\theta}}+(m - 1)\vec{G_1}+n\vec{G_2})^{(2)}\rangle,
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+|(\vec{k}+m\vec{G_1}+n\vec{G_2})^{(1)}\rangle\rightarrow|(\vec{k}+\vec{k_{\theta}}+m\vec{G_1}+(n - 1)\vec{G_2})^{(2)}\rangle
+\end{equation}
+$$</p>
+<blockquote>
+<p>$$
+m = -M, \dots,-1, 0, 1, \dots, M
+$$</p>
+<p>$$
+n = -N, \dots,-1, 0, 1, \dots, N
+$$</p>
+<p>一般采取 $M = N = 4$ 的截断即可取得理想计算结果.</p>
+</blockquote>
+<p>使用指标 $\vec{q}$ 来替换 $\vec{k}$, 具体来说是</p>
+<p>$$
+\vec{q} = \vec{k} - \vec{K}
+$$</p>
+<p>所以我们就可以定义基底</p>
+<p>$$
+\begin{equation}
+|q\rangle=
+\begin{bmatrix}
+|(\vec{q}-M\vec{G_1}-N\vec{G_2})^{(1)}\rangle\\
+|(\vec{q}-(M-1)\vec{G_1}-N\vec{G_2})^{(1)}\rangle\\
+\dots\\
+|(\vec{q}+M\vec{G_1}-N\vec{G_2})^{(1)}\rangle\\
+|(\vec{q}-M\vec{G_1}-(N-1)\vec{G_2})^{(1)}\rangle\\
+|(\vec{q}-(M-1)\vec{G_1}-(N-1)\vec{G_2})^{(1)}\rangle\\
+\dots\\
+|(\vec{q}+M\vec{G_1}-(N-1)\vec{G_2})^{(1)}\rangle\\
+|(\vec{q}+M\vec{G_1}+N\vec{G_2})^{(1)}\rangle\\
+\dots\\
+|(\vec{q}+\vec{k_{\theta}}-M\vec{G_1}-N\vec{G_2})^{(2)}\rangle\\
+\dots\\
+|(\vec{q}+\vec{k_{\theta}}+M\vec{G_1}+N\vec{G_2})^{(2)}\rangle\\
+\end{bmatrix}
+\end{equation}
+$$</p>
+<blockquote>
+<p>计算可知该基底长度为 $(2M+1)(2N+1)$</p>
+</blockquote>
+<p>其中的每个姿态都对应着 $A/B$ 子格的二分量旋量.</p>
+<p>我们写出整个系统的哈密顿量:</p>
+<blockquote>
+<p>接下来的公式会很长: 确保你的 Markdown 阅读器支持滑轮显示公式, <del>或者使用带鱼屏</del>.</p>
+</blockquote>
+<p>$$
+\begin{equation}
+h^{\vec{K}}(\vec{q})=h_{ij}=
+\begin{bmatrix}
+h_{\vec{K}}^{(1)}(\vec{q}-M\vec{G_1}-N\vec{G_2}) &amp; 0 &amp;\dots&amp; 0 &amp; T^{1} &amp; 0 &amp; \dots &amp; 0\\
+0 &amp; h_{\vec{K}}^{(1)}(\vec{q}-(M - 1)\vec{G_1}-N\vec{G_2}) &amp;\dots &amp; 0 &amp; T^{2} &amp; T^{1} &amp; \dots &amp; 0\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+0 &amp; 0 &amp; \dots &amp; h_{\vec{K}}^{(1)}(\vec{q}+M\vec{G_1}+N\vec{G_2}) &amp; 0 &amp; 0 &amp; \dots &amp; T^{1}\\
+T^{1\dagger} &amp; T^{2\dagger} &amp; \dots &amp; 0 &amp; h_{\vec{K}}^{(2)}(\vec{q}+\vec{k_{\theta}}-M\vec{G_1}-N\vec{G_2}) &amp; 0 &amp; \dots &amp; 0\\
+0 &amp; T^{1\dagger} &amp; \dots &amp; 0 &amp; 0 &amp; h_{\vec{K}}^{(2)}(\vec{q}+\vec{k_{\theta}}-(M - 1)\vec{G_1}-N\vec{G_2}) &amp; \dots &amp; 0\\
+0 &amp; 0 &amp; \dots &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0\\
+0 &amp; 0 &amp; \dots &amp; T^{1\dagger} &amp; 0 &amp; 0 &amp; \dots &amp; h_{\vec{K}}^{(2)}(\vec{q}+\vec{k_{\theta}}+M\vec{G_1}+N\vec{G_2})\\
+\end{bmatrix}
+\end{equation}
+$$</p>
+<blockquote>
+<p>对角矩阵元是旋转后的单层狄拉克哈密顿量; 非对角元代表态之间的跃迁矩阵. 因为我们只考虑了最近邻跃迁, 所以非对角元只有 $0, T^{1}, T^{2}$ 三种.</p>
+</blockquote>
+<p>由此得到总哈密顿量</p>
+<p>$$
+\begin{equation}
+\hat{H_{ctn}^{\vec{k}}}=\sum_{\vec{q}}h^{\vec{K}}(\vec{q})|\vec{q}\rangle\langle\vec{q}|
+\end{equation}
+$$</p>
+<p>连续模型在这里还需要对进行进一步的修正.</p>
+<p>在上述的模型中， 我们架设了单层石墨烯晶格是刚性的， 即保持参数 $a = 0.142nm$ 和 $d = 0.33nm$ 不变, 但是为了使得系统处于稳定性(也就是 $\partial_{\vec{x}}U=0$), 碳原子实际上会尽可能避免靠得太近.</p>
+<p>转角双层石墨烯具有不同的堆叠类型:</p>
+<ul>
+<li>$AA(BB)$ 型: 上下两层子格完全相同, 位置垂直对齐;</li>
+<li>$AB$ 型: 上层的 $A$ 原子与下层的 $B$ 原子对齐, 而上层的 $B$ 原子与下层的 $A$ 原子并不对齐;</li>
+<li>$BA$ 型 : 上层的$B$ 原子与下层的 $A$ 原子对齐, 而上层的 $B$ 原子与下层的 $A$ 原子并不对齐.</li>
+</ul>
+<p>我们从曹原给出的参考图来体会这三种类型, 以及它们是如何整体体现在晶格网络上的:</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/05/LZgi83jnsp4HEu1.png" alt="AA_BB_-AB-BA.png"  />
+</p>
+<p>对于转角双层石墨烯, <strong>弛豫效应</strong>也会对电子能带产生显著影响.</p>
+<blockquote>
+<p>弛豫效应</p>
+<p>在这里的语境下指的是材料中的原子位置会因为某些扰动而发生微小位移, 在计算能带的时候需要将这种位移考虑进去.</p>
+</blockquote>
+<p>$AA$ 堆叠中原子相互靠得很近, 这会使得势能变得更高, 所以会存在一种趋势, 使得 $AA$ 区域发生扭曲与拉伸, 从而接近于 $AB$ 堆叠区域. 这样的趋势会带来两种后果:</p>
+<ul>
+<li>$d_{AA}&gt;d_{AB}=d_{BA}$. 我们将这种行为称为屈伸($\text{builkling}$)或者褶皱($\text{corrugation}$);</li>
+<li>$AA$ 区域面积收缩, 使得 $AA$ 区域转动更大, $AB$ 区域转动更小.</li>
+</ul>
+<p>于是就形成了图上右部分的拓扑连接的结构.</p>
+<p>在<a href="https://muatyz.github.io/posts/read/moire-bands/#%22target%22" target="_blank" rel="noopener nofollow noreferrer" >转角石墨烯中的摩尔能带</a>一文中我们已经知道, 转角双层石墨烯的能谱在 $\theta\neq 0$ 时, 与 $\vec{d}$ 无关. 所以我们可以把 $T_1, T_2, T_3$ 重写一遍:</p>
+<p>$$
+\begin{equation}
+T_1=w\begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 1\\
+\end{bmatrix},
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+T_2=w\begin{bmatrix}
+1 &amp; \omega^{\star}\\
+\omega &amp; 1\\
+\end{bmatrix},
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+T_3=w\begin{bmatrix}
+1 &amp; \omega\\
+\omega^{\star} &amp; 1\\
+\end{bmatrix}.
+\end{equation}
+$$</p>
+<p>为了引入弛豫效应, 我们引入 $w&rsquo;&lt;w$, 它代表着 $AA$ 堆叠中有着更大的 $a$ 和更小的 堆叠区域面积. 于是我们就有</p>
+<p>$$
+\begin{equation}
+T_1=\begin{bmatrix}
+w&rsquo; &amp; w\\
+w &amp; w&rsquo;\\
+\end{bmatrix},
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+T_2=\begin{bmatrix}
+w&rsquo; &amp; w\omega^{\star}\\
+w\omega &amp; w&rsquo;\\
+\end{bmatrix},
+\end{equation}
+$$</p>
+<p>$$
+\begin{equation}
+T_3=\begin{bmatrix}
+w&rsquo; &amp; w\omega\\
+w\omega^{\star} &amp; w&rsquo;\\
+\end{bmatrix}.
+\end{equation}
+$$</p>
+<blockquote>
+<p>$w = \frac{t_{k_{D}}}{\Omega}, \omega = e^{i2\pi/3}$</p>
+</blockquote>
+<p>我们分别求解&rsquo;不考虑弛豫效应&rsquo;和&rsquo;考虑弛豫效应&rsquo;的情况下的能带结构, 可以得到其对比图像:</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/05/2xWbowiZG6nzMN8.png" alt="relaxation.png"  />
+</p>
+<blockquote>
+<p>该图引自:转角石墨烯的实验研究.胡皓东.2022.上海交通大学.</p>
+<p>其中, 我们重点对比 (b) 和 (d)(或者(f)和(h)), (d) 和 (h) 是未考虑弛豫效应的情况.
+不难发现, 弛豫效应使得 $\Gamma$ 点的能隙明显增大, 并且出现了新的能带, 该能带在很大的 $k$ 空间内都是近似相等的, 我们将这种能带称为平带.</p>
+</blockquote>
+<p>平带使得能量为0时的态密度可以急剧增加, 而态密度会影响热学和电学等诸多性质.</p>
+<p>同样是在<a href="https://muatyz.github.io/posts/read/moire-bands/#%22target%22" target="_blank" rel="noopener nofollow noreferrer" >转角石墨烯中的摩尔能带</a>中, 作者介绍了狄拉克点速度随着 $\theta$ 变化的情况.</p>
+<p>$$
+\frac{v^{\star}}{v}=\frac{1-3\alpha^2}{1+6\alpha^2}
+$$</p>
+<blockquote>
+<p>$\alpha = w/\hbar vk_{\theta}$</p>
+</blockquote>
+<p>$$
+\lim_{\alpha\rightarrow 0}\frac{v^{\star}}{v} = 1 -9\alpha^2
+$$</p>
+<blockquote>
+<p>当$1 -9\alpha^{2}=0$, 这就是&rsquo;魔角&rsquo;$\theta_{1} \approx 1.1°$ 的来源.</p>
+</blockquote>
+<p>对于后续的魔角, 对应的规一化狄拉克点速度图像则是这样的:</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/05/05/QXhbsHwBMngC1Uj.png" alt="magicAngle.png"  />
+</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/cmp/hubbard-model/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>强关联模型的基石: Hubbard Model</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/life/fumo-purchase/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>fumo购买全流程攻略</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>

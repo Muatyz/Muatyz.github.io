@@ -1,0 +1,2360 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>微扰论 | 计算物理资料库</title>
+<meta name="keywords" content="perturbation, quantum">
+<meta name="description" content="使用小量参数并使得物理量对其进行展开, 通过比较齐次项系数得到每阶修正结果.">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/qp/perturbation-theory/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="微扰论" />
+<meta property="og:description" content="使用小量参数并使得物理量对其进行展开, 通过比较齐次项系数得到每阶修正结果." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/qp/perturbation-theory/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-09T00:18:23+08:00" />
+<meta property="article:modified_time" content="2023-06-16T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="微扰论"/>
+<meta name="twitter:description" content="使用小量参数并使得物理量对其进行展开, 通过比较齐次项系数得到每阶修正结果."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "➿ Quantum Physics",
+          "item": "https://Muatyz.github.io/posts/phy/qp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "微扰论",
+      "item": "https://Muatyz.github.io/posts/phy/qp/perturbation-theory/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "微扰论",
+  "name": "微扰论",
+  "description": "使用小量参数并使得物理量对其进行展开, 通过比较齐次项系数得到每阶修正结果.",
+  "keywords": [
+    "perturbation", "quantum"
+  ],
+  "articleBody": "近似方法 在数值求解物理问题时我们会使用很多近似技巧, 但是实际上, 即使只是在理论物理范畴, 大多数问题也是无法严格求解的. 近似方法有两类:\n微扰法; 找到某个小参数($\\epsilon,\\lambda,\\dots$)将所求的物理量进行级数展开, 从而近似求解. 展开方法可以是泰勒展开, 洛朗展开, 渐近展开等.\n变分法. 也被称为变分原理.\n不含时非简并微扰 推导 现在我们知道哈密顿量\n$$ \\hat{H} = \\hat{H}_{0} + \\delta\\hat{H} $$\n$\\delta\\hat{H}$ 是一个小量.\n其中 $\\hat{H}_{0}$ 是容易求解的, 即有\n$$ \\hat{H}_{0}|n^{0}\\rangle = E_{n}^{0}|n^{0}\\rangle (n\\in\\mathbb{N}) $$\n这里我们简单阐述各个指标的含义. $$ E_{\\color{red}{n}}^{\\color{blue}{0}} $$\n$\\color{red}{n}$: 指的是第几能级;\n$\\color{blue}{0}$: 指的是第几级修正. 因为这里求的是 $\\hat{H}_{0}$ 的本征值和本征态, 所以当然上标都是 $0$.\n因为我们讨论的是不含时非简并微扰, 即有 $$ E_{0}^{0} \u003c E_{1}^{0} \u003c E_{2}^{0} \u003c \\dots $$\n现在我们引入辅助参数 $\\lambda$, 从而将哈密顿量写作 $\\lambda$ 的函数:\n$$ \\hat{H}(\\lambda) = \\hat{H}_{0} + \\lambda\\delta\\hat{H} $$\n我们可以推测, 哈密顿量 $\\hat{H}(\\lambda)$ 的本征态和本征能量也会成为 $\\lambda$ 的连续函数.\n$$ \\hat{H}(\\lambda)|\\psi_{n}(\\lambda)\\rangle = E_{n}(\\lambda)|\\psi_{n}(\\lambda)\\rangle $$\n$\\lambda$ 在实际应用中可以对应一个实在的无量纲物理量:\n相对论效应: $\\lambda = \\frac{v}{c}$; 自旋轨道耦合: $\\lambda = \\alpha = \\frac{e^{2}}{\\hbar c} = \\frac{1}{137}$, 即精细结构常数; 弱电磁场. 现在我们对 $\\hat{H}(\\lambda)$ 的本征态 $|n(\\lambda)\\rangle$, 本征能量 $E_{n}(\\lambda)$ 写作 $\\lambda$ 的级数展开:\n$$ |\\color{red}{n}(\\lambda)\\rangle = |\\color{red}{n}^{\\color{blue}{0}}\\rangle + \\underbrace{\\lambda|\\color{red}{n}^{\\color{blue}{1}}\\rangle + \\lambda^{2}|\\color{red}{n}^{\\color{blue}{2}}\\rangle + \\lambda^{3}|\\color{red}{n}^{\\color{blue}{3}}\\rangle + \\dots}_{|\\delta \\color{red}{n}\\rangle}\\\\ E_{\\color{red}{n}}(\\lambda) = E_{\\color{red}{n}}^{\\color{blue}{0}} + \\underbrace{\\lambda E_{\\color{red}{n}}^{\\color{blue}{1}} + \\lambda^{2}E_{\\color{red}{n}}^{\\color{blue}{2}} + \\lambda^{3}E_{\\color{red}{n}}^{\\color{blue}{3}} + \\dots}_{\\delta E_{\\color{red}{n}}} $$\n各指标的具体含义: $$ |\\color{red}{n}^{\\color{blue}{1}}\\rangle, E_{\\color{red}{n}}^{\\color{blue}{1}} $$\n$\\color{red}{n}$: 指的是第几能级;\n$\\color{blue}{1}$: 指的是第几级修正.\n设想 $\\delta\\hat{H}$ 为一个矩阵, 则求解矩阵元 $\\delta{H}_{mn}$ 的方法是\n$$ \\left\\langle m^{0}\\left|\\delta\\hat{H}\\right|n^{0}\\right\\rangle $$\n$|n^{0}\\rangle$ 是通过 $\\hat{H}_{0}$ 求解出的本征态. 即满足 $$ \\hat{H}_{0}|n^{0}\\rangle = E_{n}^{0}|n^{0}\\rangle $$\n为了计算方便, 我们设定本征态的修正项 $|n^{i}\\rangle$ 总是和 $|n^{0}\\rangle$ 正交, 即\n$$ \\langle n^{0} | n^{i}\\rangle = 0(\\forall i\\in \\mathbb{N}^*) $$\n因为任意阶的修正项都与 $|n^{0}\\rangle$ 正交, 所以作为这些修正项的线性组合的整体修正 $|\\delta n\\rangle$ 当然也和 $|n^{0}\\rangle$ 正交:\n$$ \\langle n^{0} | \\delta n\\rangle = 0 $$\n这样就会使计算 $|n\\rangle$ 的内积简单很多:\n$$ \\langle n|n\\rangle = \\langle n^{0} + \\delta n|n^{0} + \\delta n\\rangle = \\langle n^{0}|n^{0}\\rangle + \\underbrace{\\langle n^{0}|\\delta n\\rangle + \\langle \\delta n| n^{0}\\rangle}_{0} + \\langle \\delta n|\\delta n\\rangle = 1 + \\langle \\delta n|\\delta n\\rangle $$\n也就是说这里的 $|n\\rangle$ 尚未被归一化, 可以通过\n$$ |n\\rangle_{\\text{Norm}} = \\frac{|n\\rangle}{\\sqrt{\\langle n|n\\rangle}} $$\n来完成.\nNorm = Normalization. 在实际应用的时候我们未必需要归一化, 这只是我们另外添加的条件. 大多数情况下只关心能量的问题.\n对矩阵元涉及的本征态 $|n^{0}\\rangle, |m^{0}\\rangle$, 我们令其与整体波函数 $|n\\rangle$ 作内积:\n$$ \\langle n^{0}|n\\rangle = \\overbrace{\\langle n^{0}|n^{0}\\rangle}^{\\text{相同本征态内积归一}} + \\langle n^{0}|\\delta n\\rangle = 1 + \\langle n^{0}|\\delta n\\rangle = 1;\\\\ \\langle m^{0}|n\\rangle = \\underbrace{\\langle m^{0}|n^{0}\\rangle}_{\\text{不同本征态彼此正交}} + \\langle m^{0}|\\delta n\\rangle = \\langle m^{0}|\\delta n\\rangle. (m\\neq n) $$\n我们假定零级本征态 $|n^{0}\\rangle$ 具有正交归一性.\n完整薛定谔方程的两边展开不同的部分(左边为哈密顿量, 右边为波函数)\n$$ (\\hat{H}_{0} + \\lambda\\delta\\hat{H})|n\\rangle = E_{n}(|n^{0}\\rangle + |\\delta n\\rangle) $$\n现在我们要得到方程组:\n两边左乘 $\\langle n^{0}|$: $$ \\color{red}{\\text{L}}:\\langle n^{0}|\\hat{H}_{0} + \\lambda\\delta\\hat{H}|n\\rangle = \\\\ \\langle n^{0}|\\hat{H}_{0} + \\lambda\\delta\\hat{H}|n^{0} + \\delta n\\rangle = \\langle n^{0}|\\hat{H}_{0}|n^{0}\\rangle + \\langle n^{0}|\\hat{H}|\\delta{n}\\rangle + \\langle n^{0}|\\lambda\\delta\\hat{H}|n^{0}\\rangle + \\langle n^{0}|\\lambda\\delta\\hat{H}|\\delta n\\rangle\\\\ = \\langle n^{0}|\\hat{H}_{0}|n^{0}\\rangle + \\langle n^{0}|\\hat{H}|\\delta{n}\\rangle + \\langle n^{0}|\\hat{H}|n\\rangle = \\boxed{E_{n}^{0} + \\langle n^{0}|\\lambda\\delta\\hat{H}|n\\rangle};\\\\ \\color{blue}{\\text{R}}:E_{n}\\langle n^{0}|(|n^{0}\\rangle + |\\delta n\\rangle) = E_{n}(\\langle n^{0}|n^{0}\\rangle + \\langle n^{0}|\\delta n\\rangle) = E_{n}(1 + 0) = \\boxed{E_{n}} $$\n因为 $\\color{red}{\\text{L}} = \\color{blue}{\\text{R}}$, 即有\n$$ E_{n} - E_{n}^{0} = \\lambda\\langle n^{0}|\\delta\\hat{H}|n\\rangle $$\n两边左乘 $\\langle m^{0}|$, 且 $m\\neq n$: $$ \\color{red}{\\text{L}}:\\langle m^{0}|\\hat{H}_{0} + \\lambda\\delta\\hat{H}|n\\rangle = \\left(\\langle m^{0}|\\hat{H}_{0}\\right)|n\\rangle + \\langle m^{0}|\\lambda\\delta\\hat{H}|n\\rangle = \\boxed{E_{m}^{0}\\langle m^{0}|n\\rangle + \\lambda\\langle m^{0}|\\delta\\hat{H}|n\\rangle}\\\\ \\color{blue}{\\text{R}}:\\langle m^{0}|E_{n}(|n^{0}+\\delta n\\rangle) = E_{n}(\\langle m^{0}|n^{0} + |\\delta n\\rangle) = E_{n}(0 + \\rangle m^{0}|\\delta n\\rangle) = \\boxed{E_{n}\\langle m^{0}|\\delta n\\rangle} $$\n因为 $\\color{red}{\\text{L}} = \\color{blue}{\\text{R}}$, 即有\n$$ (E_{n} - E_{m}^{0})\\langle m^{0}|\\delta n\\rangle = \\lambda\\langle m^{0}|\\delta\\hat{H}|n\\rangle, (m\\neq n) $$\n由此我们得到\n$$ \\begin{cases} E_{n} - E_{n}^{0} = \\lambda\\langle n^{0}|\\delta\\hat{H}|n\\rangle\\\\ (E_{n} - E_{m}^{0})\\langle m^{0}|\\delta n\\rangle = \\lambda\\langle m^{0}|\\delta\\hat{H}|n\\rangle, (m\\neq n) \\end{cases} $$\n我们已经知道完整的本征态和本征能量对 $\\lambda$ 级数展开 $$ |\\color{red}{n}(\\lambda)\\rangle = |\\color{red}{n}^{\\color{blue}{0}}\\rangle + \\underbrace{\\lambda|\\color{red}{n}^{\\color{blue}{1}}\\rangle + \\lambda^{2}|\\color{red}{n}^{\\color{blue}{2}}\\rangle + \\lambda^{3}|\\color{red}{n}^{\\color{blue}{3}}\\rangle + \\dots}_{|\\delta \\color{red}{n}\\rangle}\\\\ E_{\\color{red}{n}}(\\lambda) = E_{\\color{red}{n}}^{\\color{blue}{0}} + \\underbrace{\\lambda E_{\\color{red}{n}}^{\\color{blue}{1}} + \\lambda^{2}E_{\\color{red}{n}}^{\\color{blue}{2}} + \\lambda^{3}E_{\\color{red}{n}}^{\\color{blue}{3}} + \\dots}_{\\delta E_{\\color{red}{n}}} $$\n将展开的级数分别导入到两个方程组中:\n$$ \\text{1:}\\color{red}{\\lambda} E_{n}^{1} + \\color{green}{\\lambda^{2}}E_{n}^{2} + \\color{blue}{\\lambda^{3}}E_{n}^{3} + \\dots = \\lambda\\langle n^{0}|\\delta\\hat{H}(|n^{0}\\rangle + \\lambda|n^{1}\\rangle + \\lambda^{2}|n^{2}\\rangle + \\lambda^{3}|n^{3}\\rangle + \\dots)\\\\ =\\color{red}{\\lambda}\\langle n^{0}|\\delta\\hat{H}|n^{0}\\rangle + \\color{green}{\\lambda^{2}}\\langle n^{0}|\\delta\\hat{H}|n^{1}\\rangle + \\color{blue}{\\lambda^{3}}\\langle n^{0}|\\delta\\hat{H}|n^{2}\\rangle + \\dots\\\\ \\text{2:}(E_{n}^{0} - E_{m}^{0} + \\lambda E_{n}^{1} + \\lambda^{2}E_{n}^{2} + \\dots)(\\lambda\\langle m^{0}|n^{1}\\rangle + \\lambda^{2}\\langle m^{0}|n^{2}\\rangle + \\dots) =\\\\ \\lambda\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle + \\lambda^{2}\\langle m^{0}|\\delta\\hat{H}|n^{1}\\rangle + \\dots $$\n相同的 $\\lambda^{i}$ 项对应的系数相同, 这就是无穷多个修正项方程组成的方程组. 根据所需要的修正深度选取对应的级数.\n所以我们可以得到\n一阶修正 比较 $\\color{red}{\\lambda}$ 的系数\n一阶能量修正 $$ \\boxed{E_{n}^{1} = \\langle n^{0}|\\delta\\hat{H}|n^{0}\\rangle} $$\n一阶波函数修正: 因为有\n$$ \\langle m^{0}|n^{1}\\rangle = \\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}} $$\n一般性地, 有投影公式\n$$ |n^{1}\\rangle = \\sum_{m} c_{n,m}|m^{0}\\rangle $$\n而\n系数 $c_{m,n}$ 是做内积得到的, 即\n$$ c_{m,n} = \\langle m^{0}|n^{1}\\rangle $$\n我们已经推导出了 $m\\neq n$ 的系数, 对于 $m = n$ 时, 有\n$$ \\langle m^{0}|n^{1}\\rangle = \\langle n^{0}|n^{1}\\rangle = 0 $$\n我们已经设定任意阶修正项 $|n^{i}\\rangle$ 都与零级本征态 $|n^{0}\\rangle$ 正交.\n所以我们可以舍弃 $m = n$ 这一系数, 从而有\n$$ \\boxed{|n^{1}\\rangle = \\sum_{m\\neq n}\\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}}|m^{0}\\rangle} $$\n二阶修正 比较 $\\color{green}{\\lambda^{2}}$ 的系数:\n二阶能量修正 $$ E_{n}^{2} = \\langle n^{0}|\\delta\\hat{H}|n^{1}\\rangle $$\n将上面 $|n^{1}\\rangle$ 的公式导入, 即有\n$$ E_{n}^{2} = \\langle n^{0}|\\delta\\hat{H}|\\left(\\sum_{m\\neq n}\\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}}|m^{0}\\rangle\\right) = \\sum_{m\\neq n}\\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}}\\langle n^{0}|\\delta\\hat{H}|m^{0}\\rangle\\\\ \\Downarrow\\\\ \\boxed{E_{n}^{2} = \\sum_{m\\neq n}\\frac{|\\delta H_{mn}|^{2}}{E_{n}^{0}-E_{m}^{0}}} $$\n二阶波函数修正 因为\n$$ (E_{n}^{0} - E_{m}^{0})\\langle m^{0}|n^{2}\\rangle + \\langle n^{0}|\\delta\\hat{H}|n^{0}\\rangle \\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}} = \\sum_{k\\neq n}\\frac{\\langle m^{0}|\\delta\\hat{H}|k^{0}\\rangle\\langle k^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{k}^{0}}\\\\ \\Downarrow\\\\ \\boxed{\\langle m^{0}|n^{2}\\rangle = \\sum_{k\\neq n}\\frac{\\langle m^{0}|\\delta\\hat{H}|k^{0}\\rangle\\langle k^{0}|\\delta\\hat{H}|n^{0}\\rangle}{(E_{n}^{0}-E_{m}^{0})(E_{n}^{0} - E_{k}^{0})} - \\frac{\\langle n^{0}|\\delta\\hat{H}|n^{0}\\rangle\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{(E_{n}^{0} - E_{m}^{0})^{2}}} $$\n总结 如果令 $\\lambda = 1$, 就可以得到\n能量展开式 $$ E_{n} = E_{n}^{0} + E_{n}^{1} + E_{n}^{2} + \\dots $$\n本征态展开式 $$ |n\\rangle = |n^{0}\\rangle + |n^{1}\\rangle + |n^{2}\\rangle + \\dots $$\n能量修正 $$ E_{n}^{1} = \\delta H_{nn} = \\langle n^{0}|\\delta\\hat{H}|n^{0}\\rangle\\\\ E_{n}^{2} = \\sum_{m\\neq n}\\frac{|\\delta H_{mn}|^{2}}{E_{n}^{0} - E_{m}^{0}} $$\n本征态波函数修正 $$ \\langle m^{0}|n^{1}\\rangle = \\frac{\\langle m^{0}|\\delta\\hat{H}|n^{0}\\rangle}{E_{n}^{0} - E_{m}^{0}}\\\\ \\langle m^{0}|n^{2}\\rangle = \\sum_{k\\neq n}\\frac{\\delta H_{mk}\\delta H_{kn}}{(E_{n}^{0} - E_{m}^{0})(E_{n}^{0} - E_{k}^{0})} - \\frac{\\delta H_{nn}\\delta H_{mn}}{(E_{n}^{0} - E_{m}^{0})^{2}} $$\n对于基态修正, 有 $$ E_{0}^{2} = \\sum_{m\\in\\mathbb{N}^{*}}\\frac{|\\delta H_{m0}|^{2}}{(E_{0}^{0} - E_{m}^{0})} $$ 因为本征值升序排列, 所以二阶微扰总是降低基态能量.\n对于第 $n$ 本征态的二阶能量修正, 即有 $$ E_{n}^{2} = \\sum_{m n}\\frac{|\\delta H_{mn}|^{2}}{E_{n}^{0} - E_{m}^{0}} $$ 第一项总是为正, 第二项总是为负, 即高能级更高, 低能级更低.\n例子 二能级系统 $$ \\hat{H} = \\hat{H}_{0} + \\delta\\hat{H} = \\begin{pmatrix} E_{0}^{0} \u0026 0\\\\ 0 \u0026 E_{1}^{0} \\end{pmatrix} + \\begin{pmatrix} 0 \u0026 \\lambda\\\\ \\lambda \u0026 0 \\end{pmatrix} =\\begin{pmatrix} \\overline{E} - \\Delta \u0026 0\\\\ 0 \u0026 \\overline{E} + \\Delta \\end{pmatrix} + \\begin{pmatrix} 0 \u0026 \\lambda\\\\ \\lambda \u0026 0 \\end{pmatrix}\\\\ = \\overline{E}\\hat{I} - \\Delta\\hat{\\sigma}_{z} + \\lambda\\hat{\\sigma}_{x} $$\n因为 $\\delta\\hat{H}$ 对角矩阵元为 $0$, 所以一阶能量修正为 $0$.\n所以二阶能量修正:\n$$ E_{0}^{2} = \\frac{|\\delta H_{01}|^{2}}{E_{0}^{0} - E_{1}^{0}} = \\color{red}{-\\frac{\\lambda^{2}}{2\\Delta}}\\\\ E_{1}^{2} = \\frac{|\\delta H_{10}|^{2}}{E_{1}^{0} - E_{0}^{0}} = \\color{red}{\\frac{\\lambda^{2}}{2\\Delta}} $$\n即微扰使得基态能量更低, 激发态能量更高.\n为了和微扰法得出的结论进行比较, 我们可以对这个哈密顿量进行精确求解.\n即有 $$ \\begin{vmatrix} \\overline{E}\\begin{pmatrix} 1 \u0026 0 \\\\ 0 \u0026 1 \\end{pmatrix} - \\begin{pmatrix} \\overline{E} - \\Delta \u0026 \\lambda\\\\ \\lambda \u0026 \\overline{E} + \\Delta \\end{pmatrix} \\end{vmatrix} = 0\\\\ $$\n解得\n$$ E_{\\pm} = \\overline{E} \\pm \\sqrt{\\Delta^{2} + \\lambda^{2}} $$\n取 $\\lambda \\ll \\Delta$ 极限, 即有\n$$ E_{\\pm} = \\overline{E} \\pm \\Delta\\sqrt{1 + \\left(\\frac{\\lambda}{\\Delta}\\right)^{2}} = \\overline{E} \\pm \\Delta \\color{red}{\\pm \\frac{\\lambda^{2}}{2\\Delta}} $$\n第二项显然就是二级近似.\n谐振子的非谐微扰 考虑哈密顿量\n$$ \\hat{H} = \\underbrace{\\frac{p^{2}}{2m} + \\frac{1}{2}m\\omega^{2}x^{2}}_{\\hat{H}_{0}} + \\underbrace{\\lambda x^{4}}_{\\delta\\hat{H}} $$\n对于一般谐振子的 $\\hat{H}_{0}$, 我们已经知道\n$$ E_{n}^{0} = \\left(n + \\frac{1}{2}\\right)\\hbar\\omega\\\\ |n^{0}\\rangle = \\frac{1}{\\sqrt{n!}}\\left(\\hat{a}^{\\dagger}\\right)^{n}|0^{0}\\rangle $$\n$|0^{0}\\rangle$ 为 $\\hat{H}_{0}$ 的基态, $|0\\rangle$ 是 $\\hat{H}$ 的基态, 注意区分.\n$\\hat{a}^{\\dagger}$ 是产生算符, 通过 $$ \\hat{x} = \\sqrt{\\frac{\\hbar}{2m\\omega}}\\left(\\hat{a} + \\hat{a}^{\\dagger}\\right)\\\\ \\hat{p} = -i\\sqrt{\\frac{m\\hbar\\omega}{2}}\\left(\\hat{a} - \\hat{a}^{\\dagger}\\right) $$ 定义. 并且有 $$ \\hat{a}|0^{0}\\rangle = 0 $$\n一阶微扰 $$ E_{0}^{1} = \\langle 0^{0}|\\delta\\hat{H}|0^{0}\\rangle = \\lambda\\langle 0^{0}|x^{4}|0^{0}\\rangle\\\\ = \\lambda\\left(\\frac{\\hbar}{2m\\omega}\\right)^{2}\\langle 0^{0}|\\left(\\hat{a} + \\hat{a}^{\\dagger}\\right)^{4}|0^{0}\\rangle\\\\ = \\lambda\\left(\\frac{\\hbar}{2m\\omega}\\right)^{2}\\langle\\psi|\\psi\\rangle $$\n$$ \\left(\\hat{a} + \\hat{a}^{\\dagger}\\right)|0^{0}\\rangle = |1^{0}\\rangle\\\\ |\\psi\\rangle = \\left(\\hat{a} + \\hat{a}^{\\dagger}\\right)^{2}|0^{0}\\rangle = \\left(\\hat{a} + \\hat{a}^{\\dagger}\\right)|1^{0}\\rangle = \\sqrt{2}|2^{0}\\rangle + |0^{0}\\rangle $$\n所以\n$$ \\langle\\psi|\\psi\\rangle = (\\langle 0^{0}| + \\sqrt{2}\\rangle 2^{0}|)(|0^{0}\\rangle + \\sqrt{2}|2^{2}\\rangle) = \\langle 0^{0}|0^{0}\\rangle + 2\\langle 2^{0}|2^{0}\\rangle = 3 $$\n代回到原一阶能量修正项中, 即有\n$$ E_{0}^{1} = \\frac{3\\lambda}{4}\\left(\\frac{\\hbar}{m\\omega}\\right)^{2} $$\n除了使用升降算符计算外, 也可以使用积分法来计算得到 $E_{0}^{1}$\n$$ \\langle x|0\\rangle = e^{-\\frac{x^{2}}{2a^{2}}}, \\left(a = \\sqrt{\\frac{\\hbar}{2m\\omega}}\\right)\\\\ E_{0}^{1} = \\lambda\\langle 0|x^{4}|0\\rangle = \\lambda\\frac{\\int\\mathrm{d}x x^{4}e^{-\\frac{x^{2}}{2a^{2}}}}{\\int\\mathrm{d}x e^{-\\frac{x^{2}}{2a^{2}}}} = 3a^{2} = \\frac{3\\lambda}{4}\\left(\\frac{\\hbar}{m\\omega}\\right)^{2} $$\n不含时简并定态微扰论 非简并推广到简并的问题 我们已经推得非简并情况下的第 $n$ 阶修正 $$ \\delta E_{n} = \\delta H_{nn} + \\sum_{m\\neq n}\\frac{|\\delta H_{mn}|^{2}}{E_{n}^{0}-E_{m}^{0}} + \\dots\\\\ \\langle m^{0}|n^{1}\\rangle = \\frac{\\delta H_{mn}}{E_{n}^{0} - E_{m}^{0}} + \\dots $$\n不难发现如果哈密顿量 $\\hat{H}$ 对应的本征态如果存在简并, 比如 $E_{n}^{0}=E_{m}^{0}$, 那么上面的分母将会出现 $0$, 从而使得修正出现发散, 因此我们需要考虑新的修正方法.\n二能级系统 考虑\n$$ \\hat{H} = \\underbrace{\\begin{pmatrix} 0 \u0026 0 \\\\ 0 \u0026 0\\\\ \\end{pmatrix}}_{\\hat{H}_{0}} + \\underbrace{\\begin{pmatrix} 0 \u0026 \\lambda \\\\ \\lambda \u0026 0\\\\ \\end{pmatrix}}_{\\delta\\hat{H}} $$\n这是一个容易精确求解的哈密顿量, 本征值为\n$$ E_{\\pm} = \\pm \\lambda $$\n即有\n$$ \\begin{pmatrix} 0 \u0026 \\lambda \\\\ \\lambda \u0026 0\\\\ \\end{pmatrix} \\begin{pmatrix} 1/2\\\\ 1/2\\\\ \\end{pmatrix} = \\lambda\\begin{pmatrix} 1/2\\\\ 1/2\\\\ \\end{pmatrix}\\\\ \\begin{pmatrix} 0 \u0026 \\lambda \\\\ \\lambda \u0026 0\\\\ \\end{pmatrix} \\begin{pmatrix} 1/2\\\\ -1/2\\\\ \\end{pmatrix} = -\\lambda\\begin{pmatrix} 1/2\\\\ -1/2\\\\ \\end{pmatrix} $$\n本征态可以写作\n$$ |n\\rangle = \\frac{1}{2}\\left(|\\uparrow\\rangle \\pm \\downarrow\\rangle\\right) $$\n的形式.\n$$ |\\uparrow\\rangle = \\begin{pmatrix} 1\\\\ 0\\\\ \\end{pmatrix}, |\\downarrow\\rangle = \\begin{pmatrix} 0\\\\ 1\\\\ \\end{pmatrix} $$\n前面已经提到了关于修正发散的问题, 这里也没有必要再重新算一遍.\n发散的问题在于, 分子 $\\delta H_{mn}=\\langle\\psi_{m}^{0}|\\delta\\hat{H}|\\psi_{n}^{0}\\rangle\\neq 0$. 既然 $\\delta\\hat{H}$ 本身没有办法改变, 我们可以选择从重新选择 $|\\psi_{i}\\rangle$ 入手, 也就是在 $\\hat{H}_{0}$ 的简并子空间中重新取定一组基.\n对于空矩阵\n$$ \\hat{H}_{0} = \\begin{pmatrix} 0 \u0026 0 \\\\ 0 \u0026 0\\\\ \\end{pmatrix} $$\n不难看出最简单的基就是 $|\\uparrow\\rangle, |\\downarrow\\rangle$. 我们构造这组基的线性组合\n$$ |0^{0}\\rangle = \\frac{1}{\\sqrt{2}}\\left(|\\uparrow\\rangle - |\\downarrow\\rangle\\right)\\\\ |1^{0}\\rangle = \\frac{1}{\\sqrt{2}}\\left(|\\uparrow\\rangle + |\\downarrow\\rangle\\right) $$\n根据矩阵元 $\\delta_{mn}$ 的定义, 我们分别计算出\n$$ \\begin{aligned} \u0026\\delta H_{00} = \\begin{pmatrix} 1\u0026 -1\\\\ \\end{pmatrix}_{/\\sqrt{2}} \\begin{pmatrix} 0 \u0026 \\lambda \\\\ \\lambda \u0026 0\\\\ \\end{pmatrix} \\begin{pmatrix} 1\\\\ -1\\\\ \\end{pmatrix}_{/\\sqrt{2}} = \\begin{pmatrix} 1\u0026 -1\\\\ \\end{pmatrix}_{/\\sqrt{2}}(-\\lambda) \\begin{pmatrix} 1\\\\ -1\\\\ \\end{pmatrix}_{/\\sqrt{2}} = -\\lambda\\\\ \u0026\\delta H_{10} = \\begin{pmatrix} 1\u0026 1\\\\ \\end{pmatrix}_{/\\sqrt{2}} \\begin{pmatrix} 0 \u0026 \\lambda \\\\ \\lambda \u0026 0\\\\ \\end{pmatrix} \\begin{pmatrix} 1\\\\ -1\\\\ \\end{pmatrix}_{/\\sqrt{2}} = \\begin{pmatrix} 1\u0026 1\\\\ \\end{pmatrix}_{/\\sqrt{2}}(-\\lambda) \\begin{pmatrix} 1\\\\ -1\\\\ \\end{pmatrix}_{/\\sqrt{2}} = 0\\\\ \u0026\\delta H_{01} = \\begin{pmatrix} 1\u0026 -1\\\\ \\end{pmatrix}_{/\\sqrt{2}} \\begin{pmatrix} 0 \u0026 \\lambda \\\\ \\lambda \u0026 0\\\\ \\end{pmatrix} \\begin{pmatrix} 1\\\\ 1\\\\ \\end{pmatrix}_{/\\sqrt{2}} = \\begin{pmatrix} 1\u0026 -1\\\\ \\end{pmatrix}_{/\\sqrt{2}}(\\lambda) \\begin{pmatrix} 1\\\\ 1\\\\ \\end{pmatrix}_{/\\sqrt{2}} = 0\\\\ \u0026\\delta H_{11} = \\begin{pmatrix} 1\u0026 1\\\\ \\end{pmatrix}_{/\\sqrt{2}} \\begin{pmatrix} 0 \u0026 \\lambda \\\\ \\lambda \u0026 0\\\\ \\end{pmatrix} \\begin{pmatrix} 1\\\\ 1\\\\ \\end{pmatrix}_{/\\sqrt{2}} = \\begin{pmatrix} 1\u0026 1\\\\ \\end{pmatrix}_{/\\sqrt{2}}(\\lambda) \\begin{pmatrix} 1\\\\ 1\\\\ \\end{pmatrix}_{/\\sqrt{2}} = \\lambda \\end{aligned} $$\n所以最后得到的矩阵 $\\delta H_{m\\times n}$ 为\n$$ \\delta H_{m\\times n} = \\begin{pmatrix} -\\lambda \u0026 0\\\\ 0 \u0026 \\lambda\\\\ \\end{pmatrix} $$\n也就是说, 此时的矩阵为对角化的.\n所以我们可以计算能量和本征态的修正:\n$$ \\delta E_{n} = \\mp\\lambda + 0\\times \\lambda^{2} + \\dots\\\\ |\\delta n^{1}\\rangle = 0\\times\\lambda + \\dots $$\n因为 $\\hat{H}_{0}$ 的本征态存在简并, 所以我们也就有了自由构造具体的基的可能性, 这种自由使得我们有可能将 $\\delta\\hat{H}$ 对角化, 从而避免了发散的问题.\n一般情况 $$ \\hat{H} = \\left(\\begin{array}{cc|ccc|c} E_{1}^{0} \u0026 \u0026 \u0026 \u0026 \u0026 \\\\ \u0026E_{1}^{0}\u0026 \u0026 \u0026 \u0026 \\\\ \\hline \u0026 \u0026E_{2}^{0} \u0026 \u0026 \u0026 \\\\ \u0026 \u0026 \u0026E_{2}^{0} \u0026 \u0026 \\\\ \u0026 \u0026 \u0026 \u0026E_{2}^{0} \u0026 \\\\ \\hline \u0026 \u0026 \u0026 \u0026 \u0026E_{3}^{0} \\end{array}\\right)_{6\\times 6} $$\n$$ \\delta\\hat{H} = \\left(\\begin{array}{cc|ccc|c} \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \\\\ \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \\\\ \\hline \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \\\\ \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \\\\ \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \\\\ \\hline \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \\\\ \\end{array}\\right)_{6\\times 6} $$\n$\\times$ 代表矩阵元素非 $0$.\n在这种情况下, 如果要像之前处理二能级系统那样对 $\\delta\\hat{H}$ 选择合适基从而对角化 $\\delta H_{m\\times n}$ 无疑是非常困难的. 但是实际上我们可以从矩阵直和的角度来简化问题.\n对于 $\\hat{H}_{0},\\delta\\hat{H}$ 对应的 Hilbert Space $\\mathcal{H}$, 其实是由三个简并子空间直和组成的, 这些子空间的维数分别为 $2,3,1$, 我们这样标记:\n$$ \\mathcal{H} = \\mathcal{H}_{2}\\oplus\\mathcal{H}_{3}\\oplus\\mathcal{H}_{1} $$\n我们无需将 $\\delta\\hat{H}$ 对角化, 只需要选择的基能够使得 $\\delta\\hat{H}$ 的对角分块内矩阵对角化即可, 也就是下面的效果:\n$$ \\delta\\hat{H}^{\\text{Rotated}} = \\left(\\begin{array}{cc|ccc|c} \\times \u0026 \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \\\\ \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \\\\ \\hline \\times \u0026 \\times \u0026 \\times \u0026 \u0026 \u0026 \\times \\\\ \\times \u0026 \\times \u0026 \u0026 \\times \u0026 \u0026 \\times \\\\ \\times \u0026 \\times \u0026 \u0026 \u0026 \\times \u0026 \\times \\\\ \\hline \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \u0026 \\times \\\\ \\end{array}\\right)_{6\\times 6} $$\n这样我们就可以移植原非简并的微扰论公式\n$$ E_{n}^{0} = E_{n}^{0} + \\delta H_{nn} + \\sum_{E_{m}\\neq E_{n}^{0}}’\\frac{\\left|\\delta H_{mn}\\right|^{2}}{E_{n}^{0} - E_{m}^{0}} + \\mathcal{O}(\\lambda^{3}) $$\n$\\sum’$ 表示只对不同能量的状态之间$(m,n)$ 进行求和, 而简并子空间内部因为已经对角化所以 对应的 $\\delta H_{mn}=0$ 而被省略.\n实际上非简并的微扰论代入到经过对角化处理的简并状态下的情形并不是完全正确的, 需要考虑更多的因素.\n例子 双自旋子系统 设有两个 $\\frac{1}{2}$ 自旋子. 已知自旋算符为\n$$ \\hat{\\mathbf{S}}_{i} = \\frac{\\hbar}{2}\\hat{\\mathbf{\\sigma}}_{i} $$\n$\\hat{\\mathbf{\\sigma}}_{i}$ 是泡利矩阵组成的向量.\n泡利矩阵 $$ \\hat{\\mathbf{\\sigma}}_{x} = \\begin{pmatrix} 0 \u0026 1\\\\ 1 \u0026 0\\\\ \\end{pmatrix}, \\hat{\\mathbf{\\sigma}}_{y} = \\begin{pmatrix} 0 \u0026 -i\\\\ i \u0026 0\\\\ \\end{pmatrix}, \\hat{\\mathbf{\\sigma}}_{z} = \\begin{pmatrix} 1 \u0026 0\\\\ 0 \u0026 -1\\\\ \\end{pmatrix}. $$ 泡利矩阵的本征值为 $\\pm 1$, 各自的归一化本征向量为 $$ \\psi_{x+}= \\frac{1}{\\sqrt{2}} \\begin{pmatrix} 1\\\\ 1\\\\ \\end{pmatrix}, \\psi_{x-} =\\frac{1}{\\sqrt{2}} \\begin{pmatrix} 1 \\\\ -1 \\\\ \\end{pmatrix}\\\\ \\psi_{y+}= \\frac{1}{\\sqrt{2}} \\begin{pmatrix} -i\\\\ 1\\\\ \\end{pmatrix}, \\psi_{y-} =\\frac{1}{\\sqrt{2}} \\begin{pmatrix} 1 \\\\ -i \\\\ \\end{pmatrix}\\\\ \\psi_{z+}= \\begin{pmatrix} 1\\\\ 0\\\\ \\end{pmatrix}, \\psi_{z-} = \\begin{pmatrix} 0 \\\\ 1 \\\\ \\end{pmatrix} $$\n零阶哈密顿量为\n$$ \\hat{H}_{0} = \\frac{E_{0}}{\\hbar^{2}}\\hat{\\mathbf{S}}_{1}\\otimes\\hat{\\mathbf{S}}_{1} = \\frac{E_{0}}{\\hbar^{2}}\\left(\\hat{S}_{1,x}\\otimes\\hat{S}_{2,x} + \\hat{S}_{1,y}\\otimes\\hat{S}_{2,y} + \\hat{S}_{1,z}\\otimes\\hat{S}_{2,z}\\right) $$\n因为对自旋有\n$$ \\hat{S}_{i}^{2} = S_{i}(S_{i} + 1)\\hbar^{2} = \\frac{3}{4}\\hbar^{2} $$\n所以\n$$ \\hat{\\mathbf{S}}_{1}\\otimes\\hat{\\mathbf{S}}_{2} = \\frac{1}{2}\\left(\\hat{\\mathbf{S}}^{2} - \\hat{\\mathbf{S}}_{1}^{2} - \\hat{\\mathbf{S}}_{2}^{2}\\right) = \\frac{1}{2}\\hat{\\mathbf{S}}^{2} - \\frac{3}{4}\\hbar^{2}\\\\ \\hat{H}_{0} = E_{0}\\left(\\frac{\\hat{\\mathbf{S}}^{2}}{2\\hbar^{2}} -\\frac{3}{4}\\right) = E_{0}\\left(\\frac{s(s + 1)}{2} - \\frac{3}{4}\\right) $$\n$\\hat{\\mathbf{S}} = \\hat{\\mathbf{S}}_{1} + \\hat{\\mathbf{S}}_{2}$ 为总自旋.\n快速复习角动量 对于角动量和 $$ \\hat{\\mathbf{J}} = \\hat{\\mathbf{J}}_{1} + \\hat{\\mathbf{J}}_{2} $$ 其总角动量量子数 $j$ 取值范围为 $$ j\\in\\textbf{[}|j_{1}-j_{2}|,|j_{1} + j_{2}|\\textbf{]} $$\n所以在讨论双自旋子模型时, 显然 $s_{1} = s_{2} = \\pm\\frac{1}{2}$, 于是就有 $s=0$ 和 $s= 1$.\n根据角动量相关知识, 可知\n$$ \\hat{\\mathbf{S}}^{2} = s(s + 1)\\hbar^{2} = \\begin{cases} 0 \u0026 (s = 0)\\\\ 2\\hbar^{2} \u0026 (s = 1) \\end{cases} $$\n我们已经知道 $\\hat{\\mathbf{S}}^{2}$ 和 $\\hat{S}_{z}$ 对易, 即有共同本征态. 我们用 $|sm\\rangle$ 来表示这系列共同本征态.\n$$ \\hat{\\mathbf{S}}^{2}|sm\\rangle = s(s + 1)\\hbar^{2}|sm\\rangle\\\\ \\hat{S}_{z}|sm\\rangle = m\\hbar|sm\\rangle $$\n因为磁量子数与角量子数有关, 即 $m = 0,\\pm 1, \\pm 2,\\dots,\\pm l$, 具体到本情景中即 $s=0,\\dots,\\pm s$. 所以\n$s = 0, m = 0$. 因此 $s=0$ 也被称为单重态(Singlet state).\n$$ |sm\\rangle = |00\\rangle = \\frac{1}{\\sqrt{2}}\\left(|\\uparrow\\downarrow\\rangle-|\\downarrow\\uparrow\\rangle\\right) $$\n$s = 1, m = 0, \\pm 1$ $$ |sm\\rangle = \\begin{cases} |11\\rangle = |\\uparrow\\uparrow\\rangle\\\\ |10\\rangle = \\left(|\\uparrow\\downarrow\\rangle + \\downarrow\\uparrow\\rangle\\right)/\\sqrt{2}\\\\ |1-1\\rangle=|\\downarrow\\downarrow\\rangle \\end{cases} $$ 因此 $s=1$ 也被称为三重态(Triplet state).\n于是 $\\hat{H}_{0}$ 的本征值有\n$$ E_{\\text{sm}}^{0} = \\begin{cases} -\\frac{3E_{0}}{4} \u0026 \\text{基态(非简并)}\\\\ \\frac{E_{0}}{4} \u0026 \\text{激发态(三重简并)} \\end{cases} $$\n微扰一 $$ \\delta\\hat{H} = \\frac{\\Delta}{\\hbar}\\left(\\hat{S}_{1,z} + \\hat{S}_{2,z}\\right) = \\frac{\\Delta}{\\hbar}\\hat{S}_{z} $$\n此时 $|sm\\rangle$ 已经满足对 $\\delta H_{m\\times n}$ 进行对角化的需求:\n$$ \\begin{aligned} \u0026 \\hat{H}_{0}|sm\\rangle = E_{0}\\left(\\frac{1}{2}s(s + 1)- \\frac{3}{4}\\right)|sm\\rangle\\\\ \u0026 \\delta\\hat{H}|sm\\rangle = m\\Delta|sm\\rangle \\end{aligned} $$\n所以本征态的修正为 $0$. 而能量本征值可以计算到二阶修正:\n$$ E_{\\text{sm}} = E_{\\text{sm}}^{0} + m\\Delta $$\n因为在 $s = 1$ 时 $m$ 有不同取值, 所以微扰会使得三重态的简并遭到破坏.\n微扰二 $$ \\delta\\hat{H} = \\frac{\\Delta}{\\hbar}\\left(\\hat{S}_{z}^{1} - \\hat{S}_{z}^{2}\\right) $$\n选取基 $\\left\\{|11\\rangle,|10\\rangle,|1-1\\rangle,|00\\rangle\\right\\}$, 计算对应的矩阵元. 在这里我们可以先计算 $\\delta\\hat{H}|sm\\rangle$, 再计算 $\\langle s’m’|$ 和前者的内积.\n$$ \\begin{aligned} \\delta\\hat{H}|11\\rangle \u0026 = \\delta\\hat{H}|\\uparrow\\uparrow\\rangle = 0\\\\ \\delta\\hat{H}|1-1\\rangle \u0026 = \\delta\\hat{H}|\\downarrow\\downarrow\\rangle = 0\\\\ \\delta\\hat{H}|10\\rangle \u0026 = \\frac{\\Delta}{\\hbar}\\left(\\hat{S}_{z}^{1} - \\hat{S}_{z}^{2}\\right)\\frac{1}{\\sqrt{2}}\\left(|\\uparrow\\downarrow\\rangle + |\\downarrow\\uparrow\\rangle\\right)\\\\ \u0026 = \\frac{\\Delta}{\\hbar}\\cdot\\frac{1}{\\sqrt{2}}\\cdot\\frac{\\hbar}{2}\\left(|\\uparrow\\downarrow\\rangle-|\\downarrow\\uparrow\\rangle + |\\uparrow\\downarrow\\rangle - |\\downarrow\\uparrow\\rangle\\right)\\\\ \u0026 = \\Delta \\cdot \\frac{1}{\\sqrt{2}}\\left(|\\uparrow\\downarrow\\rangle - |\\downarrow\\uparrow\\rangle\\right) = \\Delta|00\\rangle \\end{aligned} $$\n因为 $\\delta\\hat{H}$ 为 Hermite 矩阵, 所以我们可以通过对称性来计算对角线两侧的矩阵元.\n$$ \\langle sm|\\delta\\hat{H}|10\\rangle = \\begin{cases} \\Delta \u0026 (s = 0, m = 0)\\\\ 0 \u0026 \\text{others} \\end{cases} $$\n根据对称性有\n$$ \\langle 10|\\delta\\hat{H}|sm\\rangle = \\begin{cases} \\Delta \u0026 (s = 0, m = 0)\\\\ 0 \u0026 \\text{others} \\end{cases} $$\n因为观察到 $\\langle 10|\\left(\\delta\\hat{H}|00\\rangle\\right) = \\Delta$, 而 $|sm\\rangle$ 之间又彼此正交, 所以推断 $$ \\delta\\hat{H}|00\\rangle = \\Delta|10\\rangle $$\n于是可以得到\n$$ \\hat{H}_{0} = \\frac{E_{0}}{4}\\left(\\begin{array}{ccc|c} 1 \u0026 \u0026 \u0026 \\\\ \u0026 1 \u0026 \u0026 \\\\ \u0026 \u0026 1 \u0026 \\\\ \\hline \u0026 \u0026 \u0026 -3\\\\ \\end{array}\\right), \\hat{H}_{0} = \\Delta\\left(\\begin{array}{ccc|c} \u0026 \u0026 \u0026 \\\\ \u0026 \u0026 \u0026 1\\\\ \u0026 \u0026 \u0026 \\\\ \\hline \u0026 1 \u0026 \u0026 \\\\ \\end{array}\\right), $$\n可以看到, $\\delta\\hat{H}$ 生成的矩阵 $\\delta H_{m\\times n}$ 在简并子空间内已经完成对角化, 所以可以使用原先选定的基 $\\left\\{|sm\\rangle\\right\\}$ 进行修正计算.\n一阶能量修正为 $0$. 二阶修正为\n$$ \\delta E_{(10)}^{2} = \\frac{|\\langle 10|\\delta\\hat{H}|00\\rangle|^{2}}{E_{(10)}^{0} - E_{(00)}^{0}} = \\frac{\\Delta^{2}}{E_{0}} \u003e 0\\\\ \\delta E_{(00)}^{2} = \\frac{|\\langle 00|\\delta\\hat{H}|10\\rangle|^{2}}{E_{(00)}^{0} - E_{(10)}^{0}} = -\\frac{\\Delta^{2}}{E_{0}} \u003c0\\\\ $$\n氢原子 相对论修正 取低速近似, 可以将相对论程度的粒子动能展开为动量算符的级数:\n$$ \\begin{aligned} \\hat{T} \u0026 = \\sqrt{\\left(mc^{2}\\right)^{2} + \\left(\\hat{\\mathbf{p}}c\\right)^{2}} - mc^{2}\\\\ \u0026 = \\frac{\\hat{\\mathbf{p}}^{2}}{2m} - \\frac{\\hat{\\mathbf{p}}^{4}}{8m^{3}c^{2}} + \\mathcal{O}\\left(\\hat{\\mathbf{p}}^{6}\\right) \\end{aligned} $$\n而\n$$ \\hat{H}_{0} = \\frac{\\hat{\\mathbf{p}}^{2}}{2m} + q\\phi $$\n我们则相对熟悉, 其本征方程为\n$$ \\hat{H}_{0}|nlm\\rangle = E_{n}^{0}|nlm\\rangle = \\frac{me^{4}}{n^{2}\\hbar^{4}}|nlm\\rangle $$\n$$ \\psi_{100}(x) = \\langle x|100\\rangle = \\frac{1}{\\sqrt{\\pi a_{0}^{3}}}e^{-\\frac{r}{a_{0}}} $$\n玻尔半径 $a_{0} =\\frac{\\hbar^{2}}{me^{2}} = \\frac{1}{\\alpha}\\frac{\\hbar}{mc}$\n$$ \\delta\\hat{H} = -\\frac{\\hat{\\mathbf{p}}^{4}}{8m^{3}c^{2}} $$\n则是相对论效应的最低阶微扰.\n$|nlm\\rangle$ 是 $\\hat{H}_{0}, \\hat{\\mathbf{L}}^{2}, \\hat{L}_{z}$ 的共同本征态. 虽然 $\\left[\\delta\\hat{H}, \\hat{\\mathbf{L}}^{2}\\right] = \\left[\\delta\\hat{H}, \\hat{L}_{z}\\right] = 0$, 但是 $\\left[\\delta\\hat{H}, \\hat{H}_{0}\\right] \\neq 0$. 所以 $|nlm\\rangle$ 来作为基是不够用的.\n我们将采用 $|nlmm_{s}\\rangle$ 作为非微扰基\n$$ \\langle nlm|\\delta\\hat{H}|n’l’m’\\rangle = \\langle nl||\\delta\\hat{H}||n’l’\\rangle\\delta_{ll’}\\delta_{mm’} $$\n$\\langle nl||\\delta\\hat{H}||n’l’\\rangle\\delta_{ll’}\\delta_{mm’}$ 被称为约化矩阵元\n所以一阶能量修正\n$$ \\begin{aligned} \\delta E_{nlm}^{\\text{Rel.}} \u0026= \\left\\langle nlm\\left|-\\frac{\\hat{\\mathbf{p}}^{4}}{8m^{3}c^{2}}\\right|nlm\\right\\rangle\\\\ \u0026= -\\frac{1}{8m^{3}c^{2}}\\left\\langle \\hat{\\mathbf{p}}^{2}\\psi_{nlm}|\\hat{\\mathbf{p}}^{2}\\psi_{nlm}\\right\\rangle\\\\ \u0026\\color{red}{= -\\frac{1}{2mc^{2}}\\langle(E_{n} - V)\\psi_{nlm}|(E_{n} - V)\\psi_{nlm}\\rangle}\\\\ \u0026= -\\frac{1}{2mc^{2}}\\langle(E_{n} - V)^{2}\\rangle_{nlm}\\\\ \u0026= -\\frac{1}{2mc^{2}}\\left[(E_{n})^{2} - 2E_{n}\\langle V\\rangle_{nlm} + \\langle V^{2}\\rangle_{nlm}\\right] \\end{aligned} $$\n$$ \\color{red}{\\hat{\\mathbf{p}}^{2}\\psi_{nlm} = 2m(E_{n} - V)\\psi_{nlm}} $$ 是对薛定谔方程的变式.\n$\\hat{V} = -\\frac{e}{r}$ 即为电子库伦势, 即求\n$$ \\delta E_{nlm}^{\\text{Rel.}} = -\\frac{1}{2mc^{2}}\\left[(E_{n}^{0})^{2} - 2E_{n}^{0}e^{2}\\left\\langle\\frac{1}{r}\\right\\rangle_{nlm} + e^{4}\\left\\langle\\frac{1}{r^{2}}\\right\\rangle_{nlm}\\right] $$\n$$ \\left\\langle\\frac{1}{r}\\right\\rangle_{nlm} = \\frac{1}{n^{2}a}\\\\ \\left\\langle\\frac{1}{r^{2}}\\right\\rangle_{nlm} = \\frac{1}{\\left(l + \\frac{1}{2}\\right)n^{3}a^{2}} $$\n结合库伦势在量子力学的相关结论, 即有\n$$ \\delta E_{nlm}^{\\text{Rel.}} = -\\frac{E_{0}^{0}\\color{green}{\\alpha}^{2}}{2\\color{red}{n}^{4}}\\left(\\frac{4\\color{red}{n}}{\\color{blue}{l} + \\frac{1}{2}} - 3\\right) $$\n可见只和主量子数 $\\color{red}{n}$ 和 轨道角动量量子数 $\\color{blue}{l}$ 有关. 相对论修正的量级与精细结构常数平方 $\\color{green}{\\alpha}^{2}$ 成正比.\n虽然计算时使用了 $|nlmm_{s}\\rangle$ 为基, 但是结果与 $m,m_{s}$ 无关, 所以使用基 $|nlxy\\rangle$ 都能得出同样的结果.\n自旋-轨道耦合 我们将自旋-轨道耦合称为 Spin-Orbital, 简称 SO.\n即有\n$$ \\delta\\hat{H}^{\\text{SO}} = \\frac{e^{2}}{2m^{2}c^{2}r^{3}}\\hat{\\mathbf{S}}\\cdot\\hat{\\mathbf{L}} $$\n总角动量及其平方:\n$$ \\hat{\\mathbf{J}} = \\hat{\\mathbf{L}} + \\hat{\\mathbf{S}}\\\\ \\hat{\\mathbf{J}}^{2} = \\hat{\\mathbf{L}}^{2} + \\hat{\\mathbf{S}}^{2} + 2\\hat{\\mathbf{L}}\\cdot\\hat{\\mathbf{S}} $$\n所以对于 $\\hat{\\mathbf{J}}^{2}, \\hat{\\mathbf{L}}^{2}, \\hat{\\mathbf{S}}^{2}$ 的共同本征态张成的空间, 有\n$$ \\hat{\\mathbf{L}}\\cdot\\hat{\\mathbf{S}} = \\frac{1}{2}\\left(\\hat{\\mathbf{J}}^{2}- \\hat{\\mathbf{L}}^{2} - \\hat{\\mathbf{S}}^{2}\\right) = \\frac{\\hbar^{2}}{2}\\left(s\\left(s + 1\\right) - l\\left(l + 1\\right) - \\frac{3}{4} \\right) $$\n采用 $\\hat{H}_{0}, \\hat{\\mathbf{J}}^{2}, \\hat{\\mathbf{L}}^{2}, \\hat{\\mathbf{S}}^{2}, \\hat{J}_{z}$ 的共同本征态 $|nljm_{j}\\rangle$ 作为基. 此时 $\\hat{\\mathbf{L}}\\cdot\\hat{\\mathbf{S}}$ 生成的矩阵 $\\hat{\\mathbf{L}}\\cdot\\hat{\\mathbf{S}}_{m\\times n}$ 已经对角化.\n所以能量一阶修正为\n$$ \\delta_{nljm_{j}}^{\\text{SO}} = \\frac{e^{2}}{2m^{2}c^{2}}\\frac{\\hbar^{2}}{2}\\left(s\\left(s + 1\\right) - l\\left(l + 1\\right) - \\frac{3}{4} \\right)\\left\\langle\\frac{1}{r^{3}}\\right\\rangle_{nl} $$\n$$ \\left\\langle\\frac{1}{r^{3}}\\right\\rangle_{nl} = \\frac{1}{l\\left(l + \\frac{1}{2}\\right)(l + 1)n^{3}a^{3}} $$\n所以得到一阶能量修正为\n$$ \\delta_{nljm_{j}}^{\\text{SO}} = \\frac{E_{n}^{0}\\color{green}{\\alpha}^{2}}{4n^{4}}\\left\\{\\frac{n\\left[j(j + 1) - l(l + 1) - \\frac{3}{4}\\right]}{l\\left(l + \\frac{1}{2}\\right)(l + 1)}\\right\\} $$\n和相对论修正一样, 也是与精细结构常数平方 $\\color{green}{\\alpha}^{2}$ 成正比.\nRel. $\\oplus$ SO $$ \\delta E^{1} = \\delta E^{\\text{Rel.}} + \\delta E^{\\text{SO}} = \\frac{E_{0}^{0}\\alpha^{2}}{8n^{4}}\\left(3 - \\frac{4n}{j + \\frac{1}{2}}\\right) $$\n该结果表明修正只和 $j, n$ 有关而与 $l$ 无关.\n含时微扰理论 相互作用绘景 我们可以将系统的哈密顿量写作含时形式\n$$ \\hat{H}(t)=\\hat{H}_{0}+\\delta\\hat{H}(t)\\\\ $$\n可以看到里面的 $\\hat{H}_{0}$ 并不含时, 现在我们需要求得系统的波函数 $\\psi(t)$.\n对于薛定谔绘景下的态 $\\psi(t)$ 和算子 $\\hat{A}(t)$. 所以我们就可以得到\n$$ \\widetilde{\\psi}(t) = e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\psi(t)\\\\ \\widetilde{A}(t) = e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\hat{A}(t)e^{-\\frac{i\\hat{H}_{0}t}{\\hbar}} $$\n这可以被理解为一种参考系的旋转. 我们讲这种绘景称为相互作用绘景. 不难发现,\n$$ \\langle\\widetilde{\\psi}|\\widetilde{A}|\\widetilde{\\varphi}\\rangle = (\\langle\\psi|e^{-\\frac{i\\hat{H}_{0}t}{\\hbar}})(e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}Ae^{-\\frac{i\\hat{H}_{0}t}{\\hbar}})(e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}|\\varphi\\rangle)=\\langle\\psi|A|\\varphi\\rangle $$\n也就是说, 在不同的绘景下, 最后得到的实验结果都会是相同的.\n我们已经知道薛定谔绘景下的薛定谔方程为\n$$ i\\hbar\\frac{\\partial}{\\partial t}\\psi = \\hat{H}\\psi $$\n对 $\\widetilde{\\psi}(t)$ 进行时间求导:\n$$ i\\hbar\\frac{\\partial }{\\partial t}\\widetilde{\\psi}(t) = i\\hbar\\frac{\\partial}{\\partial t}\\left[e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\psi(t)\\right] = i\\hbar\\left[\\frac{i\\hat{H}_{0}}{\\hbar}e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\psi(t)+e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\frac{\\partial}{\\partial t}\\psi(t)\\right]\\\\ = e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\left(\\hat{H}-\\hat{H}_{0}\\right)\\psi(t)=e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\left(\\delta\\hat{H}\\right)e^{-\\frac{i\\hat{H}_{0}t}{\\hbar}}e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\psi(t)\\\\ = \\widetilde{\\delta H}\\widetilde{\\psi}(t) $$\n所以我们就有了相互作用绘景中的薛定谔方程:\n$$ \\boxed{i\\hbar\\frac{\\partial }{\\partial t}\\widetilde{\\psi}(t) = \\widetilde{\\delta H}\\widetilde{\\psi}(t)} $$\n同理对相互作用绘景下的算子 $\\widetilde{A}(t)$ 进行时间求导:\n$$ i\\hbar\\frac{\\partial}{\\partial t}\\widetilde{A}(t)=i\\hbar\\frac{\\partial }{\\partial t}(e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}Ae^{-\\frac{i\\hat{H}_{0}t}{\\hbar}})\\\\ = i\\hbar\\left[\\left(\\frac{\\partial }{\\partial t}e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\right)Ae^{-\\frac{i\\hat{H}_{0}t}{\\hbar}} + e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\left(\\frac{\\partial }{\\partial t}A\\right)e^{-\\frac{i\\hat{H}_{0}t}{\\hbar}}+e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}A\\left(\\frac{\\partial }{\\partial t}e^{-\\frac{i\\hat{H}_{0}t}{\\hbar}}\\right)\\right]\\\\ =i\\hbar\\left[\\frac{i\\hat{H}_{0}}{\\hbar}e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}Ae^{-\\frac{i\\hat{H}_{0}t}{\\hbar}}+e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\left(\\frac{\\partial }{\\partial t}A\\right)e^{-\\frac{i\\hat{H}_{0}t}{\\hbar}}+e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}A\\left(-\\frac{i\\hat{H}_{0}}{\\hbar}e^{-\\frac{i\\hat{H}_{0}t}{\\hbar}}\\right)\\right] $$\n这里我们假定\n$$ \\frac{\\partial A}{\\partial t}=0 $$\n所以\n$$ i\\hbar\\frac{\\partial}{\\partial t}\\widetilde{A}(t)= e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\left(-\\hat{H}_{0}A+A\\hat{H}_{0}\\right)e^{-\\frac{i\\hat{H}_{0}t}{\\hbar}}=\\left[\\widetilde{A}(t),\\hat{H}_{0}\\right] $$\n所以我们就得到了相互作用绘景中的海森堡方程:\n$$ i\\hbar\\frac{\\partial}{\\partial t}\\widetilde{A}(t)=\\left[\\widetilde{A}(t),\\hat{H}_{0}\\right] $$\n这和常算子的海森堡绘景中的海森堡方程完全一致.\n含时微扰展开 我们已知\n$$ \\hat{H}_{0}|n\\rangle = E_{n}|n\\rangle $$\n因为在研究含时微扰展开时, 我们实际上并不关心 $\\hat{H}(t)$ 的本征态与本征能量, 所以在上面的方程中我们并没有像之前处理不含时微扰中那样在上标写上 $0$ 来表示其为零阶.\n所以我们就可以得到矩阵元:\n$$ \\delta{H_{mn}}(t) = \\langle m|\\delta{\\hat{H}}(t)|n\\rangle\\\\ \\widetilde{\\delta{H}}_{mn}(t) = \\langle m|\\widetilde{\\delta{H}}(t)|n\\rangle = \\langle m|e^{\\frac{i\\hat{H}_{0}t}{\\hbar}}\\delta{\\hat{H}}e^{-\\frac{i\\hat{H}_{0}t}{\\hbar}}|n\\rangle $$\n对于指数上的算符, 我们可以使用定义来处理:\n$$ e^{a\\hat{H}_{0}} = \\sum_{j = 0}^{+\\infty}\\frac{1}{j!}a^{j}(\\hat{H}_{0})^{j} $$\n对 $\\forall j$, 均有\n$$ (\\hat{H}_{0})^{j}|m\\rangle = (\\hat{H}_{0})^{j-1}E_{m}|m\\rangle = E_{m}(\\hat{H}_{0})^{j-1}|m\\rangle = \\cdots = E_{m}^{j}|m\\rangle $$\n所以对于 $\\widetilde{\\delta{H}}_{mn}(t)$, 我们可以分别计算得到\n$$ e^{-\\frac{i\\hat{H}_{0}t}{\\hbar}}|n\\rangle = \\sum_{j = 0}^{+\\infty}\\frac{1}{j!}\\left(-\\frac{i\\hat{H}_{0}t}{\\hbar}\\right)^{j}|n\\rangle = \\sum_{j = 0}^{+\\infty}\\frac{1}{j!}\\left(-\\frac{iE_{n}t}{\\hbar}\\right)^{j}|n\\rangle = e^{-\\frac{iE_{n}t}{\\hbar}}|n\\rangle\\\\ \\langle m|e^{\\frac{i\\hat{H}_{0}t}{\\hbar}} = \\sum_{j = 0}^{+\\infty}\\frac{1}{j!}\\langle m|\\left(\\frac{i\\hat{H}_{0}t}{\\hbar}\\right)^{j} = \\sum_{j = 0}^{+\\infty}\\frac{1}{j!}\\left(\\frac{iE_{m}t}{\\hbar}\\right)^{j}\\langle m| = \\langle m|e^{\\frac{iE_{m}t}{\\hbar}} $$\n所以就有最后的\n$$ \\widetilde{\\delta{H}}_{mn}(t) = \\langle m|e^{\\frac{iE_{m}t}{\\hbar}}\\delta\\hat{H}e^{-\\frac{iE_{n}t}{\\hbar}}|n\\rangle = e^{\\frac{i(E_{m}-E_{n})t}{\\hbar}}\\langle\\delta\\hat{H}|n\\rangle = e^{i\\omega_{mn}t}\\delta H_{mn}(t) $$\n接下来我们会演示矩阵元是如何在接下来的运算中发挥作用的. 对于相互作用绘景中的量子态 $|\\widetilde{\\psi}(t)\\rangle$, 我们采用 $\\hat{H}_{0}$ 的本征态作为基底进行展开:\n$$ |\\widetilde{\\psi}(t)\\rangle = \\sum_{n}c_{n}(t)|n\\rangle $$\n$c_{n}(t)$ 是需要确定的系数. 为了求得一系列的系数, 我们可以将其带入到相互作用绘景中的薛定谔方程并且左乘 $\\langle n|$:\n$$ \\textbf{L:}\\langle n|i\\hbar\\frac{\\partial }{\\partial t}|\\widetilde{\\psi}(t)\\rangle = \\langle n|i\\hbar\\frac{\\partial }{\\partial t}\\sum_{m}c_{m}(t)|m\\rangle = i\\hbar\\sum_{m}\\dot{c_{m}}(t)\\delta_{mn} = i\\hbar\\dot{c_{n}}(t)\\\\ \\textbf{R:}\\langle n|\\widetilde{\\delta{H}}(t)|\\widetilde{\\psi}(t)\\rangle = \\sum_{m}\\langle n|\\widetilde{\\delta{H}}(t)|m\\rangle\\langle m|\\widetilde{\\psi}(t)\\rangle = \\sum_{m}\\widetilde{\\delta{H_{nm}}}(t)c_{m}(t) = \\sum_{m}e^{i\\omega_{nm}t}\\delta H_{nm}(t)c_{m}(t) $$\n联立即有\n$$ i\\hbar\\dot{c_{n}}(t) = \\sum_{m}e^{i\\omega_{nm}t}\\delta H_{nm}(t)c_{m}(t) $$\n该式代表了无穷维的线性常微分方程组. 使用微扰法的思想, 引入小参数 $\\lambda(\\delta H\\rightarrow \\lambda\\delta H)$, 就可以将波函数展开为 $\\lambda$ 的级数:\n$$ \\widetilde{\\psi}(t) = \\widetilde{\\psi}^{(0)}(t) + \\lambda\\widetilde{\\psi}^{(1)}(t) + \\dots + \\lambda^{k}\\widetilde{\\psi}^{(k)}(t) + \\dots $$\n同理, 系数 $c_{m}(t)$ 也可进行展开:\n$$ c_{m}(t) = c_{m}^{(0)}(t) + \\lambda c_{m}^{(1)}(t) + \\dots + \\lambda^{k}c_{m}^{(k)}(t) + \\dots $$\n为了方便分析, 不妨假设 $\\delta H$ 在 $t = 0$ 开始生效, 并且相互作用绘景下的波函数在 $t = 0$ 时所有修正项均归零:\n$$ \\widetilde{\\psi}(0) = \\widetilde{\\psi}^{(0)}(0) + 0 + 0 + \\dots\\\\ \\widetilde{\\psi}^{(1)}(0) = \\widetilde{\\psi}^{(2)}(0) = \\widetilde{\\psi}^{(3)}(0) = \\dots = 0 $$\n将展开式代回到相互作用绘景的薛定谔方程中, 即有\n$$ i\\hbar\\frac{\\partial}{\\partial t}\\left(\\widetilde{\\psi}^{(0)}(t) + \\lambda\\widetilde{\\psi}^{(1)}(t) + \\dots + \\lambda^{k}\\widetilde{\\psi}^{(k)}(t) + \\dots\\right) = \\lambda\\widetilde{\\delta H}\\left(\\widetilde{\\psi}^{(0)}(t) + \\lambda\\widetilde{\\psi}^{(1)}(t) + \\dots + \\lambda^{k}\\widetilde{\\psi}^{(k)}(t) + \\dots\\right) $$\n比较各阶 $\\lambda$ 系数, 即可递推求得各阶修正项.\n$\\lambda^{0}$; $$ i\\hbar\\frac{\\partial}{\\partial t}\\widetilde{\\psi}^{(0)}(t) = 0 $$\n即零阶相互作用绘景下的波函数不含时, 有\n$$ \\widetilde{\\psi}^{(0)}(t) = \\widetilde{\\psi}^{(0)}(0) = \\widetilde{\\psi}(0) = e^{\\frac{i\\hat{H}_{0}}{\\hbar}\\cdot 0}\\psi(0) = \\psi(0) $$\n这里的 $\\psi(0)$ 已经回到了薛定谔绘景.\n$\\lambda^{1}$. $$ i\\hbar\\frac{\\partial}{\\partial t}\\widetilde{\\psi}^{(1)}(t) = \\widetilde{\\delta H}\\widetilde{\\psi}^{(0)}(t) $$\n前面我们已经求得了 $\\widetilde{\\psi}^{(0)}(t)$, 这里可以直接代入:\n$$ i\\hbar\\frac{\\partial }{\\partial t}\\widetilde{\\psi}^{(1)}(t) = \\widetilde{\\delta H}(t)\\widetilde{\\psi}^{(0)}(0) = \\widetilde{\\delta H}(t)\\psi(0) $$\n两边同时积分, 即有\n$$ \\widetilde{\\psi}^{(1)}(t) = \\frac{1}{i\\hbar}\\left(\\int_{0}^{t}\\widetilde{\\delta H(t’)}\\mathrm{d}t’\\right)\\psi(0) $$\n前面我们只是设定了修正项初始为 $0$, 对于具体的 $\\psi(0)$ 则是缺少条件. 所以这里可以假定\n$$ \\psi(0) = |n\\rangle $$\n就可以将 $|\\widetilde{\\psi}^{(0)}(t)\\rangle, |\\widetilde{\\psi}^{(1)}(t)\\rangle$ 用基底 $\\{|n\\rangle\\}$ 展开:\n$$ |\\widetilde{\\psi}^{(0)}(t)\\rangle = \\sum_{m}c_{m}^{(0)}(t)|m\\rangle\\\\ |\\widetilde{\\psi}^{(1)}(t)\\rangle = \\sum_{m}c_{m}^{(1)}(t)|m\\rangle $$\n代入到积分式中:\n$$ \\sum_{m}c_{m}^{(1)}(t)|m\\rangle = \\frac{1}{i\\hbar}\\left(\\int_{0}^{t}\\widetilde{\\delta H}(t’)\\mathrm{d}t’\\right)|n\\rangle\\\\ \\Downarrow{\\text{左乘}\\langle m|}\\\\ c_{m}^{(1)}(t) = \\frac{1}{i\\hbar}\\int_{0}^{t}\\langle m|\\widetilde{\\delta H}(t’)|n\\rangle\\mathrm{d}t’ = \\frac{1}{i\\hbar}\\int_{0}^{t}\\delta H_{mn}(t’)e^{i\\omega_{mn}t’}\\mathrm{d}t’\\\\ \\Downarrow\\\\ \\boxed{c_{m}^{(1)}(t) = \\frac{1}{i\\hbar}\\int_{0}^{t}\\delta H_{mn}(t’)e^{i\\omega_{mn}t’}\\mathrm{d}t’} $$\n第一个基础展开式本身也可以得出一个修正项:\n$$ |\\widetilde{\\psi}^{(0)}(t)\\rangle = \\sum_{m}c_{m}^{(0)}(t)|m\\rangle = |\\psi(0)\\rangle = |n\\rangle $$\n即有\n$$ \\boxed{c_{m}^{(0)}(t) = \\delta_{mn}} $$\n系统在 $t = 0$ 时刻处于 $|\\psi(0)\\rangle = |n\\rangle$ 的状态, 如果在 $t$ 时刻对 $\\hat{H}_{0}$ 进行测量, 则系统由 $|n\\rangle$ 跃迁到 $|m\\rangle$ 的概率是\n$$ P_{n\\rightarrow m}^{(1)}(t) = \\left|c_{m}^{(1)}(t)\\right|^{2} = \\left|\\frac{1}{i\\hbar}\\int_{0}^{t}\\delta H_{mn}(t’)e^{i\\omega_{mn}t’}\\mathrm{d}t’\\right|^{2} $$\n如果我们假设系统在 $t = 0$ 的状态为 $|m\\rangle$, 计算 $t$ 时跃迁到状态 $|n\\rangle$ 的概率为\n$$ P_{m\\rightarrow n}^{(1)}(t) = \\left|\\frac{1}{i\\hbar}\\int_{0}^{t}\\delta H_{nm}(t’)e^{i\\omega_{nm}t’}\\mathrm{d}t’\\right|^{2} $$\n因为 $\\delta H$ 是厄米算符, 且 $\\omega_{mn} = -\\omega_{nm}$, 所以一阶微扰跃迁概率相等:\n$$ P_{m\\rightarrow n}^{(1)}(t) = P_{n\\rightarrow m}^{(1)}(t) $$\n$\\lambda^{2},\\lambda^{3},\\dots$ 我们可以根据\n$$ i\\hbar\\frac{\\partial }{\\partial t}\\widetilde{\\psi}^{(n+1)} = \\widetilde{\\delta H}\\widetilde{\\psi}^{(n)} $$\n递推得到更高阶的修正, 如果有需要可以继续求解.\n周期性微扰 像电磁场微扰这样的含时微扰, 可以具有周期性.\n$$ \\delta H(t) = 2\\hat{V}\\cos{(\\omega t)} $$\n$\\hat{V}$ 与时间无关.\n实际情况下的电磁场造成的微扰应该服从\n$$ \\delta H(t) \\propto \\cos{(\\vec{k}\\cdot\\vec{x}-\\omega t)} $$\n但是因为电磁波的波长远长于原子的尺寸, 所以我们可以采取近似 $\\vec{k}\\cdot\\vec{a}\\ll 1$, 即我们可以忽略有关 $\\vec{x}$ 的项.\n我们已经通过前面的推导知道:\n一阶微扰展开公式\n$$ c_{m}^{(1)}(t) = \\frac{1}{i\\hbar}\\int_{0}^{t}\\delta H_{mn}(t’)e^{i\\omega_{mn}t’}\\mathrm{d}t' $$\n所以我们就可以计算该周期微扰的一阶微扰展开系数:\n$$ c_{m}^{(1)}(t) = \\frac{2}{i\\hbar}\\int_{0}^{t}\\mathrm{d}t’ V_{mn}\\cos{(\\omega t’)}e^{i\\omega_{mn}t’}\\\\ = \\frac{1}{i\\hbar}\\int_{0}^{t}\\mathrm{d}t’ V_{mn}\\left(e^{i(\\omega + \\omega_{mn})t’} + e^{i(-\\omega + \\omega_{mn})t’}\\right)\\\\ = -\\frac{V_{mn}}{\\hbar}\\left[\\frac{e^{i(\\omega_{mn} + \\omega)t}-1}{\\omega_{mn} + \\omega} + \\frac{e^{i(\\omega_{mn} - \\omega)t}-1}{\\omega_{mn} - \\omega}\\right] $$\n如果 $\\omega \\neq \\pm \\omega_{mn}(t)$, 那么 $c_{m}^{(1)}(t)$ 将会呈现双周期振荡, 频率分别为 $\\omega_{mn} \\pm \\omega$. 显然, 当 $\\omega_{mn}\\rightarrow\\pm\\omega$, 那么其中一个振幅将会出现发散现象.\n第一项描述的是受激辐射, 第二项描述的是吸收.\n$\\omega_{mn}\\approx-\\omega$, 则第一项足够大而可以忽略第二项. 这是原子受电场激发而容易发射出频率为 $\\omega$ 的光子并且跃迁到能量更低的状态;\n$\\omega_{mn}\\approx \\omega$, 则第二项足够大而可以忽略第一项. 此时原子容易吸收一个频率为 $\\omega$ 的光子, 并且跃迁到能量更高的状态.\n我们先考虑 $\\omega_{mn}\\approx \\omega$ 的情况, 即只考虑吸收:\n$$ c_{m}^{(1)}(t) = -\\frac{V_{mn}}{\\hbar}\\frac{e^{i(\\omega_{mn}-\\omega)t}-1}{\\omega_{mn}-\\omega} $$\n因为有恒等式\n$$ \\left|e^{i\\theta} - 1\\right|^{2} = (\\cos{\\theta}-1-i\\sin{\\theta})(\\cos{\\theta}-1+i\\sin{\\theta}) = (\\cos{\\theta}-1)^{2} + \\sin^{2}{\\theta}\\\\ = \\cos^{2}{\\theta} - 2\\cos{\\theta} + 1 + \\sin^{2}{\\theta} = 2(1 - \\cos{\\theta}) = 4\\sin^{2}{\\left(\\frac{\\theta}{2}\\right)} $$\n代入到忽略了受激辐射的 $c_{m}^{(1)}(t)$ 中, 得到\n$$ P_{n\\rightarrow m}(t) = \\frac{4|V_{mn}|^{2}}{\\hbar^{2}}\\frac{\\sin{\\left[\\frac{(\\omega_{mn} - \\omega)t}{2}\\right]}}{(\\omega_{mn} - \\omega)^{2}} = \\frac{4|V_{mn}|^{2}}{\\hbar^{2}}f(t,\\alpha) $$\n$\\alpha = \\frac{(\\omega_{mn} - \\omega)t}{2}$ 是失谐参数, $f(t,\\alpha) = \\frac{\\sin{\\frac{\\alpha t}{2}}}{\\alpha^{2}}$.\n$f(t,\\alpha)$ 的周期为 $T = \\frac{2\\pi}{\\alpha}$, 振幅和平均值均为 $\\frac{1}{2\\alpha^{2}}$. 所以当跃迁的初末态确定时, 跃迁概率 $P_{n\\rightarrow m}(t)$ 体现出周期振荡现象.\n我们研究 $f(t,\\alpha)$ 的两个变量:\n$\\alpha$ 相当于观察末态能级 $E_{m}$ 的影响. $f(t,\\alpha)$ 包围面积为 $$ \\int_{-\\infty}^{+\\infty}f(t,\\alpha)\\mathrm{d}\\alpha = \\int_{-\\infty}^{+\\infty}\\frac{\\sin{\\left(\\frac{\\alpha t}{2}\\right)}}{\\alpha^{2}} = \\frac{t}{2}\\int_{-\\infty}^{+\\infty}\\frac{\\sin^{2}{u}}{u^{2}}\\mathrm{d}u = \\frac{\\pi t}{2} $$ 而 $t\\rightarrow\\infty$ 时, 所有峰的宽度都趋于0. 所以在长时间极限下, 我们也可以用狄拉克函数来近似 $f(t,\\alpha)$: $$ f(t,\\alpha) \\approx \\frac{\\pi t}{2}\\delta(\\alpha) $$\n我们关心对 $\\alpha$ 的依赖, 这是因为在小能量范围 $\\mathrm{d}E$ 内可能存在着无穷多的激发态, 研究到某个特定末态的概率没有意义, 而是跃迁发生的总概率:\n$$ \\sum_{m}P_{n\\rightarrow m}(t) = \\sum_{m}\\frac{4|V_{mn}|^{2}}{\\hbar^{2}}\\frac{\\sin^{2}{\\left(\\frac{(\\omega_{mn} - \\omega)t}{2}\\right)}}{(\\omega_{mn} - \\omega)^{2}} = \\sum_{m}\\frac{4|V_{mn}|^{2}}{\\hbar^{2}}f(t,\\alpha)\\\\ = \\frac{4}{\\hbar^{2}}\\int\\rho(E_{m})|V_{mn}|^{2}f(t,\\alpha)\\mathrm{d}E_{m} $$\n$\\rho(E)$ 即为能量态密度, 指的是 $(E,E+\\mathrm{d}E)$ 范围内共有 $\\rho(E)\\mathrm{d}E$ 个模态. 最后一个等号我们采用了\"能级之间的间隙远小于 $V_{mn}, f(t,\\alpha)$ 变化的特征尺度\"的假设.\n因此我们就可以得到总跃迁概率: $$ \\sum_{m}P_{n\\rightarrow m}(t) = \\frac{4\\rho(E_{n} + \\hbar\\omega)V_{mn}|^{2}}{\\hbar}\\int_{-\\infty}^{+\\infty}\\mathrm{d}\\alpha f(t,\\alpha) = \\frac{2\\pi t}{\\hbar}\\rho(E_{n} + \\hbar\\omega)|V_{mn}|^{2} $$ 不难观察到, 跃迁到任一末态的总概率随时间线性增长.\n$t$ 将概率对时间求导, 就可以得到系统的跃迁速率(单位时间内跃迁到任一末态的概率): $$ w = \\frac{\\mathrm{d}}{\\mathrm{d}t}P_{n\\rightarrow m}(t) = \\frac{2\\pi}{\\hbar}\\rho(E_{n} + \\hbar\\omega)|V_{mn}|^{2} $$\n如果补加条件\"初末态的能量分别为 $E_{i},E_{f}$\", 就有\n$$ w = \\frac{2\\pi}{\\hbar}\\rho(E_{f})|V_{fi}|^{2}, E_{f} = E_{i}+\\hbar\\omega $$\n这就是费米黄金法则.\n实际情况 含时微扰往往并非严格周期函数, 我们用频率分布来描述微扰:\n$$ \\delta H = \\int\\hat{V}(\\omega)\\cos{(\\omega t)}\\mathrm{d}\\omega $$\n并且, 由于存在多普勒展宽, 所以原子能级差 $\\omega_{mn}$ 本身也并不是固定值, 从而出现一个分布.\n定值含时微扰 考虑如下的微扰哈密顿量:\n$$ \\delta\\hat{H}(t) = \\begin{cases} 0, (t \u003c 0)\\\\ \\hat{V}, (t \\geq 0) \\end{cases} $$\n根据前面的推导, 我们可以得到\n$$ c_{m}(t) = \\frac{1}{i\\hbar}\\int_{0}^{t}V_{mn}e^{i\\omega_{mn}t’}\\mathrm{d}t’ = -\\frac{V_{mn}(e^{i\\omega_{mn}t} - 1)}{\\hbar\\omega_{mn}} $$\n所以总跃迁概率为\n$$ \\sum_{m}P_{n\\rightarrow m}(t) = \\sum_{m}\\frac{4|V_{mn}|^{2}}{\\hbar^{2}}\\frac{\\sin^{2}{\\frac{\\omega_{mn}t}{2}}}{\\omega_{mn}^{2}} = \\frac{2\\pi t}{\\hbar}\\rho(E_{n})|V_{mn}|^{2} $$\n最后一个等号采用了\"系统的末态为连续分布\"的假设.\n所以跃迁速率为\n$$ w = \\frac{\\mathrm{d}}{\\mathrm{d}t}P_{n\\rightarrow m}(t) = \\frac{2\\pi}{\\hbar}\\rho(E_{n})|V_{mn}|^{2} $$\n如果补加条件 “初末态能量分别为 $E_{i},E_{f}$”, 则有\n$$ w = \\frac{2\\pi}{\\hbar}\\rho(E_{f})|V_{fi}|^{2}, E_{f} = E_{i}+\\hbar\\omega\n$$\n这个方程和前面的费米黄金法则是一致的.\n电磁场 前面我们假定周期性含时微扰\n$$ \\hat{H} = \\hat{H}_{0} + 2\\hat{V}\\cos{(\\omega t)} $$\n我们可以通过求一阶修正系数来得到系统从能级 $E_{n}$ 跃迁到能级 $E_{m}$ 的概率:\n$$ P_{n\\rightarrow m}^{(1)}(t) = \\frac{4|V_{mn}|^{2}}{\\hbar^{2}}\\frac{\\sin^{2}{\\frac{(\\omega_{mn} - \\omega)t}{2}}}{(\\omega_{mn} - \\omega)^{2}} $$\n该结果可以通过长时间极限近似为\n$$ \\lim_{t\\rightarrow\\infty}P_{n\\rightarrow m}^{(1)}(t) = \\frac{4|V_{mn}|^{2}}{\\hbar^{2}}\\frac{\\pi t}{2}\\delta(\\omega_{mn} - \\omega) $$\n对应的跃迁速率为\n$$ w_{n\\rightarrow m} = \\frac{4|V_{mn}|^{2}}{\\hbar^{2}}\\frac{\\pi}{2}\\delta(\\omega_{mn} - \\omega) $$\n该结果只有对末态求和/求积分之后才会有物理意义.\n因为辐射场本身一定频率分布下的平面波叠加, 所以如果要求原子的能级跃迁概率, 就应该对所有的电磁场频率求和.\n电磁波的波长远长于原子的尺寸, 所以我们可以采取近似 $\\vec{k}\\cdot\\vec{a}\\ll 1$, 即我们可以忽略有关 $\\vec{x}$ 的项.\n所以我们同样可以忽略空间项. 而磁场对原子的作用远弱于电场对原子的作用, 所以我们也可以忽略磁场项.\n考虑单电子原子, 平面波频率为 $\\omega$, 电场方向矢量为 $\\hat{n}$. 即有微扰哈密顿量\n$$ \\delta\\hat{H} = -qE\\vec{r}\\cdot\\hat{n}\\cos{(\\omega t)}\\\\ \\hat{V} = -qE\\vec{r}\\cdot\\frac{\\hat{n}}{2} $$\n考虑只有两个束缚态, 即基态 $a$, 激发态 $b$. 即有\n$$ \\omega_{0} = \\omega_{ba} = \\frac{E_{b}-E_{a}}{\\hbar} $$\n我们知道电子的偶极矩为 $\\vec{p}_{ba} = q\\vec{r}$, 因为有基底 $|\\psi_a\\rangle,|\\psi_b\\rangle$, 所以我们可以定义偶极矩的矩阵元:\n$$ \\mathbf{p}_{ba} = \\langle\\psi_{b}|q\\vec{r}|\\psi_{a}\\rangle $$\n所以 $\\hat{V}$ 的矩阵元可以表示为偶极矩的矩阵元的函数:\n$$ V_{ba} = -\\frac{qE}{2}\\langle\\psi_{b}|\\vec{r}\\cdot\\hat{n}|\\psi_{a}\\rangle = -\\frac{E}{2}\\hat{n}\\cdot\\langle\\psi_{b}|q\\vec{r}|\\psi_{a}\\rangle = -\\frac{E}{2}\\hat{n}\\cdot\\mathbf{p}_{ba} $$\n将矩阵元代入到跃迁概率的表达式中, 即可得到\n吸收 $$ P_{a\\rightarrow b}(t) = \\frac{E^{2}|\\hat{n}\\cdot\\mathbf{p}_{ba}|^{2}}{\\hbar^{2}}\\frac{\\sin^{2}{\\frac{(\\omega-\\omega_{0})t}{2}}}{(\\omega-\\omega_{0})^{2}} $$\n受激辐射 $$ P_{b\\rightarrow a}(t) = \\frac{E^{2}|\\hat{n}\\cdot\\mathbf{p}_{ab}|^{2}}{\\hbar^{2}}\\frac{\\sin^{2}{\\frac{(\\omega - \\omega_{0})t}{2}}}{(\\omega - \\omega_{0})^{2}} $$\n根据对称性, 显然有 $P_{a\\rightarrow b}(t) = P_{b\\rightarrow a}(t)$.\n黑体辐射场 即假定所有频率和偏振的电磁场不相干叠加, 并且与环境达成热力学平衡.\n对于空间中的电磁场, 我们总是可以写作傅里叶级数形式:\n$$ \\vec{E}(\\vec{x},t) = \\sum_{\\vec{k}}\\vec{E}_{\\vec{k}}\\cos{(\\vec{k}\\cdot\\vec{x} - \\omega t)}\\\\ \\vec{B}(\\vec{x},t) = \\sum_{\\vec{k}}\\vec{B}_{\\vec{k}}\\cos{(\\vec{k}\\cdot\\vec{x} - \\omega t)} $$\n$\\vec{k}$ 是电磁场的波矢, 且有关系 $\\omega = \\hbar c|\\vec{k}|$.\n我们假定傅里叶系数 $\\left\\{\\vec{E}_{\\vec{k}},\\vec{B}_{\\vec{k}}\\right\\}$ 相互独立, 即\n$$ \\langle\\vec{E}_{\\vec{k}}\\cdot\\vec{E}_{\\vec{k}’} = \\langle|\\vec{E}_{\\vec{k}}|^{2}\\rangle\\delta_{\\vec{k}\\vec{k}’} $$\n$\\langle\\rangle$ 表示对电磁场的涨落求平均.\n所以电磁场的总平均能量为\n$$ U = \\left\\langle\\frac{1}{2}\\int\\mathrm{d}^{2}x\\left(\\epsilon_{0}\\mathbf{E}^{2}+\\mu_{0}\\mathbf{B}^{2}\\right)\\right\\rangle = \\epsilon_{0}\\int\\mathrm{d}^{3}x\\langle\\mathbf{E}(\\vec{x})^{2}\\rangle = \\frac{\\epsilon_{0}}{2}V\\sum_{\\mathbf{k}}\\langle|\\mathbf{E}_{\\mathbf{k}}|^{2}\\rangle $$\n第二个等号是因为电磁波中的电场和磁场的能量相等, 第三个等号是使用了不同模式电场之间的相互独立性.\n所以电磁场的总平均能量密度为\n$$ u = \\frac{U}{V} = \\frac{\\epsilon_{0}}{2}\\sum_{\\mathbf{k}}\\langle|\\mathbf{E}_{\\mathbf{k}}|^{2}\\rangle $$\n对于求和, 我们可以将其转化为两步:\n$$ \\sum_{\\mathbf{k}} = \\sum_{\\omega}\\sum_{\\mathbf{k}}' $$\n$\\sum_{\\mathbf{k}}’$ 表示的是对 $\\omega_{\\mathbf{k}}\\in(\\omega, \\omega + \\mathrm{d}\\omega)$ 范围内的所有模式求和. 所以就有电磁场单位频率的能量密度的表达式:\n$$ u(\\omega)\\mathrm{d}\\omega = \\frac{\\epsilon_{0}}{2}\\sum_{\\mathbf{k}}’\\langle|\\mathbf{E}_{\\mathbf{k}}|^{2}\\rangle\\\\ u = \\frac{U}{V} = \\int_{0}^{+\\infty}u(\\omega)\\mathrm{d}\\omega $$\n而普朗克黑体辐射给出的单位频率的能量密度表达式为\n$$ u(\\omega)\\mathrm{d}\\omega = \\frac{\\hbar}{\\pi^{2}c^{3}}\\frac{\\omega^{3}\\mathrm{d}\\omega}{e^{\\beta\\hbar\\omega} - 1} $$\n黑体辐射场中的原子与各电磁场模互相作用, 因为不同模式之间不相干, 所以跃迁概率彼此独立, 从而进行简单相加.\n$$ P_{a\\rightarrow b} = \\sum_{\\mathbf{k}}\\frac{\\langle|\\mathbf{E}_{\\mathbf{k}}|^{2}|\\hat{n}_{\\mathbf{k}}\\cdot\\mathbf{p}_{ba}|^{2}}{\\hbar^{2}}\\frac{\\sin^{2}{\\frac{(\\omega_{\\mathbf{k}} - \\omega_{0})t}{2}}}{(\\omega_{\\mathbf{k}} - \\omega_{0})^{2}} $$\n因为在统计时, $\\mathbf{E}_{\\mathbf{k}}$ 体现出各向同性, 所以矩阵元 $|\\hat{n}_{\\mathbf{k}}\\cdot\\mathbf{d}_{ba}|^{2}$ 也可以进行方向平均:\n$$ |\\hat{n}_{\\mathbf{k}}\\cdot\\mathbf{p}_{ab}|^{2}\\rightarrow\\left\\langle\\frac{1}{3}\\mathbf{p}_{ab}\\cdot\\hat{n}\\hat{n}\\cdot\\mathbf{p}_{ab}^{*}\\right\\rangle = \\frac{1}{3}\\mathbf{p}_{ab}\\cdot\\mathbf{p}_{ab}^{*} = \\frac{1}{3}|\\mathbf{d}_{ab}|^{2} $$\n$\\langle\\hat{n}\\hat{n}\\rangle = \\frac{1}{3}\\mathbf{I}$\n所以跃迁概率形式变为\n$$ \\begin{aligned} P_{a\\rightarrow b}(t) \u0026= \\sum_{\\mathbf{k}}\\frac{\\langle|\\mathbf{E}_{\\mathbf{k}}|^{2}\\rangle|\\mathbf{p}_{ab}|^{2}}{3\\hbar^{2}}\\frac{\\sin{\\frac{(\\omega_{\\mathbf{k}} - \\omega_{0})t}{2}}}{(\\omega_{\\mathbf{k}} - \\omega_{0})^{2}}\\\\ \u0026= \\sum_{\\omega}\\sum_{\\mathbf{k}}’\\frac{\\langle|\\mathbf{E}_{\\mathbf{k}}|^{2}\\rangle|\\mathbf{p}_{ab}|^{2}}{3\\hbar^{2}}\\frac{\\sin{\\frac{(\\omega_{\\mathbf{k}} - \\omega_{0})t}{2}}}{(\\omega_{\\mathbf{k}} - \\omega_{0})^{2}}\\\\ \u0026= \\sum_{\\omega}\\frac{|\\mathbf{p}_{ab}|^{2}}{3\\hbar^{2}}\\frac{\\sin{\\frac{(\\omega_{\\mathbf{k}} - \\omega_{0})t}{2}}}{(\\omega_{\\mathbf{k}} - \\omega_{0})^{2}}\\sum_{\\mathbf{k}}’\\langle|\\mathbf{E}_{\\mathbf{k}}|^{2}\\rangle\\\\ \u0026= \\int_{0}^{+\\infty}\\frac{|\\mathbf{p}_{ab}|^{2}}{3\\hbar^{2}}\\frac{\\sin^{2}{\\frac{(\\omega-\\omega_{0})t}{2}}}{(\\omega - \\omega_{0})^{2}}\\frac{2}{\\epsilon_{0}}u(\\omega)\\mathrm{d}\\omega\\\\ \\text{长时近似:}\u0026\\approx \\frac{\\pi|\\mathbf{p}_{ab}|^{2}t}{3\\epsilon_{0}\\hbar^{2}}u(\\omega_{0}) \\end{aligned} $$\n对应的跃迁速率即为\n$$ w_{a\\rightarrow b} = w_{b\\rightarrow a} = \\frac{\\pi|\\mathbf{p}_{ab}|^{2}}{3\\epsilon_{0}\\hbar^{2}}u(\\omega_{0}) $$\n$AB$ 系数 考虑 $N_{a}$ 个原子在 $\\psi_{a}$, $N_{b}$ 个原子在 $\\psi_{b}$, 且 $E_{b} \u003c E_{a}$. 假设原子的跃迁相互独立, 而跃迁概率根据公式可知与辐射场在某跃迁频率下的能量密度成正比, 所以我们就可以写出 $N_{b}$ 的变化率方程:\n$$ \\frac{\\mathrm{d}N_{b}}{\\mathrm{d}t} = -N_{b}A - N_{b}\\underbrace{B_{ba}u(\\omega)}_{w_{b\\rightarrow a}} + \\underbrace{N_{a}B_{ab}u(\\omega)}_{w_{a\\rightarrow b}} $$\n$$ \\begin{aligned} \\begin{cases} A \u0026 \\text{自发辐射速率}(与辐射场无关)\\\\ w_{b\\rightarrow a} = B_{ba}u(\\omega) \u0026 \\text{受激辐射速率}\\\\ w_{a\\rightarrow b} = B_{ab}u(\\omega) \u0026 \\text{受激吸收速率} \\end{cases} \\end{aligned} $$\n前面我们已经知道了跃迁速率的具体表达式, 所以\n$$ B_{ab} = B_{ba} = \\frac{\\pi|\\mathbf{p}_{ab}|^{2}}{3\\epsilon_{0}\\hbar^{2}} $$\n如果 $A = 0$, 那么平衡时就有\n$$ N_{b} = N_{a}B_{ab} $$\n而 $B_{ab}$ 与 $B_{ba}$ 并不依赖于温度, 那么 $\\frac{N_{a}}{N_{b}}$ 也不依赖于温度, 温度不能影响到平衡态分布, 这当然是荒谬的, 也就是说 $A \\neq 0$.\n因此就有\n$$ u(\\omega) = \\frac{A}{\\frac{N_{a}}{N_{b}}B_{ab} - B_{ba}} $$\n在统计力学中, 我们会有平衡时\n$$ \\frac{N_{a}}{N_{b}} = e^{\\beta\\hbar\\omega} = e^{\\beta(E_{b} - E_{a})} $$\n普朗克则给出能量密度\n$$ u(\\omega) = \\frac{\\hbar}{\\pi^{2}c^{3}}\\frac{\\omega^{3}}{e^{\\beta\\hbar\\omega} -1} $$\n即有\n$$ B_{ab} = B_{ba}\\\\ \\frac{A}{B_{ba}} = \\frac{\\hbar\\omega^{3}}{\\pi^{2}c^{3}} $$\n根据前面计算的结论, 即有\n$$ A = \\frac{\\hbar\\omega^{3}}{\\pi^{2}c^{3}}B_{ab} = \\frac{\\omega^{3}|\\mathbf{p}_{ab}|^{2}}{3\\pi\\epsilon_{0}\\hbar c^{3}} $$\n我们可以观察一下自发辐射率和受激辐射率的比值:\n$$ \\frac{\\text{自发}}{\\text{受激}} = \\frac{A}{B_{ba}u(\\omega)} = e^{\\beta\\hbar\\omega} - 1 $$\n即有\n$\\hbar\\omega\\gg k_{B}T$: 自发辐射占主导; $\\hbar\\omega\\ll k_{B}T$: 受激辐射占主导. 激发态寿命 在上面的讨论中, 如果态 $b$ 下只对应一个态, 那么就有\n$$ \\mathrm{d}N_{b} = -AN_{b}\\mathrm{d}t\\\\ \\Downarrow\\\\ N_{b}(t) = N_{b}(0)^{-At} = N_{b}(0)e^{-\\frac{t}{\\tau}} $$\n所以就有激发态寿命为 $\\tau = \\frac{1}{A}$.\n如果态 $b$ 对应多个态, 那么\n$$ \\mathrm{d}N_{b} = -A_{1}N_{b}\\mathrm{d}t - A_{2}N_{b}\\mathrm{d}t - \\cdots - A_{n}N_{b}\\mathrm{d}t\\\\ = -\\left(\\sum_{k \u003c b}A_{k}\\right)N_{b}\\mathrm{d}t = -AN_{b}\\mathrm{d}t $$\n和上面单态情形相同. 因此就有\n$$ \\tau = \\frac{1}{A} = \\frac{1}{A_{1} + A_{2} + \\dots} $$\n我们可以写作调和形式:\n$$ \\frac{1}{\\tau} = \\frac{1}{\\tau_{1}} + \\frac{1}{\\tau_{2}} + \\dots $$\n选择定则 角动量对易关系 $$ [\\hat{L}_{z},\\hat{x}] = i\\hbar\\hat{y}, \\quad [\\hat{L}_{z},\\hat{y}] = -i\\hbar\\hat{x}, \\quad [\\hat{L}_{z},\\hat{z}] = 0 $$\n这三个对易关系可以分别推导出\n$$ (m’-m)\\langle n’l’m’|\\hat{x}|nlm\\rangle = i\\langle n’l’m’|\\hat{y}|nlm\\rangle\\\\ (m’-m)\\langle n’l’m’|\\hat{y}|nlm\\rangle = -i\\langle n’l’m’|\\hat{x}|nlm\\rangle\\\\ \\langle n’l’m’|\\hat{z}|nlm\\rangle = 0(m’\\neq m) $$\n所以就有\n$$ (m’-m)\\langle n’l’m’|\\hat{x}|nlm\\rangle = \\langle n’l’m’|\\hat{x}|nlm\\rangle $$\n该式表明\n$$ \\langle n’l’m’|\\hat{x}|nlm\\rangle = 0 \\text{ or } m’ - m = \\pm 1 $$\n同理, 对 $\\hat{y}$ 也可以得出\n$$ \\langle n’l’m’|\\hat{y}|nlm\\rangle = 0 \\text{ or } m’ - m = \\pm 1 $$\n现在 $\\hat{x},\\hat{y},\\hat{z}$ 的关系都已经得到, 所以就有\n$$ \\langle n’l’m’|\\mathbf{r}|nlm\\rangle = 0 \\text{ or } m’ - m = 0, \\pm 1 $$\n超选择定则 证明 $$ \\left[L^{2},\\left[L^{2},\\mathbf{r}\\right]\\right] = 2\\hbar\\left(\\mathbf{r}L^{2} + L^{2}\\mathbf{r}\\right) $$\n对该等式左右分别乘一个态从而形成\n$$ \\langle n’l’m’|\\left[L^{2},\\left[L^{2},\\mathbf{r}\\right]\\right]|nlm\\rangle = \\langle n’l’m’|2\\hbar\\left(\\mathbf{r}L^{2} + L^{2}\\mathbf{r}\\right)|nlm\\rangle $$\n我们对左边和右边进行分别化简:\n$$ \\text{L:}\\langle n’l’m’|\\left[L^{2},\\left[L^{2},\\mathbf{r}\\right]\\right]|nlm\\rangle\\\\ = \\langle n’l’m’|L^{4}\\mathbf{r}-2L^{2}\\mathbf{r}L^{2} + \\mathbf{r}L^{4}|nlm\\rangle\\\\ = \\hbar^{4}[l’(l’ + 1) - l(l + 1)]^{2}\\langle n’l’m’|\\mathbf{r}|nlm\\rangle $$\n$$ \\text{R:}\\langle n’l’m’|2\\hbar\\left(\\mathbf{r}L^{2} + L^{2}\\mathbf{r}\\right)|nlm\\rangle\\\\ = 2\\hbar^{4}[l(l + 1) + l’(l’ + 1)]\\langle n’l’m’|\\mathbf{r}|nlm\\rangle $$\n为了 $\\langle n’l’m’|\\mathbf{r}|nlm\\rangle$ 非零, 联立即有\n$$ 2[l(l + 1) + l’(l’ + 1)] = [l’(l’ + 1) - l(l + 1)]^{2}\\\\ \\Downarrow\\\\ [(l’ + l + 1)^{2} - 1][(l’ - l)^{2} - 1] = 0 $$\n所以分式为零. 而 $(l’ + l + 1)^{2} - 1 = 0$ 会得出 $l = l’ = 0$, 对应的 $|lm\\rangle = |l’m’\\rangle = |00\\rangle$ 球对称, 这违背了 $\\langle nlm|\\mathbf{r}|nlm\\rangle \\neq 0$ 的约定. 所以\n$$ (l’ - l)^{2} - 1 = 0\\Rightarrow l’ = l \\pm 1 $$\n这就是对量子数 $l$ 的选择定则.\n",
+  "wordCount" : "9438",
+  "inLanguage": "zh",
+  "datePublished": "2023-06-09T00:18:23+08:00",
+  "dateModified": "2023-06-16T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/qp/perturbation-theory/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "计算物理资料库",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/qp/">➿ Quantum Physics</a></div>
+            <h1 class="post-title">
+                微扰论
+            </h1>
+            <div class="post-description">
+                使用小量参数并使得物理量对其进行展开, 通过比较齐次项系数得到每阶修正结果.
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>90912-23-120
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>9438字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>19分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/quantum-physics/" style="color: var(--secondary)!important;">quantum physics</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e8%bf%91%e4%bc%bc%e6%96%b9%e6%b3%95" aria-label="近似方法">近似方法</a></li>
+                <li>
+                    <a href="#%e4%b8%8d%e5%90%ab%e6%97%b6%e9%9d%9e%e7%ae%80%e5%b9%b6%e5%be%ae%e6%89%b0" aria-label="不含时非简并微扰">不含时非简并微扰</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8e%a8%e5%af%bc" aria-label="推导">推导</a></li>
+                <li>
+                    <a href="#%e4%b8%80%e9%98%b6%e4%bf%ae%e6%ad%a3" aria-label="一阶修正">一阶修正</a></li>
+                <li>
+                    <a href="#%e4%ba%8c%e9%98%b6%e4%bf%ae%e6%ad%a3" aria-label="二阶修正">二阶修正</a></li>
+                <li>
+                    <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a></li>
+                <li>
+                    <a href="#%e4%be%8b%e5%ad%90" aria-label="例子">例子</a><ul>
+                        
+                <li>
+                    <a href="#%e4%ba%8c%e8%83%bd%e7%ba%a7%e7%b3%bb%e7%bb%9f" aria-label="二能级系统">二能级系统</a></li>
+                <li>
+                    <a href="#%e8%b0%90%e6%8c%af%e5%ad%90%e7%9a%84%e9%9d%9e%e8%b0%90%e5%be%ae%e6%89%b0" aria-label="谐振子的非谐微扰">谐振子的非谐微扰</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%8d%e5%90%ab%e6%97%b6%e7%ae%80%e5%b9%b6%e5%ae%9a%e6%80%81%e5%be%ae%e6%89%b0%e8%ae%ba" aria-label="不含时简并定态微扰论">不含时简并定态微扰论</a><ul>
+                        
+                <li>
+                    <a href="#%e9%9d%9e%e7%ae%80%e5%b9%b6%e6%8e%a8%e5%b9%bf%e5%88%b0%e7%ae%80%e5%b9%b6%e7%9a%84%e9%97%ae%e9%a2%98" aria-label="非简并推广到简并的问题">非简并推广到简并的问题</a></li>
+                <li>
+                    <a href="#%e4%ba%8c%e8%83%bd%e7%ba%a7%e7%b3%bb%e7%bb%9f-1" aria-label="二能级系统">二能级系统</a></li>
+                <li>
+                    <a href="#%e4%b8%80%e8%88%ac%e6%83%85%e5%86%b5" aria-label="一般情况">一般情况</a></li>
+                <li>
+                    <a href="#%e4%be%8b%e5%ad%90-1" aria-label="例子">例子</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8f%8c%e8%87%aa%e6%97%8b%e5%ad%90%e7%b3%bb%e7%bb%9f" aria-label="双自旋子系统">双自旋子系统</a><ul>
+                        
+                <li>
+                    <a href="#%e5%be%ae%e6%89%b0%e4%b8%80" aria-label="微扰一">微扰一</a></li>
+                <li>
+                    <a href="#%e5%be%ae%e6%89%b0%e4%ba%8c" aria-label="微扰二">微扰二</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%b0%a2%e5%8e%9f%e5%ad%90" aria-label="氢原子">氢原子</a><ul>
+                        
+                <li>
+                    <a href="#%e7%9b%b8%e5%af%b9%e8%ae%ba%e4%bf%ae%e6%ad%a3" aria-label="相对论修正">相对论修正</a></li>
+                <li>
+                    <a href="#%e8%87%aa%e6%97%8b-%e8%bd%a8%e9%81%93%e8%80%a6%e5%90%88" aria-label="自旋-轨道耦合">自旋-轨道耦合</a></li>
+                <li>
+                    <a href="#rel-oplus-so" aria-label="Rel. $\oplus$ SO">Rel. $\oplus$ SO</a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%90%ab%e6%97%b6%e5%be%ae%e6%89%b0%e7%90%86%e8%ae%ba" aria-label="含时微扰理论">含时微扰理论</a><ul>
+                        
+                <li>
+                    <a href="#%e7%9b%b8%e4%ba%92%e4%bd%9c%e7%94%a8%e7%bb%98%e6%99%af" aria-label="相互作用绘景">相互作用绘景</a></li>
+                <li>
+                    <a href="#%e5%90%ab%e6%97%b6%e5%be%ae%e6%89%b0%e5%b1%95%e5%bc%80" aria-label="含时微扰展开">含时微扰展开</a></li>
+                <li>
+                    <a href="#%e5%91%a8%e6%9c%9f%e6%80%a7%e5%be%ae%e6%89%b0" aria-label="周期性微扰">周期性微扰</a></li>
+                <li>
+                    <a href="#%e5%ae%9e%e9%99%85%e6%83%85%e5%86%b5" aria-label="实际情况">实际情况</a></li>
+                <li>
+                    <a href="#%e5%ae%9a%e5%80%bc%e5%90%ab%e6%97%b6%e5%be%ae%e6%89%b0" aria-label="定值含时微扰">定值含时微扰</a></li>
+                <li>
+                    <a href="#%e7%94%b5%e7%a3%81%e5%9c%ba" aria-label="电磁场">电磁场</a></li>
+                <li>
+                    <a href="#%e9%bb%91%e4%bd%93%e8%be%90%e5%b0%84%e5%9c%ba" aria-label="黑体辐射场">黑体辐射场</a></li>
+                <li>
+                    <a href="#ab-%e7%b3%bb%e6%95%b0" aria-label="$AB$ 系数">$AB$ 系数</a></li>
+                <li>
+                    <a href="#%e6%bf%80%e5%8f%91%e6%80%81%e5%af%bf%e5%91%bd" aria-label="激发态寿命">激发态寿命</a></li>
+                <li>
+                    <a href="#%e9%80%89%e6%8b%a9%e5%ae%9a%e5%88%99" aria-label="选择定则">选择定则</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="近似方法">近似方法<a hidden class="anchor" aria-hidden="true" href="#近似方法">#</a></h1>
+<p>在数值求解物理问题时我们会使用很多近似技巧, 但是实际上, 即使只是在理论物理范畴, 大多数问题也是<strong>无法严格求解</strong>的. 近似方法有两类:</p>
+<ol>
+<li>微扰法;</li>
+</ol>
+<p>找到某个小参数($\epsilon,\lambda,\dots$)将所求的物理量进行级数展开, 从而近似求解. 展开方法可以是泰勒展开, 洛朗展开, 渐近展开等.</p>
+<ol start="2">
+<li>变分法.</li>
+</ol>
+<p>也被称为变分原理.</p>
+<h1 id="不含时非简并微扰">不含时非简并微扰<a hidden class="anchor" aria-hidden="true" href="#不含时非简并微扰">#</a></h1>
+<h2 id="推导">推导<a hidden class="anchor" aria-hidden="true" href="#推导">#</a></h2>
+<p>现在我们知道哈密顿量</p>
+<p>$$
+\hat{H} = \hat{H}_{0} + \delta\hat{H}
+$$</p>
+<blockquote>
+<p>$\delta\hat{H}$ 是一个小量.</p>
+</blockquote>
+<p>其中 $\hat{H}_{0}$ 是容易求解的, 即有</p>
+<p>$$
+\hat{H}_{0}|n^{0}\rangle = E_{n}^{0}|n^{0}\rangle (n\in\mathbb{N})
+$$</p>
+<blockquote>
+<p>这里我们简单阐述各个指标的含义.
+$$
+E_{\color{red}{n}}^{\color{blue}{0}}
+$$</p>
+<p>$\color{red}{n}$: 指的是第几能级;</p>
+<p>$\color{blue}{0}$: 指的是第几级修正. 因为这里求的是 $\hat{H}_{0}$ 的本征值和本征态, 所以当然上标都是 $0$.</p>
+</blockquote>
+<blockquote>
+<p>因为我们讨论的是不含时<strong>非简并</strong>微扰, 即有
+$$
+E_{0}^{0} &lt; E_{1}^{0} &lt; E_{2}^{0} &lt; \dots
+$$</p>
+</blockquote>
+<p>现在我们引入辅助参数 $\lambda$, 从而将哈密顿量写作 $\lambda$ 的函数:</p>
+<p>$$
+\hat{H}(\lambda) = \hat{H}_{0} + \lambda\delta\hat{H}
+$$</p>
+<p>我们可以推测, 哈密顿量 $\hat{H}(\lambda)$ 的本征态和本征能量也会成为 $\lambda$ 的<strong>连续</strong>函数.</p>
+<p>$$
+\hat{H}(\lambda)|\psi_{n}(\lambda)\rangle = E_{n}(\lambda)|\psi_{n}(\lambda)\rangle
+$$</p>
+<blockquote>
+<p>$\lambda$ 在实际应用中可以对应一个实在的无量纲物理量:</p>
+<ul>
+<li>相对论效应: $\lambda = \frac{v}{c}$;</li>
+<li>自旋轨道耦合: $\lambda = \alpha = \frac{e^{2}}{\hbar c} = \frac{1}{137}$, 即精细结构常数;</li>
+<li>弱电磁场.</li>
+</ul>
+</blockquote>
+<p>现在我们对 $\hat{H}(\lambda)$ 的本征态 $|n(\lambda)\rangle$, 本征能量 $E_{n}(\lambda)$ 写作 $\lambda$ 的级数展开:</p>
+<p>$$
+|\color{red}{n}(\lambda)\rangle = |\color{red}{n}^{\color{blue}{0}}\rangle + \underbrace{\lambda|\color{red}{n}^{\color{blue}{1}}\rangle + \lambda^{2}|\color{red}{n}^{\color{blue}{2}}\rangle + \lambda^{3}|\color{red}{n}^{\color{blue}{3}}\rangle + \dots}_{|\delta \color{red}{n}\rangle}\\
+E_{\color{red}{n}}(\lambda) = E_{\color{red}{n}}^{\color{blue}{0}} + \underbrace{\lambda E_{\color{red}{n}}^{\color{blue}{1}} + \lambda^{2}E_{\color{red}{n}}^{\color{blue}{2}} + \lambda^{3}E_{\color{red}{n}}^{\color{blue}{3}} + \dots}_{\delta E_{\color{red}{n}}}
+$$</p>
+<blockquote>
+<p>各指标的具体含义:
+$$
+|\color{red}{n}^{\color{blue}{1}}\rangle, E_{\color{red}{n}}^{\color{blue}{1}}
+$$</p>
+<p>$\color{red}{n}$: 指的是第几能级;</p>
+<p>$\color{blue}{1}$: 指的是第几级修正.</p>
+</blockquote>
+<p>设想 $\delta\hat{H}$ 为一个矩阵, 则求解矩阵元 $\delta{H}_{mn}$ 的方法是</p>
+<p>$$
+\left\langle m^{0}\left|\delta\hat{H}\right|n^{0}\right\rangle
+$$</p>
+<blockquote>
+<p>$|n^{0}\rangle$ 是通过 $\hat{H}_{0}$ 求解出的本征态.
+即满足
+$$
+\hat{H}_{0}|n^{0}\rangle = E_{n}^{0}|n^{0}\rangle
+$$</p>
+</blockquote>
+<p>为了计算方便, 我们设定本征态的修正项 $|n^{i}\rangle$ 总是和 $|n^{0}\rangle$ 正交, 即</p>
+<p>$$
+\langle n^{0} | n^{i}\rangle = 0(\forall i\in \mathbb{N}^*)
+$$</p>
+<p>因为任意阶的修正项都与 $|n^{0}\rangle$ 正交, 所以作为这些修正项的线性组合的整体修正 $|\delta n\rangle$ 当然也和 $|n^{0}\rangle$ 正交:</p>
+<p>$$
+\langle n^{0} | \delta n\rangle = 0
+$$</p>
+<p>这样就会使计算 $|n\rangle$ 的内积简单很多:</p>
+<p>$$
+\langle n|n\rangle = \langle n^{0} + \delta n|n^{0} + \delta n\rangle = \langle n^{0}|n^{0}\rangle + \underbrace{\langle n^{0}|\delta n\rangle + \langle \delta n| n^{0}\rangle}_{0} + \langle \delta n|\delta n\rangle = 1 + \langle \delta n|\delta n\rangle
+$$</p>
+<p>也就是说这里的 $|n\rangle$ 尚未被归一化, 可以通过</p>
+<p>$$
+|n\rangle_{\text{Norm}} = \frac{|n\rangle}{\sqrt{\langle n|n\rangle}}
+$$</p>
+<p>来完成.</p>
+<blockquote>
+<p>Norm = Normalization. 在实际应用的时候我们未必需要归一化, 这只是我们另外添加的条件. 大多数情况下只关心能量的问题.</p>
+</blockquote>
+<p>对矩阵元涉及的本征态 $|n^{0}\rangle, |m^{0}\rangle$, 我们令其与整体波函数 $|n\rangle$ 作内积:</p>
+<p>$$
+\langle n^{0}|n\rangle = \overbrace{\langle n^{0}|n^{0}\rangle}^{\text{相同本征态内积归一}} + \langle n^{0}|\delta n\rangle = 1 + \langle n^{0}|\delta n\rangle = 1;\\
+\langle m^{0}|n\rangle = \underbrace{\langle m^{0}|n^{0}\rangle}_{\text{不同本征态彼此正交}} + \langle m^{0}|\delta n\rangle = \langle m^{0}|\delta n\rangle. (m\neq n)
+$$</p>
+<blockquote>
+<p>我们假定零级本征态 $|n^{0}\rangle$ 具有正交归一性.</p>
+</blockquote>
+<p>完整薛定谔方程的两边展开不同的部分(左边为哈密顿量, 右边为波函数)</p>
+<p>$$
+(\hat{H}_{0} + \lambda\delta\hat{H})|n\rangle = E_{n}(|n^{0}\rangle + |\delta n\rangle)
+$$</p>
+<p>现在我们要得到方程组:</p>
+<ol>
+<li>两边左乘 $\langle n^{0}|$:</li>
+</ol>
+<p>$$
+\color{red}{\text{L}}:\langle n^{0}|\hat{H}_{0} + \lambda\delta\hat{H}|n\rangle = \\
+\langle n^{0}|\hat{H}_{0} + \lambda\delta\hat{H}|n^{0} + \delta n\rangle = \langle n^{0}|\hat{H}_{0}|n^{0}\rangle + \langle n^{0}|\hat{H}|\delta{n}\rangle + \langle n^{0}|\lambda\delta\hat{H}|n^{0}\rangle + \langle n^{0}|\lambda\delta\hat{H}|\delta n\rangle\\
+= \langle n^{0}|\hat{H}_{0}|n^{0}\rangle + \langle n^{0}|\hat{H}|\delta{n}\rangle + \langle n^{0}|\hat{H}|n\rangle = \boxed{E_{n}^{0} + \langle n^{0}|\lambda\delta\hat{H}|n\rangle};\\
+\color{blue}{\text{R}}:E_{n}\langle n^{0}|(|n^{0}\rangle + |\delta n\rangle) = E_{n}(\langle n^{0}|n^{0}\rangle + \langle n^{0}|\delta n\rangle) = E_{n}(1 + 0) = \boxed{E_{n}}
+$$</p>
+<p>因为 $\color{red}{\text{L}} = \color{blue}{\text{R}}$, 即有</p>
+<p>$$
+E_{n} - E_{n}^{0} = \lambda\langle n^{0}|\delta\hat{H}|n\rangle
+$$</p>
+<ol start="2">
+<li>两边左乘 $\langle m^{0}|$, 且 $m\neq n$:</li>
+</ol>
+<p>$$
+\color{red}{\text{L}}:\langle m^{0}|\hat{H}_{0} + \lambda\delta\hat{H}|n\rangle = \left(\langle m^{0}|\hat{H}_{0}\right)|n\rangle + \langle m^{0}|\lambda\delta\hat{H}|n\rangle = \boxed{E_{m}^{0}\langle m^{0}|n\rangle + \lambda\langle m^{0}|\delta\hat{H}|n\rangle}\\
+\color{blue}{\text{R}}:\langle m^{0}|E_{n}(|n^{0}+\delta n\rangle) = E_{n}(\langle m^{0}|n^{0} + |\delta n\rangle) = E_{n}(0 + \rangle m^{0}|\delta n\rangle) = \boxed{E_{n}\langle m^{0}|\delta n\rangle}
+$$</p>
+<p>因为 $\color{red}{\text{L}} = \color{blue}{\text{R}}$, 即有</p>
+<p>$$
+(E_{n} - E_{m}^{0})\langle m^{0}|\delta n\rangle = \lambda\langle m^{0}|\delta\hat{H}|n\rangle, (m\neq n)
+$$</p>
+<p>由此我们得到</p>
+<p>$$
+\begin{cases}
+E_{n} - E_{n}^{0} = \lambda\langle n^{0}|\delta\hat{H}|n\rangle\\
+(E_{n} - E_{m}^{0})\langle m^{0}|\delta n\rangle = \lambda\langle m^{0}|\delta\hat{H}|n\rangle, (m\neq n)
+\end{cases}
+$$</p>
+<blockquote>
+<p>我们已经知道完整的本征态和本征能量对 $\lambda$ 级数展开
+$$
+|\color{red}{n}(\lambda)\rangle = |\color{red}{n}^{\color{blue}{0}}\rangle + \underbrace{\lambda|\color{red}{n}^{\color{blue}{1}}\rangle + \lambda^{2}|\color{red}{n}^{\color{blue}{2}}\rangle + \lambda^{3}|\color{red}{n}^{\color{blue}{3}}\rangle + \dots}_{|\delta \color{red}{n}\rangle}\\
+E_{\color{red}{n}}(\lambda) = E_{\color{red}{n}}^{\color{blue}{0}} + \underbrace{\lambda E_{\color{red}{n}}^{\color{blue}{1}} + \lambda^{2}E_{\color{red}{n}}^{\color{blue}{2}} + \lambda^{3}E_{\color{red}{n}}^{\color{blue}{3}} + \dots}_{\delta E_{\color{red}{n}}}
+$$</p>
+</blockquote>
+<p>将展开的级数分别导入到两个方程组中:</p>
+<p>$$
+\text{1:}\color{red}{\lambda} E_{n}^{1} + \color{green}{\lambda^{2}}E_{n}^{2} + \color{blue}{\lambda^{3}}E_{n}^{3} + \dots = \lambda\langle n^{0}|\delta\hat{H}(|n^{0}\rangle + \lambda|n^{1}\rangle + \lambda^{2}|n^{2}\rangle + \lambda^{3}|n^{3}\rangle + \dots)\\
+=\color{red}{\lambda}\langle n^{0}|\delta\hat{H}|n^{0}\rangle + \color{green}{\lambda^{2}}\langle n^{0}|\delta\hat{H}|n^{1}\rangle + \color{blue}{\lambda^{3}}\langle n^{0}|\delta\hat{H}|n^{2}\rangle + \dots\\
+\text{2:}(E_{n}^{0} - E_{m}^{0} + \lambda E_{n}^{1} + \lambda^{2}E_{n}^{2} + \dots)(\lambda\langle m^{0}|n^{1}\rangle + \lambda^{2}\langle m^{0}|n^{2}\rangle + \dots)
+=\\
+\lambda\langle m^{0}|\delta\hat{H}|n^{0}\rangle + \lambda^{2}\langle m^{0}|\delta\hat{H}|n^{1}\rangle + \dots
+$$</p>
+<p>相同的 $\lambda^{i}$ 项对应的系数相同, 这就是无穷多个修正项方程组成的方程组. 根据所需要的修正深度选取对应的级数.</p>
+<p>所以我们可以得到</p>
+<h2 id="一阶修正">一阶修正<a hidden class="anchor" aria-hidden="true" href="#一阶修正">#</a></h2>
+<p>比较 $\color{red}{\lambda}$ 的系数</p>
+<ol>
+<li>一阶能量修正</li>
+</ol>
+<p>$$
+\boxed{E_{n}^{1} = \langle n^{0}|\delta\hat{H}|n^{0}\rangle}
+$$</p>
+<ol start="2">
+<li>一阶波函数修正:</li>
+</ol>
+<p>因为有</p>
+<p>$$
+\langle m^{0}|n^{1}\rangle = \frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}}
+$$</p>
+<p>一般性地, 有投影公式</p>
+<p>$$
+|n^{1}\rangle = \sum_{m} c_{n,m}|m^{0}\rangle
+$$</p>
+<p>而</p>
+<p>系数 $c_{m,n}$ 是做内积得到的, 即</p>
+<p>$$
+c_{m,n} = \langle m^{0}|n^{1}\rangle
+$$</p>
+<p>我们已经推导出了 $m\neq n$ 的系数, 对于 $m = n$ 时, 有</p>
+<p>$$
+\langle m^{0}|n^{1}\rangle = \langle n^{0}|n^{1}\rangle = 0
+$$</p>
+<blockquote>
+<p>我们已经设定任意阶修正项 $|n^{i}\rangle$ 都与零级本征态 $|n^{0}\rangle$ 正交.</p>
+</blockquote>
+<p>所以我们可以舍弃 $m = n$ 这一系数, 从而有</p>
+<p>$$
+\boxed{|n^{1}\rangle = \sum_{m\neq n}\frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}}|m^{0}\rangle}
+$$</p>
+<h2 id="二阶修正">二阶修正<a hidden class="anchor" aria-hidden="true" href="#二阶修正">#</a></h2>
+<p>比较 $\color{green}{\lambda^{2}}$ 的系数:</p>
+<ol>
+<li>二阶能量修正</li>
+</ol>
+<p>$$
+E_{n}^{2} = \langle n^{0}|\delta\hat{H}|n^{1}\rangle
+$$</p>
+<p>将上面 $|n^{1}\rangle$ 的公式导入, 即有</p>
+<p>$$
+E_{n}^{2} = \langle n^{0}|\delta\hat{H}|\left(\sum_{m\neq n}\frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}}|m^{0}\rangle\right) = \sum_{m\neq n}\frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}}\langle n^{0}|\delta\hat{H}|m^{0}\rangle\\
+\Downarrow\\
+\boxed{E_{n}^{2} = \sum_{m\neq n}\frac{|\delta H_{mn}|^{2}}{E_{n}^{0}-E_{m}^{0}}}
+$$</p>
+<ol start="2">
+<li>二阶波函数修正</li>
+</ol>
+<p>因为</p>
+<p>$$
+(E_{n}^{0} - E_{m}^{0})\langle m^{0}|n^{2}\rangle + \langle n^{0}|\delta\hat{H}|n^{0}\rangle \frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}} = \sum_{k\neq n}\frac{\langle m^{0}|\delta\hat{H}|k^{0}\rangle\langle k^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{k}^{0}}\\
+\Downarrow\\
+\boxed{\langle m^{0}|n^{2}\rangle = \sum_{k\neq n}\frac{\langle m^{0}|\delta\hat{H}|k^{0}\rangle\langle k^{0}|\delta\hat{H}|n^{0}\rangle}{(E_{n}^{0}-E_{m}^{0})(E_{n}^{0} - E_{k}^{0})} - \frac{\langle n^{0}|\delta\hat{H}|n^{0}\rangle\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{(E_{n}^{0} - E_{m}^{0})^{2}}}
+$$</p>
+<h2 id="总结">总结<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h2>
+<p>如果令 $\lambda = 1$, 就可以得到</p>
+<ol>
+<li>能量展开式</li>
+</ol>
+<p>$$
+E_{n} = E_{n}^{0} + E_{n}^{1} + E_{n}^{2} + \dots
+$$</p>
+<ol start="2">
+<li>本征态展开式</li>
+</ol>
+<p>$$
+|n\rangle = |n^{0}\rangle + |n^{1}\rangle + |n^{2}\rangle + \dots
+$$</p>
+<ol start="3">
+<li>能量修正</li>
+</ol>
+<p>$$
+E_{n}^{1} = \delta H_{nn} = \langle n^{0}|\delta\hat{H}|n^{0}\rangle\\
+E_{n}^{2} = \sum_{m\neq n}\frac{|\delta H_{mn}|^{2}}{E_{n}^{0} - E_{m}^{0}}
+$$</p>
+<ol start="4">
+<li>本征态波函数修正</li>
+</ol>
+<p>$$
+\langle m^{0}|n^{1}\rangle = \frac{\langle m^{0}|\delta\hat{H}|n^{0}\rangle}{E_{n}^{0} - E_{m}^{0}}\\
+\langle m^{0}|n^{2}\rangle = \sum_{k\neq n}\frac{\delta H_{mk}\delta H_{kn}}{(E_{n}^{0} - E_{m}^{0})(E_{n}^{0} - E_{k}^{0})} - \frac{\delta H_{nn}\delta H_{mn}}{(E_{n}^{0} - E_{m}^{0})^{2}}
+$$</p>
+<blockquote>
+<p>对于基态修正, 有
+$$
+E_{0}^{2} = \sum_{m\in\mathbb{N}^{*}}\frac{|\delta H_{m0}|^{2}}{(E_{0}^{0} - E_{m}^{0})}
+$$
+因为本征值升序排列, 所以二阶微扰总是降低基态能量.</p>
+</blockquote>
+<blockquote>
+<p>对于第 $n$ 本征态的二阶能量修正, 即有
+$$
+E_{n}^{2} = \sum_{m&lt;n}\frac{|\delta H_{mn}|^{2}}{E_{n}^{0} - E_{m}^{0}} + \sum_{m &gt; n}\frac{|\delta H_{mn}|^{2}}{E_{n}^{0} - E_{m}^{0}}
+$$
+第一项总是为正, 第二项总是为负, 即高能级更高, 低能级更低.</p>
+</blockquote>
+<h2 id="例子">例子<a hidden class="anchor" aria-hidden="true" href="#例子">#</a></h2>
+<h3 id="二能级系统">二能级系统<a hidden class="anchor" aria-hidden="true" href="#二能级系统">#</a></h3>
+<p>$$
+\hat{H} = \hat{H}_{0} + \delta\hat{H} =
+\begin{pmatrix}
+E_{0}^{0} &amp; 0\\
+0 &amp; E_{1}^{0}
+\end{pmatrix} +
+\begin{pmatrix}
+0 &amp; \lambda\\
+\lambda &amp; 0
+\end{pmatrix}
+=\begin{pmatrix}
+\overline{E} - \Delta &amp; 0\\
+0 &amp; \overline{E} + \Delta
+\end{pmatrix} +
+\begin{pmatrix}
+0 &amp; \lambda\\
+\lambda &amp; 0
+\end{pmatrix}\\
+= \overline{E}\hat{I} - \Delta\hat{\sigma}_{z} + \lambda\hat{\sigma}_{x}
+$$</p>
+<p>因为 $\delta\hat{H}$ 对角矩阵元为 $0$, 所以一阶能量修正为 $0$.</p>
+<p>所以二阶能量修正:</p>
+<p>$$
+E_{0}^{2} = \frac{|\delta H_{01}|^{2}}{E_{0}^{0} - E_{1}^{0}} = \color{red}{-\frac{\lambda^{2}}{2\Delta}}\\
+E_{1}^{2} = \frac{|\delta H_{10}|^{2}}{E_{1}^{0} - E_{0}^{0}} = \color{red}{\frac{\lambda^{2}}{2\Delta}}
+$$</p>
+<blockquote>
+<p>即微扰使得基态能量更低, 激发态能量更高.</p>
+</blockquote>
+<p>为了和微扰法得出的结论进行比较, 我们可以对这个哈密顿量进行精确求解.</p>
+<p>即有
+$$
+\begin{vmatrix}
+\overline{E}\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix} -
+\begin{pmatrix}
+\overline{E} - \Delta &amp; \lambda\\
+\lambda &amp; \overline{E} + \Delta
+\end{pmatrix}
+\end{vmatrix} = 0\\
+$$</p>
+<p>解得</p>
+<p>$$
+E_{\pm} = \overline{E} \pm \sqrt{\Delta^{2} + \lambda^{2}}
+$$</p>
+<p>取 $\lambda \ll \Delta$ 极限, 即有</p>
+<p>$$
+E_{\pm} = \overline{E} \pm \Delta\sqrt{1 + \left(\frac{\lambda}{\Delta}\right)^{2}} = \overline{E} \pm \Delta \color{red}{\pm \frac{\lambda^{2}}{2\Delta}}
+$$</p>
+<p>第二项显然就是二级近似.</p>
+<h3 id="谐振子的非谐微扰">谐振子的非谐微扰<a hidden class="anchor" aria-hidden="true" href="#谐振子的非谐微扰">#</a></h3>
+<p>考虑哈密顿量</p>
+<p>$$
+\hat{H} = \underbrace{\frac{p^{2}}{2m} + \frac{1}{2}m\omega^{2}x^{2}}_{\hat{H}_{0}} + \underbrace{\lambda x^{4}}_{\delta\hat{H}}
+$$</p>
+<p>对于一般谐振子的 $\hat{H}_{0}$, 我们已经知道</p>
+<p>$$
+E_{n}^{0} = \left(n + \frac{1}{2}\right)\hbar\omega\\
+|n^{0}\rangle = \frac{1}{\sqrt{n!}}\left(\hat{a}^{\dagger}\right)^{n}|0^{0}\rangle
+$$</p>
+<blockquote>
+<p>$|0^{0}\rangle$ 为 $\hat{H}_{0}$ 的基态, $|0\rangle$ 是 $\hat{H}$ 的基态, 注意区分.</p>
+<p>$\hat{a}^{\dagger}$ 是产生算符, 通过
+$$
+\hat{x} = \sqrt{\frac{\hbar}{2m\omega}}\left(\hat{a} + \hat{a}^{\dagger}\right)\\
+\hat{p} = -i\sqrt{\frac{m\hbar\omega}{2}}\left(\hat{a} - \hat{a}^{\dagger}\right)
+$$
+定义. 并且有
+$$
+\hat{a}|0^{0}\rangle = 0
+$$</p>
+</blockquote>
+<ol>
+<li>一阶微扰</li>
+</ol>
+<p>$$
+E_{0}^{1} = \langle 0^{0}|\delta\hat{H}|0^{0}\rangle = \lambda\langle 0^{0}|x^{4}|0^{0}\rangle\\
+= \lambda\left(\frac{\hbar}{2m\omega}\right)^{2}\langle 0^{0}|\left(\hat{a} + \hat{a}^{\dagger}\right)^{4}|0^{0}\rangle\\
+= \lambda\left(\frac{\hbar}{2m\omega}\right)^{2}\langle\psi|\psi\rangle
+$$</p>
+<blockquote>
+<p>$$
+\left(\hat{a} + \hat{a}^{\dagger}\right)|0^{0}\rangle = |1^{0}\rangle\\
+|\psi\rangle = \left(\hat{a} + \hat{a}^{\dagger}\right)^{2}|0^{0}\rangle = \left(\hat{a} + \hat{a}^{\dagger}\right)|1^{0}\rangle = \sqrt{2}|2^{0}\rangle + |0^{0}\rangle
+$$</p>
+</blockquote>
+<p>所以</p>
+<p>$$
+\langle\psi|\psi\rangle = (\langle 0^{0}| + \sqrt{2}\rangle 2^{0}|)(|0^{0}\rangle + \sqrt{2}|2^{2}\rangle) = \langle 0^{0}|0^{0}\rangle + 2\langle 2^{0}|2^{0}\rangle = 3
+$$</p>
+<p>代回到原一阶能量修正项中, 即有</p>
+<p>$$
+E_{0}^{1} = \frac{3\lambda}{4}\left(\frac{\hbar}{m\omega}\right)^{2}
+$$</p>
+<p>除了使用升降算符计算外, 也可以使用积分法来计算得到 $E_{0}^{1}$</p>
+<p>$$
+\langle x|0\rangle = e^{-\frac{x^{2}}{2a^{2}}}, \left(a = \sqrt{\frac{\hbar}{2m\omega}}\right)\\
+E_{0}^{1} = \lambda\langle 0|x^{4}|0\rangle = \lambda\frac{\int\mathrm{d}x x^{4}e^{-\frac{x^{2}}{2a^{2}}}}{\int\mathrm{d}x e^{-\frac{x^{2}}{2a^{2}}}} = 3a^{2} = \frac{3\lambda}{4}\left(\frac{\hbar}{m\omega}\right)^{2}
+$$</p>
+<h1 id="不含时简并定态微扰论">不含时简并定态微扰论<a hidden class="anchor" aria-hidden="true" href="#不含时简并定态微扰论">#</a></h1>
+<h2 id="非简并推广到简并的问题">非简并推广到简并的问题<a hidden class="anchor" aria-hidden="true" href="#非简并推广到简并的问题">#</a></h2>
+<blockquote>
+<p>我们已经推得非简并情况下的第 $n$ 阶修正
+$$
+\delta E_{n} = \delta H_{nn} + \sum_{m\neq n}\frac{|\delta H_{mn}|^{2}}{E_{n}^{0}-E_{m}^{0}} + \dots\\
+\langle m^{0}|n^{1}\rangle = \frac{\delta H_{mn}}{E_{n}^{0} - E_{m}^{0}} + \dots
+$$</p>
+</blockquote>
+<p>不难发现如果哈密顿量 $\hat{H}$ 对应的本征态如果存在简并, 比如 $E_{n}^{0}=E_{m}^{0}$, 那么上面的分母将会出现 $0$, 从而使得修正出现发散, 因此我们需要考虑新的修正方法.</p>
+<h2 id="二能级系统-1">二能级系统<a hidden class="anchor" aria-hidden="true" href="#二能级系统-1">#</a></h2>
+<p>考虑</p>
+<p>$$
+\hat{H} = \underbrace{\begin{pmatrix}
+0 &amp; 0 \\
+0 &amp; 0\\
+\end{pmatrix}}_{\hat{H}_{0}} +
+\underbrace{\begin{pmatrix}
+0 &amp; \lambda \\
+\lambda &amp; 0\\
+\end{pmatrix}}_{\delta\hat{H}}
+$$</p>
+<p>这是一个容易精确求解的哈密顿量, 本征值为</p>
+<p>$$
+E_{\pm} = \pm \lambda
+$$</p>
+<p>即有</p>
+<p>$$
+\begin{pmatrix}
+0 &amp; \lambda \\
+\lambda &amp; 0\\
+\end{pmatrix}
+\begin{pmatrix}
+1/2\\
+1/2\\
+\end{pmatrix}
+= \lambda\begin{pmatrix}
+1/2\\
+1/2\\
+\end{pmatrix}\\
+\begin{pmatrix}
+0 &amp; \lambda \\
+\lambda &amp; 0\\
+\end{pmatrix}
+\begin{pmatrix}
+1/2\\
+-1/2\\
+\end{pmatrix}
+= -\lambda\begin{pmatrix}
+1/2\\
+-1/2\\
+\end{pmatrix}
+$$</p>
+<p>本征态可以写作</p>
+<p>$$
+|n\rangle = \frac{1}{2}\left(|\uparrow\rangle \pm \downarrow\rangle\right)
+$$</p>
+<p>的形式.</p>
+<blockquote>
+<p>$$
+|\uparrow\rangle = \begin{pmatrix}
+1\\
+0\\
+\end{pmatrix}, |\downarrow\rangle = \begin{pmatrix}
+0\\
+1\\
+\end{pmatrix}
+$$</p>
+</blockquote>
+<p><a href="https://muartz.com/posts/phy/qp/perturbation-theory/#%e9%9d%9e%e7%ae%80%e5%b9%b6%e6%8e%a8%e5%b9%bf%e5%88%b0%e7%ae%80%e5%b9%b6%e7%9a%84%e9%97%ae%e9%a2%98" target="_blank" rel="noopener nofollow noreferrer" >前面</a>已经提到了关于修正发散的问题, 这里也没有必要再重新算一遍.</p>
+<p>发散的问题在于, 分子 $\delta H_{mn}=\langle\psi_{m}^{0}|\delta\hat{H}|\psi_{n}^{0}\rangle\neq 0$. 既然 $\delta\hat{H}$ 本身没有办法改变, 我们可以选择从重新选择 $|\psi_{i}\rangle$ 入手, 也就是在 $\hat{H}_{0}$ 的简并子空间中重新取定一组基.</p>
+<p>对于空矩阵</p>
+<p>$$
+\hat{H}_{0} = \begin{pmatrix}
+0 &amp; 0 \\
+0 &amp; 0\\
+\end{pmatrix}
+$$</p>
+<p>不难看出最简单的基就是 $|\uparrow\rangle, |\downarrow\rangle$. 我们构造这组基的线性组合</p>
+<p>$$
+|0^{0}\rangle = \frac{1}{\sqrt{2}}\left(|\uparrow\rangle - |\downarrow\rangle\right)\\
+|1^{0}\rangle = \frac{1}{\sqrt{2}}\left(|\uparrow\rangle + |\downarrow\rangle\right)
+$$</p>
+<p>根据矩阵元 $\delta_{mn}$ 的定义, 我们分别计算出</p>
+<p>$$
+\begin{aligned}
+&amp;\delta H_{00} =
+\begin{pmatrix}
+1&amp; -1\\
+\end{pmatrix}_{/\sqrt{2}}
+\begin{pmatrix}
+0 &amp; \lambda \\
+\lambda &amp; 0\\
+\end{pmatrix}
+\begin{pmatrix}
+1\\
+-1\\
+\end{pmatrix}_{/\sqrt{2}} =
+\begin{pmatrix}
+1&amp; -1\\
+\end{pmatrix}_{/\sqrt{2}}(-\lambda)
+\begin{pmatrix}
+1\\
+-1\\
+\end{pmatrix}_{/\sqrt{2}} = -\lambda\\
+&amp;\delta H_{10} =
+\begin{pmatrix}
+1&amp; 1\\
+\end{pmatrix}_{/\sqrt{2}}
+\begin{pmatrix}
+0 &amp; \lambda \\
+\lambda &amp; 0\\
+\end{pmatrix}
+\begin{pmatrix}
+1\\
+-1\\
+\end{pmatrix}_{/\sqrt{2}} =
+\begin{pmatrix}
+1&amp; 1\\
+\end{pmatrix}_{/\sqrt{2}}(-\lambda)
+\begin{pmatrix}
+1\\
+-1\\
+\end{pmatrix}_{/\sqrt{2}} = 0\\
+&amp;\delta H_{01} =
+\begin{pmatrix}
+1&amp; -1\\
+\end{pmatrix}_{/\sqrt{2}}
+\begin{pmatrix}
+0 &amp; \lambda \\
+\lambda &amp; 0\\
+\end{pmatrix}
+\begin{pmatrix}
+1\\
+1\\
+\end{pmatrix}_{/\sqrt{2}} =
+\begin{pmatrix}
+1&amp; -1\\
+\end{pmatrix}_{/\sqrt{2}}(\lambda)
+\begin{pmatrix}
+1\\
+1\\
+\end{pmatrix}_{/\sqrt{2}} = 0\\
+&amp;\delta H_{11} =
+\begin{pmatrix}
+1&amp; 1\\
+\end{pmatrix}_{/\sqrt{2}}
+\begin{pmatrix}
+0 &amp; \lambda \\
+\lambda &amp; 0\\
+\end{pmatrix}
+\begin{pmatrix}
+1\\
+1\\
+\end{pmatrix}_{/\sqrt{2}} =
+\begin{pmatrix}
+1&amp; 1\\
+\end{pmatrix}_{/\sqrt{2}}(\lambda)
+\begin{pmatrix}
+1\\
+1\\
+\end{pmatrix}_{/\sqrt{2}} = \lambda
+\end{aligned}
+$$</p>
+<p>所以最后得到的矩阵 $\delta H_{m\times n}$ 为</p>
+<p>$$
+\delta H_{m\times n} =
+\begin{pmatrix}
+-\lambda &amp; 0\\
+0 &amp; \lambda\\
+\end{pmatrix}
+$$</p>
+<p>也就是说, 此时的矩阵为对角化的.</p>
+<p>所以我们可以计算能量和本征态的修正:</p>
+<p>$$
+\delta E_{n} = \mp\lambda + 0\times \lambda^{2} + \dots\\
+|\delta n^{1}\rangle = 0\times\lambda + \dots
+$$</p>
+<p>因为 $\hat{H}_{0}$ 的本征态存在简并, 所以我们也就有了自由构造具体的基的可能性, 这种自由使得我们有可能将 $\delta\hat{H}$ 对角化, 从而避免了发散的问题.</p>
+<h2 id="一般情况">一般情况<a hidden class="anchor" aria-hidden="true" href="#一般情况">#</a></h2>
+<p>$$
+\hat{H} = \left(\begin{array}{cc|ccc|c}
+E_{1}^{0} &amp;         &amp;           &amp;          &amp;          &amp; \\
+&amp;E_{1}^{0}&amp;           &amp;          &amp;          &amp; \\
+\hline
+&amp;         &amp;E_{2}^{0}  &amp;          &amp;          &amp; \\
+&amp;         &amp;           &amp;E_{2}^{0} &amp;          &amp; \\
+&amp;         &amp;           &amp;          &amp;E_{2}^{0} &amp; \\
+\hline
+&amp;         &amp;           &amp;          &amp;          &amp;E_{3}^{0}
+\end{array}\right)_{6\times 6}
+$$</p>
+<p>$$
+\delta\hat{H} = \left(\begin{array}{cc|ccc|c}
+\times &amp;     \times    &amp;      \times     &amp;    \times      &amp;     \times     &amp; \times \\
+\times &amp;     \times    &amp;      \times     &amp;    \times      &amp;     \times     &amp; \times \\
+\hline
+\times &amp;     \times    &amp;      \times     &amp;    \times      &amp;     \times     &amp; \times \\
+\times &amp;     \times    &amp;      \times     &amp;    \times      &amp;     \times     &amp; \times \\
+\times &amp;     \times    &amp;      \times     &amp;    \times      &amp;     \times     &amp; \times \\
+\hline
+\times &amp;     \times    &amp;      \times     &amp;    \times      &amp;     \times     &amp; \times \\
+\end{array}\right)_{6\times 6}
+$$</p>
+<blockquote>
+<p>$\times$ 代表矩阵元素非 $0$.</p>
+</blockquote>
+<p>在这种情况下, 如果要像之前处理二能级系统那样对 $\delta\hat{H}$ 选择合适基从而对角化 $\delta H_{m\times n}$ 无疑是非常困难的. 但是实际上我们可以从矩阵直和的角度来简化问题.</p>
+<p>对于 $\hat{H}_{0},\delta\hat{H}$ 对应的 Hilbert Space $\mathcal{H}$, 其实是由三个简并子空间直和组成的, 这些子空间的维数分别为 $2,3,1$, 我们这样标记:</p>
+<p>$$
+\mathcal{H} = \mathcal{H}_{2}\oplus\mathcal{H}_{3}\oplus\mathcal{H}_{1}
+$$</p>
+<p>我们无需将 $\delta\hat{H}$ 对角化, 只需要选择的基能够使得 $\delta\hat{H}$ 的对角分块内矩阵对角化即可, 也就是下面的效果:</p>
+<p>$$
+\delta\hat{H}^{\text{Rotated}} = \left(\begin{array}{cc|ccc|c}
+\times &amp;               &amp;      \times     &amp;    \times      &amp;     \times     &amp; \times \\
+&amp;     \times    &amp;      \times     &amp;    \times      &amp;     \times     &amp; \times \\
+\hline
+\times &amp;     \times    &amp;      \times     &amp;                &amp;                &amp; \times \\
+\times &amp;     \times    &amp;                 &amp;    \times      &amp;                &amp; \times \\
+\times &amp;     \times    &amp;                 &amp;                &amp;     \times     &amp; \times \\
+\hline
+\times &amp;     \times    &amp;      \times     &amp;    \times      &amp;     \times     &amp; \times \\
+\end{array}\right)_{6\times 6}
+$$</p>
+<p>这样我们就可以移植原非简并的微扰论公式</p>
+<p>$$
+E_{n}^{0} = E_{n}^{0} + \delta H_{nn} + \sum_{E_{m}\neq E_{n}^{0}}&rsquo;\frac{\left|\delta H_{mn}\right|^{2}}{E_{n}^{0} - E_{m}^{0}} + \mathcal{O}(\lambda^{3})
+$$</p>
+<blockquote>
+<p>$\sum&rsquo;$ 表示只对不同能量的状态之间$(m,n)$ 进行求和, 而简并子空间内部因为已经对角化所以 对应的 $\delta H_{mn}=0$ 而被省略.</p>
+</blockquote>
+<p>实际上非简并的微扰论代入到经过对角化处理的简并状态下的情形并不是完全正确的, 需要考虑更多的因素.</p>
+<h2 id="例子-1">例子<a hidden class="anchor" aria-hidden="true" href="#例子-1">#</a></h2>
+<h3 id="双自旋子系统">双自旋子系统<a hidden class="anchor" aria-hidden="true" href="#双自旋子系统">#</a></h3>
+<p>设有两个 $\frac{1}{2}$ 自旋子. 已知自旋算符为</p>
+<p>$$
+\hat{\mathbf{S}}_{i} = \frac{\hbar}{2}\hat{\mathbf{\sigma}}_{i}
+$$</p>
+<blockquote>
+<p>$\hat{\mathbf{\sigma}}_{i}$ 是泡利矩阵组成的向量.</p>
+<p>泡利矩阵
+$$
+\hat{\mathbf{\sigma}}_{x} =
+\begin{pmatrix}
+0 &amp; 1\\
+1 &amp; 0\\
+\end{pmatrix},
+\hat{\mathbf{\sigma}}_{y} =
+\begin{pmatrix}
+0 &amp; -i\\
+i &amp; 0\\
+\end{pmatrix},
+\hat{\mathbf{\sigma}}_{z} =
+\begin{pmatrix}
+1 &amp; 0\\
+0 &amp; -1\\
+\end{pmatrix}.
+$$
+泡利矩阵的本征值为 $\pm 1$, 各自的归一化本征向量为
+$$
+\psi_{x+}= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1\\
+1\\
+\end{pmatrix}, \psi_{x-} =\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+-1 \\
+\end{pmatrix}\\
+\psi_{y+}= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+-i\\
+1\\
+\end{pmatrix}, \psi_{y-} =\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+-i \\
+\end{pmatrix}\\
+\psi_{z+}=
+\begin{pmatrix}
+1\\
+0\\
+\end{pmatrix}, \psi_{z-} =
+\begin{pmatrix}
+0 \\
+1 \\
+\end{pmatrix}
+$$</p>
+</blockquote>
+<p>零阶哈密顿量为</p>
+<p>$$
+\hat{H}_{0} = \frac{E_{0}}{\hbar^{2}}\hat{\mathbf{S}}_{1}\otimes\hat{\mathbf{S}}_{1} = \frac{E_{0}}{\hbar^{2}}\left(\hat{S}_{1,x}\otimes\hat{S}_{2,x} + \hat{S}_{1,y}\otimes\hat{S}_{2,y} + \hat{S}_{1,z}\otimes\hat{S}_{2,z}\right)
+$$</p>
+<p>因为对自旋有</p>
+<p>$$
+\hat{S}_{i}^{2} = S_{i}(S_{i} + 1)\hbar^{2} = \frac{3}{4}\hbar^{2}
+$$</p>
+<p>所以</p>
+<p>$$
+\hat{\mathbf{S}}_{1}\otimes\hat{\mathbf{S}}_{2} = \frac{1}{2}\left(\hat{\mathbf{S}}^{2} - \hat{\mathbf{S}}_{1}^{2} - \hat{\mathbf{S}}_{2}^{2}\right) = \frac{1}{2}\hat{\mathbf{S}}^{2} - \frac{3}{4}\hbar^{2}\\
+\hat{H}_{0} = E_{0}\left(\frac{\hat{\mathbf{S}}^{2}}{2\hbar^{2}} -\frac{3}{4}\right) = E_{0}\left(\frac{s(s + 1)}{2} - \frac{3}{4}\right)
+$$</p>
+<blockquote>
+<p>$\hat{\mathbf{S}} = \hat{\mathbf{S}}_{1} + \hat{\mathbf{S}}_{2}$ 为总自旋.</p>
+</blockquote>
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>快速复习角动量<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>对于角动量和
+$$
+\hat{\mathbf{J}} = \hat{\mathbf{J}}_{1} + \hat{\mathbf{J}}_{2}
+$$
+其总角动量量子数 $j$ 取值范围为
+$$
+j\in\textbf{[}|j_{1}-j_{2}|,|j_{1} + j_{2}|\textbf{]}
+$$</p>
+<p>所以在讨论双自旋子模型时, 显然 $s_{1} = s_{2} = \pm\frac{1}{2}$, 于是就有 $s=0$ 和 $s= 1$.</p>
+</div>
+
+ </div>
+
+ </div>
+<p>根据角动量相关知识, 可知</p>
+<p>$$
+\hat{\mathbf{S}}^{2} = s(s + 1)\hbar^{2} =
+\begin{cases}
+0 &amp; (s = 0)\\
+2\hbar^{2} &amp; (s = 1)
+\end{cases}
+$$</p>
+<p>我们已经知道 $\hat{\mathbf{S}}^{2}$ 和 $\hat{S}_{z}$ 对易, 即有共同本征态. 我们用 $|sm\rangle$ 来表示这系列共同本征态.</p>
+<p>$$
+\hat{\mathbf{S}}^{2}|sm\rangle = s(s + 1)\hbar^{2}|sm\rangle\\
+\hat{S}_{z}|sm\rangle = m\hbar|sm\rangle
+$$</p>
+<p>因为磁量子数与角量子数有关, 即 $m = 0,\pm 1, \pm 2,\dots,\pm l$, 具体到本情景中即 $s=0,\dots,\pm s$. 所以</p>
+<ul>
+<li>$s = 0, m = 0$.</li>
+</ul>
+<p>因此 $s=0$ 也被称为<strong>单重态</strong>(Singlet state).</p>
+<p>$$
+|sm\rangle = |00\rangle = \frac{1}{\sqrt{2}}\left(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle\right)
+$$</p>
+<ul>
+<li>$s = 1, m = 0, \pm 1$</li>
+</ul>
+<p>$$
+|sm\rangle = \begin{cases}
+|11\rangle = |\uparrow\uparrow\rangle\\
+|10\rangle = \left(|\uparrow\downarrow\rangle + \downarrow\uparrow\rangle\right)/\sqrt{2}\\
+|1-1\rangle=|\downarrow\downarrow\rangle
+\end{cases}
+$$
+因此 $s=1$ 也被称为<strong>三重态</strong>(Triplet state).</p>
+<p>于是 $\hat{H}_{0}$ 的本征值有</p>
+<p>$$
+E_{\text{sm}}^{0} = \begin{cases}
+-\frac{3E_{0}}{4} &amp; \text{基态(非简并)}\\
+\frac{E_{0}}{4}   &amp; \text{激发态(三重简并)}
+\end{cases}
+$$</p>
+<h4 id="微扰一">微扰一<a hidden class="anchor" aria-hidden="true" href="#微扰一">#</a></h4>
+<p>$$
+\delta\hat{H} = \frac{\Delta}{\hbar}\left(\hat{S}_{1,z} + \hat{S}_{2,z}\right) = \frac{\Delta}{\hbar}\hat{S}_{z}
+$$</p>
+<p>此时 $|sm\rangle$ 已经满足对 $\delta H_{m\times n}$ 进行对角化的需求:</p>
+<p>$$
+\begin{aligned}
+&amp; \hat{H}_{0}|sm\rangle = E_{0}\left(\frac{1}{2}s(s + 1)- \frac{3}{4}\right)|sm\rangle\\
+&amp; \delta\hat{H}|sm\rangle = m\Delta|sm\rangle
+\end{aligned}
+$$</p>
+<p>所以本征态的修正为 $0$. 而能量本征值可以计算到二阶修正:</p>
+<p>$$
+E_{\text{sm}} = E_{\text{sm}}^{0} + m\Delta
+$$</p>
+<p>因为在 $s = 1$ 时 $m$ 有不同取值, 所以微扰会使得三重态的简并遭到破坏.</p>
+<h4 id="微扰二">微扰二<a hidden class="anchor" aria-hidden="true" href="#微扰二">#</a></h4>
+<p>$$
+\delta\hat{H} = \frac{\Delta}{\hbar}\left(\hat{S}_{z}^{1} - \hat{S}_{z}^{2}\right)
+$$</p>
+<p>选取基 $\left\{|11\rangle,|10\rangle,|1-1\rangle,|00\rangle\right\}$, 计算对应的矩阵元. 在这里我们可以先计算 $\delta\hat{H}|sm\rangle$, 再计算 $\langle s&rsquo;m&rsquo;|$ 和前者的内积.</p>
+<p>$$
+\begin{aligned}
+\delta\hat{H}|11\rangle &amp; = \delta\hat{H}|\uparrow\uparrow\rangle = 0\\
+\delta\hat{H}|1-1\rangle &amp; = \delta\hat{H}|\downarrow\downarrow\rangle = 0\\
+\delta\hat{H}|10\rangle &amp; = \frac{\Delta}{\hbar}\left(\hat{S}_{z}^{1} - \hat{S}_{z}^{2}\right)\frac{1}{\sqrt{2}}\left(|\uparrow\downarrow\rangle + |\downarrow\uparrow\rangle\right)\\
+&amp; = \frac{\Delta}{\hbar}\cdot\frac{1}{\sqrt{2}}\cdot\frac{\hbar}{2}\left(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle + |\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle\right)\\
+&amp; = \Delta \cdot \frac{1}{\sqrt{2}}\left(|\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle\right) = \Delta|00\rangle
+\end{aligned}
+$$</p>
+<p>因为 $\delta\hat{H}$ 为 Hermite 矩阵, 所以我们可以通过对称性来计算对角线两侧的矩阵元.</p>
+<p>$$
+\langle sm|\delta\hat{H}|10\rangle = \begin{cases}
+\Delta &amp; (s = 0, m = 0)\\
+0      &amp; \text{others}
+\end{cases}
+$$</p>
+<p>根据对称性有</p>
+<p>$$
+\langle 10|\delta\hat{H}|sm\rangle =
+\begin{cases}
+\Delta &amp; (s = 0, m = 0)\\
+0      &amp; \text{others}
+\end{cases}
+$$</p>
+<p>因为观察到 $\langle 10|\left(\delta\hat{H}|00\rangle\right) = \Delta$, 而 $|sm\rangle$ 之间又彼此正交, 所以推断
+$$
+\delta\hat{H}|00\rangle = \Delta|10\rangle
+$$</p>
+<p>于是可以得到</p>
+<p>$$
+\hat{H}_{0} = \frac{E_{0}}{4}\left(\begin{array}{ccc|c}
+1 &amp;   &amp;   &amp;  \\
+&amp; 1 &amp;   &amp;  \\
+&amp;   &amp; 1 &amp;  \\
+\hline
+&amp;   &amp;   &amp; -3\\
+\end{array}\right),
+\hat{H}_{0} = \Delta\left(\begin{array}{ccc|c}
+&amp;   &amp;   &amp;  \\
+&amp;   &amp;   &amp; 1\\
+&amp;   &amp;   &amp;  \\
+\hline
+&amp; 1 &amp;   &amp;  \\
+\end{array}\right),
+$$</p>
+<p>可以看到, $\delta\hat{H}$ 生成的矩阵 $\delta H_{m\times n}$ 在简并子空间内已经完成对角化, 所以可以使用原先选定的基 $\left\{|sm\rangle\right\}$ 进行修正计算.</p>
+<p>一阶能量修正为 $0$. 二阶修正为</p>
+<p>$$
+\delta E_{(10)}^{2} = \frac{|\langle 10|\delta\hat{H}|00\rangle|^{2}}{E_{(10)}^{0} - E_{(00)}^{0}} = \frac{\Delta^{2}}{E_{0}} &gt; 0\\
+\delta E_{(00)}^{2} = \frac{|\langle 00|\delta\hat{H}|10\rangle|^{2}}{E_{(00)}^{0} - E_{(10)}^{0}} = -\frac{\Delta^{2}}{E_{0}} &lt;0\\
+$$</p>
+<h3 id="氢原子">氢原子<a hidden class="anchor" aria-hidden="true" href="#氢原子">#</a></h3>
+<h4 id="相对论修正">相对论修正<a hidden class="anchor" aria-hidden="true" href="#相对论修正">#</a></h4>
+<p>取低速近似, 可以将相对论程度的粒子动能展开为动量算符的级数:</p>
+<p>$$
+\begin{aligned}
+\hat{T} &amp; = \sqrt{\left(mc^{2}\right)^{2} + \left(\hat{\mathbf{p}}c\right)^{2}} - mc^{2}\\
+&amp; = \frac{\hat{\mathbf{p}}^{2}}{2m} - \frac{\hat{\mathbf{p}}^{4}}{8m^{3}c^{2}} + \mathcal{O}\left(\hat{\mathbf{p}}^{6}\right)
+\end{aligned}
+$$</p>
+<p>而</p>
+<p>$$
+\hat{H}_{0} = \frac{\hat{\mathbf{p}}^{2}}{2m} + q\phi
+$$</p>
+<p>我们则相对熟悉, 其本征方程为</p>
+<p>$$
+\hat{H}_{0}|nlm\rangle = E_{n}^{0}|nlm\rangle = \frac{me^{4}}{n^{2}\hbar^{4}}|nlm\rangle
+$$</p>
+<blockquote>
+<p>$$
+\psi_{100}(x) = \langle x|100\rangle = \frac{1}{\sqrt{\pi a_{0}^{3}}}e^{-\frac{r}{a_{0}}}
+$$</p>
+<blockquote>
+<p>玻尔半径 $a_{0} =\frac{\hbar^{2}}{me^{2}} = \frac{1}{\alpha}\frac{\hbar}{mc}$</p>
+</blockquote>
+</blockquote>
+<p>$$
+\delta\hat{H} = -\frac{\hat{\mathbf{p}}^{4}}{8m^{3}c^{2}}
+$$</p>
+<p>则是相对论效应的最低阶微扰.</p>
+<p>$|nlm\rangle$ 是 $\hat{H}_{0}, \hat{\mathbf{L}}^{2}, \hat{L}_{z}$ 的共同本征态. 虽然 $\left[\delta\hat{H}, \hat{\mathbf{L}}^{2}\right] = \left[\delta\hat{H}, \hat{L}_{z}\right] = 0$, 但是 $\left[\delta\hat{H}, \hat{H}_{0}\right] \neq 0$. 所以 $|nlm\rangle$ 来作为基是不够用的.</p>
+<p>我们将采用 $|nlmm_{s}\rangle$ 作为非微扰基</p>
+<p>$$
+\langle nlm|\delta\hat{H}|n&rsquo;l&rsquo;m&rsquo;\rangle = \langle nl||\delta\hat{H}||n&rsquo;l&rsquo;\rangle\delta_{ll&rsquo;}\delta_{mm&rsquo;}
+$$</p>
+<blockquote>
+<p>$\langle nl||\delta\hat{H}||n&rsquo;l&rsquo;\rangle\delta_{ll&rsquo;}\delta_{mm&rsquo;}$ 被称为<strong>约化矩阵元</strong></p>
+</blockquote>
+<p>所以一阶能量修正</p>
+<p>$$
+\begin{aligned}
+\delta E_{nlm}^{\text{Rel.}} &amp;= \left\langle nlm\left|-\frac{\hat{\mathbf{p}}^{4}}{8m^{3}c^{2}}\right|nlm\right\rangle\\
+&amp;= -\frac{1}{8m^{3}c^{2}}\left\langle \hat{\mathbf{p}}^{2}\psi_{nlm}|\hat{\mathbf{p}}^{2}\psi_{nlm}\right\rangle\\
+&amp;\color{red}{= -\frac{1}{2mc^{2}}\langle(E_{n} - V)\psi_{nlm}|(E_{n} - V)\psi_{nlm}\rangle}\\
+&amp;= -\frac{1}{2mc^{2}}\langle(E_{n} - V)^{2}\rangle_{nlm}\\
+&amp;= -\frac{1}{2mc^{2}}\left[(E_{n})^{2} - 2E_{n}\langle V\rangle_{nlm} + \langle V^{2}\rangle_{nlm}\right]
+\end{aligned}
+$$</p>
+<blockquote>
+<p>$$
+\color{red}{\hat{\mathbf{p}}^{2}\psi_{nlm} = 2m(E_{n} - V)\psi_{nlm}}
+$$
+是对薛定谔方程的变式.</p>
+</blockquote>
+<p>$\hat{V} = -\frac{e}{r}$ 即为电子库伦势, 即求</p>
+<p>$$
+\delta E_{nlm}^{\text{Rel.}} = -\frac{1}{2mc^{2}}\left[(E_{n}^{0})^{2} - 2E_{n}^{0}e^{2}\left\langle\frac{1}{r}\right\rangle_{nlm} + e^{4}\left\langle\frac{1}{r^{2}}\right\rangle_{nlm}\right]
+$$</p>
+<blockquote>
+<p>$$
+\left\langle\frac{1}{r}\right\rangle_{nlm} = \frac{1}{n^{2}a}\\
+\left\langle\frac{1}{r^{2}}\right\rangle_{nlm} = \frac{1}{\left(l + \frac{1}{2}\right)n^{3}a^{2}}
+$$</p>
+</blockquote>
+<p>结合库伦势在量子力学的相关结论, 即有</p>
+<p>$$
+\delta E_{nlm}^{\text{Rel.}} = -\frac{E_{0}^{0}\color{green}{\alpha}^{2}}{2\color{red}{n}^{4}}\left(\frac{4\color{red}{n}}{\color{blue}{l} + \frac{1}{2}} - 3\right)
+$$</p>
+<blockquote>
+<p>可见只和主量子数 $\color{red}{n}$ 和 轨道角动量量子数 $\color{blue}{l}$ 有关. 相对论修正的量级与精细结构常数平方 $\color{green}{\alpha}^{2}$ 成正比.</p>
+</blockquote>
+<p>虽然计算时使用了 $|nlmm_{s}\rangle$ 为基, 但是结果与 $m,m_{s}$ 无关, 所以使用基 $|nlxy\rangle$ 都能得出同样的结果.</p>
+<h4 id="自旋-轨道耦合">自旋-轨道耦合<a hidden class="anchor" aria-hidden="true" href="#自旋-轨道耦合">#</a></h4>
+<p>我们将自旋-轨道耦合称为 Spin-Orbital, 简称 SO.</p>
+<p>即有</p>
+<p>$$
+\delta\hat{H}^{\text{SO}} = \frac{e^{2}}{2m^{2}c^{2}r^{3}}\hat{\mathbf{S}}\cdot\hat{\mathbf{L}}
+$$</p>
+<p>总角动量及其平方:</p>
+<p>$$
+\hat{\mathbf{J}} = \hat{\mathbf{L}} + \hat{\mathbf{S}}\\
+\hat{\mathbf{J}}^{2} = \hat{\mathbf{L}}^{2} + \hat{\mathbf{S}}^{2} + 2\hat{\mathbf{L}}\cdot\hat{\mathbf{S}}
+$$</p>
+<p>所以对于 $\hat{\mathbf{J}}^{2}, \hat{\mathbf{L}}^{2}, \hat{\mathbf{S}}^{2}$ 的共同本征态张成的空间, 有</p>
+<p>$$
+\hat{\mathbf{L}}\cdot\hat{\mathbf{S}} = \frac{1}{2}\left(\hat{\mathbf{J}}^{2}- \hat{\mathbf{L}}^{2} - \hat{\mathbf{S}}^{2}\right)
+= \frac{\hbar^{2}}{2}\left(s\left(s + 1\right) - l\left(l + 1\right) - \frac{3}{4} \right)
+$$</p>
+<p>采用 $\hat{H}_{0}, \hat{\mathbf{J}}^{2}, \hat{\mathbf{L}}^{2}, \hat{\mathbf{S}}^{2}, \hat{J}_{z}$ 的共同本征态 $|nljm_{j}\rangle$ 作为基. 此时 $\hat{\mathbf{L}}\cdot\hat{\mathbf{S}}$ 生成的矩阵 $\hat{\mathbf{L}}\cdot\hat{\mathbf{S}}_{m\times n}$ 已经对角化.</p>
+<p>所以能量一阶修正为</p>
+<p>$$
+\delta_{nljm_{j}}^{\text{SO}} = \frac{e^{2}}{2m^{2}c^{2}}\frac{\hbar^{2}}{2}\left(s\left(s + 1\right) - l\left(l + 1\right) - \frac{3}{4} \right)\left\langle\frac{1}{r^{3}}\right\rangle_{nl}
+$$</p>
+<blockquote>
+<p>$$
+\left\langle\frac{1}{r^{3}}\right\rangle_{nl} = \frac{1}{l\left(l + \frac{1}{2}\right)(l + 1)n^{3}a^{3}}
+$$</p>
+</blockquote>
+<p>所以得到一阶能量修正为</p>
+<p>$$
+\delta_{nljm_{j}}^{\text{SO}} = \frac{E_{n}^{0}\color{green}{\alpha}^{2}}{4n^{4}}\left\{\frac{n\left[j(j + 1) - l(l + 1) - \frac{3}{4}\right]}{l\left(l + \frac{1}{2}\right)(l + 1)}\right\}
+$$</p>
+<blockquote>
+<p>和相对论修正一样, 也是与精细结构常数平方 $\color{green}{\alpha}^{2}$ 成正比.</p>
+</blockquote>
+<h4 id="rel-oplus-so">Rel. $\oplus$ SO<a hidden class="anchor" aria-hidden="true" href="#rel-oplus-so">#</a></h4>
+<p>$$
+\delta E^{1} = \delta E^{\text{Rel.}} + \delta E^{\text{SO}} = \frac{E_{0}^{0}\alpha^{2}}{8n^{4}}\left(3 - \frac{4n}{j + \frac{1}{2}}\right)
+$$</p>
+<blockquote>
+<p>该结果表明修正只和 $j, n$ 有关而与 $l$ 无关.</p>
+</blockquote>
+<h1 id="含时微扰理论">含时微扰理论<a hidden class="anchor" aria-hidden="true" href="#含时微扰理论">#</a></h1>
+<h2 id="相互作用绘景">相互作用绘景<a hidden class="anchor" aria-hidden="true" href="#相互作用绘景">#</a></h2>
+<p>我们可以将系统的哈密顿量写作含时形式</p>
+<p>$$
+\hat{H}(t)=\hat{H}_{0}+\delta\hat{H}(t)\\
+$$</p>
+<p>可以看到里面的 $\hat{H}_{0}$ 并不含时, 现在我们需要求得系统的波函数 $\psi(t)$.</p>
+<p>对于薛定谔绘景下的态 $\psi(t)$ 和算子 $\hat{A}(t)$. 所以我们就可以得到</p>
+<p>$$
+\widetilde{\psi}(t) = e^{\frac{i\hat{H}_{0}t}{\hbar}}\psi(t)\\
+\widetilde{A}(t) = e^{\frac{i\hat{H}_{0}t}{\hbar}}\hat{A}(t)e^{-\frac{i\hat{H}_{0}t}{\hbar}}
+$$</p>
+<p>这可以被理解为一种参考系的旋转. 我们讲这种绘景称为<strong>相互作用绘景</strong>. 不难发现,</p>
+<p>$$
+\langle\widetilde{\psi}|\widetilde{A}|\widetilde{\varphi}\rangle =
+(\langle\psi|e^{-\frac{i\hat{H}_{0}t}{\hbar}})(e^{\frac{i\hat{H}_{0}t}{\hbar}}Ae^{-\frac{i\hat{H}_{0}t}{\hbar}})(e^{\frac{i\hat{H}_{0}t}{\hbar}}|\varphi\rangle)=\langle\psi|A|\varphi\rangle
+$$</p>
+<p>也就是说, 在不同的绘景下, 最后得到的实验结果都会是相同的.</p>
+<p>我们已经知道薛定谔绘景下的薛定谔方程为</p>
+<p>$$
+i\hbar\frac{\partial}{\partial t}\psi = \hat{H}\psi
+$$</p>
+<p>对 $\widetilde{\psi}(t)$ 进行时间求导:</p>
+<p>$$
+i\hbar\frac{\partial }{\partial t}\widetilde{\psi}(t) = i\hbar\frac{\partial}{\partial t}\left[e^{\frac{i\hat{H}_{0}t}{\hbar}}\psi(t)\right] = i\hbar\left[\frac{i\hat{H}_{0}}{\hbar}e^{\frac{i\hat{H}_{0}t}{\hbar}}\psi(t)+e^{\frac{i\hat{H}_{0}t}{\hbar}}\frac{\partial}{\partial t}\psi(t)\right]\\
+= e^{\frac{i\hat{H}_{0}t}{\hbar}}\left(\hat{H}-\hat{H}_{0}\right)\psi(t)=e^{\frac{i\hat{H}_{0}t}{\hbar}}\left(\delta\hat{H}\right)e^{-\frac{i\hat{H}_{0}t}{\hbar}}e^{\frac{i\hat{H}_{0}t}{\hbar}}\psi(t)\\
+= \widetilde{\delta H}\widetilde{\psi}(t)
+$$</p>
+<p>所以我们就有了相互作用绘景中的薛定谔方程:</p>
+<p>$$
+\boxed{i\hbar\frac{\partial }{\partial t}\widetilde{\psi}(t) = \widetilde{\delta H}\widetilde{\psi}(t)}
+$$</p>
+<p>同理对相互作用绘景下的算子 $\widetilde{A}(t)$ 进行时间求导:</p>
+<p>$$
+i\hbar\frac{\partial}{\partial t}\widetilde{A}(t)=i\hbar\frac{\partial }{\partial t}(e^{\frac{i\hat{H}_{0}t}{\hbar}}Ae^{-\frac{i\hat{H}_{0}t}{\hbar}})\\
+= i\hbar\left[\left(\frac{\partial }{\partial t}e^{\frac{i\hat{H}_{0}t}{\hbar}}\right)Ae^{-\frac{i\hat{H}_{0}t}{\hbar}} + e^{\frac{i\hat{H}_{0}t}{\hbar}}\left(\frac{\partial }{\partial t}A\right)e^{-\frac{i\hat{H}_{0}t}{\hbar}}+e^{\frac{i\hat{H}_{0}t}{\hbar}}A\left(\frac{\partial }{\partial t}e^{-\frac{i\hat{H}_{0}t}{\hbar}}\right)\right]\\
+=i\hbar\left[\frac{i\hat{H}_{0}}{\hbar}e^{\frac{i\hat{H}_{0}t}{\hbar}}Ae^{-\frac{i\hat{H}_{0}t}{\hbar}}+e^{\frac{i\hat{H}_{0}t}{\hbar}}\left(\frac{\partial }{\partial t}A\right)e^{-\frac{i\hat{H}_{0}t}{\hbar}}+e^{\frac{i\hat{H}_{0}t}{\hbar}}A\left(-\frac{i\hat{H}_{0}}{\hbar}e^{-\frac{i\hat{H}_{0}t}{\hbar}}\right)\right]
+$$</p>
+<p>这里我们假定</p>
+<p>$$
+\frac{\partial A}{\partial t}=0
+$$</p>
+<p>所以</p>
+<p>$$
+i\hbar\frac{\partial}{\partial t}\widetilde{A}(t)=
+e^{\frac{i\hat{H}_{0}t}{\hbar}}\left(-\hat{H}_{0}A+A\hat{H}_{0}\right)e^{-\frac{i\hat{H}_{0}t}{\hbar}}=\left[\widetilde{A}(t),\hat{H}_{0}\right]
+$$</p>
+<p>所以我们就得到了相互作用绘景中的海森堡方程:</p>
+<p>$$
+i\hbar\frac{\partial}{\partial t}\widetilde{A}(t)=\left[\widetilde{A}(t),\hat{H}_{0}\right]
+$$</p>
+<p>这和常算子的海森堡绘景中的海森堡方程完全一致.</p>
+<h2 id="含时微扰展开">含时微扰展开<a hidden class="anchor" aria-hidden="true" href="#含时微扰展开">#</a></h2>
+<p>我们已知</p>
+<p>$$
+\hat{H}_{0}|n\rangle = E_{n}|n\rangle
+$$</p>
+<p>因为在研究含时微扰展开时, 我们实际上并不关心 $\hat{H}(t)$ 的本征态与本征能量, 所以在上面的方程中我们并没有像之前处理不含时微扰中那样在上标写上 $0$ 来表示其为零阶.</p>
+<p>所以我们就可以得到矩阵元:</p>
+<p>$$
+\delta{H_{mn}}(t) = \langle m|\delta{\hat{H}}(t)|n\rangle\\
+\widetilde{\delta{H}}_{mn}(t) = \langle m|\widetilde{\delta{H}}(t)|n\rangle = \langle m|e^{\frac{i\hat{H}_{0}t}{\hbar}}\delta{\hat{H}}e^{-\frac{i\hat{H}_{0}t}{\hbar}}|n\rangle
+$$</p>
+<p>对于指数上的算符, 我们可以使用定义来处理:</p>
+<p>$$
+e^{a\hat{H}_{0}} = \sum_{j = 0}^{+\infty}\frac{1}{j!}a^{j}(\hat{H}_{0})^{j}
+$$</p>
+<p>对 $\forall j$, 均有</p>
+<p>$$
+(\hat{H}_{0})^{j}|m\rangle = (\hat{H}_{0})^{j-1}E_{m}|m\rangle = E_{m}(\hat{H}_{0})^{j-1}|m\rangle = \cdots = E_{m}^{j}|m\rangle
+$$</p>
+<p>所以对于 $\widetilde{\delta{H}}_{mn}(t)$, 我们可以分别计算得到</p>
+<p>$$
+e^{-\frac{i\hat{H}_{0}t}{\hbar}}|n\rangle = \sum_{j = 0}^{+\infty}\frac{1}{j!}\left(-\frac{i\hat{H}_{0}t}{\hbar}\right)^{j}|n\rangle = \sum_{j = 0}^{+\infty}\frac{1}{j!}\left(-\frac{iE_{n}t}{\hbar}\right)^{j}|n\rangle = e^{-\frac{iE_{n}t}{\hbar}}|n\rangle\\
+\langle m|e^{\frac{i\hat{H}_{0}t}{\hbar}} = \sum_{j = 0}^{+\infty}\frac{1}{j!}\langle m|\left(\frac{i\hat{H}_{0}t}{\hbar}\right)^{j} = \sum_{j = 0}^{+\infty}\frac{1}{j!}\left(\frac{iE_{m}t}{\hbar}\right)^{j}\langle m| = \langle m|e^{\frac{iE_{m}t}{\hbar}}
+$$</p>
+<p>所以就有最后的</p>
+<p>$$
+\widetilde{\delta{H}}_{mn}(t) = \langle m|e^{\frac{iE_{m}t}{\hbar}}\delta\hat{H}e^{-\frac{iE_{n}t}{\hbar}}|n\rangle = e^{\frac{i(E_{m}-E_{n})t}{\hbar}}\langle\delta\hat{H}|n\rangle = e^{i\omega_{mn}t}\delta H_{mn}(t)
+$$</p>
+<p>接下来我们会演示矩阵元是如何在接下来的运算中发挥作用的. 对于相互作用绘景中的量子态 $|\widetilde{\psi}(t)\rangle$, 我们采用 $\hat{H}_{0}$ 的本征态作为基底进行展开:</p>
+<p>$$
+|\widetilde{\psi}(t)\rangle = \sum_{n}c_{n}(t)|n\rangle
+$$</p>
+<p>$c_{n}(t)$ 是需要确定的系数. 为了求得一系列的系数, 我们可以将其带入到相互作用绘景中的薛定谔方程并且左乘 $\langle n|$:</p>
+<p>$$
+\textbf{L:}\langle n|i\hbar\frac{\partial }{\partial t}|\widetilde{\psi}(t)\rangle = \langle n|i\hbar\frac{\partial }{\partial t}\sum_{m}c_{m}(t)|m\rangle = i\hbar\sum_{m}\dot{c_{m}}(t)\delta_{mn} = i\hbar\dot{c_{n}}(t)\\
+\textbf{R:}\langle n|\widetilde{\delta{H}}(t)|\widetilde{\psi}(t)\rangle = \sum_{m}\langle n|\widetilde{\delta{H}}(t)|m\rangle\langle m|\widetilde{\psi}(t)\rangle = \sum_{m}\widetilde{\delta{H_{nm}}}(t)c_{m}(t) = \sum_{m}e^{i\omega_{nm}t}\delta H_{nm}(t)c_{m}(t)
+$$</p>
+<p>联立即有</p>
+<p>$$
+i\hbar\dot{c_{n}}(t) = \sum_{m}e^{i\omega_{nm}t}\delta H_{nm}(t)c_{m}(t)
+$$</p>
+<p>该式代表了无穷维的线性常微分方程组. 使用微扰法的思想, 引入小参数 $\lambda(\delta H\rightarrow \lambda\delta H)$, 就可以将波函数展开为 $\lambda$ 的级数:</p>
+<p>$$
+\widetilde{\psi}(t) = \widetilde{\psi}^{(0)}(t) + \lambda\widetilde{\psi}^{(1)}(t) + \dots + \lambda^{k}\widetilde{\psi}^{(k)}(t) + \dots
+$$</p>
+<p>同理, 系数 $c_{m}(t)$ 也可进行展开:</p>
+<p>$$
+c_{m}(t) = c_{m}^{(0)}(t) + \lambda c_{m}^{(1)}(t) + \dots + \lambda^{k}c_{m}^{(k)}(t) + \dots
+$$</p>
+<p>为了方便分析, 不妨假设 $\delta H$ 在 $t = 0$ 开始生效, 并且相互作用绘景下的波函数在 $t = 0$ 时所有修正项均归零:</p>
+<p>$$
+\widetilde{\psi}(0) = \widetilde{\psi}^{(0)}(0) + 0 + 0 + \dots\\
+\widetilde{\psi}^{(1)}(0) = \widetilde{\psi}^{(2)}(0) = \widetilde{\psi}^{(3)}(0) = \dots = 0
+$$</p>
+<p>将展开式代回到相互作用绘景的薛定谔方程中, 即有</p>
+<p>$$
+i\hbar\frac{\partial}{\partial t}\left(\widetilde{\psi}^{(0)}(t) + \lambda\widetilde{\psi}^{(1)}(t) + \dots + \lambda^{k}\widetilde{\psi}^{(k)}(t) + \dots\right) = \lambda\widetilde{\delta H}\left(\widetilde{\psi}^{(0)}(t) + \lambda\widetilde{\psi}^{(1)}(t) + \dots + \lambda^{k}\widetilde{\psi}^{(k)}(t) + \dots\right)
+$$</p>
+<p>比较各阶 $\lambda$ 系数, 即可递推求得各阶修正项.</p>
+<ol>
+<li>$\lambda^{0}$;</li>
+</ol>
+<p>$$
+i\hbar\frac{\partial}{\partial t}\widetilde{\psi}^{(0)}(t) = 0
+$$</p>
+<p>即零阶相互作用绘景下的波函数不含时, 有</p>
+<p>$$
+\widetilde{\psi}^{(0)}(t) = \widetilde{\psi}^{(0)}(0) = \widetilde{\psi}(0) = e^{\frac{i\hat{H}_{0}}{\hbar}\cdot 0}\psi(0) = \psi(0)
+$$</p>
+<p>这里的 $\psi(0)$ 已经回到了薛定谔绘景.</p>
+<ol start="2">
+<li>$\lambda^{1}$.</li>
+</ol>
+<p>$$
+i\hbar\frac{\partial}{\partial t}\widetilde{\psi}^{(1)}(t) = \widetilde{\delta H}\widetilde{\psi}^{(0)}(t)
+$$</p>
+<p>前面我们已经求得了 $\widetilde{\psi}^{(0)}(t)$, 这里可以直接代入:</p>
+<p>$$
+i\hbar\frac{\partial }{\partial t}\widetilde{\psi}^{(1)}(t) = \widetilde{\delta H}(t)\widetilde{\psi}^{(0)}(0) = \widetilde{\delta H}(t)\psi(0)
+$$</p>
+<p>两边同时积分, 即有</p>
+<p>$$
+\widetilde{\psi}^{(1)}(t) = \frac{1}{i\hbar}\left(\int_{0}^{t}\widetilde{\delta H(t&rsquo;)}\mathrm{d}t&rsquo;\right)\psi(0)
+$$</p>
+<p>前面我们只是设定了修正项初始为 $0$, 对于具体的 $\psi(0)$ 则是缺少条件. 所以这里可以假定</p>
+<p>$$
+\psi(0) = |n\rangle
+$$</p>
+<p>就可以将 $|\widetilde{\psi}^{(0)}(t)\rangle, |\widetilde{\psi}^{(1)}(t)\rangle$ 用基底 $\{|n\rangle\}$ 展开:</p>
+<p>$$
+|\widetilde{\psi}^{(0)}(t)\rangle = \sum_{m}c_{m}^{(0)}(t)|m\rangle\\
+|\widetilde{\psi}^{(1)}(t)\rangle = \sum_{m}c_{m}^{(1)}(t)|m\rangle
+$$</p>
+<p>代入到积分式中:</p>
+<p>$$
+\sum_{m}c_{m}^{(1)}(t)|m\rangle = \frac{1}{i\hbar}\left(\int_{0}^{t}\widetilde{\delta H}(t&rsquo;)\mathrm{d}t&rsquo;\right)|n\rangle\\
+\Downarrow{\text{左乘}\langle m|}\\
+c_{m}^{(1)}(t) = \frac{1}{i\hbar}\int_{0}^{t}\langle m|\widetilde{\delta H}(t&rsquo;)|n\rangle\mathrm{d}t&rsquo; = \frac{1}{i\hbar}\int_{0}^{t}\delta H_{mn}(t&rsquo;)e^{i\omega_{mn}t&rsquo;}\mathrm{d}t&rsquo;\\
+\Downarrow\\
+\boxed{c_{m}^{(1)}(t) = \frac{1}{i\hbar}\int_{0}^{t}\delta H_{mn}(t&rsquo;)e^{i\omega_{mn}t&rsquo;}\mathrm{d}t&rsquo;}
+$$</p>
+<p>第一个基础展开式本身也可以得出一个修正项:</p>
+<p>$$
+|\widetilde{\psi}^{(0)}(t)\rangle = \sum_{m}c_{m}^{(0)}(t)|m\rangle = |\psi(0)\rangle = |n\rangle
+$$</p>
+<p>即有</p>
+<p>$$
+\boxed{c_{m}^{(0)}(t) = \delta_{mn}}
+$$</p>
+<p>系统在 $t = 0$ 时刻处于 $|\psi(0)\rangle = |n\rangle$ 的状态, 如果在 $t$ 时刻对 $\hat{H}_{0}$ 进行测量, 则系统由 $|n\rangle$ 跃迁到 $|m\rangle$ 的概率是</p>
+<p>$$
+P_{n\rightarrow m}^{(1)}(t) = \left|c_{m}^{(1)}(t)\right|^{2} = \left|\frac{1}{i\hbar}\int_{0}^{t}\delta H_{mn}(t&rsquo;)e^{i\omega_{mn}t&rsquo;}\mathrm{d}t&rsquo;\right|^{2}
+$$</p>
+<p>如果我们假设系统在 $t = 0$ 的状态为 $|m\rangle$, 计算 $t$ 时跃迁到状态 $|n\rangle$ 的概率为</p>
+<p>$$
+P_{m\rightarrow n}^{(1)}(t) = \left|\frac{1}{i\hbar}\int_{0}^{t}\delta H_{nm}(t&rsquo;)e^{i\omega_{nm}t&rsquo;}\mathrm{d}t&rsquo;\right|^{2}
+$$</p>
+<p>因为 $\delta H$ 是厄米算符, 且 $\omega_{mn} = -\omega_{nm}$, 所以一阶微扰跃迁概率相等:</p>
+<p>$$
+P_{m\rightarrow n}^{(1)}(t) = P_{n\rightarrow m}^{(1)}(t)
+$$</p>
+<ol start="3">
+<li>$\lambda^{2},\lambda^{3},\dots$</li>
+</ol>
+<p>我们可以根据</p>
+<p>$$
+i\hbar\frac{\partial }{\partial t}\widetilde{\psi}^{(n+1)} = \widetilde{\delta H}\widetilde{\psi}^{(n)}
+$$</p>
+<p>递推得到更高阶的修正, 如果有需要可以继续求解.</p>
+<h2 id="周期性微扰">周期性微扰<a hidden class="anchor" aria-hidden="true" href="#周期性微扰">#</a></h2>
+<p>像电磁场微扰这样的含时微扰, 可以具有周期性.</p>
+<p>$$
+\delta H(t) = 2\hat{V}\cos{(\omega t)}
+$$</p>
+<blockquote>
+<p>$\hat{V}$ 与时间无关.</p>
+<p>实际情况下的电磁场造成的微扰应该服从</p>
+<p>$$
+\delta H(t) \propto \cos{(\vec{k}\cdot\vec{x}-\omega t)}
+$$</p>
+<p>但是因为电磁波的波长远长于原子的尺寸, 所以我们可以采取近似 $\vec{k}\cdot\vec{a}\ll 1$, 即我们可以忽略有关 $\vec{x}$ 的项.</p>
+</blockquote>
+<p>我们已经通过前面的推导知道:</p>
+<blockquote>
+<p>一阶微扰展开公式</p>
+<p>$$
+c_{m}^{(1)}(t) = \frac{1}{i\hbar}\int_{0}^{t}\delta H_{mn}(t&rsquo;)e^{i\omega_{mn}t&rsquo;}\mathrm{d}t'
+$$</p>
+</blockquote>
+<p>所以我们就可以计算该周期微扰的一阶微扰展开系数:</p>
+<p>$$
+c_{m}^{(1)}(t) = \frac{2}{i\hbar}\int_{0}^{t}\mathrm{d}t&rsquo; V_{mn}\cos{(\omega t&rsquo;)}e^{i\omega_{mn}t&rsquo;}\\
+= \frac{1}{i\hbar}\int_{0}^{t}\mathrm{d}t&rsquo; V_{mn}\left(e^{i(\omega + \omega_{mn})t&rsquo;} + e^{i(-\omega + \omega_{mn})t&rsquo;}\right)\\
+= -\frac{V_{mn}}{\hbar}\left[\frac{e^{i(\omega_{mn} + \omega)t}-1}{\omega_{mn} + \omega} + \frac{e^{i(\omega_{mn} - \omega)t}-1}{\omega_{mn} - \omega}\right]
+$$</p>
+<ol>
+<li>
+<p>如果 $\omega \neq \pm \omega_{mn}(t)$, 那么 $c_{m}^{(1)}(t)$ 将会呈现双周期振荡, 频率分别为 $\omega_{mn} \pm \omega$. 显然, 当 $\omega_{mn}\rightarrow\pm\omega$, 那么其中一个振幅将会出现发散现象.</p>
+</li>
+<li>
+<p>第一项描述的是<strong>受激辐射</strong>, 第二项描述的是<strong>吸收</strong>.</p>
+</li>
+<li>
+<p>$\omega_{mn}\approx-\omega$, 则第一项足够大而可以忽略第二项. 这是原子受电场激发而容易发射出频率为 $\omega$ 的光子并且跃迁到能量更低的状态;</p>
+</li>
+<li>
+<p>$\omega_{mn}\approx \omega$, 则第二项足够大而可以忽略第一项. 此时原子容易吸收一个频率为 $\omega$ 的光子, 并且跃迁到能量更高的状态.</p>
+</li>
+</ol>
+<p>我们先考虑 $\omega_{mn}\approx \omega$ 的情况, 即只考虑吸收:</p>
+<p>$$
+c_{m}^{(1)}(t) = -\frac{V_{mn}}{\hbar}\frac{e^{i(\omega_{mn}-\omega)t}-1}{\omega_{mn}-\omega}
+$$</p>
+<p>因为有恒等式</p>
+<p>$$
+\left|e^{i\theta} - 1\right|^{2} = (\cos{\theta}-1-i\sin{\theta})(\cos{\theta}-1+i\sin{\theta}) = (\cos{\theta}-1)^{2} + \sin^{2}{\theta}\\
+= \cos^{2}{\theta} - 2\cos{\theta} + 1 + \sin^{2}{\theta} = 2(1 - \cos{\theta}) = 4\sin^{2}{\left(\frac{\theta}{2}\right)}
+$$</p>
+<p>代入到忽略了受激辐射的 $c_{m}^{(1)}(t)$ 中, 得到</p>
+<p>$$
+P_{n\rightarrow m}(t) = \frac{4|V_{mn}|^{2}}{\hbar^{2}}\frac{\sin{\left[\frac{(\omega_{mn} - \omega)t}{2}\right]}}{(\omega_{mn} - \omega)^{2}} = \frac{4|V_{mn}|^{2}}{\hbar^{2}}f(t,\alpha)
+$$</p>
+<blockquote>
+<p>$\alpha = \frac{(\omega_{mn} - \omega)t}{2}$ 是失谐参数, $f(t,\alpha) = \frac{\sin{\frac{\alpha t}{2}}}{\alpha^{2}}$.</p>
+<p>$f(t,\alpha)$ 的周期为 $T = \frac{2\pi}{\alpha}$, 振幅和平均值均为 $\frac{1}{2\alpha^{2}}$. 所以当跃迁的初末态确定时, 跃迁概率 $P_{n\rightarrow m}(t)$ 体现出周期振荡现象.</p>
+</blockquote>
+<p>我们研究 $f(t,\alpha)$ 的两个变量:</p>
+<ol>
+<li>$\alpha$</li>
+</ol>
+<p>相当于观察末态能级 $E_{m}$ 的影响. $f(t,\alpha)$ 包围面积为
+$$
+\int_{-\infty}^{+\infty}f(t,\alpha)\mathrm{d}\alpha = \int_{-\infty}^{+\infty}\frac{\sin{\left(\frac{\alpha t}{2}\right)}}{\alpha^{2}} = \frac{t}{2}\int_{-\infty}^{+\infty}\frac{\sin^{2}{u}}{u^{2}}\mathrm{d}u = \frac{\pi t}{2}
+$$
+而 $t\rightarrow\infty$ 时, 所有峰的宽度都趋于0. 所以在长时间极限下, 我们也可以用狄拉克函数来近似 $f(t,\alpha)$:
+$$
+f(t,\alpha) \approx \frac{\pi t}{2}\delta(\alpha)
+$$</p>
+<p>我们关心对 $\alpha$ 的依赖, 这是因为在小能量范围 $\mathrm{d}E$ 内可能存在着无穷多的激发态, 研究到某个特定末态的概率没有意义, 而是跃迁发生的总概率:</p>
+<p>$$
+\sum_{m}P_{n\rightarrow m}(t) = \sum_{m}\frac{4|V_{mn}|^{2}}{\hbar^{2}}\frac{\sin^{2}{\left(\frac{(\omega_{mn} - \omega)t}{2}\right)}}{(\omega_{mn} - \omega)^{2}} = \sum_{m}\frac{4|V_{mn}|^{2}}{\hbar^{2}}f(t,\alpha)\\
+= \frac{4}{\hbar^{2}}\int\rho(E_{m})|V_{mn}|^{2}f(t,\alpha)\mathrm{d}E_{m}
+$$</p>
+<blockquote>
+<p>$\rho(E)$ 即为能量态密度, 指的是 $(E,E+\mathrm{d}E)$ 范围内共有 $\rho(E)\mathrm{d}E$ 个模态. 最后一个等号我们采用了&quot;能级之间的间隙远小于 $V_{mn}, f(t,\alpha)$ 变化的特征尺度&quot;的假设.</p>
+</blockquote>
+<p>因此我们就可以得到总跃迁概率:
+$$
+\sum_{m}P_{n\rightarrow m}(t) = \frac{4\rho(E_{n} + \hbar\omega)V_{mn}|^{2}}{\hbar}\int_{-\infty}^{+\infty}\mathrm{d}\alpha f(t,\alpha) = \frac{2\pi t}{\hbar}\rho(E_{n} + \hbar\omega)|V_{mn}|^{2}
+$$
+不难观察到, 跃迁到任一末态的总概率随时间线性增长.</p>
+<ol start="2">
+<li>$t$</li>
+</ol>
+<p>将概率对时间求导, 就可以得到系统的跃迁速率(单位时间内跃迁到任一末态的概率):
+$$
+w = \frac{\mathrm{d}}{\mathrm{d}t}P_{n\rightarrow m}(t) = \frac{2\pi}{\hbar}\rho(E_{n} + \hbar\omega)|V_{mn}|^{2}
+$$</p>
+<p>如果补加条件&quot;初末态的能量分别为 $E_{i},E_{f}$&quot;, 就有</p>
+<p>$$
+w = \frac{2\pi}{\hbar}\rho(E_{f})|V_{fi}|^{2}, E_{f} = E_{i}+\hbar\omega
+$$</p>
+<p>这就是<strong>费米黄金法则</strong>.</p>
+<h2 id="实际情况">实际情况<a hidden class="anchor" aria-hidden="true" href="#实际情况">#</a></h2>
+<p>含时微扰往往并非严格周期函数, 我们用频率分布来描述微扰:</p>
+<p>$$
+\delta H = \int\hat{V}(\omega)\cos{(\omega t)}\mathrm{d}\omega
+$$</p>
+<p>并且, 由于存在多普勒展宽, 所以原子能级差 $\omega_{mn}$ 本身也并不是固定值, 从而出现一个分布.</p>
+<h2 id="定值含时微扰">定值含时微扰<a hidden class="anchor" aria-hidden="true" href="#定值含时微扰">#</a></h2>
+<p>考虑如下的微扰哈密顿量:</p>
+<p>$$
+\delta\hat{H}(t) = \begin{cases}
+0, (t &lt; 0)\\
+\hat{V}, (t \geq 0)
+\end{cases}
+$$</p>
+<p>根据前面的推导, 我们可以得到</p>
+<p>$$
+c_{m}(t) = \frac{1}{i\hbar}\int_{0}^{t}V_{mn}e^{i\omega_{mn}t&rsquo;}\mathrm{d}t&rsquo; = -\frac{V_{mn}(e^{i\omega_{mn}t} - 1)}{\hbar\omega_{mn}}
+$$</p>
+<p>所以总跃迁概率为</p>
+<p>$$
+\sum_{m}P_{n\rightarrow m}(t) = \sum_{m}\frac{4|V_{mn}|^{2}}{\hbar^{2}}\frac{\sin^{2}{\frac{\omega_{mn}t}{2}}}{\omega_{mn}^{2}} = \frac{2\pi t}{\hbar}\rho(E_{n})|V_{mn}|^{2}
+$$</p>
+<p>最后一个等号采用了&quot;系统的末态为连续分布&quot;的假设.</p>
+<p>所以跃迁速率为</p>
+<p>$$
+w = \frac{\mathrm{d}}{\mathrm{d}t}P_{n\rightarrow m}(t) = \frac{2\pi}{\hbar}\rho(E_{n})|V_{mn}|^{2}
+$$</p>
+<p>如果补加条件 &ldquo;初末态能量分别为 $E_{i},E_{f}$&rdquo;, 则有</p>
+<p>$$
+w = \frac{2\pi}{\hbar}\rho(E_{f})|V_{fi}|^{2}, E_{f} = E_{i}+\hbar\omega<br>
+$$</p>
+<p>这个方程和前面的费米黄金法则是一致的.</p>
+<h2 id="电磁场">电磁场<a hidden class="anchor" aria-hidden="true" href="#电磁场">#</a></h2>
+<p>前面我们假定周期性含时微扰</p>
+<p>$$
+\hat{H} = \hat{H}_{0} + 2\hat{V}\cos{(\omega t)}
+$$</p>
+<p>我们可以通过求一阶修正系数来得到系统从能级 $E_{n}$ 跃迁到能级 $E_{m}$ 的概率:</p>
+<p>$$
+P_{n\rightarrow m}^{(1)}(t) = \frac{4|V_{mn}|^{2}}{\hbar^{2}}\frac{\sin^{2}{\frac{(\omega_{mn} - \omega)t}{2}}}{(\omega_{mn} - \omega)^{2}}
+$$</p>
+<blockquote>
+<p>该结果可以通过长时间极限近似为</p>
+<p>$$
+\lim_{t\rightarrow\infty}P_{n\rightarrow m}^{(1)}(t) = \frac{4|V_{mn}|^{2}}{\hbar^{2}}\frac{\pi t}{2}\delta(\omega_{mn} - \omega)
+$$</p>
+<p>对应的跃迁速率为</p>
+<p>$$
+w_{n\rightarrow m} = \frac{4|V_{mn}|^{2}}{\hbar^{2}}\frac{\pi}{2}\delta(\omega_{mn} - \omega)
+$$</p>
+<p>该结果只有对末态求和/求积分之后才会有物理意义.</p>
+</blockquote>
+<p>因为辐射场本身一定频率分布下的平面波叠加, 所以如果要求原子的能级跃迁概率, 就应该对所有的电磁场频率求和.</p>
+<blockquote>
+<p>电磁波的波长远长于原子的尺寸, 所以我们可以采取近似 $\vec{k}\cdot\vec{a}\ll 1$, 即我们可以忽略有关 $\vec{x}$ 的项.</p>
+</blockquote>
+<p>所以我们同样可以忽略空间项. 而磁场对原子的作用远弱于电场对原子的作用, 所以我们也可以忽略磁场项.</p>
+<p>考虑单电子原子, 平面波频率为 $\omega$, 电场方向矢量为 $\hat{n}$. 即有微扰哈密顿量</p>
+<p>$$
+\delta\hat{H} = -qE\vec{r}\cdot\hat{n}\cos{(\omega t)}\\
+\hat{V} = -qE\vec{r}\cdot\frac{\hat{n}}{2}
+$$</p>
+<p>考虑只有两个束缚态, 即基态 $a$, 激发态 $b$. 即有</p>
+<p>$$
+\omega_{0} = \omega_{ba} = \frac{E_{b}-E_{a}}{\hbar}
+$$</p>
+<p>我们知道电子的偶极矩为 $\vec{p}_{ba} = q\vec{r}$, 因为有基底 $|\psi_a\rangle,|\psi_b\rangle$, 所以我们可以定义偶极矩的矩阵元:</p>
+<p>$$
+\mathbf{p}_{ba} = \langle\psi_{b}|q\vec{r}|\psi_{a}\rangle
+$$</p>
+<p>所以 $\hat{V}$ 的矩阵元可以表示为偶极矩的矩阵元的函数:</p>
+<p>$$
+V_{ba} = -\frac{qE}{2}\langle\psi_{b}|\vec{r}\cdot\hat{n}|\psi_{a}\rangle = -\frac{E}{2}\hat{n}\cdot\langle\psi_{b}|q\vec{r}|\psi_{a}\rangle = -\frac{E}{2}\hat{n}\cdot\mathbf{p}_{ba}
+$$</p>
+<p>将矩阵元代入到跃迁概率的表达式中, 即可得到</p>
+<ul>
+<li><strong>吸收</strong></li>
+</ul>
+<p>$$
+P_{a\rightarrow b}(t) = \frac{E^{2}|\hat{n}\cdot\mathbf{p}_{ba}|^{2}}{\hbar^{2}}\frac{\sin^{2}{\frac{(\omega-\omega_{0})t}{2}}}{(\omega-\omega_{0})^{2}}
+$$</p>
+<ul>
+<li><strong>受激辐射</strong></li>
+</ul>
+<p>$$
+P_{b\rightarrow a}(t) = \frac{E^{2}|\hat{n}\cdot\mathbf{p}_{ab}|^{2}}{\hbar^{2}}\frac{\sin^{2}{\frac{(\omega - \omega_{0})t}{2}}}{(\omega - \omega_{0})^{2}}
+$$</p>
+<p>根据对称性, 显然有 $P_{a\rightarrow b}(t) = P_{b\rightarrow a}(t)$.</p>
+<h2 id="黑体辐射场">黑体辐射场<a hidden class="anchor" aria-hidden="true" href="#黑体辐射场">#</a></h2>
+<p>即假定所有频率和偏振的电磁场不相干叠加, 并且与环境达成热力学平衡.</p>
+<p>对于空间中的电磁场, 我们总是可以写作傅里叶级数形式:</p>
+<p>$$
+\vec{E}(\vec{x},t) = \sum_{\vec{k}}\vec{E}_{\vec{k}}\cos{(\vec{k}\cdot\vec{x} - \omega t)}\\
+\vec{B}(\vec{x},t) = \sum_{\vec{k}}\vec{B}_{\vec{k}}\cos{(\vec{k}\cdot\vec{x} - \omega t)}
+$$</p>
+<blockquote>
+<p>$\vec{k}$ 是电磁场的波矢, 且有关系 $\omega = \hbar c|\vec{k}|$.</p>
+</blockquote>
+<p>我们假定傅里叶系数 $\left\{\vec{E}_{\vec{k}},\vec{B}_{\vec{k}}\right\}$ 相互独立, 即</p>
+<p>$$
+\langle\vec{E}_{\vec{k}}\cdot\vec{E}_{\vec{k}&rsquo;} = \langle|\vec{E}_{\vec{k}}|^{2}\rangle\delta_{\vec{k}\vec{k}&rsquo;}
+$$</p>
+<blockquote>
+<p>$\langle\rangle$ 表示对电磁场的涨落求平均.</p>
+</blockquote>
+<p>所以电磁场的总平均能量为</p>
+<p>$$
+U = \left\langle\frac{1}{2}\int\mathrm{d}^{2}x\left(\epsilon_{0}\mathbf{E}^{2}+\mu_{0}\mathbf{B}^{2}\right)\right\rangle = \epsilon_{0}\int\mathrm{d}^{3}x\langle\mathbf{E}(\vec{x})^{2}\rangle = \frac{\epsilon_{0}}{2}V\sum_{\mathbf{k}}\langle|\mathbf{E}_{\mathbf{k}}|^{2}\rangle
+$$</p>
+<blockquote>
+<p>第二个等号是因为电磁波中的电场和磁场的能量相等, 第三个等号是使用了不同模式电场之间的相互独立性.</p>
+</blockquote>
+<p>所以电磁场的总平均能量密度为</p>
+<p>$$
+u = \frac{U}{V} = \frac{\epsilon_{0}}{2}\sum_{\mathbf{k}}\langle|\mathbf{E}_{\mathbf{k}}|^{2}\rangle
+$$</p>
+<p>对于求和, 我们可以将其转化为两步:</p>
+<p>$$
+\sum_{\mathbf{k}} = \sum_{\omega}\sum_{\mathbf{k}}'
+$$</p>
+<blockquote>
+<p>$\sum_{\mathbf{k}}&rsquo;$ 表示的是对 $\omega_{\mathbf{k}}\in(\omega, \omega + \mathrm{d}\omega)$ 范围内的所有模式求和. 所以就有电磁场单位频率的能量密度的表达式:</p>
+</blockquote>
+<p>$$
+u(\omega)\mathrm{d}\omega = \frac{\epsilon_{0}}{2}\sum_{\mathbf{k}}&rsquo;\langle|\mathbf{E}_{\mathbf{k}}|^{2}\rangle\\
+u = \frac{U}{V} = \int_{0}^{+\infty}u(\omega)\mathrm{d}\omega
+$$</p>
+<p>而普朗克黑体辐射给出的单位频率的能量密度表达式为</p>
+<p>$$
+u(\omega)\mathrm{d}\omega = \frac{\hbar}{\pi^{2}c^{3}}\frac{\omega^{3}\mathrm{d}\omega}{e^{\beta\hbar\omega} - 1}
+$$</p>
+<p>黑体辐射场中的原子与各电磁场模互相作用, 因为不同模式之间不相干, 所以跃迁概率彼此独立, 从而进行简单相加.</p>
+<p>$$
+P_{a\rightarrow b} = \sum_{\mathbf{k}}\frac{\langle|\mathbf{E}_{\mathbf{k}}|^{2}|\hat{n}_{\mathbf{k}}\cdot\mathbf{p}_{ba}|^{2}}{\hbar^{2}}\frac{\sin^{2}{\frac{(\omega_{\mathbf{k}} - \omega_{0})t}{2}}}{(\omega_{\mathbf{k}} - \omega_{0})^{2}}
+$$</p>
+<p>因为在统计时, $\mathbf{E}_{\mathbf{k}}$ 体现出各向同性, 所以矩阵元 $|\hat{n}_{\mathbf{k}}\cdot\mathbf{d}_{ba}|^{2}$ 也可以进行方向平均:</p>
+<p>$$
+|\hat{n}_{\mathbf{k}}\cdot\mathbf{p}_{ab}|^{2}\rightarrow\left\langle\frac{1}{3}\mathbf{p}_{ab}\cdot\hat{n}\hat{n}\cdot\mathbf{p}_{ab}^{*}\right\rangle = \frac{1}{3}\mathbf{p}_{ab}\cdot\mathbf{p}_{ab}^{*} = \frac{1}{3}|\mathbf{d}_{ab}|^{2}
+$$</p>
+<blockquote>
+<p>$\langle\hat{n}\hat{n}\rangle = \frac{1}{3}\mathbf{I}$</p>
+</blockquote>
+<p>所以跃迁概率形式变为</p>
+<p>$$
+\begin{aligned}
+P_{a\rightarrow b}(t) &amp;= \sum_{\mathbf{k}}\frac{\langle|\mathbf{E}_{\mathbf{k}}|^{2}\rangle|\mathbf{p}_{ab}|^{2}}{3\hbar^{2}}\frac{\sin{\frac{(\omega_{\mathbf{k}} - \omega_{0})t}{2}}}{(\omega_{\mathbf{k}} - \omega_{0})^{2}}\\
+&amp;= \sum_{\omega}\sum_{\mathbf{k}}&rsquo;\frac{\langle|\mathbf{E}_{\mathbf{k}}|^{2}\rangle|\mathbf{p}_{ab}|^{2}}{3\hbar^{2}}\frac{\sin{\frac{(\omega_{\mathbf{k}} - \omega_{0})t}{2}}}{(\omega_{\mathbf{k}} - \omega_{0})^{2}}\\
+&amp;= \sum_{\omega}\frac{|\mathbf{p}_{ab}|^{2}}{3\hbar^{2}}\frac{\sin{\frac{(\omega_{\mathbf{k}} - \omega_{0})t}{2}}}{(\omega_{\mathbf{k}} - \omega_{0})^{2}}\sum_{\mathbf{k}}&rsquo;\langle|\mathbf{E}_{\mathbf{k}}|^{2}\rangle\\
+&amp;= \int_{0}^{+\infty}\frac{|\mathbf{p}_{ab}|^{2}}{3\hbar^{2}}\frac{\sin^{2}{\frac{(\omega-\omega_{0})t}{2}}}{(\omega - \omega_{0})^{2}}\frac{2}{\epsilon_{0}}u(\omega)\mathrm{d}\omega\\
+\text{长时近似:}&amp;\approx \frac{\pi|\mathbf{p}_{ab}|^{2}t}{3\epsilon_{0}\hbar^{2}}u(\omega_{0})
+\end{aligned}
+$$</p>
+<p>对应的跃迁速率即为</p>
+<p>$$
+w_{a\rightarrow b} = w_{b\rightarrow a} = \frac{\pi|\mathbf{p}_{ab}|^{2}}{3\epsilon_{0}\hbar^{2}}u(\omega_{0})
+$$</p>
+<h2 id="ab-系数">$AB$ 系数<a hidden class="anchor" aria-hidden="true" href="#ab-系数">#</a></h2>
+<p>考虑 $N_{a}$ 个原子在 $\psi_{a}$, $N_{b}$ 个原子在 $\psi_{b}$, 且 $E_{b} &lt; E_{a}$. 假设原子的跃迁相互独立, 而跃迁概率根据公式可知与辐射场在某跃迁频率下的能量密度成正比, 所以我们就可以写出 $N_{b}$ 的变化率方程:</p>
+<p>$$
+\frac{\mathrm{d}N_{b}}{\mathrm{d}t} = -N_{b}A - N_{b}\underbrace{B_{ba}u(\omega)}_{w_{b\rightarrow a}} + \underbrace{N_{a}B_{ab}u(\omega)}_{w_{a\rightarrow b}}
+$$</p>
+<blockquote>
+<p>$$
+\begin{aligned}
+\begin{cases}
+A &amp; \text{自发辐射速率}(与辐射场无关)\\
+w_{b\rightarrow a} = B_{ba}u(\omega) &amp; \text{受激辐射速率}\\
+w_{a\rightarrow b} = B_{ab}u(\omega) &amp; \text{受激吸收速率}
+\end{cases}
+\end{aligned}
+$$</p>
+</blockquote>
+<p>前面我们已经知道了跃迁速率的具体表达式, 所以</p>
+<p>$$
+B_{ab} = B_{ba} = \frac{\pi|\mathbf{p}_{ab}|^{2}}{3\epsilon_{0}\hbar^{2}}
+$$</p>
+<p>如果 $A = 0$, 那么平衡时就有</p>
+<p>$$
+N_{b} =  N_{a}B_{ab}
+$$</p>
+<p>而 $B_{ab}$ 与 $B_{ba}$ 并不依赖于温度, 那么 $\frac{N_{a}}{N_{b}}$ 也不依赖于温度, 温度不能影响到平衡态分布, 这当然是荒谬的, 也就是说 $A \neq 0$.</p>
+<p>因此就有</p>
+<p>$$
+u(\omega) = \frac{A}{\frac{N_{a}}{N_{b}}B_{ab} - B_{ba}}
+$$</p>
+<p>在统计力学中, 我们会有平衡时</p>
+<p>$$
+\frac{N_{a}}{N_{b}} = e^{\beta\hbar\omega} = e^{\beta(E_{b} - E_{a})}
+$$</p>
+<p>普朗克则给出能量密度</p>
+<p>$$
+u(\omega) = \frac{\hbar}{\pi^{2}c^{3}}\frac{\omega^{3}}{e^{\beta\hbar\omega} -1}
+$$</p>
+<p>即有</p>
+<p>$$
+B_{ab} = B_{ba}\\
+\frac{A}{B_{ba}} = \frac{\hbar\omega^{3}}{\pi^{2}c^{3}}
+$$</p>
+<p>根据前面计算的结论, 即有</p>
+<p>$$
+A = \frac{\hbar\omega^{3}}{\pi^{2}c^{3}}B_{ab} = \frac{\omega^{3}|\mathbf{p}_{ab}|^{2}}{3\pi\epsilon_{0}\hbar c^{3}}
+$$</p>
+<p>我们可以观察一下自发辐射率和受激辐射率的比值:</p>
+<p>$$
+\frac{\text{自发}}{\text{受激}} = \frac{A}{B_{ba}u(\omega)} = e^{\beta\hbar\omega} - 1
+$$</p>
+<blockquote>
+<p>即有</p>
+<ul>
+<li>$\hbar\omega\gg k_{B}T$: 自发辐射占主导;</li>
+<li>$\hbar\omega\ll k_{B}T$: 受激辐射占主导.</li>
+</ul>
+</blockquote>
+<h2 id="激发态寿命">激发态寿命<a hidden class="anchor" aria-hidden="true" href="#激发态寿命">#</a></h2>
+<p>在上面的讨论中, 如果态 $b$ 下只对应一个态, 那么就有</p>
+<p>$$
+\mathrm{d}N_{b} = -AN_{b}\mathrm{d}t\\
+\Downarrow\\
+N_{b}(t) = N_{b}(0)^{-At} = N_{b}(0)e^{-\frac{t}{\tau}}
+$$</p>
+<p>所以就有激发态寿命为 $\tau = \frac{1}{A}$.</p>
+<p>如果态 $b$ 对应多个态, 那么</p>
+<p>$$
+\mathrm{d}N_{b} = -A_{1}N_{b}\mathrm{d}t - A_{2}N_{b}\mathrm{d}t - \cdots - A_{n}N_{b}\mathrm{d}t\\
+= -\left(\sum_{k &lt; b}A_{k}\right)N_{b}\mathrm{d}t = -AN_{b}\mathrm{d}t
+$$</p>
+<p>和上面单态情形相同. 因此就有</p>
+<p>$$
+\tau = \frac{1}{A} = \frac{1}{A_{1} + A_{2} + \dots}
+$$</p>
+<p>我们可以写作调和形式:</p>
+<p>$$
+\frac{1}{\tau} = \frac{1}{\tau_{1}} + \frac{1}{\tau_{2}} + \dots
+$$</p>
+<h2 id="选择定则">选择定则<a hidden class="anchor" aria-hidden="true" href="#选择定则">#</a></h2>
+<blockquote>
+<p>角动量对易关系
+$$
+[\hat{L}_{z},\hat{x}] = i\hbar\hat{y}, \quad [\hat{L}_{z},\hat{y}] = -i\hbar\hat{x}, \quad [\hat{L}_{z},\hat{z}] = 0
+$$</p>
+</blockquote>
+<p>这三个对易关系可以分别推导出</p>
+<p>$$
+(m&rsquo;-m)\langle n&rsquo;l&rsquo;m&rsquo;|\hat{x}|nlm\rangle = i\langle n&rsquo;l&rsquo;m&rsquo;|\hat{y}|nlm\rangle\\
+(m&rsquo;-m)\langle n&rsquo;l&rsquo;m&rsquo;|\hat{y}|nlm\rangle = -i\langle n&rsquo;l&rsquo;m&rsquo;|\hat{x}|nlm\rangle\\
+\langle n&rsquo;l&rsquo;m&rsquo;|\hat{z}|nlm\rangle = 0(m&rsquo;\neq m)
+$$</p>
+<p>所以就有</p>
+<p>$$
+(m&rsquo;-m)\langle n&rsquo;l&rsquo;m&rsquo;|\hat{x}|nlm\rangle = \langle n&rsquo;l&rsquo;m&rsquo;|\hat{x}|nlm\rangle
+$$</p>
+<p>该式表明</p>
+<p>$$
+\langle n&rsquo;l&rsquo;m&rsquo;|\hat{x}|nlm\rangle = 0 \text{ or } m&rsquo; - m = \pm 1
+$$</p>
+<p>同理, 对 $\hat{y}$ 也可以得出</p>
+<p>$$
+\langle n&rsquo;l&rsquo;m&rsquo;|\hat{y}|nlm\rangle = 0 \text{ or } m&rsquo; - m = \pm 1
+$$</p>
+<p>现在 $\hat{x},\hat{y},\hat{z}$ 的关系都已经得到, 所以就有</p>
+<p>$$
+\langle n&rsquo;l&rsquo;m&rsquo;|\mathbf{r}|nlm\rangle = 0 \text{ or } m&rsquo; - m = 0, \pm 1
+$$</p>
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>超选择定则<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><blockquote>
+<p>证明
+$$
+\left[L^{2},\left[L^{2},\mathbf{r}\right]\right] = 2\hbar\left(\mathbf{r}L^{2} + L^{2}\mathbf{r}\right)
+$$</p>
+</blockquote>
+<p>对该等式左右分别乘一个态从而形成</p>
+<p>$$
+\langle n&rsquo;l&rsquo;m&rsquo;|\left[L^{2},\left[L^{2},\mathbf{r}\right]\right]|nlm\rangle = \langle n&rsquo;l&rsquo;m&rsquo;|2\hbar\left(\mathbf{r}L^{2} + L^{2}\mathbf{r}\right)|nlm\rangle
+$$</p>
+<p>我们对左边和右边进行分别化简:</p>
+<p>$$
+\text{L:}\langle n&rsquo;l&rsquo;m&rsquo;|\left[L^{2},\left[L^{2},\mathbf{r}\right]\right]|nlm\rangle\\
+= \langle n&rsquo;l&rsquo;m&rsquo;|L^{4}\mathbf{r}-2L^{2}\mathbf{r}L^{2} + \mathbf{r}L^{4}|nlm\rangle\\
+= \hbar^{4}[l&rsquo;(l&rsquo; + 1) - l(l + 1)]^{2}\langle n&rsquo;l&rsquo;m&rsquo;|\mathbf{r}|nlm\rangle
+$$</p>
+<p>$$
+\text{R:}\langle n&rsquo;l&rsquo;m&rsquo;|2\hbar\left(\mathbf{r}L^{2} + L^{2}\mathbf{r}\right)|nlm\rangle\\
+= 2\hbar^{4}[l(l + 1) + l&rsquo;(l&rsquo; + 1)]\langle n&rsquo;l&rsquo;m&rsquo;|\mathbf{r}|nlm\rangle
+$$</p>
+<p>为了 $\langle n&rsquo;l&rsquo;m&rsquo;|\mathbf{r}|nlm\rangle$ 非零, 联立即有</p>
+<p>$$
+2[l(l + 1) + l&rsquo;(l&rsquo; + 1)] = [l&rsquo;(l&rsquo; + 1) - l(l + 1)]^{2}\\
+\Downarrow\\
+[(l&rsquo; + l + 1)^{2} - 1][(l&rsquo; - l)^{2} - 1] = 0
+$$</p>
+<p>所以分式为零. 而 $(l&rsquo; + l + 1)^{2} - 1 = 0$ 会得出 $l = l&rsquo; = 0$, 对应的 $|lm\rangle = |l&rsquo;m&rsquo;\rangle = |00\rangle$ 球对称, 这违背了 $\langle nlm|\mathbf{r}|nlm\rangle \neq 0$ 的约定. 所以</p>
+<p>$$
+(l&rsquo; - l)^{2} - 1 = 0\Rightarrow l&rsquo; = l \pm 1
+$$</p>
+<p>这就是对量子数 $l$ 的选择定则.</p>
+</div>
+
+ </div>
+
+ </div>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/ed/vector-analysis/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>矢量分析</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/phy/cmp/topological/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>能带拓扑性质</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>
