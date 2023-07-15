@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>密度矩阵 | 计算物理资料库</title>
+<title>密度矩阵 | 无处惹尘埃</title>
 <meta name="keywords" content="">
 <meta name="description" content="投影算符 定义 假设对于一个物理量算符 $\hat{R}$, 其本征方程为 $$ \hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots) $$ 我们引入投影算符: $$ \hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}| $$ 所以显然有 $$ \hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle $$ 性质 厄密性 $$ \hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger} $$ 幂等性(Idempotent) $$ \hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k} $$ 完备性 $$ \sum_{k}\hat{\pi}_{k} = I $$ 证明: 对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开: $$ |\psi\rangle = c_{1}|\psi_{1}\rangle &#43; c_{2}|\psi_{2}\rangle &#43; \dots &#43; c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle} $$ 那么将投影算符和作">
 <meta name="author" content="Muartz">
@@ -181,7 +181,7 @@ code.has-jax {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "计算物理资料库",
+    "name": "无处惹尘埃",
     "logo": {
       "@type": "ImageObject",
       "url": "https://Muatyz.github.io/img/Head32.png"
@@ -991,11 +991,11 @@ $$</p>
                 e.preventDefault();
                 let htmlData = window.getSelection().toString() +
                     '\r\n\n————————————————\r\n' +
-                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
                 '\r\n原文链接：' + location.href;
                 let textData = window.getSelection().toString() +
                     '\r\n\n————————————————\r\n' +
-                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
                 '\r\n原文链接：' + location.href;
                 clipboardData.setData('text/html', htmlData);
                 clipboardData.setData('text/plain', textData);
@@ -1021,7 +1021,7 @@ $$</p>
             if ('clipboard' in navigator) {
                 let text = codeblock.textContent +
                     '\r\n————————————————\r\n' +
-                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
                 '\r\n原文链接：' + location.href;
                 navigator.clipboard.writeText(text);
                 copyingDone();
