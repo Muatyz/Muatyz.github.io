@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>面试押题清单 | 计算物理资料库</title>
+<meta name="keywords" content="">
+<meta name="description" content="整理出可能的在面试中提出的问题">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/life/interview-list/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="面试押题清单" />
+<meta property="og:description" content="整理出可能的在面试中提出的问题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/life/interview-list/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-14T00:18:15+08:00" />
+<meta property="article:modified_time" content="2023-07-14T00:18:15+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="面试押题清单"/>
+<meta name="twitter:description" content="整理出可能的在面试中提出的问题"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🏖 生活",
+          "item": "https://Muatyz.github.io/posts/life/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "面试押题清单",
+      "item": "https://Muatyz.github.io/posts/life/interview-list/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "面试押题清单",
+  "name": "面试押题清单",
+  "description": "整理出可能的在面试中提出的问题",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "面试注意事项 简单介绍自己.\n我是 20 级致远物理的何翼成, 我同时报名了物院和李所, 报名方向为凝聚态物理, 对于实验和理论没有特别的倾向性.\n转角石墨烯 你能说一下什么是紧束缚模型吗?\n紧束缚模型的关键在于, 将电子在原子实附近的行为近似于氢原子的电子波函数, 而其余原子实的势场被视为微扰, 也就是周期性势场 $U(r)$ 和单原子实 $V(r)$ 的差. 我们根据这个差, 还有在周期性势场下解出的波函数基, 就可以计算出不同格点位置的交叠积分.\n计算 $s$ 轨道波函数, 就只需要考虑最近邻(nearest neighbours)格点的交叠积分. 这种情况下, 我们得到能带的表达式\n$$ E(\\mathbf{k}) = \\epsilon_{i} - \\sum_{s}J(\\mathbf{R}_{s})e^{-\\mathbf{k}\\cdot\\mathbf{R}_{s}} $$\n我们也可以通过二次量子化的观点来理解紧束缚模型. 通过产生和湮灭算符我们可以得到\n$$ \\hat{H} = -t\\sum_{i}(\\hat{c_{i}}^{\\dagger}\\hat{c_{i+1}}+h.c.) $$\n在更高维的情况下就不能用简单的 $t$ 来描述了, 需要更复杂的 $f(\\mathbf{k})$ 来替代.\n谈谈你对 Wannier 函数的理解.\n我们根据基矢求出对应的倒格子基矢, 然后 Bloch 态和 Wannier 态之间是 Fourier 变换关系:\n$$ \\psi_{nl}(r) = \\frac{1}{\\sqrt{N}}\\sum_{l}e^{ik\\cdot l}W_{n}(r,l) $$\n将原子的态写作 Bloch 态的级数和形式, 然后将其代入到薛定谔方程中化为久期方程, 也就是系数行列式为 $0$. 各矩阵元是通过使用基函数对哈密顿量求内积得到的.\n如果考虑紧束缚模型, 就只需要考虑最近邻跃迁, 就是位移矢量. 矩阵元代回久期方程的解即可得到完整的能带表达式.\n你能介绍一下什么是低能连续模型吗?\n低能连续模型在国内也有被翻译为 “有效模型” 的. 相较于使用紧束缚模型给出的能带结构, 连续结构并不在意晶体是否有共格, 是否有摩尔超晶体.\n我们可以先写出每个单层的狄拉克哈密顿量, 这个哈密顿量会和转角有关系, 我们也可以使用泡利矩阵乘积形式来描述.\n然后描述层间的跃迁的矩阵元, 仍然按照借用紧束缚模型的思路将波函数写作级数和的形式. 利用傅里叶变换和两中心近似, 将式子写作动量空间的形式并且化简, 就可以得到层间跃迁的矩阵元.\n低能模型只有三个跃迁过程有意义, 代入即有最后的结果. 最后得到的矩阵有 $4$ 个矩阵元, 这代表了四种不同的跃迁子格排布.\n弛豫效应会使得能级发生变化, 这个变化使得能隙被打开并且有明显的平带.\n你能介绍什么是 Hubbard 模型吗?\n假定离子质量因为远大于电子所以可以构成静态的晶格, 同时引入辅助势, 它需要让单体的哈密顿量对应的本征态之间的有效二体势相比之下很小.\n使用 Wannier 函数和升降算符, 我们可以导出场算符的形式, 将场算符代换到原本的哈密顿量的表达式中, 我们就可以得到二次量子化形势下的哈密顿量.\nHubbard Model 的提出点在于, 将原子内的库伦相互作用看的比原子间的相互作用还要大. 如果再做出进一步的约束, 比如 Wannier 函数强局域于格点, 那么 Hubbard Model 就会退化为紧束缚模型.\n你提到过你曾经进行过转角石墨烯的能带计算, 请简单介绍你的工作.\n首先我要说明的是, 虽然我是在王世勇老师组下进行科研实践, 但是王老师本身偏向于实验较多, 而我因为种种时间问题很少到实验室去真正做实验, 所以我更多的是自主寻找相关方法. 王老师告诉我计算要从低能连续模型出发, 这当然在 Mac Donald 先生的论文中已经提到了, 我参考的不少资料基本上都是从这篇文章的理论衍生出来的.\n首先我是接触的密度矩阵重整化群的方法, 这方面的代表计算库是 ITensor, 虽然这个计算库的确很受欢迎, 但是其文档存在着版本更新的问题, 用于学习非常困难. 幸好提出该计算方法理论的 Schollwöck 不仅写了一篇小论文 The density-matrix renormalization group: a short introduction 对其理论背景进行了介绍, 并且还绘制了插图丰富的使用手册. 问题在于, ITensor 已经从第二版升级到了第三版, 不少的语法和函数都发生了变化, 就像前面所提到的那样, 其文档缺乏真正的维护者. 于是我结合了该手册和官网上的 Tutorial, 将所有的资料完全汉化并且更新为最新的语法规范, 并且提供了最新 Tutorial 的代码答案.\n这虽然已经偏离了具体的转角石墨烯的工作, 但是仍然是很有意义的. 因为这个时候我的科研导向并不是真正的做出什么成果, 而是尽可能地多学习一些知识, 多磨练一些经验技巧.\n随后就是真正的问题: ITensor 的确是非常优秀的计算库, 但是它只擅长于处理一维的模型. 虽然在官网里存在对于二维模型的计算, 但是它是使用的方格模型, 并且实际上取了巧: 在某一个独立维度上实际上是使用了某些周期化条件, 这并不是真正的二维模型. 并且, 摩尔超晶格产生的是三角晶格, 转角石墨烯本身的结构也很难使用简单的方格模型来描述, 所以我在 DMRG 方面的探索陷入了僵局, 这也是我希望后续能够和相关方面工作的老师进行交流的地方, 希望能够对我的误区进行指点.\nDMRG 还有一个问题就是很慢. c++ 作为编译型的语言已经算是效率很快的了, 但是即使只是简单的一维模型, DMRG 的计算效率也很低. 情况来到特殊情况的二维时, 执行效率更低.\n然后我转向的是最基础的方法, 也就是按照低能模型的方法完整写出哈密顿量, 然后对其进行求特征值. 但是这又暴露出另一个问题: 摩尔体系下, 超原胞的格点数目往往非常大, 想要做计算往往需要超算来完成. 这一点, 我在和王老师组下的李灿博士进行交流的时候有提到过, 但是当时我是 “贼心不死”, 想要尽量在个人级别的计算机上完成相关工作, 但是后来的实践表明这的确很难.\n比较明显的进步就是参考了之前在中科大的王子豪学长, 他也是从 Donald 的文章出发写的 Python 计算脚本, Python 是解释型的语言, 计算效率相对慢一些. 根据他的代码我尝试计算了无转动下的能带结果, 效果还比较好. 但是当计算第一魔转角的时候, 情况就很糟糕了. 首先, 王学长是规划了一条特殊的第一布里渊区的路径, 计算该路径上的能带情况, 这也可以算是一种简化计算的方法. 但是即使如此, 当计算到五六分钟的时候, 计算机会毫无例外地卡住. 我的电脑配置算是相对高的, 12700H 和 32g 内存, 虽然算不上什么神机, 但是用做一些简单的计算还是没有什么问题的. 也许还可以将其转为其他语言进行尝试, 但是我认为在不简化计算规模之前这种尝试都是治标不治本的, 更何况低能模型已经是相比于紧束缚模型更为简化的理论了.\n所以我现在也有备选的两个计算方案, 一个是量子蒙特卡洛方法, 一个是 MERA 方法, 目前似乎没有一个统一的中文名称, 我将其称为多尺度嵌套正交模型. 根据我有限的了解, 该方法也是脱胎于密度矩阵重整化群方法, 但是对多维计算有着更高的优势. 但是这两种方法目前都只是停留在调研阶段, 我对于其是否能够真正解决能带计算还是难以判断的, 毕竟它们都算是迥异的学习路线, 而单独的一个 DMRG 从学习算法到环境搭建都花费了不少时间, 但是到最后仍然没有得到什么真正的成果, 所以这也让我在学习新的方法之前会持有更谨慎的态度.\n你能够介绍一下什么是 DMRG 算法吗?\n将单体波函数处理为 Site, 算子被看作是 Tensor, 求解期望值就是两个 Site 和一个 Tensor 结合的过程. 纠缠态, 也就是多节点, 其定义方法引申自 Site.\n哈密顿量则是使用形形色色的 Tensor 描述的, 并且往往会是很高阶的张量.\n我们为了简化计算难度, 使用矩阵乘积态来表示量子多体的波函数, 通过 SVD 奇异值分解以及合理截断就可以大幅简化计算复杂度, 这就是精度换速度的过程.\n我们使用 Trotter 法则来进行计算多量子位的算子. 但是由于 SVD 会产生方向性, 因此我们在计算时需要遵守一定的规范性, 比如左规范或者右规范.\n算子本身也可以化为矩阵乘积形式, 这被称为矩阵乘积算子 MPO, 我们可以通过定义 MPO 或者将形式转化为 MPO 形式, 让 ITensor 自动计算出对应的哈密顿量, 当然这需要我们提前定义好晶格之类的结构.\n固体物理 晶体和非晶体的区别是什么?\n晶体和非晶体的主要区别在于其排列方式是否具有周期性. 结构决定性质, 周期性会使晶体具有独特的性质.\n简单谈谈晶体的分类以及特点.\n晶体的分类方法有很多.\n结构. 按照晶体的构型可以确定为七大晶系和 $14$ 种晶格类型.\n作用力性质. 可以区分为离子晶体, 原子晶体, 分子晶体, 金属晶体.\n为什么晶体衍射中不能够用可见光?\n按照布拉格衍射公式, 可见光的波长太长, 无法与晶面间距相匹配. 比较常用的波段是 X 射线, 比如在我们学校组织的高温超导实验中, 测试衍射强度时所使用的 X 射线就是 Cu 的 K-$\\alpha$ 线波长.\n请分辨 晶体结合能, 内能, 原子间相互作用势能 概念.\n晶体结合能 晶体中各原子间键的相互作用\n内能 各原子的动能和原子间相互作用势能之和.\n原子间相互作用势能 原子之间由于电磁相互作用产生的势能.\n晶体具有哪些共性?\n均匀性, 各向异性, 确定的熔点, 特定的对称性, 对 X 射线和电子束产生衍射现象.\n什么是晶格, 什么是格点, 什么是点阵?\n晶格: 晶体中原子, 分子或者离子排列成的空间点阵;\n点阵: 是更抽象的概念, 指的是的是代表点所组成的结构;\n格点: 是指的基元位置, 严格的格点位置上未必有真正的原子, 因为基元可以有着自身的结构.\n什么是密勒指数?\n密勒指数是用来确定晶面方向的指标, 通常是互质整数, 可以通过三轴截距的倒数比推导出来.\n请说明离子性, 共价性, 金属性和范德瓦尔斯结合力的特点.\n什么是倒格子?\n倒格子是正格子通过傅里叶变换得到的, 为了方便处理一些过程的问题, 将其转化在动量空间中讨论会更加方便.\n什么是致密度?\n致密度是指的晶体中的原子平均数密度, 也就是晶体中原子体积和晶体体积的比值. 比如对于立方晶系, 填充率即致密度, 为 $0.74$.\n说明原子负电性与晶体结构之间的关系.\n负电性是指的原子核外的电子云吸引电子的能力, 它通常会用来解释离子晶体和共价晶体之间的区别.\n请分辨 原胞 和 晶胞之间的特点和区别.\n首先分析两者的定义:\n原胞: 构成晶体的最小重复单元; 要求体积最小. 需要反映晶体的周期性. 晶胞: 构成晶体的最基本几何单元. 晶胞的选取方法不是唯一的, 需要反映晶体的周期性和对称性. 什么是配位数?\n配位数是指的一个原子或者离子周围最近邻原子或者离子的数目, 通常配位数越大, 晶体结构会越稳定.\n请说明布拉维格子和复式格子各自的特点以及两者间的区别.\n布拉维格子: 相同的原胞沿着三个不共面方向进行周期性平移形成的晶格.\n复式格子: 多个原胞沿着三个不共面的方向进行周期性平移形成的晶格.\n布拉维格子只有一个原胞, 而复式格子有两个及以上的原胞?\n布拉维格子只反映晶体的几何结构, 复式格子还可以反映晶体的化学性质;\n复式格子的基本类型和空间群种类远远多于布拉维格子.\n为什么许多金属都是密堆积结构?\n因为金属键没有饱和性和方向性, 而配位数越多越稳定, 所以不少的金属结构都倾向于形成密堆积结构.\n为什么在甚低温下, 德拜模型可以与实验相符?\n因为在足够低温下, 光学波不会被激发, 且声子能量较大的短声学格波也不会被激发, 需要考虑的只有声子能量较小的长格波, 也就是弹性波. 德拜模型只考虑了弹性波对热容的贡献, 所以在甚低温下德拜模型的解释性较好.\n请解释金属, 半导体, 绝缘体的导电性原理.\n金属: 由于价带和导带之间没有禁带, 所以电子可以自由地在价带和导带之间移动; 半导体: 禁带宽度较小, 温度较低时可以通过热激发将电子跃迁到导带中, 从而形成电流; 绝缘体: 导电性很差, 因为禁带宽度很大, 电子难以通过热激发的方式跃迁到导带中. 金属淬火之后为什么会变硬?\n金属的结构在淬火后由奥氏体变为马氏体, 马氏体的硬度相对更高, 所以金属会变硬.\n请说明金刚石的结构特点.\n金刚石是两个面心立方点阵嵌套形成的结构, 每个碳原子都以 $sp^{3}$ 杂化形成共价键, 构成正四面体, 硬度大, 熔点高. 所有的价电子都被限制在共价键区域, 因此没有自由电子, 绝缘性质极好.\n量子理论中如何解释金属电子对于固体热容的贡献?\n在量子理论中, 大多数电子的能量远远低于费米能量, 所以只有在费米面附近的电子才会参与热激发, 从而对金属的热容量产生贡献.\n为什么常温下电子对热容的贡献很小?\n在常温下, 电子的能量远远低于费米能量, 只有在费米面附近的电子才会参与热激发, 而常温下电子能量较低, 所以对于热容的贡献很小.\n什么是声子?\n当电子的波矢落在布里渊区的边界上时, 为什么其有效质量与真实质量有着显著的差别?\n什么是非简谐效应?\n请说明研究金属热容量的意义.\n请说明金属接触电势差如何形成.\n什么是极化子?\n什么是布洛赫波?\n请说明布洛赫定理和布洛赫函数.\n请说明紧束缚近似模型的思想和主要结论.\n紧束缚模型将晶体中的电子波函数近似为邻近原子的电子波函数的线性组合, 从而导出能带结构, 电子态密度和禁带等信息.\n请说明经典的自由电子理论的要点及应用.\n自由电子理论假设金属中的电子没有相互作用, 受到晶格的周期性势场的束缚. 电子的运动需要服从经典力学和玻尔兹曼分布, 从而解释金属的电导, 热导和电子热容等性质.\n请说明准自由电子近似的理论要点.\n假定电子在晶格中受到周期性势场的弱束缚, 电子的运动仍然近似为自由电子, 但是需要考虑晶格的散射, 从而推导出金属的电导, 电子热容, 热导和光电效应等性质.\n请说明石墨的结构特点.\n模拟-1 光为什么能够在真空中传播?\n因为光的本质是电磁场的振荡, 充当振荡介质的电磁场的激发可以在真空中完成, 因此光可以在真空中传播.\n你可以分别给出光粒子性和波动性的证据吗?\n粒子性 牛顿光路原理, 光电效应, 光帆效应.\n波动性 惠更斯原理, 杨氏双缝干涉实验.\n光遇到介质时, 各物理量会发生什么变化?\n当光穿越介质表面时, 光的传播速度会发生变化, 而光的频率/波长不会发生变化. 如果两种介质的折射率不同, 还会产生光的色散现象.\n绝缘体和半导体的不同是什么?\n在固体物理中, 我们使用价带和导带来区分绝缘体和半导体. 在绝缘体中, 价带和导带之间的能隙较大, 所以在室温下, 很难将电子激发到导带中; 半导体中, 价带和导带之间的能隙较小, 在室温下一些电子可以被激发到导带中, 所以半导体的电阻率会介于金属和绝缘体之间.\nP 型半导体和 N 型半导体的区别是什么? 为什么会有这种区别?\nP 型半导体和 N 型半导体的区别在于其掺杂的杂质不同. P 型半导体中, 杂质是三价元素, 比如硼, 铝, 镓等; N 型半导体中, 杂质是五价元素, 比如磷, 砷, 锑等. 这种区别是因为三价元素和五价元素的电子结构不同, 三价元素的外层电子数目比价带中的电子数目少, 五价元素的外层电子数目比价带中的电子数目多.\n你能够解释二极管的成因吗? 为什么二极管具有单向导电性?\n二极管的本质是形成的 PN 结, 即 P 型半导体和 N 型半导体的接触面. P 型半导体中的空穴浓度较高, N 型半导体中的自由电子浓度较高, 所以接触时就会产生扩散, 使得 PN 结中 P 侧带负电, N 侧带正电, 形成 N 指向 P 的内建电场, 这个电场导致击穿电压以下的电子很难从 N 传播到 P, 这就是所谓的单向导电性.\n请描述吉布斯佯谬(两种相同的气体混合, 和两种不同的气体混合有什么区别?).\n经典的统计力学导出的单原子分子的理想气体熵为\n$$ S = \\frac{3}{2}Nk + Nk\\ln\\left\\{V\\left(\\frac{2\\pi mkT}{h^{2}}\\right)^{\\frac{3}{2}}\\right\\} $$ 设有两个容器连接但是使用隔板断开, 各自都有一定的熵 $S$. 如果打开容器壁的隔板门, 气体就会产生混合. 如果两边气体都是 $T,V$, 那么混合后产生的熵变按照上面的公式有\n$$ S_{\\text{A} + \\text{B}} - (S_{\\text{A}} + S_{\\text{B}}) = 2Nk\\ln{2} $$\n但是如果 A, B 的气体分子全同, 那么隔板打开前后气体的状态实际上没有任何变化, 所以熵也应该没有变化, 这就和吉布斯导出的结果产生了矛盾.\n请谈谈费米子和玻色子的不同.\n两种粒子的典型代表分别是:\n费米子: 电子, 质子, 中子, 中微子等.\n玻色子: 光子, 声子, 胶子等.\n两种例子遵从的统计不同. 费米子遵从 Fermi-Dirac 统计, 玻色子遵循 Bose-Einstein 统计. 两种统计的主要区别在于, Fermi-Dirac 统计要求系统中的粒子不可重复, 而 Bose-Einstein 统计要求系统中的粒子可以重复.\n更具体一点的公式:\n$$ n_{\\text{F.D.}} = \\frac{1}{e^{(\\epsilon - \\mu)/kT} \\color{red}{+} 1}\\\\ n_{\\text{B.E.}} = \\frac{1}{e^{(\\epsilon - \\mu)/kT} \\color{red}{-} 1} $$\n两个电子作为费米子进行结合会发生什么?\n在 BCS 理论中, 有着和这个问题相似的问题, 即两个电子结合形成库伯对, 以此期望能够发生费米凝聚现象.\n同时, 总体的自旋会变为整数, 但是仍然不会形成玻色子, 因为物理量不会像玻色子的那样满足某些对易关系.\n承接上题, 为什么总体的自旋为整数, 但是并没有形成玻色子?\n我的猜测是因为电子对只能产生单种电负性的粒子. 玻色子并不是不能具有电荷, 比如 W 玻色子就有两种电荷, 但是纯粹的电子对是无法做到这一点的.\n模拟-2 倏逝波是否携带能量，既然入射能量等于反射能量，为什么不破坏能量守恒?\n全反射时, 有\n具有确定动量的粒子, 在空间中被检测到出现的概率是多少?\n按照海森堡不确定性原理, 物质的动量不确定度和位置不确定度之积不可能严格为 $0$, 所以这个问题本身是不合理的. 如果我们强行要求动量完全确定, 那么位置不确定度就会急剧增长为无穷大, 也就是说在空间中任意一点求其位置的概率都趋于 $0$.\n解释电子自旋与塞曼效应的关系.\n一个原子或者分子处于磁场中时, 其光谱线会发生劈裂, 这种分裂是由于磁场对电子自旋的作用产生的.\n实际上, 根据前几天蒋庆东老师的宣讲, 塞曼效应更基本的成因是来自于时间反演对称性破缺, 而并不是要求存在真实的磁场. 比如搭建时间反演对称性遭到破坏的卡西米尔板, 同样可以产生塞曼效应.\n光波和声波的联系和区别是什么?\n波的导出都是来源于振荡方程, 只不过两者的具体实现存在差异. 光波的本质是电磁场的振荡, 根据麦克斯韦方程组可以导出波动方程, 变化的物理量是电磁场; 而声波的本质是介质粒子的振荡, 它需要真实的物质存在, 变化的物理量是介质粒子的位移.\n另外光波相较于声波还有一个独特的性质, 就是偏振方向. 声波并不能具有这种性质.\n如何判断晶向? 如果晶体是粉末又应当如何判断?\n我们可以借助 X 射线或者电子束衍射来确定晶面的朝向.\n当晶体是粉末时, 就需要涉及多晶衍射的技巧. 前面的 X 射线是单晶体, 粉末可以处理为多晶体. 而对于粉末, 可以视为大数量的小单晶分别进行衍射, 最后形成的图像是所有的小单晶体的叠加. 如果晶粒的分布足够无序, 最后可以形成明暗不一的同心圆环. 这时候可能难以用一个具体的晶向来进行描述.\n布洛赫振荡的实验条件是什么?\n布洛赫振荡是指的电子在恒定电场 $\\mathbf{E}$ 下, 有一维的运动方程:\n$$ k(t) = k(0) - \\frac{eE}{\\hbar}t $$\n设晶格常数为 $a$, 且能带色散关系为\n$$ \\epsilon(k) = \\epsilon_{0}[1 - \\cos{(ka)}] $$\n所以电子的群速度为\n$$ v_{g}(k) = \\frac{1}{\\hbar}\\frac{\\mathrm{d}\\epsilon}{\\mathbf{d}k} = \\frac{\\epsilon_{0}a}{\\hbar}\\sin{(ka)} $$\n设为静启动条件, 即 $k(0) = x(0) = 0$, 即有\n$$ x(t) = \\int_{0}^{t}v[k(t’)]\\mathrm{d}t’ = \\frac{\\epsilon_{0}}{eE}\\left[\\cos{\\left(\\frac{eEa}{\\hbar}t\\right)} - 1\\right] $$\n布洛赫振荡频率即为\n$$ \\omega_{\\text{B.O.}} = \\frac{eEa}{\\hbar} $$\n如果要在实验室层面观测到布洛赫振荡, 就需要满足\n$$ \\tau \\gg \\frac{2\\pi}{\\omega_{\\text{B.O.}}} = \\frac{h}{eEa} $$\n也就是系统的弛豫时间要远大于布洛赫振荡的周期, 即系统从初始状态到平衡状态所需要的时间需要足够长.\n什么材料适合设计太阳能电池?\n高的光吸收率. 因为要将光能转化为电能, 那么作为原料的光能就要越多越好.\n能带结构. 带隙的能量需要适中, 如果过大则容易光吸收不足, 过小则容易导致光电子和空穴的结合. 硅的带隙适中, 可以吸收可见光范围内的能量.\n载流子迁移率. 高迁移率可以减少电子和空穴的结合, 从而提高电池的效率.\n稳定性. 电池工作需要在长时间下保持稳定, 也就是化学稳定性和耐光照.\n成本. 太阳能电池的商业化和推广需要尽可能降低成本, 从而使其得到广泛的应用.\n如果单振子链加上接地弹簧, 如何计算这个系统的热容?\n(下面的处理并不严谨, 只是展示使用统计力学的思路)\n我们通常采用统计的方法来对系统的热容进行计算.\n考虑单个振子的哈密顿量为\n$$ \\hat{H}_{i} = \\frac{p_{i}^{2}}{2m} + \\frac{1}{2}k(x_{i} - x_{i - 1})^{2} $$\n系统的总哈密顿量即为所有振子哈密顿量之和:\n$$ \\hat{H} = \\sum_{i = 1}^{N}\\hat{H}_{i} $$\n系统的配分函数即为\n$$ Z = \\sum_{\\{x\\},\\{p\\}}e^{-\\beta\\hat{H}}\\\\ (\\{x\\} = x_{1},x_{2},\\dots,x_{N};\\{p\\} = p_{1},p_{2},\\dots,p_{N}) $$\n单个振子的配分函数的相空间积分为\n$$ \\int\\mathrm{d}x_{i}\\mathrm{d}p_{i}e^{-\\beta\\hat{H}_{i}} = \\sqrt{\\frac{2\\pi m}{\\beta}}\\sqrt{\\frac{2\\pi}{\\beta k}} $$\n而所有振子都是独立的, 所以系统的配分函数为各配分函数之积:\n$$ \\left(\\frac{2\\pi m}{\\beta}\\right)^{\\frac{N}{2}}\\left(\\frac{2\\pi}{\\beta k}\\right)^{\\frac{N}{2}} $$\n所以就有系统的热容为\n$$ C = k_{B}\\beta^{2}\\frac{\\partial^{2}\\ln{Z}}{\\partial\\beta^{2}} $$\n黄光的波长是多少?\n常见颜色的波长:\n红光: $700\\sim 635\\text{nm}$ 橙光: $635\\sim 590\\text{nm}$ 黄光: $590\\sim 560\\text{nm}$ 绿光: $560\\sim 490\\text{nm}$ 蓝光: $490\\sim 450\\text{nm}$ 紫光: $450\\sim 380\\text{nm}$ 紫外线: $380\\sim 100\\text{nm}$ ",
+  "wordCount" : "7623",
+  "inLanguage": "zh",
+  "datePublished": "2023-07-14T00:18:15+08:00",
+  "dateModified": "2023-07-14T00:18:15+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/life/interview-list/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "计算物理资料库",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/life/">🏖 生活</a></div>
+            <h1 class="post-title">
+                面试押题清单
+            </h1>
+            <div class="post-description">
+                整理出可能的在面试中提出的问题
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-07-14
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>7623字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>16分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/life/" style="color: var(--secondary)!important;">life</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%9d%a2%e8%af%95%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" aria-label="面试注意事项">面试注意事项</a></li>
+                <li>
+                    <a href="#%e8%bd%ac%e8%a7%92%e7%9f%b3%e5%a2%a8%e7%83%af" aria-label="转角石墨烯">转角石墨烯</a></li>
+                <li>
+                    <a href="#%e5%9b%ba%e4%bd%93%e7%89%a9%e7%90%86" aria-label="固体物理">固体物理</a></li>
+                <li>
+                    <a href="#%e6%a8%a1%e6%8b%9f-1" aria-label="模拟-1">模拟-1</a></li>
+                <li>
+                    <a href="#%e6%a8%a1%e6%8b%9f-2" aria-label="模拟-2">模拟-2</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="面试注意事项">面试注意事项<a hidden class="anchor" aria-hidden="true" href="#面试注意事项">#</a></h1>
+<blockquote>
+<p>简单介绍自己.</p>
+</blockquote>
+<p>我是 20 级致远物理的何翼成, 我同时报名了物院和李所, 报名方向为凝聚态物理, 对于实验和理论没有特别的倾向性.</p>
+<h1 id="转角石墨烯">转角石墨烯<a hidden class="anchor" aria-hidden="true" href="#转角石墨烯">#</a></h1>
+<blockquote>
+<p>你能说一下什么是紧束缚模型吗?</p>
+</blockquote>
+<p>紧束缚模型的关键在于, 将电子在原子实附近的行为近似于氢原子的电子波函数, 而其余原子实的势场被视为微扰, 也就是周期性势场 $U(r)$ 和单原子实 $V(r)$ 的差. 我们根据这个差, 还有在周期性势场下解出的波函数基, 就可以计算出不同格点位置的交叠积分.</p>
+<p>计算 $s$ 轨道波函数, 就只需要考虑最近邻(nearest neighbours)格点的交叠积分. 这种情况下, 我们得到能带的表达式</p>
+<p>$$
+E(\mathbf{k}) = \epsilon_{i} - \sum_{s}J(\mathbf{R}_{s})e^{-\mathbf{k}\cdot\mathbf{R}_{s}}
+$$</p>
+<p>我们也可以通过二次量子化的观点来理解紧束缚模型. 通过产生和湮灭算符我们可以得到</p>
+<p>$$
+\hat{H} = -t\sum_{i}(\hat{c_{i}}^{\dagger}\hat{c_{i+1}}+h.c.)
+$$</p>
+<p>在更高维的情况下就不能用简单的 $t$ 来描述了, 需要更复杂的 $f(\mathbf{k})$ 来替代.</p>
+<blockquote>
+<p>谈谈你对 Wannier 函数的理解.</p>
+</blockquote>
+<p>我们根据基矢求出对应的倒格子基矢, 然后 Bloch 态和 Wannier 态之间是 Fourier 变换关系:</p>
+<p>$$
+\psi_{nl}(r) = \frac{1}{\sqrt{N}}\sum_{l}e^{ik\cdot l}W_{n}(r,l)
+$$</p>
+<p>将原子的态写作 Bloch 态的级数和形式, 然后将其代入到薛定谔方程中化为久期方程, 也就是系数行列式为 $0$. 各矩阵元是通过使用基函数对哈密顿量求内积得到的.</p>
+<p>如果考虑紧束缚模型, 就只需要考虑最近邻跃迁, 就是位移矢量. 矩阵元代回久期方程的解即可得到完整的能带表达式.</p>
+<blockquote>
+<p>你能介绍一下什么是低能连续模型吗?</p>
+</blockquote>
+<p>低能连续模型在国内也有被翻译为 &ldquo;有效模型&rdquo; 的. 相较于使用紧束缚模型给出的能带结构, 连续结构并不在意晶体是否有共格, 是否有摩尔超晶体.</p>
+<p>我们可以先写出每个单层的狄拉克哈密顿量, 这个哈密顿量会和转角有关系, 我们也可以使用泡利矩阵乘积形式来描述.</p>
+<p>然后描述层间的跃迁的矩阵元, 仍然按照借用紧束缚模型的思路将波函数写作级数和的形式. 利用傅里叶变换和两中心近似, 将式子写作动量空间的形式并且化简, 就可以得到层间跃迁的矩阵元.</p>
+<p>低能模型只有三个跃迁过程有意义, 代入即有最后的结果. 最后得到的矩阵有 $4$ 个矩阵元, 这代表了四种不同的跃迁子格排布.</p>
+<p>弛豫效应会使得能级发生变化, 这个变化使得能隙被打开并且有明显的平带.</p>
+<blockquote>
+<p>你能介绍什么是 Hubbard 模型吗?</p>
+</blockquote>
+<p>假定离子质量因为远大于电子所以可以构成静态的晶格, 同时引入辅助势, 它需要让单体的哈密顿量对应的本征态之间的有效二体势相比之下很小.</p>
+<p>使用 Wannier 函数和升降算符, 我们可以导出场算符的形式, 将场算符代换到原本的哈密顿量的表达式中, 我们就可以得到二次量子化形势下的哈密顿量.</p>
+<p>Hubbard Model 的提出点在于, 将原子内的库伦相互作用看的比原子间的相互作用还要大. 如果再做出进一步的约束, 比如 Wannier 函数强局域于格点, 那么 Hubbard Model 就会退化为紧束缚模型.</p>
+<blockquote>
+<p>你提到过你曾经进行过转角石墨烯的能带计算, 请简单介绍你的工作.</p>
+</blockquote>
+<p>首先我要说明的是, 虽然我是在王世勇老师组下进行科研实践, 但是王老师本身偏向于实验较多, 而我因为种种时间问题很少到实验室去真正做实验, 所以我更多的是自主寻找相关方法. 王老师告诉我计算要从低能连续模型出发, 这当然在 Mac Donald 先生的论文中已经提到了, 我参考的不少资料基本上都是从这篇文章的理论衍生出来的.</p>
+<p>首先我是接触的密度矩阵重整化群的方法, 这方面的代表计算库是 ITensor, 虽然这个计算库的确很受欢迎, 但是其文档存在着版本更新的问题, 用于学习非常困难. 幸好提出该计算方法理论的 Schollwöck 不仅写了一篇小论文 The density-matrix renormalization group: a short introduction 对其理论背景进行了介绍, 并且还绘制了插图丰富的使用手册. 问题在于, ITensor 已经从第二版升级到了第三版, 不少的语法和函数都发生了变化, 就像前面所提到的那样, 其文档缺乏真正的维护者. 于是我结合了该手册和官网上的 Tutorial, 将所有的资料完全汉化并且更新为最新的语法规范, 并且提供了最新 Tutorial 的代码答案.</p>
+<p>这虽然已经偏离了具体的转角石墨烯的工作, 但是仍然是很有意义的. 因为这个时候我的科研导向并不是真正的做出什么成果, 而是尽可能地多学习一些知识, 多磨练一些经验技巧.</p>
+<p>随后就是真正的问题: ITensor 的确是非常优秀的计算库, 但是它只擅长于处理一维的模型. 虽然在官网里存在对于二维模型的计算, 但是它是使用的方格模型, 并且实际上取了巧: 在某一个独立维度上实际上是使用了某些周期化条件, 这并不是真正的二维模型. 并且, 摩尔超晶格产生的是三角晶格, 转角石墨烯本身的结构也很难使用简单的方格模型来描述, 所以我在 DMRG 方面的探索陷入了僵局, 这也是我希望后续能够和相关方面工作的老师进行交流的地方, 希望能够对我的误区进行指点.</p>
+<p>DMRG 还有一个问题就是很慢. c++ 作为编译型的语言已经算是效率很快的了, 但是即使只是简单的一维模型, DMRG 的计算效率也很低. 情况来到特殊情况的二维时, 执行效率更低.</p>
+<p>然后我转向的是最基础的方法, 也就是按照低能模型的方法完整写出哈密顿量, 然后对其进行求特征值. 但是这又暴露出另一个问题: 摩尔体系下, 超原胞的格点数目往往非常大, 想要做计算往往需要超算来完成. 这一点, 我在和王老师组下的李灿博士进行交流的时候有提到过, 但是当时我是 &ldquo;贼心不死&rdquo;, 想要尽量在个人级别的计算机上完成相关工作, 但是后来的实践表明这的确很难.</p>
+<p>比较明显的进步就是参考了之前在中科大的王子豪学长, 他也是从 Donald 的文章出发写的 Python 计算脚本, Python 是解释型的语言, 计算效率相对慢一些. 根据他的代码我尝试计算了无转动下的能带结果, 效果还比较好. 但是当计算第一魔转角的时候, 情况就很糟糕了. 首先, 王学长是规划了一条特殊的第一布里渊区的路径, 计算该路径上的能带情况, 这也可以算是一种简化计算的方法. 但是即使如此, 当计算到五六分钟的时候, 计算机会毫无例外地卡住. 我的电脑配置算是相对高的, 12700H 和 32g 内存, 虽然算不上什么神机, 但是用做一些简单的计算还是没有什么问题的. 也许还可以将其转为其他语言进行尝试, 但是我认为在不简化计算规模之前这种尝试都是治标不治本的, 更何况低能模型已经是相比于紧束缚模型更为简化的理论了.</p>
+<p>所以我现在也有备选的两个计算方案, 一个是量子蒙特卡洛方法, 一个是 MERA 方法, 目前似乎没有一个统一的中文名称, 我将其称为多尺度嵌套正交模型. 根据我有限的了解, 该方法也是脱胎于密度矩阵重整化群方法, 但是对多维计算有着更高的优势. 但是这两种方法目前都只是停留在调研阶段, 我对于其是否能够真正解决能带计算还是难以判断的, 毕竟它们都算是迥异的学习路线, 而单独的一个 DMRG 从学习算法到环境搭建都花费了不少时间, 但是到最后仍然没有得到什么真正的成果, 所以这也让我在学习新的方法之前会持有更谨慎的态度.</p>
+<blockquote>
+<p>你能够介绍一下什么是 DMRG 算法吗?</p>
+</blockquote>
+<p>将单体波函数处理为 Site, 算子被看作是 Tensor, 求解期望值就是两个 Site 和一个 Tensor 结合的过程. 纠缠态, 也就是多节点, 其定义方法引申自 Site.</p>
+<p>哈密顿量则是使用形形色色的 Tensor 描述的, 并且往往会是很高阶的张量.</p>
+<p>我们为了简化计算难度, 使用矩阵乘积态来表示量子多体的波函数, 通过 SVD 奇异值分解以及合理截断就可以大幅简化计算复杂度, 这就是精度换速度的过程.</p>
+<p>我们使用 Trotter 法则来进行计算多量子位的算子. 但是由于 SVD 会产生方向性, 因此我们在计算时需要遵守一定的规范性, 比如左规范或者右规范.</p>
+<p>算子本身也可以化为矩阵乘积形式, 这被称为矩阵乘积算子 MPO, 我们可以通过定义 MPO 或者将形式转化为 MPO 形式, 让 ITensor 自动计算出对应的哈密顿量, 当然这需要我们提前定义好晶格之类的结构.</p>
+<h1 id="固体物理">固体物理<a hidden class="anchor" aria-hidden="true" href="#固体物理">#</a></h1>
+<blockquote>
+<p>晶体和非晶体的区别是什么?</p>
+</blockquote>
+<p>晶体和非晶体的主要区别在于其排列方式是否具有周期性. 结构决定性质, 周期性会使晶体具有独特的性质.</p>
+<blockquote>
+<p>简单谈谈晶体的分类以及特点.</p>
+</blockquote>
+<p>晶体的分类方法有很多.</p>
+<ol>
+<li>
+<p>结构. 按照晶体的构型可以确定为七大晶系和 $14$ 种晶格类型.</p>
+</li>
+<li>
+<p>作用力性质. 可以区分为离子晶体, 原子晶体, 分子晶体, 金属晶体.</p>
+</li>
+</ol>
+<blockquote>
+<p>为什么晶体衍射中不能够用可见光?</p>
+</blockquote>
+<p>按照布拉格衍射公式, 可见光的波长太长, 无法与晶面间距相匹配. 比较常用的波段是 X 射线, 比如在我们学校组织的高温超导实验中, 测试衍射强度时所使用的 X 射线就是 Cu 的 K-$\alpha$ 线波长.</p>
+<blockquote>
+<p>请分辨 晶体结合能, 内能, 原子间相互作用势能 概念.</p>
+</blockquote>
+<ul>
+<li>晶体结合能</li>
+</ul>
+<p>晶体中各原子间键的相互作用</p>
+<ul>
+<li>内能</li>
+</ul>
+<p>各原子的动能和原子间相互作用势能之和.</p>
+<ul>
+<li>原子间相互作用势能</li>
+</ul>
+<p>原子之间由于电磁相互作用产生的势能.</p>
+<blockquote>
+<p>晶体具有哪些共性?</p>
+</blockquote>
+<p>均匀性, 各向异性, 确定的熔点, 特定的对称性, 对 X 射线和电子束产生衍射现象.</p>
+<blockquote>
+<p>什么是晶格, 什么是格点, 什么是点阵?</p>
+</blockquote>
+<ul>
+<li>
+<p>晶格: 晶体中原子, 分子或者离子排列成的空间点阵;</p>
+</li>
+<li>
+<p>点阵: 是更抽象的概念, 指的是的是代表点所组成的结构;</p>
+</li>
+<li>
+<p>格点: 是指的基元位置, 严格的格点位置上未必有真正的原子, 因为基元可以有着自身的结构.</p>
+</li>
+</ul>
+<blockquote>
+<p>什么是密勒指数?</p>
+</blockquote>
+<p>密勒指数是用来确定晶面方向的指标, 通常是互质整数, 可以通过三轴截距的倒数比推导出来.</p>
+<blockquote>
+<p>请说明离子性, 共价性, 金属性和范德瓦尔斯结合力的特点.</p>
+</blockquote>
+<blockquote>
+<p>什么是倒格子?</p>
+</blockquote>
+<p>倒格子是正格子通过傅里叶变换得到的, 为了方便处理一些过程的问题, 将其转化在动量空间中讨论会更加方便.</p>
+<blockquote>
+<p>什么是致密度?</p>
+</blockquote>
+<p>致密度是指的晶体中的原子平均数密度, 也就是晶体中原子体积和晶体体积的比值. 比如对于立方晶系, 填充率即致密度, 为 $0.74$.</p>
+<blockquote>
+<p>说明原子负电性与晶体结构之间的关系.</p>
+</blockquote>
+<p>负电性是指的原子核外的电子云吸引电子的能力, 它通常会用来解释离子晶体和共价晶体之间的区别.</p>
+<blockquote>
+<p>请分辨 原胞 和 晶胞之间的特点和区别.</p>
+</blockquote>
+<p>首先分析两者的定义:</p>
+<ul>
+<li>原胞: 构成晶体的最小重复单元; 要求体积最小. 需要反映晶体的周期性.</li>
+<li>晶胞: 构成晶体的最基本几何单元. 晶胞的选取方法不是唯一的, 需要反映晶体的周期性和对称性.</li>
+</ul>
+<blockquote>
+<p>什么是配位数?</p>
+</blockquote>
+<p>配位数是指的一个原子或者离子周围最近邻原子或者离子的数目, 通常配位数越大, 晶体结构会越稳定.</p>
+<blockquote>
+<p>请说明布拉维格子和复式格子各自的特点以及两者间的区别.</p>
+</blockquote>
+<ul>
+<li>
+<p>布拉维格子: 相同的原胞沿着三个不共面方向进行周期性平移形成的晶格.</p>
+</li>
+<li>
+<p>复式格子: 多个原胞沿着三个不共面的方向进行周期性平移形成的晶格.</p>
+</li>
+</ul>
+<p>布拉维格子只有一个原胞, 而复式格子有两个及以上的原胞?</p>
+<p>布拉维格子只反映晶体的几何结构, 复式格子还可以反映晶体的化学性质;</p>
+<p>复式格子的基本类型和空间群种类远远多于布拉维格子.</p>
+<blockquote>
+<p>为什么许多金属都是密堆积结构?</p>
+</blockquote>
+<p>因为金属键没有饱和性和方向性, 而配位数越多越稳定, 所以不少的金属结构都倾向于形成密堆积结构.</p>
+<blockquote>
+<p>为什么在甚低温下, 德拜模型可以与实验相符?</p>
+</blockquote>
+<p>因为在足够低温下, 光学波不会被激发, 且声子能量较大的短声学格波也不会被激发, 需要考虑的只有声子能量较小的长格波, 也就是弹性波. 德拜模型只考虑了弹性波对热容的贡献, 所以在甚低温下德拜模型的解释性较好.</p>
+<blockquote>
+<p>请解释金属, 半导体, 绝缘体的导电性原理.</p>
+</blockquote>
+<ul>
+<li>金属: 由于价带和导带之间没有禁带, 所以电子可以自由地在价带和导带之间移动;</li>
+<li>半导体: 禁带宽度较小, 温度较低时可以通过热激发将电子跃迁到导带中, 从而形成电流;</li>
+<li>绝缘体: 导电性很差, 因为禁带宽度很大, 电子难以通过热激发的方式跃迁到导带中.</li>
+</ul>
+<blockquote>
+<p>金属淬火之后为什么会变硬?</p>
+</blockquote>
+<p>金属的结构在淬火后由奥氏体变为马氏体, 马氏体的硬度相对更高, 所以金属会变硬.</p>
+<blockquote>
+<p>请说明金刚石的结构特点.</p>
+</blockquote>
+<p>金刚石是两个面心立方点阵嵌套形成的结构, 每个碳原子都以 $sp^{3}$ 杂化形成共价键, 构成正四面体, 硬度大, 熔点高. 所有的价电子都被限制在共价键区域, 因此没有自由电子, 绝缘性质极好.</p>
+<blockquote>
+<p>量子理论中如何解释金属电子对于固体热容的贡献?</p>
+</blockquote>
+<p>在量子理论中, 大多数电子的能量远远低于费米能量, 所以只有在费米面附近的电子才会参与热激发, 从而对金属的热容量产生贡献.</p>
+<blockquote>
+<p>为什么常温下电子对热容的贡献很小?</p>
+</blockquote>
+<p>在常温下, 电子的能量远远低于费米能量, 只有在费米面附近的电子才会参与热激发, 而常温下电子能量较低, 所以对于热容的贡献很小.</p>
+<blockquote>
+<p>什么是声子?</p>
+</blockquote>
+<blockquote>
+<p>当电子的波矢落在布里渊区的边界上时, 为什么其有效质量与真实质量有着显著的差别?</p>
+</blockquote>
+<blockquote>
+<p>什么是非简谐效应?</p>
+</blockquote>
+<blockquote>
+<p>请说明研究金属热容量的意义.</p>
+</blockquote>
+<blockquote>
+<p>请说明金属接触电势差如何形成.</p>
+</blockquote>
+<blockquote>
+<p>什么是极化子?</p>
+</blockquote>
+<blockquote>
+<p>什么是布洛赫波?</p>
+</blockquote>
+<blockquote>
+<p>请说明布洛赫定理和布洛赫函数.</p>
+</blockquote>
+<blockquote>
+<p>请说明紧束缚近似模型的思想和主要结论.</p>
+</blockquote>
+<p>紧束缚模型将晶体中的电子波函数近似为邻近原子的电子波函数的线性组合, 从而导出能带结构, 电子态密度和禁带等信息.</p>
+<blockquote>
+<p>请说明经典的自由电子理论的要点及应用.</p>
+</blockquote>
+<p>自由电子理论假设金属中的电子没有相互作用, 受到晶格的周期性势场的束缚. 电子的运动需要服从经典力学和玻尔兹曼分布, 从而解释金属的电导, 热导和电子热容等性质.</p>
+<blockquote>
+<p>请说明准自由电子近似的理论要点.</p>
+</blockquote>
+<p>假定电子在晶格中受到周期性势场的弱束缚, 电子的运动仍然近似为自由电子, 但是需要考虑晶格的散射, 从而推导出金属的电导, 电子热容, 热导和光电效应等性质.</p>
+<blockquote>
+<p>请说明石墨的结构特点.</p>
+</blockquote>
+<h1 id="模拟-1">模拟-1<a hidden class="anchor" aria-hidden="true" href="#模拟-1">#</a></h1>
+<blockquote>
+<p>光为什么能够在真空中传播?</p>
+</blockquote>
+<p>因为光的本质是电磁场的振荡, 充当振荡介质的电磁场的激发可以在真空中完成, 因此光可以在真空中传播.</p>
+<blockquote>
+<p>你可以分别给出光粒子性和波动性的证据吗?</p>
+</blockquote>
+<ul>
+<li>粒子性</li>
+</ul>
+<p>牛顿光路原理, 光电效应, 光帆效应.</p>
+<ul>
+<li>波动性</li>
+</ul>
+<p>惠更斯原理, 杨氏双缝干涉实验.</p>
+<blockquote>
+<p>光遇到介质时, 各物理量会发生什么变化?</p>
+</blockquote>
+<p>当光穿越介质表面时, 光的传播速度会发生变化, 而光的频率/波长不会发生变化. 如果两种介质的折射率不同, 还会产生光的色散现象.</p>
+<blockquote>
+<p>绝缘体和半导体的不同是什么?</p>
+</blockquote>
+<p>在固体物理中, 我们使用价带和导带来区分绝缘体和半导体. 在绝缘体中, 价带和导带之间的能隙较大, 所以在室温下, 很难将电子激发到导带中; 半导体中, 价带和导带之间的能隙较小, 在室温下一些电子可以被激发到导带中, 所以半导体的电阻率会介于金属和绝缘体之间.</p>
+<blockquote>
+<p>P 型半导体和 N 型半导体的区别是什么? 为什么会有这种区别?</p>
+</blockquote>
+<p>P 型半导体和 N 型半导体的区别在于其掺杂的杂质不同. P 型半导体中, 杂质是三价元素, 比如硼, 铝, 镓等; N 型半导体中, 杂质是五价元素, 比如磷, 砷, 锑等. 这种区别是因为三价元素和五价元素的电子结构不同, 三价元素的外层电子数目比价带中的电子数目少, 五价元素的外层电子数目比价带中的电子数目多.</p>
+<blockquote>
+<p>你能够解释二极管的成因吗? 为什么二极管具有单向导电性?</p>
+</blockquote>
+<p>二极管的本质是形成的 PN 结, 即 P 型半导体和 N 型半导体的接触面. P 型半导体中的空穴浓度较高, N 型半导体中的自由电子浓度较高, 所以接触时就会产生扩散, 使得 PN 结中 P 侧带负电, N 侧带正电, 形成 N 指向 P 的内建电场, 这个电场导致击穿电压以下的电子很难从 N 传播到 P, 这就是所谓的单向导电性.</p>
+<blockquote>
+<p>请描述吉布斯佯谬(两种相同的气体混合, 和两种不同的气体混合有什么区别?).</p>
+</blockquote>
+<p>经典的统计力学导出的单原子分子的理想气体熵为</p>
+<p>$$
+S = \frac{3}{2}Nk + Nk\ln\left\{V\left(\frac{2\pi mkT}{h^{2}}\right)^{\frac{3}{2}}\right\}
+$$
+设有两个容器连接但是使用隔板断开, 各自都有一定的熵 $S$. 如果打开容器壁的隔板门, 气体就会产生混合. 如果两边气体都是 $T,V$, 那么混合后产生的熵变按照上面的公式有</p>
+<p>$$
+S_{\text{A} + \text{B}} - (S_{\text{A}} + S_{\text{B}}) = 2Nk\ln{2}
+$$</p>
+<p>但是如果 A, B 的气体分子全同, 那么隔板打开前后气体的状态实际上没有任何变化, 所以熵也应该没有变化, 这就和吉布斯导出的结果产生了矛盾.</p>
+<blockquote>
+<p>请谈谈费米子和玻色子的不同.</p>
+</blockquote>
+<p>两种粒子的典型代表分别是:</p>
+<ul>
+<li>
+<p>费米子: 电子, 质子, 中子, 中微子等.</p>
+</li>
+<li>
+<p>玻色子: 光子, 声子, 胶子等.</p>
+</li>
+</ul>
+<p>两种例子遵从的统计不同. 费米子遵从 Fermi-Dirac 统计, 玻色子遵循 Bose-Einstein 统计. 两种统计的主要区别在于, Fermi-Dirac 统计要求系统中的粒子不可重复, 而 Bose-Einstein 统计要求系统中的粒子可以重复.</p>
+<p>更具体一点的公式:</p>
+<p>$$
+n_{\text{F.D.}} = \frac{1}{e^{(\epsilon - \mu)/kT} \color{red}{+} 1}\\
+n_{\text{B.E.}} = \frac{1}{e^{(\epsilon - \mu)/kT} \color{red}{-} 1}
+$$</p>
+<blockquote>
+<p>两个电子作为费米子进行结合会发生什么?</p>
+</blockquote>
+<p>在 BCS 理论中, 有着和这个问题相似的问题, 即两个电子结合形成库伯对, 以此期望能够发生费米凝聚现象.</p>
+<p>同时, 总体的自旋会变为整数, 但是仍然不会形成玻色子, 因为物理量不会像玻色子的那样满足某些对易关系.</p>
+<blockquote>
+<p>承接上题, 为什么总体的自旋为整数, 但是并没有形成玻色子?</p>
+</blockquote>
+<p>我的猜测是因为电子对只能产生单种电负性的粒子. 玻色子并不是不能具有电荷, 比如 W 玻色子就有两种电荷, 但是纯粹的电子对是无法做到这一点的.</p>
+<h1 id="模拟-2">模拟-2<a hidden class="anchor" aria-hidden="true" href="#模拟-2">#</a></h1>
+<blockquote>
+<p>倏逝波是否携带能量，既然入射能量等于反射能量，为什么不破坏能量守恒?</p>
+</blockquote>
+<p>全反射时, 有</p>
+<blockquote>
+<p>具有确定动量的粒子, 在空间中被检测到出现的概率是多少?</p>
+</blockquote>
+<p>按照海森堡不确定性原理, 物质的动量不确定度和位置不确定度之积不可能严格为 $0$, 所以这个问题本身是不合理的. 如果我们强行要求动量完全确定, 那么位置不确定度就会急剧增长为无穷大, 也就是说在空间中任意一点求其位置的概率都趋于 $0$.</p>
+<blockquote>
+<p>解释电子自旋与塞曼效应的关系.</p>
+</blockquote>
+<p>一个原子或者分子处于磁场中时, 其光谱线会发生劈裂, 这种分裂是由于磁场对电子自旋的作用产生的.</p>
+<p>实际上, 根据前几天蒋庆东老师的宣讲, 塞曼效应更基本的成因是来自于时间反演对称性破缺, 而并不是要求存在真实的磁场. 比如搭建时间反演对称性遭到破坏的卡西米尔板, 同样可以产生塞曼效应.</p>
+<blockquote>
+<p>光波和声波的联系和区别是什么?</p>
+</blockquote>
+<p>波的导出都是来源于振荡方程, 只不过两者的具体实现存在差异. 光波的本质是电磁场的振荡, 根据麦克斯韦方程组可以导出波动方程, 变化的物理量是电磁场; 而声波的本质是介质粒子的振荡, 它需要真实的物质存在, 变化的物理量是介质粒子的位移.</p>
+<p>另外光波相较于声波还有一个独特的性质, 就是偏振方向. 声波并不能具有这种性质.</p>
+<blockquote>
+<p>如何判断晶向? 如果晶体是粉末又应当如何判断?</p>
+</blockquote>
+<p>我们可以借助 X 射线或者电子束衍射来确定晶面的朝向.</p>
+<p>当晶体是粉末时, 就需要涉及多晶衍射的技巧. 前面的 X 射线是单晶体, 粉末可以处理为多晶体. 而对于粉末, 可以视为大数量的小单晶分别进行衍射, 最后形成的图像是所有的小单晶体的叠加. 如果晶粒的分布足够无序, 最后可以形成明暗不一的同心圆环. 这时候可能难以用一个具体的晶向来进行描述.</p>
+<blockquote>
+<p>布洛赫振荡的实验条件是什么?</p>
+</blockquote>
+<p>布洛赫振荡是指的电子在恒定电场 $\mathbf{E}$ 下, 有一维的运动方程:</p>
+<p>$$
+k(t) = k(0) - \frac{eE}{\hbar}t
+$$</p>
+<p>设晶格常数为 $a$, 且能带色散关系为</p>
+<p>$$
+\epsilon(k) = \epsilon_{0}[1 - \cos{(ka)}]
+$$</p>
+<p>所以电子的群速度为</p>
+<p>$$
+v_{g}(k) = \frac{1}{\hbar}\frac{\mathrm{d}\epsilon}{\mathbf{d}k} = \frac{\epsilon_{0}a}{\hbar}\sin{(ka)}
+$$</p>
+<p>设为静启动条件, 即 $k(0) = x(0) = 0$, 即有</p>
+<p>$$
+x(t) = \int_{0}^{t}v[k(t&rsquo;)]\mathrm{d}t&rsquo; = \frac{\epsilon_{0}}{eE}\left[\cos{\left(\frac{eEa}{\hbar}t\right)} - 1\right]
+$$</p>
+<p>布洛赫振荡频率即为</p>
+<p>$$
+\omega_{\text{B.O.}} = \frac{eEa}{\hbar}
+$$</p>
+<p>如果要在实验室层面观测到布洛赫振荡, 就需要满足</p>
+<p>$$
+\tau \gg \frac{2\pi}{\omega_{\text{B.O.}}} = \frac{h}{eEa}
+$$</p>
+<p>也就是系统的弛豫时间要远大于布洛赫振荡的周期, 即系统从初始状态到平衡状态所需要的时间需要足够长.</p>
+<blockquote>
+<p>什么材料适合设计太阳能电池?</p>
+</blockquote>
+<ul>
+<li>
+<p>高的光吸收率. 因为要将光能转化为电能, 那么作为原料的光能就要越多越好.</p>
+</li>
+<li>
+<p>能带结构. 带隙的能量需要适中, 如果过大则容易光吸收不足, 过小则容易导致光电子和空穴的结合. 硅的带隙适中, 可以吸收可见光范围内的能量.</p>
+</li>
+<li>
+<p>载流子迁移率. 高迁移率可以减少电子和空穴的结合, 从而提高电池的效率.</p>
+</li>
+<li>
+<p>稳定性. 电池工作需要在长时间下保持稳定, 也就是化学稳定性和耐光照.</p>
+</li>
+<li>
+<p>成本. 太阳能电池的商业化和推广需要尽可能降低成本, 从而使其得到广泛的应用.</p>
+</li>
+</ul>
+<blockquote>
+<p>如果单振子链加上接地弹簧, 如何计算这个系统的热容?</p>
+</blockquote>
+<p>(下面的处理并不严谨, 只是展示使用统计力学的思路)</p>
+<p>我们通常采用统计的方法来对系统的热容进行计算.</p>
+<p>考虑单个振子的哈密顿量为</p>
+<p>$$
+\hat{H}_{i} = \frac{p_{i}^{2}}{2m} + \frac{1}{2}k(x_{i} - x_{i - 1})^{2}
+$$</p>
+<p>系统的总哈密顿量即为所有振子哈密顿量之和:</p>
+<p>$$
+\hat{H} = \sum_{i = 1}^{N}\hat{H}_{i}
+$$</p>
+<p>系统的配分函数即为</p>
+<p>$$
+Z = \sum_{\{x\},\{p\}}e^{-\beta\hat{H}}\\
+(\{x\} = x_{1},x_{2},\dots,x_{N};\{p\} = p_{1},p_{2},\dots,p_{N})
+$$</p>
+<p>单个振子的配分函数的相空间积分为</p>
+<p>$$
+\int\mathrm{d}x_{i}\mathrm{d}p_{i}e^{-\beta\hat{H}_{i}} = \sqrt{\frac{2\pi m}{\beta}}\sqrt{\frac{2\pi}{\beta k}}
+$$</p>
+<p>而所有振子都是独立的, 所以系统的配分函数为各配分函数之积:</p>
+<p>$$
+\left(\frac{2\pi m}{\beta}\right)^{\frac{N}{2}}\left(\frac{2\pi}{\beta k}\right)^{\frac{N}{2}}
+$$</p>
+<p>所以就有系统的热容为</p>
+<p>$$
+C = k_{B}\beta^{2}\frac{\partial^{2}\ln{Z}}{\partial\beta^{2}}
+$$</p>
+<blockquote>
+<p>黄光的波长是多少?</p>
+</blockquote>
+<p>常见颜色的波长:</p>
+<ul>
+<li>红光: $700\sim 635\text{nm}$</li>
+<li>橙光: $635\sim 590\text{nm}$</li>
+<li>黄光: $590\sim 560\text{nm}$</li>
+<li>绿光: $560\sim 490\text{nm}$</li>
+<li>蓝光: $490\sim 450\text{nm}$</li>
+<li>紫光: $450\sim 380\text{nm}$</li>
+<li>紫外线: $380\sim 100\text{nm}$</li>
+</ul>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="next" href="https://Muatyz.github.io/posts/life/summer-camp-policy/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>2023年物理研究生招生夏令营面试政策</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"计算物理资料库"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>
