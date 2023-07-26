@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>自旋链 | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="毕业论文资料收集">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/calphy/1d-spin-chain/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="自旋链" />
+<meta property="og:description" content="毕业论文资料收集" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/calphy/1d-spin-chain/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-26T00:18:23+08:00" />
+<meta property="article:modified_time" content="2022-07-26T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="自旋链"/>
+<meta name="twitter:description" content="毕业论文资料收集"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "💻 Computation Physics",
+          "item": "https://Muatyz.github.io/posts/phy/calphy/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "自旋链",
+      "item": "https://Muatyz.github.io/posts/phy/calphy/1d-spin-chain/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "自旋链",
+  "name": "自旋链",
+  "description": "毕业论文资料收集",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "本页面总结自旋液体相关的知识.\n为什么需要伊辛模型、海森堡模型、t-J 模型等一系列模型？ - Physhan的回答 - 知乎\nIsing Model 在晶格中, 每个 site 的原子磁矩可以取 $\\pm 1$, 只考虑最近邻的原子相互作用.\n根据以上假设就有\n$$ \\hat{H} = \\sum_{\\langle ij\\rangle}J_{ij}\\sigma_{i}\\sigma_{j} $$\n这个模型被提出的时候, 人们还没有意识到 $\\sigma_{i}$ 的严格定义, 只知道是 site 上有着某种内禀的磁矩.\n数值模拟 Monte Carlo Method 计算 2D Ising Model 磁偶极矩和比热 $$ \\mathcal{H} = -J\\sum_{\\langle ij\\rangle}^{N}s_{i}s_{j},\\quad s_{i} = \\pm 1, \\forall i = 1,2,\\dots,N\\\\ \\langle m^{2}\\rangle = \\frac{1}{N^{2}}\\left\\langle\\left(\\sum_{i}s_{i}\\right)^{2}\\right\\rangle, C = \\frac{\\langle\\mathcal{H}^{2}\\rangle - \\langle\\mathcal{H}\\rangle^{2}}{Nk_{B}T^{2}} $$\n对于三种不同尺寸 $L = 8,12,16$ 的 2D 正方格子, 采用周期化边界条件, 计算 $m^{2}$ 和比热 $C$ 随着温度 $T$ 在 $(1,3)$ 内的变化曲线, 取步长 $\\Delta T = 0.05$. 为了方便计算, 取常数 $J = 1$.\nMetropolis Algorithm 该算法应用在蒙特卡洛算法中, 用来判断一次随机自旋翻转是否会被保留.\n我们随机选择一个位置 $(i,j)$, 令其自旋翻转, 从而使体系产生了能量差 $\\Delta E$. 那么我们需要使用 Metropolis 函数计算出判定数 $p$:\n$$ p = \\begin{cases} 1,\\quad\\Delta E \\leq 0\\\\ e^{-\\frac{\\Delta E}{k_{B}T}}, \\quad\\Delta E \u003e 0 \\end{cases} $$\n在计算中, 我们通常取 $k_{B} = 1$.\n然后令 $p$ 与 $[0,1]$ 中的随机数 $z$ 比较, 若 $z \u003c p$, 则保留该翻转, 否则不保留. 接下来我们要做的就是计算并且记录这一轮次的相关数据, 然后继续下一轮的随机翻转.\n将足够多轮次的数据进行平均, 我们就可以得到近似的期望值.\nReference clear;clc; Ls=[8,12,16]; dT=0.025; Tspan=1:dT:3; %生成随机初始条件的自旋矩阵 N=6e6;%计算次数 L_m2=zeros(3,length(Tspan));L_C=L_m2;%分配数据位置 for ii=1:3 %确认2D正方格子尺寸 L=Ls(ii); %生成随机磁矩矩阵 M=randi([0,1],L,L)*2-1; %分配数据记录位置 m2_T=zeros(1,length(Tspan));H2_T=m2_T;H1_T=m2_T; %以温度遍历计算 for Tn=1:length(Tspan) %当前轮次的温度 T=Tspan(Tn); %分配数据位置 m2_s=[];H2_s=[];H1_s=[]; % for nn=1:N %保留磁矩矩阵的原信息 M_1=M; %随机翻转自旋的坐标 loc=randi([1,L],1,2); x=loc(1);y=loc(2); %翻转后的磁矩矩阵 M_2=M;M_2(x,y)=-M_1(x,y); %计算能量差 %pud是指利用周期性边界条件,将矩阵边界进行扩展,便于计算边界时的能量差 pudM=pud(M); %计算能量差仅需比较最近邻格点 deltaE=2*M_1(x,y)*(pudM(x+2,y+1)+pudM(x,y+1)+pudM(x+1,y+2)+pudM(x+1,y)); %使用Metropolis算法判断状态是否保留 flag=Metro(deltaE,T); if flag==1 M=M_2; else M=M_1; end %计算当前时刻的各物理量，记录下来以进行时间平均 m2=(sum(M(:))^2)/(L^4); H1=H(M); H2=H1^2; m2_s(end+1)=m2; H2_s(end+1)=H2; H1_s(end+1)=H1; end %计算m^2,H^2,H在T=Tspan(Tn)下的期望值 l=length(m2_s); m2_s_avg_Tn=sum(m2_s)/l; H2_s_avg_Tn=sum(H2_s)/l; H1_s_avg_Tn=sum(H1_s)/l; %将上述数值记录在提前分配的内存中，以方便进行下一步计算 m2_T(Tn)=m2_s_avg_Tn; H2_T(Tn)=H2_s_avg_Tn; H1_T(Tn)=H1_s_avg_Tn; %显示当前计算进度 disp(\"任务数为\"+ii+\"/3,已完成第\"+Tn+\"轮计算，进度为\"+Tn/length(Tspan)*100+\"%\") end %将当前尺寸下的数据记录在提前分配的内存中，以方便进行下一步计算 L_m2(ii,:)=m2_T; L_C(ii,:)=(H2_T-H1_T.^2)./(L^2*Tspan.^2); end %绘制m^{2}随温度变化的图像 figure(1) plot(Tspan,L_m2(1,:),'r',Tspan,L_m2(2,:),'k',Tspan,L_m2(3,:),'b') xlabel('Temperature');ylabel(''); legend(\"L=8\",\"L=12\",\"L=16\"); %绘制C随温度变化的图像 figure(2) plot(Tspan,L_C(1,:),'r',Tspan,L_C(2,:),'k',Tspan,L_C(3,:),'b') xlabel('Temperature');ylabel('C'); legend(\"L=8\",\"L=12\",\"L=16\"); %% %Metropolis算法函数的定义 function flag=Metro(deltaE,T) beta=1/T; if deltaE\u003c=0 p=1; else p=exp(-beta*deltaE); end z=rand(); if z\u003cp flag=1; else flag=0; end end %% %Pud，辅助计算。输出(L+2)**2的矩阵 function pudM=pud(M) L=size(M,1); pudM=zeros(L+2,L+2);%分配储存空间 %pudding, 采用周期性边界条件 pudM(2:(L+1),2:(L+1))=M; %行的移动 pudM(1,2:(L+1))=M(L,:); pudM(L+2,2:(L+1))=M(1,:); %列的移动 pudM(2:(L+1),1)=M(:,L); pudM(2:(L+1),L+2)=M(:,1); end %能量计算. 利用哈密顿量的定义求和计算. function E=H(M) L=size(M,1); pudM=pud(M); H=0; for i=2:L for j=2:L H=H-pudM(i,j)*(pudM(i,j-1)+pudM(i,j+1)+pudM(i-1,j)+pudM(i+1,j)); end end E=H/2; end 对角化 1D 量子多体系统的哈密顿量 $$ \\begin{aligned} \\hat{H} \u0026= \\sum_{i = 1}^{L - 1}-\\hat{\\sigma}^{z}_{i}\\hat{\\sigma}_{i+1}^{z} - \\hat{\\sigma}^{z}_{L}\\hat{\\sigma}^{z}_{1} + h\\sum_{i = 1}^{L}\\hat{\\sigma}_{i}^{x}\\\\ \\hat{\\sigma}_{i}^{z}\\hat{\\sigma}_{j}^{z} \u0026= I \\otimes I \\dots \\sigma^{z}\\otimes \\dots \\sigma^{z} \\otimes\\dots I\\\\ \\hat{\\sigma}_{i}^{x} \u0026= I \\otimes I \\dots \\sigma^{x} \\otimes \\dots \\otimes I \\end{aligned} $$\n使用周期化边界条件, 并且引入了磁场 $h$ 的影响.\n$L = 10, h = 0.5, 1.0, 2.0$.\n对角化哈密顿量矩阵 $\\hat{H}$, 求解基态能量和第一激发态能量;\n计算基态下的 $\\langle \\sigma_{1}^{x}\\rangle$;\n设 $t = 0$ 时系统处于 $h = 0.5$ 的基态, $t\u003e0$ 使 $h$ 突变为 $h = 3$, 求在新哈密顿量 $\\hat{H}’$ 下 $\\langle \\sigma_{1}^{x}(t)\\rangle$ 在 $t\\in (0,10)$ 的时间演化.\nReference clear;clc; L=10; %不同磁场 h=[1/2,1,2]; %计算不同h下的基态能量和第一激发态 %分配内存空间储存不同磁场下的 he1e2=zeros(length(h),3); for n=1:length(h) %对磁场参数进行赋值 hn=h(n); %代入初始参数, 计算哈密顿量 H=G(hn,L); %使用matlab内置函数计算 H 本征值并且完成排序 En=unique(eig(H)); disp(\"h=\"+hn+\"时，基态能量为\"+En(1,1)+\",第一激发态为\"+En(2,1)) %将本轮次的数据填入预留的内存空间 he1e2(n,1)=hn;he1e2(n,2)=En(1,1);he1e2(n,3)=En(2,1); end %计算基态的sigma_{1}^x的期望值 %在指令行分割数据展示 disp(\"-------------------------------------------------\") %预留存储空间 sigma1x_s=zeros(1,length(h)); for n=1:length(h) hn=h(n); H=G(hn,L); %V是特征值的对角矩阵，D使得H=DVD^(-1) %易知D是特征向量(列向量)组成的矩阵 [V,D]=eig(H); %D的第一个列向量即为基态波函数 psi0=V(:,1); %计算sigma_{1}^x的期望值 sigma1x=psi0'*Sigmax(1,L)*psi0; %将本轮次的sigma_{1}^{x} 记录到预留的内存空间中 sigma1x_s(n)=sigma1x; disp(\"h=\"+hn+\"时, sigma_{1}^x的期望值是\"+ sigma1x) end %% %t=0时系统处在h=0.5的基态, t\u003e0时h=3, 求哈密顿量的时间演化. %分割命令行区数据展示 disp(\"-------------------------------------------------\") %时间范围 tspan=0:0.1:10; %计算h=0.5下的初态波函数 h=0.5;H=G(h,L);[~,D]=eig(H);psi0=V(:,1); %计算h=3.0下的哈密顿量 h=3;H=G(h,L); %分配记录含时 sigma_{1}^{x}(t) 的内存空间 sigma1x_t=zeros(1,length(tspan)); %遍历计算 sigma_{1}^{x}(t_{0}) for n=1:length(tspan) % 取 t 值 t=tspan(n); % 含时演化 psi=expm(-1i*H*t)*psi0; % 计算内积得到期望值 sigma1x=conj(psi.')*Sigmax(1,L)*psi; % 记录当前时刻 t_{0} 的 sigma_{1}^{x}(t_{0}) sigma1x_t(n)=sigma1x; % 清理命令行显示区 clc; disp(\"已完成计算进度\"+n/length(tspan)*100+\"%\") end plot(tspan,sigma1x_t,'k') xlabel(\"Time\") ylabel(\"\u003c\\sigma_{1}^x\u003e\") %% %定义H的生成函数 function H=G(h,L) H=0; for i=1:L-1 H=H-Sigmaz(i,i+1,L)+h*Sigmax(i,L); end H=H-Sigmaz(L,1,L)+h*Sigmax(L,L); end %生成单一的\\hat{sigma}_{i}^z\\hat{sigma}_{j}^z元素,未求和 function sigmaz=Sigmaz(i,j,L) %定义z泡利矩阵 sigmaZ=[1,0;0,-1]; %初始化内存空间 s=1; for n=1:L if n==i||n==j %kron(A,B)产生 A 和 B 的 Kronecker 张量积 s=kron(s,sigmaZ); else %eye(n)产生 n 阶单位矩阵 s=kron(s,eye(2)); end end %返回张量连乘积结果 sigmaz=s; end %生成单一的\\hat{sigma}_{i}^x元素, 未求和 function sigmax=Sigmax(i,L) %定义x泡利矩阵 sigmaX=[0,1;1,0]; % 初始化内存空间 s=1; for n=1:L if n==i s=kron(s,sigmaX); else s=kron(s,eye(2)); end end sigmax=s; end Heisenberg Model 只考虑最近邻的相互作用, 且呈现各向同性.\n$$ \\hat{H} = J\\sum_{\\langle i,j\\rangle}\\hat{S}_{i}\\cdot\\hat{S}_{j} = J\\sum_{\\langle i,j\\rangle}\\left(S_{i}^{x}S_{j}^{x} + S_{i}^{y}S_{j}^{y} + S_{i}^{z}S_{j}^{z}\\right) $$\n相比于之前的 Ising Model, 变化在于真正引入了电子自旋 $\\hat{S}_{i}$. 根据不同的情景有着不同的变种.\n各向异性 $$ \\hat{H} = J_{x}\\sum_{\\langle i,j\\rangle}S_{i}^{x}S_{j}^{x} + J_{y}\\sum_{\\langle i,j\\rangle}S_{i}^{y}S_{j}^{y} + J_{z}\\sum_{\\langle i,j\\rangle}S_{i}^{z}S_{j}^{z} $$\nXXZ Model. 即 $J_{x} = J_{y} \\neq J_{z}$. 一维下的半自旋 XXZ Model 可以使用 Bethe Ansatz 进行严格求解.\n单离子各向异性 磁矩(或者自旋)大于 $\\frac{1}{2}$, 此时哈密顿量形式变为\n$$ \\hat{H} = D(S^{z})^{2} + E[(S^{x})^{2} - (S^{y})^{2}] $$\n$D$ 和 $E$ 分别指的是单轴的单离子各向异性和菱形的单离子各向异性.\n强各向异性 考虑两个 site 之间原子的各向异性交换(Anisotropic exchange), 会出现另一种各向异性. 此时哈密顿量形式变为\n$$ \\hat{H} = \\sum_{\\alpha,\\beta}J^{\\alpha,\\beta}S^{\\alpha}S^{\\beta} $$\n所以在磁性材料中, 理想模型会写作 XXZ Model $\\oplus$ 单离子各向异性:\n$$ \\hat{H} = \\sum_{\\langle i,j\\rangle}(S_{i}^{x}S_{j}^{x} + S_{i}^{y}S_{j}^{y} + \\Delta S_{i}^{z}S_{j}^{z}) + D\\sum_{j}(S_{j}^{z})^{2} + E\\sum_{j}[(S_{j}^{x})^{2} - (S_{j}^{y})^{2}] $$\n$\\Delta = 1, D = E = 0$ 时模型即退化为各向同性的 Heisenberg Model.\n升降算符 引入升降算符\n$$ S^{\\pm} = S^{x} \\pm iS^{y} $$\n原哈密顿量就可以改写为\n$$ \\hat{H} = J\\sum_{i}\\left(\\frac{1}{2}\\left(S_{i}^{+}S_{i+1}^{-} + S_{i}^{-}S_{i + 1}^{+}\\right) + S_{i}^{z}S_{i+1}^{z}\\right) $$\n基态 如果模型处于铁磁性, 考虑系统处于基态, 不妨设所有原子的自旋方向都是 $\\uparrow$, 则基态波函数可以写作\n$$ \\psi_{g} = |\\uparrow\\uparrow\\uparrow\\dots\\rangle $$\n因为是基态, 所以我们可以得到\n$$ S_{i}^{+}S_{i+1}^{-}\\psi_{g} = 0\\\\ S_{i}^{-}S_{i+1}^{+}\\psi_{g} = 0 $$\n所以我们只需要关心剩余的\n$$ S_{i}^{z}S_{i+1}^{z}\\psi_{g} = \\frac{\\hbar^{2}}{4}\\psi_{g} $$\n因此就能得到\n$$ \\hat{H}\\psi_{g} = J\\hbar^{2}\\frac{L}{4}\\psi_{g}\\Rightarrow E_{g} = J\\hbar^{2}\\frac{L}{4} $$\n自旋倒向 设基态 $\\psi_{g}$ 第 $n$ 个自旋倒向, 那么形成的波函数为\n$$ \\psi_{n} = |\\uparrow\\uparrow\\uparrow\\dots\\overbrace{\\downarrow}^{n_{\\text{th}}}\\dots\\uparrow\\rangle $$\n即有\n$$ \\hat{H}\\psi_{n} = \\frac{J}{4}[(L - 4)\\psi_{n} + 2\\psi_{n - 1} + \\psi_{n + 1}] $$\n这并不满足特征方程所需要的 $\\hat{H}\\psi_{n} = E_{n}\\psi_{n}$ 的形式, 所以按照上述方式构造出来的 $\\psi_{n}$ 一定不是 $\\hat{H}$ 的本征态.\n我们可以引入 $\\psi_{f}$, 并且要求该波函数在 $\\{\\psi_{n}\\}$ 所张成的空间中:\n$$ \\psi_{f} = \\sum_{n}c_{n}\\psi_{n} $$\n若 $\\psi_{f}$ 是 $\\hat{H}$ 的本征态, 那么就有\n$$ \\hat{H}\\psi_{f} = \\frac{J}{4}\\sum_{n}[(L - 4)c_{n}\\psi_{n} + 2c_{n - 1}\\psi_{n - 1} + 2c_{n + 1}\\psi_{n + 1}] = E_{f}\\sum_{n}c_{n}\\psi_{n} $$\n两边都有求和符号, 为了简化方程, 可以令等式两边都对 $\\psi_{m}^{*}$ 作内积:\n$$ \\frac{L}{4}[(L - 4)c_{m} + 2c_{m - 1} + 2c_{m + 1}] = E_{f}c_{m} $$\n这是一个线性方程, 可以解得\n$$ c_{n} = \\frac{1}{\\sqrt{L}}e^{ikna} $$\n所以本征态为\n$$ \\psi_{f} = \\frac{1}{\\sqrt{L}}\\sum_{n}\\psi_{n}e^{ikna} $$\n对应的本征值为\n$$ E_{f} = J\\hbar^{2}\\frac{L}{4} - J\\hbar^{2}(1 - \\cos{ka}) $$\nHubbard Model 动能项: 描述粒子从一个 site 隧穿到最近邻的 site;\n势能项: 描述晶格中, 每个 site 上不同自旋粒子之间的相互作用.\n$$ \\hat{H} = -t\\sum_{i,\\sigma}\\left(\\hat{c}^{\\dagger}_{i,\\sigma}\\hat{c}_{i + 1,\\sigma} + \\hat{c}^{\\dagger}_{i+ 1,\\sigma}\\hat{c}_{i,\\sigma}\\right) + U\\sum_{i}\\hat{n}_{i,\\uparrow}\\hat{n}_{i,\\downarrow} $$\n这是最简单的强关联模型, 因为是最简单的相互作用电子体系. 同样地, 根据不同的背景可以产生众多的变式, 比如 Extended Hubbard Model(考虑相邻 site 之间电子的相互作用), Fermi-Hubbard Model 和 Bose-Hubbard Model 等.\nt-J Model 推广自 Hubbard Model.\n$$ \\hat{H} = -t\\sum_{\\langle ij\\rangle,\\sigma}\\hat{a}^{\\dagger}_{i\\sigma}\\hat{a}_{j\\sigma} + J\\sum_{\\langle ij\\rangle}\\left(\\hat{S}_{i}\\cdot\\hat{S}_{j} - \\frac{n_{i}n_{j}}{4}\\right) $$\n",
+  "wordCount" : "2989",
+  "inLanguage": "zh",
+  "datePublished": "2023-07-26T00:18:23+08:00",
+  "dateModified": "2022-07-26T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/calphy/1d-spin-chain/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/calphy/">💻 Computation Physics</a></div>
+            <h1 class="post-title">
+                自旋链
+            </h1>
+            <div class="post-description">
+                毕业论文资料收集
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-07-26
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2989字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>6分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">numerical calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#ising-model" aria-label="Ising Model">Ising Model</a><ul>
+                        
+                <li>
+                    <a href="#%e6%95%b0%e5%80%bc%e6%a8%a1%e6%8b%9f" aria-label="数值模拟">数值模拟</a><ul>
+                        
+                <li>
+                    <a href="#monte-carlo-method-%e8%ae%a1%e7%ae%97-2d-ising-model-%e7%a3%81%e5%81%b6%e6%9e%81%e7%9f%a9%e5%92%8c%e6%af%94%e7%83%ad" aria-label="Monte Carlo Method 计算 2D Ising Model 磁偶极矩和比热">Monte Carlo Method 计算 2D Ising Model 磁偶极矩和比热</a><ul>
+                        
+                <li>
+                    <a href="#metropolis-algorithm" aria-label="Metropolis Algorithm">Metropolis Algorithm</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%af%b9%e8%a7%92%e5%8c%96-1d-%e9%87%8f%e5%ad%90%e5%a4%9a%e4%bd%93%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%93%88%e5%af%86%e9%a1%bf%e9%87%8f" aria-label="对角化 1D 量子多体系统的哈密顿量">对角化 1D 量子多体系统的哈密顿量</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#heisenberg-model" aria-label="Heisenberg Model">Heisenberg Model</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8d%87%e9%99%8d%e7%ae%97%e7%ac%a6" aria-label="升降算符">升降算符</a></li>
+                <li>
+                    <a href="#%e5%9f%ba%e6%80%81" aria-label="基态">基态</a></li>
+                <li>
+                    <a href="#%e8%87%aa%e6%97%8b%e5%80%92%e5%90%91" aria-label="自旋倒向">自旋倒向</a></li></ul>
+                </li>
+                <li>
+                    <a href="#hubbard-model" aria-label="Hubbard Model">Hubbard Model</a></li>
+                <li>
+                    <a href="#t-j-model" aria-label="t-J Model">t-J Model</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><p>本页面总结自旋液体相关的知识.</p>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/391188463/answer/1187624692" target="_blank" rel="noopener nofollow noreferrer" >为什么需要伊辛模型、海森堡模型、t-J 模型等一系列模型？ - Physhan的回答 - 知乎</a></p>
+</blockquote>
+<h1 id="ising-model">Ising Model<a hidden class="anchor" aria-hidden="true" href="#ising-model">#</a></h1>
+<blockquote>
+<p>在晶格中, 每个 site 的原子磁矩可以取 $\pm 1$, 只考虑最近邻的原子相互作用.</p>
+</blockquote>
+<p>根据以上假设就有</p>
+<p>$$
+\hat{H} = \sum_{\langle ij\rangle}J_{ij}\sigma_{i}\sigma_{j}
+$$</p>
+<blockquote>
+<p>这个模型被提出的时候, 人们还没有意识到 $\sigma_{i}$ 的严格定义, 只知道是 site 上有着某种内禀的磁矩.</p>
+</blockquote>
+<h2 id="数值模拟">数值模拟<a hidden class="anchor" aria-hidden="true" href="#数值模拟">#</a></h2>
+<h3 id="monte-carlo-method-计算-2d-ising-model-磁偶极矩和比热">Monte Carlo Method 计算 2D Ising Model 磁偶极矩和比热<a hidden class="anchor" aria-hidden="true" href="#monte-carlo-method-计算-2d-ising-model-磁偶极矩和比热">#</a></h3>
+<p>$$
+\mathcal{H} = -J\sum_{\langle ij\rangle}^{N}s_{i}s_{j},\quad s_{i} = \pm 1, \forall i = 1,2,\dots,N\\
+\langle m^{2}\rangle = \frac{1}{N^{2}}\left\langle\left(\sum_{i}s_{i}\right)^{2}\right\rangle, C = \frac{\langle\mathcal{H}^{2}\rangle - \langle\mathcal{H}\rangle^{2}}{Nk_{B}T^{2}}
+$$</p>
+<blockquote>
+<p>对于三种不同尺寸 $L = 8,12,16$ 的 2D 正方格子, 采用周期化边界条件, 计算 $m^{2}$ 和比热 $C$ 随着温度 $T$ 在 $(1,3)$ 内的变化曲线, 取步长 $\Delta T = 0.05$. 为了方便计算, 取常数 $J = 1$.</p>
+</blockquote>
+<h4 id="metropolis-algorithm">Metropolis Algorithm<a hidden class="anchor" aria-hidden="true" href="#metropolis-algorithm">#</a></h4>
+<p>该算法应用在蒙特卡洛算法中, 用来判断一次随机自旋翻转是否会被保留.</p>
+<p>我们随机选择一个位置 $(i,j)$, 令其自旋翻转, 从而使体系产生了能量差 $\Delta E$. 那么我们需要使用 Metropolis 函数计算出判定数 $p$:</p>
+<p>$$
+p = \begin{cases}
+1,\quad\Delta E \leq 0\\
+e^{-\frac{\Delta E}{k_{B}T}}, \quad\Delta E &gt; 0
+\end{cases}
+$$</p>
+<blockquote>
+<p>在计算中, 我们通常取 $k_{B} = 1$.</p>
+</blockquote>
+<p>然后令 $p$ 与 $[0,1]$ 中的随机数 $z$ 比较, 若 $z &lt; p$, 则保留该翻转, 否则不保留. 接下来我们要做的就是计算并且记录这一轮次的相关数据, 然后继续下一轮的随机翻转.</p>
+<p>将足够多轮次的数据进行平均, 我们就可以得到近似的期望值.</p>
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>Reference<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span>clear;clc;
+</span></span><span style="display:flex;"><span>Ls=[<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">16</span>];
+</span></span><span style="display:flex;"><span>dT=<span style="color:#ae81ff">0.025</span>;
+</span></span><span style="display:flex;"><span>Tspan=<span style="color:#ae81ff">1</span>:dT:<span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%生成随机初始条件的自旋矩阵</span>
+</span></span><span style="display:flex;"><span>N=<span style="color:#ae81ff">6e6</span>;<span style="color:#75715e">%计算次数</span>
+</span></span><span style="display:flex;"><span>L_m2=zeros(<span style="color:#ae81ff">3</span>,length(Tspan));L_C=L_m2;<span style="color:#75715e">%分配数据位置</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> ii=<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">%确认2D正方格子尺寸</span>
+</span></span><span style="display:flex;"><span>    L=Ls(ii);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">%生成随机磁矩矩阵</span>
+</span></span><span style="display:flex;"><span>    M=randi([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>],L,L)<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">%分配数据记录位置</span>
+</span></span><span style="display:flex;"><span>    m2_T=zeros(<span style="color:#ae81ff">1</span>,length(Tspan));H2_T=m2_T;H1_T=m2_T;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">%以温度遍历计算</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> Tn=<span style="color:#ae81ff">1</span>:length(Tspan)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">%当前轮次的温度</span>
+</span></span><span style="display:flex;"><span>        T=Tspan(Tn);
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">%分配数据位置</span>
+</span></span><span style="display:flex;"><span>        m2_s=[];H2_s=[];H1_s=[];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">%</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> nn=<span style="color:#ae81ff">1</span>:N
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">%保留磁矩矩阵的原信息</span>
+</span></span><span style="display:flex;"><span>            M_1=M;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">%随机翻转自旋的坐标</span>
+</span></span><span style="display:flex;"><span>            loc=randi([<span style="color:#ae81ff">1</span>,L],<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>            x=loc(<span style="color:#ae81ff">1</span>);y=loc(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">%翻转后的磁矩矩阵</span>
+</span></span><span style="display:flex;"><span>            M_2=M;M_2(x,y)=<span style="color:#f92672">-</span>M_1(x,y);
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">%计算能量差</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">%pud是指利用周期性边界条件,将矩阵边界进行扩展,便于计算边界时的能量差</span>
+</span></span><span style="display:flex;"><span>            pudM=pud(M);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">%计算能量差仅需比较最近邻格点</span>
+</span></span><span style="display:flex;"><span>            deltaE=<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>M_1(x,y)<span style="color:#f92672">*</span>(pudM(x<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>,y<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">+</span>pudM(x,y<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">+</span>pudM(x<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,y<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">+</span>pudM(x<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,y));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">%使用Metropolis算法判断状态是否保留</span>
+</span></span><span style="display:flex;"><span>            flag=Metro(deltaE,T);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> flag<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                M=M_2;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>                M=M_1;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">%计算当前时刻的各物理量，记录下来以进行时间平均</span>
+</span></span><span style="display:flex;"><span>            m2=(sum(M(:))^<span style="color:#ae81ff">2</span>)<span style="color:#f92672">/</span>(L^<span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span>            H1=H(M);
+</span></span><span style="display:flex;"><span>            H2=H1^<span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>            m2_s(<span style="color:#66d9ef">end</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)=m2;
+</span></span><span style="display:flex;"><span>            H2_s(<span style="color:#66d9ef">end</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)=H2;
+</span></span><span style="display:flex;"><span>            H1_s(<span style="color:#66d9ef">end</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)=H1;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">%计算m^2,H^2,H在T=Tspan(Tn)下的期望值</span>
+</span></span><span style="display:flex;"><span>        l=length(m2_s);
+</span></span><span style="display:flex;"><span>        m2_s_avg_Tn=sum(m2_s)<span style="color:#f92672">/</span>l;
+</span></span><span style="display:flex;"><span>        H2_s_avg_Tn=sum(H2_s)<span style="color:#f92672">/</span>l;
+</span></span><span style="display:flex;"><span>        H1_s_avg_Tn=sum(H1_s)<span style="color:#f92672">/</span>l;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">%将上述数值记录在提前分配的内存中，以方便进行下一步计算</span>
+</span></span><span style="display:flex;"><span>        m2_T(Tn)=m2_s_avg_Tn;
+</span></span><span style="display:flex;"><span>        H2_T(Tn)=H2_s_avg_Tn;
+</span></span><span style="display:flex;"><span>        H1_T(Tn)=H1_s_avg_Tn;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">%显示当前计算进度</span>
+</span></span><span style="display:flex;"><span>        disp(&#34;任务数为&#34;<span style="color:#f92672">+</span>ii<span style="color:#f92672">+</span>&#34;<span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>,已完成第&#34;<span style="color:#f92672">+</span>Tn<span style="color:#f92672">+</span>&#34;轮计算，进度为&#34;<span style="color:#f92672">+</span>Tn<span style="color:#f92672">/</span>length(Tspan)<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">+</span>&#34;<span style="color:#75715e">%&#34;)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">%将当前尺寸下的数据记录在提前分配的内存中，以方便进行下一步计算</span>
+</span></span><span style="display:flex;"><span>    L_m2(ii,:)=m2_T;
+</span></span><span style="display:flex;"><span>    L_C(ii,:)=(H2_T<span style="color:#f92672">-</span>H1_T<span style="color:#f92672">.^</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">./</span>(L^<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>Tspan<span style="color:#f92672">.^</span><span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%绘制m^{2}随温度变化的图像</span>
+</span></span><span style="display:flex;"><span>figure(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>plot(Tspan,L_m2(<span style="color:#ae81ff">1</span>,:),<span style="color:#e6db74">&#39;r&#39;</span>,Tspan,L_m2(<span style="color:#ae81ff">2</span>,:),<span style="color:#e6db74">&#39;k&#39;</span>,Tspan,L_m2(<span style="color:#ae81ff">3</span>,:),<span style="color:#e6db74">&#39;b&#39;</span>)
+</span></span><span style="display:flex;"><span>xlabel(<span style="color:#e6db74">&#39;Temperature&#39;</span>);ylabel(<span style="color:#e6db74">&#39;&lt;m^2&gt;&#39;</span>);
+</span></span><span style="display:flex;"><span>legend(&#34;L=<span style="color:#ae81ff">8</span>&#34;,&#34;L=<span style="color:#ae81ff">12</span>&#34;,&#34;L=<span style="color:#ae81ff">16</span>&#34;);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%绘制C随温度变化的图像</span>
+</span></span><span style="display:flex;"><span>figure(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>plot(Tspan,L_C(<span style="color:#ae81ff">1</span>,:),<span style="color:#e6db74">&#39;r&#39;</span>,Tspan,L_C(<span style="color:#ae81ff">2</span>,:),<span style="color:#e6db74">&#39;k&#39;</span>,Tspan,L_C(<span style="color:#ae81ff">3</span>,:),<span style="color:#e6db74">&#39;b&#39;</span>)
+</span></span><span style="display:flex;"><span>xlabel(<span style="color:#e6db74">&#39;Temperature&#39;</span>);ylabel(<span style="color:#e6db74">&#39;C&#39;</span>);
+</span></span><span style="display:flex;"><span>legend(&#34;L=<span style="color:#ae81ff">8</span>&#34;,&#34;L=<span style="color:#ae81ff">12</span>&#34;,&#34;L=<span style="color:#ae81ff">16</span>&#34;);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%%</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%Metropolis算法函数的定义</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> flag=<span style="color:#a6e22e">Metro</span>(deltaE,T)
+</span></span><span style="display:flex;"><span>    beta=<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>T;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> deltaE<span style="color:#f92672">&lt;</span>=<span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        p=<span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        p=exp(<span style="color:#f92672">-</span>beta<span style="color:#f92672">*</span>deltaE);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    z=rand();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> z<span style="color:#f92672">&lt;</span>p
+</span></span><span style="display:flex;"><span>       flag=<span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        flag=<span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%%</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%Pud，辅助计算。输出(L+2)**2的矩阵</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> pudM=<span style="color:#a6e22e">pud</span>(M)
+</span></span><span style="display:flex;"><span>L=size(M,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>pudM=zeros(L<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>,L<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>);<span style="color:#75715e">%分配储存空间</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%pudding, 采用周期性边界条件</span>
+</span></span><span style="display:flex;"><span>pudM(<span style="color:#ae81ff">2</span>:(L<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>),<span style="color:#ae81ff">2</span>:(L<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))=M;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%行的移动</span>
+</span></span><span style="display:flex;"><span>pudM(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>:(L<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))=M(L,:);
+</span></span><span style="display:flex;"><span>pudM(L<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>:(L<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))=M(<span style="color:#ae81ff">1</span>,:);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%列的移动</span>
+</span></span><span style="display:flex;"><span>pudM(<span style="color:#ae81ff">2</span>:(L<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>),<span style="color:#ae81ff">1</span>)=M(:,L);
+</span></span><span style="display:flex;"><span>pudM(<span style="color:#ae81ff">2</span>:(L<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>),L<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>)=M(:,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%能量计算. 利用哈密顿量的定义求和计算.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> E=<span style="color:#a6e22e">H</span>(M)
+</span></span><span style="display:flex;"><span>L=size(M,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>pudM=pud(M);
+</span></span><span style="display:flex;"><span>H=<span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i=<span style="color:#ae81ff">2</span>:L
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j=<span style="color:#ae81ff">2</span>:L
+</span></span><span style="display:flex;"><span>        H=H<span style="color:#f92672">-</span>pudM(i,j)<span style="color:#f92672">*</span>(pudM(i,j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">+</span>pudM(i,j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">+</span>pudM(i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,j)<span style="color:#f92672">+</span>pudM(i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,j));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>E=H<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div></div>
+
+ </div>
+
+ </div>
+<h3 id="对角化-1d-量子多体系统的哈密顿量">对角化 1D 量子多体系统的哈密顿量<a hidden class="anchor" aria-hidden="true" href="#对角化-1d-量子多体系统的哈密顿量">#</a></h3>
+<p>$$
+\begin{aligned}
+\hat{H} &amp;= \sum_{i = 1}^{L - 1}-\hat{\sigma}^{z}_{i}\hat{\sigma}_{i+1}^{z} - \hat{\sigma}^{z}_{L}\hat{\sigma}^{z}_{1} + h\sum_{i = 1}^{L}\hat{\sigma}_{i}^{x}\\
+\hat{\sigma}_{i}^{z}\hat{\sigma}_{j}^{z} &amp;= I \otimes I \dots \sigma^{z}\otimes \dots \sigma^{z} \otimes\dots I\\
+\hat{\sigma}_{i}^{x} &amp;= I \otimes I \dots \sigma^{x} \otimes \dots \otimes I
+\end{aligned}
+$$</p>
+<blockquote>
+<p>使用周期化边界条件, 并且引入了磁场 $h$ 的影响.</p>
+</blockquote>
+<p>$L = 10, h = 0.5, 1.0, 2.0$.</p>
+<ol>
+<li>
+<p>对角化哈密顿量矩阵 $\hat{H}$, 求解基态能量和第一激发态能量;</p>
+</li>
+<li>
+<p>计算基态下的 $\langle \sigma_{1}^{x}\rangle$;</p>
+</li>
+<li>
+<p>设 $t = 0$ 时系统处于 $h = 0.5$ 的基态, $t&gt;0$ 使 $h$ 突变为 $h = 3$, 求在新哈密顿量 $\hat{H}&rsquo;$ 下 $\langle \sigma_{1}^{x}(t)\rangle$ 在 $t\in (0,10)$ 的时间演化.</p>
+</li>
+</ol>
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>Reference<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>clear;clc;
+</span></span><span style="display:flex;"><span>L=10;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%不同磁场
+</span></span><span style="display:flex;"><span>h=[1/2,1,2];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%计算不同h下的基态能量和第一激发态
+</span></span><span style="display:flex;"><span>%分配内存空间储存不同磁场下的
+</span></span><span style="display:flex;"><span>he1e2=zeros(length(h),3);
+</span></span><span style="display:flex;"><span>for n=1:length(h)
+</span></span><span style="display:flex;"><span>    %对磁场参数进行赋值
+</span></span><span style="display:flex;"><span>    hn=h(n);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    %代入初始参数, 计算哈密顿量
+</span></span><span style="display:flex;"><span>    H=G(hn,L);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    %使用matlab内置函数计算 H 本征值并且完成排序
+</span></span><span style="display:flex;"><span>    En=unique(eig(H));
+</span></span><span style="display:flex;"><span>    disp(&#34;h=&#34;+hn+&#34;时，基态能量为&#34;+En(1,1)+&#34;,第一激发态为&#34;+En(2,1))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    %将本轮次的数据填入预留的内存空间
+</span></span><span style="display:flex;"><span>    he1e2(n,1)=hn;he1e2(n,2)=En(1,1);he1e2(n,3)=En(2,1);
+</span></span><span style="display:flex;"><span>end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%计算基态的sigma_{1}^x的期望值
+</span></span><span style="display:flex;"><span>%在指令行分割数据展示
+</span></span><span style="display:flex;"><span>disp(&#34;-------------------------------------------------&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%预留存储空间
+</span></span><span style="display:flex;"><span>sigma1x_s=zeros(1,length(h));
+</span></span><span style="display:flex;"><span>for n=1:length(h)
+</span></span><span style="display:flex;"><span>    hn=h(n);
+</span></span><span style="display:flex;"><span>    H=G(hn,L);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    %V是特征值的对角矩阵，D使得H=DVD^(-1)
+</span></span><span style="display:flex;"><span>    %易知D是特征向量(列向量)组成的矩阵
+</span></span><span style="display:flex;"><span>    [V,D]=eig(H);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    %D的第一个列向量即为基态波函数
+</span></span><span style="display:flex;"><span>    psi0=V(:,1);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    %计算sigma_{1}^x的期望值
+</span></span><span style="display:flex;"><span>    sigma1x=psi0&#39;*Sigmax(1,L)*psi0;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    %将本轮次的sigma_{1}^{x} 记录到预留的内存空间中
+</span></span><span style="display:flex;"><span>    sigma1x_s(n)=sigma1x;
+</span></span><span style="display:flex;"><span>    disp(&#34;h=&#34;+hn+&#34;时, sigma_{1}^x的期望值是&#34;+ sigma1x)
+</span></span><span style="display:flex;"><span>end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%%
+</span></span><span style="display:flex;"><span>%t=0时系统处在h=0.5的基态, t&gt;0时h=3, 求哈密顿量的时间演化.
+</span></span><span style="display:flex;"><span>%分割命令行区数据展示
+</span></span><span style="display:flex;"><span>disp(&#34;-------------------------------------------------&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%时间范围
+</span></span><span style="display:flex;"><span>tspan=0:0.1:10;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%计算h=0.5下的初态波函数
+</span></span><span style="display:flex;"><span>h=0.5;H=G(h,L);[~,D]=eig(H);psi0=V(:,1);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%计算h=3.0下的哈密顿量
+</span></span><span style="display:flex;"><span>h=3;H=G(h,L);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%分配记录含时 sigma_{1}^{x}(t) 的内存空间
+</span></span><span style="display:flex;"><span>sigma1x_t=zeros(1,length(tspan));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%遍历计算 sigma_{1}^{x}(t_{0})
+</span></span><span style="display:flex;"><span>for n=1:length(tspan)
+</span></span><span style="display:flex;"><span>    % 取 t 值
+</span></span><span style="display:flex;"><span>    t=tspan(n);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    % 含时演化
+</span></span><span style="display:flex;"><span>    psi=expm(-1i*H*t)*psi0;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    % 计算内积得到期望值
+</span></span><span style="display:flex;"><span>    sigma1x=conj(psi.&#39;)*Sigmax(1,L)*psi;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    % 记录当前时刻 t_{0} 的 sigma_{1}^{x}(t_{0})
+</span></span><span style="display:flex;"><span>    sigma1x_t(n)=sigma1x;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    % 清理命令行显示区
+</span></span><span style="display:flex;"><span>    clc;
+</span></span><span style="display:flex;"><span>    disp(&#34;已完成计算进度&#34;+n/length(tspan)*100+&#34;%&#34;)
+</span></span><span style="display:flex;"><span>end
+</span></span><span style="display:flex;"><span>plot(tspan,sigma1x_t,&#39;k&#39;)
+</span></span><span style="display:flex;"><span>xlabel(&#34;Time&#34;)
+</span></span><span style="display:flex;"><span>ylabel(&#34;&lt;\sigma_{1}^x&gt;&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%%
+</span></span><span style="display:flex;"><span>%定义H的生成函数
+</span></span><span style="display:flex;"><span>function H=G(h,L)
+</span></span><span style="display:flex;"><span>    H=0;
+</span></span><span style="display:flex;"><span>    for i=1:L-1
+</span></span><span style="display:flex;"><span>        H=H-Sigmaz(i,i+1,L)+h*Sigmax(i,L);
+</span></span><span style="display:flex;"><span>    end
+</span></span><span style="display:flex;"><span>    H=H-Sigmaz(L,1,L)+h*Sigmax(L,L);
+</span></span><span style="display:flex;"><span>end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%生成单一的\hat{sigma}_{i}^z\hat{sigma}_{j}^z元素,未求和
+</span></span><span style="display:flex;"><span>function sigmaz=Sigmaz(i,j,L)
+</span></span><span style="display:flex;"><span>    %定义z泡利矩阵
+</span></span><span style="display:flex;"><span>    sigmaZ=[1,0;0,-1];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    %初始化内存空间
+</span></span><span style="display:flex;"><span>    s=1;
+</span></span><span style="display:flex;"><span>    for n=1:L
+</span></span><span style="display:flex;"><span>        if n==i||n==j
+</span></span><span style="display:flex;"><span>            %kron(A,B)产生 A 和 B 的 Kronecker 张量积
+</span></span><span style="display:flex;"><span>            s=kron(s,sigmaZ);
+</span></span><span style="display:flex;"><span>        else
+</span></span><span style="display:flex;"><span>            %eye(n)产生 n 阶单位矩阵
+</span></span><span style="display:flex;"><span>            s=kron(s,eye(2));
+</span></span><span style="display:flex;"><span>        end
+</span></span><span style="display:flex;"><span>    end
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    %返回张量连乘积结果
+</span></span><span style="display:flex;"><span>    sigmaz=s;
+</span></span><span style="display:flex;"><span>end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%生成单一的\hat{sigma}_{i}^x元素, 未求和
+</span></span><span style="display:flex;"><span>function sigmax=Sigmax(i,L)
+</span></span><span style="display:flex;"><span>    %定义x泡利矩阵
+</span></span><span style="display:flex;"><span>    sigmaX=[0,1;1,0];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    % 初始化内存空间
+</span></span><span style="display:flex;"><span>    s=1;
+</span></span><span style="display:flex;"><span>    for n=1:L
+</span></span><span style="display:flex;"><span>        if n==i
+</span></span><span style="display:flex;"><span>            s=kron(s,sigmaX);
+</span></span><span style="display:flex;"><span>        else
+</span></span><span style="display:flex;"><span>            s=kron(s,eye(2));
+</span></span><span style="display:flex;"><span>        end
+</span></span><span style="display:flex;"><span>    end
+</span></span><span style="display:flex;"><span>    sigmax=s;
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div></div>
+
+ </div>
+
+ </div>
+<h1 id="heisenberg-model">Heisenberg Model<a hidden class="anchor" aria-hidden="true" href="#heisenberg-model">#</a></h1>
+<blockquote>
+<p>只考虑最近邻的相互作用, 且呈现各向同性.</p>
+</blockquote>
+<p>$$
+\hat{H} = J\sum_{\langle i,j\rangle}\hat{S}_{i}\cdot\hat{S}_{j} = J\sum_{\langle i,j\rangle}\left(S_{i}^{x}S_{j}^{x} + S_{i}^{y}S_{j}^{y} + S_{i}^{z}S_{j}^{z}\right)
+$$</p>
+<p>相比于之前的 Ising Model, 变化在于真正引入了电子自旋 $\hat{S}_{i}$. 根据不同的情景有着不同的变种.</p>
+<ol>
+<li>各向异性</li>
+</ol>
+<p>$$
+\hat{H} = J_{x}\sum_{\langle i,j\rangle}S_{i}^{x}S_{j}^{x} + J_{y}\sum_{\langle i,j\rangle}S_{i}^{y}S_{j}^{y} + J_{z}\sum_{\langle i,j\rangle}S_{i}^{z}S_{j}^{z}
+$$</p>
+<ol start="2">
+<li>XXZ Model.</li>
+</ol>
+<p>即 $J_{x} = J_{y} \neq J_{z}$. 一维下的半自旋 XXZ Model 可以使用 Bethe Ansatz 进行严格求解.</p>
+<ol start="3">
+<li>单离子各向异性</li>
+</ol>
+<p>磁矩(或者自旋)大于 $\frac{1}{2}$, 此时哈密顿量形式变为</p>
+<p>$$
+\hat{H} = D(S^{z})^{2} + E[(S^{x})^{2} - (S^{y})^{2}]
+$$</p>
+<blockquote>
+<p>$D$ 和 $E$ 分别指的是单轴的单离子各向异性和菱形的单离子各向异性.</p>
+</blockquote>
+<ol start="3">
+<li>强各向异性</li>
+</ol>
+<p>考虑两个 site 之间原子的各向异性交换(Anisotropic exchange), 会出现另一种各向异性. 此时哈密顿量形式变为</p>
+<p>$$
+\hat{H} = \sum_{\alpha,\beta}J^{\alpha,\beta}S^{\alpha}S^{\beta}
+$$</p>
+<hr>
+<p>所以在磁性材料中, 理想模型会写作 XXZ Model $\oplus$ 单离子各向异性:</p>
+<p>$$
+\hat{H} = \sum_{\langle i,j\rangle}(S_{i}^{x}S_{j}^{x} + S_{i}^{y}S_{j}^{y} + \Delta S_{i}^{z}S_{j}^{z}) + D\sum_{j}(S_{j}^{z})^{2} + E\sum_{j}[(S_{j}^{x})^{2} - (S_{j}^{y})^{2}]
+$$</p>
+<p>$\Delta = 1, D = E = 0$ 时模型即退化为各向同性的 Heisenberg Model.</p>
+<h2 id="升降算符">升降算符<a hidden class="anchor" aria-hidden="true" href="#升降算符">#</a></h2>
+<p>引入升降算符</p>
+<p>$$
+S^{\pm} = S^{x} \pm iS^{y}
+$$</p>
+<p>原哈密顿量就可以改写为</p>
+<p>$$
+\hat{H} = J\sum_{i}\left(\frac{1}{2}\left(S_{i}^{+}S_{i+1}^{-} + S_{i}^{-}S_{i + 1}^{+}\right) + S_{i}^{z}S_{i+1}^{z}\right)
+$$</p>
+<h2 id="基态">基态<a hidden class="anchor" aria-hidden="true" href="#基态">#</a></h2>
+<p>如果模型处于铁磁性, 考虑系统处于基态, 不妨设所有原子的自旋方向都是 $\uparrow$, 则基态波函数可以写作</p>
+<p>$$
+\psi_{g} = |\uparrow\uparrow\uparrow\dots\rangle
+$$</p>
+<p>因为是基态, 所以我们可以得到</p>
+<p>$$
+S_{i}^{+}S_{i+1}^{-}\psi_{g} = 0\\
+S_{i}^{-}S_{i+1}^{+}\psi_{g} = 0
+$$</p>
+<p>所以我们只需要关心剩余的</p>
+<p>$$
+S_{i}^{z}S_{i+1}^{z}\psi_{g} = \frac{\hbar^{2}}{4}\psi_{g}
+$$</p>
+<p>因此就能得到</p>
+<p>$$
+\hat{H}\psi_{g} = J\hbar^{2}\frac{L}{4}\psi_{g}\Rightarrow E_{g} = J\hbar^{2}\frac{L}{4}
+$$</p>
+<h2 id="自旋倒向">自旋倒向<a hidden class="anchor" aria-hidden="true" href="#自旋倒向">#</a></h2>
+<p>设基态 $\psi_{g}$ 第 $n$ 个自旋倒向, 那么形成的波函数为</p>
+<p>$$
+\psi_{n} = |\uparrow\uparrow\uparrow\dots\overbrace{\downarrow}^{n_{\text{th}}}\dots\uparrow\rangle
+$$</p>
+<p>即有</p>
+<p>$$
+\hat{H}\psi_{n} = \frac{J}{4}[(L - 4)\psi_{n} + 2\psi_{n - 1} + \psi_{n + 1}]
+$$</p>
+<p>这并不满足特征方程所需要的 $\hat{H}\psi_{n} = E_{n}\psi_{n}$ 的形式, 所以按照上述方式构造出来的 $\psi_{n}$ 一定不是 $\hat{H}$ 的本征态.</p>
+<p>我们可以引入 $\psi_{f}$, 并且要求该波函数在 $\{\psi_{n}\}$ 所张成的空间中:</p>
+<p>$$
+\psi_{f} = \sum_{n}c_{n}\psi_{n}
+$$</p>
+<p>若 $\psi_{f}$ 是 $\hat{H}$ 的本征态, 那么就有</p>
+<p>$$
+\hat{H}\psi_{f} = \frac{J}{4}\sum_{n}[(L - 4)c_{n}\psi_{n} + 2c_{n - 1}\psi_{n - 1} + 2c_{n + 1}\psi_{n + 1}] = E_{f}\sum_{n}c_{n}\psi_{n}
+$$</p>
+<p>两边都有求和符号, 为了简化方程, 可以令等式两边都对 $\psi_{m}^{*}$ 作内积:</p>
+<p>$$
+\frac{L}{4}[(L - 4)c_{m} + 2c_{m - 1} + 2c_{m + 1}] = E_{f}c_{m}
+$$</p>
+<p>这是一个线性方程, 可以解得</p>
+<p>$$
+c_{n} = \frac{1}{\sqrt{L}}e^{ikna}
+$$</p>
+<p>所以本征态为</p>
+<p>$$
+\psi_{f} = \frac{1}{\sqrt{L}}\sum_{n}\psi_{n}e^{ikna}
+$$</p>
+<p>对应的本征值为</p>
+<p>$$
+E_{f} = J\hbar^{2}\frac{L}{4} - J\hbar^{2}(1 - \cos{ka})
+$$</p>
+<h1 id="hubbard-model">Hubbard Model<a hidden class="anchor" aria-hidden="true" href="#hubbard-model">#</a></h1>
+<blockquote>
+<p>动能项: 描述粒子从一个 site 隧穿到最近邻的 site;</p>
+<p>势能项: 描述晶格中, 每个 site 上不同自旋粒子之间的相互作用.</p>
+</blockquote>
+<p>$$
+\hat{H} = -t\sum_{i,\sigma}\left(\hat{c}^{\dagger}_{i,\sigma}\hat{c}_{i + 1,\sigma} + \hat{c}^{\dagger}_{i+ 1,\sigma}\hat{c}_{i,\sigma}\right) + U\sum_{i}\hat{n}_{i,\uparrow}\hat{n}_{i,\downarrow}
+$$</p>
+<p>这是最简单的强关联模型, 因为是最简单的相互作用电子体系. 同样地, 根据不同的背景可以产生众多的变式, 比如 Extended Hubbard Model(考虑相邻 site 之间电子的相互作用), Fermi-Hubbard Model 和 Bose-Hubbard Model 等.</p>
+<h1 id="t-j-model">t-J Model<a hidden class="anchor" aria-hidden="true" href="#t-j-model">#</a></h1>
+<blockquote>
+<p>推广自 Hubbard Model.</p>
+</blockquote>
+<p>$$
+\hat{H} = -t\sum_{\langle ij\rangle,\sigma}\hat{a}^{\dagger}_{i\sigma}\hat{a}_{j\sigma} + J\sum_{\langle ij\rangle}\left(\hat{S}_{i}\cdot\hat{S}_{j} - \frac{n_{i}n_{j}}{4}\right)
+$$</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="next" href="https://Muatyz.github.io/posts/read/away-from-magic-angle/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>[中字]Engineering flat bands in twisted-bilayer graphene away from the magic angle with chiral optical cavities</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>
