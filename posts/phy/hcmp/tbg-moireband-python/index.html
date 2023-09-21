@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Python计算转角石墨烯能带 | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="使用Python编程计算石墨烯能带">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/hcmp/tbg-moireband-python/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="Python计算转角石墨烯能带" />
+<meta property="og:description" content="使用Python编程计算石墨烯能带" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/hcmp/tbg-moireband-python/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-08T00:18:23+08:00" />
+<meta property="article:modified_time" content="2022-05-08T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python计算转角石墨烯能带"/>
+<meta name="twitter:description" content="使用Python编程计算石墨烯能带"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🔧 (Hard) Condensed Matter Physics",
+          "item": "https://Muatyz.github.io/posts/phy/hcmp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Python计算转角石墨烯能带",
+      "item": "https://Muatyz.github.io/posts/phy/hcmp/tbg-moireband-python/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python计算转角石墨烯能带",
+  "name": "Python计算转角石墨烯能带",
+  "description": "使用Python编程计算石墨烯能带",
+  "keywords": [
+    ""
+  ],
+  "articleBody": " 本文内容来自 GitHub 的 Zihao Wang 所开发的开源项目 twisted_bilayer_graphene, 如有条件可进入链接为其 Star 以提供支持.\n在转角双层石墨烯的数值计算综述 中我们已经提到过有关紧束缚模型和低能连续模型(也有称之为低能有效模型, 如关济寰的石墨烯紧束缚模型到低能有效模型的推导). 而 Zihao Wang 的项目中也是基于 Moiré bands in twisted double-layer graphene 论文所提出的连续模型给出的, 所以对于目前正在焦虑于如何使用 ITensor 的密度矩阵重整化群方法来计算能带的本人来说, 是一个很好的用来借鉴与学习的对象.\n为了学习如何将物理图像化为代码进行计算, 这里我将源代码一步步拆解分别解说, 读者可以结合原项目中的 Jupyter Notebook 阅读体会.\n注意: 对源代码有轻微改动\n非魔角下的双层石墨烯 常量与参数 # 引入基础库 from numpy import * import matplotlib.pyplot as plt import numpy as np # 定义常数 theta = 5.00 # 旋转角, 度 omega = 110.7 # 跃迁参数, meV d = 1.420 # 层间距, 埃 hv = 1.5 * d * 2970 # 单层石墨烯的费米速度, meV * 埃 N = 5 # 截断范围 valley = -1 # 狄拉克点取点, +1 for K, -1 for K' KDens = 100 # K点密度 # 跃迁参数 theta = theta * np.pi / 180.0 # 弧度 I = complex(0,1) # 单位虚数 ei120 = np.cos(2*np.pi/3) + valley * I * np.sin(2*np.pi/3) # 120度的旋转虚数 ei240 = np.cos(4*np.pi/3) - valley * I * np.sin(4*np.pi/3) # 240度的旋转虚数 b1m = 8 * np.pi * np.sin(theta/2) / 3 / d * np.array([0.5, -np.sqrt(3)/2]) # 摩尔晶格倒格矢 b2m = 8 * np.pi * np.sin(theta/2) / 3 / d * np.array([0.5, np.sqrt(3)/2]) # 摩尔晶格倒格矢 qb = 8 * np.pi * np.sin(theta/2) / 3 / np.sqrt(3) / d * array([0, -1]) K1 = 8 * np.pi * np.sin(theta/2) / 3 / np.sqrt(3) / d * array([-np.sqrt(3)/2, -0.5]) # K点 K2 = 8 * np.pi * np.sin(theta/2) / 3 / np.sqrt(3) / d * array([-np.sqrt(3)/2, 0.5]) # K'点 跃迁矩阵 ## 采用最近邻跃迁假设 Tqb = omega * np.array([[1 , 1], [1 , 1 ]], dtype = complex) # T_{qb} Tqtr = omega * np.array([[ei120, 1], [ei240, ei120]], dtype = complex) # T_{qtr} Tqtl = omega * np.array([[ei240, 1], [ei120, ei240]], dtype = complex) # T_{qtl} ## 求跃迁矩阵的共轭转置(D == dagger) TqbD = np.array(np.matrix(Tqb).H) TqtrD = np.array(np.matrix(Tqtr).H) TqtlD = np.array(np.matrix(Tqtl).H) 晶格定义 # 定义晶格 L = [] invL = np.zeros((2 * N + 1, 2 * N + 1), int) # 晶格坐标索引 # 生成晶格网络, 将格点的坐标保存在L列表中 def Lattice(n): count = 0 for i in np.arange(-n, n + 1): for j in np.arange(-n, n + 1): L.append([i, j]) invL[i+n, j+n] = count # 坐标为(i, j)的格点对应的索引count保存于invL[i + n, j + n]中 count = count + 1 for i in np.arange(-n, n + 1): for j in np.arange(-n, n + 1): L.append([i, j]) Lattice(N) # 生成晶格网络 siteN = (2 * N + 1)**2 # 晶格格点总数 L = np.array(L) # 转换为numpy数组 哈密顿量函数构造 def Hamiltonian(kx, ky): H = array(zeros((4 * siteN, 4 * siteN)), dtype=complex) for i in np.arange(siteN): #diagonal term ix = L[i, 0] iy = L[i, 1] ax = kx - valley * K1[0] + ix * b1m[0] + iy * b2m[0] ay = ky - valley * K1[1] + ix * b1m[1] + iy * b2m[1] qx = np.cos(theta/2) * ax + np.sin(theta/2) * ay qy =-np.sin(theta/2) * ax + np.cos(theta/2) * ay H[2 *i, 2 *i +1] = hv * (valley *qx - I *qy) H[2 *i +1, 2 *i] = hv * (valley *qx + I *qy) #off-diagonal term j = i + siteN H[2*j, 2*i] = TqbD[0, 0] H[2*j, 2*i+1] = TqbD[0, 1] H[2*j+1, 2*i] = TqbD[1, 0] H[2*j+1, 2*i+1] = TqbD[1, 1] if (iy != valley*N): j = invL[ix+N, iy+valley*1+N] + siteN H[2*j, 2*i] = TqtrD[0, 0] H[2*j, 2*i+1] = TqtrD[0, 1] H[2*j+1, 2*i] = TqtrD[1, 0] H[2*j+1, 2*i+1] = TqtrD[1, 1] if (ix != -valley*N): j = invL[ix-valley*1+N, iy+N] + siteN H[2*j, 2*i] = TqtlD[0, 0] H[2*j, 2*i+1] = TqtlD[0, 1] H[2*j+1, 2*i] = TqtlD[1, 0] H[2*j+1, 2*i+1] = TqtlD[1, 1] for i in np.arange(siteN, 2*siteN): #diagnoal term j = i - siteN ix = L[j, 0] iy = L[j, 1] ax = kx - valley*K2[0] + ix*b1m[0] + iy*b2m[0] ay = ky - valley*K2[1] + ix*b1m[1] + iy*b2m[1] qx = cos(theta/2) * ax - sin(theta/2) * ay qy = sin(theta/2) * ax + cos(theta/2) * ay H[2*i, 2*i+1] = hv * (valley*qx - I*qy) H[2*i+1, 2*i] = hv * (valley*qx + I*qy) #off-diagonal term H[2*j, 2*i] = Tqb[0, 0] H[2*j, 2*i+1] = Tqb[0, 1] H[2*j+1, 2*i] = Tqb[1, 0] H[2*j+1, 2*i+1] = Tqb[1, 1] if (iy != (-valley*N)): j = invL[ix+N, iy-valley*1+N] H[2*j, 2*i] = Tqtr[0, 0] H[2*j, 2*i+1] = Tqtr[0, 1] H[2*j+1, 2*i] = Tqtr[1, 0] H[2*j+1, 2*i+1] = Tqtr[1, 1] if (ix != valley*N): j = invL[ix+valley*1+N, iy+N] H[2*j, 2*i] = Tqtl[0, 0] H[2*j, 2*i+1] = Tqtl[0, 1] H[2*j+1, 2*i] = Tqtl[1, 0] H[2*j+1, 2*i+1] = Tqtl[1, 1] eigenvalue,featurevector=np.linalg.eig(H) eig_vals_sorted = np.sort(eigenvalue) # eig_vecs_sorted = featurevector[:,eigenvalue.argsort()] e=eig_vals_sorted return e ",
+  "wordCount" : "1162",
+  "inLanguage": "zh",
+  "datePublished": "2022-05-08T00:18:23+08:00",
+  "dateModified": "2022-05-08T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/hcmp/tbg-moireband-python/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/hcmp/">🔧 (Hard) Condensed Matter Physics</a></div>
+            <h1 class="post-title">
+                Python计算转角石墨烯能带
+            </h1>
+            <div class="post-description">
+                使用Python编程计算石墨烯能带
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2022-05-08
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1162字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>3分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">numerical calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%9d%9e%e9%ad%94%e8%a7%92%e4%b8%8b%e7%9a%84%e5%8f%8c%e5%b1%82%e7%9f%b3%e5%a2%a8%e7%83%af" aria-label="非魔角下的双层石墨烯">非魔角下的双层石墨烯</a><ul>
+                        
+                <li>
+                    <a href="#%e5%b8%b8%e9%87%8f%e4%b8%8e%e5%8f%82%e6%95%b0" aria-label="常量与参数">常量与参数</a></li>
+                <li>
+                    <a href="#%e8%b7%83%e8%bf%81%e7%9f%a9%e9%98%b5" aria-label="跃迁矩阵">跃迁矩阵</a></li>
+                <li>
+                    <a href="#%e6%99%b6%e6%a0%bc%e5%ae%9a%e4%b9%89" aria-label="晶格定义">晶格定义</a></li>
+                <li>
+                    <a href="#%e5%93%88%e5%af%86%e9%a1%bf%e9%87%8f%e5%87%bd%e6%95%b0%e6%9e%84%e9%80%a0" aria-label="哈密顿量函数构造">哈密顿量函数构造</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><blockquote>
+<p>本文内容来自 GitHub 的 <a href="https://github.com/zihaophys" target="_blank" rel="noopener nofollow noreferrer" >Zihao Wang</a> 所开发的开源项目 <a href="https://github.com/zihaophys/twisted_bilayer_graphene" target="_blank" rel="noopener nofollow noreferrer" >twisted_bilayer_graphene</a>, 如有条件可进入链接为其 Star 以提供支持.</p>
+</blockquote>
+<p>在<a href="https://muartz.com/posts/phy/cmp/tbg-nu-cal/" target="_blank" rel="noopener nofollow noreferrer" >转角双层石墨烯的数值计算综述</a> 中我们已经提到过有关紧束缚模型和低能连续模型(也有称之为低能有效模型, 如关济寰的<a href="https://www.guanjihuan.com/archives/10963#comment-18192" target="_blank" rel="noopener nofollow noreferrer" >石墨烯紧束缚模型到低能有效模型的推导</a>). 而 Zihao Wang 的项目中也是基于 <a href="https://muartz.com/posts/read/moire-bands/" target="_blank" rel="noopener nofollow noreferrer" >Moiré bands in twisted double-layer graphene</a> 论文所提出的连续模型给出的, 所以对于目前正在焦虑于如何使用 ITensor 的密度矩阵重整化群方法来计算能带的本人来说, 是一个很好的用来借鉴与学习的对象.</p>
+<p>为了学习如何将物理图像化为代码进行计算, 这里我将源代码一步步拆解分别解说, 读者可以结合原项目中的 Jupyter Notebook 阅读体会.</p>
+<blockquote>
+<p>注意: 对源代码有轻微改动</p>
+</blockquote>
+<h1 id="非魔角下的双层石墨烯">非魔角下的双层石墨烯<a hidden class="anchor" aria-hidden="true" href="#非魔角下的双层石墨烯">#</a></h1>
+<h2 id="常量与参数">常量与参数<a hidden class="anchor" aria-hidden="true" href="#常量与参数">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 引入基础库</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> numpy <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 定义常数</span>
+</span></span><span style="display:flex;"><span>theta  <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.00</span>           <span style="color:#75715e"># 旋转角, 度</span>
+</span></span><span style="display:flex;"><span>omega  <span style="color:#f92672">=</span> <span style="color:#ae81ff">110.7</span>          <span style="color:#75715e"># 跃迁参数, meV</span>
+</span></span><span style="display:flex;"><span>d      <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.420</span>          <span style="color:#75715e"># 层间距, 埃</span>
+</span></span><span style="display:flex;"><span>hv     <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.5</span> <span style="color:#f92672">*</span> d <span style="color:#f92672">*</span> <span style="color:#ae81ff">2970</span> <span style="color:#75715e"># 单层石墨烯的费米速度, meV * 埃</span>
+</span></span><span style="display:flex;"><span>N      <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>              <span style="color:#75715e"># 截断范围</span>
+</span></span><span style="display:flex;"><span>valley <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>             <span style="color:#75715e"># 狄拉克点取点, +1 for K, -1 for K&#39;</span>
+</span></span><span style="display:flex;"><span>KDens  <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>            <span style="color:#75715e"># K点密度</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 跃迁参数</span>
+</span></span><span style="display:flex;"><span>theta  <span style="color:#f92672">=</span> theta <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">/</span> <span style="color:#ae81ff">180.0</span> <span style="color:#75715e"># 弧度</span>
+</span></span><span style="display:flex;"><span>I      <span style="color:#f92672">=</span> complex(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>)          <span style="color:#75715e"># 单位虚数</span>
+</span></span><span style="display:flex;"><span>ei120  <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>cos(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span> valley <span style="color:#f92672">*</span> I <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sin(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>) <span style="color:#75715e"># 120度的旋转虚数</span>
+</span></span><span style="display:flex;"><span>ei240  <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>cos(<span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>) <span style="color:#f92672">-</span> valley <span style="color:#f92672">*</span> I <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sin(<span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>) <span style="color:#75715e"># 240度的旋转虚数</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>b1m    <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sin(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">/</span> d <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">0.5</span>, <span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">3</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>]) <span style="color:#75715e"># 摩尔晶格倒格矢</span>
+</span></span><span style="display:flex;"><span>b2m    <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sin(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">/</span> d <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">0.5</span>,  np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">3</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>]) <span style="color:#75715e"># 摩尔晶格倒格矢</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>qb     <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sin(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">/</span> np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">3</span>) <span style="color:#f92672">/</span> d <span style="color:#f92672">*</span> array([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>K1     <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sin(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">/</span> np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">3</span>) <span style="color:#f92672">/</span> d <span style="color:#f92672">*</span> array([<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">3</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>]) <span style="color:#75715e"># K点</span>
+</span></span><span style="display:flex;"><span>K2     <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sin(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">/</span> np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">3</span>) <span style="color:#f92672">/</span> d <span style="color:#f92672">*</span> array([<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">3</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>,  <span style="color:#ae81ff">0.5</span>]) <span style="color:#75715e"># K&#39;点</span>
+</span></span></code></pre></div><h2 id="跃迁矩阵">跃迁矩阵<a hidden class="anchor" aria-hidden="true" href="#跃迁矩阵">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## 采用最近邻跃迁假设</span>
+</span></span><span style="display:flex;"><span>Tqb    <span style="color:#f92672">=</span> omega <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">1</span>    , <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>    , <span style="color:#ae81ff">1</span>    ]], dtype <span style="color:#f92672">=</span> complex) <span style="color:#75715e"># T_{qb}</span>
+</span></span><span style="display:flex;"><span>Tqtr   <span style="color:#f92672">=</span> omega <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>array([[ei120, <span style="color:#ae81ff">1</span>], [ei240, ei120]], dtype <span style="color:#f92672">=</span> complex) <span style="color:#75715e"># T_{qtr}</span>
+</span></span><span style="display:flex;"><span>Tqtl   <span style="color:#f92672">=</span> omega <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>array([[ei240, <span style="color:#ae81ff">1</span>], [ei120, ei240]], dtype <span style="color:#f92672">=</span> complex) <span style="color:#75715e"># T_{qtl}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 求跃迁矩阵的共轭转置(D == dagger)</span>
+</span></span><span style="display:flex;"><span>TqbD   <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(np<span style="color:#f92672">.</span>matrix(Tqb)<span style="color:#f92672">.</span>H)
+</span></span><span style="display:flex;"><span>TqtrD  <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(np<span style="color:#f92672">.</span>matrix(Tqtr)<span style="color:#f92672">.</span>H)
+</span></span><span style="display:flex;"><span>TqtlD  <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(np<span style="color:#f92672">.</span>matrix(Tqtl)<span style="color:#f92672">.</span>H)
+</span></span></code></pre></div><h2 id="晶格定义">晶格定义<a hidden class="anchor" aria-hidden="true" href="#晶格定义">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 定义晶格</span>
+</span></span><span style="display:flex;"><span>L <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>invL <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> N <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> N <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>), int) <span style="color:#75715e"># 晶格坐标索引</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 生成晶格网络, 将格点的坐标保存在L列表中</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Lattice</span>(n):
+</span></span><span style="display:flex;"><span>    count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span>n, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span>n, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            L<span style="color:#f92672">.</span>append([i, j])
+</span></span><span style="display:flex;"><span>            invL[i<span style="color:#f92672">+</span>n, j<span style="color:#f92672">+</span>n] <span style="color:#f92672">=</span> count <span style="color:#75715e"># 坐标为(i, j)的格点对应的索引count保存于invL[i + n, j + n]中</span>
+</span></span><span style="display:flex;"><span>            count <span style="color:#f92672">=</span> count <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>          
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span>n, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span>n, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            L<span style="color:#f92672">.</span>append([i, j])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>Lattice(N) <span style="color:#75715e"># 生成晶格网络</span>
+</span></span><span style="display:flex;"><span>siteN <span style="color:#f92672">=</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> N <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#75715e"># 晶格格点总数</span>
+</span></span><span style="display:flex;"><span>L <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(L) <span style="color:#75715e"># 转换为numpy数组</span>
+</span></span></code></pre></div><h2 id="哈密顿量函数构造">哈密顿量函数构造<a hidden class="anchor" aria-hidden="true" href="#哈密顿量函数构造">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Hamiltonian</span>(kx, ky):
+</span></span><span style="display:flex;"><span>    H <span style="color:#f92672">=</span> array(zeros((<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> siteN, <span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> siteN)), dtype<span style="color:#f92672">=</span>complex)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(siteN):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#diagonal term</span>
+</span></span><span style="display:flex;"><span>        ix <span style="color:#f92672">=</span> L[i, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        iy <span style="color:#f92672">=</span> L[i, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        ax <span style="color:#f92672">=</span> kx <span style="color:#f92672">-</span> valley <span style="color:#f92672">*</span> K1[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> ix <span style="color:#f92672">*</span> b1m[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> iy <span style="color:#f92672">*</span> b2m[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        ay <span style="color:#f92672">=</span> ky <span style="color:#f92672">-</span> valley <span style="color:#f92672">*</span> K1[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> ix <span style="color:#f92672">*</span> b1m[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> iy <span style="color:#f92672">*</span> b2m[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        qx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>cos(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> ax <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>sin(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> ay
+</span></span><span style="display:flex;"><span>        qy <span style="color:#f92672">=-</span>np<span style="color:#f92672">.</span>sin(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> ax <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>cos(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> ay
+</span></span><span style="display:flex;"><span>         
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span>i, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span>i <span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> hv <span style="color:#f92672">*</span> (valley <span style="color:#f92672">*</span>qx <span style="color:#f92672">-</span> I <span style="color:#f92672">*</span>qy)
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span>i <span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span>i] <span style="color:#f92672">=</span> hv <span style="color:#f92672">*</span> (valley <span style="color:#f92672">*</span>qx <span style="color:#f92672">+</span> I <span style="color:#f92672">*</span>qy)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#off-diagonal term</span>
+</span></span><span style="display:flex;"><span>        j <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> siteN
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]     <span style="color:#f92672">=</span> TqbD[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]   <span style="color:#f92672">=</span> TqbD[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]   <span style="color:#f92672">=</span> TqbD[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> TqbD[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (iy <span style="color:#f92672">!=</span> valley<span style="color:#f92672">*</span>N):
+</span></span><span style="display:flex;"><span>            j <span style="color:#f92672">=</span> invL[ix<span style="color:#f92672">+</span>N, iy<span style="color:#f92672">+</span>valley<span style="color:#f92672">*</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>N] <span style="color:#f92672">+</span> siteN
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]     <span style="color:#f92672">=</span> TqtrD[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]   <span style="color:#f92672">=</span> TqtrD[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]   <span style="color:#f92672">=</span> TqtrD[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> TqtrD[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (ix <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span>valley<span style="color:#f92672">*</span>N):
+</span></span><span style="display:flex;"><span>            j <span style="color:#f92672">=</span> invL[ix<span style="color:#f92672">-</span>valley<span style="color:#f92672">*</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>N, iy<span style="color:#f92672">+</span>N] <span style="color:#f92672">+</span> siteN
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]     <span style="color:#f92672">=</span> TqtlD[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]   <span style="color:#f92672">=</span> TqtlD[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]   <span style="color:#f92672">=</span> TqtlD[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> TqtlD[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> np<span style="color:#f92672">.</span>arange(siteN, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>siteN):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#diagnoal term</span>
+</span></span><span style="display:flex;"><span>        j <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> siteN
+</span></span><span style="display:flex;"><span>        ix <span style="color:#f92672">=</span> L[j, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        iy <span style="color:#f92672">=</span> L[j, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        ax <span style="color:#f92672">=</span> kx  <span style="color:#f92672">-</span> valley<span style="color:#f92672">*</span>K2[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> ix<span style="color:#f92672">*</span>b1m[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> iy<span style="color:#f92672">*</span>b2m[<span style="color:#ae81ff">0</span>] 
+</span></span><span style="display:flex;"><span>        ay <span style="color:#f92672">=</span> ky  <span style="color:#f92672">-</span> valley<span style="color:#f92672">*</span>K2[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> ix<span style="color:#f92672">*</span>b1m[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> iy<span style="color:#f92672">*</span>b2m[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        qx <span style="color:#f92672">=</span> cos(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> ax <span style="color:#f92672">-</span> sin(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> ay
+</span></span><span style="display:flex;"><span>        qy <span style="color:#f92672">=</span> sin(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> ax <span style="color:#f92672">+</span> cos(theta<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> ay
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> hv <span style="color:#f92672">*</span> (valley<span style="color:#f92672">*</span>qx <span style="color:#f92672">-</span> I<span style="color:#f92672">*</span>qy)
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i] <span style="color:#f92672">=</span> hv <span style="color:#f92672">*</span> (valley<span style="color:#f92672">*</span>qx <span style="color:#f92672">+</span> I<span style="color:#f92672">*</span>qy)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#off-diagonal term</span>
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]     <span style="color:#f92672">=</span> Tqb[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]   <span style="color:#f92672">=</span> Tqb[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]   <span style="color:#f92672">=</span> Tqb[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> Tqb[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (iy <span style="color:#f92672">!=</span> (<span style="color:#f92672">-</span>valley<span style="color:#f92672">*</span>N)):
+</span></span><span style="display:flex;"><span>            j <span style="color:#f92672">=</span> invL[ix<span style="color:#f92672">+</span>N, iy<span style="color:#f92672">-</span>valley<span style="color:#f92672">*</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>N]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]     <span style="color:#f92672">=</span> Tqtr[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]   <span style="color:#f92672">=</span> Tqtr[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]   <span style="color:#f92672">=</span> Tqtr[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> Tqtr[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (ix <span style="color:#f92672">!=</span> valley<span style="color:#f92672">*</span>N):
+</span></span><span style="display:flex;"><span>            j <span style="color:#f92672">=</span> invL[ix<span style="color:#f92672">+</span>valley<span style="color:#f92672">*</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>N, iy<span style="color:#f92672">+</span>N]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]     <span style="color:#f92672">=</span> Tqtl[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]   <span style="color:#f92672">=</span> Tqtl[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]   <span style="color:#f92672">=</span> Tqtl[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            H[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> Tqtl[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>    eigenvalue,featurevector<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>linalg<span style="color:#f92672">.</span>eig(H)
+</span></span><span style="display:flex;"><span>    eig_vals_sorted <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sort(eigenvalue)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    eig_vecs_sorted = featurevector[:,eigenvalue.argsort()]</span>
+</span></span><span style="display:flex;"><span>    e<span style="color:#f92672">=</span>eig_vals_sorted
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> e
+</span></span></code></pre></div>
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/exp/muon-lifetime/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>使用塑料闪烁体测量介子的寿命</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/phy/hcmp/sec-quantization/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>二次量子化与升降算符</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>

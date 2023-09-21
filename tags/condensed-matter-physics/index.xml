@@ -7,31 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Mon, 05 Jun 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/condensed-matter-physics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Sep 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/condensed-matter-physics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>毕业论文选题调研</title>
+      <link>https://Muatyz.github.io/posts/phy/scmp/research/</link>
+      <pubDate>Thu, 21 Sep 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/scmp/research/</guid>
+      <description>能带的计算中暗含着其拓扑性质</description>
+    </item>
+    
     <item>
       <title>能带拓扑性质</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/topological/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/topological/</link>
       <pubDate>Mon, 05 Jun 2023 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/topological/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/topological/</guid>
       <description>能带的计算中暗含着其拓扑性质</description>
     </item>
     
     <item>
       <title>能带论</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/energy-band-theory/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/energy-band-theory/</link>
       <pubDate>Fri, 02 Jun 2023 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/energy-band-theory/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/energy-band-theory/</guid>
       <description>电子能带论</description>
     </item>
     
     <item>
       <title>布洛赫电子动力学</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/dynamic-of-bloch-electrons/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/dynamic-of-bloch-electrons/</link>
       <pubDate>Wed, 31 May 2023 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/dynamic-of-bloch-electrons/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/dynamic-of-bloch-electrons/</guid>
       <description>从动力学方程出发研究布洛赫电子的性质</description>
     </item>
     

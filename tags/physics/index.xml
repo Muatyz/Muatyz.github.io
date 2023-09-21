@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Wed, 26 Jul 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Sep 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>毕业论文选题调研</title>
+      <link>https://Muatyz.github.io/posts/phy/scmp/research/</link>
+      <pubDate>Thu, 21 Sep 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/scmp/research/</guid>
+      <description>能带的计算中暗含着其拓扑性质</description>
+    </item>
+    
     <item>
       <title>自旋链</title>
       <link>https://Muatyz.github.io/posts/phy/calphy/1d-spin-chain/</link>
@@ -82,46 +91,46 @@
     
     <item>
       <title>能带拓扑性质</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/topological/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/topological/</link>
       <pubDate>Mon, 05 Jun 2023 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/topological/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/topological/</guid>
       <description>能带的计算中暗含着其拓扑性质</description>
     </item>
     
     <item>
       <title>能带论</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/energy-band-theory/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/energy-band-theory/</link>
       <pubDate>Fri, 02 Jun 2023 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/energy-band-theory/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/energy-band-theory/</guid>
       <description>电子能带论</description>
     </item>
     
     <item>
       <title>布洛赫电子动力学</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/dynamic-of-bloch-electrons/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/dynamic-of-bloch-electrons/</link>
       <pubDate>Wed, 31 May 2023 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/dynamic-of-bloch-electrons/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/dynamic-of-bloch-electrons/</guid>
       <description>从动力学方程出发研究布洛赫电子的性质</description>
     </item>
     
     <item>
       <title>半导体基础</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/semi-conductor/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/semi-conductor/</link>
       <pubDate>Mon, 29 May 2023 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/semi-conductor/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/semi-conductor/</guid>
       <description>区别于金属和半金属的存在, 重点关注其价带和导带.</description>
     </item>
     
     <item>
       <title>多体: 密度泛函理论</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/density-generalized-function-theory/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/density-generalized-function-theory/</link>
       <pubDate>Mon, 29 May 2023 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/density-generalized-function-theory/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/density-generalized-function-theory/</guid>
       <description>多电子体系和密度泛函理论</description>
     </item>
     
@@ -136,28 +145,28 @@
     
     <item>
       <title>Python计算转角石墨烯能带</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/tbg-moireband-python/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/tbg-moireband-python/</link>
       <pubDate>Sun, 08 May 2022 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/tbg-moireband-python/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/tbg-moireband-python/</guid>
       <description>使用Python编程计算石墨烯能带</description>
     </item>
     
     <item>
       <title>二次量子化与升降算符</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/sec-quantization/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/sec-quantization/</link>
       <pubDate>Sun, 08 May 2022 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/sec-quantization/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/sec-quantization/</guid>
       <description>考虑多粒子体系时的量子力学</description>
     </item>
     
     <item>
       <title>使用Python绘制转角石墨烯</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/tbg-fig-python/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/tbg-fig-python/</link>
       <pubDate>Sun, 08 May 2022 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/tbg-fig-python/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/tbg-fig-python/</guid>
       <description>Python作为开源社区维护的语言,相较于Matlab等商用语言更不容易受到限制. 本内容有助于锻炼使用python包</description>
     </item>
     
@@ -181,28 +190,28 @@
     
     <item>
       <title>发源于重整化(Renormalization)的MERA算法</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/mera-method/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/mera-method/</link>
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/mera-method/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/mera-method/</guid>
       <description>多尺度纠缠重整化(MERA)是用以解决量子多体问题的算法之一</description>
     </item>
     
     <item>
       <title>发源于重整化(Renormalization)的MERA算法</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/simsopt/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/simsopt/</link>
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/simsopt/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/simsopt/</guid>
       <description>多尺度纠缠重整化(MERA)是用以解决量子多体问题的算法之一</description>
     </item>
     
     <item>
       <title>哈密顿量的描述方式</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/hamiltonian/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/hamiltonian/</link>
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/hamiltonian/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/hamiltonian/</guid>
       <description>哈密顿量可谓是最常使用的算子了, 不同的描绘方法体现出不同的物理背景和思想</description>
     </item>
     
@@ -217,10 +226,10 @@
     
     <item>
       <title>紧束缚模型</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/tight-binding-model/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/tight-binding-model/</link>
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/tight-binding-model/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/tight-binding-model/</guid>
       <description>紧束缚模型是在能带计算中的最基础的方法</description>
     </item>
     
@@ -235,19 +244,19 @@
     
     <item>
       <title>强关联模型的基石: Hubbard Model</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/hubbard-model/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/hubbard-model/</link>
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/hubbard-model/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/hubbard-model/</guid>
       <description>Hubbard Model 是固体物理的入门知识, 基于能带理论进行推广.</description>
     </item>
     
     <item>
       <title>转角双层石墨烯的数值计算综述</title>
-      <link>https://Muatyz.github.io/posts/phy/cmp/tbg-nu-cal/</link>
+      <link>https://Muatyz.github.io/posts/phy/hcmp/tbg-nu-cal/</link>
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/phy/cmp/tbg-nu-cal/</guid>
+      <guid>https://Muatyz.github.io/posts/phy/hcmp/tbg-nu-cal/</guid>
       <description>转角双层石墨烯数值计算方法综述</description>
     </item>
     

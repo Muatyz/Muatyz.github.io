@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>🔧 (Soft) Condensed Matter Physics on 无处惹尘埃</title>
+    <link>https://Muatyz.github.io/posts/phy/scmp/</link>
+    <description>Recent content in 🔧 (Soft) Condensed Matter Physics on 无处惹尘埃</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Muartz</copyright>
+    <lastBuildDate>Thu, 21 Sep 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/phy/scmp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>毕业论文选题调研</title>
+      <link>https://Muatyz.github.io/posts/phy/scmp/research/</link>
+      <pubDate>Thu, 21 Sep 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/scmp/research/</guid>
+      <description>能带的计算中暗含着其拓扑性质</description>
+    </item>
+    
+  </channel>
+</rss>
