@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>topological | 无处惹尘埃</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
+<title>有效温度的提出--从布朗运动说起 | 无处惹尘埃</title>
+<meta name="keywords" content="physics, condensed matter physics">
+<meta name="description" content="从布朗运动开始的有效温度是如何被导出的?">
 <meta name="author" content="Muartz">
-<link rel="canonical" href="https://Muatyz.github.io/tags/topological/">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/scmp/brownian-motion/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
@@ -18,7 +19,6 @@
 <link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://Muatyz.github.io/tags/topological/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,6 +56,8 @@
 
     </style>
 </noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
@@ -107,18 +109,89 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta property="og:title" content="topological" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://Muatyz.github.io/tags/topological/" />
+<meta property="og:title" content="有效温度的提出--从布朗运动说起" />
+<meta property="og:description" content="从布朗运动开始的有效温度是如何被导出的?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/scmp/brownian-motion/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-21T00:18:23+08:00" />
+<meta property="article:modified_time" content="2023-09-21T00:18:23+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="topological"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="有效温度的提出--从布朗运动说起"/>
+<meta name="twitter:description" content="从布朗运动开始的有效温度是如何被导出的?"/>
 
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🔧 (Soft) Condensed Matter Physics",
+          "item": "https://Muatyz.github.io/posts/phy/scmp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "有效温度的提出--从布朗运动说起",
+      "item": "https://Muatyz.github.io/posts/phy/scmp/brownian-motion/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "有效温度的提出--从布朗运动说起",
+  "name": "有效温度的提出--从布朗运动说起",
+  "description": "从布朗运动开始的有效温度是如何被导出的?",
+  "keywords": [
+    "physics", "condensed matter physics"
+  ],
+  "articleBody": "",
+  "wordCount" : "0",
+  "inLanguage": "zh",
+  "datePublished": "2023-09-21T00:18:23+08:00",
+  "dateModified": "2023-09-21T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/scmp/brownian-motion/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     (function () {
         let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
@@ -211,104 +284,26 @@ code.has-jax {
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/tags/">🧩 标签</a></div>
-  <h1>topological</h1>
-</header>
-
-
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>毕业论文选题调研
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        初步阅读课题组内的文献并且确定感兴趣的方向
-        
-        ...
-      </p>
-    </section>
-    <footer class="entry-footer">
-
+<main class="main page">
 <style>
     i[id*="post_meta_style"] {
         display: flex;
         align-items: center;
         margin: 0 0 10px 0;
     }
-
-    .parent-post-meta {
-        display: flex;
-        flex-wrap: wrap;
-        opacity: 0.8;
-    }
 </style>
 
-<span class="parent-post-meta">
-    <span id="post_meta_style_1">
-        <span class="fa fa-calendar-check-o"></span>
-        <span>2023-09-21
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    
-    
-    
-    
-    
-    
-    
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>155字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>1分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>Muartz
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
-                &nbsp;<a href="https://Muatyz.github.io/tags/condensed-matter-physics/" style="color: var(--secondary)!important;">condensed matter physics</a>
-                &nbsp;<a href="https://Muatyz.github.io/tags/topological/" style="color: var(--secondary)!important;">topological</a>
-            </span>
-        </span>
-    </span>
-</span>
-</footer>
-  </div> 
-  <a class="entry-link" aria-label="post link to 毕业论文选题调研" href="https://Muatyz.github.io/posts/phy/scmp/research/"></a>
-</article>
-
-
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>有效温度的提出--从布朗运动说起
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        从布朗运动开始的有效温度是如何被导出的?
-        
-        
-      </p>
-    </section>
-    <footer class="entry-footer">
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/scmp/">🔧 (Soft) Condensed Matter Physics</a></div>
+            <h1 class="post-title">
+                有效温度的提出--从布朗运动说起
+            </h1>
+            <div class="post-description">
+                从布朗运动开始的有效温度是如何被导出的?
+            </div>
+            <div class="post-meta">
 
 <style>
     i[id*="post_meta_style"] {
@@ -367,93 +362,109 @@ code.has-jax {
         </span>
     </span>
 </span>
-</footer>
-  </div> 
-  <a class="entry-link" aria-label="post link to 有效温度的提出--从布朗运动说起" href="https://Muatyz.github.io/posts/phy/scmp/brownian-motion/"></a>
-</article>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
 
+</div>
+        </header> 
 
-<article class="post-entry">
-  <div class="post-info">
-    <header class="entry-header">
-      <h2>能带拓扑性质
-      </h2>
-    </header>
-    <section class="entry-content">
-      <p>
-        能带的计算中暗含着其拓扑性质
-        
-        
-      </p>
-    </section>
-    <footer class="entry-footer">
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/scmp/research/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>毕业论文选题调研</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/effective-temp/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>[中字]A dynamic synchrotron X-ray imaging study of effective temperature in a vibrated granular medium</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
 
 <style>
-    i[id*="post_meta_style"] {
-        display: flex;
-        align-items: center;
-        margin: 0 0 10px 0;
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
     }
-
-    .parent-post-meta {
-        display: flex;
-        flex-wrap: wrap;
-        opacity: 0.8;
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
     }
 </style>
 
-<span class="parent-post-meta">
-    <span id="post_meta_style_1">
-        <span class="fa fa-calendar-check-o"></span>
-        <span>2023-06-05
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    
-    
-    
-    
-    
-    
-    
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>111字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>1分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>Muartz
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
-                &nbsp;<a href="https://Muatyz.github.io/tags/condensed-matter-physics/" style="color: var(--secondary)!important;">condensed matter physics</a>
-                &nbsp;<a href="https://Muatyz.github.io/tags/topological/" style="color: var(--secondary)!important;">topological</a>
-            </span>
-        </span>
-    </span>
-</span>
-</footer>
-  </div> 
-  <a class="entry-link" aria-label="post link to 能带拓扑性质" href="https://Muatyz.github.io/posts/phy/hcmp/topological/"></a>
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
 </article>
-
-<br />
-<br />
-
-<br />
 </main>
 
 <footer class="footer">
@@ -575,6 +586,76 @@ code.has-jax {
                 clipboardData.setData('text/html', htmlData);
                 clipboardData.setData('text/plain', textData);
             }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
         }
     });
 </script>
