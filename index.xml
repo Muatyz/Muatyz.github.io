@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Sat, 23 Sep 2023 00:18:06 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Sep 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从扩散模型到朗之万动力学</title>
+      <link>https://Muatyz.github.io/posts/phy/scmp/langevin-dynamics/</link>
+      <pubDate>Thu, 28 Sep 2023 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/scmp/langevin-dynamics/</guid>
+      <description>随机梯度下降和扩散模型(Diffusion Model)</description>
+    </item>
+    
+    <item>
+      <title>[中字]Random Loose Packing in Granular Matter</title>
+      <link>https://Muatyz.github.io/posts/read/random-loose-packing/</link>
+      <pubDate>Mon, 25 Sep 2023 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/random-loose-packing/</guid>
+      <description>随机松散堆积</description>
+    </item>
+    
+    <item>
+      <title>作为模型玻璃体系的颗粒物质结构学研究</title>
+      <link>https://Muatyz.github.io/posts/read/xcj-glass-former/</link>
+      <pubDate>Sun, 24 Sep 2023 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/xcj-glass-former/</guid>
+      <description>夏成杰, 2018</description>
+    </item>
+    
     <item>
       <title>[中字]Edwards entropy and compactivity in a model of granular matter</title>
       <link>https://Muatyz.github.io/posts/read/edwards-entropy-and-compactivity/</link>
@@ -33,15 +60,6 @@
       
       <guid>https://Muatyz.github.io/posts/phy/scmp/research/</guid>
       <description>初步阅读课题组内的文献并且确定感兴趣的方向</description>
-    </item>
-    
-    <item>
-      <title>有效温度的提出--从布朗运动说起</title>
-      <link>https://Muatyz.github.io/posts/phy/scmp/brownian-motion/</link>
-      <pubDate>Thu, 21 Sep 2023 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/phy/scmp/brownian-motion/</guid>
-      <description>从布朗运动开始的有效温度是如何被导出的?</description>
     </item>
     
     <item>

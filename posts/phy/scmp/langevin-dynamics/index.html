@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>毕业论文选题调研 | 无处惹尘埃</title>
+<title>从扩散模型到朗之万动力学 | 无处惹尘埃</title>
 <meta name="keywords" content="physics, condensed matter physics">
-<meta name="description" content="初步阅读课题组内的文献并且确定感兴趣的方向">
+<meta name="description" content="随机梯度下降和扩散模型(Diffusion Model)">
 <meta name="author" content="Muartz">
-<link rel="canonical" href="https://Muatyz.github.io/posts/phy/scmp/research/">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/scmp/langevin-dynamics/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
@@ -109,16 +109,18 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta property="og:title" content="毕业论文选题调研" />
-<meta property="og:description" content="初步阅读课题组内的文献并且确定感兴趣的方向" />
+<meta property="og:title" content="从扩散模型到朗之万动力学" />
+<meta property="og:description" content="随机梯度下降和扩散模型(Diffusion Model)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Muatyz.github.io/posts/phy/scmp/research/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-09-21T00:18:23+08:00" />
-<meta property="article:modified_time" content="2023-09-21T00:18:23+08:00" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/scmp/langevin-dynamics/" />
+<meta property="og:image" content="https://s2.loli.net/2023/09/28/AQlgivctf8jhrxF.gif" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-28T00:18:23+08:00" />
+<meta property="article:modified_time" content="2023-09-28T00:18:23+08:00" />
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="毕业论文选题调研"/>
-<meta name="twitter:description" content="初步阅读课题组内的文献并且确定感兴趣的方向"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2023/09/28/AQlgivctf8jhrxF.gif" />
+<meta name="twitter:title" content="从扩散模型到朗之万动力学"/>
+<meta name="twitter:description" content="随机梯度下降和扩散模型(Diffusion Model)"/>
 
 
 <script type="application/ld+json">
@@ -150,8 +152,8 @@ code.has-jax {
     {
       "@type": "ListItem",
       "position":  4 ,
-      "name": "毕业论文选题调研",
-      "item": "https://Muatyz.github.io/posts/phy/scmp/research/"
+      "name": "从扩散模型到朗之万动力学",
+      "item": "https://Muatyz.github.io/posts/phy/scmp/langevin-dynamics/"
     }
   ]
 }
@@ -160,24 +162,24 @@ code.has-jax {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "毕业论文选题调研",
-  "name": "毕业论文选题调研",
-  "description": "初步阅读课题组内的文献并且确定感兴趣的方向",
+  "headline": "从扩散模型到朗之万动力学",
+  "name": "从扩散模型到朗之万动力学",
+  "description": "随机梯度下降和扩散模型(Diffusion Model)",
   "keywords": [
     "physics", "condensed matter physics"
   ],
-  "articleBody": "颗粒体系的涨落耗散温度与体积系综温度 曾志坤\n两种温度的定义方式:\n涨落耗散定理\nEdward 致密性\n奇异的一致性(不受示踪剂类型,剪切振幅和颗粒表面粗糙度的影响), 从而提出有效温度的概念.\n以动态同步辐射X射线辐照振动颗粒介质, 研究有效温度 曹一新\n结构弛豫过程由长时间的有效温度而非段时间尺度的动力学温度控制.\n有效温度的定义是什么?\n",
-  "wordCount" : "155",
+  "articleBody": "布朗运动 Einstein 关系(Investigation on the Theory of the Brownian Movement)\n$$ D = \\mu_{\\text{p}}k_{\\text{B}}T $$\n$D$: 扩散常数; $\\mu_{\\text{p}}$: 粒子迁移率.\n粒子迁移率的定义:\n$$ \\mu_{\\text{p}} = \\frac{v_{d}}{F} $$\nStokes Law\n在雷诺数很小的情况下, 球形物体在流体中运动所受的阻力:\n$$ F_{\\text{d}} = 6\\pi\\eta rv $$\n$\\eta$: 流体黏度, $r$: 球体半径, $v$: 球体速度.\n物体在流体中因自重下落, 平衡达到的最终速度为:\n$$ v_{s} = \\frac{2}{9}\\frac{r^{2}g(\\rho_{\\text{p}} - \\rho_{\\text{f}})}{\\eta} $$\n$\\rho_{\\text{p}}$ 为物体密度, $\\rho_{\\text{f}}$ 为流体密度.\n根据 Stokes Law, 写出\n$$ \\gamma = 6\\pi\\eta r\\Rightarrow D = \\frac{k_{\\text{B}}T}{6\\pi\\eta r}\\left(=\\frac{RT}{6\\pi\\eta rN}\\right) $$\nFick's Law Fick’s $1_{\\text{st}}$ Law 假设从高浓度区域往低浓度流的通量大小与浓度梯度成正比, 即\n$$ J = -D\\frac{\\partial\\phi}{\\partial x} $$\n$J$:扩散通量, 即单位时间通过单位面积的物质量; $D$:扩散系数/扩散度; $\\phi$:浓度; $x$:位置 在更高维的情况下, 使用 $\\nabla$ 算子:\n$$ J = -D\\nabla\\phi $$\n如果考虑为理想混合物, 就有\n$$ J_{i} = -\\frac{Dc_{i}}{RT}\\frac{\\partial\\mu_{i}}{\\partial x} $$\n$i$ 表示组分指标, $c_{i}$ 表示组分 $i$ 的摩尔浓度, $\\mu_{i}$ 表示组分 $i$ 的化学势.\nFick’s $2_{\\text{nd}}$ Law $$ \\frac{\\partial\\phi}{\\partial t} = D\\frac{\\partial^{2}\\phi}{\\partial x^{2}} $$\n$\\phi$ 为浓度, $t$ 为时间, $D$ 为扩散系数, $x$ 为位置.\n第二定律的导出方法: $$ \\frac{\\partial\\phi}{\\partial t} = -\\frac{\\partial J}{\\partial x} = \\frac{\\partial}{\\partial x}\\left(D\\frac{\\partial}{\\partial x}\\phi\\right)\\\\ =D\\frac{\\partial}{\\partial x}\\frac{\\partial}{\\partial x}\\phi = D\\frac{\\partial^{2}\\phi}{\\partial x^{2}} $$\n更高维的情况:\n$$ \\frac{\\partial\\phi}{\\partial t}=D\\nabla^{2}\\phi $$\n当扩散系数 $D$ 随位置 $x$ 变化, 有\n$$ \\frac{\\partial\\phi}{\\partial t} = \\nabla\\cdot(D\\nabla\\phi) $$\n当 $\\phi$ 处于稳态, 方程退化为 Laplace 方程:\n$$ \\nabla^{2}\\phi = 0 $$\n耗散的能量损失和通过涨落摄入的能量相互平衡，从而形成一种平衡配置。\nLangevin 方程 经典 Lagevin 方程:\n$$ m\\ddot{q} + \\underbrace{2m\\gamma \\dot{q}}_{\\text{Dissipation}} + \\frac{\\partial V}{\\partial q} = \\underbrace{\\xi(t)}_{\\text{Noise}} $$\nDissipation: 耗散; Noise: 随机噪声\n将该式子改写为高维形式:\n$$ m\\ddot{\\mathbf{x}} = -\\nabla V(\\mathbf{x}) -\\gamma m\\dot{\\mathbf{x}} + \\sqrt{2m\\gamma k_{\\text{B}}T} \\mathbf{\\xi}(t) $$\n$V(\\mathbf{x})$ 为粒子相互作用势能; $\\gamma$ 为阻尼系数; $\\mathbf{\\xi}(t)$ 是一个特殊定义的函数, 其性质为\n$$ \\begin{aligned} \\langle \\mathbf{\\xi}(t)\\rangle \u0026= 0\\\\ \\langle \\mathbf{\\xi}(t)\\cdot\\mathbf{\\xi}(\\hat{t})\\rangle \u0026= \\delta(t-\\hat{t}) \\end{aligned} $$\n",
+  "wordCount" : "582",
   "inLanguage": "zh",
-  "datePublished": "2023-09-21T00:18:23+08:00",
-  "dateModified": "2023-09-21T00:18:23+08:00",
+  "image":"https://s2.loli.net/2023/09/28/AQlgivctf8jhrxF.gif","datePublished": "2023-09-28T00:18:23+08:00",
+  "dateModified": "2023-09-28T00:18:23+08:00",
   "author":[{
     "@type": "Person",
     "name": "Muartz"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://Muatyz.github.io/posts/phy/scmp/research/"
+    "@id": "https://Muatyz.github.io/posts/phy/scmp/langevin-dynamics/"
   },
   "publisher": {
     "@type": "Organization",
@@ -298,10 +300,10 @@ code.has-jax {
         <header class="post-header">
             <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/scmp/">🔧 (Soft) Condensed Matter Physics</a></div>
             <h1 class="post-title">
-                毕业论文选题调研
+                从扩散模型到朗之万动力学
             </h1>
             <div class="post-description">
-                初步阅读课题组内的文献并且确定感兴趣的方向
+                随机梯度下降和扩散模型(Diffusion Model)
             </div>
             <div class="post-meta">
 
@@ -322,7 +324,7 @@ code.has-jax {
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2023-09-21
+        <span>2023-09-28
             &nbsp;&nbsp;
         </span>
     </span>
@@ -335,13 +337,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>155字
+        <span>582字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1分钟
+        <span>2分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -356,8 +358,9 @@ code.has-jax {
         <span>
             <span class="post-tags-meta">
                 <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">physics</a>
-                &nbsp;<a href="https://Muatyz.github.io/tags/condensed-matter-physics/" style="color: var(--secondary)!important;">condensed matter physics</a>
-                &nbsp;<a href="https://Muatyz.github.io/tags/topological/" style="color: var(--secondary)!important;">topological</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/scmp/" style="color: var(--secondary)!important;">scmp</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/langevin-dynamics/" style="color: var(--secondary)!important;">langevin dynamics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/random/" style="color: var(--secondary)!important;">random</a>
             </span>
         </span>
     </span>
@@ -410,7 +413,10 @@ code.has-jax {
                 </span>
 
 </div>
-        </header> <aside id="toc-container" class="toc-container wide">
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2023/09/28/AQlgivctf8jhrxF.gif" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
         <summary accesskey="c" title="(Alt + C)">
@@ -419,9 +425,9 @@ code.has-jax {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e9%a2%97%e7%b2%92%e4%bd%93%e7%b3%bb%e7%9a%84%e6%b6%a8%e8%90%bd%e8%80%97%e6%95%a3%e6%b8%a9%e5%ba%a6%e4%b8%8e%e4%bd%93%e7%a7%af%e7%b3%bb%e7%bb%bc%e6%b8%a9%e5%ba%a6" aria-label="颗粒体系的涨落耗散温度与体积系综温度">颗粒体系的涨落耗散温度与体积系综温度</a></li>
+                    <a href="#%e5%b8%83%e6%9c%97%e8%bf%90%e5%8a%a8" aria-label="布朗运动">布朗运动</a></li>
                 <li>
-                    <a href="#%e4%bb%a5%e5%8a%a8%e6%80%81%e5%90%8c%e6%ad%a5%e8%be%90%e5%b0%84x%e5%b0%84%e7%ba%bf%e8%be%90%e7%85%a7%e6%8c%af%e5%8a%a8%e9%a2%97%e7%b2%92%e4%bb%8b%e8%b4%a8-%e7%a0%94%e7%a9%b6%e6%9c%89%e6%95%88%e6%b8%a9%e5%ba%a6" aria-label="以动态同步辐射X射线辐照振动颗粒介质, 研究有效温度">以动态同步辐射X射线辐照振动颗粒介质, 研究有效温度</a>
+                    <a href="#langevin-%e6%96%b9%e7%a8%8b" aria-label="Langevin 方程">Langevin 方程</a>
                 </li>
             </ul>
         </div>
@@ -486,26 +492,138 @@ code.has-jax {
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><h1 id="颗粒体系的涨落耗散温度与体积系综温度">颗粒体系的涨落耗散温度与体积系综温度<a hidden class="anchor" aria-hidden="true" href="#颗粒体系的涨落耗散温度与体积系综温度">#</a></h1>
+        <div class="post-content"><h1 id="布朗运动">布朗运动<a hidden class="anchor" aria-hidden="true" href="#布朗运动">#</a></h1>
+<p>Einstein 关系<a href="https://www.maths.usyd.edu.au/u/UG/SM/MATH3075/r/Einstein_1905.pdf" target="_blank" rel="noopener nofollow noreferrer" >(<em>Investigation on the Theory of the Brownian Movement</em>)</a></p>
+<p>$$
+D = \mu_{\text{p}}k_{\text{B}}T
+$$</p>
 <blockquote>
-<p>曾志坤</p>
+<p>$D$: 扩散常数; $\mu_{\text{p}}$: 粒子迁移率.</p>
+<p>粒子迁移率的定义:</p>
+<p>$$
+\mu_{\text{p}} = \frac{v_{d}}{F}
+$$</p>
 </blockquote>
-<p>两种温度的定义方式:</p>
-<ol>
-<li>
-<p>涨落耗散定理</p>
-</li>
-<li>
-<p>Edward 致密性</p>
-</li>
-</ol>
-<p>奇异的一致性(不受示踪剂类型,剪切振幅和颗粒表面粗糙度的影响), 从而提出有效温度的概念.</p>
-<h1 id="以动态同步辐射x射线辐照振动颗粒介质-研究有效温度">以动态同步辐射X射线辐照振动颗粒介质, 研究有效温度<a hidden class="anchor" aria-hidden="true" href="#以动态同步辐射x射线辐照振动颗粒介质-研究有效温度">#</a></h1>
 <blockquote>
-<p>曹一新</p>
+<p><strong>Stokes Law</strong></p>
+<p>在雷诺数很小的情况下, 球形物体在流体中运动所受的阻力:</p>
+<p>$$
+F_{\text{d}} = 6\pi\eta rv
+$$</p>
+<blockquote>
+<p>$\eta$: 流体黏度, $r$: 球体半径, $v$: 球体速度.</p>
 </blockquote>
-<p>结构弛豫过程由长时间的<strong>有效温度</strong>而非段时间尺度的<strong>动力学温度</strong>控制.</p>
-<p>有效温度的定义是什么?</p>
+<p>物体在流体中因自重下落, 平衡达到的最终速度为:</p>
+<p>$$
+v_{s} = \frac{2}{9}\frac{r^{2}g(\rho_{\text{p}} - \rho_{\text{f}})}{\eta}
+$$</p>
+<blockquote>
+<p>$\rho_{\text{p}}$ 为物体密度, $\rho_{\text{f}}$ 为流体密度.</p>
+</blockquote>
+</blockquote>
+<p>根据 Stokes Law, 写出</p>
+<p>$$
+\gamma = 6\pi\eta r\Rightarrow D = \frac{k_{\text{B}}T}{6\pi\eta r}\left(=\frac{RT}{6\pi\eta rN}\right)
+$$</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>Fick&#39;s Law<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><ul>
+<li>Fick&rsquo;s $1_{\text{st}}$ Law</li>
+</ul>
+<p>假设从高浓度区域往低浓度流的通量大小与浓度梯度成正比, 即</p>
+<p>$$
+J = -D\frac{\partial\phi}{\partial x}
+$$</p>
+<blockquote>
+<ul>
+<li>$J$:扩散通量, 即单位时间通过单位面积的物质量;</li>
+<li>$D$:扩散系数/扩散度;</li>
+<li>$\phi$:浓度;</li>
+<li>$x$:位置</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>在更高维的情况下, 使用 $\nabla$ 算子:</p>
+<p>$$
+J = -D\nabla\phi
+$$</p>
+</blockquote>
+<p>如果考虑为理想混合物, 就有</p>
+<p>$$
+J_{i} = -\frac{Dc_{i}}{RT}\frac{\partial\mu_{i}}{\partial x}
+$$</p>
+<blockquote>
+<p>$i$ 表示组分指标, $c_{i}$ 表示组分 $i$ 的摩尔浓度, $\mu_{i}$ 表示组分 $i$ 的化学势.</p>
+</blockquote>
+<ul>
+<li>Fick&rsquo;s $2_{\text{nd}}$ Law</li>
+</ul>
+<p>$$
+\frac{\partial\phi}{\partial t} = D\frac{\partial^{2}\phi}{\partial x^{2}}
+$$</p>
+<blockquote>
+<p>$\phi$ 为浓度, $t$ 为时间, $D$ 为扩散系数, $x$ 为位置.</p>
+</blockquote>
+<blockquote>
+<p>第二定律的导出方法:
+$$
+\frac{\partial\phi}{\partial t} = -\frac{\partial J}{\partial x} = \frac{\partial}{\partial x}\left(D\frac{\partial}{\partial x}\phi\right)\\
+=D\frac{\partial}{\partial x}\frac{\partial}{\partial x}\phi = D\frac{\partial^{2}\phi}{\partial x^{2}}
+$$</p>
+</blockquote>
+<blockquote>
+<p>更高维的情况:</p>
+<p>$$
+\frac{\partial\phi}{\partial t}=D\nabla^{2}\phi
+$$</p>
+</blockquote>
+<blockquote>
+<p>当扩散系数 $D$ 随位置 $x$ 变化, 有</p>
+<p>$$
+\frac{\partial\phi}{\partial t} = \nabla\cdot(D\nabla\phi)
+$$</p>
+</blockquote>
+<blockquote>
+<p>当 $\phi$ 处于稳态, 方程退化为 Laplace 方程:</p>
+<p>$$
+\nabla^{2}\phi = 0
+$$</p>
+</blockquote>
+</div>
+
+ </div>
+
+ </div>
+<p>耗散的能量损失和通过涨落摄入的能量相互平衡，从而形成一种平衡配置。</p>
+<h1 id="langevin-方程">Langevin 方程<a hidden class="anchor" aria-hidden="true" href="#langevin-方程">#</a></h1>
+<p>经典 Lagevin 方程:</p>
+<p>$$
+m\ddot{q} + \underbrace{2m\gamma \dot{q}}_{\text{Dissipation}} + \frac{\partial V}{\partial q} = \underbrace{\xi(t)}_{\text{Noise}}
+$$</p>
+<blockquote>
+<p>Dissipation: 耗散; Noise: 随机噪声</p>
+</blockquote>
+<p>将该式子改写为高维形式:</p>
+<p>$$
+m\ddot{\mathbf{x}} = -\nabla V(\mathbf{x}) -\gamma m\dot{\mathbf{x}} + \sqrt{2m\gamma k_{\text{B}}T} \mathbf{\xi}(t)
+$$</p>
+<blockquote>
+<p>$V(\mathbf{x})$ 为粒子相互作用势能; $\gamma$ 为阻尼系数; $\mathbf{\xi}(t)$ 是一个特殊定义的函数, 其性质为</p>
+<p>$$
+\begin{aligned}
+\langle \mathbf{\xi}(t)\rangle &amp;= 0\\
+\langle \mathbf{\xi}(t)\cdot\mathbf{\xi}(\hat{t})\rangle &amp;= \delta(t-\hat{t})
+\end{aligned}
+$$</p>
+</blockquote>
 
 
         </div>
@@ -513,15 +631,10 @@ code.has-jax {
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://Muatyz.github.io/posts/read/eq-of-temp/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>[中字]Equivalence of Fluctuation-Dissipation and Edwards’ Temperature in Cyclically Sheared Granular Systems</span>
-  </a>
-  <a class="next" href="https://Muatyz.github.io/posts/read/effective-temp/">
+  <a class="next" href="https://Muatyz.github.io/posts/read/random-loose-packing/">
     <span class="title">下一页 »</span>
     <br>
-    <span>[中字]A dynamic synchrotron X-ray imaging study of effective temperature in a vibrated granular medium</span>
+    <span>[中字]Random Loose Packing in Granular Matter</span>
   </a>
 </nav>
 
