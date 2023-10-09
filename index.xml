@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Thu, 28 Sep 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Oct 2023 00:18:06 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[中字]Sound pulse broadening in stressed granular media</title>
+      <link>https://Muatyz.github.io/posts/read/sound-pulse-broadening-in-stressed-granular-media/</link>
+      <pubDate>Mon, 09 Oct 2023 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/sound-pulse-broadening-in-stressed-granular-media/</guid>
+      <description>Abstract The pulse broadening and decay of coherent sound waves propagating in disordered granular media are investigated. We find that the pulse width of these compressional waves is broadened when the disorder is increased by mixing the beads made of different materials. To identify the responsible mechanism for the pulse broadening, we also perform the acoustic attenuation measurement by spectral analysis and the numerical simulation of pulsed sound wave propagation along 1D disordered elastic chains. The qualitative agreement between experiment and simulation reveals a dominant mechanism by scattering attenuation at the high-frequency range, which is consistent with theoretical models of sound wave scattering in strongly random media via a correlation length. 我们研究了相干声波在无序颗粒介质中传播时的脉冲展宽和衰减。</description>
+    </item>
+    
+    <item>
+      <title>[中字]Ultrasound Propagation in Externally Stressed Granular Media</title>
+      <link>https://Muatyz.github.io/posts/read/ultrasound-in-stressed-granular/</link>
+      <pubDate>Mon, 09 Oct 2023 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/ultrasound-in-stressed-granular/</guid>
+      <description>X.jia Abstract Experimental observations of pulsed ultrasonic transmission through granular glass beads under oedometric loading are presented. We observe in the transmitted signals the coexistence of a coherent ballistic pulse traveling through an “effective contact medium” and a specklelike multiply scattered signal. The relative amplitudes of these signals strongly depend on the ratios of the bead size to the wavelength and to the detector size. Experimental data support recent descriptions of the inhomogeneous stress field within granular media. 本文介绍了在气压加载条件下脉冲超声波穿过颗粒状玻璃珠的实验观察结果。我们在传输信号中观察到，在</description>
+    </item>
+    
+    <item>
+      <title>[中字]Monte Carlo Simulations of Ultrasound Scattering and Absorption in Finite-Size Heterogeneous Materials</title>
+      <link>https://Muatyz.github.io/posts/read/monte-carlo-simulations-of-ultrasound-scattering/</link>
+      <pubDate>Sat, 07 Oct 2023 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/monte-carlo-simulations-of-ultrasound-scattering/</guid>
+      <description>蒙特卡洛算法在超声波探测中的应用</description>
+    </item>
+    
     <item>
       <title>从扩散模型到朗之万动力学</title>
       <link>https://Muatyz.github.io/posts/phy/scmp/langevin-dynamics/</link>
@@ -15,6 +42,15 @@
       
       <guid>https://Muatyz.github.io/posts/phy/scmp/langevin-dynamics/</guid>
       <description>随机梯度下降和扩散模型(Diffusion Model)</description>
+    </item>
+    
+    <item>
+      <title>[中字]Codalike Multiple Scattering of Elastic Waves in Dense Granular Media</title>
+      <link>https://Muatyz.github.io/posts/read/elastic-waves-in-dense-granular-media/</link>
+      <pubDate>Mon, 25 Sep 2023 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/elastic-waves-in-dense-granular-media/</guid>
+      <description>随机松散堆积</description>
     </item>
     
     <item>
