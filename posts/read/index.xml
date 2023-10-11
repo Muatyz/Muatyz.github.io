@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Mon, 09 Oct 2023 00:18:06 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Oct 2023 00:18:06 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[中字]Probing intermittency and reversibility in a dense granular suspension under shear using multiply scattered ultrasound</title>
+      <link>https://Muatyz.github.io/posts/read/intermittency-and-reversibility/</link>
+      <pubDate>Tue, 10 Oct 2023 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/intermittency-and-reversibility/</guid>
+      <description>Abstract We study the rheology of a dense granular suspension under shear strain with the simultaneous detection of multiply scattered ultrasound through the shear band. At a low shear rate, the dissipation is rate-independent and determined by the frictional contacts between grains. Under quasistatic shear, the stress–strain curve contains elastic loading parts interrupted by stress drops. Such an intermittency is concomitant with some large decorrelation events as measured by the ultrasound probe, sensitive to the position of the grains. Under cyclic shear, the correlations between the scattered ultrasonic waves show that at low shear strain, the grains exhibit reversible motion. Beyond this linear regime, some irreversible motion of the grains is detected. Moreover, the correlation between successive ultrasound signals suggests that some specific rearrangements, which add to the</description>
+    </item>
+    
     <item>
       <title>[中字]Sound pulse broadening in stressed granular media</title>
       <link>https://Muatyz.github.io/posts/read/sound-pulse-broadening-in-stressed-granular-media/</link>
