@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[中字]Edwards statistical mechanics for jammed granular matter | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, granular">
+<meta name="description" content="系统介绍 Edwards 表述的小册子.">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/edwards-statistical-mechanics-for-jammed-granular-matter/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta property="og:title" content="[中字]Edwards statistical mechanics for jammed granular matter" />
+<meta property="og:description" content="系统介绍 Edwards 表述的小册子." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/edwards-statistical-mechanics-for-jammed-granular-matter/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-24T00:18:06+08:00" />
+<meta property="article:modified_time" content="2023-09-24T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[中字]Edwards statistical mechanics for jammed granular matter"/>
+<meta name="twitter:description" content="系统介绍 Edwards 表述的小册子."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "[中字]Edwards statistical mechanics for jammed granular matter",
+      "item": "https://Muatyz.github.io/posts/read/edwards-statistical-mechanics-for-jammed-granular-matter/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[中字]Edwards statistical mechanics for jammed granular matter",
+  "name": "[中字]Edwards statistical mechanics for jammed granular matter",
+  "description": "系统介绍 Edwards 表述的小册子.",
+  "keywords": [
+    "scmp", "granular"
+  ],
+  "articleBody": " Adrian Baule, Flaviano Morone, Hans J. Herrmann, Hernán A. Makse.\nAbstract In 1989, Sir Sam Edwards made the visionary proposition to treat jammed granular materials using a volume ensemble of equiprobable jammed states in analogy to thermal equilibrium statistical mechanics, despite their inherent athermal features. Since then, the statistical mechanics approach for jammed matter—one of the very few generalizations of Gibbs-Boltzmann statistical mechanics to out-of-equilibrium matter—has garnered an extraordinary amount of attention by both theorists and experimentalists. Its importance stems from the fact that jammed states of matter are ubiquitous in nature appearing in a broad range of granular and soft materials such as colloids, emulsions, glasses, and biomatter.\n1989 年，Sam Edwards 爵士提出了一个具有远见卓识的建议，即尽管颗粒材料本身具有热平衡统计力学的特征，但仍应类比热平衡统计力学，使用可等价堵塞态的体积系综来处理堵塞颗粒材料。从那时起，堵塞态物质的统计力学方法– Gibbs-Boltzmann 统计力学对非平衡物质的极少数概括–就受到了理论家和实验家的极大关注。它的重要性源于这样一个事实：物质的堵塞态在自然界中无处不在，出现在胶体、乳液、玻璃和生物物质等各种颗粒状和软性材料中。\nIndeed, despite being one of the simplest states of matter—primarily governed by the steric interactions between the constitutive particles—a theoretical understanding based on first principles has proved exceedingly challenging.\nHere a systematic approach to jammed matter based on the Edwards statistical mechanical ensemble is reviewed. The construction of microcanonical and canonical ensembles based on the volume function, which replaces the Hamiltonian in jammed systems, is discussed. The importance of approximation schemes at various levels is emphasized leading to quantitative predictions for ensemble averaged quantities such as packing fractions and contact force distributions.\n事实上，尽管堵塞态物质是一种最简单的物质状态–主要由构成粒子之间的立体相互作用所支配–但基于第一性原理的理论理解却极具挑战性。\n本文回顾了基于 Edwards 统计力学系综的堵塞物质系统方法。讨论了基于体积函数的微正则系综和正则系综的构建，体积函数取代了堵塞系统中的哈密顿。文章强调了各级近似方案的重要性，从而对堆积分数和接触力分布等系综平均量进行了定量预测。\nAn overview of the phenomenology of jammed states and experiments, simulations, and theoretical models scrutinizing the strong assumptions underlying Edwards approach is given including recent results suggesting the validity of Edwards ergodic hypothesis for jammed states. A theoretical framework for packings whose constitutive particles range from spherical to nonspherical shapes such as dimers, polymers, ellipsoids, spherocylinders or tetrahedra, hard and soft, frictional, frictionless and adhesive, monodisperse, and polydisperse particles in any dimensions is discussed providing insight into a unifying phase diagram for all jammed matter.\n本书概述了堵塞态的现象学，并通过实验、模拟和理论模型对 Edwards 方法的基本假设进行了仔细研究，包括最近的研究结果，这些结果表明 Edwards 堵塞状态的遍历假说是正确的。讨论了构成粒子从球形到非球形（如二聚体、聚合体、椭球体、球面体或四面体）、硬粒子和软粒子、摩擦粒子、无摩擦粒子和粘合粒子、单分散粒子和多分散粒子等任何维度的堆积的理论框架，为所有堵塞物质的统一相图提供了见解。\nFurthermore, the connection between the Edwards ensemble of metastable jammed states and metastability in spin glasses is established. This highlights the fact that the packing problem can be understood as a constraint satisfaction problem for excluded volume and force and torque balance leading to a unifying framework between the Edwards ensemble of equiprobable jammed states and out-of-equilibrium spin glasses.\n此外，我们还建立了自旋玻璃中亚稳态堵塞的 Edwards 系综与亚稳态之间的联系。这凸显了这样一个事实，即堆积问题可以理解为排除体积和力与力矩平衡的约束满足问题，从而在 Edwards 可等价堵塞态系综与非平衡态自旋玻璃之间建立了一个统一的框架。\nINTRODUCTION Materials composed of macroscopic grains such as sand, sugar, and ball bearings are ubiquitous in our everyday experience. Nevertheless, a fundamental description of both static and dynamic properties of granular matter has proven exceedingly challenging. Take, for example, the pouring of sand into a sandpile; see Fig. 1(a). This process can be considered as a simple example of a fluid-to-solid phase transition of a multiparticle system.\n在我们的日常生活中，由沙子、糖和滚珠轴承等宏观颗粒组成的材料无处不在。然而，要从根本上描述颗粒物质的静态和动态特性，已被证明具有极大的挑战性。以将沙子倒入沙堆为例；见图 1(a)。这个过程可以看作是多粒子系统从流体到固体相变的一个简单例子。\nHowever, it is not clear whether this transition is governed by a variational principle of an associated thermodynamic quantity such as the free energy in equilibrium systems. Granular materials do not explore different configurations in the absence of external driving because thermal fluctuations induce negligible particle motion at room temperature and intergrain dissipation and friction quickly drain the kinetic energy from the system.\nOn the other hand, the jammed state of granular matter bears a remarkable resemblance with an amorphous solid: both are able to sustain a nonzero shear stress; the phase transition from liquid to solid states and the analogous jamming transition in grains are both governed by one or a few macroscopic control parameters; and, when using certain packing-generation protocols, macroscopic observables, such as the packing fraction, are largely reproducible.\n然而，尚不清楚这种转变是否受相关热力学量（如平衡态系统中的自由能）的变异原理支配。颗粒材料在没有外部驱动的情况下不会探索不同的构型，因为在室温下，热波动引起的颗粒运动可以忽略不计，而颗粒间的耗散和摩擦会迅速耗尽系统的动能。\n另一方面，颗粒物质的堵塞状态与无定形固体有着显著的相似之处：两者都能承受非零剪切应力；从液态到固态的相变以及颗粒中类似的堵塞转变都受一个或几个宏观控制参数的制约；而且，在使用某些堆积生成协议时，堆积分数等宏观观测指标在很大程度上是可重复的。\nJamming transitions not only occur in granular media, but also in soft materials such as colloidal suspensions which may asymptotically reach jamming under centrifugation, compressed emulsions, foams, glasses, and spin glasses below their glass transition temperature and biological materials such as cells, DNA, and protein packing. Even more broadly, the jamming transition pertains to a larger family of computational problems named constraint satisfaction problems (CSPs) (Krzakala and Kurchan, 2007).\n堵塞转变不仅发生在颗粒介质中，也发生在软性材料中，如在离心作用下可能渐进达到堵塞的胶体悬浮液、压缩乳液、泡沫、玻璃和低于玻璃化温度的自旋玻璃，以及生物材料，如细胞、DNA 和蛋白质堆积。更广义地说，堵塞转变涉及到一个更大的计算问题集群，即约束满足问题（CSP）（Krzakala 和 Kurchan，2007 年）\nThese problems involve finding the values of a set of variables simultaneously satisfying all the constraints imposed on those variables and maximizing (or minimizing) an objective function. For example, in the problem of sphere packings, the goal is to minimize the volume occupied by the packing subject to the geometrical constraint of nonoverlapping particles and the mechanical constraints of force and torque balance at mechanical equilibrium.\n这些问题涉及找到一组变量的值，同时满足施加在这些变量上的所有约束条件，并使目标函数最大化（或最小化）。例如，在球体堆积问题中，目标是在颗粒不重叠的几何约束和机械平衡时力和力矩平衡的机械约束下，使堆积所占体积最小。\nIn general, packing problems play a central role in various fields of science in addition to physics, such as discrete mathematics, number theory, and information theory. An example of practical interest is the problem of efficient data transmission through error-correcting codes, which is deeply related to the optimal packing of (Hamming) spheres in a high-dimensional space (Conway and Sloane, 1999). The common feature of all packing problems is the existence of a phase transition, the jamming transition, separating the phase where the constraints are satisfiable from a phase where they are unsatisfiable.\n一般来说，除物理学外，堆积问题在离散数学、数论和信息论等多个科学领域都发挥着核心作用。一个具有实际意义的例子是通过纠错码进行高效数据传输的问题，它与高维空间中（Hamming）球的最优堆积问题有着深刻的联系（Conway 和 Sloane，1999 年）。所有堆积问题的共同特征是存在一个阶段转换，即堵塞态转换，它将约束条件可满足的相与约束条件不可满足的相分开。\nThe existence of constraints in physical systems causes, in general, a significant metastability. Metastability is the phenomenon by which the system remains confined for a relatively long time in suboptimal regions of the phase space. It is related to the rough energy (or free energy) landscape characterized by the presence of many nontrivially related minima as a function of the microscopic configurations (or the macroscopic states). Metastability is, indeed, the leitmotiv in most complex physical systems, whatever its origin.\n一般来说，物理系统中制约因素的存在会导致显著的亚稳性。亚稳性是指系统在相空间的次优区域内相对较长时间保持束缚的现象。它与粗糙能（或自由能）绘景有关，其特征是存在许多与微观构型（或宏观状态）函数无关的极小值。事实上，无论其起源如何，亚稳性都是大多数复杂物理系统的主要特征。\nFor example, in granular materials metastability arises from geometrical and mechanical constraints, but it is found also in spin glasses, which are magnetic systems with competing ferromagnetic and antiferromagnetic exchange interactions.\nIn spin glasses, the emergence of metastability is due to frustration, which is the inability of the system to simultaneously satisfy all local ordering requirements. Notwithstanding their differences, these two physical systems, jammed grains and spin glasses, exhibit a remarkably similar organization of their metastable states, a fact that stimulates our search for further analogies within these systems and common explanations. It is, indeed, this analog approach, as best exemplified by the encompassing vision of Sir Sam Edwards (Goldbart, Goldenfeld, and Sherrington, 2005), that may shed new light on the solution to jamming problems otherwise doomed to remain obscure.\n例如，在颗粒材料中，亚稳性产生于几何和机械约束，但在自旋玻璃中也发现了亚稳性，自旋玻璃是具有竞争性铁磁和反铁磁交换相互作用的磁性系统。\n在自旋玻璃中，出现亚稳性的原因是阻挫，即系统无法同时满足所有局部有序要求。尽管存在差异，但这两种物理系统–堵塞颗粒和自旋玻璃–在其亚稳态的组织上表现出了惊人的相似性，这一事实激励了我们在这些系统中寻找进一步的类比和共同的解释。Sam Edwards 爵士（Goldbart、Goldenfeld 和 Sherrington，2005 年）的远见卓识正是这种类比方法的最佳例证，它可能会为解决堵塞问题带来新的曙光，否则这些问题注定会晦涩难懂。\nBecause of their substantial metastability, these systems are fundamentally out of equilibrium even in a macroscopically quiescent state.\nNevertheless, the commonalities with equilibrium many-body systems suggest that ideas from equilibrium statistical mechanics might be useful.\nIn this review, we consider theories for jammed matter based on generalizations of equilibrium ensembles. These statistical mechanics-based approaches were pioneered by Sir Sam F. Edwards in the late 1980s; see Fig. 1(b).\n由于这些系统具有很大的亚稳性，因此即使在宏观静止状态下，它们从根本上也是不平衡的。\n尽管如此，与平衡多体系统的共性表明，平衡态统计力学的思想可能是有用的。\n在这篇综述中，我们考虑了基于平衡系综广义化的干扰物质理论。这些基于统计力学的方法是萨姆-F-爱德华兹爵士在 20 世纪 80 年代末开创的；见图 1(b)。\nInvestigations of the structural properties of jammed packings are much older. In fact, the related problem of identifying the densest packing of objects has an illustrious history in the mathematical literature (Kepler, 1611; Weaire and Aste, 2008). Exact mathematical proofs of the densest packings are extremely challenging even for spherical particles. The Kepler conjecture of 1611 stating that the densest arrangement of spheres in three spatial dimensions (3D) is a face-centeredcubic (fcc) crystal with a packing volume fraction $\\phi_{\\text{fcc}} = \\pi/(3\\sqrt{2})\\approx 0.74048\\dots$ remained an unsolved mathematical problem for almost four centuries (Kepler, 1611; Hales, 2005).\nSystematic experiments on disordered hard-sphere packings began in the 1960s with the work of Bernal (Bernal and Mason, 1960; Bernal, 1964). These experiments are conceptually simple, yet give fundamental insight into the structure of dense liquids, glasses, and jammed systems.\nEqually sized spherical particles were placed into a container and compactified by shaking or tapping the system until no further volume reduction was detected. These experiments typically yielded configurations with packing fraction $\\phi_{\\text{rcp}}\\approx 0.64$, which is historically referred to as random close packing (rcp).\n对堵塞态堆积物结构特性的研究要早得多。事实上，确定物体最密堆积的相关问题在数学文献中有着辉煌的历史（开普勒，1611 年；Weaire 和 Aste，2008 年）。即使对于球形粒子，最密堆积的精确数学证明也极具挑战性。1611 年的开普勒猜想指出，三维空间（3D）中最致密的球体排列是面心立方（fcc）晶体，其堆积体积分数为 $\\phi_{\\text{fcc}} = \\pi/(3\\sqrt{2})\\approx 0.74048\\dots$ ，这一猜想在近四个世纪中一直是一个未解的数学难题（Kepler, 1611; Hales, 2005）。\n关于无序硬球堆积的系统实验始于 20 世纪 60 年代伯纳尔的工作（伯纳尔和梅森，1960 年；伯纳尔，1964 年）。这些实验概念上很简单，但对致密液体、玻璃和堵塞体系的结构提供了根本性的见解。\n将大小相等的球形颗粒放入容器中，通过摇晃或敲击系统进行压实，直到检测到体积不再缩小为止。这些实验通常会产生堆积分数约为 $0.64$ 的结构，历史上称之为随机紧密堆积（Random Close Packing, $\\text{rcp}$）。\nIn order to apply a statistical mechanical framework to these jammed systems, it is first necessary to identify the variables characterizing the state of the system macroscopically. Clearly, the system energy is not suitable, since it may either not be conserved (for frictional dissipative particles) or not be relevant (for frictionless hard particles). On the other hand, an obvious state variable is the system volume.\nIn fact, unlike in equilibrium systems, the volume in jammed systems is not an externally imposed fixed variable, but rather depends on the microscopic configuration of the grains. Edwards first extraordinary insight was to parametrize the ensemble of jammed states by the volume function $\\mathcal{W}(\\{\\mathbf{r},\\hat{\\mathbf{t}}_{i}\\})$ ,as a function of the $N$ particles positions $\\{\\mathbf{r}_{i}\\}$ and orientations $\\{\\hat{\\mathbf{t}}_{i}\\}$, as a replacement for the Hamiltonian in the equilibrium ensembles (Edwards and Oakeshott, 1989; Mehta and Edwards, 1990; Edwards, 1991, 1994).\n为了将统计力学框架应用于这些堵塞态系统，首先需要确定用于表征系统宏观状态的变量。显然，系统能量并不合适，因为它可能不守恒（对于摩擦耗散粒子）或不相关（对于无摩擦硬粒子）。另一方面，一个明显的状态变量是系统体积。\n事实上，与平衡系统不同，堵塞态系统中的体积并不是一个外部强加的固定变量，而是取决于颗粒的微观构型。Edwards 的第一个非凡见解是用体积函数 $\\mathcal{W}(\\{\\mathbf{r},\\hat{\\mathbf{t}}_{i}\\})$ 参数化堵塞态的系综、作为 $N$ 粒子位置 $\\{\\mathbf{r}_{i}\\}$ 和方向 $\\{\\hat{\\mathbf{t}}_{i}\\}$ 的函数，以替代平衡态系综中的哈密顿量（Edwards 和 Oakeshott, 1989；Mehta and Edwards, 1990; Edwards, 1991, 1994）。\nA second crucial point in the development of the Edwards granular statistical mechanics is a proper definition of the jammed state. It is important to note that only jammed configurations $\\{\\mathbf{r}_{i},\\hat{\\mathbf{t}}_{i}\\}$ are included in the ensemble. A definition of what we mean by jammed state is not a trivial task and will be treated rigorously in the next section.\nAssuming that an unambiguous definition of metastable jammed state can be expressed analytically, then a statistical mechanics approach to granular matter proceeds by analogy with equilibrium systems.\nIn this case, the volume function allows for the definition of a granular entropy leading to both microcanonical and canonical formulations of the volume ensembles. This implies, in particular, the existence of an intensive parameter conjugate to the volume. This temperaturelike parameter was called compactivity by Edwards.\nEdwards 颗粒统计力学发展过程中的第二个关键点是对堵塞状态的正确定义。重要的是要注意，只有堵塞构型 $\\{\\mathbf{r}_{i},\\hat{\\mathbf{t}}_{i}\\}$ 才包含在系综中。我们对 “堵塞态” 的定义并非易事，将在下一节进行严格讨论。\n假定可以用分析的方法明确定义 亚稳堵塞态，那么颗粒物质的统计力学方法就可以类比于平衡系统。\n在这种情况下，通过体积函数可以定义颗粒(系统)版的熵，从而得出体积系综的微正则和正则公式。这尤其意味着存在一个与体积共轭的强度参量。这个类比于温度的参数被 Edwards 称为致密度。\nThe full Edwards ensemble is characterized by the macroscopic volume and, further, by the stress of the packing. Since analytical treatments of the full ensemble are challenging, one typically considers suitable approximations. Neglecting correlations between the volume and the stress leads to a volume ensemble under the condition of isostaticity (Song, Wang, and Makse, 2008).\nThe core of this review is devoted to elaborate on a mean-field formulation of the Edwards volume ensemble that can potentially lead to a unifying phase diagram encompassing all jammed matter ranging from systems made of spherical to nonspherical particles, with friction or adhesion to frictionless particles, monodisperse and polydisperse systems and in any dimension.\nLikewise, we describe frameworks for stress and force statistics alone, such as the stress ensemble (Henkes, O’Hern, and Chakraborty, 2007; Chakraborty, 2010), force network ensemble (Bouchaud, 2002; Snoeijer et al., 2004; Tighe et al., 2010), and belief propagation for force transmission (Bo et al., 2014).\nEdwards 全系综的特征是宏观体积和堆积应力。由于全系综的分析处理具有挑战性，人们通常会考虑合适的近似值。忽略体积和应力之间的相关性，可以得到等静压条件下的体积系综（Song、Wang 和 Makse，2008 年）。\n这篇综述的核心内容是详细阐述 Edwards 体积系综的平均场公式，它有可能导出一个统一的相图，涵盖从球形粒子到非球形粒子、有摩擦/粘附到无摩擦粒子、单分散和多分散系统以及任何维数空间的所有堵塞物质。\n同样，我们还介绍了单独的应力和力统计框架，如应力系综（Henkes、O’Hern 和 Chakraborty，2007 年；Chakraborty，2010 年）、力网络系综（Bouchaud，2002 年；Snoeijer 等人，2004 年；Tighe 等人，2010 年）以及力传递的置信度传播（Bo 等人，2014 年）。\nBelief Propagation 给定一组有限的离散随机变量 $X_{1},\\dots,X_{n}$ 及其联合概率质量函数 $p$, 一个常见的任务是计算 $\\{X_{i}\\}$ 的边缘分布. 单个 $X_{i}$ 的边缘被定义为\n$$ p_{X_{i}}(x_{i}) = \\sum_{\\mathbf{x}’:x_{i}’ = x_{i}}p(\\mathbf{x}’) $$\n其中 $\\mathbf{x} = (x_{1}’, \\dots, x_{n}’)$ 是事件 $X_{i}$ 的概率值组成的向量，下标 $\\mathbf{x}’:x_{i}’ = x_{i}$ 的意思是, 求和的对象是那些第 $i$ 个坐标等于 $x_{i}$ 的 $\\mathbf{x}’$.\n随着变量数量的增加，使用该公式计算边际分布很快就会变得难以计算。例如，给定 $100$ 个二进制变量 $X_{1},\\dots,X_{100}$, 使用 $p$ 和上述公式计算单个边际 $X_{i}$ 将涉及对 $2^{99}\\approx 6.34\\times 10^{29}$ 个 $\\mathbf{x}’$ 的可能值。如果已知概率质量函数 $p$ 的因子是以一种方便的方式存在的，那么置信度传播就可以更高效地计算边际值。\n…\nEdwards statistical mechanical ensemble relies on two assumptions: (i) ergodicity and (ii) equiprobability of microstates. These assumptions have been scrutinized in the literature, and the questions raised in this context will be reviewed here. Despite these critiques, the Edwards approach was used to describe a wide range of jammed and glassy materials.\nEdwards 统计力学系综依赖于两个假设：(i)遍历性和(ii)微观状态的等价性。文献中对这些假设进行了仔细研究，本文将对在此背景下提出的问题进行回顾。尽管存在这些批评意见，爱德华兹方法仍被用于描述较广领域的堵塞和玻璃态材料。\nEarly works adopted the concept of inherent structures from glasses (Coniglio and Herrmann, 1996; Coniglio and Nicodemi, 2000, 2001; Coniglio, Fierro, and Nicodemi, 2002; Fierro, Nicodemi, and Coniglio, 2002b) and effective temperatures (Kurchan, 2000, 2001; Makse and Kurchan, 2002; Ono et al.,2002; O’Hern, Liu, and Nagel, 2004; Ciamarra, Coniglio, and Nicodemi, 2006; Cugliandolo, 2011) with applications to plasticity (Lieou and Langer, 2012). More recent approaches are based on replica theory for hard-sphere glasses (Parisi and Zamponi, 2010; Charbonneau et al., 2017).\n早期研究采用了玻璃内禀结构概念（Coniglio 和 Herrmann，1996 年；Coniglio 和 Nicodemi，2000 年，2001 年；Coniglio、Fierro 和 Nicodemi，2002 年；Fierro、Nicodemi 和 Coniglio，2002 年 b）和有效温度概念（Kurchan，2000 年，2001 年；Makse 和 Kurchan，2002 年；Ono 等人，2002 年O’Hern、Liu 和 Nagel，2004；Ciamarra、Coniglio 和 Nicodemi，2006；Cugliandolo，2011），并应用于塑性（Lieou 和 Langer，2012）。最近的方法是基于硬球玻璃的复制理论（Parisi 和 Zamponi，2010 年；Charbonneau 等人，2017 年）。\nValuable insight is gained from models that exhibit both jamming and glass transitions (Krzakala and Kurchan, 2007; Mari, Krzakala, and Kurchan, 2009; Ikeda, Berthier, and Sollich, 2012). In this review, we emphasize that the Edwards ensemble can be recast as a constraint satisfaction problem, which allows for a unifying view of hard-sphere glasses and spin glasses through a synthesis applied at the foundation of granular statistical mechanics.\n我们从同时表现出堵塞态和玻璃化转变的模型中获得了宝贵的见解（Krzakala 和 Kurchan，2007 年；Mari、Krzakala 和 Kurchan，2009 年；Ikeda、Berthier 和 Sollich，2012 年）。在这篇综述中，我们强调 Edwards 系综可被重塑为一个约束求解问题，通过在粒状统计力学基础上应用的综合方法，可以统一硬球玻璃和自旋玻璃的观点。\nThis review is organized as follows.\nIn Sec. II we discuss the foundations of the ensemble approach via the rigorous definition of metastable jammed states and the construction of microcanonical and canonical ensembles based on the volume function and stress-moment tensor, which play the role of the Hamiltonian in jammed systems.\nIn Sec. III we collect empirical results on the phenomenology of jammed states. Moreover, we review results from experiments, simulations, and theoretical models that test the ergodic and uniform measure underlying the ensemble approach.\nIn Sec. IV we consider volume ensembles and their mean-field description, which provides quantitative predictions for ensemble averaged quantities such as the packing fraction of spherical and nonspherical particles.\nIn Sec. V we discuss a unification between the Edwards ensemble of jammed matter and theories based on ideas from glass and spin-glass theories under the CSP paradigm.\nIn Sec. VI we finally close with a summary and a collection of open questions for future work.\n本综述编排如下。\n在第二节中，我们讨论了系综方法的基础，即严格定义的亚稳堵塞态，以及基于体积函数和应力-力矩张量构建微正则和正则系综，它们在堵塞态系统中扮演着哈密顿量的角色。\n在第三节中，我们收集了有关堵塞态现象学的经验结果。此外，我们还回顾了实验、模拟和理论模型的结果，这些结果检验了系综方法所依据的遍历和平均计量。\n在第四节中，我们考虑了体积系综及其平均场描述，这为系综平均量（如球形和非球形粒子的堆积分数）提供了定量预测。\n在第五节中，我们将讨论在 CSP(Constraint Satisfaction Problem) 范式下，爱德华兹干扰物质集合与基于玻璃和自旋玻璃理论思想的理论之间的统一。\nConstraint Satisfaction Problem CSP 的解决范式通常涉及这些要素:\nVariables(变量): 要找到解决方案的对象. 每个变量可以取一个特定的值. Domains(域): 每个变量可以取的值的集合. Constraints(约束): 定义了变量之间的关系, 规定了这些变量的取值方式, 通常是不等式, 等式或者其他形式的条件. Solutions(解): 一组变量的取值, 满足所有的约束条件. 在第六节中，我们最后进行了总结，并提出了未来工作的一些开放性问题。\nIn recent years a number of reviews have appeared dealing with more specific aspects of granular matter: Richard et al. (2005) (granular compaction), Makse, Brujić, and Edwards (2005) (jammed emulsions), Chakraborty (2010) and Bi et al. (2015) (stress ensembles), Tighe et al. (2010) (force network ensemble), and Cugliandolo (2011) and Qiong and Mei-Ying (2014) (effective temperatures).\nThe present review is also complementary to other reviews on jammed granular matter, which do not specifically discuss the Edwards thermodynamics: Jaeger, Nagel, and Behringer (1996), Alexander (1998), Kadanoff (1999), Liu and Nagel (2010), Parisi and Zamponi (2010), Torquato and Stillinger (2010), van Hecke (2010), Borzsonyi and Stannarius (2013), and Charbonneau et al. (2017).\nOur work puts these topics into the general context of Edwards statistical mechanics and provides an overview of the immense amount of literature related to Edwards ensemble approaches.\n近年来，出现了一些涉及颗粒物质更具体方面的综述：Richard等人（2005年）（颗粒压实）、Makse、Brujić和Edwards（2005年）（堵塞乳状液）、Chakraborty（2010年）和Bi等人（2015年）（应力系综）、Tighe等人（2010年）（力网络系综）以及Cugliandolo（2011年）和Qiong和Mei-Ying（2014年）（有效温度）。\n本综述也是对其他未专门讨论 Edwards 热力学的有关堵塞颗粒物质的综述的补充：Jaeger、Nagel 和 Behringer (1996)、Alexander (1998)、Kadanoff (1999)、Liu 和 Nagel (2010)、Parisi 和 Zamponi (2010)、Torquato 和 Stillinger (2010)、van Hecke (2010)、Borzsonyi 和 Stannarius (2013) 以及 Charbonneau 等人 (2017)。\n我们的工作将这些主题置于 Edwards 统计力学的大背景下，并概述了与 Edwards 系综方法有关的大量文献。\nSTATISTICAL MECHANICS FOR JAMMED GRANULAR MATTER In a jammed system all particle motion is prevented due to the confinement by the neighboring particles. The transition to a jammed state is thus not controlled by the temperature as conventional phase transitions in systems at thermal equilibrium, but by geometrical and mechanical constraints imposed by all particles in the system.\nTherefore, jammed states can be regarded as the set of solutions in the general class of CSPs, which we term the jamming satisfaction problem (JSP), where the constraints are fixed by the mechanical stability of the blocked configurations of grains.\nFrom this standpoint, the jamming problem has a wider scope than the pure physical significance, encompassing the broader class of CSPs: the unique feature of the packing problem in the large universe of CSPs is that this system allows for a direct and relatively simple experimental test of theoretical predictions.\n在堵塞系统中，由于邻近粒子的约束，所有粒子运动都被限制。因此，向堵塞态的转变不像热平衡系统中的传统相变那样受温度控制，而是受系统中所有粒子施加的几何和机械限制。\n因此，堵塞状态可视为一般 CSP（我们称之为堵塞满足问题 (JSP, Jamming Satisfaction Problem)）中的解集，其中的约束条件由堵塞颗粒构型的机械稳定性固定。\n从这个角度来看，堵塞问题比纯物理意义上的堵塞问题范围更广，涵盖了更广泛的 CSP 类别; 在 CSP 大范围中，堆积问题的独特之处在于，这个系统可以对理论预测进行直接而相对简单的实验检验。\nDefinition of jammed states We consider an assembly of $N$, for simplicity, monodisperse particles described by the configurations of the particles $\\{\\mathbf{r}_{1},\\hat{\\mathbf{t}}_{1};\\dots;\\mathbf{r}_{N},\\hat{\\mathbf{t}}_{N}\\}$, where $\\mathbf{r}_{i}$ denotes the $i_{\\text{th}}$ particle’s position (of its center of mass) and $\\hat{\\mathbf{t}}_{i}$ its orientation. The first problem we address concerns the definition of a blocked configuration of the particles, i.e., the jammed states. To be jammed the system has to satisfy both excluded volume and mechanical constraints.\n我们考虑一个由 $N$（为简单起见）单分散粒子组成的集合体，该集合体由粒子 $\\{\\mathbf{r}_{1},\\hat{\\mathbf{t}}_{1};\\dots;\\mathbf{r}_{N},\\hat{\\mathbf{t}}_{N}\\}$ 其中 $\\mathbf{r}_{i}$ 表示第 $i$ 个粒子的位置（质心），$\\hat{\\mathbf{t}}_{i}$ 表示其取向。我们要解决的第一个问题是如何定义粒子的受阻构型，即堵塞态。系统必须同时满足排除体积约束和机械约束才能被堵塞住。\nThe excluded volume constraint enforces the fact that particles do not overlap, and its mathematical implementation depends on the shape of the particles. For a system of monodisperse hard spheres, this constraint takes on the following form:\n$$ |\\mathbf{r}_{i} - \\mathbf{r}_{j}|\\geq 2R \\quad(\\text{equal-size hard spheres}) $$\nwhich means that the centers of any pair of particles $i$ and $j$ must be at a distance twice as large as their radius $R$. The hardcore constraint in Eq. (1) is valid only for monodisperse spheres, but it can be generalized to polydisperse and nonspherical particles.\n排除体积约束强制要求粒子不重叠，其数学实现取决于粒子的形状。对于单分散硬球系统，该约束条件的形式如下:\n$$ |\\mathbf{r}_{i} - \\mathbf{r}_{j}|\\geq 2R \\quad(\\text{等体积硬球}) $$\n这意味着任何一对(最近邻)粒子 $i$ 和 $j$ 的中心距离必须是它们半径 $R$ 的两倍。公式 (1) 中的硬核约束仅适用于单分散球体，但也可推广到多分散和非球形粒子。\nThe excluded volume constraint is necessary but not sufficient by itself to determine whether a configuration of particles is jammed.\nIndeed, it has to be supplemented by a constraint enforcing the mechanical stability of the system, requiring that particles satisfy the force and torque balance conditions.\nWe denote by $\\mathbf{d}^{i}_{a}$ the vector connecting $\\mathbf{r}_{i}$ and the $a$ th contact on the $i$ th particle. At this contact there is a corresponding force vector $\\mathbf{f}_{a}^{i}$ on particle $i$ arising from the contacting particle.\n排除体积约束是必要的，但它本身并不足以确定粒子构型是否被堵塞。\n事实上，它还必须辅以一个强制系统机械稳定性的约束，要求粒子满足力和力矩平衡条件。\n我们用 $\\mathbf{d}^{i}_{a}$ 表示连接 $\\mathbf{r}_{i}$ 和第 $i$ 个粒子上第 $a$ 个接触点的向量。在这个接触点上，粒子 $i$ 上有一个由接触粒子产生的相应力向量 $\\mathbf{f}_{a}^{i}$.\nWith this notation we can formulate the conditions of force and torque balances for a particle of general shape:\n$$ \\sum_{a\\in\\partial i}\\mathbf{f}_{a}^{i} = 0,\\quad i = 1,\\dots,N,\\\\ \\sum_{a\\in\\partial i}\\mathbf{d}_{a}^{i}\\times\\mathbf{f}_{a}^{i},\\quad i = 1,\\dots, N, $$\nwhere the notation $\\partial i$ denotes the set of contacts of particle $i$. Equations (2) and (3) apply to both frictional and frictionless particles. In the latter case there is only one single force component in the normal direction\n$$ \\mathbf{f}_{a}^{i} = -f_{a}^{i}\\hat{\\mathbf{n}}_{a}^{i}\\quad(\\text{frictionless}), $$\nwhere $\\hat{\\mathbf{n}}_{a}^{i}$ denotes the normal unit vector at the contact point, which depends on the particle shape. For frictional particles, we can decompose $\\mathbf{f}_{a}^{i}$ into a normal component $f_{a,n}^{i}$ and a force vector in the tangent plane $f_{a,\\tau}^{i}$ (see Fig. 2). Coulomb’s law with friction coefficient $\\mu$ is then expressed by the inequality\n$$ |f_{a,\\tau}^{i}|\\leq \\mu f_{a,n}^{i}\\quad(\\text{frictional}). $$\nIf the interparticle forces are purely repulsive, as in most of the cases treated in this review, we also have the condition\n$$ \\mathbf{d}_{a}^{i}\\cdot\\mathbf{f}_{a}^{i} \u003c 0. $$\nFinally, Newton’s third law implies that two particles $i$ and $j$ in contact with $a$ satisfy\n$$ \\mathbf{f}_{a}^{i} = -\\mathbf{f}_{a}^{j} $$\nMetastability of jammed states Having defined the necessary and sufficient conditions for a granular system to be jammed, we now provide a finer description of jammed states, based on the concept of metastability, i.e., their stability with respect to particles displacements. A characterization similar to the one proposed here appeared already in Torquato and Stillinger (2001), where the concept of jamming categories for metastable packings has been defined. The similarities with the classification of the jammed states in Torquato and Stillinger (2001) are discussed in parallel with the classification presented next.\nTo properly define the metastable jammed states we need to specify with respect to what type of displacements they are metastable. More precisely, if we start from an initially jammed state satisfying Eqs. (1)–(7) and then displace a set of particles, how do we decide if the initial state is stable under this move? A helpful discriminant is the volume $V$ or equivalently the volume fraction of the packing $\\phi$ defined as the ratio of the volume occupied by the particles to the total volume of the system and the number of particles involved in the displacement. Thus, consider an initially jammed state and assume you can displace only one particle at a time. If the volume fraction of the packing is not increasing whatever particle you move, then we may assert that the packing is stable against any single particle displacement. We call this type of jammed state a 1-particle-displacement (1-PD) metastable jammed state, which is defined as a configuration whose volume fraction cannot be increased by the displacement of one single particle; see Fig. 3(a). However, $\\phi$ may be increased by moving a set of two or more particles at the same time. The definition of 1-PD metastable jammed states is the same as the definition of local jamming in Torquato and Stillinger (2001), stating that in a locally jammed configuration no single particle can be displaced while keeping the positions of all other particles fixed.\n",
+  "wordCount" : "8777",
+  "inLanguage": "zh",
+  "datePublished": "2023-09-24T00:18:06+08:00",
+  "dateModified": "2023-09-24T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/edwards-statistical-mechanics-for-jammed-granular-matter/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a></div>
+            <h1 class="post-title">
+                [中字]Edwards statistical mechanics for jammed granular matter
+            </h1>
+            <div class="post-description">
+                系统介绍 Edwards 表述的小册子.
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-09-24
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>8777字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>18分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="INTRODUCTION">INTRODUCTION</a></li>
+                <li>
+                    <a href="#statistical-mechanics-for-jammed-granular-matter" aria-label="STATISTICAL MECHANICS FOR JAMMED GRANULAR MATTER">STATISTICAL MECHANICS FOR JAMMED GRANULAR MATTER</a><ul>
+                        
+                <li>
+                    <a href="#definition-of-jammed-states" aria-label="Definition of jammed states">Definition of jammed states</a></li>
+                <li>
+                    <a href="#metastability-of-jammed-states" aria-label="Metastability of jammed states">Metastability of jammed states</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><blockquote>
+<p><a href="https://doi.org/10.1103/RevModPhys.90.015006" target="_blank" rel="noopener nofollow noreferrer" >Adrian Baule, Flaviano Morone, Hans J. Herrmann, Hernán A. Makse.</a></p>
+</blockquote>
+<h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>In 1989, Sir Sam Edwards made the visionary proposition to treat jammed granular materials using a volume ensemble of equiprobable jammed states in analogy to thermal equilibrium statistical mechanics, despite their inherent athermal features. Since then, the statistical mechanics approach for jammed matter—one of the very few generalizations of Gibbs-Boltzmann statistical mechanics to out-of-equilibrium matter—has garnered an extraordinary amount of attention by both theorists and experimentalists. Its importance stems from the fact that jammed states of matter are ubiquitous in nature appearing in a broad range of granular and soft materials such as colloids, emulsions, glasses, and biomatter.</p>
+</blockquote>
+<p>1989 年，Sam Edwards 爵士提出了一个具有远见卓识的建议，即尽管颗粒材料本身具有热平衡统计力学的特征，但仍应类比热平衡统计力学，使用可等价堵塞态的体积系综来处理堵塞颗粒材料。从那时起，堵塞态物质的统计力学方法&ndash; Gibbs-Boltzmann 统计力学对非平衡物质的极少数概括&ndash;就受到了理论家和实验家的极大关注。它的重要性源于这样一个事实：物质的堵塞态在自然界中无处不在，出现在胶体、乳液、玻璃和生物物质等各种颗粒状和软性材料中。</p>
+<blockquote>
+<p>Indeed, despite being one of the simplest states of matter—primarily governed by the <strong>steric interactions</strong> between the constitutive particles—a theoretical understanding based on first principles has proved exceedingly challenging.</p>
+<p>Here a systematic approach to jammed matter based on the Edwards statistical mechanical ensemble is reviewed. The construction of microcanonical and canonical ensembles based on the volume function, which replaces the Hamiltonian in jammed systems, is discussed. The importance of approximation schemes at various levels is emphasized leading to quantitative predictions for ensemble averaged quantities such as packing fractions and contact force distributions.</p>
+</blockquote>
+<p>事实上，尽管堵塞态物质是一种最简单的物质状态&ndash;主要由构成粒子之间的<strong>立体相互作用</strong>所支配&ndash;但基于第一性原理的理论理解却极具挑战性。</p>
+<p>本文回顾了基于 Edwards 统计力学系综的堵塞物质系统方法。讨论了基于体积函数的微正则系综和正则系综的构建，体积函数取代了堵塞系统中的哈密顿。文章强调了各级近似方案的重要性，从而对堆积分数和接触力分布等系综平均量进行了定量预测。</p>
+<blockquote>
+<p>An overview of the phenomenology of jammed states and experiments, simulations, and theoretical models scrutinizing the strong assumptions underlying Edwards approach is given including recent results suggesting the validity of Edwards ergodic hypothesis for jammed states. A theoretical framework for packings whose constitutive particles range from spherical to nonspherical shapes such as dimers, polymers, ellipsoids, spherocylinders or tetrahedra, hard and soft, frictional, frictionless and adhesive, monodisperse, and polydisperse particles in any dimensions is discussed providing insight into a unifying phase diagram for all jammed matter.</p>
+</blockquote>
+<p>本书概述了堵塞态的现象学，并通过实验、模拟和理论模型对 Edwards 方法的基本假设进行了仔细研究，包括最近的研究结果，这些结果表明 Edwards 堵塞状态的遍历假说是正确的。讨论了构成粒子从球形到非球形（如二聚体、聚合体、椭球体、球面体或四面体）、硬粒子和软粒子、摩擦粒子、无摩擦粒子和粘合粒子、单分散粒子和多分散粒子等任何维度的堆积的理论框架，为所有堵塞物质的统一相图提供了见解。</p>
+<blockquote>
+<p>Furthermore, the connection between the Edwards ensemble of metastable jammed states and metastability in spin glasses is established. This highlights the fact that the packing problem can be understood as a constraint satisfaction problem for excluded volume and force and torque balance leading to a unifying framework between the Edwards ensemble of equiprobable jammed states and out-of-equilibrium spin glasses.</p>
+</blockquote>
+<p>此外，我们还建立了自旋玻璃中亚稳态堵塞的 Edwards 系综与亚稳态之间的联系。这凸显了这样一个事实，即堆积问题可以理解为排除体积和力与力矩平衡的约束满足问题，从而在 Edwards 可等价堵塞态系综与非平衡态自旋玻璃之间建立了一个统一的框架。</p>
+<h1 id="introduction">INTRODUCTION<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>Materials composed of macroscopic grains such as sand, sugar, and ball bearings are ubiquitous in our everyday experience. Nevertheless, a fundamental description of both static and dynamic properties of granular matter has proven exceedingly challenging. Take, for example, the pouring of sand into a sandpile; see Fig. 1(a). This process can be considered as a simple example of a fluid-to-solid phase transition of a multiparticle system.</p>
+</blockquote>
+<p>在我们的日常生活中，由沙子、糖和滚珠轴承等宏观颗粒组成的材料无处不在。然而，要从根本上描述颗粒物质的静态和动态特性，已被证明具有极大的挑战性。以将沙子倒入沙堆为例；见图 1(a)。这个过程可以看作是多粒子系统从流体到固体相变的一个简单例子。</p>
+<blockquote>
+<p>However, it is not clear whether this transition is governed by a variational principle of an associated thermodynamic quantity such as the free energy in equilibrium systems. Granular materials do not explore different configurations in the absence of external driving because thermal fluctuations induce negligible particle motion at room temperature and intergrain dissipation and friction quickly drain the kinetic energy from the system.</p>
+<p>On the other hand, the jammed state of granular matter bears a remarkable resemblance with an <strong>amorphous solid</strong>: both are able to sustain a nonzero shear stress; the phase transition from liquid to solid states and the analogous jamming transition in grains are both governed by one or a few macroscopic control parameters; and, when using certain packing-generation protocols, macroscopic observables, such as the <strong>packing fraction</strong>, are largely reproducible.</p>
+</blockquote>
+<p>然而，尚不清楚这种转变是否受相关热力学量（如平衡态系统中的自由能）的变异原理支配。颗粒材料在没有外部驱动的情况下不会探索不同的构型，因为在室温下，热波动引起的颗粒运动可以忽略不计，而颗粒间的耗散和摩擦会迅速耗尽系统的动能。</p>
+<p>另一方面，颗粒物质的堵塞状态与<strong>无定形固体</strong>有着显著的相似之处：两者都能承受非零剪切应力；从液态到固态的相变以及颗粒中类似的堵塞转变都受一个或几个宏观控制参数的制约；而且，在使用某些堆积生成协议时，<strong>堆积分数</strong>等宏观观测指标在很大程度上是可重复的。</p>
+<hr>
+<blockquote>
+<p>Jamming transitions not only occur in granular media, but also in soft materials such as colloidal suspensions which may asymptotically reach jamming under centrifugation, compressed emulsions, foams, glasses, and spin glasses below their glass transition temperature and biological materials such as cells, DNA, and protein packing. Even more broadly, the jamming transition pertains to a larger family of computational problems named constraint satisfaction problems (CSPs) (Krzakala and Kurchan, 2007).</p>
+</blockquote>
+<p>堵塞转变不仅发生在颗粒介质中，也发生在软性材料中，如在离心作用下可能渐进达到堵塞的胶体悬浮液、压缩乳液、泡沫、玻璃和低于玻璃化温度的自旋玻璃，以及生物材料，如细胞、DNA 和蛋白质堆积。更广义地说，堵塞转变涉及到一个更大的计算问题集群，即约束满足问题（CSP）（Krzakala 和 Kurchan，2007 年）</p>
+<blockquote>
+<p>These problems involve finding the values of a set of variables simultaneously satisfying all the constraints imposed on those variables and maximizing (or minimizing) an objective function. For example, in the problem of sphere packings, the goal is to minimize the volume occupied by the packing subject to the geometrical constraint of nonoverlapping particles and the mechanical constraints of force and torque balance at mechanical equilibrium.</p>
+</blockquote>
+<p>这些问题涉及找到一组变量的值，同时满足施加在这些变量上的所有约束条件，并使目标函数最大化（或最小化）。例如，在球体堆积问题中，目标是在颗粒不重叠的几何约束和机械平衡时力和力矩平衡的机械约束下，使堆积所占体积最小。</p>
+<blockquote>
+<p>In general, packing problems play a central role in various fields of science in addition to physics, such as discrete mathematics, number theory, and information theory. An example of practical interest is the problem of efficient data transmission through <strong>error-correcting codes</strong>, which is deeply related to the optimal packing of (Hamming) spheres in a high-dimensional space (Conway and Sloane, 1999). The common feature of all packing problems is the existence of a phase transition, the jamming transition, separating the phase where the constraints are satisfiable from a phase where they are unsatisfiable.</p>
+</blockquote>
+<p>一般来说，除物理学外，堆积问题在离散数学、数论和信息论等多个科学领域都发挥着核心作用。一个具有实际意义的例子是通过<strong>纠错码</strong>进行高效数据传输的问题，它与高维空间中（Hamming）球的最优堆积问题有着深刻的联系（Conway 和 Sloane，1999 年）。所有堆积问题的共同特征是存在一个阶段转换，即堵塞态转换，它将约束条件可满足的相与约束条件不可满足的相分开。</p>
+<hr>
+<blockquote>
+<p>The existence of constraints in physical systems causes, in general, a significant metastability. Metastability is the phenomenon by which the system remains confined for a relatively long time in <strong>suboptimal regions</strong> of the phase space. It is related to the rough energy (or free energy) landscape characterized by the presence of many nontrivially related minima as a function of the microscopic configurations (or the macroscopic states). Metastability is, indeed, the leitmotiv in most complex physical systems, whatever its origin.</p>
+</blockquote>
+<p>一般来说，物理系统中制约因素的存在会导致显著的亚稳性。亚稳性是指系统在相空间的<strong>次优区域</strong>内相对较长时间保持束缚的现象。它与粗糙能（或自由能）绘景有关，其特征是存在许多与微观构型（或宏观状态）函数无关的极小值。事实上，无论其起源如何，亚稳性都是大多数复杂物理系统的主要特征。</p>
+<blockquote>
+<p>For example, in granular materials metastability arises from geometrical and mechanical constraints, but it is found also in spin glasses, which are magnetic systems with competing ferromagnetic and antiferromagnetic exchange interactions.</p>
+<p>In spin glasses, the emergence of metastability is due to <strong>frustration</strong>, which is the inability of the system to simultaneously satisfy all local ordering requirements. Notwithstanding their differences, these two physical systems, jammed grains and spin glasses, exhibit a remarkably similar organization of their metastable states, a fact that stimulates our search for further analogies within these systems and common explanations. It is, indeed, this analog approach, as best exemplified by the encompassing vision of Sir Sam Edwards (Goldbart, Goldenfeld, and Sherrington, 2005), that may shed new light on the solution to jamming problems otherwise doomed to remain obscure.</p>
+</blockquote>
+<p>例如，在颗粒材料中，亚稳性产生于几何和机械约束，但在自旋玻璃中也发现了亚稳性，自旋玻璃是具有竞争性铁磁和反铁磁交换相互作用的磁性系统。</p>
+<p>在自旋玻璃中，出现亚稳性的原因是<strong>阻挫</strong>，即系统无法同时满足所有局部有序要求。尽管存在差异，但这两种物理系统&ndash;堵塞颗粒和自旋玻璃&ndash;在其亚稳态的组织上表现出了惊人的相似性，这一事实激励了我们在这些系统中寻找进一步的类比和共同的解释。Sam Edwards 爵士（Goldbart、Goldenfeld 和 Sherrington，2005 年）的远见卓识正是这种类比方法的最佳例证，它可能会为解决堵塞问题带来新的曙光，否则这些问题注定会晦涩难懂。</p>
+<hr>
+<blockquote>
+<p>Because of their substantial metastability, these systems are fundamentally out of equilibrium even in a macroscopically quiescent state.</p>
+<p>Nevertheless, the commonalities with equilibrium many-body systems suggest that ideas from equilibrium statistical mechanics might be useful.</p>
+<p>In this review, we consider theories for jammed matter based on generalizations of equilibrium ensembles. These statistical mechanics-based approaches were pioneered by Sir Sam F. Edwards in the late 1980s; see Fig. 1(b).</p>
+</blockquote>
+<p>由于这些系统具有很大的亚稳性，因此即使在宏观静止状态下，它们从根本上也是不平衡的。</p>
+<p>尽管如此，与平衡多体系统的共性表明，平衡态统计力学的思想可能是有用的。</p>
+<p>在这篇综述中，我们考虑了基于平衡系综广义化的干扰物质理论。这些基于统计力学的方法是萨姆-F-爱德华兹爵士在 20 世纪 80 年代末开创的；见图 1(b)。</p>
+<hr>
+<blockquote>
+<p>Investigations of the structural properties of jammed packings are much older. In fact, the related problem of identifying the densest packing of objects has an illustrious history in the mathematical literature (Kepler, 1611; Weaire and Aste, 2008). Exact mathematical proofs of the densest packings are extremely challenging even for spherical particles. The Kepler conjecture of 1611 stating that the densest arrangement of spheres in three spatial dimensions (3D) is a face-centeredcubic (fcc) crystal with a packing volume fraction $\phi_{\text{fcc}} = \pi/(3\sqrt{2})\approx 0.74048\dots$ remained an unsolved mathematical problem for almost four centuries (Kepler, 1611; Hales, 2005).</p>
+<p>Systematic experiments on disordered hard-sphere packings began in the 1960s with the work of Bernal (Bernal and Mason, 1960; Bernal, 1964). These experiments are conceptually simple, yet give fundamental insight into the structure of dense liquids, glasses, and jammed systems.</p>
+<p>Equally sized spherical particles were placed into a container and compactified by shaking or tapping the system until no further volume reduction was detected. These experiments typically yielded configurations with packing fraction $\phi_{\text{rcp}}\approx 0.64$, which is historically referred to as random close packing (rcp).</p>
+</blockquote>
+<p>对堵塞态堆积物结构特性的研究要早得多。事实上，确定物体最密堆积的相关问题在数学文献中有着辉煌的历史（开普勒，1611 年；Weaire 和 Aste，2008 年）。即使对于球形粒子，最密堆积的精确数学证明也极具挑战性。1611 年的开普勒猜想指出，三维空间（3D）中最致密的球体排列是面心立方（fcc）晶体，其堆积体积分数为 $\phi_{\text{fcc}} = \pi/(3\sqrt{2})\approx 0.74048\dots$ ，这一猜想在近四个世纪中一直是一个未解的数学难题（Kepler, 1611; Hales, 2005）。</p>
+<p>关于无序硬球堆积的系统实验始于 20 世纪 60 年代伯纳尔的工作（伯纳尔和梅森，1960 年；伯纳尔，1964 年）。这些实验概念上很简单，但对致密液体、玻璃和堵塞体系的结构提供了根本性的见解。</p>
+<p>将大小相等的球形颗粒放入容器中，通过摇晃或敲击系统进行压实，直到检测到体积不再缩小为止。这些实验通常会产生堆积分数约为 $0.64$ 的结构，历史上称之为随机紧密堆积（Random Close Packing, $\text{rcp}$）。</p>
+<hr>
+<blockquote>
+<p>In order to apply a statistical mechanical framework to these jammed systems, it is first necessary to identify <strong>the variables characterizing the state of the system macroscopically</strong>. Clearly, the system energy is not suitable, since it may either not be conserved (for frictional dissipative particles) or not be relevant (for frictionless hard particles). On the other hand, an obvious state variable is <strong>the system volume</strong>.</p>
+<p>In fact, unlike in equilibrium systems, the volume in jammed systems is not an externally imposed fixed variable, but rather depends on the microscopic configuration of the grains. Edwards first extraordinary insight was to parametrize the ensemble of jammed states by the volume function $\mathcal{W}(\{\mathbf{r},\hat{\mathbf{t}}_{i}\})$ ,as a function of the $N$ particles positions $\{\mathbf{r}_{i}\}$ and orientations $\{\hat{\mathbf{t}}_{i}\}$, as a replacement for the Hamiltonian in the equilibrium ensembles (Edwards and Oakeshott, 1989; Mehta and Edwards, 1990; Edwards, 1991, 1994).</p>
+</blockquote>
+<p>为了将统计力学框架应用于这些堵塞态系统，首先需要确定用于<strong>表征系统宏观状态</strong>的变量。显然，系统能量并不合适，因为它可能不守恒（对于摩擦耗散粒子）或不相关（对于无摩擦硬粒子）。另一方面，一个明显的状态变量是<strong>系统体积</strong>。</p>
+<p>事实上，与平衡系统不同，堵塞态系统中的体积并不是一个外部强加的固定变量，而是取决于颗粒的微观构型。Edwards 的第一个非凡见解是用体积函数 $\mathcal{W}(\{\mathbf{r},\hat{\mathbf{t}}_{i}\})$ 参数化堵塞态的系综、作为 $N$ 粒子位置 $\{\mathbf{r}_{i}\}$ 和方向 $\{\hat{\mathbf{t}}_{i}\}$ 的函数，以替代平衡态系综中的哈密顿量（Edwards 和 Oakeshott, 1989；Mehta and Edwards, 1990; Edwards, 1991, 1994）。</p>
+<hr>
+<blockquote>
+<p>A second crucial point in the development of the Edwards granular statistical mechanics is a proper definition of the jammed state. It is important to note that only jammed configurations $\{\mathbf{r}_{i},\hat{\mathbf{t}}_{i}\}$ are included in the ensemble. A definition of what we mean by jammed state is not a trivial task and will be treated rigorously in the next section.</p>
+<p>Assuming that an unambiguous definition of <strong>metastable jammed state</strong> can be expressed analytically, then a statistical mechanics approach to granular matter proceeds by analogy with equilibrium systems.</p>
+<p>In this case, the volume function allows for the definition of a <em>granular</em> entropy leading to both microcanonical and canonical formulations of the volume ensembles. This implies, in particular, the existence of an <strong>intensive parameter</strong> conjugate to the volume. This temperaturelike parameter was called <em>compactivity</em> by Edwards.</p>
+</blockquote>
+<p>Edwards 颗粒统计力学发展过程中的第二个关键点是对堵塞状态的正确定义。重要的是要注意，只有堵塞构型 $\{\mathbf{r}_{i},\hat{\mathbf{t}}_{i}\}$ 才包含在系综中。我们对 &ldquo;堵塞态&rdquo; 的定义并非易事，将在下一节进行严格讨论。</p>
+<p>假定可以用分析的方法明确定义 <strong>亚稳堵塞态</strong>，那么颗粒物质的统计力学方法就可以类比于平衡系统。</p>
+<p>在这种情况下，通过体积函数可以定义<em>颗粒(系统)版</em>的熵，从而得出体积系综的微正则和正则公式。这尤其意味着存在一个与体积共轭的强度参量。这个类比于温度的参数被 Edwards 称为<em>致密度</em>。</p>
+<hr>
+<blockquote>
+<p>The full Edwards ensemble is characterized by the macroscopic volume and, further, by the stress of the packing. Since analytical treatments of the full ensemble are challenging, one typically considers suitable approximations. Neglecting correlations between the volume and the stress leads to a volume ensemble under <strong>the condition of isostaticity</strong> (Song, Wang, and Makse, 2008).</p>
+<p>The core of this review is devoted to elaborate on a mean-field formulation of the Edwards volume ensemble that can potentially lead to a unifying phase diagram encompassing all jammed matter ranging from systems made of spherical to nonspherical particles, with friction or adhesion to frictionless particles, monodisperse and polydisperse systems and in any dimension.</p>
+<p>Likewise, we describe frameworks for stress and force statistics alone, such as the stress ensemble (Henkes, O’Hern, and Chakraborty, 2007; Chakraborty, 2010), force network ensemble (Bouchaud, 2002; Snoeijer et al., 2004; Tighe et al., 2010), and <strong>belief propagation</strong> for force transmission (Bo et al., 2014).</p>
+</blockquote>
+<p>Edwards 全系综的特征是宏观体积和堆积应力。由于全系综的分析处理具有挑战性，人们通常会考虑合适的近似值。忽略体积和应力之间的相关性，可以得到<strong>等静压条件</strong>下的体积系综（Song、Wang 和 Makse，2008 年）。</p>
+<p>这篇综述的核心内容是详细阐述 Edwards 体积系综的平均场公式，它有可能导出一个统一的相图，涵盖从球形粒子到非球形粒子、有摩擦/粘附到无摩擦粒子、单分散和多分散系统以及任何维数空间的所有堵塞物质。</p>
+<p>同样，我们还介绍了单独的应力和力统计框架，如应力系综（Henkes、O&rsquo;Hern 和 Chakraborty，2007 年；Chakraborty，2010 年）、力网络系综（Bouchaud，2002 年；Snoeijer 等人，2004 年；Tighe 等人，2010 年）以及力传递的<strong>置信度传播</strong>（Bo 等人，2014 年）。</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>Belief Propagation<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>给定一组有限的离散随机变量 $X_{1},\dots,X_{n}$ 及其联合概率质量函数 $p$, 一个常见的任务是计算 $\{X_{i}\}$ 的边缘分布. 单个 $X_{i}$ 的<em>边缘</em>被定义为</p>
+<p>$$
+p_{X_{i}}(x_{i}) = \sum_{\mathbf{x}&rsquo;:x_{i}&rsquo; = x_{i}}p(\mathbf{x}&rsquo;)
+$$</p>
+<p>其中 $\mathbf{x} = (x_{1}&rsquo;, \dots, x_{n}&rsquo;)$ 是事件 $X_{i}$ 的概率值组成的向量，下标 $\mathbf{x}&rsquo;:x_{i}&rsquo; = x_{i}$ 的意思是, 求和的对象是那些第 $i$ 个坐标等于 $x_{i}$ 的 $\mathbf{x}&rsquo;$.</p>
+<p>随着变量数量的增加，使用该公式计算边际分布很快就会变得难以计算。例如，给定 $100$ 个二进制变量 $X_{1},\dots,X_{100}$, 使用 $p$ 和上述公式计算单个边际 $X_{i}$ 将涉及对 $2^{99}\approx 6.34\times 10^{29}$ 个 $\mathbf{x}&rsquo;$ 的可能值。如果已知概率质量函数 $p$ 的因子是以一种方便的方式存在的，那么置信度传播就可以更高效地计算边际值。</p>
+<p>&hellip;</p>
+</div>
+
+ </div>
+
+ </div>
+<hr>
+<blockquote>
+<p>Edwards statistical mechanical ensemble relies on two assumptions: (i) ergodicity and (ii) equiprobability of microstates. These assumptions have been scrutinized in the literature, and the questions raised in this context will be reviewed here. Despite these critiques, the Edwards approach was used to describe a wide range of jammed and glassy materials.</p>
+</blockquote>
+<p>Edwards 统计力学系综依赖于两个假设：(i)遍历性和(ii)微观状态的等价性。文献中对这些假设进行了仔细研究，本文将对在此背景下提出的问题进行回顾。尽管存在这些批评意见，爱德华兹方法仍被用于描述较广领域的堵塞和玻璃态材料。</p>
+<blockquote>
+<p>Early works adopted the concept of <strong>inherent structures</strong> from glasses (Coniglio and Herrmann, 1996; Coniglio and Nicodemi, 2000, 2001; Coniglio, Fierro, and Nicodemi, 2002; Fierro, Nicodemi, and Coniglio, 2002b) and <strong>effective temperatures</strong> (Kurchan, 2000, 2001; Makse and Kurchan, 2002; Ono et al.,2002; O’Hern, Liu, and Nagel, 2004; Ciamarra, Coniglio, and Nicodemi, 2006; Cugliandolo, 2011) with applications to plasticity (Lieou and Langer, 2012). More recent approaches are based on <strong>replica theory</strong> for hard-sphere glasses (Parisi and Zamponi, 2010; Charbonneau et al., 2017).</p>
+</blockquote>
+<p>早期研究采用了玻璃<strong>内禀结构</strong>概念（Coniglio 和 Herrmann，1996 年；Coniglio 和 Nicodemi，2000 年，2001 年；Coniglio、Fierro 和 Nicodemi，2002 年；Fierro、Nicodemi 和 Coniglio，2002 年 b）和<strong>有效温度</strong>概念（Kurchan，2000 年，2001 年；Makse 和 Kurchan，2002 年；Ono 等人，2002 年O&rsquo;Hern、Liu 和 Nagel，2004；Ciamarra、Coniglio 和 Nicodemi，2006；Cugliandolo，2011），并应用于塑性（Lieou 和 Langer，2012）。最近的方法是基于硬球玻璃的<strong>复制理论</strong>（Parisi 和 Zamponi，2010 年；Charbonneau 等人，2017 年）。</p>
+<blockquote>
+<p>Valuable insight is gained from models that exhibit both jamming and glass transitions (Krzakala and Kurchan, 2007; Mari, Krzakala, and Kurchan, 2009; Ikeda, Berthier, and Sollich, 2012). In this review, we emphasize that the Edwards ensemble can be recast as a constraint satisfaction problem, which allows for a unifying view of hard-sphere glasses and spin glasses through a synthesis applied at the foundation of granular statistical mechanics.</p>
+</blockquote>
+<p>我们从同时表现出堵塞态和玻璃化转变的模型中获得了宝贵的见解（Krzakala 和 Kurchan，2007 年；Mari、Krzakala 和 Kurchan，2009 年；Ikeda、Berthier 和 Sollich，2012 年）。在这篇综述中，我们强调 Edwards 系综可被重塑为一个约束求解问题，通过在粒状统计力学基础上应用的综合方法，可以统一硬球玻璃和自旋玻璃的观点。</p>
+<hr>
+<blockquote>
+<p>This review is organized as follows.</p>
+<p>In Sec. II we discuss the foundations of the ensemble approach via the rigorous definition of metastable jammed states and the construction of microcanonical and canonical ensembles based on the volume function and stress-moment tensor, which play the role of the Hamiltonian in jammed systems.</p>
+<p>In Sec. III we collect empirical results on the phenomenology of jammed states. Moreover, we review results from experiments, simulations, and theoretical models that test the ergodic and uniform measure underlying the ensemble approach.</p>
+<p>In Sec. IV we consider volume ensembles and their mean-field description, which provides quantitative predictions for ensemble averaged quantities such as the <strong>packing fraction</strong> of spherical and nonspherical particles.</p>
+<p>In Sec. V we discuss a unification between the Edwards ensemble of jammed matter and theories based on ideas from glass and spin-glass theories under the CSP paradigm.</p>
+<p>In Sec. VI we finally close with a summary and a collection of open questions for future work.</p>
+</blockquote>
+<p>本综述编排如下。</p>
+<p>在第二节中，我们讨论了系综方法的基础，即严格定义的亚稳堵塞态，以及基于体积函数和应力-力矩张量构建微正则和正则系综，它们在堵塞态系统中扮演着哈密顿量的角色。</p>
+<p>在第三节中，我们收集了有关堵塞态现象学的经验结果。此外，我们还回顾了实验、模拟和理论模型的结果，这些结果检验了系综方法所依据的遍历和平均计量。</p>
+<p>在第四节中，我们考虑了体积系综及其平均场描述，这为系综平均量（如球形和非球形粒子的<strong>堆积分数</strong>）提供了定量预测。</p>
+<p>在第五节中，我们将讨论在 CSP(Constraint Satisfaction Problem) 范式下，爱德华兹干扰物质集合与基于玻璃和自旋玻璃理论思想的理论之间的统一。</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>Constraint Satisfaction Problem<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>CSP 的解决范式通常涉及这些要素:</p>
+<ul>
+<li>Variables(变量): 要找到解决方案的对象. 每个变量可以取一个特定的值.</li>
+<li>Domains(域): 每个变量可以取的值的集合.</li>
+<li>Constraints(约束): 定义了变量之间的关系, 规定了这些变量的取值方式, 通常是不等式, 等式或者其他形式的条件.</li>
+<li>Solutions(解): 一组变量的取值, 满足所有的约束条件.</li>
+</ul>
+</div>
+
+ </div>
+
+ </div>
+<p>在第六节中，我们最后进行了总结，并提出了未来工作的一些开放性问题。</p>
+<hr>
+<blockquote>
+<p>In recent years a number of reviews have appeared dealing with more specific aspects of granular matter: Richard et al. (2005) (granular compaction), Makse, Brujić, and Edwards (2005) (jammed emulsions), Chakraborty (2010) and Bi et al. (2015) (stress ensembles), Tighe et al. (2010) (force network ensemble), and Cugliandolo (2011) and Qiong and Mei-Ying (2014) (effective temperatures).</p>
+<p>The present review is also complementary to other reviews on jammed granular matter, which do not specifically discuss the Edwards thermodynamics: Jaeger, Nagel, and Behringer (1996), Alexander (1998), Kadanoff (1999), Liu and Nagel (2010), Parisi and Zamponi (2010), Torquato and Stillinger (2010), van Hecke (2010), Borzsonyi and Stannarius (2013), and Charbonneau et al. (2017).</p>
+<p>Our work puts these topics into the general context of Edwards statistical mechanics and provides an overview of the immense amount of literature related to Edwards ensemble approaches.</p>
+</blockquote>
+<p>近年来，出现了一些涉及颗粒物质更具体方面的综述：Richard等人（2005年）（颗粒压实）、Makse、Brujić和Edwards（2005年）（堵塞乳状液）、Chakraborty（2010年）和Bi等人（2015年）（应力系综）、Tighe等人（2010年）（力网络系综）以及Cugliandolo（2011年）和Qiong和Mei-Ying（2014年）（有效温度）。</p>
+<p>本综述也是对其他未专门讨论 Edwards 热力学的有关堵塞颗粒物质的综述的补充：Jaeger、Nagel 和 Behringer (1996)、Alexander (1998)、Kadanoff (1999)、Liu 和 Nagel (2010)、Parisi 和 Zamponi (2010)、Torquato 和 Stillinger (2010)、van Hecke (2010)、Borzsonyi 和 Stannarius (2013) 以及 Charbonneau 等人 (2017)。</p>
+<p>我们的工作将这些主题置于 Edwards 统计力学的大背景下，并概述了与 Edwards 系综方法有关的大量文献。</p>
+<h1 id="statistical-mechanics-for-jammed-granular-matter">STATISTICAL MECHANICS FOR JAMMED GRANULAR MATTER<a hidden class="anchor" aria-hidden="true" href="#statistical-mechanics-for-jammed-granular-matter">#</a></h1>
+<blockquote>
+<p>In a jammed system all particle motion is prevented due to the confinement by the neighboring particles. The transition to a jammed state is thus not controlled by the temperature as conventional phase transitions in systems at thermal equilibrium, but by geometrical and mechanical constraints imposed by all particles in the system.</p>
+<p>Therefore, jammed states can be regarded as the set of solutions in the general class of CSPs, which we term the <em>jamming satisfaction problem</em> (JSP), where the constraints are fixed by the mechanical stability of the blocked configurations of grains.</p>
+<p>From this standpoint, the jamming problem has a wider scope than the pure physical significance, encompassing the broader class of CSPs: the unique feature of the packing problem in the large universe of CSPs is that this system allows for a direct and relatively simple experimental test of theoretical predictions.</p>
+</blockquote>
+<p>在堵塞系统中，由于邻近粒子的约束，所有粒子运动都被限制。因此，向堵塞态的转变不像热平衡系统中的传统相变那样受温度控制，而是受系统中所有粒子施加的几何和机械限制。</p>
+<p>因此，堵塞状态可视为一般 CSP（我们称之为<em>堵塞满足问题</em> (JSP, Jamming Satisfaction Problem)）中的解集，其中的约束条件由堵塞颗粒构型的机械稳定性固定。</p>
+<p>从这个角度来看，堵塞问题比纯物理意义上的堵塞问题范围更广，涵盖了更广泛的 CSP 类别; 在 CSP 大范围中，堆积问题的独特之处在于，这个系统可以对理论预测进行直接而相对简单的实验检验。</p>
+<h2 id="definition-of-jammed-states">Definition of jammed states<a hidden class="anchor" aria-hidden="true" href="#definition-of-jammed-states">#</a></h2>
+<blockquote>
+<p>We consider an assembly of $N$, for simplicity, monodisperse particles described by the configurations of the particles $\{\mathbf{r}_{1},\hat{\mathbf{t}}_{1};\dots;\mathbf{r}_{N},\hat{\mathbf{t}}_{N}\}$, where $\mathbf{r}_{i}$ denotes the $i_{\text{th}}$ particle’s position (of its center of mass) and $\hat{\mathbf{t}}_{i}$ its orientation. The first problem we address concerns the definition of a blocked configuration of the particles, i.e., the jammed states. To be jammed the system has to satisfy both excluded volume and mechanical constraints.</p>
+</blockquote>
+<p>我们考虑一个由 $N$（为简单起见）单分散粒子组成的集合体，该集合体由粒子 $\{\mathbf{r}_{1},\hat{\mathbf{t}}_{1};\dots;\mathbf{r}_{N},\hat{\mathbf{t}}_{N}\}$ 其中 $\mathbf{r}_{i}$ 表示第 $i$ 个粒子的位置（质心），$\hat{\mathbf{t}}_{i}$ 表示其取向。我们要解决的第一个问题是如何定义粒子的受阻构型，即堵塞态。系统必须同时满足排除体积约束和机械约束才能被堵塞住。</p>
+<blockquote>
+<p>The excluded volume constraint enforces the fact that particles do not overlap, and its mathematical implementation depends on the shape of the particles. For a system of monodisperse hard spheres, this constraint takes on the following form:</p>
+<p>$$
+|\mathbf{r}_{i} - \mathbf{r}_{j}|\geq 2R \quad(\text{equal-size hard spheres})
+$$</p>
+<p>which means that the centers of any pair of particles $i$ and $j$ must be at a distance twice as large as their radius $R$. The hardcore constraint in Eq. (1) is valid only for monodisperse spheres, but it can be generalized to polydisperse and nonspherical particles.</p>
+</blockquote>
+<p>排除体积约束强制要求粒子不重叠，其数学实现取决于粒子的形状。对于单分散硬球系统，该约束条件的形式如下:</p>
+<p>$$
+|\mathbf{r}_{i} - \mathbf{r}_{j}|\geq 2R \quad(\text{等体积硬球})
+$$</p>
+<p>这意味着任何一对(最近邻)粒子 $i$ 和 $j$ 的中心距离必须是它们半径 $R$ 的两倍。公式 (1) 中的硬核约束仅适用于单分散球体，但也可推广到多分散和非球形粒子。</p>
+<hr>
+<blockquote>
+<p>The excluded volume constraint is necessary but not sufficient by itself to determine whether a configuration of particles is jammed.</p>
+<p>Indeed, it has to be supplemented by a constraint enforcing the mechanical stability of the system, requiring that particles satisfy the force and torque balance conditions.</p>
+<p>We denote by $\mathbf{d}^{i}_{a}$ the vector connecting $\mathbf{r}_{i}$ and the $a$ th contact on the $i$ th particle. At this contact there is a corresponding force vector $\mathbf{f}_{a}^{i}$ on particle $i$ arising from the contacting particle.</p>
+</blockquote>
+<p>排除体积约束是必要的，但它本身并不足以确定粒子构型是否被堵塞。</p>
+<p>事实上，它还必须辅以一个强制系统机械稳定性的约束，要求粒子满足力和力矩平衡条件。</p>
+<p>我们用 $\mathbf{d}^{i}_{a}$ 表示连接 $\mathbf{r}_{i}$ 和第 $i$ 个粒子上第 $a$ 个接触点的向量。在这个接触点上，粒子 $i$ 上有一个由接触粒子产生的相应力向量 $\mathbf{f}_{a}^{i}$.</p>
+<blockquote>
+<p>With this notation we can formulate the conditions of force and torque balances for a particle of general shape:</p>
+<p>$$
+\sum_{a\in\partial i}\mathbf{f}_{a}^{i} = 0,\quad i = 1,\dots,N,\\
+\sum_{a\in\partial i}\mathbf{d}_{a}^{i}\times\mathbf{f}_{a}^{i},\quad i = 1,\dots, N,
+$$</p>
+<p>where the notation $\partial i$ denotes the set of contacts of particle $i$. Equations (2) and (3) apply to both frictional and frictionless particles. In the latter case there is only one single force component in the normal direction</p>
+<p>$$
+\mathbf{f}_{a}^{i} = -f_{a}^{i}\hat{\mathbf{n}}_{a}^{i}\quad(\text{frictionless}),
+$$</p>
+<p>where $\hat{\mathbf{n}}_{a}^{i}$ denotes the normal unit vector at the contact point, which depends on the particle shape. For frictional particles, we can decompose $\mathbf{f}_{a}^{i}$ into a normal component $f_{a,n}^{i}$ and a force vector in the tangent plane $f_{a,\tau}^{i}$ (see Fig. 2). Coulomb’s law with friction coefficient $\mu$ is then expressed by the inequality</p>
+<p>$$
+|f_{a,\tau}^{i}|\leq \mu f_{a,n}^{i}\quad(\text{frictional}).
+$$</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>If the interparticle forces are purely repulsive, as in most of the cases treated in this review, we also have the condition</p>
+<p>$$
+\mathbf{d}_{a}^{i}\cdot\mathbf{f}_{a}^{i} &lt; 0.
+$$</p>
+</blockquote>
+<blockquote>
+<p>Finally, Newton’s third law implies that two particles $i$ and $j$ in contact with $a$ satisfy</p>
+<p>$$
+\mathbf{f}_{a}^{i} = -\mathbf{f}_{a}^{j}
+$$</p>
+</blockquote>
+<h2 id="metastability-of-jammed-states">Metastability of jammed states<a hidden class="anchor" aria-hidden="true" href="#metastability-of-jammed-states">#</a></h2>
+<blockquote>
+<p>Having defined the necessary and sufficient conditions for a granular system to be jammed, we now provide a finer description of jammed states, based on the concept of metastability, i.e., their stability with respect to particles displacements. A characterization similar to the one proposed here appeared already in Torquato and Stillinger (2001), where the concept of jamming categories for metastable packings has been defined. The similarities with the classification of the jammed states in Torquato and Stillinger (2001) are discussed in parallel with the classification presented next.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>To properly define the metastable jammed states we need to specify with respect to what type of displacements they are metastable. More precisely, if we start from an initially jammed state satisfying Eqs. (1)–(7) and then displace a set of particles, how do we decide if the initial state is stable under this move? A helpful discriminant is the volume $V$ or equivalently the volume fraction of the packing $\phi$ defined as the ratio of the volume occupied by the particles to the total volume of the system and the number of particles involved in the displacement. Thus, consider an initially jammed state and assume you can displace only one particle at a time. If the volume fraction of the packing is not increasing whatever particle you move, then we may assert that the packing is stable against any single particle displacement. We call this type of jammed state a 1-particle-displacement (1-PD) metastable jammed state, which is defined as a configuration whose volume fraction cannot be increased by the displacement of one single particle; see Fig. 3(a). However, $\phi$ may be increased by moving a set of two or more particles at the same time. The definition of 1-PD metastable jammed states is the same as the definition of <em>local</em> jamming in Torquato and Stillinger (2001), stating that in a locally jammed configuration no single particle can be displaced while keeping the positions of all other particles fixed.</p>
+</blockquote>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/random-loose-packing/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>[中字]Random Loose Packing in Granular Matter</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/xcj-glass-former/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>作为模型玻璃体系的颗粒物质结构学研究</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+</html>
