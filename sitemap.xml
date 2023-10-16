@@ -35,19 +35,22 @@
     <loc>https://Muatyz.github.io/posts/life/reference-stack/</loc>
     <lastmod>2023-10-11T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/intermittency-and-reversibility/</loc>
+    <loc>https://Muatyz.github.io/posts/read/sonic/intermittency-and-reversibility/</loc>
     <lastmod>2023-10-10T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/read/</loc>
     <lastmod>2023-10-10T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sound-pulse-broadening-in-stressed-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/sonic/</loc>
+    <lastmod>2023-10-10T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/read/sonic/sound-pulse-broadening-in-stressed-granular-media/</loc>
     <lastmod>2023-10-09T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/ultrasound-in-stressed-granular/</loc>
+    <loc>https://Muatyz.github.io/posts/read/sonic/ultrasound-in-stressed-granular/</loc>
     <lastmod>2023-10-09T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/monte-carlo-simulations-of-ultrasound-scattering/</loc>
+    <loc>https://Muatyz.github.io/posts/read/sonic/monte-carlo-simulations-of-ultrasound-scattering/</loc>
     <lastmod>2023-10-07T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/scmp/</loc>
@@ -74,25 +77,34 @@
     <loc>https://Muatyz.github.io/posts/phy/scmp/langevin-dynamics/</loc>
     <lastmod>2023-09-28T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/elastic-waves-in-dense-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/sonic/elastic-waves-in-dense-granular-media/</loc>
     <lastmod>2023-09-25T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/random-loose-packing/</loc>
+    <loc>https://Muatyz.github.io/posts/read/granular/random-loose-packing/</loc>
     <lastmod>2023-09-25T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/edwards-statistical-mechanics-for-jammed-granular-matter/</loc>
+    <loc>https://Muatyz.github.io/posts/read/granular/</loc>
+    <lastmod>2023-09-25T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/read/granular/edwards-statistical-mechanics-for-jammed-granular-matter/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/effect-of-amp-and-dura-of-cyc-loa/</loc>
+    <loc>https://Muatyz.github.io/posts/read/sonic/effect-of-amp-and-dura-of-cyc-loa/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/xcj-glass-former/</loc>
+    <loc>https://Muatyz.github.io/posts/read/sonic/transitional-nonlinear-elastic-behaviour-in-dense-granular-media/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/edwards-entropy-and-compactivity/</loc>
+    <loc>https://Muatyz.github.io/posts/read/ct/</loc>
+    <lastmod>2023-09-24T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/read/ct/xcj-glass-former/</loc>
+    <lastmod>2023-09-24T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/read/granular/edwards-entropy-and-compactivity/</loc>
     <lastmod>2023-09-23T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/eq-of-temp/</loc>
+    <loc>https://Muatyz.github.io/posts/read/granular/eq-of-temp/</loc>
     <lastmod>2023-09-23T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/tags/condensed-matter-physics/</loc>
@@ -104,7 +116,7 @@
     <loc>https://Muatyz.github.io/posts/phy/scmp/research/</loc>
     <lastmod>2023-09-21T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/effective-temp/</loc>
+    <loc>https://Muatyz.github.io/posts/read/ct/effective-temp/</loc>
     <lastmod>2023-09-21T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/tags/life/</loc>
@@ -119,7 +131,10 @@
     <loc>https://Muatyz.github.io/posts/phy/calphy/1d-spin-chain/</loc>
     <lastmod>2022-07-26T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/away-from-magic-angle/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/away-from-magic-angle/</loc>
+    <lastmod>2023-07-21T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/read/stack/</loc>
     <lastmod>2023-07-21T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/life/summer-camp-policy/</loc>
@@ -305,7 +320,7 @@
     <loc>https://Muatyz.github.io/posts/life/interesting/</loc>
     <lastmod>2022-05-05T00:18:15+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/moire-bands/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/moire-bands/</loc>
     <lastmod>2022-05-05T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/cs/github-mannual/</loc>
