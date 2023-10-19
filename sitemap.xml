@@ -2,38 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://Muatyz.github.io/posts/cs/solidworks/</loc>
+    <lastmod>2023-10-18T12:20:21+08:00</lastmod>
+  </url><url>
     <loc>https://Muatyz.github.io/posts/phy/calphy/</loc>
     <lastmod>2022-07-26T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/cs/skills/</loc>
     <lastmod>2023-05-05T12:20:21+08:00</lastmod>
   </url><url>
+    <loc>https://Muatyz.github.io/posts/cs/</loc>
+    <lastmod>2023-10-18T12:20:21+08:00</lastmod>
+  </url><url>
     <loc>https://Muatyz.github.io/posts/</loc>
-    <lastmod>2023-10-13T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/categories/</loc>
-    <lastmod>2023-10-13T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/tags/read/</loc>
-    <lastmod>2023-10-13T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/categories/read/</loc>
-    <lastmod>2023-10-13T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/posts/life/</loc>
-    <lastmod>2023-10-13T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/tags/</loc>
-    <lastmod>2023-10-13T00:18:06+08:00</lastmod>
+    <lastmod>2023-10-18T12:20:21+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/</loc>
-    <lastmod>2023-10-13T00:18:06+08:00</lastmod>
+    <lastmod>2023-10-18T12:20:21+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/categories/</loc>
+    <lastmod>2023-10-18T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/tags/read/</loc>
+    <lastmod>2023-10-18T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/categories/read/</loc>
+    <lastmod>2023-10-18T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/life/</loc>
+    <lastmod>2023-10-18T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/tags/</loc>
+    <lastmod>2023-10-18T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/life/weekly-meeting/</loc>
     <lastmod>2023-10-13T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/life/reference-stack/</loc>
-    <lastmod>2023-10-11T00:18:06+08:00</lastmod>
+    <lastmod>2023-10-18T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/read/sonic/intermittency-and-reversibility/</loc>
     <lastmod>2023-10-10T00:18:06+08:00</lastmod>
@@ -90,6 +96,12 @@
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/read/sonic/effect-of-amp-and-dura-of-cyc-loa/</loc>
+    <lastmod>2023-09-24T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/read/sonic/stick-slip-nucleation-and-failure-in-uniform-glass-beads-detected-by-acoustic-emissions-in-ring-shear-experiments/</loc>
+    <lastmod>2023-09-24T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/read/sonic/time-reversal-of-ultrasound-in-granular-media/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/read/sonic/transitional-nonlinear-elastic-behaviour-in-dense-granular-media/</loc>
@@ -214,9 +226,6 @@
   </url><url>
     <loc>https://Muatyz.github.io/links/</loc>
     <lastmod>2023-05-10T15:15:53+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/posts/cs/</loc>
-    <lastmod>2023-05-05T12:20:21+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/cs/datastructure/</loc>
     <lastmod>2023-05-05T12:20:21+08:00</lastmod>
