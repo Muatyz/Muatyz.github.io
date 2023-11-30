@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>[周志刚]博士学位论文阅读笔记 | 无处惹尘埃</title>
+<title>声学探测方法 | 无处惹尘埃</title>
 <meta name="keywords" content="scmp, granular">
-<meta name="description" content="中科院物理研究所, 厚美瑛老师指导的&lt;颗粒固体的力学响应和声波传播的研究&gt;, 适合作为颗粒物质新手学习声学相关的内容">
+<meta name="description" content="整理贾小平与周志刚等人对颗粒介质的声学研究原理, 以及更通用的声学探测技术">
 <meta name="author" content="Muartz">
-<link rel="canonical" href="https://Muatyz.github.io/posts/read/sonic/zhou-zhi-gang-doc-paper/">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/scmp/acoustic-research/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
@@ -109,16 +109,16 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta property="og:title" content="[周志刚]博士学位论文阅读笔记" />
-<meta property="og:description" content="中科院物理研究所, 厚美瑛老师指导的&lt;颗粒固体的力学响应和声波传播的研究&gt;, 适合作为颗粒物质新手学习声学相关的内容" />
+<meta property="og:title" content="声学探测方法" />
+<meta property="og:description" content="整理贾小平与周志刚等人对颗粒介质的声学研究原理, 以及更通用的声学探测技术" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Muatyz.github.io/posts/read/sonic/zhou-zhi-gang-doc-paper/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-11-08T00:18:06+08:00" />
-<meta property="article:modified_time" content="2023-11-08T00:18:06+08:00" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/scmp/acoustic-research/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-28T00:18:06+08:00" />
+<meta property="article:modified_time" content="2023-11-28T00:18:06+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[周志刚]博士学位论文阅读笔记"/>
-<meta name="twitter:description" content="中科院物理研究所, 厚美瑛老师指导的&lt;颗粒固体的力学响应和声波传播的研究&gt;, 适合作为颗粒物质新手学习声学相关的内容"/>
+<meta name="twitter:title" content="声学探测方法"/>
+<meta name="twitter:description" content="整理贾小平与周志刚等人对颗粒介质的声学研究原理, 以及更通用的声学探测技术"/>
 
 
 <script type="application/ld+json">
@@ -137,21 +137,21 @@ code.has-jax {
         {
           "@type": "ListItem",
           "position":  2 ,
-          "name": "📕 阅读",
-          "item": "https://Muatyz.github.io/posts/read/"
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
         },
 
         {
           "@type": "ListItem",
           "position":  3 ,
-          "name": "🦇 超声波探测",
-          "item": "https://Muatyz.github.io/posts/read/sonic/"
+          "name": "🔧 (Soft) Condensed Matter Physics",
+          "item": "https://Muatyz.github.io/posts/phy/scmp/"
         }, 
     {
       "@type": "ListItem",
       "position":  4 ,
-      "name": "[周志刚]博士学位论文阅读笔记",
-      "item": "https://Muatyz.github.io/posts/read/sonic/zhou-zhi-gang-doc-paper/"
+      "name": "声学探测方法",
+      "item": "https://Muatyz.github.io/posts/phy/scmp/acoustic-research/"
     }
   ]
 }
@@ -160,24 +160,24 @@ code.has-jax {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "[周志刚]博士学位论文阅读笔记",
-  "name": "[周志刚]博士学位论文阅读笔记",
-  "description": "中科院物理研究所, 厚美瑛老师指导的\u003c颗粒固体的力学响应和声波传播的研究\u003e, 适合作为颗粒物质新手学习声学相关的内容",
+  "headline": "声学探测方法",
+  "name": "声学探测方法",
+  "description": "整理贾小平与周志刚等人对颗粒介质的声学研究原理, 以及更通用的声学探测技术",
   "keywords": [
     "scmp", "granular"
   ],
-  "articleBody": "弹性力学 教材要求:\n英译中(原本是国外的教材, 但是有翻译为中文的版本); 有习题和配套的答案解析; 类似于 Griffiths 的量子力学\n",
-  "wordCount" : "56",
+  "articleBody": "通用声学方法 一般声学方法 日期: 2023-11-29 标签: #read 理想流体介质中的声波 三个物理量: 声压 $p$, 振速 $u$, 密度 $\\rho$. 运用基本定律推导出三者的关系式. 理想流体的假定条件: 1. 无粘性; 2. 连续性; 3. 均匀性; 4. 绝热性; 5. 无旋性; 6. 微扰性. 因此研究的是小振幅声波在流体介质中的传播规律. 大振幅的声波需要到非线性声学部分研究. 基本方程 运动方程 设介质静止 $u_{0} = 0$, 静 ...... 声速测量. 推算介质的密度, 弹性模量等信息;\n声衰减测量. 推断介质的吸收性质, 从而得到介质的黏度等信息;\n超声多普勒成像. 通过多普勒频移计算流体的流速;\n声波谱分析, 分析声波的频谱得知介质中不同频率成分的响应;\n声波散射. 介质中的异质性(颗粒, 气泡)产生散射, 测量散射特性即可推算颗粒的大小形状等.\n周志刚 装置设计 超声仪器 真空泵. 1. 制备样品时使得橡皮膜和固定模具贴合; 2. 给颗粒样品抽真空;\n如此一来, 干燥的定义就需要重新理解了.\n目前的探头更多的是产生压缩波, 周的论文中存在着在样品中产生剪切波的探头.\n当要产生压缩波时，ULT-100 的控制开关是调到压缩波晶体的，此时剪切波晶体不会被ULT-100 的电压信号激励。压缩波是压头表面上下振动产生，而剪切波是由与剪切波晶体相连的弯曲元左右振动产生的。…因此, P 波需要定标时间, 而 S 波不需要.\n虽然压电晶体的中心频率为 $80\\text{ kHz}$，但在制作压头时，压电晶体和其表面上包覆的金属保护层的耦合情况不同，使得从压头发出的波是由很多不同的频率成分组成的，如图 4.6 是频率谱，并且这随着压头的制作工艺情况会有所不同。\n这样的探头显然是无法做到类似于 Jia 所称的 “以 $500\\text{ kHz}$ 为中心的宽带频谱” 的. 我们目前的探头也是以 $129.2\\text{ kHz}$ 为共振频率的探头, 它真的能承担起对应的功能吗?\n周的飞行时间确定是第一个明显波峰的 $3$%, 而不是之前我的模仿实验的波前. 此处周并未考虑有关于飞行时间参考点选取的问题, 是避重就轻还是无意为之?\n第一性原理 固体中声波传播和固体的模量紧密相关. 一般声速和模量的关系:\n$$ V_{p} = \\sqrt{\\frac{K+4\\mu/3}{\\rho^{*}}}\\\\ V_{S} = \\sqrt{\\frac{\\mu}{\\rho^{*}}} $$\n$\\rho^{*}$: 颗粒固体样品的密度; $K$: 体变模量; $\\mu$: 剪切模量\n$$ K = \\frac{C_{n}}{12\\pi}(\\phi z)^{\\frac{2}{3}}\\left(\\frac{6\\pi P}{C_{n}}\\right)^{\\frac{1}{3}}\\\\ \\mu = \\frac{C_{n} + \\frac{3}{2}C_{t}}{20\\pi}(\\phi z)^{\\frac{2}{3}}\\left(\\frac{6\\pi P}{C_{n}}\\right)^{\\frac{1}{3}} $$\n$\\phi = \\rho^{*}/\\rho$, $\\rho$ 为颗粒材质密度, $\\phi$ 为颗粒体系的体积分数, $Z$ 为平均配位数, $C_{n}, C_{t}$ 分别为颗粒在法向和切向的系数.\nEMT 处理的前提条件: 声波波长 $\\gg$ 颗粒直径, 颗粒体系中的颗粒相同, 满足紧束缚条件, 颗粒体系的应变满足仿射近似. 严格意义上的 EMT 紧束缚条件是不成立的, 应当采用修正:\n$$ Z = Z_{c} + \\left(\\frac{P}{1\\text{ MPa}}\\right)^{\\frac{1}{3}},\\quad\\phi = \\phi_{c} + \\left(\\frac{P}{14\\text{ GPa}}\\right)^{\\frac{2}{3}} $$\n周志刚的采用值为 $Z_{c} = 5.5, \\phi_{c} = 0.61$.\n颗粒固体流体动力学 $\\rho$: 密度\n$\\rho v_{i}$: 动量\n$u_{ij}$: 弹性应变\n$S$: 热力学熵\n$S_{g}$: 颗粒熵\n$$ \\partial_{t}(\\rho v_{i}) + \\nabla_{j}(\\sigma_{ij} + \\rho v_{i}v_{j}) = 0\\\\ \\partial_{t}u_{ij} - (1 - \\alpha)v_{ij} + \\frac{u_{ij}^{0}}{\\tau} + \\frac{u_{ll}\\delta_{ij}}{\\tau_{1}} = 0 $$\n颗粒体系所受的力 $\\sigma_{ij} = (1 - \\alpha)\\pi_{ij} - \\zeta_{g}v_{ll}\\delta_{ij} - \\eta_{g}v_{ij}^{0}$, 其中 $\\pi_{ij} = -\\partial w/\\partial u_{ij}$, $w$ 为弹性能, $\\eta_{g}, \\zeta_{g}$ 与粘滞相关, 且为颗粒温度 $T_{g}$ 的函数($T_{g}\\rightarrow 0$ 时, 这些系数也为 $0$).\n声波振动幅度极小而不引起体系结构的较大变化($T_{g} = 0$), 此时有 $\\alpha, \\tau_{1}, \\tau_{1}^{-1}, \\eta_{g}, \\zeta_{g} = 0$. 采取条件 $u_{ij} = \\frac{1}{2}(\\partial_{i}U_{j} + \\partial_{j}U_{i})$:\n$$ \\rho\\ddot{U}_{i} + M_{ijkl}\\nabla_{jk}U_{l} = 0 $$\n颗粒固体的刚度张量 $M_{ijkl} = \\partial^{2}\\omega/\\partial u_{ij}\\partial u_{kl}$, 其中弹性能表达式为\n$$ w = \\mathcal{B}\\sqrt{\\Delta}\\left(\\frac{2\\Delta^{2}}{5} + \\frac{u_{S}^{2}}{\\xi}\\right) $$\n$\\Delta = -u_{ll}$: 颗粒样品应力主轴上的应变量. $u_S^{2} = u_{ij}^{0}u_{ij}^{0}$, $u_{ij}^{0} = u_{ij} + \\delta_{ij}\\Delta/3$, $\\mathcal{B} = \\mathcal{B}_{0}\\left(\\frac{\\phi - \\phi_{\\text{lp}}^{*}}{\\phi_{\\text{cp}} - \\phi}\\right)^{\\frac{3}{20}}$, $\\phi_{\\text{cp}}$ 和 $\\phi_{\\text{lp}}$ 为最密/松堆积时的体积分数. 存在关系 $\\phi_{\\text{lp}} = (11\\phi_{\\text{cp}} + 9\\phi_{\\text{lp}}^{*})/20$\n颗粒介质在主轴方向受压力 $P = \\pi_{ll}/3$, 剪切力 $\\pi_{S}^{2} = \\pi_{ij}^{0}\\pi_{ij}^{0}$. 弹性应变:\n$$ u_{ij}^{0} = -\\frac{\\pi_{ij}^{0}}{2\\mu} $$\n$\\mu = \\frac{\\mathcal{B}}{\\xi}\\left(\\frac{LP}{\\mathcal{B}}\\right)^{\\frac{1}{3}}, 2L = 1 + \\sqrt{1 - \\xi\\pi_{S}^{2}/(2P^{2})}, \\Delta = \\left(\\frac{LP}{\\mathcal{B}}\\right)^{\\frac{2}{3}}, u_{S} = \\pi_{S}/(2\\mu)$.\n颗粒体系中应力与应变均匀的情况下, 刚度张量有\n$$ M_{ijkl} = \\mu(a_{(ik)}\\delta_{ij}\\delta_{kl} - \\delta_{ik}\\delta_{jl} - \\delta_{il}\\delta_{jk}) $$\n$a_{(ik)} = \\left(\\frac{\\xi\\pi_{S}^{2}}{4LP}\\right)^{2} + \\frac{4-9\\xi}{6} - \\frac{\\xi(\\pi_{i}^{0} + \\pi_{k}^{0})}{2LP}$\n设波动方程的解极限形式为平面波~ $e^{\\omega t + \\vec{\\mathbf{k}}\\cdot\\vec{\\mathbf{x}}}$, 化为特征方程\n$$ (K_{il} - \\lambda\\delta_{il})U_{l} = 0 $$\n$K_{il} = \\frac{(\\beta_{(i)} + \\beta_{(l)})n_{i}n_{l}}{2}-\\delta_{il}, n_{i} = k_{i}/k, \\beta_{i} = 1 - Q - \\frac{\\xi\\pi_{0}^{0}}{LP}, Q = \\frac{3\\xi}{2} + \\frac{4}{3} - \\frac{\\xi\\pi_{S}}{4LP}$\n颗粒固体中超声波的传播. 无论是周志刚还是之前所阅读的贾小平的文章, 都是致密固体中的情形, 显然并不是太适用于所需要用到的动力学体系.\n颗粒固体对声波的扰动会非常敏感, 不同能量的声波对颗粒固体体系的作用.\n贾小平 暑校视频解读 在堵塞态的颗粒固体中的线性超声传播(探测) 利用声波来研究固液相变(Unjamming transition):\n非破坏性的探测: $u_{\\text{ac}} \u003c 1\\text{ nm}$; 受控诱导(Pump): $u_{\\text{ac}}$~$0.01-10\\mu\\text{m}$. $u_{\\text{ac}} \u003c d$ 意味着 $f_{\\text{ac}} = 0.1-100\\text{ kHz}$\n声音在颗粒介质中的传播: 无序 \u0026 非线性\n发射信号: (1) 高幅值, 连续波 $\\rightarrow$ 强烈的强度涨落; (2)低幅值, 脉冲波 $\\rightarrow$ 有效介质的失效(具体体现在 $V_{\\text{tof}}\\neq V_{g}$).\ne.g. 发射单周期的周期为 $f_{c}$ 的正弦信号, 在经过了厚度为 $L$ 的颗粒介质, 假设可以控制边界条件 $\\partial V$, 接收信号为 $A(t)$ 的强度曲线, 如何分析出群速度 $V_{g}$, 群速度能够反映出颗粒介质怎样的特征?\n色散关系 设平面波速率 $v$ 为波长 $\\lambda$ 的函数 $v = v(\\lambda)$, 则波速, 波长, 频率 $f$ 存在关系:\n$$ v(\\lambda) = \\lambda f(\\lambda) $$\n用角频率 $\\omega = 2\\pi f$ 和波数 $k = \\frac{2\\pi}{\\lambda}$ 改写则为\n$$ \\omega(k) = v(k)k $$\n则有相速度 $v_{\\phi} = \\frac{\\omega}{k}$ 和群速度 $v_{g} = \\frac{\\partial\\omega}{\\partial k}$\n如果将信号写作\n$$ u(x,t) = Ae^{i(\\omega t - kx)} = Ae^{i\\varphi(x,t)} $$\n示例实验参数\n$P = 3-3000\\text{ kPa}, d = 0.1-10\\text{ mm}, D = 30\\text{ mm}$. 单周期或多周期的正弦信号.\n$\\lambda\\geq 10d$: 相干波(E), 呈现低通特性; $\\lambda_{S}\\approx 2d$: 多次散射波(S), 呈现广谱特性.\n相干波波速和压力的关系: $V_{L,T}(P)\\propto [Z(P)]^{\\frac{1}{3}}\\cdot[k(P)]^{\\frac{1}{2}}\\propto P^{\\frac{1}{6}}$, $Z$ 为配位数.\n相干波波速和颗粒形状的关系:\n弹性的各向异性: 应力场的各向异性和结构\n声波速度(压缩波 $V_{P}$)在颗粒层中的涨落.\n在颗粒介质中剪切波的多重散射.\n$$ \\partial_{t} I - D\\nabla^{2}I + \\frac{I}{\\tau_{a}} = \\delta(z)\\delta(t) $$\n$D = \\frac{1}{3}v_{e}l^{*}$ 扩散系数(the diffusion coefficient), $\\tau_{a}$ 为非弹性吸收时间(the inelastic absorption time)\n如何绘制出信号的强度-时间曲线? 换言之, 如何根据 $A(t)$ 计算出强度 $I$?\n传输平均自由程 $l^{*}$ 和应力 $P$ 的演化关系\n在脆弱颗粒固体中的非线性超声传播(探测/诱导)\n通过声学流化引发颗粒介质中的剪切不稳定性(诱导)\n",
+  "wordCount" : "2151",
   "inLanguage": "zh",
-  "datePublished": "2023-11-08T00:18:06+08:00",
-  "dateModified": "2023-11-08T00:18:06+08:00",
+  "datePublished": "2023-11-28T00:18:06+08:00",
+  "dateModified": "2023-11-28T00:18:06+08:00",
   "author":[{
     "@type": "Person",
     "name": "Muartz"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://Muatyz.github.io/posts/read/sonic/zhou-zhi-gang-doc-paper/"
+    "@id": "https://Muatyz.github.io/posts/phy/scmp/acoustic-research/"
   },
   "publisher": {
     "@type": "Organization",
@@ -296,12 +296,12 @@ code.has-jax {
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/sonic/">🦇 超声波探测</a></div>
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/scmp/">🔧 (Soft) Condensed Matter Physics</a></div>
             <h1 class="post-title">
-                [周志刚]博士学位论文阅读笔记
+                声学探测方法
             </h1>
             <div class="post-description">
-                中科院物理研究所, 厚美瑛老师指导的&lt;颗粒固体的力学响应和声波传播的研究&gt;, 适合作为颗粒物质新手学习声学相关的内容
+                整理贾小平与周志刚等人对颗粒介质的声学研究原理, 以及更通用的声学探测技术
             </div>
             <div class="post-meta">
 
@@ -322,7 +322,7 @@ code.has-jax {
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2023-11-08
+        <span>2023-11-28
             &nbsp;&nbsp;
         </span>
     </span>
@@ -335,13 +335,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>56字
+        <span>2151字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1分钟
+        <span>5分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -417,8 +417,27 @@ code.has-jax {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e5%bc%b9%e6%80%a7%e5%8a%9b%e5%ad%a6" aria-label="弹性力学">弹性力学</a>
+                    <a href="#%e9%80%9a%e7%94%a8%e5%a3%b0%e5%ad%a6%e6%96%b9%e6%b3%95" aria-label="通用声学方法">通用声学方法</a></li>
+                <li>
+                    <a href="#%e5%91%a8%e5%bf%97%e5%88%9a" aria-label="周志刚">周志刚</a><ul>
+                        
+                <li>
+                    <a href="#%e8%a3%85%e7%bd%ae%e8%ae%be%e8%ae%a1" aria-label="装置设计">装置设计</a><ul>
+                        
+                <li>
+                    <a href="#%e8%b6%85%e5%a3%b0%e4%bb%aa%e5%99%a8" aria-label="超声仪器">超声仪器</a></li></ul>
                 </li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%80%e6%80%a7%e5%8e%9f%e7%90%86" aria-label="第一性原理">第一性原理</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%b4%be%e5%b0%8f%e5%b9%b3" aria-label="贾小平">贾小平</a><ul>
+                        
+                <li>
+                    <a href="#%e6%9a%91%e6%a0%a1%e8%a7%86%e9%a2%91%e8%a7%a3%e8%af%bb" aria-label="暑校视频解读">暑校视频解读</a>
+                </li>
+            </ul>
+            </li>
             </ul>
         </div>
         </details>
@@ -482,13 +501,226 @@ code.has-jax {
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><h1 id="弹性力学">弹性力学<a hidden class="anchor" aria-hidden="true" href="#弹性力学">#</a></h1>
-<p>教材要求:</p>
+        <div class="post-content"><h1 id="通用声学方法">通用声学方法<a hidden class="anchor" aria-hidden="true" href="#通用声学方法">#</a></h1>
+<div style="height: 200px;margin: 1em auto;position: relative;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 25%), 0 0 2px rgb(0 0 0 / 25%);
+        border-radius: 15px;padding: 23px;max-width: 780px;background: var(--entry);">
+    
+    
+    <div style="font-size: 22px; font-weight: 600">
+        <a target="_blank" href="https://Muatyz.github.io/posts/phy/scmp/common-acoustic-tech/" style="box-shadow: none">一般声学方法</a>
+    </div>
+    <span style="font-size: 14px; color: #999">
+        日期: 2023-11-29
+        &nbsp;
+        标签:
+        
+            #read&nbsp;
+        
+    </span>
+    <div style="font-size: 14px; line-height: 1.825;max-height: 75px; overflow: hidden;margin-top: 5px;">
+        理想流体介质中的声波 三个物理量: 声压 $p$, 振速 $u$, 密度 $\rho$. 运用基本定律推导出三者的关系式. 理想流体的假定条件: 1. 无粘性; 2. 连续性; 3. 均匀性; 4. 绝热性; 5. 无旋性; 6. 微扰性. 因此研究的是小振幅声波在流体介质中的传播规律. 大振幅的声波需要到非线性声学部分研究. 基本方程 运动方程 设介质静止 $u_{0} = 0$, 静 ......
+    </div>
+    
+    
+</div>
 <ol>
-<li>英译中(原本是国外的教材, 但是有翻译为中文的版本);</li>
-<li>有习题和配套的答案解析;</li>
+<li>
+<p>声速测量. 推算介质的密度, 弹性模量等信息;</p>
+</li>
+<li>
+<p>声衰减测量. 推断介质的吸收性质, 从而得到介质的黏度等信息;</p>
+</li>
+<li>
+<p>超声多普勒成像. 通过多普勒频移计算流体的流速;</p>
+</li>
+<li>
+<p>声波谱分析, 分析声波的频谱得知介质中不同频率成分的响应;</p>
+</li>
+<li>
+<p>声波散射. 介质中的异质性(颗粒, 气泡)产生散射, 测量散射特性即可推算颗粒的大小形状等.</p>
+</li>
 </ol>
-<p>类似于 Griffiths 的量子力学</p>
+<h1 id="周志刚">周志刚<a hidden class="anchor" aria-hidden="true" href="#周志刚">#</a></h1>
+<h2 id="装置设计">装置设计<a hidden class="anchor" aria-hidden="true" href="#装置设计">#</a></h2>
+<h3 id="超声仪器">超声仪器<a hidden class="anchor" aria-hidden="true" href="#超声仪器">#</a></h3>
+<p>真空泵. 1. 制备样品时使得橡皮膜和固定模具贴合; 2. 给颗粒样品抽真空;</p>
+<blockquote>
+<p>如此一来, 干燥的定义就需要重新理解了.</p>
+</blockquote>
+<p>目前的探头更多的是产生压缩波, 周的论文中存在着在样品中产生剪切波的探头.</p>
+<blockquote>
+<p>当要产生压缩波时，ULT-100 的控制开关是调到压缩波晶体的，此时剪切波晶体不会被ULT-100 的电压信号激励。压缩波是压头表面上下振动产生，而剪切波是由与剪切波晶体相连的弯曲元左右振动产生的。&hellip;因此, P 波需要定标时间, 而 S 波不需要.</p>
+</blockquote>
+<blockquote>
+<p>虽然压电晶体的中心频率为 $80\text{ kHz}$，但在制作压头时，压电晶体和其表面上包覆的金属保护层的耦合情况不同，使得从压头发出的波是由很多不同的频率成分组成的，如图 4.6 是频率谱，并且这随着压头的制作工艺情况会有所不同。</p>
+</blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/29/dFwPkoptjTbrmNH.png" alt="图 4.6"  />
+</p>
+<blockquote>
+<p>这样的探头显然是无法做到类似于 Jia 所称的 &ldquo;以 $500\text{ kHz}$ 为中心的宽带频谱&rdquo; 的. 我们目前的探头也是以 $129.2\text{ kHz}$ 为共振频率的探头, 它真的能承担起对应的功能吗?</p>
+</blockquote>
+<p>周的飞行时间确定是第一个明显波峰的 $3$%, 而不是之前我的模仿实验的波前. 此处周并未考虑有关于飞行时间参考点选取的问题, 是避重就轻还是无意为之?</p>
+<h2 id="第一性原理">第一性原理<a hidden class="anchor" aria-hidden="true" href="#第一性原理">#</a></h2>
+<p>固体中声波传播和固体的模量紧密相关. 一般声速和模量的关系:</p>
+<p>$$
+V_{p} = \sqrt{\frac{K+4\mu/3}{\rho^{*}}}\\
+V_{S} = \sqrt{\frac{\mu}{\rho^{*}}}
+$$</p>
+<blockquote>
+<p>$\rho^{*}$: 颗粒固体样品的密度; $K$: 体变模量; $\mu$: 剪切模量</p>
+<blockquote>
+<p>$$
+K = \frac{C_{n}}{12\pi}(\phi z)^{\frac{2}{3}}\left(\frac{6\pi P}{C_{n}}\right)^{\frac{1}{3}}\\
+\mu = \frac{C_{n} + \frac{3}{2}C_{t}}{20\pi}(\phi z)^{\frac{2}{3}}\left(\frac{6\pi P}{C_{n}}\right)^{\frac{1}{3}}
+$$</p>
+<blockquote>
+<p>$\phi = \rho^{*}/\rho$, $\rho$ 为颗粒材质密度, $\phi$ 为颗粒体系的体积分数, $Z$ 为平均配位数, $C_{n}, C_{t}$ 分别为颗粒在法向和切向的系数.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>EMT 处理的前提条件: 声波波长 $\gg$ 颗粒直径, 颗粒体系中的颗粒相同, 满足紧束缚条件, 颗粒体系的应变满足仿射近似. 严格意义上的 EMT 紧束缚条件是不成立的, 应当采用修正:</p>
+<p>$$
+Z = Z_{c} + \left(\frac{P}{1\text{ MPa}}\right)^{\frac{1}{3}},\quad\phi = \phi_{c} + \left(\frac{P}{14\text{ GPa}}\right)^{\frac{2}{3}}
+$$</p>
+<blockquote>
+<p>周志刚的采用值为 $Z_{c} = 5.5, \phi_{c} = 0.61$.</p>
+</blockquote>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>颗粒固体流体动力学<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><blockquote>
+<p>$\rho$: 密度</p>
+<p>$\rho v_{i}$: 动量</p>
+<p>$u_{ij}$: 弹性应变</p>
+<p>$S$: 热力学熵</p>
+<p>$S_{g}$: 颗粒熵</p>
+</blockquote>
+<p>$$
+\partial_{t}(\rho v_{i}) + \nabla_{j}(\sigma_{ij} + \rho v_{i}v_{j}) = 0\\
+\partial_{t}u_{ij} - (1 - \alpha)v_{ij} + \frac{u_{ij}^{0}}{\tau} + \frac{u_{ll}\delta_{ij}}{\tau_{1}} = 0
+$$</p>
+<blockquote>
+<p>颗粒体系所受的力 $\sigma_{ij} = (1 - \alpha)\pi_{ij} - \zeta_{g}v_{ll}\delta_{ij} - \eta_{g}v_{ij}^{0}$, 其中 $\pi_{ij} = -\partial w/\partial u_{ij}$, $w$ 为弹性能, $\eta_{g}, \zeta_{g}$ 与粘滞相关, 且为颗粒温度 $T_{g}$ 的函数($T_{g}\rightarrow 0$ 时, 这些系数也为 $0$).</p>
+</blockquote>
+<p>声波振动幅度极小而不引起体系结构的较大变化($T_{g} = 0$), 此时有 $\alpha, \tau_{1}, \tau_{1}^{-1}, \eta_{g}, \zeta_{g} = 0$. 采取条件 $u_{ij} = \frac{1}{2}(\partial_{i}U_{j} + \partial_{j}U_{i})$:</p>
+<p>$$
+\rho\ddot{U}_{i} + M_{ijkl}\nabla_{jk}U_{l} = 0
+$$</p>
+<blockquote>
+<p>颗粒固体的刚度张量 $M_{ijkl} = \partial^{2}\omega/\partial u_{ij}\partial u_{kl}$, 其中弹性能表达式为</p>
+<p>$$
+w = \mathcal{B}\sqrt{\Delta}\left(\frac{2\Delta^{2}}{5} + \frac{u_{S}^{2}}{\xi}\right)
+$$</p>
+<blockquote>
+<p>$\Delta = -u_{ll}$: 颗粒样品应力主轴上的应变量. $u_S^{2} = u_{ij}^{0}u_{ij}^{0}$, $u_{ij}^{0} = u_{ij} + \delta_{ij}\Delta/3$, $\mathcal{B} = \mathcal{B}_{0}\left(\frac{\phi - \phi_{\text{lp}}^{*}}{\phi_{\text{cp}} - \phi}\right)^{\frac{3}{20}}$, $\phi_{\text{cp}}$ 和 $\phi_{\text{lp}}$ 为最密/松堆积时的体积分数. 存在关系 $\phi_{\text{lp}} = (11\phi_{\text{cp}} + 9\phi_{\text{lp}}^{*})/20$</p>
+</blockquote>
+</blockquote>
+<p>颗粒介质在主轴方向受压力 $P = \pi_{ll}/3$, 剪切力 $\pi_{S}^{2} = \pi_{ij}^{0}\pi_{ij}^{0}$. 弹性应变:</p>
+<p>$$
+u_{ij}^{0} = -\frac{\pi_{ij}^{0}}{2\mu}
+$$</p>
+<blockquote>
+<p>$\mu = \frac{\mathcal{B}}{\xi}\left(\frac{LP}{\mathcal{B}}\right)^{\frac{1}{3}}, 2L = 1 + \sqrt{1 - \xi\pi_{S}^{2}/(2P^{2})}, \Delta = \left(\frac{LP}{\mathcal{B}}\right)^{\frac{2}{3}}, u_{S} = \pi_{S}/(2\mu)$.</p>
+</blockquote>
+<p>颗粒体系中应力与应变均匀的情况下, 刚度张量有</p>
+<p>$$
+M_{ijkl}  = \mu(a_{(ik)}\delta_{ij}\delta_{kl} - \delta_{ik}\delta_{jl} - \delta_{il}\delta_{jk})
+$$</p>
+<blockquote>
+<p>$a_{(ik)} = \left(\frac{\xi\pi_{S}^{2}}{4LP}\right)^{2} + \frac{4-9\xi}{6} - \frac{\xi(\pi_{i}^{0} + \pi_{k}^{0})}{2LP}$</p>
+</blockquote>
+<p>设波动方程的解极限形式为平面波~ $e^{\omega t + \vec{\mathbf{k}}\cdot\vec{\mathbf{x}}}$, 化为特征方程</p>
+<p>$$
+(K_{il} - \lambda\delta_{il})U_{l} = 0
+$$</p>
+<blockquote>
+<p>$K_{il} = \frac{(\beta_{(i)} + \beta_{(l)})n_{i}n_{l}}{2}-\delta_{il}, n_{i} = k_{i}/k, \beta_{i} = 1 - Q - \frac{\xi\pi_{0}^{0}}{LP}, Q = \frac{3\xi}{2} + \frac{4}{3} - \frac{\xi\pi_{S}}{4LP}$</p>
+</blockquote>
+<p>颗粒<strong>固体</strong>中超声波的传播. 无论是周志刚还是之前所阅读的贾小平的文章, 都是<strong>致密固体</strong>中的情形, 显然并不是太适用于所需要用到的动力学体系.</p>
+<p>颗粒固体对声波的扰动会非常敏感, 不同能量的声波对颗粒固体体系的作用.</p>
+</div>
+
+ </div>
+
+ </div>
+<h1 id="贾小平">贾小平<a hidden class="anchor" aria-hidden="true" href="#贾小平">#</a></h1>
+<h2 id="暑校视频解读">暑校视频解读<a hidden class="anchor" aria-hidden="true" href="#暑校视频解读">#</a></h2>
+<ol>
+<li>在堵塞态的颗粒固体中的线性超声传播(探测)</li>
+</ol>
+<p>利用声波来研究固液相变(Unjamming transition):</p>
+<blockquote>
+<p>非破坏性的探测: $u_{\text{ac}} &lt; 1\text{ nm}$; 受控诱导(Pump): $u_{\text{ac}}$~$0.01-10\mu\text{m}$. $u_{\text{ac}} &lt; d$ 意味着 $f_{\text{ac}} = 0.1-100\text{ kHz}$</p>
+</blockquote>
+<p>声音在颗粒介质中的传播: 无序 &amp; 非线性</p>
+<p>发射信号: (1) 高幅值, 连续波 $\rightarrow$ 强烈的强度涨落; (2)低幅值, 脉冲波 $\rightarrow$ 有效介质的失效(具体体现在 $V_{\text{tof}}\neq V_{g}$).</p>
+<blockquote>
+<p>e.g. 发射单周期的周期为 $f_{c}$ 的正弦信号, 在经过了厚度为 $L$ 的颗粒介质, 假设可以控制边界条件 $\partial V$, 接收信号为 $A(t)$ 的强度曲线, 如何分析出群速度 $V_{g}$, 群速度能够反映出颗粒介质怎样的特征?</p>
+</blockquote>
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>色散关系<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>设平面波速率 $v$ 为波长 $\lambda$ 的函数 $v = v(\lambda)$, 则波速, 波长, 频率 $f$ 存在关系:</p>
+<p>$$
+v(\lambda) = \lambda f(\lambda)
+$$</p>
+<p>用角频率 $\omega = 2\pi f$ 和波数 $k = \frac{2\pi}{\lambda}$ 改写则为</p>
+<p>$$
+\omega(k) = v(k)k
+$$</p>
+<p>则有相速度 $v_{\phi} = \frac{\omega}{k}$ 和群速度 $v_{g} = \frac{\partial\omega}{\partial k}$</p>
+<p>如果将信号写作</p>
+<p>$$
+u(x,t) = Ae^{i(\omega t - kx)} = Ae^{i\varphi(x,t)}
+$$</p>
+</div>
+
+ </div>
+
+ </div>
+<blockquote>
+<p><strong>示例实验参数</strong></p>
+<p>$P = 3-3000\text{ kPa}, d = 0.1-10\text{ mm}, D = 30\text{ mm}$. 单周期或多周期的正弦信号.</p>
+</blockquote>
+<p>$\lambda\geq 10d$: 相干波(E), 呈现低通特性; $\lambda_{S}\approx 2d$: 多次散射波(S), 呈现广谱特性.</p>
+<p>相干波波速和压力的关系: $V_{L,T}(P)\propto [Z(P)]^{\frac{1}{3}}\cdot[k(P)]^{\frac{1}{2}}\propto P^{\frac{1}{6}}$, $Z$ 为配位数.</p>
+<p>相干波波速和颗粒形状的关系:</p>
+<p>弹性的各向异性: 应力场的各向异性和结构</p>
+<p>声波速度(压缩波 $V_{P}$)在颗粒层中的涨落.</p>
+<p>在颗粒介质中剪切波的多重散射.</p>
+<p>$$
+\partial_{t} I - D\nabla^{2}I + \frac{I}{\tau_{a}} = \delta(z)\delta(t)
+$$</p>
+<blockquote>
+<p>$D = \frac{1}{3}v_{e}l^{*}$ 扩散系数(the diffusion coefficient), $\tau_{a}$ 为非弹性吸收时间(the inelastic absorption time)</p>
+</blockquote>
+<blockquote>
+<p>如何绘制出信号的强度-时间曲线? 换言之, 如何根据 $A(t)$ 计算出强度 $I$?</p>
+</blockquote>
+<p>传输平均自由程 $l^{*}$ 和应力 $P$ 的演化关系</p>
+<ol start="2">
+<li>
+<p>在脆弱颗粒固体中的非线性超声传播(探测/诱导)</p>
+</li>
+<li>
+<p>通过声学流化引发颗粒介质中的剪切不稳定性(诱导)</p>
+</li>
+</ol>
 
 
         </div>
@@ -523,15 +755,15 @@ code.has-jax {
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://Muatyz.github.io/posts/phy/scmp/acoustic-research/">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/scmp/common-acoustic-tech/">
     <span class="title">« 上一页</span>
     <br>
-    <span>声学探测方法</span>
+    <span>一般声学方法</span>
   </a>
-  <a class="next" href="https://Muatyz.github.io/posts/read/sonic/ultrasound-propagation-in-disordered-granular-media/">
+  <a class="next" href="https://Muatyz.github.io/posts/read/sonic/zhou-zhi-gang-doc-paper/">
     <span class="title">下一页 »</span>
     <br>
-    <span>[中字]Ultrasound propagation in disordered granular media</span>
+    <span>[周志刚]博士学位论文阅读笔记</span>
   </a>
 </nav>
 
