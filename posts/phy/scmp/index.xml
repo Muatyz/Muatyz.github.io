@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Wed, 29 Nov 2023 00:18:06 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/phy/scmp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Nov 2023 00:18:06 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/phy/scmp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>地震学</title>
+      <link>https://Muatyz.github.io/posts/phy/scmp/seismology/</link>
+      <pubDate>Thu, 30 Nov 2023 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/scmp/seismology/</guid>
+      <description>直接从地震学入手学习目前对于地震波的认知, 算是少走一点弯路.</description>
+    </item>
+    
     <item>
       <title>等效介质理论(EMT)</title>
       <link>https://Muatyz.github.io/posts/phy/scmp/effective-medium-theory/</link>

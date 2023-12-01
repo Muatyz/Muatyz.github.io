@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>一般声学方法 | 无处惹尘埃</title>
+<title>[中字]Experimental test of the diffusion approximation for multiply scattered sound | 无处惹尘埃</title>
 <meta name="keywords" content="scmp, granular">
-<meta name="description" content="本文整理自&lt;声学原理&gt;等书, 意图使读者掌握基本的声学探测原理, 需要注意: 其未必可适用于颗粒介质.">
+<meta name="description" content="求解声场扩散模型的参考方法">
 <meta name="author" content="Muartz">
-<link rel="canonical" href="https://Muatyz.github.io/posts/phy/scmp/common-acoustic-tech/">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/sonic/exp-test-of-the-diffusion-approx-for-multi-scattered-sound/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
@@ -109,16 +109,16 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta property="og:title" content="一般声学方法" />
-<meta property="og:description" content="本文整理自&lt;声学原理&gt;等书, 意图使读者掌握基本的声学探测原理, 需要注意: 其未必可适用于颗粒介质." />
+<meta property="og:title" content="[中字]Experimental test of the diffusion approximation for multiply scattered sound" />
+<meta property="og:description" content="求解声场扩散模型的参考方法" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Muatyz.github.io/posts/phy/scmp/common-acoustic-tech/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-11-29T00:18:06+08:00" />
-<meta property="article:modified_time" content="2023-11-29T00:18:06+08:00" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/sonic/exp-test-of-the-diffusion-approx-for-multi-scattered-sound/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-30T00:18:06+08:00" />
+<meta property="article:modified_time" content="2023-11-30T00:18:06+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="一般声学方法"/>
-<meta name="twitter:description" content="本文整理自&lt;声学原理&gt;等书, 意图使读者掌握基本的声学探测原理, 需要注意: 其未必可适用于颗粒介质."/>
+<meta name="twitter:title" content="[中字]Experimental test of the diffusion approximation for multiply scattered sound"/>
+<meta name="twitter:description" content="求解声场扩散模型的参考方法"/>
 
 
 <script type="application/ld+json">
@@ -137,21 +137,21 @@ code.has-jax {
         {
           "@type": "ListItem",
           "position":  2 ,
-          "name": "🧱 PHY",
-          "item": "https://Muatyz.github.io/posts/phy/"
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
         },
 
         {
           "@type": "ListItem",
           "position":  3 ,
-          "name": "🔧 (Soft) Condensed Matter Physics",
-          "item": "https://Muatyz.github.io/posts/phy/scmp/"
+          "name": "🦇 超声波探测",
+          "item": "https://Muatyz.github.io/posts/read/sonic/"
         }, 
     {
       "@type": "ListItem",
       "position":  4 ,
-      "name": "一般声学方法",
-      "item": "https://Muatyz.github.io/posts/phy/scmp/common-acoustic-tech/"
+      "name": "[中字]Experimental test of the diffusion approximation for multiply scattered sound",
+      "item": "https://Muatyz.github.io/posts/read/sonic/exp-test-of-the-diffusion-approx-for-multi-scattered-sound/"
     }
   ]
 }
@@ -160,24 +160,24 @@ code.has-jax {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "一般声学方法",
-  "name": "一般声学方法",
-  "description": "本文整理自\u003c声学原理\u003e等书, 意图使读者掌握基本的声学探测原理, 需要注意: 其未必可适用于颗粒介质.",
+  "headline": "[中字]Experimental test of the diffusion approximation for multiply scattered sound",
+  "name": "[中字]Experimental test of the diffusion approximation for multiply scattered sound",
+  "description": "求解声场扩散模型的参考方法",
   "keywords": [
     "scmp", "granular"
   ],
-  "articleBody": "理想流体介质中的声波 三个物理量: 声压 $p$, 振速 $u$, 密度 $\\rho$. 运用基本定律推导出三者的关系式.\n理想流体的假定条件: 1. 无粘性; 2. 连续性; 3. 均匀性; 4. 绝热性; 5. 无旋性; 6. 微扰性. 因此研究的是小振幅声波在流体介质中的传播规律. 大振幅的声波需要到非线性声学部分研究.\n基本方程 运动方程 设介质静止 $u_{0} = 0$, 静止密度为 $\\rho_{0}$. 则在 $x$ 轴上, 当声波通过时, 存在振速分布函数 $u(x,y,z,t)$, 压强分布函数 $P_{0} + p(x,y)$. 则体元 $\\Delta V$ 在 $x$ 轴上所受合力为\n$$ F_{x} = F_{1} - F_{2} = -\\Delta P\\Delta y\\Delta z $$\n因为是小振幅波动所以取一阶近似, 有\n$$ -\\Delta P\\Delta y\\Delta z = \\rho\\Delta x\\Delta y\\Delta z\\frac{\\partial u_{x}}{\\partial t}\\rightarrow -\\frac{\\Delta P}{\\Delta x} = \\rho\\frac{\\partial u_{x}}{\\partial t}\\rightarrow -\\frac{\\partial P}{\\partial x} = \\rho_{0}\\frac{\\partial u_{x}}{\\partial t} $$\n应用在 $y$ 轴和 $z$ 轴上后, 合并写作 $\\nabla$ 算子的形式:\n$$ -\\nabla P = -\\nabla(p + P_{0}) = \\boxed{-\\nabla p = \\rho_{0}\\frac{\\mathrm{d}\\mathbf{u}}{\\mathrm{d}t}} $$\n连续性方程 核心思想是流体质量定理. 设 $t$ 时振速分布为 $\\mathbf{u}(x,y,z,t)$, 仍以 $x$ 轴为例进行分析.\n在 $\\Delta t$ 时间内, 流入 $\\Delta V$ 的质量为 $\\rho u_{x}\\Delta y\\Delta z\\Delta t$ ($\\rho u_{x}$ 为单位时间通过单位面积的质量), 流出 $\\Delta V$ 的质量为\n$$ \\left[\\rho u_{x} + \\frac{\\partial }{\\partial x}(\\rho u_{x})\\Delta x\\right]\\Delta y\\Delta z\\Delta t $$\n那么 $x$ 方向上在 $\\Delta t$ 时间的质量增量为\n$$ -\\frac{\\partial }{\\partial x}(\\rho u_{x})\\Delta x\\Delta y\\Delta z\\Delta t $$\n体元 $\\Delta V$ 内的质量变换量为\n$$ \\Delta m = \\Delta\\rho\\Delta x\\Delta y\\Delta z = -\\left[\\frac{\\partial }{\\partial x}(\\rho u_{x}) + \\frac{\\partial }{\\partial y}(\\rho u_{y}) + \\frac{\\partial }{\\partial z}(\\rho u_{z})\\right]\\Delta x\\Delta y\\Delta z\\Delta t $$\n消去微元并取极限形式:\n$$ \\frac{\\partial\\rho}{\\partial t} = -\\left[\\frac{\\partial }{\\partial x}(\\rho u_{x}) + \\frac{\\partial }{\\partial y}(\\rho u_{y}) + \\frac{\\partial }{\\partial z}(\\rho u_{z})\\right] $$\n取小振幅极限 $\\rho\\approx\\rho_{0}$, 即有 $\\frac{\\partial }{\\partial x}(\\rho u_{x}) \\approx \\rho_{0}\\frac{\\partial u_{x}}{\\partial x}$. 同理处理 $y$ 轴和 $z$ 轴, 并合并写作 $\\nabla$ 算子形式:\n$$ \\boxed{\\frac{\\partial\\rho}{\\partial t} = -\\rho_{0}\\nabla\\cdot\\mathbf{u}} $$\n状态方程 因为近似为绝热过程, 因此认为 $P = P(\\rho)$. 在静态密度 $\\rho_{0}$ 附近进行泰勒展开:\n$$ P = P(\\rho_{0}) + \\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}}(\\rho - \\rho_{0}) + \\frac{1}{2!}\\left(\\frac{\\mathrm{d}^{2}P}{\\mathrm{d}\\rho^{2}}\\right)_{S,\\rho_{0}}(\\rho - \\rho_{0})^{2} + \\cdots $$\n注意到介质膨胀时, $\\mathrm{d}P\u003c0, \\mathrm{d}\\rho \u003c 0$; 介质压缩时, $\\mathrm{d}P\u003e0, \\mathrm{d}\\rho \u003e 0$. 因此 $\\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}}$ 恒正. 因此设\n$$ c^{2} = \\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}} $$\n理想气体绝热状态方程为 $PV^{\\gamma} = P_{0}V_{0}^{\\gamma}$ (其中 $\\gamma = \\frac{C_{P}}{C_{V}}$, 空气取 $\\gamma=1.4$), 质量守恒有 $M = \\rho V = \\textit{const.}$, 因此 $\\rho V = \\rho_{0}V_{0}$. 两者联立有\n$$ P = \\left(\\frac{\\rho}{\\rho_{0}}\\right)^{\\gamma}P_{0} = \\left(\\frac{\\rho_{0} + \\mathrm{d}\\rho}{\\rho_{0}}\\right)^{\\gamma}P_{0} \\approx P_{0} + \\frac{\\gamma P_{0}}{\\rho_{0}}\\mathrm{d}\\rho + \\cdots $$\n取小振幅近似 $\\frac{\\mathrm{d}\\rho}{\\rho_{0}}\\ll 1$, 即有\n$$ p = P - P_{0} = \\mathrm{d}P \\approx \\left(\\frac{\\gamma P_{0}}{\\rho_{0}}\\right)\\mathrm{d}\\rho = c^{2}\\mathrm{d}\\rho $$\n于是得到理想气体中的声速表达式:\n$$ c^{2} = \\frac{\\gamma P_{0}}{\\rho_{0}} $$\n将 $p$ 和 $\\rho^{\\prime}$ 视为 $P$ 和 $\\rho$ 的变化量, $\\mathrm{d}P = \\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}}\\mathrm{d}\\rho$ 两边同时对时间求导, 即有\n$$ \\frac{\\mathrm{d}p}{\\mathrm{d}t} = c^{2}\\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} $$\n在液体中, 则改写为\n$$ c = \\frac{1}{\\sqrt{\\beta_{S}\\rho_{0}}} $$\n$\\beta_{S}$ 为绝热体积压缩系数.\n波动方程 前面已经知道\n$$ -\\nabla p = \\color{red}{\\rho_{0}\\frac{\\partial\\mathbf{u}}{\\partial t}}\\\\ \\frac{\\partial\\rho}{\\partial t} = -\\rho_{0}\\nabla\\cdot\\mathbf{u}\\\\ \\frac{\\mathrm{d}p}{\\mathrm{d}t} = c^{2}\\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} $$\n声学测量中通常关心 $p$ 描述声场. 对第二个式子时间求导:\n$$ \\frac{\\partial^{2}\\rho^{\\prime}}{\\partial t^{2}} + \\nabla\\cdot\\left(\\color{red}{\\rho_{0}\\frac{\\partial\\mathbf{u}}{\\partial t}}\\right) = 0 $$\n代入第一个式子, 有\n$$ \\color{green}{\\frac{\\partial^{2}\\rho^{\\prime}}{\\partial t^{2}}} - \\nabla\\cdot(\\nabla p) = 0 $$\n密度变化量的全微分为\n$$ \\begin{aligned} \\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} \u0026= \\frac{\\partial\\rho^{\\prime}}{\\partial t} + \\frac{\\partial\\rho^{\\prime}}{\\partial x}\\frac{\\mathrm{d}x}{\\mathrm{d}t} + \\frac{\\partial\\rho^{\\prime}}{\\partial y}\\frac{\\mathrm{d}y}{\\mathrm{d}t} + \\frac{\\partial\\rho^{\\prime}}{\\partial z}\\frac{\\mathrm{d}z}{\\mathrm{d}t}\\\\ \u0026= \\frac{\\partial\\rho^{\\prime}}{\\partial t} + \\left(u_{x}\\frac{\\partial }{\\partial x} + u_{y}\\frac{\\partial }{\\partial y} + u_{z}\\frac{\\partial }{\\partial z}\\right)\\rho^{\\prime}\\\\ \u0026= \\frac{\\partial\\rho^{\\prime}}{\\partial t} + (\\mathbf{u}\\cdot\\nabla)\\rho^{\\prime} \\end{aligned} $$\n小振幅时 $(\\mathbf{u}\\cdot\\nabla)\\rho^{\\prime}$ 为二阶小量. 因此有\n$$ \\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} \\approx \\frac{\\partial \\rho^{\\prime}}{\\partial t}, \\frac{\\mathrm{d}p}{\\mathrm{d}t}\\approx \\frac{\\partial p}{\\partial t} $$\n因此第三个式子改写为\n$$ \\frac{\\partial p}{\\partial t} = c^{2}\\frac{\\partial\\rho^{\\prime}}{\\partial t}\\rightarrow {\\frac{\\partial^{2}p}{\\partial t^{2}}} = c^{2}\\color{green}{\\frac{\\partial^{2}\\rho^{\\prime}}{\\partial t^{2}}} $$\n观察绿色项, 得到最后的方程\n$$ \\boxed{\\frac{\\partial^{2} p}{\\partial t^{2}} = c^{2}\\nabla^{2}p} $$\n拉普拉斯算子 直角坐标系 $$ \\nabla^{2} = \\frac{\\partial^{2}}{\\partial x^{2}} + \\frac{\\partial^{2}}{\\partial y^{2}} + \\frac{\\partial^{2}}{\\partial z^{2}} $$\n球坐标系 $$ \\nabla^{2} = \\frac{1}{r^{2}}\\frac{\\partial}{\\partial r}\\left(r^{2}\\frac{\\partial}{\\partial r}\\right) + \\frac{1}{r^{2}\\sin\\theta}\\frac{\\partial}{\\partial \\theta}\\left(\\sin\\theta\\frac{\\partial}{\\partial \\theta}\\right) + \\frac{1}{r^{2}\\sin^{2}\\theta}\\frac{\\partial^{2}}{\\partial \\phi^{2}} $$\n柱坐标系 $$ \\nabla^{2} = \\frac{1}{r}\\frac{\\partial}{\\partial r}\\left(r\\frac{\\partial}{\\partial r}\\right) + \\frac{1}{r^{2}}\\frac{\\partial^{2}}{\\partial \\phi^{2}} + \\frac{\\partial^{2}}{\\partial z^{2}} $$\n声速度势 振速可以通过运动方程华为积分式得到:\n$$ \\mathbf{u}(x,y,z,t) = -\\frac{1}{\\rho_{0}}\\int_{0}^{t}\\nabla p(x,y,z,t^{\\prime})\\mathrm{d}t^{\\prime} $$\n$$ \\frac{\\partial u_{x}}{\\partial y} - \\frac{\\partial u_{y}}{\\partial x} = 0\\\\ \\frac{\\partial u_{x}}{\\partial z} - \\frac{\\partial u_{z}}{\\partial x} = 0\\\\ \\frac{\\partial u_{y}}{\\partial z} - \\frac{\\partial u_{z}}{\\partial y} = 0 $$\n合并写作旋度形式:\n$$ \\nabla\\times\\mathbf{u} = 0 $$\n即小振幅声场在理想流体中为 无旋场.\n又有 $\\nabla\\times(\\nabla \\Psi) = 0$, 因此令 $\\mathbf{u} = -\\nabla \\Psi$.\n旋度 直角坐标 $$ u_{x} = -\\frac{\\partial\\Psi}{\\partial x},\\quad u_{y} = -\\frac{\\partial\\Psi}{\\partial y},\\quad u_{z} = -\\frac{\\partial\\Psi}{\\partial z} $$\n球坐标 $$ u_{r} = -\\frac{\\partial\\Psi}{\\partial r},\\quad u_{\\theta} = -\\frac{1}{r}\\frac{\\partial\\Psi}{\\partial \\theta},\\quad u_{\\phi} = -\\frac{1}{r\\sin\\theta}\\frac{\\partial\\Psi}{\\partial \\phi} $$\n柱坐标 $$ u_{r} = -\\frac{\\partial\\Psi}{\\partial r},\\quad u_{\\phi} = -\\frac{1}{r}\\frac{\\partial\\Psi}{\\partial \\phi},\\quad u_{z} = -\\frac{\\partial\\Psi}{\\partial z} $$\n声波的吸收 黏性流体介质中的波动方程 非线性声学 ",
-  "wordCount" : "1200",
+  "articleBody": " DOI: 10.1103/PhysRevE.52.3106\nAbstract We have critically tested the application of the diffusion approximation to describe the propagation of ultrasonic waves through a random, strongly scattering medium. The transmission of short ultrasonic pulses has been measured through a concentrated suspension of glass beads immersed in water. The transmitted sound field is found to exhibit temporal fluctuations with a period determined by the width of the incident pulse. Provided that appropriate boundary conditions are used to account for the reflectivity of the interfaces,the time dependence of the ensemble-averaged transmitted intensity is shown to be well described by the diffusion equation.\n我们对应用扩散近似来描述超声波在随机强散射介质中的传播进行了严格测试。我们测量了短超声波脉冲在浸入水中的玻璃珠浓缩悬浮液中的传播情况。研究发现，传播声场表现出时间波动，其周期由入射脉冲的宽度决定。只要使用适当的边界条件来考虑界面的反射性，就可以用扩散方程很好地描述系综平均透射强度的时间依赖性。\nThis enables us to determine both the diffusion coefficient for the sound waves as well as the inelastic absorption rate. The consistency of these results is established by varying the experimental geometry; while the transmitted pulse shape changes markedly, the values for the diffusion coefficient and absorption rate obtained through a description using the diffusion approximation remain unchanged. We have also measured the absolute transmitted intensity ofthe sound as the sample thickness is varied; this provides an accurate measure of the transport mean free path and thus also the energy transport velocity. These results convincingly demonstrate the validity of using the diffusion approximation to describe the propagation of sound waves through strongly scattering media.\n这使我们能够确定声波的扩散系数和非弹性吸收率。通过改变实验几何形状可以确定这些结果的一致性；虽然透射脉冲的形状发生了明显变化，但通过使用扩散近似描述获得的扩散系数和吸收率值保持不变。我们还测量了样品厚度变化时声音的绝对传输强度；这提供了传输平均自由路径的精确测量，从而也提供了能量传输速度。这些结果令人信服地证明了使用扩散近似来描述声波在强散射介质中传播的有效性。\n",
+  "wordCount" : "541",
   "inLanguage": "zh",
-  "datePublished": "2023-11-29T00:18:06+08:00",
-  "dateModified": "2023-11-29T00:18:06+08:00",
+  "datePublished": "2023-11-30T00:18:06+08:00",
+  "dateModified": "2023-11-30T00:18:06+08:00",
   "author":[{
     "@type": "Person",
     "name": "Muartz"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://Muatyz.github.io/posts/phy/scmp/common-acoustic-tech/"
+    "@id": "https://Muatyz.github.io/posts/read/sonic/exp-test-of-the-diffusion-approx-for-multi-scattered-sound/"
   },
   "publisher": {
     "@type": "Organization",
@@ -296,12 +296,12 @@ code.has-jax {
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/scmp/">🔧 (Soft) Condensed Matter Physics</a></div>
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/sonic/">🦇 超声波探测</a></div>
             <h1 class="post-title">
-                一般声学方法
+                [中字]Experimental test of the diffusion approximation for multiply scattered sound
             </h1>
             <div class="post-description">
-                本文整理自&lt;声学原理&gt;等书, 意图使读者掌握基本的声学探测原理, 需要注意: 其未必可适用于颗粒介质.
+                求解声场扩散模型的参考方法
             </div>
             <div class="post-meta">
 
@@ -322,7 +322,7 @@ code.has-jax {
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2023-11-29
+        <span>2023-11-30
             &nbsp;&nbsp;
         </span>
     </span>
@@ -335,13 +335,13 @@ code.has-jax {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1200字
+        <span>541字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>3分钟
+        <span>2分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -417,31 +417,7 @@ code.has-jax {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e7%90%86%e6%83%b3%e6%b5%81%e4%bd%93%e4%bb%8b%e8%b4%a8%e4%b8%ad%e7%9a%84%e5%a3%b0%e6%b3%a2" aria-label="理想流体介质中的声波">理想流体介质中的声波</a><ul>
-                        
-                <li>
-                    <a href="#%e5%9f%ba%e6%9c%ac%e6%96%b9%e7%a8%8b" aria-label="基本方程">基本方程</a><ul>
-                        
-                <li>
-                    <a href="#%e8%bf%90%e5%8a%a8%e6%96%b9%e7%a8%8b" aria-label="运动方程">运动方程</a></li>
-                <li>
-                    <a href="#%e8%bf%9e%e7%bb%ad%e6%80%a7%e6%96%b9%e7%a8%8b" aria-label="连续性方程">连续性方程</a></li>
-                <li>
-                    <a href="#%e7%8a%b6%e6%80%81%e6%96%b9%e7%a8%8b" aria-label="状态方程">状态方程</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e6%b3%a2%e5%8a%a8%e6%96%b9%e7%a8%8b" aria-label="波动方程">波动方程</a></li>
-                <li>
-                    <a href="#%e5%a3%b0%e9%80%9f%e5%ba%a6%e5%8a%bf" aria-label="声速度势">声速度势</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%a3%b0%e6%b3%a2%e7%9a%84%e5%90%b8%e6%94%b6" aria-label="声波的吸收">声波的吸收</a><ul>
-                        
-                <li>
-                    <a href="#%e9%bb%8f%e6%80%a7%e6%b5%81%e4%bd%93%e4%bb%8b%e8%b4%a8%e4%b8%ad%e7%9a%84%e6%b3%a2%e5%8a%a8%e6%96%b9%e7%a8%8b" aria-label="黏性流体介质中的波动方程">黏性流体介质中的波动方程</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e9%9d%9e%e7%ba%bf%e6%80%a7%e5%a3%b0%e5%ad%a6" aria-label="非线性声学">非线性声学</a>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a>
                 </li>
             </ul>
         </div>
@@ -506,203 +482,18 @@ code.has-jax {
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><h1 id="理想流体介质中的声波">理想流体介质中的声波<a hidden class="anchor" aria-hidden="true" href="#理想流体介质中的声波">#</a></h1>
-<p>三个物理量: 声压 $p$, 振速 $u$, 密度 $\rho$. 运用基本定律推导出三者的关系式.</p>
-<blockquote>
-<p>理想流体的假定条件: 1. 无粘性; 2. 连续性; 3. 均匀性; 4. 绝热性; 5. 无旋性; 6. 微扰性. 因此研究的是小振幅声波在流体介质中的传播规律. 大振幅的声波需要到非线性声学部分研究.</p>
+        <div class="post-content"><blockquote>
+<p>DOI: <a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.52.3106" target="_blank" rel="noopener nofollow noreferrer" >10.1103/PhysRevE.52.3106</a></p>
 </blockquote>
-<h2 id="基本方程">基本方程<a hidden class="anchor" aria-hidden="true" href="#基本方程">#</a></h2>
-<h3 id="运动方程">运动方程<a hidden class="anchor" aria-hidden="true" href="#运动方程">#</a></h3>
-<p>设介质静止 $u_{0} = 0$, 静止密度为 $\rho_{0}$. 则在 $x$ 轴上, 当声波通过时, 存在振速分布函数 $u(x,y,z,t)$, 压强分布函数 $P_{0} + p(x,y)$. 则体元 $\Delta V$ 在 $x$ 轴上所受合力为</p>
-<p>$$
-F_{x} = F_{1} - F_{2} = -\Delta P\Delta y\Delta z
-$$</p>
-<p>因为是小振幅波动所以取一阶近似, 有</p>
-<p>$$
--\Delta P\Delta y\Delta z = \rho\Delta x\Delta y\Delta z\frac{\partial u_{x}}{\partial t}\rightarrow -\frac{\Delta P}{\Delta x} = \rho\frac{\partial u_{x}}{\partial t}\rightarrow -\frac{\partial P}{\partial x} = \rho_{0}\frac{\partial u_{x}}{\partial t}
-$$</p>
-<p>应用在 $y$ 轴和 $z$ 轴上后, 合并写作 $\nabla$ 算子的形式:</p>
-<p>$$
--\nabla P = -\nabla(p + P_{0}) = \boxed{-\nabla p = \rho_{0}\frac{\mathrm{d}\mathbf{u}}{\mathrm{d}t}}
-$$</p>
-<h3 id="连续性方程">连续性方程<a hidden class="anchor" aria-hidden="true" href="#连续性方程">#</a></h3>
-<p>核心思想是流体质量定理. 设 $t$ 时振速分布为 $\mathbf{u}(x,y,z,t)$, 仍以 $x$ 轴为例进行分析.</p>
-<p>在 $\Delta t$ 时间内, 流入 $\Delta V$ 的质量为 $\rho u_{x}\Delta y\Delta z\Delta t$ ($\rho u_{x}$ 为单位时间通过单位面积的质量), 流出 $\Delta V$ 的质量为</p>
-<p>$$
-\left[\rho u_{x} + \frac{\partial }{\partial x}(\rho u_{x})\Delta x\right]\Delta y\Delta z\Delta t
-$$</p>
-<p>那么 $x$ 方向上在 $\Delta t$ 时间的质量增量为</p>
-<p>$$
--\frac{\partial }{\partial x}(\rho u_{x})\Delta x\Delta y\Delta z\Delta t
-$$</p>
-<p>体元 $\Delta V$ 内的质量变换量为</p>
-<p>$$
-\Delta m = \Delta\rho\Delta x\Delta y\Delta z = -\left[\frac{\partial }{\partial x}(\rho u_{x}) + \frac{\partial }{\partial y}(\rho u_{y}) + \frac{\partial }{\partial z}(\rho u_{z})\right]\Delta x\Delta y\Delta z\Delta t
-$$</p>
-<p>消去微元并取极限形式:</p>
-<p>$$
-\frac{\partial\rho}{\partial t} = -\left[\frac{\partial }{\partial x}(\rho u_{x}) + \frac{\partial }{\partial y}(\rho u_{y}) + \frac{\partial }{\partial z}(\rho u_{z})\right]
-$$</p>
-<p>取小振幅极限 $\rho\approx\rho_{0}$, 即有 $\frac{\partial }{\partial x}(\rho u_{x}) \approx \rho_{0}\frac{\partial u_{x}}{\partial x}$. 同理处理 $y$ 轴和 $z$ 轴, 并合并写作 $\nabla$ 算子形式:</p>
-<p>$$
-\boxed{\frac{\partial\rho}{\partial t} = -\rho_{0}\nabla\cdot\mathbf{u}}
-$$</p>
-<h3 id="状态方程">状态方程<a hidden class="anchor" aria-hidden="true" href="#状态方程">#</a></h3>
-<p>因为近似为绝热过程, 因此认为 $P = P(\rho)$. 在静态密度 $\rho_{0}$ 附近进行泰勒展开:</p>
-<p>$$
-P = P(\rho_{0}) + \left(\frac{\mathrm{d}P}{\mathrm{d}\rho}\right)_{S,\rho_{0}}(\rho - \rho_{0}) + \frac{1}{2!}\left(\frac{\mathrm{d}^{2}P}{\mathrm{d}\rho^{2}}\right)_{S,\rho_{0}}(\rho - \rho_{0})^{2} + \cdots
-$$</p>
-<p>注意到介质膨胀时, $\mathrm{d}P&lt;0, \mathrm{d}\rho &lt; 0$; 介质压缩时, $\mathrm{d}P&gt;0, \mathrm{d}\rho &gt; 0$. 因此 $\left(\frac{\mathrm{d}P}{\mathrm{d}\rho}\right)_{S,\rho_{0}}$ 恒正. 因此设</p>
-<p>$$
-c^{2} = \left(\frac{\mathrm{d}P}{\mathrm{d}\rho}\right)_{S,\rho_{0}}
-$$</p>
-<p>理想气体绝热状态方程为 $PV^{\gamma} = P_{0}V_{0}^{\gamma}$ (其中 $\gamma = \frac{C_{P}}{C_{V}}$, 空气取 $\gamma=1.4$), 质量守恒有 $M = \rho V = \textit{const.}$, 因此 $\rho V = \rho_{0}V_{0}$. 两者联立有</p>
-<p>$$
-P = \left(\frac{\rho}{\rho_{0}}\right)^{\gamma}P_{0} = \left(\frac{\rho_{0} + \mathrm{d}\rho}{\rho_{0}}\right)^{\gamma}P_{0} \approx P_{0} + \frac{\gamma P_{0}}{\rho_{0}}\mathrm{d}\rho + \cdots
-$$</p>
-<p>取小振幅近似 $\frac{\mathrm{d}\rho}{\rho_{0}}\ll 1$, 即有</p>
-<p>$$
-p = P - P_{0} = \mathrm{d}P \approx \left(\frac{\gamma P_{0}}{\rho_{0}}\right)\mathrm{d}\rho = c^{2}\mathrm{d}\rho
-$$</p>
-<p>于是得到理想气体中的声速表达式:</p>
-<p>$$
-c^{2} = \frac{\gamma P_{0}}{\rho_{0}}
-$$</p>
-<p>将 $p$ 和 $\rho^{\prime}$ 视为 $P$ 和 $\rho$ 的变化量, $\mathrm{d}P = \left(\frac{\mathrm{d}P}{\mathrm{d}\rho}\right)_{S,\rho_{0}}\mathrm{d}\rho$ 两边同时对时间求导, 即有</p>
-<p>$$
-\frac{\mathrm{d}p}{\mathrm{d}t} = c^{2}\frac{\mathrm{d}\rho^{\prime}}{\mathrm{d}t}
-$$</p>
-<p>在液体中, 则改写为</p>
-<p>$$
-c = \frac{1}{\sqrt{\beta_{S}\rho_{0}}}
-$$</p>
+<h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
 <blockquote>
-<p>$\beta_{S}$ 为绝热体积压缩系数.</p>
+<p>We have critically tested the application of the <strong>diffusion approximation</strong> to describe the propagation of ultrasonic waves through a random, strongly scattering medium. The transmission of short ultrasonic pulses has been measured through a concentrated suspension of glass beads immersed in water. The transmitted sound field is found to exhibit temporal fluctuations with a period determined by the width of the incident pulse. Provided that appropriate boundary conditions are used to account for the reflectivity of the interfaces,the time dependence of the ensemble-averaged transmitted intensity is shown to be well described by the diffusion equation.</p>
 </blockquote>
-<h2 id="波动方程">波动方程<a hidden class="anchor" aria-hidden="true" href="#波动方程">#</a></h2>
-<p>前面已经知道</p>
+<p>我们对应用<strong>扩散近似</strong>来描述超声波在随机强散射介质中的传播进行了严格测试。我们测量了短超声波脉冲在浸入水中的玻璃珠浓缩悬浮液中的传播情况。研究发现，传播声场表现出时间波动，其周期由入射脉冲的宽度决定。只要使用适当的边界条件来考虑界面的反射性，就可以用扩散方程很好地描述系综平均透射强度的时间依赖性。</p>
 <blockquote>
-<p>$$
--\nabla p = \color{red}{\rho_{0}\frac{\partial\mathbf{u}}{\partial t}}\\
-\frac{\partial\rho}{\partial t} = -\rho_{0}\nabla\cdot\mathbf{u}\\
-\frac{\mathrm{d}p}{\mathrm{d}t} = c^{2}\frac{\mathrm{d}\rho^{\prime}}{\mathrm{d}t}
-$$</p>
+<p>This enables us to determine both the diffusion coefficient for the sound waves as well as the inelastic absorption rate. The consistency of these results is established by varying the experimental geometry; while the transmitted pulse shape changes markedly, the values for the diffusion coefficient and absorption rate obtained through a description using the diffusion approximation remain unchanged. We have also measured the absolute transmitted intensity ofthe sound as the sample thickness is varied; this provides an accurate measure of the transport mean free path and thus also the energy transport velocity. These results convincingly demonstrate the validity of using the diffusion approximation to describe the propagation of sound waves through strongly scattering media.</p>
 </blockquote>
-<p>声学测量中通常关心 $p$ 描述声场. 对第二个式子时间求导:</p>
-<p>$$
-\frac{\partial^{2}\rho^{\prime}}{\partial t^{2}} + \nabla\cdot\left(\color{red}{\rho_{0}\frac{\partial\mathbf{u}}{\partial t}}\right) = 0
-$$</p>
-<p>代入第一个式子, 有</p>
-<p>$$
-\color{green}{\frac{\partial^{2}\rho^{\prime}}{\partial t^{2}}} - \nabla\cdot(\nabla p) = 0
-$$</p>
-<p>密度变化量的全微分为</p>
-<p>$$
-\begin{aligned}
-\frac{\mathrm{d}\rho^{\prime}}{\mathrm{d}t} &amp;= \frac{\partial\rho^{\prime}}{\partial t} + \frac{\partial\rho^{\prime}}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t} + \frac{\partial\rho^{\prime}}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t} + \frac{\partial\rho^{\prime}}{\partial z}\frac{\mathrm{d}z}{\mathrm{d}t}\\
-&amp;= \frac{\partial\rho^{\prime}}{\partial t} + \left(u_{x}\frac{\partial }{\partial x} + u_{y}\frac{\partial }{\partial y} + u_{z}\frac{\partial }{\partial z}\right)\rho^{\prime}\\
-&amp;= \frac{\partial\rho^{\prime}}{\partial t} + (\mathbf{u}\cdot\nabla)\rho^{\prime}
-\end{aligned}
-$$</p>
-<p>小振幅时 $(\mathbf{u}\cdot\nabla)\rho^{\prime}$ 为二阶小量. 因此有</p>
-<p>$$
-\frac{\mathrm{d}\rho^{\prime}}{\mathrm{d}t} \approx \frac{\partial \rho^{\prime}}{\partial t}, \frac{\mathrm{d}p}{\mathrm{d}t}\approx \frac{\partial p}{\partial t}
-$$</p>
-<p>因此第三个式子改写为</p>
-<p>$$
-\frac{\partial p}{\partial t} = c^{2}\frac{\partial\rho^{\prime}}{\partial t}\rightarrow {\frac{\partial^{2}p}{\partial t^{2}}} = c^{2}\color{green}{\frac{\partial^{2}\rho^{\prime}}{\partial t^{2}}}
-$$</p>
-<p>观察绿色项, 得到最后的方程</p>
-<p>$$
-\boxed{\frac{\partial^{2} p}{\partial t^{2}} = c^{2}\nabla^{2}p}
-$$</p>
-<div class="details admonition tip">
-
- <div class="details-summary admonition-title">
-
- <i class="icon fas fa-lightbulb fa-fw"></i>拉普拉斯算子<i class="details-icon fas fa-angle-right fa-fw"></i>
-
- </div>
-
- <div class="details-content">
-
- <div class="admonition-content"><ul>
-<li>直角坐标系</li>
-</ul>
-<p>$$
-\nabla^{2} = \frac{\partial^{2}}{\partial x^{2}} + \frac{\partial^{2}}{\partial y^{2}} + \frac{\partial^{2}}{\partial z^{2}}
-$$</p>
-<ul>
-<li>球坐标系</li>
-</ul>
-<p>$$
-\nabla^{2} = \frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right) + \frac{1}{r^{2}\sin\theta}\frac{\partial}{\partial \theta}\left(\sin\theta\frac{\partial}{\partial \theta}\right) + \frac{1}{r^{2}\sin^{2}\theta}\frac{\partial^{2}}{\partial \phi^{2}}
-$$</p>
-<ul>
-<li>柱坐标系</li>
-</ul>
-<p>$$
-\nabla^{2} = \frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial}{\partial r}\right) + \frac{1}{r^{2}}\frac{\partial^{2}}{\partial \phi^{2}} + \frac{\partial^{2}}{\partial z^{2}}
-$$</p>
-</div>
-
- </div>
-
- </div>
-<h2 id="声速度势">声速度势<a hidden class="anchor" aria-hidden="true" href="#声速度势">#</a></h2>
-<p>振速可以通过运动方程华为积分式得到:</p>
-<p>$$
-\mathbf{u}(x,y,z,t) = -\frac{1}{\rho_{0}}\int_{0}^{t}\nabla p(x,y,z,t^{\prime})\mathrm{d}t^{\prime}
-$$</p>
-<blockquote>
-<p>$$
-\frac{\partial u_{x}}{\partial y} - \frac{\partial u_{y}}{\partial x} = 0\\
-\frac{\partial u_{x}}{\partial z} - \frac{\partial u_{z}}{\partial x} = 0\\
-\frac{\partial u_{y}}{\partial z} - \frac{\partial u_{z}}{\partial y} = 0
-$$</p>
-<p>合并写作旋度形式:</p>
-<p>$$
-\nabla\times\mathbf{u} = 0
-$$</p>
-<p>即小振幅声场在理想流体中为 <strong>无旋场</strong>.</p>
-</blockquote>
-<p>又有 $\nabla\times(\nabla \Psi) = 0$, 因此令 $\mathbf{u} = -\nabla \Psi$.</p>
-<div class="details admonition tip">
-
- <div class="details-summary admonition-title">
-
- <i class="icon fas fa-lightbulb fa-fw"></i>旋度<i class="details-icon fas fa-angle-right fa-fw"></i>
-
- </div>
-
- <div class="details-content">
-
- <div class="admonition-content"><ul>
-<li>直角坐标</li>
-</ul>
-<p>$$
-u_{x} = -\frac{\partial\Psi}{\partial x},\quad u_{y} = -\frac{\partial\Psi}{\partial y},\quad u_{z} = -\frac{\partial\Psi}{\partial z}
-$$</p>
-<ul>
-<li>球坐标</li>
-</ul>
-<p>$$
-u_{r} = -\frac{\partial\Psi}{\partial r},\quad u_{\theta} = -\frac{1}{r}\frac{\partial\Psi}{\partial \theta},\quad u_{\phi} = -\frac{1}{r\sin\theta}\frac{\partial\Psi}{\partial \phi}
-$$</p>
-<ul>
-<li>柱坐标</li>
-</ul>
-<p>$$
-u_{r} = -\frac{\partial\Psi}{\partial r},\quad u_{\phi} = -\frac{1}{r}\frac{\partial\Psi}{\partial \phi},\quad u_{z} = -\frac{\partial\Psi}{\partial z}
-$$</p>
-</div>
-
- </div>
-
- </div>
-<h1 id="声波的吸收">声波的吸收<a hidden class="anchor" aria-hidden="true" href="#声波的吸收">#</a></h1>
-<h2 id="黏性流体介质中的波动方程">黏性流体介质中的波动方程<a hidden class="anchor" aria-hidden="true" href="#黏性流体介质中的波动方程">#</a></h2>
-<h1 id="非线性声学">非线性声学<a hidden class="anchor" aria-hidden="true" href="#非线性声学">#</a></h1>
+<p>这使我们能够确定声波的扩散系数和非弹性吸收率。通过改变实验几何形状可以确定这些结果的一致性；虽然透射脉冲的形状发生了明显变化，但通过使用扩散近似描述获得的扩散系数和吸收率值保持不变。我们还测量了样品厚度变化时声音的绝对传输强度；这提供了传输平均自由路径的精确测量，从而也提供了能量传输速度。这些结果令人信服地证明了使用扩散近似来描述声波在强散射介质中传播的有效性。</p>
 
 
         </div>
@@ -737,15 +528,15 @@ $$</p>
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://Muatyz.github.io/posts/phy/scmp/effective-medium-theory/">
+  <a class="prev" href="https://Muatyz.github.io/posts/cs/skills/">
     <span class="title">« 上一页</span>
     <br>
-    <span>等效介质理论(EMT)</span>
+    <span>博客使用技巧</span>
   </a>
-  <a class="next" href="https://Muatyz.github.io/posts/phy/scmp/acoustic-research/">
+  <a class="next" href="https://Muatyz.github.io/posts/phy/scmp/seismology/">
     <span class="title">下一页 »</span>
     <br>
-    <span>声学探测方法</span>
+    <span>地震学</span>
   </a>
 </nav>
 
