@@ -324,15 +324,6 @@
     </item>
     
     <item>
-      <title>软凝聚态学习计划</title>
-      <link>https://Muatyz.github.io/posts/life/soft-cmp-plan/</link>
-      <pubDate>Wed, 20 Sep 2023 00:18:15 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/life/soft-cmp-plan/</guid>
-      <description>从入门到入坟的贴心学习路线指导</description>
-    </item>
-    
-    <item>
       <title>自旋链</title>
       <link>https://Muatyz.github.io/posts/phy/calphy/1d-spin-chain/</link>
       <pubDate>Wed, 26 Jul 2023 00:18:23 +0800</pubDate>
@@ -518,7 +509,7 @@
       <pubDate>Thu, 04 May 2023 14:57:28 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/about/</guid>
-      <description>该站点用于记录每日所学新知 Interest: Condensed Matter Physics, Numerical Calculation Profile: Undergraduate 本站已对 Twikoo 添加了 KaTex 支持. 在评论中使用 $$ 包裹公式即可. 例如: $$ x_{1} + x_{2} = y_{1}^{\prime} $$ 显示效果为 $$ x_{1} + x_{2} = y_{1}^{\prime} $$ 和ChatGPT聊聊天.该链接已经由 Cloudflare 进行加速, 可以自由访问. 本站维护的 Chatgpt 已经年久失修, 等待重新部署.</description>
+      <description>该站点用于记录每日所学新知 Interest: Condensed Matter Physics, Numerical Calculation Profile: Undergraduate 本站已对 Twikoo 添加了 KaTex 支持. 在评论中使用 $$ 包裹公式即可. 例如: $$ x_{1} + x_{2} = y_{1}^{\prime} $$ 显示效果为 $$ x_{1} + x_{2} = y_{1}^{\prime} $$ 若在浏览公式时发现其字体大小不当, 可右键点击公式, 依次选取 数学设置(Math Settings) -&amp;gt; 缩放所有数学...(Scale All Math...), 选择合适的缩放比例即可. 经验</description>
     </item>
     
     <item>

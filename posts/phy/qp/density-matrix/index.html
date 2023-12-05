@@ -68,17 +68,17 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = ""; 
+  hm.src = "www.muartz.com"; 
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-</script>
-
-<script type="text/javascript"
+</script><script type="text/javascript"
         async
         src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 MathJax.Hub.Config({
-  CommonHTML: { scale: "100%" },  
+  CommonHTML: {
+  scale: 100
+  },
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
     displayMath: [['$$','$$'], ['\[\[','\]\]']],
@@ -91,26 +91,25 @@ MathJax.Hub.Config({
 });
 
 MathJax.Hub.Queue(function() {
-    
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
 });
 </script>
 
 <style>
-code.has-jax {
-    font: inherit;
-    font-size: 100%;
-    background: inherit;
-    border: inherit;
-    color: #515151;
-}
-</style>
-<meta property="og:title" content="密度矩阵" />
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style><meta property="og:title" content="密度矩阵" />
 <meta property="og:description" content="投影算符 定义 假设对于一个物理量算符 $\hat{R}$, 其本征方程为 $$ \hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots) $$ 我们引入投影算符: $$ \hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}| $$ 所以显然有 $$ \hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle $$ 性质 厄密性 $$ \hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger} $$ 幂等性(Idempotent) $$ \hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k} $$ 完备性 $$ \sum_{k}\hat{\pi}_{k} = I $$ 证明: 对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开: $$ |\psi\rangle = c_{1}|\psi_{1}\rangle &#43; c_{2}|\psi_{2}\rangle &#43; \dots &#43; c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle} $$ 那么将投影算符和作" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Muatyz.github.io/posts/phy/qp/density-matrix/" /><meta property="article:section" content="posts" />
@@ -193,7 +192,9 @@ code.has-jax {
         async
         src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 MathJax.Hub.Config({
-  CommonHTML: { scale: "100%" },  
+  CommonHTML: {
+  scale: 100
+  },
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
     displayMath: [['$$','$$'], ['\[\[','\]\]']],
@@ -206,26 +207,25 @@ MathJax.Hub.Config({
 });
 
 MathJax.Hub.Queue(function() {
-    
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
 });
 </script>
 
 <style>
-code.has-jax {
-    font: inherit;
-    font-size: 100%;
-    background: inherit;
-    border: inherit;
-    color: #515151;
-}
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
 </style>
-
 </head>
 
 <body class="" id="top">
@@ -1161,10 +1161,8 @@ $$</p>
 
 
 <body>
-
   <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="print" onload="this.media='all'">
-  
-  </body>
+</body>
 
 
 </html>
