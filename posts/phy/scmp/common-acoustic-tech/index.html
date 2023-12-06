@@ -166,8 +166,8 @@ MathJax.Hub.Queue(function() {
   "keywords": [
     "scmp", "granular"
   ],
-  "articleBody": "理想流体介质中的声波 三个物理量: 声压 $p$, 振速 $u$, 密度 $\\rho$. 运用基本定律推导出三者的关系式.\n理想流体的假定条件: 1. 无粘性; 2. 连续性; 3. 均匀性; 4. 绝热性; 5. 无旋性; 6. 微扰性. 因此研究的是小振幅声波在流体介质中的传播规律. 大振幅的声波需要到非线性声学部分研究.\n基本方程 运动方程 设介质静止 $u_{0} = 0$, 静止密度为 $\\rho_{0}$. 则在 $x$ 轴上, 当声波通过时, 存在振速分布函数 $u(x,y,z,t)$, 压强分布函数 $P_{0} + p(x,y)$. 则体元 $\\Delta V$ 在 $x$ 轴上所受合力为\n$$ F_{x} = F_{1} - F_{2} = -\\Delta P\\Delta y\\Delta z $$\n因为是小振幅波动所以取一阶近似, 有\n$$ -\\Delta P\\Delta y\\Delta z = \\rho\\Delta x\\Delta y\\Delta z\\frac{\\partial u_{x}}{\\partial t}\\rightarrow -\\frac{\\Delta P}{\\Delta x} = \\rho\\frac{\\partial u_{x}}{\\partial t}\\rightarrow -\\frac{\\partial P}{\\partial x} = \\rho_{0}\\frac{\\partial u_{x}}{\\partial t} $$\n应用在 $y$ 轴和 $z$ 轴上后, 合并写作 $\\nabla$ 算子的形式:\n$$ -\\nabla P = -\\nabla(p + P_{0}) = \\boxed{-\\nabla p = \\rho_{0}\\frac{\\mathrm{d}\\mathbf{u}}{\\mathrm{d}t}} $$\n连续性方程 核心思想是流体质量定理. 设 $t$ 时振速分布为 $\\mathbf{u}(x,y,z,t)$, 仍以 $x$ 轴为例进行分析.\n在 $\\Delta t$ 时间内, 流入 $\\Delta V$ 的质量为 $\\rho u_{x}\\Delta y\\Delta z\\Delta t$ ($\\rho u_{x}$ 为单位时间通过单位面积的质量), 流出 $\\Delta V$ 的质量为\n$$ \\left[\\rho u_{x} + \\frac{\\partial }{\\partial x}(\\rho u_{x})\\Delta x\\right]\\Delta y\\Delta z\\Delta t $$\n那么 $x$ 方向上在 $\\Delta t$ 时间的质量增量为\n$$ -\\frac{\\partial }{\\partial x}(\\rho u_{x})\\Delta x\\Delta y\\Delta z\\Delta t $$\n体元 $\\Delta V$ 内的质量变换量为\n$$ \\Delta m = \\Delta\\rho\\Delta x\\Delta y\\Delta z = -\\left[\\frac{\\partial }{\\partial x}(\\rho u_{x}) + \\frac{\\partial }{\\partial y}(\\rho u_{y}) + \\frac{\\partial }{\\partial z}(\\rho u_{z})\\right]\\Delta x\\Delta y\\Delta z\\Delta t $$\n消去微元并取极限形式:\n$$ \\frac{\\partial\\rho}{\\partial t} = -\\left[\\frac{\\partial }{\\partial x}(\\rho u_{x}) + \\frac{\\partial }{\\partial y}(\\rho u_{y}) + \\frac{\\partial }{\\partial z}(\\rho u_{z})\\right] $$\n取小振幅极限 $\\rho\\approx\\rho_{0}$, 即有 $\\frac{\\partial }{\\partial x}(\\rho u_{x}) \\approx \\rho_{0}\\frac{\\partial u_{x}}{\\partial x}$. 同理处理 $y$ 轴和 $z$ 轴, 并合并写作 $\\nabla$ 算子形式:\n$$ \\boxed{\\frac{\\partial\\rho}{\\partial t} = -\\rho_{0}\\nabla\\cdot\\mathbf{u}} $$\n状态方程 因为近似为绝热过程, 因此认为 $P = P(\\rho)$. 在静态密度 $\\rho_{0}$ 附近进行泰勒展开:\n$$ P = P(\\rho_{0}) + \\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}}(\\rho - \\rho_{0}) + \\frac{1}{2!}\\left(\\frac{\\mathrm{d}^{2}P}{\\mathrm{d}\\rho^{2}}\\right)_{S,\\rho_{0}}(\\rho - \\rho_{0})^{2} + \\cdots $$\n注意到介质膨胀时, $\\mathrm{d}P\u003c0, \\mathrm{d}\\rho \u003c 0$; 介质压缩时, $\\mathrm{d}P\u003e0, \\mathrm{d}\\rho \u003e 0$. 因此 $\\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}}$ 恒正. 因此设\n$$ c^{2} = \\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}} $$\n理想气体绝热状态方程为 $PV^{\\gamma} = P_{0}V_{0}^{\\gamma}$ (其中 $\\gamma = \\frac{C_{P}}{C_{V}}$, 空气取 $\\gamma=1.4$), 质量守恒有 $M = \\rho V = \\textit{const.}$, 因此 $\\rho V = \\rho_{0}V_{0}$. 两者联立有\n$$ P = \\left(\\frac{\\rho}{\\rho_{0}}\\right)^{\\gamma}P_{0} = \\left(\\frac{\\rho_{0} + \\mathrm{d}\\rho}{\\rho_{0}}\\right)^{\\gamma}P_{0} \\approx P_{0} + \\frac{\\gamma P_{0}}{\\rho_{0}}\\mathrm{d}\\rho + \\cdots $$\n取小振幅近似 $\\frac{\\mathrm{d}\\rho}{\\rho_{0}}\\ll 1$, 即有\n$$ p = P - P_{0} = \\mathrm{d}P \\approx \\left(\\frac{\\gamma P_{0}}{\\rho_{0}}\\right)\\mathrm{d}\\rho = c^{2}\\mathrm{d}\\rho $$\n于是得到理想气体中的声速表达式:\n$$ c^{2} = \\frac{\\gamma P_{0}}{\\rho_{0}} $$\n将 $p$ 和 $\\rho^{\\prime}$ 视为 $P$ 和 $\\rho$ 的变化量, $\\mathrm{d}P = \\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}}\\mathrm{d}\\rho$ 两边同时对时间求导, 即有\n$$ \\frac{\\mathrm{d}p}{\\mathrm{d}t} = c^{2}\\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} $$\n在液体中, 则改写为\n$$ c = \\frac{1}{\\sqrt{\\beta_{S}\\rho_{0}}} $$\n$\\beta_{S}$ 为绝热体积压缩系数.\n波动方程 前面已经知道\n$$ -\\nabla p = \\color{red}{\\rho_{0}\\frac{\\partial\\mathbf{u}}{\\partial t}}\\\\ \\frac{\\partial\\rho}{\\partial t} = -\\rho_{0}\\nabla\\cdot\\mathbf{u}\\\\ \\frac{\\mathrm{d}p}{\\mathrm{d}t} = c^{2}\\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} $$\n声学测量中通常关心 $p$ 描述声场. 对第二个式子时间求导:\n$$ \\frac{\\partial^{2}\\rho^{\\prime}}{\\partial t^{2}} + \\nabla\\cdot\\left(\\color{red}{\\rho_{0}\\frac{\\partial\\mathbf{u}}{\\partial t}}\\right) = 0 $$\n代入第一个式子, 有\n$$ \\color{green}{\\frac{\\partial^{2}\\rho^{\\prime}}{\\partial t^{2}}} - \\nabla\\cdot(\\nabla p) = 0 $$\n密度变化量的全微分为\n$$ \\begin{aligned} \\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} \u0026= \\frac{\\partial\\rho^{\\prime}}{\\partial t} + \\frac{\\partial\\rho^{\\prime}}{\\partial x}\\frac{\\mathrm{d}x}{\\mathrm{d}t} + \\frac{\\partial\\rho^{\\prime}}{\\partial y}\\frac{\\mathrm{d}y}{\\mathrm{d}t} + \\frac{\\partial\\rho^{\\prime}}{\\partial z}\\frac{\\mathrm{d}z}{\\mathrm{d}t}\\\\ \u0026= \\frac{\\partial\\rho^{\\prime}}{\\partial t} + \\left(u_{x}\\frac{\\partial }{\\partial x} + u_{y}\\frac{\\partial }{\\partial y} + u_{z}\\frac{\\partial }{\\partial z}\\right)\\rho^{\\prime}\\\\ \u0026= \\frac{\\partial\\rho^{\\prime}}{\\partial t} + (\\mathbf{u}\\cdot\\nabla)\\rho^{\\prime} \\end{aligned} $$\n小振幅时 $(\\mathbf{u}\\cdot\\nabla)\\rho^{\\prime}$ 为二阶小量. 因此有\n$$ \\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} \\approx \\frac{\\partial \\rho^{\\prime}}{\\partial t}, \\frac{\\mathrm{d}p}{\\mathrm{d}t}\\approx \\frac{\\partial p}{\\partial t} $$\n因此第三个式子改写为\n$$ \\frac{\\partial p}{\\partial t} = c^{2}\\frac{\\partial\\rho^{\\prime}}{\\partial t}\\rightarrow {\\frac{\\partial^{2}p}{\\partial t^{2}}} = c^{2}\\color{green}{\\frac{\\partial^{2}\\rho^{\\prime}}{\\partial t^{2}}} $$\n观察绿色项, 得到最后的方程\n$$ \\boxed{\\frac{\\partial^{2} p}{\\partial t^{2}} = c^{2}\\nabla^{2}p} $$\n拉普拉斯算子 直角坐标系 $$ \\nabla^{2} = \\frac{\\partial^{2}}{\\partial x^{2}} + \\frac{\\partial^{2}}{\\partial y^{2}} + \\frac{\\partial^{2}}{\\partial z^{2}} $$\n球坐标系 $$ \\nabla^{2} = \\frac{1}{r^{2}}\\frac{\\partial}{\\partial r}\\left(r^{2}\\frac{\\partial}{\\partial r}\\right) + \\frac{1}{r^{2}\\sin\\theta}\\frac{\\partial}{\\partial \\theta}\\left(\\sin\\theta\\frac{\\partial}{\\partial \\theta}\\right) + \\frac{1}{r^{2}\\sin^{2}\\theta}\\frac{\\partial^{2}}{\\partial \\phi^{2}} $$\n柱坐标系 $$ \\nabla^{2} = \\frac{1}{r}\\frac{\\partial}{\\partial r}\\left(r\\frac{\\partial}{\\partial r}\\right) + \\frac{1}{r^{2}}\\frac{\\partial^{2}}{\\partial \\phi^{2}} + \\frac{\\partial^{2}}{\\partial z^{2}} $$\n声速度势 振速可以通过运动方程化为积分式得到:\n$$ \\mathbf{u}(x,y,z,t) = -\\frac{1}{\\rho_{0}}\\int_{0}^{t}\\nabla p(x,y,z,t^{\\prime})\\mathrm{d}t^{\\prime} $$\n$$ \\frac{\\partial u_{x}}{\\partial y} - \\frac{\\partial u_{y}}{\\partial x} = 0\\\\ \\frac{\\partial u_{x}}{\\partial z} - \\frac{\\partial u_{z}}{\\partial x} = 0\\\\ \\frac{\\partial u_{y}}{\\partial z} - \\frac{\\partial u_{z}}{\\partial y} = 0 $$\n合并写作旋度形式:\n$$ \\nabla\\times\\mathbf{u} = 0 $$\n即小振幅声场在理想流体中为 无旋场.\n又有 $\\nabla\\times(\\nabla \\Psi) = 0$, 因此令 $\\mathbf{u} = -\\nabla \\Psi$.\n旋度 直角坐标 $$ u_{x} = -\\frac{\\partial\\Psi}{\\partial x},\\quad u_{y} = -\\frac{\\partial\\Psi}{\\partial y},\\quad u_{z} = -\\frac{\\partial\\Psi}{\\partial z} $$\n球坐标 $$ u_{r} = -\\frac{\\partial\\Psi}{\\partial r},\\quad u_{\\theta} = -\\frac{1}{r}\\frac{\\partial\\Psi}{\\partial \\theta},\\quad u_{\\phi} = -\\frac{1}{r\\sin\\theta}\\frac{\\partial\\Psi}{\\partial \\phi} $$\n柱坐标 $$ u_{r} = -\\frac{\\partial\\Psi}{\\partial r},\\quad u_{\\phi} = -\\frac{1}{r}\\frac{\\partial\\Psi}{\\partial \\phi},\\quad u_{z} = -\\frac{\\partial\\Psi}{\\partial z} $$\n声波的吸收 介质的黏性吸收 对于平面波传播这类一维问题, 单位面积的黏性力可以表示为速度梯度的线性函数:\n$$ F_{\\eta} = \\eta\\frac{\\partial u}{\\partial x} $$\n$\\eta$ 即为黏度. 切变黏度 $\\eta^{\\prime}$, 容变黏度 $\\eta^{\\prime\\prime}$.\n$$ \\eta = \\frac{4}{3}\\eta^{\\prime} + \\eta^{\\prime\\prime} $$\n考虑黏性流体的运动方程变化 $p^{\\prime} = -F_{\\eta} = -\\eta\\frac{\\partial u}{\\partial x}$, 即有\n$$ \\rho_{0}\\frac{\\partial^{2}\\xi}{\\partial t^{2}} = -\\frac{\\partial p}{\\partial x} + \\eta\\frac{\\partial^{3}\\xi}{\\partial^{2}\\partial t} $$\n复习: $\\mathbf{u}$ 为质元振速, $\\mathbf{\\xi}$ 为质元相对平衡位置的位移. 即有 $$ \\mathbf{u} = \\frac{\\partial \\mathbf{\\xi}}{\\partial t}. $$\n体(绝热)弹性模量 $K_{S}$ 有\n$$ K_{S} = -V\\frac{\\mathrm{d}P}{\\mathrm{d}V} $$\n用声压 $p$ 来代替 $\\mathrm{d}P$, 即有\n$$ p = -K_{S}\\frac{\\mathrm{d}V}{V} = -K_{S}\\Delta $$\n在平面波情况下, $\\Delta = \\frac{\\mathrm{d}V}{V} = -\\frac{\\mathrm{d}\\rho}{\\rho} = \\frac{\\partial \\xi}{\\partial x}$. 代入即有\n$$ p = -K_{S}\\frac{\\partial \\xi}{\\partial x} $$\n代入黏性流体介质的运动方程:\n$$ \\boxed{\\rho_{0}\\frac{\\partial^{2}\\xi}{\\partial t^{2}} = K_{S}\\frac{\\partial^{2}\\xi}{\\partial x^{2}} + \\eta\\frac{\\partial^{3}\\xi}{\\partial x^{2}\\partial t}} $$\n写为声速 $c_{0} = \\sqrt{\\frac{K_{S}}{\\rho_{0}}}$ 形式即为\n$$ \\boxed{\\frac{\\partial^{2}\\xi}{\\partial t^{2}} = c_{0}^{2}\\frac{\\partial^{2}\\xi}{\\partial x^{2}} + \\frac{\\eta}{\\rho_{0}}\\frac{\\partial^{3}\\xi}{\\partial x^{2}\\partial t}} $$\n设简谐声波, 则位移波函数为\n$$ \\xi(x,t) = \\xi_{1}(x)e^{i\\omega t}. $$\n代入运动方程, 化为 $\\xi_{1}$ 的微分方程\n$$ -\\rho_{0}\\omega^{2}\\xi_{1} = (K_{S} + i\\omega\\eta)\\frac{\\partial^{2}\\xi_{1}}{\\partial x^{2}} $$\n令 $K = K_{S} + i\\omega\\eta$, 则有\n$$ -\\rho_{0}\\omega^{2}\\xi_{1} = K\\frac{\\partial^{2}\\xi_{1}}{\\partial x^{2}}\\Rightarrow -k^{\\prime 2}\\xi_{1} = \\frac{\\partial^{2}\\xi_{1}}{\\partial x^{2}} $$\n$k^{\\prime} = \\omega\\sqrt{\\frac{\\rho_{0}}{K}} = \\frac{\\omega}{c} - i \\alpha_{\\eta}$\n所以位移波函数 $\\xi(x,t)$ 是两个独立解的线性叠加:\n$$ \\xi = (A e^{-ik^{\\prime}x} + B e^{ik^{\\prime}x})e^{i\\omega t} $$\n现在详细计算出声波传播速度 $c$ 与吸收系数 $\\alpha_{\\eta}$. 即有\n$$ K = K_{S}\\left(1 + i\\omega\\frac{\\eta}{K_{S}}\\right) = K_{S}(1 + i\\omega H) $$\n代入 $k^{\\prime}$ 表达式, 即有方程组\n$$ \\frac{\\omega^{2}}{c^{2}} - \\alpha_{\\eta}^{2} = \\frac{\\omega^{2}\\rho_{0}}{K_{S}} \\frac{1}{1 + \\omega^{2}H^{2}}\\\\ 2 \\alpha_{\\eta}\\frac{\\omega}{c} = \\frac{\\omega^{2}\\rho_{0}}{K_{S}} \\frac{\\omega H}{1 + \\omega^{2}H^{2}} $$\n即有解\n$$ c = \\sqrt{\\frac{K_{S}}{\\rho_{0}}}\\sqrt{\\frac{2(1 + \\omega^{2}H^{2})(\\sqrt{1 + \\omega^{2}H^{2}} - 1)}{\\omega^{2}H^{2}}}\\\\ \\alpha_{\\eta} = \\omega\\sqrt{\\frac{\\rho_{0}}{K_{S}}}\\sqrt{\\frac{\\sqrt{1 + \\omega^{2}H^{2}} - 1}{2(1 + \\omega^{2}H^{2})}} $$\n$\\omega H\\ll 1$, 即黏性力相较于弹性力很小时上式退化为\n$$ c = \\sqrt{\\frac{K_{S}}{\\rho_{0}}} = c_{0}\\\\ \\alpha_{\\eta} = \\frac{\\omega^{2}}{2\\rho_{0}c^{3}}\\eta = \\frac{\\omega^{2}}{2\\rho_{0}c^{3}}\\left(\\frac{4}{3}\\eta^{\\prime} + \\eta^{\\prime\\prime}\\right) $$\n可见高频吸收比低频大得多.\n论 $\\omega H\\ll 1$.\n$$ \\lim_{\\omega H\\ll 1}\\alpha_{\\eta}\\lambda = \\lim_{\\omega H\\ll 1} 2\\pi\\frac{\\sqrt{1 + \\omega^{2}H^{2}} - 1}{\\omega H} = \\pi\\omega H $$\n即黏性力相较于弹性力很小, 在一个波长距离上声波的吸收很小, 就可以导出以上近似表达式.\n将 $\\omega$ 写作 $f$ 形式并忽略容变黏度 $\\eta^{\\prime\\prime}$, 即有\n$$ \\alpha_{\\eta} = \\frac{8\\pi^{2}\\eta^{\\prime}}{3\\rho_{0}c^{3}}f^{2} $$\n介质的热吸收 介质中的温度梯度将导致热传导, 从而产生不可逆的机械-热转变.\n设介质中存在温度分布 $T(x,t)$, 因此有温度梯度 $\\frac{\\partial T}{\\partial x}$. 有\n$$ Q = -\\chi\\frac{\\partial T}{\\partial x} $$\n$Q$ 为单位时间通过单位面积的热量, $\\chi$ 称为热传导系数.\n所以体元 $\\Delta x\\Delta y\\Delta z$ 的热增量为\n$$ \\left[Q - \\left(Q + \\frac{\\partial Q}{\\partial x}\\Delta x\\right)\\right]\\Delta y\\Delta z\\delta t = -\\frac{\\partial Q}{\\partial x}\\Delta x\\Delta y\\Delta z\\delta t = \\chi\\frac{\\partial^{2}T}{\\partial x^{2}} $$\n消去所有微元并化为微分形式:\n$$ \\boxed{\\frac{\\partial q}{\\partial t} = \\frac{\\chi}{\\rho_{0}}\\frac{\\partial^{2}T}{\\partial x^{2}}} $$\n$q$ 为 单位质量 介质的热量.\n密度变化 $\\mathrm{d}\\rho$ 时, 引起变化 $\\mathrm{d}T,\\mathrm{d}V,\\mathrm{d}q$. 将热量变化近似为两个过程: 恒压加热($V_{0}\\rightarrow V_{0} + \\mathrm{d}V$), 等容加热($V = V_{0} + \\mathrm{d}V$ 下, $T_{0} + \\mathrm{d}T^{\\prime}\\rightarrow T_{0} + \\mathrm{d}T$):\n$$ \\begin{aligned} \\mathrm{d}q \u0026= \\mathrm{d}q_{1} + \\mathrm{d}q_{2}\\\\ \\mathrm{d}q_{1} \u0026= \\left(\\frac{\\partial q}{\\partial T}\\right)_{p}\\mathrm{d}T^{\\prime} = C_{p}\\mathrm{d}T^{\\prime}\\\\ \\mathrm{d}q_{2} \u0026= \\left(\\frac{\\partial q}{\\partial T}\\right)_{V}(\\mathrm{d}T - \\mathrm{d}T^{\\prime}) = C_{V}\\mathrm{d}T - C_{V}\\mathrm{d}T^{\\prime} \\end{aligned} $$\n所以有\n$$ \\mathrm{d}q = C_{P}\\mathrm{d}T + (C_{p} - C_{V})\\mathrm{d}T^{\\prime} $$\n而 $\\mathrm{d}T^{\\prime}$ 是恒压条件下 $V_{0}\\rightarrow V_{0} + \\mathrm{d}V$ 产生的温度增量, 即\n$$ \\mathrm{d}T^{\\prime} = \\left(\\frac{\\partial T}{\\partial V}\\right)_{P}\\mathrm{d}V $$\n对于单位质量而言 $\\rho V = 1$, 由此\n$$ \\begin{aligned} \\left(\\frac{\\partial T}{\\partial V}\\right)\\mathrm{d}V \u0026= \\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{P}\\left(\\frac{\\partial \\rho}{\\partial V}\\right)_{P}\\mathrm{d}V = \\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{P}\\left(\\frac{-1}{V^{2}}\\right)\\mathrm{d}V\\\\ \u0026= \\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{P}\\frac{1}{V}\\frac{\\mathrm{d}\\rho}{\\rho} = \\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{P}\\mathrm{d}\\rho \\end{aligned} $$\n所以\n$$ \\mathrm{d}T^{\\prime} = \\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{V}\\mathrm{d}\\rho $$\n将 $\\mathrm{d}T^{\\prime}$ 代入 $\\mathrm{d}q$ 的表达式:\n$$ \\mathrm{d}q = C_{V}\\mathrm{d}T + (C_{P} - C_{V})\\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{P}\\mathrm{d}\\rho $$\n两边同时求时间偏导:\n$$ \\boxed{\\frac{\\partial q}{\\partial t} = C_{V}\\frac{\\partial T}{\\partial t} + C_{V}(\\gamma - 1)\\frac{\\partial \\rho}{\\partial t}} $$\n而密度函数 $\\rho(p,T)$ 的全微分:\n$$ \\mathrm{d}\\rho = \\left(\\frac{\\partial \\rho}{\\partial T}\\right)_{p}\\mathrm{d}T + \\left(\\frac{\\partial \\rho}{\\partial p}\\right)_{T}\\mathrm{d}p $$\n因为有声速 $c^{2} = \\gamma\\left(\\frac{\\partial p}{\\partial \\rho}\\right)_{T}$, 即有\n$$ \\boxed{\\left(\\frac{\\partial \\rho}{\\partial T}\\right)_{P}\\mathrm{d}T = \\mathrm{d}\\rho - \\frac{\\gamma}{c^{2}}\\mathrm{d}p} $$\n将各级结论联立, 即有\n$$ \\frac{\\partial p}{\\partial t} - c^{2}\\frac{\\partial \\rho}{\\partial t} = \\frac{\\chi}{\\rho_{0}C_{V}}\\left(\\frac{\\partial^{2}p}{\\partial x^{2}} - \\frac{c^{2}}{\\gamma}\\frac{\\partial^{2}p}{\\partial x^{2}}\\right) $$\n运动方程 $$ \\rho_{0}\\frac{\\partial^{2}\\xi}{\\partial t^{2}} = -\\frac{\\partial p}{\\partial x} $$ 连续性方程两边同时对 $x$ 求偏导 $$ \\frac{\\partial \\rho}{\\partial x} = -\\rho_{0}\\frac{\\partial^{2}\\xi}{\\partial x^{2}} $$ 代入以上两独立关系, 即得热传导效应下的声波方程:\n$$ \\frac{\\partial^{2}\\xi}{\\partial t^{2}} = c^{2}\\frac{\\partial^{2}\\xi}{\\partial x^{2}} + \\frac{\\chi}{\\rho_{0}C_{V}}\\cdot\\frac{\\gamma - 1}{\\gamma}\\cdot\\frac{\\partial^{3}\\xi}{\\partial x^{2}\\partial t} $$\n类比于黏性吸收得声波方程, 替换系数得到热传导吸收系数为\n$$ \\alpha_{h} = \\frac{\\omega^{2}}{2\\rho_{0}c^{3}}\\frac{\\chi(\\gamma - 1)}{C_{V}\\gamma} $$\n$\\gamma = \\frac{C_{P}}{C_{V}}$. $c$ 为理想流体小振幅绝热波速.\n对于水 $\\gamma\\approx 1$, 因此 $\\alpha_{h}\\ll \\alpha_{\\eta}$; 而对空气而言, $\\gamma\\approx 1.4$, $\\alpha_{h}/\\alpha_{\\eta} \\approx 3/8$. 因此气体得热传导吸收和切边黏性吸收为同等数量级.\n声波吸收经典公式 将黏性和热传导效应线性叠加, 即得到 Stokes-Kirchhoff 公式:\n$$ \\alpha = \\alpha_{\\eta} + \\alpha_{h} = \\frac{\\color{red}{\\omega^{2}}}{2\\rho_{0}c^{3}}\\left[\\frac{4}{3}\\eta^{\\prime} + \\chi\\left(\\frac{1}{C_{V}} - \\frac{1}{C_{P}}\\right)\\right] $$\n这就是超声波极易衰减的原因.\n注意: 该公式实际上并不能良好吻合, 因为忽略了容变黏度 $\\eta^{\\prime\\prime}$.\n分子弛豫吸收 为了解释和经典吸收值的偏离, 将分子内部自由度也考虑在内, 即状态变化考虑为内外自由度能量的重新分配, 这种平衡态的转移过程被称为弛豫. 标记一有限时间 $\\tau$ 为弛豫时间; 声振动转变为热运动的能量耗散(区别于热传导)引起声波的附加吸收. 该过程在宏观上与容变黏度 $\\eta^{\\prime\\prime}$ 有关.\n设非平衡态的定容热容\n$$ C_{V} = C_{V\\infty} + C_{t}(1 - e^{-\\frac{t}{\\tau_{m}}}) $$\n$C_{V\\infty}$ 是外自由度贡献的热容量, 与弛豫无关; $C_{t}$ 是 $\\tau_{m}\\rightarrow 0$ 时内自由度可贡献的热容量; $\\tau_{m}$ 是弛豫时间.\n低频时, 周期 $1/f\\gg\\tau_{m}$, 即内外自由度随时保持平衡, 即有近似 $$ C_{t} = C_{V0} = C_{C\\infty} + C_{t} $$\n非线性声学 ",
-  "wordCount" : "2693",
+  "articleBody": "声波测量原理 接收器表面声压 $p$ 和 入射声压 $p_{i}$ …由于在测量或研究空间某一位置的声场时, 总要把接收器置入于声场中, 这时入射到接收器表面的声波在此面上产生一个声压, 在声压的作用下, 接收器的机械系统发生振动, 这一机械振动又以某种方式转换为电振动, 产生正比于接收器表面声压的电压, 这就是声波的接收过程…\n一般情况下, 作用于接收器表面的声压, 并不等于入射波的声压… –许肖梅, 声学原理\n压电效应 规则晶体对于压电效应没有贡献, 需要关心的是在晶体中不对称的结构. ChatGPT的见解 压电陶瓷等材料制作的超声发射器/探测器确实具有多个共振频率，这可能导致在这些频率附近的信号得到增强。测定探头的频域响应函数是一个合理的方法，但在设计方案时需要考虑一些因素：\n非线性效应： 在高振幅条件下，压电材料可能表现出非线性效应，导致频域响应的变化。这可能需要通过在设计中考虑非线性因素或采用特殊的信号处理技术来进行补偿。\n温度变化： 温度的变化可能会影响材料的物理性质，从而影响共振频率。设计中需要考虑温度补偿方法，以确保在不同温度条件下仍然能够准确还原信号。\n环境因素： 探测器在实际使用中可能受到环境噪声和其他干扰的影响。在设计中需要考虑如何抑制这些干扰，并确保信号的准确性。\n材料不均匀性： 实际制造中，压电陶瓷等材料可能存在一定的不均匀性，这可能导致频率响应的差异。在设计中需要考虑如何在制造过程中控制这种不均匀性。\n如果要设计方案还原真实信号，可以考虑以下方法：\n频率响应补偿： 通过事先测定探头的频域响应函数，并在信号处理中进行相应的频率响应补偿，以校正共振频率的影响。\n非线性校正： 考虑到非线性效应，可以采用先进的信号处理算法进行非线性校正，以减小非线性引起的失真。\n温度补偿： 引入温度传感器并采用自动温度补偿算法，以确保在不同温度下探头的性能稳定。\n环境噪声抑制： 使用滤波器、陷波器等技术，以抑制来自环境的干扰信号。\n精密制造和校准： 在制造过程中尽量减小材料不均匀性，同时进行严格的校准以确保每个探头的性能一致性。\n设计一个完善的方案需要综合考虑这些因素，并采用合适的工程技术手段来解决问题。\n接收器的机械阻抗通常很大, 可以近似为 “硬边界”. 设 $\\dot{\\xi}_{i}$ 为入射波在接收器表面上产生的振速, $\\dot{\\xi}_{r}$ 为散射波在接收器表面产生的振速, 则应有\n$$ \\dot{\\xi}_{i} + \\dot{\\xi}_{r} = \\mathbf{0} $$\n辐射声波时, 介质对声源有反作用力\n$$ F_{r} = -\\dot{\\xi}_{r}Z_{S} $$\n$Z_{S}$: 二次辐射的辐射阻抗, $\\dot{\\xi}_{r}$: 辐射器表面的振速.\n对接收器, 其所受的作用力即为\n$$ F = -\\dot{\\xi}_{r}Z_{S} = \\dot{\\xi}_{i}Z_{S} $$\n设入射波在接收面上的声压等于 $p_{i}$, 接收面面积为 $S$, 则接收面所受合力为\n$$ F = p_{i}S + \\dot{\\xi}_{1}Z_{S} $$\n因接收端离声源较远, 因此将入射波近似为平面波:\n$$ \\dot{\\xi}_{i} = \\frac{p_{i}}{\\rho_{0}c_{0}} $$\n将其代入 $F$ 的表达式, 即有声压为接收面上所受的平均压力:\n$$ p = \\frac{F}{S} = p_{i} = \\left(1 + \\frac{Z_{S}}{\\rho_{0}c_{0}S}\\right) = \\widetilde{K}\\cdot p_{i} $$\n$\\widetilde{K} = 1 + \\frac{Z_{S}}{\\rho_{0}c_{0}S}$, $Z_{S}\\in\\mathbb{C}\\rightarrow \\widetilde{K}\\in\\mathbb{C}$.\n这意味着不仅强度不同, 相位也发生了改变.\n设圆面半径为 $a$.\n当 $ka\\ll 1$ 时, 其辐射阻抗为 $$ Z_{S} = r_{S} + ix_{S}\\approx \\rho_{0}c_{0}S\\frac{(ka)^{2}}{2} + i\\rho_{0}c_{0}S\\frac{8ka}{3\\pi} $$\n则\n$$ \\widetilde{K} = 1 + \\frac{Z_{S}}{\\rho_{0}c_{0}S}\\approx 1 + \\frac{(ka)^{2}}{2} + i\\frac{8ka}{3\\pi} $$\n所以\n$$ \\lim_{ka\\ll 1}\\widetilde{K} = 1 $$\n当 $ka\\gg 1$ 时, 其辐射阻抗为 $$ Z_{S} = \\rho_{0}c_{0}S $$\n所以\n$$ \\lim_{ka\\gg 1}\\widetilde{K} = 2 $$\n比较完整的 $2a/\\lambda$ 域分布:\n进行简单的估算: 贾老师的探测面直径 $d = 30\\text{ mm}$, $\\lambda_{E}\\approx \\frac{1000\\text{ m/s}}{500\\text{ kHz}} = 2\\text{mm}$. 则 $d/\\lambda \\approx 15\\gg 1$, 即应当采用短波极限. (当然, 实际上是在很宽的频域内分析的, 所以这也是响应函数的一部分)\n与声波波长相比, 接收器的尺寸越小, 其声场畸变越小. 在各类形状因素中, 又以球形接收器最小.\n以上结论是接收器为圆面导出的, 但是在其他普通情况下, 也有类似的结论.\n畸变与失真 $p = \\widetilde{K}p_{i}$\n需要注意的是, 由于辐射阻抗 $Z_{S} = Z_{S}(f)$, 所以 $\\widetilde{K} = \\widetilde{K}(f)$. 我们需要从频域分析来回答畸变的问题.\n令自由场中声压为 $p_{i}(t)$. 则频域分布为\n$$ F(\\omega) = \\int_{-\\infty}^{+\\infty}p_{i}(t)e^{-i\\omega t}\\mathrm{d}t $$\n反变换:\n$$ p_{i}(t) = \\frac{1}{2\\pi}\\int_{-\\infty}^{+\\infty}F(\\omega)e^{i\\omega t}\\mathrm{d}\\omega $$\n接收声压为\n$$ p(t) = p_{i}(t)\\widetilde{K}(\\omega) $$\n其频谱密度为\n$$ \\begin{aligned} F(\\omega) \u0026= \\int_{-\\infty}^{+\\infty}p_{i}(\\omega)\\widetilde{K}(\\omega)e^{-i\\omega t}\\mathrm{d}t\\\\ \u0026= \\widetilde{K}(\\omega)\\int_{-\\infty}^{+\\infty}p_{i}(t)e^{-i\\omega t}\\mathrm{d}t = \\widetilde{K}(\\omega)F_{i}(\\omega) \\end{aligned} $$\n反变换为\n$$ p(t) = \\frac{1}{2\\pi}\\int_{-\\infty}^{+\\infty}F(\\omega)e^{i\\omega t}\\mathrm{d}\\omega = \\frac{1}{2\\pi} \\int_{-\\infty}^{+\\infty}\\widetilde{K}(\\omega)F(\\omega)e^{i\\omega t}\\mathrm{d}\\omega $$\n所以接收器接收到的波形 $p(t)$ 一般都不同于入射波形 $p_{i}(t)$.\n为了避免接收失真, 需要考虑探头尺度和接收信号之间的相性. 令 $f_{b}$ 为入射声波频域内最高频率成分, 则对应波长\n$$ \\lambda_{b} = \\frac{c}{f_{b}} $$\n为各成分中最短的. 观察上插图可知, $\\widetilde{K}\\approx 1 \\Leftarrow \\frac{2a}{\\lambda} \\leq \\frac{1}{4}$. 因此有\n$$ d\\leq \\frac{\\lambda_{b}}{4} $$\n做一个简单的估算: 我们采用的探头尺度为 $d = 19\\text{ mm}$, 则最短波长为 $f_{b}\\approx 4\\times 19\\text{ mm} \\approx 80\\text{ mm}$, 而目前所做的实验等效波长 $\\lambda_{E}$ ~ $nd_{i}\\approx 10^{1}\\text{ mm}$, 这显然是无法满足的. 也就是说, 对于这一部分响应函数也是需要考虑的.\n响应与指向 一个接收器在给定的频率下, 单位平面波声压所产生的开路电压, 即为此接收器在该给定频率下的响应/灵敏度.\n注意: 接收器表面的实际声压与接收器没有放入声场时该点的自由场声压不同, 所以需要分开谈论.\n实际声压响应. $$ M_{e} = \\frac{V(\\theta,\\varphi)}{p(\\theta,\\varphi)} $$\n$M_{e}$: 实际声压响应($\\text{V}/\\mu\\text{bar}$); $V$: 接收器开路电压($\\text{V}$); $p$: 接收器表面实际声压($\\mu\\text{bar}=\\text{dyn/cm}^{2}$).\n自由场响应 如果单位平面波声压指的是在接收器放入声场以前被测点的自由场声压, 此时接收器而对响应为自由场响应.\n$$ M_{F} = \\frac{V(\\theta,\\varphi)}{p_{0}} $$\n$V$: 接收器开路电压($\\text{V}$); $p_{0}$: 被测点自由场声压($\\mu\\text{bar}$).\n用 $\\text{dB}$ 表示接收器的响应:\n$$ E_{\\text{实际声压}} = 20\\log_{10}M_{e} = 20\\log_{10}\\frac{V}{p}\\\\ E_{\\text{自由场}} = 20\\log_{10}M_{F} = 20\\log_{10}\\frac{V}{p_{0}} $$\n接收器的方向特性可用接收器的自由场相对响应来表示. 选取接收器最大相应方向为参考方向, 以球坐标表示即有\n$$ R(\\theta, \\varphi) = \\frac{M_{F}(\\theta, \\varphi)}{M_{F}(0,0)} = \\frac{V(\\theta, \\varphi)}{V(0,0)} $$\n因为 $p_{0}$ 被消去了, 所以 $R$ 也被称作 相对电压响应.\n阵元法求解相对响应函数 一维阵元 设 $n$ ($n = 2k + 1,k\\in\\mathbb{Z}$) 个相同的点接收器以等距 $d$ 排成直线.\n令一平面波与阵法线成 $\\theta$ 角入射, 则阵元间存在 “声程差”. $+1$ 阵元与 $0$ 阵元的声程差为\n$$ l_{1} = d\\sin{\\theta} $$\n对应的相差为\n$$ \\phi_{1} = \\omega\\frac{d\\sin{\\theta}}{c} $$\n类似的, 写出 $+\\frac{n-1}{2}$ 阵元与 $0$ 阵元的声程差及其相差为\n$$ l_{\\frac{n-1}{2}} = \\frac{n-1}{2}d\\sin{\\theta},\\quad \\phi_{\\frac{n-1}{2}} = \\omega\\frac{n-1}{2}\\frac{d\\sin{\\theta}}{c} = \\frac{(n-1)\\pi}{\\lambda}d\\sin{\\theta} $$\n假定各阵元的声压响应都为 $M_{0}$, 总输出电压为阵元输出电压之和. 则\n计算方法 设 $0$ 处信号为 $p_{0}\\cos{\\omega t}$, 则信号之和为\n$$ \\begin{aligned} p \u0026= p_{0}\\cos{\\omega t}+ p_{0}\\cos{(\\omega t + 2\\phi)} + p_{0}\\cos{(\\omega t + 4\\phi)} + \\dots + p_{0}\\cos{(\\omega t + (n-1)\\phi)}\\\\ \u0026+ p_{0}\\cos{(\\omega t - 2\\phi)} + p_{0}\\cos{(\\omega t - 4\\phi)} + \\dots + p_{0}\\cos{(\\omega t - (n-1)\\phi)}\\\\ \u0026= p_{0}\\cos{(\\omega t)}[1 + 2\\cos{(2\\phi)} + 2\\cos{(4\\phi)} + \\dots + 2\\cos{((n-1)\\phi)}] \\end{aligned} $$\n其中 $\\phi = \\frac{\\pi d\\sin{\\theta}}{\\lambda}$\n而\n$$ 1 + \\cos{\\theta} + \\cos{2\\theta} + \\dots + \\cos{n\\theta}\\\\ = \\mathcal{R}(1 + e^{i\\theta} + e^{2i\\theta} + \\dots + e^{ni\\theta})\\\\ = \\mathcal{R}\\left(\\frac{e^{(n+1)i\\theta} - 1}{e^{i\\theta} - 1}\\right) = \\mathcal{R}\\left(\\frac{e^{\\frac{n+1}{2}i\\theta}}{e^{i\\frac{\\theta}{2}}}\\cdot\\frac{e^{\\frac{n+1}{2}i\\theta} - e^{-\\frac{n+1}{2}i\\theta}}{e^{i\\frac{\\theta}{2}} - e^{-i\\frac{\\theta}{2}}}\\right)= \\mathcal{R}\\left(e^{\\frac{n}{2}i\\theta}\\cdot\\frac{\\sin{\\left(\\frac{n+1}{2}\\theta\\right)}}{\\sin{\\frac{\\theta}{2}}}\\right)\\\\ = \\frac{\\cos{\\frac{n\\theta}{2}}\\cdot\\sin{\\left(\\frac{n+1}{2}\\theta\\right)}}{\\sin{\\frac{\\theta}{2}}} = \\frac{1}{2}\\frac{\\sin{\\left(\\frac{n\\theta}{2} + \\frac{(n+1)\\theta}{2}\\right)} - \\sin{\\left(\\frac{n\\theta}{2} - \\frac{(n+1)\\theta}{2}\\right)}}{\\sin{\\frac{\\theta}{2}}}\\\\ = \\frac{1}{2}\\frac{\\sin{\\left(\\left(n + \\frac{1}{2}\\right)\\theta\\right)} + \\sin{\\frac{\\theta}{2}}}{\\sin{\\frac{\\theta}{2}}} $$\n所以\n$$ 1 + 2\\cos{(2\\phi)} + 2\\cos{(4\\phi)} + \\dots + 2\\cos{((n-1)\\phi)}\\\\ = 2(1 + \\cos{(2\\phi)} + \\cos{(4\\phi)} + \\dots + \\cos{((n-1)\\phi)} ) - 1\\\\ = 2(1 + \\cos{\\Phi} + \\cos{2\\Phi} + \\dots + \\cos{\\frac{n-1}{2}\\Phi} ) - 1\\\\ = 2\\cdot\\frac{1}{2}\\frac{\\sin{\\left(\\left(\\frac{n-1}{2} + \\frac{1}{2}\\right)\\Phi\\right)} + \\sin{\\frac{\\Phi}{2}}}{\\sin{\\frac{\\Phi}{2}}} - 1\\\\ = \\frac{\\sin{\\frac{n}{2}\\Phi}}{\\sin{\\frac{\\Phi}{2}}} = \\frac{\\sin{n\\phi}}{\\sin{\\phi}} = \\frac{\\sin{\\left(\\frac{n\\pi d\\sin{\\theta}}{\\lambda}\\right)}}{\\sin{\\left(\\frac{\\pi d\\sin{\\theta}}{\\lambda}\\right)}} $$\n$$ V(\\theta) = M_{0}p_{0}\\frac{\\sin{\\left(\\frac{n\\pi}{\\lambda}d\\sin{\\theta}\\right)}}{\\sin{\\left(\\frac{\\pi}{\\lambda}d\\sin{\\theta}\\right)}} $$\n显然, 如果声波垂直入射($\\theta = 0$), 则声程差为 $0$, 总信号为\n$$ V(0) = M_{0}p_{0}n $$\n所以相对响应为\n$$ R(\\theta) = \\frac{V(\\theta)}{V(0)} = \\frac{\\sin{\\left(\\frac{n\\pi}{\\lambda}d\\sin{\\theta}\\right)}}{n\\sin{\\left(\\frac{\\pi}{\\lambda}d\\sin{\\theta}\\right)}} $$\n其函数形式与衍射光栅中的干涉因子 $I$(更准确的说是 $\\sqrt{I}$, 因为光强需要对幅值进行平方) 相同.\n这就是接收器的指向性.\n若采用 $n\\rightarrow \\infty$ 极限, 则离散阵化为连续阵. 设长 $L$ 的连续直线接收器的声压响应为 $M(\\theta, \\varphi)$, 则 $d\\rightarrow 0, nd=L$:\n$$ V(\\theta) = M(\\theta, \\varphi)p = M(\\theta, \\varphi)p_{0}\\frac{\\sin{\\left(\\frac{\\pi L}{\\lambda}\\sin{\\theta}\\right)}}{\\frac{\\pi L}{\\lambda}\\sin{\\theta}}\\Rightarrow R(\\theta) = \\frac{\\sin{\\left(\\frac{\\pi L}{\\lambda}\\sin{\\theta}\\right)}}{\\frac{\\pi L}{\\lambda}\\sin{\\theta}} $$\n圆形活塞式接收器 考虑接收器散射波的影响, 有\n$$ R(\\theta, \\varphi) = \\frac{P(\\theta, \\varphi)}{P(0,0)} $$\n$P(\\theta, \\varphi)$ 和 $P(0,0)$ 均为实际声压. $P(0,0)$ 是声波沿着接收器最大响应方向入射时接收器表面的实际声压; $P(\\theta, \\varphi)$ 为声波沿着与接收器最大响应方向成 $\\theta, \\varphi$ 角度入射产生的接收器表面实际声压.\n$p_{i}$ 入射波在 $O$ 点的声压; $\\dot{\\xi}_{i}$: 入射波在 $O$ 点产生的振速; $\\theta$: 入射波与接收面法线的夹角.\n可以近似接收面上个点幅值相同而相位不同. 设 $\\epsilon$ 为面元 $\\mathrm{d}S$ 与 $O$ 点处的声程差, 则 $\\mathrm{d}S$ 处的声压为\n$$ p_{i}e^{-ik\\epsilon} $$\n振速为\n$$ \\dot{\\xi}_{i}e^{-ik\\epsilon} $$\n若将接收面视为刚性边界, 则入射波与散射波在法线方向上的振速分量应当相等. 即 $\\mathrm{d}S$ 散射波法线方向振速为 $-\\dot{\\xi}_{i}e^{-ik\\epsilon}\\cos{\\theta}$.\n散射波会对接收面产生反作用力, 大小为散射波法线振速乘接收器表面辐射阻抗, 且与接收器法线方向相反:\n$$ -(-\\dot{\\xi}_{i}e^{-ik\\epsilon}\\cos{\\theta})\\frac{Z_{S}}{S}\\mathrm{d}S = \\dot{\\xi}_{i}e^{-ik\\epsilon}\\cos{\\theta}\\frac{Z_{S}}{S}\\mathrm{d}S $$\n$Z_{S}$: 整个接收器的辐射阻抗; $S$: 接收器面积; $\\frac{Z_{S}}{S}$: 接收面单位面积的辐射阻抗; $\\frac{Z_{S}}{S}\\mathrm{d}S$: 面元 $\\mathrm{d}S$ 的辐射阻抗.\n积分得到散射波对接收面的作用力:\n$$ F_{S}(\\theta) = \\iint_{S}\\frac{Z_{S}}{S}\\dot{\\xi}_{i}e^{-ik\\epsilon}\\cos{\\theta}\\mathrm{d}S = \\frac{Z_{S}}{S}\\dot{\\xi}_{i}\\cos{\\theta}\\iint_{S}e^{-ik\\epsilon}\\mathrm{d}S $$\n垂直入射($\\theta=0$), 即 $\\epsilon = 0$. 有\n$$ F_{S}(0) = \\frac{Z_{S}}{S}\\dot{\\xi}_{i}\\iint_{S}\\mathrm{d}S = \\frac{Z_{S}}{S}\\dot{\\xi}_{i}S = Z_{S}\\dot{\\xi}_{i} $$\n平均声压采用为\n$$ p_{S}(\\theta) = \\frac{F_{S}(\\theta)}{S} $$\n则\n$$ \\frac{p_{S}(\\theta)}{p_{S(0)}} = \\frac{F_{S}(\\theta)}{F_{S}(0)} = \\frac{\\dot{\\xi}_{i}\\cos{\\theta}\\iint_{S}e^{-ik\\epsilon}\\mathrm{d}S}{\\dot{\\xi}_{i}S} = \\cos{\\theta}\\cdot\\color{red}{\\frac{\\iint_{S}e^{-ik\\epsilon}\\mathrm{d}S}{S}} = \\cos{\\theta}\\cdot \\color{red}{R(\\theta)} $$\n将入射波近似为平面波, 则有\n$$ \\dot{\\xi}_{i} = \\frac{p_{i}}{\\rho_{0}c_{0}} $$\n入射波的作用力 $F_{i}(\\theta)$ 为:\n$$ F_{i}(\\theta) = \\iint_{S}p_{i}e^{-ik\\epsilon}\\mathrm{d}S = p_{i}\\iint_{S}e^{-ik\\epsilon}\\mathrm{d}S $$\n垂直入射($\\theta = 0$)时, 声程差为 $0$, 有\n$$ p_{i}(0) = \\iint_{S}p_{i}\\mathrm{d}S = p_{i}S $$\n一般情况下, 则入射波平均声压为\n$$ p_{i}(\\theta) = \\frac{F_{i}(\\theta)}{S} $$\n所以\n$$ \\frac{p_{i}(\\theta)}{p_{i}(0)} = \\frac{F_{i}(\\theta)}{F_{i}(0)} = \\frac{\\iint_{S}e^{-ik\\epsilon}\\mathrm{d}S}{S} = R(\\theta) $$\n接收器表面收到的实际声压 $p(\\theta)$ 是入射波与散射波之和:\n$$ p(\\theta) = p_{i}(\\theta) + p_{S}(\\theta) = p_{i}(0)R(\\theta) + p_{S}\\cos{\\theta}R(\\theta)\\\\ = [p_{i}(0) + p_{S}(0)\\cos{\\theta}]R(\\theta) = \\left[p_{i}(0) + \\frac{Z_{S}\\dot{\\xi}_{i}}{S}\\cos{\\theta}\\right]R(\\theta) = p_{i}R(\\theta)\\left[1 + \\frac{Z_{S}\\cos{\\theta}}{\\rho_{0}c_{0}S}\\right] $$\n垂直入射($\\theta = 0$)即有\n$$ p(0) = p_{i}(0) + p_{S}(0) = p_{i}\\left(1 + \\frac{Z_{S}}{\\rho_{0}c_{0}S}\\right) $$\n相对响应\n$$ R_{l}(\\theta) = \\frac{p(\\theta)}{p(0)} = \\frac{1 + \\frac{Z_{S}\\cos{\\theta}}{\\rho_{0}c_{0}S}}{1 + \\frac{Z_{S}}{\\rho_{0}c_{0}S}}\\cdot R(\\theta) $$\n设圆形活塞式接收器半径为 $a$, 则\n高频($\\lambda \\ll a$) $$ Z_{S}\\approx \\rho_{0}c_{0}S\\Rightarrow R_{l}(\\theta) = \\frac{1 + \\cos{\\theta}}{2}R(\\theta) $$\n低频($\\lambda \\gg a$) $$ Z_{S}\\approx \\rho_{0}c_{0}S\\frac{(ka)^{2}}{2} + i\\rho_{0}c_{0}S\\frac{8ka}{3\\pi}\\Rightarrow Z_{S} = 0 $$\n所以\n$$ R_{l}(\\theta) = R(\\theta) $$\n噪声 同一方向性的接收器在接收同样的信号时, 若噪声场不同, 则接收到的信号也不同.\n假设: 1. 噪声源相位随机, 互不相关; 2. 噪声强度各向同性; 3. 噪声源远离接收系统.\n理想流体介质中的声波 三个物理量: 声压 $p$, 振速 $u$, 密度 $\\rho$. 运用基本定律推导出三者的关系式.\n理想流体的假定条件: 1. 无粘性; 2. 连续性; 3. 均匀性; 4. 绝热性; 5. 无旋性; 6. 微扰性. 因此研究的是小振幅声波在流体介质中的传播规律. 大振幅的声波需要到非线性声学部分研究.\n基本方程 运动方程 设介质静止 $u_{0} = 0$, 静止密度为 $\\rho_{0}$. 则在 $x$ 轴上, 当声波通过时, 存在振速分布函数 $u(x,y,z,t)$, 压强分布函数 $P_{0} + p(x,y)$. 则体元 $\\Delta V$ 在 $x$ 轴上所受合力为\n$$ F_{x} = F_{1} - F_{2} = -\\Delta P\\Delta y\\Delta z $$\n因为是小振幅波动所以取一阶近似, 有\n$$ -\\Delta P\\Delta y\\Delta z = \\rho\\Delta x\\Delta y\\Delta z\\frac{\\partial u_{x}}{\\partial t}\\rightarrow -\\frac{\\Delta P}{\\Delta x} = \\rho\\frac{\\partial u_{x}}{\\partial t}\\rightarrow -\\frac{\\partial P}{\\partial x} = \\rho_{0}\\frac{\\partial u_{x}}{\\partial t} $$\n应用在 $y$ 轴和 $z$ 轴上后, 合并写作 $\\nabla$ 算子的形式:\n$$ -\\nabla P = -\\nabla(p + P_{0}) = \\boxed{-\\nabla p = \\rho_{0}\\frac{\\mathrm{d}\\mathbf{u}}{\\mathrm{d}t}} $$\n连续性方程 核心思想是流体质量定理. 设 $t$ 时振速分布为 $\\mathbf{u}(x,y,z,t)$, 仍以 $x$ 轴为例进行分析.\n在 $\\Delta t$ 时间内, 流入 $\\Delta V$ 的质量为 $\\rho u_{x}\\Delta y\\Delta z\\Delta t$ ($\\rho u_{x}$ 为单位时间通过单位面积的质量), 流出 $\\Delta V$ 的质量为\n$$ \\left[\\rho u_{x} + \\frac{\\partial }{\\partial x}(\\rho u_{x})\\Delta x\\right]\\Delta y\\Delta z\\Delta t $$\n那么 $x$ 方向上在 $\\Delta t$ 时间的质量增量为\n$$ -\\frac{\\partial }{\\partial x}(\\rho u_{x})\\Delta x\\Delta y\\Delta z\\Delta t $$\n体元 $\\Delta V$ 内的质量变换量为\n$$ \\Delta m = \\Delta\\rho\\Delta x\\Delta y\\Delta z = -\\left[\\frac{\\partial }{\\partial x}(\\rho u_{x}) + \\frac{\\partial }{\\partial y}(\\rho u_{y}) + \\frac{\\partial }{\\partial z}(\\rho u_{z})\\right]\\Delta x\\Delta y\\Delta z\\Delta t $$\n消去微元并取极限形式:\n$$ \\frac{\\partial\\rho}{\\partial t} = -\\left[\\frac{\\partial }{\\partial x}(\\rho u_{x}) + \\frac{\\partial }{\\partial y}(\\rho u_{y}) + \\frac{\\partial }{\\partial z}(\\rho u_{z})\\right] $$\n取小振幅极限 $\\rho\\approx\\rho_{0}$, 即有 $\\frac{\\partial }{\\partial x}(\\rho u_{x}) \\approx \\rho_{0}\\frac{\\partial u_{x}}{\\partial x}$. 同理处理 $y$ 轴和 $z$ 轴, 并合并写作 $\\nabla$ 算子形式:\n$$ \\boxed{\\frac{\\partial\\rho}{\\partial t} = -\\rho_{0}\\nabla\\cdot\\mathbf{u}} $$\n状态方程 因为近似为绝热过程, 因此认为 $P = P(\\rho)$. 在静态密度 $\\rho_{0}$ 附近进行泰勒展开:\n$$ P = P(\\rho_{0}) + \\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}}(\\rho - \\rho_{0}) + \\frac{1}{2!}\\left(\\frac{\\mathrm{d}^{2}P}{\\mathrm{d}\\rho^{2}}\\right)_{S,\\rho_{0}}(\\rho - \\rho_{0})^{2} + \\cdots $$\n注意到介质膨胀时, $\\mathrm{d}P\u003c0, \\mathrm{d}\\rho \u003c 0$; 介质压缩时, $\\mathrm{d}P\u003e0, \\mathrm{d}\\rho \u003e 0$. 因此 $\\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}}$ 恒正. 因此设\n$$ c^{2} = \\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}} $$\n理想气体绝热状态方程为 $PV^{\\gamma} = P_{0}V_{0}^{\\gamma}$ (其中 $\\gamma = \\frac{C_{P}}{C_{V}}$, 空气取 $\\gamma=1.4$), 质量守恒有 $M = \\rho V = \\textit{const.}$, 因此 $\\rho V = \\rho_{0}V_{0}$. 两者联立有\n$$ P = \\left(\\frac{\\rho}{\\rho_{0}}\\right)^{\\gamma}P_{0} = \\left(\\frac{\\rho_{0} + \\mathrm{d}\\rho}{\\rho_{0}}\\right)^{\\gamma}P_{0} \\approx P_{0} + \\frac{\\gamma P_{0}}{\\rho_{0}}\\mathrm{d}\\rho + \\cdots $$\n取小振幅近似 $\\frac{\\mathrm{d}\\rho}{\\rho_{0}}\\ll 1$, 即有\n$$ p = P - P_{0} = \\mathrm{d}P \\approx \\left(\\frac{\\gamma P_{0}}{\\rho_{0}}\\right)\\mathrm{d}\\rho = c^{2}\\mathrm{d}\\rho $$\n于是得到理想气体中的声速表达式:\n$$ c^{2} = \\frac{\\gamma P_{0}}{\\rho_{0}} $$\n将 $p$ 和 $\\rho^{\\prime}$ 视为 $P$ 和 $\\rho$ 的变化量, $\\mathrm{d}P = \\left(\\frac{\\mathrm{d}P}{\\mathrm{d}\\rho}\\right)_{S,\\rho_{0}}\\mathrm{d}\\rho$ 两边同时对时间求导, 即有\n$$ \\frac{\\mathrm{d}p}{\\mathrm{d}t} = c^{2}\\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} $$\n在液体中, 则改写为\n$$ c = \\frac{1}{\\sqrt{\\beta_{S}\\rho_{0}}} $$\n$\\beta_{S}$ 为绝热体积压缩系数.\n波动方程 前面已经知道\n$$ -\\nabla p = \\color{red}{\\rho_{0}\\frac{\\partial\\mathbf{u}}{\\partial t}}\\\\ \\frac{\\partial\\rho}{\\partial t} = -\\rho_{0}\\nabla\\cdot\\mathbf{u}\\\\ \\frac{\\mathrm{d}p}{\\mathrm{d}t} = c^{2}\\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} $$\n声学测量中通常关心 $p$ 描述声场. 对第二个式子时间求导:\n$$ \\frac{\\partial^{2}\\rho^{\\prime}}{\\partial t^{2}} + \\nabla\\cdot\\left(\\color{red}{\\rho_{0}\\frac{\\partial\\mathbf{u}}{\\partial t}}\\right) = 0 $$\n代入第一个式子, 有\n$$ \\color{green}{\\frac{\\partial^{2}\\rho^{\\prime}}{\\partial t^{2}}} - \\nabla\\cdot(\\nabla p) = 0 $$\n密度变化量的全微分为\n$$ \\begin{aligned} \\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} \u0026= \\frac{\\partial\\rho^{\\prime}}{\\partial t} + \\frac{\\partial\\rho^{\\prime}}{\\partial x}\\frac{\\mathrm{d}x}{\\mathrm{d}t} + \\frac{\\partial\\rho^{\\prime}}{\\partial y}\\frac{\\mathrm{d}y}{\\mathrm{d}t} + \\frac{\\partial\\rho^{\\prime}}{\\partial z}\\frac{\\mathrm{d}z}{\\mathrm{d}t}\\\\ \u0026= \\frac{\\partial\\rho^{\\prime}}{\\partial t} + \\left(u_{x}\\frac{\\partial }{\\partial x} + u_{y}\\frac{\\partial }{\\partial y} + u_{z}\\frac{\\partial }{\\partial z}\\right)\\rho^{\\prime}\\\\ \u0026= \\frac{\\partial\\rho^{\\prime}}{\\partial t} + (\\mathbf{u}\\cdot\\nabla)\\rho^{\\prime} \\end{aligned} $$\n小振幅时 $(\\mathbf{u}\\cdot\\nabla)\\rho^{\\prime}$ 为二阶小量. 因此有\n$$ \\frac{\\mathrm{d}\\rho^{\\prime}}{\\mathrm{d}t} \\approx \\frac{\\partial \\rho^{\\prime}}{\\partial t}, \\frac{\\mathrm{d}p}{\\mathrm{d}t}\\approx \\frac{\\partial p}{\\partial t} $$\n因此第三个式子改写为\n$$ \\frac{\\partial p}{\\partial t} = c^{2}\\frac{\\partial\\rho^{\\prime}}{\\partial t}\\rightarrow {\\frac{\\partial^{2}p}{\\partial t^{2}}} = c^{2}\\color{green}{\\frac{\\partial^{2}\\rho^{\\prime}}{\\partial t^{2}}} $$\n观察绿色项, 得到最后的方程\n$$ \\boxed{\\frac{\\partial^{2} p}{\\partial t^{2}} = c^{2}\\nabla^{2}p} $$\n拉普拉斯算子 直角坐标系 $$ \\nabla^{2} = \\frac{\\partial^{2}}{\\partial x^{2}} + \\frac{\\partial^{2}}{\\partial y^{2}} + \\frac{\\partial^{2}}{\\partial z^{2}} $$\n球坐标系 $$ \\nabla^{2} = \\frac{1}{r^{2}}\\frac{\\partial}{\\partial r}\\left(r^{2}\\frac{\\partial}{\\partial r}\\right) + \\frac{1}{r^{2}\\sin\\theta}\\frac{\\partial}{\\partial \\theta}\\left(\\sin\\theta\\frac{\\partial}{\\partial \\theta}\\right) + \\frac{1}{r^{2}\\sin^{2}\\theta}\\frac{\\partial^{2}}{\\partial \\phi^{2}} $$\n柱坐标系 $$ \\nabla^{2} = \\frac{1}{r}\\frac{\\partial}{\\partial r}\\left(r\\frac{\\partial}{\\partial r}\\right) + \\frac{1}{r^{2}}\\frac{\\partial^{2}}{\\partial \\phi^{2}} + \\frac{\\partial^{2}}{\\partial z^{2}} $$\n声速度势 振速可以通过运动方程化为积分式得到:\n$$ \\mathbf{u}(x,y,z,t) = -\\frac{1}{\\rho_{0}}\\int_{0}^{t}\\nabla p(x,y,z,t^{\\prime})\\mathrm{d}t^{\\prime} $$\n$$ \\frac{\\partial u_{x}}{\\partial y} - \\frac{\\partial u_{y}}{\\partial x} = 0\\\\ \\frac{\\partial u_{x}}{\\partial z} - \\frac{\\partial u_{z}}{\\partial x} = 0\\\\ \\frac{\\partial u_{y}}{\\partial z} - \\frac{\\partial u_{z}}{\\partial y} = 0 $$\n合并写作旋度形式:\n$$ \\nabla\\times\\mathbf{u} = 0 $$\n即小振幅声场在理想流体中为 无旋场.\n又有 $\\nabla\\times(\\nabla \\Psi) = 0$, 因此令 $\\mathbf{u} = -\\nabla \\Psi$.\n旋度 直角坐标 $$ u_{x} = -\\frac{\\partial\\Psi}{\\partial x},\\quad u_{y} = -\\frac{\\partial\\Psi}{\\partial y},\\quad u_{z} = -\\frac{\\partial\\Psi}{\\partial z} $$\n球坐标 $$ u_{r} = -\\frac{\\partial\\Psi}{\\partial r},\\quad u_{\\theta} = -\\frac{1}{r}\\frac{\\partial\\Psi}{\\partial \\theta},\\quad u_{\\phi} = -\\frac{1}{r\\sin\\theta}\\frac{\\partial\\Psi}{\\partial \\phi} $$\n柱坐标 $$ u_{r} = -\\frac{\\partial\\Psi}{\\partial r},\\quad u_{\\phi} = -\\frac{1}{r}\\frac{\\partial\\Psi}{\\partial \\phi},\\quad u_{z} = -\\frac{\\partial\\Psi}{\\partial z} $$\n声波的吸收 介质的黏性吸收 对于平面波传播这类一维问题, 单位面积的黏性力可以表示为速度梯度的线性函数:\n$$ F_{\\eta} = \\eta\\frac{\\partial u}{\\partial x} $$\n$\\eta$ 即为黏度. 切变黏度 $\\eta^{\\prime}$, 容变黏度 $\\eta^{\\prime\\prime}$.\n$$ \\eta = \\frac{4}{3}\\eta^{\\prime} + \\eta^{\\prime\\prime} $$\n考虑黏性流体的运动方程变化 $p^{\\prime} = -F_{\\eta} = -\\eta\\frac{\\partial u}{\\partial x}$, 即有\n$$ \\rho_{0}\\frac{\\partial^{2}\\xi}{\\partial t^{2}} = -\\frac{\\partial p}{\\partial x} + \\eta\\frac{\\partial^{3}\\xi}{\\partial^{2}\\partial t} $$\n复习: $\\mathbf{u}$ 为质元振速, $\\mathbf{\\xi}$ 为质元相对平衡位置的位移. 即有 $$ \\mathbf{u} = \\frac{\\partial \\mathbf{\\xi}}{\\partial t}. $$\n体(绝热)弹性模量 $K_{S}$ 有\n$$ K_{S} = -V\\frac{\\mathrm{d}P}{\\mathrm{d}V} $$\n用声压 $p$ 来代替 $\\mathrm{d}P$, 即有\n$$ p = -K_{S}\\frac{\\mathrm{d}V}{V} = -K_{S}\\Delta $$\n在平面波情况下, $\\Delta = \\frac{\\mathrm{d}V}{V} = -\\frac{\\mathrm{d}\\rho}{\\rho} = \\frac{\\partial \\xi}{\\partial x}$. 代入即有\n$$ p = -K_{S}\\frac{\\partial \\xi}{\\partial x} $$\n代入黏性流体介质的运动方程:\n$$ \\boxed{\\rho_{0}\\frac{\\partial^{2}\\xi}{\\partial t^{2}} = K_{S}\\frac{\\partial^{2}\\xi}{\\partial x^{2}} + \\eta\\frac{\\partial^{3}\\xi}{\\partial x^{2}\\partial t}} $$\n写为声速 $c_{0} = \\sqrt{\\frac{K_{S}}{\\rho_{0}}}$ 形式即为\n$$ \\boxed{\\frac{\\partial^{2}\\xi}{\\partial t^{2}} = c_{0}^{2}\\frac{\\partial^{2}\\xi}{\\partial x^{2}} + \\frac{\\eta}{\\rho_{0}}\\frac{\\partial^{3}\\xi}{\\partial x^{2}\\partial t}} $$\n设简谐声波, 则位移波函数为\n$$ \\xi(x,t) = \\xi_{1}(x)e^{i\\omega t}. $$\n代入运动方程, 化为 $\\xi_{1}$ 的微分方程\n$$ -\\rho_{0}\\omega^{2}\\xi_{1} = (K_{S} + i\\omega\\eta)\\frac{\\partial^{2}\\xi_{1}}{\\partial x^{2}} $$\n令 $K = K_{S} + i\\omega\\eta$, 则有\n$$ -\\rho_{0}\\omega^{2}\\xi_{1} = K\\frac{\\partial^{2}\\xi_{1}}{\\partial x^{2}}\\Rightarrow -k^{\\prime 2}\\xi_{1} = \\frac{\\partial^{2}\\xi_{1}}{\\partial x^{2}} $$\n$k^{\\prime} = \\omega\\sqrt{\\frac{\\rho_{0}}{K}} = \\frac{\\omega}{c} - i \\alpha_{\\eta}$\n所以位移波函数 $\\xi(x,t)$ 是两个独立解的线性叠加:\n$$ \\xi = (A e^{-ik^{\\prime}x} + B e^{ik^{\\prime}x})e^{i\\omega t} $$\n现在详细计算出声波传播速度 $c$ 与吸收系数 $\\alpha_{\\eta}$. 即有\n$$ K = K_{S}\\left(1 + i\\omega\\frac{\\eta}{K_{S}}\\right) = K_{S}(1 + i\\omega H) $$\n代入 $k^{\\prime}$ 表达式, 即有方程组\n$$ \\frac{\\omega^{2}}{c^{2}} - \\alpha_{\\eta}^{2} = \\frac{\\omega^{2}\\rho_{0}}{K_{S}} \\frac{1}{1 + \\omega^{2}H^{2}}\\\\ 2 \\alpha_{\\eta}\\frac{\\omega}{c} = \\frac{\\omega^{2}\\rho_{0}}{K_{S}} \\frac{\\omega H}{1 + \\omega^{2}H^{2}} $$\n即有解\n$$ c = \\sqrt{\\frac{K_{S}}{\\rho_{0}}}\\sqrt{\\frac{2(1 + \\omega^{2}H^{2})(\\sqrt{1 + \\omega^{2}H^{2}} - 1)}{\\omega^{2}H^{2}}}\\\\ \\alpha_{\\eta} = \\omega\\sqrt{\\frac{\\rho_{0}}{K_{S}}}\\sqrt{\\frac{\\sqrt{1 + \\omega^{2}H^{2}} - 1}{2(1 + \\omega^{2}H^{2})}} $$\n$\\omega H\\ll 1$, 即黏性力相较于弹性力很小时上式退化为\n$$ c = \\sqrt{\\frac{K_{S}}{\\rho_{0}}} = c_{0}\\\\ \\alpha_{\\eta} = \\frac{\\omega^{2}}{2\\rho_{0}c^{3}}\\eta = \\frac{\\omega^{2}}{2\\rho_{0}c^{3}}\\left(\\frac{4}{3}\\eta^{\\prime} + \\eta^{\\prime\\prime}\\right) $$\n可见高频吸收比低频大得多.\n论 $\\omega H\\ll 1$.\n$$ \\lim_{\\omega H\\ll 1}\\alpha_{\\eta}\\lambda = \\lim_{\\omega H\\ll 1} 2\\pi\\frac{\\sqrt{1 + \\omega^{2}H^{2}} - 1}{\\omega H} = \\pi\\omega H $$\n即黏性力相较于弹性力很小, 在一个波长距离上声波的吸收很小, 就可以导出以上近似表达式.\n将 $\\omega$ 写作 $f$ 形式并忽略容变黏度 $\\eta^{\\prime\\prime}$, 即有\n$$ \\alpha_{\\eta} = \\frac{8\\pi^{2}\\eta^{\\prime}}{3\\rho_{0}c^{3}}f^{2} $$\n介质的热吸收 介质中的温度梯度将导致热传导, 从而产生不可逆的机械-热转变.\n设介质中存在温度分布 $T(x,t)$, 因此有温度梯度 $\\frac{\\partial T}{\\partial x}$. 有\n$$ Q = -\\chi\\frac{\\partial T}{\\partial x} $$\n$Q$ 为单位时间通过单位面积的热量, $\\chi$ 称为热传导系数.\n所以体元 $\\Delta x\\Delta y\\Delta z$ 的热增量为\n$$ \\left[Q - \\left(Q + \\frac{\\partial Q}{\\partial x}\\Delta x\\right)\\right]\\Delta y\\Delta z\\delta t = -\\frac{\\partial Q}{\\partial x}\\Delta x\\Delta y\\Delta z\\delta t = \\chi\\frac{\\partial^{2}T}{\\partial x^{2}} $$\n消去所有微元并化为微分形式:\n$$ \\boxed{\\frac{\\partial q}{\\partial t} = \\frac{\\chi}{\\rho_{0}}\\frac{\\partial^{2}T}{\\partial x^{2}}} $$\n$q$ 为 单位质量 介质的热量.\n密度变化 $\\mathrm{d}\\rho$ 时, 引起变化 $\\mathrm{d}T,\\mathrm{d}V,\\mathrm{d}q$. 将热量变化近似为两个过程: 恒压加热($V_{0}\\rightarrow V_{0} + \\mathrm{d}V$), 等容加热($V = V_{0} + \\mathrm{d}V$ 下, $T_{0} + \\mathrm{d}T^{\\prime}\\rightarrow T_{0} + \\mathrm{d}T$):\n$$ \\begin{aligned} \\mathrm{d}q \u0026= \\mathrm{d}q_{1} + \\mathrm{d}q_{2}\\\\ \\mathrm{d}q_{1} \u0026= \\left(\\frac{\\partial q}{\\partial T}\\right)_{p}\\mathrm{d}T^{\\prime} = C_{p}\\mathrm{d}T^{\\prime}\\\\ \\mathrm{d}q_{2} \u0026= \\left(\\frac{\\partial q}{\\partial T}\\right)_{V}(\\mathrm{d}T - \\mathrm{d}T^{\\prime}) = C_{V}\\mathrm{d}T - C_{V}\\mathrm{d}T^{\\prime} \\end{aligned} $$\n所以有\n$$ \\mathrm{d}q = C_{P}\\mathrm{d}T + (C_{p} - C_{V})\\mathrm{d}T^{\\prime} $$\n而 $\\mathrm{d}T^{\\prime}$ 是恒压条件下 $V_{0}\\rightarrow V_{0} + \\mathrm{d}V$ 产生的温度增量, 即\n$$ \\mathrm{d}T^{\\prime} = \\left(\\frac{\\partial T}{\\partial V}\\right)_{P}\\mathrm{d}V $$\n对于单位质量而言 $\\rho V = 1$, 由此\n$$ \\begin{aligned} \\left(\\frac{\\partial T}{\\partial V}\\right)\\mathrm{d}V \u0026= \\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{P}\\left(\\frac{\\partial \\rho}{\\partial V}\\right)_{P}\\mathrm{d}V = \\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{P}\\left(\\frac{-1}{V^{2}}\\right)\\mathrm{d}V\\\\ \u0026= \\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{P}\\frac{1}{V}\\frac{\\mathrm{d}\\rho}{\\rho} = \\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{P}\\mathrm{d}\\rho \\end{aligned} $$\n所以\n$$ \\mathrm{d}T^{\\prime} = \\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{V}\\mathrm{d}\\rho $$\n将 $\\mathrm{d}T^{\\prime}$ 代入 $\\mathrm{d}q$ 的表达式:\n$$ \\mathrm{d}q = C_{V}\\mathrm{d}T + (C_{P} - C_{V})\\left(\\frac{\\partial T}{\\partial \\rho}\\right)_{P}\\mathrm{d}\\rho $$\n两边同时求时间偏导:\n$$ \\boxed{\\frac{\\partial q}{\\partial t} = C_{V}\\frac{\\partial T}{\\partial t} + C_{V}(\\gamma - 1)\\frac{\\partial \\rho}{\\partial t}} $$\n而密度函数 $\\rho(p,T)$ 的全微分:\n$$ \\mathrm{d}\\rho = \\left(\\frac{\\partial \\rho}{\\partial T}\\right)_{p}\\mathrm{d}T + \\left(\\frac{\\partial \\rho}{\\partial p}\\right)_{T}\\mathrm{d}p $$\n因为有声速 $c^{2} = \\gamma\\left(\\frac{\\partial p}{\\partial \\rho}\\right)_{T}$, 即有\n$$ \\boxed{\\left(\\frac{\\partial \\rho}{\\partial T}\\right)_{P}\\mathrm{d}T = \\mathrm{d}\\rho - \\frac{\\gamma}{c^{2}}\\mathrm{d}p} $$\n将各级结论联立, 即有\n$$ \\frac{\\partial p}{\\partial t} - c^{2}\\frac{\\partial \\rho}{\\partial t} = \\frac{\\chi}{\\rho_{0}C_{V}}\\left(\\frac{\\partial^{2}p}{\\partial x^{2}} - \\frac{c^{2}}{\\gamma}\\frac{\\partial^{2}p}{\\partial x^{2}}\\right) $$\n运动方程 $$ \\rho_{0}\\frac{\\partial^{2}\\xi}{\\partial t^{2}} = -\\frac{\\partial p}{\\partial x} $$ 连续性方程两边同时对 $x$ 求偏导 $$ \\frac{\\partial \\rho}{\\partial x} = -\\rho_{0}\\frac{\\partial^{2}\\xi}{\\partial x^{2}} $$ 代入以上两独立关系, 即得热传导效应下的声波方程:\n$$ \\frac{\\partial^{2}\\xi}{\\partial t^{2}} = c^{2}\\frac{\\partial^{2}\\xi}{\\partial x^{2}} + \\frac{\\chi}{\\rho_{0}C_{V}}\\cdot\\frac{\\gamma - 1}{\\gamma}\\cdot\\frac{\\partial^{3}\\xi}{\\partial x^{2}\\partial t} $$\n类比于黏性吸收得声波方程, 替换系数得到热传导吸收系数为\n$$ \\alpha_{h} = \\frac{\\omega^{2}}{2\\rho_{0}c^{3}}\\frac{\\chi(\\gamma - 1)}{C_{V}\\gamma} $$\n$\\gamma = \\frac{C_{P}}{C_{V}}$. $c$ 为理想流体小振幅绝热波速.\n对于水 $\\gamma\\approx 1$, 因此 $\\alpha_{h}\\ll \\alpha_{\\eta}$; 而对空气而言, $\\gamma\\approx 1.4$, $\\alpha_{h}/\\alpha_{\\eta} \\approx 3/8$. 因此气体得热传导吸收和切边黏性吸收为同等数量级.\n声波吸收经典公式 将黏性和热传导效应线性叠加, 即得到 Stokes-Kirchhoff 公式:\n$$ \\alpha = \\alpha_{\\eta} + \\alpha_{h} = \\frac{\\color{red}{\\omega^{2}}}{2\\rho_{0}c^{3}}\\left[\\frac{4}{3}\\eta^{\\prime} + \\chi\\left(\\frac{1}{C_{V}} - \\frac{1}{C_{P}}\\right)\\right] $$\n这就是超声波极易衰减的原因.\n注意: 该公式实际上并不能良好吻合, 因为忽略了容变黏度 $\\eta^{\\prime\\prime}$.\n分子弛豫吸收 为了解释和经典吸收值的偏离, 将分子内部自由度也考虑在内, 即状态变化考虑为内外自由度能量的重新分配, 这种平衡态的转移过程被称为弛豫. 标记一有限时间 $\\tau$ 为弛豫时间; 声振动转变为热运动的能量耗散(区别于热传导)引起声波的附加吸收. 该过程在宏观上与容变黏度 $\\eta^{\\prime\\prime}$ 有关.\n设非平衡态的定容热容\n$$ C_{V} = C_{V\\infty} + C_{t}(1 - e^{-\\frac{t}{\\tau_{m}}}) $$\n$C_{V\\infty}$ 是外自由度贡献的热容量, 与弛豫无关; $C_{t}$ 是 $\\tau_{m}\\rightarrow 0$ 时内自由度可贡献的热容量; $\\tau_{m}$ 是弛豫时间.\n低频时, 周期 $1/f\\gg\\tau_{m}$, 即内外自由度随时保持平衡, 即有近似 $$ C_{t} = C_{V0} = C_{C\\infty} + C_{t} $$\n非线性声学 有限振幅声波不可用线性声学理论解释.\n单频声波产生谐波, 分频波, 和频波, 差频波. 波的叠加原理不成立; 声速与流体应力呈正相关, 波形变为锯齿形; 高次谐波频率高, 吸收衰减快… 非线性传播 设质点振速为\n$$ u(x,t) = u_{m}\\sin{(\\omega t-kx)} $$\n则有\n$$ \\left|u\\frac{\\partial u}{\\partial x}\\right|\\propto ku_{m}^{2} = \\frac{\\omega}{c}u_{m}^{2},\\quad \\left|\\frac{\\partial u}{\\partial t}\\right|\\propto \\omega u_{m} $$\n注意到两者之比为\n$$ \\frac{\\left|u\\frac{\\partial u}{\\partial x}\\right|}{\\left|\\frac{\\partial u}{\\partial t}\\right|} = \\frac{u_{m}}{c} $$\n可见, 该数值越大, 非线性项越不可忽略. 历史上将该参数称为 声马赫数.\n参考流体力学中的基本方程, 建立非线性声学的基本关系:\n$$ \\frac{\\partial\\rho}{\\partial t} + \\nabla\\cdot(\\rho\\mathbf{u}) = 0\\\\ \\frac{\\partial}{\\partial t}(\\rho\\mathbf{u}) + \\rho\\mathbf{u}(\\nabla\\cdot\\mathbf{u}) + (\\mathbf{u}\\cdot\\nabla)\\rho\\mathbf{u} + \\nabla p = 0\\\\ P = P_{0} + \\left(\\frac{\\partial P}{\\partial\\rho}\\right)_{\\rho_{0}, S}(\\rho - \\rho_{0}) + \\frac{1}{2!}\\left(\\frac{\\partial^{2}P}{\\partial\\rho^{2}}\\right)_{\\rho_{0},S}(\\rho - \\rho_{0})^{2} + \\dots $$\n$\\rho = \\rho_{0} + \\rho^{\\prime}$ 为介质密度, $\\rho_{0}$ 为静态平衡密度, $\\rho^{\\prime}$ 为 逾量密度(即声波引起的变化量); $S$ 为熵, $\\left(\\frac{\\partial^{n}}{\\partial \\rho^{n}}\\right)_{\\rho_{0},S}$ 即等熵过程中 $P$ 对 $\\rho$ 的 $n$ 阶导数.\n线性声学中, 只取了一阶导数:\n$$ P\\approx P_{0} + \\left(\\frac{\\partial P}{\\partial \\rho}\\right)_{\\rho_{0},S}\\cdot(\\rho - \\rho_{0})\\approx P_{0} + \\rho_{0}\\left(\\frac{\\partial P}{\\partial \\rho}\\right)_{\\rho_{0},S}\\left(\\frac{\\rho - \\rho_{0}}{\\rho_{0}}\\right)\\approx P_{0} + A\\frac{\\rho - \\rho_{0}}{\\rho_{0}} $$\n$$ A = \\rho_{0}\\left(\\frac{\\partial P}{\\partial \\rho}\\right)_{\\rho_{0},S} = \\rho_{0}c_{0}^{2},\\quad c_{0}^{2} = \\left(\\frac{\\partial P}{\\partial \\rho}\\right)_{\\rho_{0},S} $$\n$c_{0}$ 为小振幅波速.\n对于有限振幅波, 则需要保留二阶小量:\n$$ P\\approx P_{0} + A\\frac{\\rho - \\rho_{0}}{\\rho_{0}} + \\frac{B}{2}(\\frac{\\rho - \\rho_{0}}{\\rho_{0}})^{2} $$\n$$ B = \\rho_{0}^{2}\\left(\\frac{\\partial^{2}P}{\\partial \\rho^{2}}\\right)_{P_{0}, S}, \\text{ or} B = \\rho_{0}^{2}\\left(\\frac{\\partial c^{2}}{\\partial \\rho}\\right) $$\n定义介质的 非线性参量 为\n$$ \\frac{B}{A} = \\frac{\\rho_{0}}{c_{0}^{2}}\\left(\\frac{\\partial^{2}P}{\\partial\\rho^{2}}\\right)_{P_{0},S} $$\n",
+  "wordCount" : "6543",
   "inLanguage": "zh",
   "datePublished": "2023-11-29T00:18:06+08:00",
   "dateModified": "2023-11-29T00:18:06+08:00",
@@ -372,13 +372,13 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>2693字
+        <span>6543字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>6分钟
+        <span>14分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -454,6 +454,28 @@ MathJax.Hub.Queue(function() {
 
         <div class="inner"><ul>
                 <li>
+                    <a href="#%e5%a3%b0%e6%b3%a2%e6%b5%8b%e9%87%8f%e5%8e%9f%e7%90%86" aria-label="声波测量原理">声波测量原理</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8e%a5%e6%94%b6%e5%99%a8%e8%a1%a8%e9%9d%a2%e5%a3%b0%e5%8e%8b-p-%e5%92%8c-%e5%85%a5%e5%b0%84%e5%a3%b0%e5%8e%8b-p_i" aria-label="接收器表面声压 $p$ 和 入射声压 $p_{i}$">接收器表面声压 $p$ 和 入射声压 $p_{i}$</a></li>
+                <li>
+                    <a href="#%e7%95%b8%e5%8f%98%e4%b8%8e%e5%a4%b1%e7%9c%9f" aria-label="畸变与失真">畸变与失真</a></li>
+                <li>
+                    <a href="#%e5%93%8d%e5%ba%94%e4%b8%8e%e6%8c%87%e5%90%91" aria-label="响应与指向">响应与指向</a><ul>
+                        
+                <li>
+                    <a href="#%e9%98%b5%e5%85%83%e6%b3%95%e6%b1%82%e8%a7%a3%e7%9b%b8%e5%af%b9%e5%93%8d%e5%ba%94%e5%87%bd%e6%95%b0" aria-label="阵元法求解相对响应函数">阵元法求解相对响应函数</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%80%e7%bb%b4%e9%98%b5%e5%85%83" aria-label="一维阵元">一维阵元</a></li>
+                <li>
+                    <a href="#%e5%9c%86%e5%bd%a2%e6%b4%bb%e5%a1%9e%e5%bc%8f%e6%8e%a5%e6%94%b6%e5%99%a8" aria-label="圆形活塞式接收器">圆形活塞式接收器</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%99%aa%e5%a3%b0" aria-label="噪声">噪声</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
                     <a href="#%e7%90%86%e6%83%b3%e6%b5%81%e4%bd%93%e4%bb%8b%e8%b4%a8%e4%b8%ad%e7%9a%84%e5%a3%b0%e6%b3%a2" aria-label="理想流体介质中的声波">理想流体介质中的声波</a><ul>
                         
                 <li>
@@ -484,8 +506,13 @@ MathJax.Hub.Queue(function() {
                     <a href="#%e5%88%86%e5%ad%90%e5%bc%9b%e8%b1%ab%e5%90%b8%e6%94%b6" aria-label="分子弛豫吸收">分子弛豫吸收</a></li></ul>
                 </li>
                 <li>
-                    <a href="#%e9%9d%9e%e7%ba%bf%e6%80%a7%e5%a3%b0%e5%ad%a6" aria-label="非线性声学">非线性声学</a>
+                    <a href="#%e9%9d%9e%e7%ba%bf%e6%80%a7%e5%a3%b0%e5%ad%a6" aria-label="非线性声学">非线性声学</a><ul>
+                        
+                <li>
+                    <a href="#%e9%9d%9e%e7%ba%bf%e6%80%a7%e4%bc%a0%e6%92%ad" aria-label="非线性传播">非线性传播</a>
                 </li>
+            </ul>
+            </li>
             </ul>
         </div>
         </details>
@@ -549,7 +576,400 @@ MathJax.Hub.Queue(function() {
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><h1 id="理想流体介质中的声波">理想流体介质中的声波<a hidden class="anchor" aria-hidden="true" href="#理想流体介质中的声波">#</a></h1>
+        <div class="post-content"><h1 id="声波测量原理">声波测量原理<a hidden class="anchor" aria-hidden="true" href="#声波测量原理">#</a></h1>
+<h2 id="接收器表面声压-p-和-入射声压-p_i">接收器表面声压 $p$ 和 入射声压 $p_{i}$<a hidden class="anchor" aria-hidden="true" href="#接收器表面声压-p-和-入射声压-p_i">#</a></h2>
+<blockquote>
+<p>&hellip;由于在测量或研究空间某一位置的声场时, 总要把接收器置入于声场中, 这时入射到接收器表面的声波在此面上产生一个声压, 在声压的作用下, 接收器的机械系统发生振动, 这一机械振动又以某种方式转换为电振动, 产生正比于接收器表面声压的电压, 这就是声波的接收过程&hellip;</p>
+<p>一般情况下, 作用于接收器表面的声压, 并不等于入射波的声压&hellip;  &ndash;许肖梅, <em>声学原理</em></p>
+</blockquote>
+<div class="details admonition tip open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>压电效应<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content">规则晶体对于压电效应没有贡献, 需要关心的是在晶体中不对称的结构.</div>
+
+ </div>
+
+ </div>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>ChatGPT的见解<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>压电陶瓷等材料制作的超声发射器/探测器确实具有多个共振频率，这可能导致在这些频率附近的信号得到增强。测定探头的频域响应函数是一个合理的方法，但在设计方案时需要考虑一些因素：</p>
+<ol>
+<li>
+<p>非线性效应： 在高振幅条件下，压电材料可能表现出非线性效应，导致频域响应的变化。这可能需要通过在设计中考虑非线性因素或采用特殊的信号处理技术来进行补偿。</p>
+</li>
+<li>
+<p>温度变化： 温度的变化可能会影响材料的物理性质，从而影响共振频率。设计中需要考虑温度补偿方法，以确保在不同温度条件下仍然能够准确还原信号。</p>
+</li>
+<li>
+<p>环境因素： 探测器在实际使用中可能受到环境噪声和其他干扰的影响。在设计中需要考虑如何抑制这些干扰，并确保信号的准确性。</p>
+</li>
+<li>
+<p>材料不均匀性： 实际制造中，压电陶瓷等材料可能存在一定的不均匀性，这可能导致频率响应的差异。在设计中需要考虑如何在制造过程中控制这种不均匀性。</p>
+</li>
+</ol>
+<p>如果要设计方案还原真实信号，可以考虑以下方法：</p>
+<ol>
+<li>
+<p>频率响应补偿： 通过事先测定探头的频域响应函数，并在信号处理中进行相应的频率响应补偿，以校正共振频率的影响。</p>
+</li>
+<li>
+<p>非线性校正： 考虑到非线性效应，可以采用先进的信号处理算法进行非线性校正，以减小非线性引起的失真。</p>
+</li>
+<li>
+<p>温度补偿： 引入温度传感器并采用自动温度补偿算法，以确保在不同温度下探头的性能稳定。</p>
+</li>
+<li>
+<p>环境噪声抑制： 使用滤波器、陷波器等技术，以抑制来自环境的干扰信号。</p>
+</li>
+<li>
+<p>精密制造和校准： 在制造过程中尽量减小材料不均匀性，同时进行严格的校准以确保每个探头的性能一致性。</p>
+</li>
+</ol>
+<p>设计一个完善的方案需要综合考虑这些因素，并采用合适的工程技术手段来解决问题。</p>
+</div>
+
+ </div>
+
+ </div>
+<p>接收器的机械阻抗通常很大, 可以近似为 &ldquo;硬边界&rdquo;. 设 $\dot{\xi}_{i}$ 为入射波在接收器表面上产生的振速, $\dot{\xi}_{r}$ 为散射波在接收器表面产生的振速, 则应有</p>
+<p>$$
+\dot{\xi}_{i} + \dot{\xi}_{r} = \mathbf{0}
+$$</p>
+<p>辐射声波时, 介质对声源有反作用力</p>
+<p>$$
+F_{r} = -\dot{\xi}_{r}Z_{S}
+$$</p>
+<blockquote>
+<p>$Z_{S}$: 二次辐射的辐射阻抗, $\dot{\xi}_{r}$: 辐射器表面的振速.</p>
+</blockquote>
+<p>对接收器, 其所受的作用力即为</p>
+<p>$$
+F = -\dot{\xi}_{r}Z_{S} = \dot{\xi}_{i}Z_{S}
+$$</p>
+<p>设入射波在接收面上的声压等于 $p_{i}$, 接收面面积为 $S$, 则接收面所受合力为</p>
+<p>$$
+F = p_{i}S + \dot{\xi}_{1}Z_{S}
+$$</p>
+<p>因接收端离声源较远, 因此将入射波近似为平面波:</p>
+<p>$$
+\dot{\xi}_{i} = \frac{p_{i}}{\rho_{0}c_{0}}
+$$</p>
+<p>将其代入 $F$ 的表达式, 即有声压为接收面上所受的平均压力:</p>
+<p>$$
+p = \frac{F}{S} = p_{i} = \left(1 + \frac{Z_{S}}{\rho_{0}c_{0}S}\right) = \widetilde{K}\cdot p_{i}
+$$</p>
+<blockquote>
+<p>$\widetilde{K} = 1 + \frac{Z_{S}}{\rho_{0}c_{0}S}$, $Z_{S}\in\mathbb{C}\rightarrow \widetilde{K}\in\mathbb{C}$.</p>
+<p>这意味着不仅强度不同, 相位也发生了改变.</p>
+</blockquote>
+<p>设圆面半径为 $a$.</p>
+<ul>
+<li>当 $ka\ll 1$ 时, 其辐射阻抗为</li>
+</ul>
+<p>$$
+Z_{S} = r_{S} + ix_{S}\approx \rho_{0}c_{0}S\frac{(ka)^{2}}{2} + i\rho_{0}c_{0}S\frac{8ka}{3\pi}
+$$</p>
+<p>则</p>
+<p>$$
+\widetilde{K} = 1 + \frac{Z_{S}}{\rho_{0}c_{0}S}\approx 1 + \frac{(ka)^{2}}{2} + i\frac{8ka}{3\pi}
+$$</p>
+<p>所以</p>
+<p>$$
+\lim_{ka\ll 1}\widetilde{K} = 1
+$$</p>
+<ul>
+<li>当 $ka\gg 1$ 时, 其辐射阻抗为</li>
+</ul>
+<p>$$
+Z_{S} = \rho_{0}c_{0}S
+$$</p>
+<p>所以</p>
+<p>$$
+\lim_{ka\gg 1}\widetilde{K} = 2
+$$</p>
+<p>比较完整的 $2a/\lambda$ 域分布:</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/12/05/1WL7IdaXCsqVHPO.png" alt="圆面活塞"  />
+</p>
+<blockquote>
+<p>进行简单的估算: 贾老师的探测面直径 $d = 30\text{ mm}$, $\lambda_{E}\approx \frac{1000\text{ m/s}}{500\text{ kHz}} = 2\text{mm}$. 则 $d/\lambda \approx 15\gg 1$, 即应当采用短波极限. (当然, 实际上是在很宽的频域内分析的, 所以这也是响应函数的一部分)</p>
+<p>与声波波长相比, 接收器的尺寸越小, 其声场畸变越小. 在各类形状因素中, 又以球形接收器最小.</p>
+</blockquote>
+<blockquote>
+<p>以上结论是接收器为圆面导出的, 但是在其他普通情况下, 也有类似的结论.</p>
+</blockquote>
+<h2 id="畸变与失真">畸变与失真<a hidden class="anchor" aria-hidden="true" href="#畸变与失真">#</a></h2>
+<blockquote>
+<p>$p = \widetilde{K}p_{i}$</p>
+</blockquote>
+<p>需要注意的是, 由于辐射阻抗 $Z_{S} = Z_{S}(f)$, 所以 $\widetilde{K} = \widetilde{K}(f)$. 我们需要从频域分析来回答畸变的问题.</p>
+<p>令自由场中声压为 $p_{i}(t)$. 则频域分布为</p>
+<p>$$
+F(\omega) = \int_{-\infty}^{+\infty}p_{i}(t)e^{-i\omega t}\mathrm{d}t
+$$</p>
+<blockquote>
+<p>反变换:</p>
+<p>$$
+p_{i}(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}F(\omega)e^{i\omega t}\mathrm{d}\omega
+$$</p>
+</blockquote>
+<p>接收声压为</p>
+<p>$$
+p(t) = p_{i}(t)\widetilde{K}(\omega)
+$$</p>
+<p>其频谱密度为</p>
+<p>$$
+\begin{aligned}
+F(\omega) &amp;= \int_{-\infty}^{+\infty}p_{i}(\omega)\widetilde{K}(\omega)e^{-i\omega t}\mathrm{d}t\\
+&amp;= \widetilde{K}(\omega)\int_{-\infty}^{+\infty}p_{i}(t)e^{-i\omega t}\mathrm{d}t = \widetilde{K}(\omega)F_{i}(\omega)
+\end{aligned}
+$$</p>
+<p>反变换为</p>
+<p>$$
+p(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}F(\omega)e^{i\omega t}\mathrm{d}\omega = \frac{1}{2\pi} \int_{-\infty}^{+\infty}\widetilde{K}(\omega)F(\omega)e^{i\omega t}\mathrm{d}\omega
+$$</p>
+<blockquote>
+<p>所以接收器接收到的波形 $p(t)$ 一般都不同于入射波形 $p_{i}(t)$.</p>
+</blockquote>
+<p>为了避免接收失真, 需要考虑探头尺度和接收信号之间的相性. 令 $f_{b}$ 为入射声波频域内最高频率成分, 则对应波长</p>
+<p>$$
+\lambda_{b} = \frac{c}{f_{b}}
+$$</p>
+<p>为各成分中最短的. 观察上插图可知, $\widetilde{K}\approx 1 \Leftarrow \frac{2a}{\lambda} \leq \frac{1}{4}$. 因此有</p>
+<p>$$
+d\leq \frac{\lambda_{b}}{4}
+$$</p>
+<blockquote>
+<p>做一个简单的估算: 我们采用的探头尺度为 $d = 19\text{ mm}$, 则最短波长为 $f_{b}\approx 4\times 19\text{ mm} \approx 80\text{ mm}$, 而目前所做的实验等效波长 $\lambda_{E}$ ~ $nd_{i}\approx 10^{1}\text{ mm}$, 这显然是无法满足的. 也就是说, 对于这一部分响应函数也是需要考虑的.</p>
+</blockquote>
+<h2 id="响应与指向">响应与指向<a hidden class="anchor" aria-hidden="true" href="#响应与指向">#</a></h2>
+<blockquote>
+<p>一个接收器在给定的频率下, 单位平面波声压所产生的开路电压, 即为此接收器在该给定频率下的响应/灵敏度.</p>
+</blockquote>
+<p>注意: 接收器表面的实际声压与接收器没有放入声场时该点的自由场声压不同, 所以需要分开谈论.</p>
+<ol>
+<li>实际声压响应.</li>
+</ol>
+<p>$$
+M_{e} = \frac{V(\theta,\varphi)}{p(\theta,\varphi)}
+$$</p>
+<blockquote>
+<p>$M_{e}$: 实际声压响应($\text{V}/\mu\text{bar}$); $V$: 接收器开路电压($\text{V}$); $p$: 接收器表面实际声压($\mu\text{bar}=\text{dyn/cm}^{2}$).</p>
+</blockquote>
+<ol start="2">
+<li>自由场响应</li>
+</ol>
+<p>如果单位平面波声压指的是在接收器<strong>放入声场以前</strong>被测点的自由场声压, 此时接收器而对响应为自由场响应.</p>
+<p>$$
+M_{F} = \frac{V(\theta,\varphi)}{p_{0}}
+$$</p>
+<blockquote>
+<p>$V$: 接收器开路电压($\text{V}$); $p_{0}$: 被测点自由场声压($\mu\text{bar}$).</p>
+</blockquote>
+<p>用 $\text{dB}$ 表示接收器的响应:</p>
+<p>$$
+E_{\text{实际声压}} = 20\log_{10}M_{e} = 20\log_{10}\frac{V}{p}\\
+E_{\text{自由场}} = 20\log_{10}M_{F} = 20\log_{10}\frac{V}{p_{0}}
+$$</p>
+<p>接收器的方向特性可用接收器的自由场相对响应来表示. 选取接收器最大相应方向为参考方向, 以球坐标表示即有</p>
+<p>$$
+R(\theta, \varphi) = \frac{M_{F}(\theta, \varphi)}{M_{F}(0,0)} = \frac{V(\theta, \varphi)}{V(0,0)}
+$$</p>
+<blockquote>
+<p>因为 $p_{0}$ 被消去了, 所以 $R$ 也被称作 <strong>相对电压响应</strong>.</p>
+</blockquote>
+<h3 id="阵元法求解相对响应函数">阵元法求解相对响应函数<a hidden class="anchor" aria-hidden="true" href="#阵元法求解相对响应函数">#</a></h3>
+<h4 id="一维阵元">一维阵元<a hidden class="anchor" aria-hidden="true" href="#一维阵元">#</a></h4>
+<p>设 $n$ ($n = 2k + 1,k\in\mathbb{Z}$) 个相同的点接收器以等距 $d$ 排成直线.</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/12/06/bDS5kjsnLBtFdcM.png" alt=""  />
+</p>
+<p>令一平面波与阵法线成 $\theta$ 角入射, 则阵元间存在 &ldquo;声程差&rdquo;.  $+1$ 阵元与 $0$ 阵元的声程差为</p>
+<p>$$
+l_{1} = d\sin{\theta}
+$$</p>
+<p>对应的相差为</p>
+<p>$$
+\phi_{1} = \omega\frac{d\sin{\theta}}{c}
+$$</p>
+<p>类似的, 写出 $+\frac{n-1}{2}$ 阵元与 $0$ 阵元的声程差及其相差为</p>
+<p>$$
+l_{\frac{n-1}{2}} = \frac{n-1}{2}d\sin{\theta},\quad \phi_{\frac{n-1}{2}} = \omega\frac{n-1}{2}\frac{d\sin{\theta}}{c} = \frac{(n-1)\pi}{\lambda}d\sin{\theta}
+$$</p>
+<p>假定各阵元的声压响应都为 $M_{0}$, 总输出电压为阵元输出电压之和. 则</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>计算方法<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>设 $0$ 处信号为 $p_{0}\cos{\omega t}$, 则信号之和为</p>
+<p>$$
+\begin{aligned}
+p &amp;= p_{0}\cos{\omega t}+ p_{0}\cos{(\omega t + 2\phi)} + p_{0}\cos{(\omega t + 4\phi)} + \dots + p_{0}\cos{(\omega t + (n-1)\phi)}\\
+&amp;+ p_{0}\cos{(\omega t - 2\phi)} + p_{0}\cos{(\omega t - 4\phi)} + \dots + p_{0}\cos{(\omega t - (n-1)\phi)}\\
+&amp;= p_{0}\cos{(\omega t)}[1 + 2\cos{(2\phi)} + 2\cos{(4\phi)} + \dots + 2\cos{((n-1)\phi)}]
+\end{aligned}
+$$</p>
+<blockquote>
+<p>其中 $\phi = \frac{\pi d\sin{\theta}}{\lambda}$</p>
+</blockquote>
+<p>而</p>
+<p>$$
+1 + \cos{\theta} + \cos{2\theta} + \dots + \cos{n\theta}\\
+= \mathcal{R}(1 + e^{i\theta} + e^{2i\theta} + \dots + e^{ni\theta})\\
+= \mathcal{R}\left(\frac{e^{(n+1)i\theta} - 1}{e^{i\theta} - 1}\right) = \mathcal{R}\left(\frac{e^{\frac{n+1}{2}i\theta}}{e^{i\frac{\theta}{2}}}\cdot\frac{e^{\frac{n+1}{2}i\theta} - e^{-\frac{n+1}{2}i\theta}}{e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}\right)= \mathcal{R}\left(e^{\frac{n}{2}i\theta}\cdot\frac{\sin{\left(\frac{n+1}{2}\theta\right)}}{\sin{\frac{\theta}{2}}}\right)\\
+= \frac{\cos{\frac{n\theta}{2}}\cdot\sin{\left(\frac{n+1}{2}\theta\right)}}{\sin{\frac{\theta}{2}}} = \frac{1}{2}\frac{\sin{\left(\frac{n\theta}{2} + \frac{(n+1)\theta}{2}\right)} - \sin{\left(\frac{n\theta}{2} - \frac{(n+1)\theta}{2}\right)}}{\sin{\frac{\theta}{2}}}\\
+= \frac{1}{2}\frac{\sin{\left(\left(n + \frac{1}{2}\right)\theta\right)} + \sin{\frac{\theta}{2}}}{\sin{\frac{\theta}{2}}}
+$$</p>
+<p>所以</p>
+<p>$$
+1 + 2\cos{(2\phi)} + 2\cos{(4\phi)} + \dots + 2\cos{((n-1)\phi)}\\
+= 2(1 + \cos{(2\phi)} + \cos{(4\phi)} + \dots + \cos{((n-1)\phi)} ) - 1\\
+= 2(1 + \cos{\Phi} + \cos{2\Phi} + \dots + \cos{\frac{n-1}{2}\Phi} ) - 1\\
+= 2\cdot\frac{1}{2}\frac{\sin{\left(\left(\frac{n-1}{2} + \frac{1}{2}\right)\Phi\right)} + \sin{\frac{\Phi}{2}}}{\sin{\frac{\Phi}{2}}} - 1\\
+= \frac{\sin{\frac{n}{2}\Phi}}{\sin{\frac{\Phi}{2}}} = \frac{\sin{n\phi}}{\sin{\phi}} = \frac{\sin{\left(\frac{n\pi d\sin{\theta}}{\lambda}\right)}}{\sin{\left(\frac{\pi d\sin{\theta}}{\lambda}\right)}}
+$$</p>
+</div>
+
+ </div>
+
+ </div>
+<p>$$
+V(\theta) = M_{0}p_{0}\frac{\sin{\left(\frac{n\pi}{\lambda}d\sin{\theta}\right)}}{\sin{\left(\frac{\pi}{\lambda}d\sin{\theta}\right)}}
+$$</p>
+<p>显然, 如果声波垂直入射($\theta = 0$), 则声程差为 $0$, 总信号为</p>
+<p>$$
+V(0) = M_{0}p_{0}n
+$$</p>
+<p>所以相对响应为</p>
+<p>$$
+R(\theta) = \frac{V(\theta)}{V(0)} = \frac{\sin{\left(\frac{n\pi}{\lambda}d\sin{\theta}\right)}}{n\sin{\left(\frac{\pi}{\lambda}d\sin{\theta}\right)}}
+$$</p>
+<blockquote>
+<p>其函数形式与<a href="https://zh.wikipedia.org/wiki/%E8%A1%8D%E5%B0%84%E5%85%89%E6%A0%85" target="_blank" rel="noopener nofollow noreferrer" >衍射光栅中的干涉因子</a> $I$(更准确的说是 $\sqrt{I}$, 因为光强需要对幅值进行平方) 相同.</p>
+</blockquote>
+<p>这就是接收器的指向性.</p>
+<p>若采用 $n\rightarrow \infty$ 极限, 则离散阵化为连续阵. 设长 $L$ 的连续直线接收器的声压响应为 $M(\theta, \varphi)$, 则 $d\rightarrow 0, nd=L$:</p>
+<p>$$
+V(\theta) = M(\theta, \varphi)p = M(\theta, \varphi)p_{0}\frac{\sin{\left(\frac{\pi L}{\lambda}\sin{\theta}\right)}}{\frac{\pi L}{\lambda}\sin{\theta}}\Rightarrow R(\theta) = \frac{\sin{\left(\frac{\pi L}{\lambda}\sin{\theta}\right)}}{\frac{\pi L}{\lambda}\sin{\theta}}
+$$</p>
+<h4 id="圆形活塞式接收器">圆形活塞式接收器<a hidden class="anchor" aria-hidden="true" href="#圆形活塞式接收器">#</a></h4>
+<p>考虑接收器散射波的影响, 有</p>
+<p>$$
+R(\theta, \varphi) = \frac{P(\theta, \varphi)}{P(0,0)}
+$$</p>
+<blockquote>
+<p>$P(\theta, \varphi)$ 和 $P(0,0)$ 均为实际声压. $P(0,0)$ 是声波沿着接收器最大响应方向入射时接收器表面的实际声压; $P(\theta, \varphi)$ 为声波沿着与接收器最大响应方向成 $\theta, \varphi$ 角度入射产生的接收器表面实际声压.</p>
+</blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/12/06/7WuXfjsE5nadObR.png" alt=""  />
+</p>
+<blockquote>
+<p>$p_{i}$ 入射波在 $O$ 点的声压; $\dot{\xi}_{i}$: 入射波在 $O$ 点产生的振速; $\theta$: 入射波与接收面法线的夹角.</p>
+</blockquote>
+<p>可以近似接收面上个点幅值相同而相位不同. 设 $\epsilon$ 为面元 $\mathrm{d}S$ 与 $O$ 点处的声程差, 则 $\mathrm{d}S$ 处的声压为</p>
+<p>$$
+p_{i}e^{-ik\epsilon}
+$$</p>
+<p>振速为</p>
+<p>$$
+\dot{\xi}_{i}e^{-ik\epsilon}
+$$</p>
+<p>若将接收面视为刚性边界, 则入射波与散射波在法线方向上的振速分量应当相等. 即 $\mathrm{d}S$ 散射波法线方向振速为 $-\dot{\xi}_{i}e^{-ik\epsilon}\cos{\theta}$.</p>
+<p>散射波会对接收面产生反作用力, 大小为散射波法线振速乘接收器表面辐射阻抗, 且与接收器法线方向相反:</p>
+<p>$$
+-(-\dot{\xi}_{i}e^{-ik\epsilon}\cos{\theta})\frac{Z_{S}}{S}\mathrm{d}S = \dot{\xi}_{i}e^{-ik\epsilon}\cos{\theta}\frac{Z_{S}}{S}\mathrm{d}S
+$$</p>
+<blockquote>
+<p>$Z_{S}$: 整个接收器的辐射阻抗; $S$: 接收器面积; $\frac{Z_{S}}{S}$: 接收面单位面积的辐射阻抗; $\frac{Z_{S}}{S}\mathrm{d}S$: 面元 $\mathrm{d}S$ 的辐射阻抗.</p>
+</blockquote>
+<p>积分得到散射波对接收面的作用力:</p>
+<p>$$
+F_{S}(\theta) = \iint_{S}\frac{Z_{S}}{S}\dot{\xi}_{i}e^{-ik\epsilon}\cos{\theta}\mathrm{d}S = \frac{Z_{S}}{S}\dot{\xi}_{i}\cos{\theta}\iint_{S}e^{-ik\epsilon}\mathrm{d}S
+$$</p>
+<p>垂直入射($\theta=0$), 即 $\epsilon = 0$. 有</p>
+<p>$$
+F_{S}(0) = \frac{Z_{S}}{S}\dot{\xi}_{i}\iint_{S}\mathrm{d}S = \frac{Z_{S}}{S}\dot{\xi}_{i}S = Z_{S}\dot{\xi}_{i}
+$$</p>
+<p>平均声压采用为</p>
+<p>$$
+p_{S}(\theta) = \frac{F_{S}(\theta)}{S}
+$$</p>
+<p>则</p>
+<p>$$
+\frac{p_{S}(\theta)}{p_{S(0)}} = \frac{F_{S}(\theta)}{F_{S}(0)} = \frac{\dot{\xi}_{i}\cos{\theta}\iint_{S}e^{-ik\epsilon}\mathrm{d}S}{\dot{\xi}_{i}S} = \cos{\theta}\cdot\color{red}{\frac{\iint_{S}e^{-ik\epsilon}\mathrm{d}S}{S}} = \cos{\theta}\cdot \color{red}{R(\theta)}
+$$</p>
+<p>将入射波近似为平面波, 则有</p>
+<p>$$
+\dot{\xi}_{i} = \frac{p_{i}}{\rho_{0}c_{0}}
+$$</p>
+<p>入射波的作用力 $F_{i}(\theta)$ 为:</p>
+<p>$$
+F_{i}(\theta) = \iint_{S}p_{i}e^{-ik\epsilon}\mathrm{d}S = p_{i}\iint_{S}e^{-ik\epsilon}\mathrm{d}S
+$$</p>
+<p>垂直入射($\theta = 0$)时, 声程差为 $0$, 有</p>
+<p>$$
+p_{i}(0) = \iint_{S}p_{i}\mathrm{d}S = p_{i}S
+$$</p>
+<p>一般情况下, 则入射波平均声压为</p>
+<p>$$
+p_{i}(\theta) = \frac{F_{i}(\theta)}{S}
+$$</p>
+<p>所以</p>
+<p>$$
+\frac{p_{i}(\theta)}{p_{i}(0)} = \frac{F_{i}(\theta)}{F_{i}(0)} = \frac{\iint_{S}e^{-ik\epsilon}\mathrm{d}S}{S} = R(\theta)
+$$</p>
+<p>接收器表面收到的实际声压 $p(\theta)$ 是入射波与散射波之和:</p>
+<p>$$
+p(\theta) = p_{i}(\theta) + p_{S}(\theta) = p_{i}(0)R(\theta) + p_{S}\cos{\theta}R(\theta)\\
+= [p_{i}(0) + p_{S}(0)\cos{\theta}]R(\theta) = \left[p_{i}(0) + \frac{Z_{S}\dot{\xi}_{i}}{S}\cos{\theta}\right]R(\theta) = p_{i}R(\theta)\left[1 + \frac{Z_{S}\cos{\theta}}{\rho_{0}c_{0}S}\right]
+$$</p>
+<p>垂直入射($\theta = 0$)即有</p>
+<p>$$
+p(0) = p_{i}(0) + p_{S}(0) = p_{i}\left(1 + \frac{Z_{S}}{\rho_{0}c_{0}S}\right)
+$$</p>
+<p>相对响应</p>
+<p>$$
+R_{l}(\theta) = \frac{p(\theta)}{p(0)} = \frac{1 + \frac{Z_{S}\cos{\theta}}{\rho_{0}c_{0}S}}{1 + \frac{Z_{S}}{\rho_{0}c_{0}S}}\cdot R(\theta)
+$$</p>
+<p>设圆形活塞式接收器半径为 $a$, 则</p>
+<ul>
+<li>高频($\lambda \ll a$)</li>
+</ul>
+<p>$$
+Z_{S}\approx \rho_{0}c_{0}S\Rightarrow R_{l}(\theta) = \frac{1 + \cos{\theta}}{2}R(\theta)
+$$</p>
+<ul>
+<li>低频($\lambda \gg a$)</li>
+</ul>
+<p>$$
+Z_{S}\approx \rho_{0}c_{0}S\frac{(ka)^{2}}{2} + i\rho_{0}c_{0}S\frac{8ka}{3\pi}\Rightarrow Z_{S} = 0
+$$</p>
+<p>所以</p>
+<p>$$
+R_{l}(\theta) = R(\theta)
+$$</p>
+<h3 id="噪声">噪声<a hidden class="anchor" aria-hidden="true" href="#噪声">#</a></h3>
+<p>同一方向性的接收器在接收同样的信号时, 若噪声场不同, 则接收到的信号也不同.</p>
+<p>假设: 1. 噪声源相位随机, 互不相关; 2. 噪声强度各向同性; 3. 噪声源远离接收系统.</p>
+<h1 id="理想流体介质中的声波">理想流体介质中的声波<a hidden class="anchor" aria-hidden="true" href="#理想流体介质中的声波">#</a></h1>
 <p>三个物理量: 声压 $p$, 振速 $u$, 密度 $\rho$. 运用基本定律推导出三者的关系式.</p>
 <blockquote>
 <p>理想流体的假定条件: 1. 无粘性; 2. 连续性; 3. 均匀性; 4. 绝热性; 5. 无旋性; 6. 微扰性. 因此研究的是小振幅声波在流体介质中的传播规律. 大振幅的声波需要到非线性声学部分研究.</p>
@@ -962,6 +1382,63 @@ $$</p>
 C_{t} = C_{V0} = C_{C\infty} + C_{t}
 $$</p>
 <h1 id="非线性声学">非线性声学<a hidden class="anchor" aria-hidden="true" href="#非线性声学">#</a></h1>
+<p>有限振幅声波不可用线性声学理论解释.</p>
+<blockquote>
+<ol>
+<li>单频声波产生谐波, 分频波, 和频波, 差频波. 波的叠加原理不成立;</li>
+<li>声速与流体应力呈正相关, 波形变为锯齿形;</li>
+<li>高次谐波频率高, 吸收衰减快&hellip;</li>
+</ol>
+</blockquote>
+<h2 id="非线性传播">非线性传播<a hidden class="anchor" aria-hidden="true" href="#非线性传播">#</a></h2>
+<p>设质点振速为</p>
+<p>$$
+u(x,t) = u_{m}\sin{(\omega t-kx)}
+$$</p>
+<p>则有</p>
+<p>$$
+\left|u\frac{\partial u}{\partial x}\right|\propto ku_{m}^{2} = \frac{\omega}{c}u_{m}^{2},\quad \left|\frac{\partial u}{\partial t}\right|\propto \omega u_{m}
+$$</p>
+<p>注意到两者之比为</p>
+<p>$$
+\frac{\left|u\frac{\partial u}{\partial x}\right|}{\left|\frac{\partial u}{\partial t}\right|} = \frac{u_{m}}{c}
+$$</p>
+<p>可见, 该数值越大, 非线性项越不可忽略. 历史上将该参数称为 <strong>声马赫数</strong>.</p>
+<hr>
+<p>参考流体力学中的基本方程, 建立非线性声学的基本关系:</p>
+<p>$$
+\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0\\
+\frac{\partial}{\partial t}(\rho\mathbf{u}) + \rho\mathbf{u}(\nabla\cdot\mathbf{u}) + (\mathbf{u}\cdot\nabla)\rho\mathbf{u} + \nabla p = 0\\
+P = P_{0} + \left(\frac{\partial P}{\partial\rho}\right)_{\rho_{0}, S}(\rho - \rho_{0}) + \frac{1}{2!}\left(\frac{\partial^{2}P}{\partial\rho^{2}}\right)_{\rho_{0},S}(\rho - \rho_{0})^{2} + \dots
+$$</p>
+<blockquote>
+<p>$\rho = \rho_{0} + \rho^{\prime}$ 为介质密度, $\rho_{0}$ 为静态平衡密度, $\rho^{\prime}$ 为 <strong>逾量密度</strong>(即声波引起的变化量); $S$ 为熵, $\left(\frac{\partial^{n}}{\partial \rho^{n}}\right)_{\rho_{0},S}$ 即等熵过程中 $P$ 对 $\rho$ 的 $n$ 阶导数.</p>
+</blockquote>
+<p>线性声学中, 只取了一阶导数:</p>
+<p>$$
+P\approx P_{0} + \left(\frac{\partial P}{\partial \rho}\right)_{\rho_{0},S}\cdot(\rho - \rho_{0})\approx P_{0} + \rho_{0}\left(\frac{\partial P}{\partial \rho}\right)_{\rho_{0},S}\left(\frac{\rho - \rho_{0}}{\rho_{0}}\right)\approx P_{0} + A\frac{\rho - \rho_{0}}{\rho_{0}}
+$$</p>
+<blockquote>
+<p>$$
+A = \rho_{0}\left(\frac{\partial P}{\partial \rho}\right)_{\rho_{0},S} = \rho_{0}c_{0}^{2},\quad c_{0}^{2} = \left(\frac{\partial P}{\partial \rho}\right)_{\rho_{0},S}
+$$</p>
+<blockquote>
+<p>$c_{0}$ 为小振幅波速.</p>
+</blockquote>
+</blockquote>
+<p>对于有限振幅波, 则需要保留二阶小量:</p>
+<p>$$
+P\approx P_{0} + A\frac{\rho - \rho_{0}}{\rho_{0}} + \frac{B}{2}(\frac{\rho - \rho_{0}}{\rho_{0}})^{2}
+$$</p>
+<blockquote>
+<p>$$
+B = \rho_{0}^{2}\left(\frac{\partial^{2}P}{\partial \rho^{2}}\right)_{P_{0}, S}, \text{ or} B = \rho_{0}^{2}\left(\frac{\partial c^{2}}{\partial \rho}\right)
+$$</p>
+</blockquote>
+<p>定义介质的 <strong>非线性参量</strong> 为</p>
+<p>$$
+\frac{B}{A} = \frac{\rho_{0}}{c_{0}^{2}}\left(\frac{\partial^{2}P}{\partial\rho^{2}}\right)_{P_{0},S}
+$$</p>
 
 
         </div>
