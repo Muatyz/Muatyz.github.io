@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Probing the effect of particle shape on the rigidity of jammed granular solids with sound speed measurements | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, granular">
+<meta name="description" content="该文章可用于系统学习如何测量群速度">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/sonic/dgm/probing-the-effect-of-particle-shape/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style><meta property="og:title" content="Probing the effect of particle shape on the rigidity of jammed granular solids with sound speed measurements" />
+<meta property="og:description" content="该文章可用于系统学习如何测量群速度" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/sonic/dgm/probing-the-effect-of-particle-shape/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-29T00:18:06+08:00" />
+<meta property="article:modified_time" content="2023-11-29T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Probing the effect of particle shape on the rigidity of jammed granular solids with sound speed measurements"/>
+<meta name="twitter:description" content="该文章可用于系统学习如何测量群速度"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🦇 超声波探测",
+          "item": "https://Muatyz.github.io/posts/read/sonic/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  4 ,
+          "name": "⛓ Densed Granular Media",
+          "item": "https://Muatyz.github.io/posts/read/sonic/dgm/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Probing the effect of particle shape on the rigidity of jammed granular solids with sound speed measurements",
+      "item": "https://Muatyz.github.io/posts/read/sonic/dgm/probing-the-effect-of-particle-shape/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Probing the effect of particle shape on the rigidity of jammed granular solids with sound speed measurements",
+  "name": "Probing the effect of particle shape on the rigidity of jammed granular solids with sound speed measurements",
+  "description": "该文章可用于系统学习如何测量群速度",
+  "keywords": [
+    "scmp", "granular"
+  ],
+  "articleBody": " DOI: 10.1007/s10035-015-0575-z\nAbstract We describe a precise phase velocity measurement of longitudinal sound waves in granular solids under stress. We observe an important difference of the phase velocity between the packings of glass beads and sand particles, which is likely due to the interlocking effect caused by the particle shape.\nThis effect can be captured by the contact coordination number using the effective medium theory. We also investigate the change of this coordination number in dry and wet granular packings, caused by cyclic loading or nonlinear sound transmission. These acoustic measurements show that the particle-level properties such as shape and friction signiﬁcantly influence the response of jammed granular solids to external driving.\n我们描述了在应力作用下对颗粒固体中的纵波相速度的精确测量。我们观察到玻璃珠和沙粒堆积之间的相速度存在很大差异，这可能是由于颗粒形状造成的连锁效应。\n这种效应可以用有效介质理论中的接触配位数来捕捉。我们还研究了干性和湿性颗粒堆积在循环加载或非线性声音传播情况下接触配位数的变化。这些声学测量结果表明，颗粒级的特性（如形状和摩擦力）极大地影响了堵塞态颗粒固体对外部驱动的响应。\nIntroduction Amorphous systems as diverse as glasses, colloids, foams and granular materials may be governed by the common concept of jamming. A jammed state emerges when the density of randomly packed particles is high enough so that the particles all interact with their neighbors and resist flow. Numerous simulations and experiments have revealed that the average number of contacts per particle, i.e., the coordination number $Z$ (mechanically loaded), plays an essential role in the physical behavior of a granular system.\n玻璃、胶体、泡沫和颗粒材料等各种无定形系统都可能受 “堵塞” 这一常见概念的支配。当随机堆积颗粒的密度足够高，以至于所有颗粒都与相邻颗粒相互作用并抵抗流动时，就会出现堵塞状态。大量模拟和实验表明，每个颗粒的平均接触数，即配位数 $Z$（机械加载下），对颗粒系统的物理行为起着至关重要的作用。\nAs the packing density $\\phi$ of an ensemble of frictionless spheres is increased above a critical jamming value $\\phi_{c}$, the system has finite bulk elastic modulus via an abrupt jump in $Z$ to reach the isostatic value $Z_{I}$ . Above the jamming point, $Z$ grows as a power-law of the excess packing density. Experimental techniques, such as X-ray tomography, MRI and fluorescent confocal microscopy have recently been developed to investigate the local geometry and the particle motion.\n当无摩擦球体聚集体的堆积密度 $\\phi$ 增加到临界堵塞值 $\\phi_{c}$ 以上时，系统的有限体弹性模量会通过 $Z$ 的突然跃迁达到等静态值 $Z_{I}$ 。在堵塞点之上，$Z$ 的增长与过量堆积密度成幂律关系。最近开发了 X 射线断层扫描、核磁共振成像和荧光共聚焦显微镜等实验技术，用于研究局部几何形状和粒子运动。\nGranular materials are composed of individual macroscopic solid grains that interact via dissipative contact forces. For frictionless spheres, $Z_{I} = 2d$ with $d$ the dimension; for frictional spheres, $Z_{I}$ drops from $6$ to a lower value $d + 1 = 4$ in a 3D system.\nIn the jammed state, the mechanical properties depend to a large extent on the inhomogeneous contact force network. Photoelastic observations offer important insights in those contact forces during the jamming transition in 2D systems. However, in real 3D granular materials, the photoelastic method becomes more difficult to apply.\n颗粒材料由各个宏观固体颗粒组成，这些颗粒通过耗散接触力相互作用。对于无摩擦的球体，$Z_{I} = 2d$，$d$ 为维数；对于有摩擦的球体，在三维系统中，$Z_{I}$ 从 $6$ 降至较低值 $d + 1 = 4$。\n在堵塞态下，机械性质在很大程度上依赖于非均匀的接触力网络。在二维系统中，光弹性观测可提供有关堵塞转变期间接触力的重要见解。然而，在实际的三维颗粒材料中，光弹性方法变得更加难以应用。\nSound waves propagate through the contacts between grains, making sound an alternative and unique probe to examine the elastic and dissipative responses of the contacts inside 3D disordered granular materials. If the jammed granular material is treated as homogenous, for example by coarse graining, effective medium theories may be applied using an afﬁne approximation to qualitatively connect the global response, like the bulk and shear elastic moduli $K_{\\text{eff}}$ and $G_{\\text{eff}}$, to the local geometry.\n声波通过颗粒之间的接触传播，使声音成为研究三维无序颗粒材料内部接触的弹性和耗散响应的另一种独特探针。如果将堵塞的颗粒材料视为均质材料，例如通过粗粒化处理，则可以使用有效介质理论，使用近似方法定性地将全局响应（如体积和剪切弹性模量 $K_{\\text{eff}}$ 和 $G_{\\text{eff}}$）与局部几何形状联系起来。\nIn the case of isotropic compression, it was shown that,\n$$ K_{\\text{eff}}(P) = \\frac{k_{n}}{12\\pi}(\\phi Z)^{\\frac{2}{3}}\\left(\\frac{6\\pi P}{k_{n}}\\right)^{\\frac{1}{3}}\\\\ G_{\\text{eff}}(P) = \\frac{k_{n} - \\frac{3}{2}k_{t}}{12\\pi}(\\phi Z)^{\\frac{2}{3}}\\left(\\frac{6\\pi P}{k_{n}}\\right)^{\\frac{1}{3}} $$\nwhere $P$ is the conﬁning pressure, $k_{n} = 4G/(1 − \\nu)$ and $k_{t} = 8G/(2 − \\nu)$ are the normal and tangential stiffness (with $G$ the shear modulus and $\\nu$ Poisson ratio for grain materials), $Z$ is the coordination number (assumed to be constant).\n在各向同性压缩的情况下，结果表明\n$$ K_{\\text{eff}}(P) = \\frac{k_{n}}{12\\pi}(\\phi Z)^{\\frac{2}{3}}\\left(\\frac{6\\pi P}{k_{n}}\\right)^{\\frac{1}{3}}\\\\ G_{\\text{eff}}(P) = \\frac{k_{n} - \\frac{3}{2}k_{t}}{12\\pi}(\\phi Z)^{\\frac{2}{3}}\\left(\\frac{6\\pi P}{k_{n}}\\right)^{\\frac{1}{3}} $$\n其中，$P$ 是约束压强，$k_{n} = 4G/(1 - \\nu)$ 和 $k_{t} = 8G/(2 - \\nu)$ 是法向和切向刚度（对于颗粒材料，$G$ 是剪切模量，$\\nu$ 是泊松比），$Z$ 是配位数（假定为常数）。\nThe scaling of $K_{\\text{eff}}$ and $G_{\\text{eff}}$ can be determined by the speeds of compression and shear waves, via $V_{P} = \\sqrt{(K_{\\text{eff}} + 2G_{\\text{eff}})/\\rho_{0}}$ and $V_{S} = \\sqrt{G_{\\text{eff}}/\\rho_{0}}$ where $\\rho = \\rho_{0}\\phi$ and $\\rho_{0}$ is the particle density.\nIt has been observed, however, that the sound speeds scale as $V\\propto P^{1/4}$ at low $P$ and $V\\propto P^{1/6}$ at high $P$ in jammed sphere packings (we will show that the experiments presented in this work remain in the $V\\propto P^{1/6}$ regime).\nThis observation can be explained by the mechanism of contact recruitment via buckling of the grains under compression through slippage or by the non spherical contacts. On the contrary, the number of contacts can be reduced by shear loading, as evidenced by the sound speed measurement.\n$K_{\\text{eff}}$ 和 $G_{\\text{eff}}$ 的缩放可以由压缩波和剪切波的速度决定、通过 $V_{P} = \\sqrt{(K_{\\text{eff}} + 2G_{\\text{eff}})/\\rho_{0}}$ 和 $V_{S} = \\sqrt{G_{\\text{eff}}/\\rho_{0}}$ 其中 $\\rho = \\rho_{0}\\phi$, 且 $\\rho_{0}$ 是颗粒密度。\n然而，人们观察到，在堵塞球体堆积中，低 $P$ 值时声速为 $V\\propto P^{1/4}$，高 $P$ 值时声速为 $V\\propto P^{1/6}$（我们将证明本研究中的实验仍处于 $V\\propto P^{1/6}$ 阶段）。\n这一观察结果可以通过颗粒在压缩条件下因滑动而屈服的接触____机制或非球形接触来解释。相反，正如声速测量所证明的那样，剪切加载可以减少接触的数量。\nIn the nonlinear acoustic regime, high amplitude sound waves can act as controlled perturbations to explore the glassy dynamics of a granular system. On the scale of the grain contacts, we distinguish two types of nonlinearity: one arises from the normal loading, i.e. Hertzian contact, and the other from the tangential friction force.\nIn the weakly nonlinear regime where the sound amplitude is much smaller than the grain overlap, reversible nonlinear responses, like second harmonic generation, are observed. Nevertheless, beyond a certain sound amplitude of only a few percent of the grain deformation, the sound-matter interactions become irreversible and are accompanied by slight compaction of magnitude $\u003c0.1$ %.\nSuch a behavior is much more pronounced with low confining pressure $P$ in which strong ﬂuctuations are observed both in the velocity and the amplitude of sound waves propagating through granular packings. This is likely related to the modification of the contact networks caused by the sound wave.\n在非线性声学体系中，高振幅声波可以作为受控扰动来探索颗粒系统的玻璃化动力学。在颗粒接触的尺度上，我们区分了两种类型的非线性：一种来自法向载荷，即 Hertz 接触，另一种来自切向摩擦力。\n在声振幅远小于颗粒重叠的弱非线性状态下，可观察到可逆的非线性反应，如二次谐波的产生。然而，超过一定的声振幅（仅为颗粒变形的百分之几），声-物质相互作用就变得不可逆，并伴随着幅度为 $\u003c0.1$ % 的轻微压实。\nHowever, some important issues still remain unclear such as the effect of the particle-level properties (shape and friction) on the structure and the mechanical responses of jammed granular packings. In this work, we aim to elucidate the role of the particle shape on the rigidity of a granular solid within the framework of effective medium theories based on the Hertzian–Mindlin contact law via the coordination number $Z$.\nTo this end, we develop a quantitative measurement of the phase velocity of longitudinal sound waves in the linear regime, and compare the pressure-dependent sound speed measured in the packings of glass beads and sand particles (Sect. 2). Next we investigate the evolution of a granular packing by the two following methods (Sect. 3): (i) repetitively applying a confining stress while measuring the sound speed; (ii) using nonlinear sound vibration to perturb the granular packing.\n然而，一些重要问题仍不清楚，例如颗粒级特性（形状和摩擦力）对结构以及堵塞颗粒堆积的机械响应的影响。在这项研究中，我们的目标是在基于 Hertzian–Mindlin 接触定律的有效介质理论框架内，通过配位数 $Z$ 解释颗粒形状对颗粒固体刚性的作用。\n为此，我们开发了线性(响应?)机制下纵波相速度的定量测量方法，并比较了在玻璃珠和沙粒堆积中测量到的随压力变化的声速（第 2 节）。接下来，我们用以下两种方法研究颗粒堆积的演变（第 3 节）：(i) 在测量声速的同时重复施加约束应力；(ii) 使用非线性声振动来扰动颗粒堆积。\nCoherent sound propagation in jammed packings Experimental procedure Our granular solids consist of random packing of spherical glass beads of diameter $d = 0.3\\text{ mm}$ and $0.7\\text{ mm}$ (made of soda lime glass) or sand particles of $d = 0.7\\text{ mm}$ (made of $99$ % $\\text{SiO}_{2}$). The densities of both materials are almost the same, about $2500\\text{ kg/m}^3$. We measure the longitudinal sound speed through a single glass bead and a sand particle and ﬁnd $5000$ and $5200\\text{ m/s}$, respectively (measurement of the transverse sound speed is not possible due to echos and reverberation).\n我们的颗粒状固体由直径为 $d = 0.3\\text{ mm}$ 和 $0.7\\text{ mm}$ （由钠钙玻璃制成）的球形玻璃珠或直径为 $d = 0.7\\text{ mm}$ （由 $99$ % $\\text{SiO}_{2}$ 制成）的沙粒随机堆积而成。这两种材料的密度几乎相同，约为 $2500\\text{ kg/m}^3$。我们测量了穿过单个玻璃珠和沙粒的纵波声速，结果分别为 $5000$ 和 $5200\\text{ m/s}$ （由于回声和混响，无法测量横波声速）。\nThese data show a slight difference of $\u003c5$ % in elastic modulus. Glass beads and sand particles are poured via rain deposition into a rigid cylindrical cell with an inner diameter of $D = 60\\text{ mm}$. After the cell is filled up to a height $x$ (varying from $9$ to $18\\text{ mm}$), the confined granular packing is consolidated by applying ten-cycles of axial loading and unloading, via the upper piston, up to a pressure $P$ (ranging from $0.03$ to $1\\text{ MPa}$) at which the acoustic measurements are conducted (Fig. 1).\n这些数据显示，弹性模量的差异略微小于 $5$%。玻璃珠和沙粒通过雨落法倒入内径为 $D = 60\\text{ mm}$ 的刚性圆柱形池中。在小室被填充到一个高度 $x$（从 $9$ 到 $18\\text{ mm}$ 不等）之后，通过上部活塞施加十个周期的轴向加载和卸载，将密闭的颗粒堆积加载到应力 $P$（从 $0.03$ 到 $1\\text{ MPa}$ 不等），在此压力下进行声学测量（图 1）。\nThe packing density of these granular materials is $\\phi\\approx 0.63$ for glass beads and $\\phi\\approx 0.59$ for sand particles. For generating and detecting the longitudinal sound waves in the granular sample, we use broadband piezoelectric transducers of $30\\text{ mm}$ diameter which are placed in direct contact with the granular packing. In these experiments, the excitation is performed by sending one-cycle short pulse of $2\\mu\\text{s}$ duration with a broadband spectrum centered at $500\\text{ kHz}$.\n这些颗粒材料的堆积密度为：玻璃珠约为 $0.63$，沙粒约为 $0.59$。为了产生和探测颗粒样本中的纵向声波，我们使用了直径为 $30 \\text{ mm}$ 的宽带压电换能器，该换能器与颗粒堆积直接接触。在这些实验中，激励是通过发送持续时间为 $2\\mu\\text{s}$ 的单周期短脉冲来实现的，其宽带频谱的中心为 $500\\text{ kHz}$。\nSchematic of the setup used in the linear sound experiments. a Glass beads are contained in a metal cell and a pressure is applied via a piston. A transducer placed in the piston serves as acoustic source by sending a $2\\mu\\text{s}$ pulse and the propagating wave is measured by a second transducer placed at the bottom of the cell. An echo is indicated by the curved arrow. b Photo of the sand particles $d$~$0.7\\text{ mm}$. c Photo of the glass beads $d$~$0.7\\text{ mm}$.\n线性声实验中使用的装置示意图。a 玻璃珠装在一个金属池中，通过活塞施加压力。放置在活塞中的换能器通过发送 $2\\mu\\text{s}$ 脉冲作为声源，传播波由放置在颗粒池底部的第二个传感器测量。曲线箭头表示回声。b 沙粒的照片 $d$~$0.7\\text{mm}$。c 玻璃珠的照片 $d$~$0.7\\text{毫米}$。\nTypical short sound pulses (broadband) propagating through a glass bead packing of $d = 0.4\\text{ mm}$ for a sample thickness $x_{1} = 9\\text{ mm}$ and $x_{2} = 18\\text{ mm}$ are shown in Fig. 2. The experiments are repeated for different confining pressures $P$ to study the evolution of the sound speed (see below).\nAs shown previously in [11], the use of large acoustic source and receiver enhance the detection of the long-wavelength coherent sound waves and minimize the codalike acoustic speckles. Indeed, we clearly recognize the round-trip echo of the longitudinal sound wave even though it is strongly damped by the scattering attenuation.\nNote also that, with this protocol and confining pressure $P$, the coherent acoustic pulses are reproducible with ﬂuctuations $\u003c5$ % in amplitude and $3$ % in time-of-flight between different configuration (ten different conﬁgurations).These observations confirm the applicability of the effective medium theory (EMT) or mean-field approach to describe a jammed granular solid on the macroscopic scale, corresponding to the coherent wavelength $\\lambda\\sim 5\\text{ mm}$ ($\u003ed\\sim 0.5\\text{ mm}$).\n典型的短声脉冲（宽带）在样品厚度为 $x_{1} = 9\\text{ mm}$ 和 $x_{2} = 18\\text{ mm}$的 $d = 0.4\\text{ mm}$ 玻璃珠堆积中传播，如图 2 所示。针对不同的约束压力 $P$ 重复实验，以研究声速的演变（见下文）。\n如之前的文献[11]所示，使用大型声源和接收器可增强对长波长相干声波的探测，并最大限度地减少多重散射声学散乱峰。事实上，尽管纵向声波受到散射衰减的强烈阻尼效应，我们仍能清晰地识别出纵向声波的回响。\n还要注意的是，采用这种方案和约束压力 $P$，相干声脉冲在不同配置（$10$ 种不同配置）之间的振幅波动 $\u003c5$ % 和飞行时间波动 $3$ %，具有可重复性。这些观察结果证实了有效介质理论（EMT）或均场方法适用于描述宏观尺度上的堵塞态颗粒固体，相当于相干波长 $\\lambda\\sim 5\\text{ mm}$ ($\u003ed\\sim 0.5\\text{mm}$)。\nMeasured sound signals propagating in granular samples consisting of glass beads, $d = 0.4\\text{ mm}$, for increasing conﬁning pressures [indicated by the dotted arrows, 35, 88, 177, 265, 354, 442, 530, 618, 707 kPa (color online)] at distance $x_{1} = 9{\\text{ mm}}$ (a), and $x_{2} = 18{\\text{ mm}}$ (b). The small solid arrows indicate the echo’s\n在距离 $x_{1} = 9{\\text{ mm}}$（a）和 $x_{2} = 18{\\text{ mm}}$（b）处，测量到的声音信号在由玻璃珠组成的颗粒样品（$d = 0.4\\text{毫米}$）中传播[虚线箭头表示$35,88,177,265,354,442,530,618,707\\text{ kPa}$（彩色在线）]。实心小箭头表示回波\nSound speed measurement To accurately measure the wave speed of the coherent sound propagation, we determine the time delay between two coherent longitudinal sound pulses measured at different distances from the acoustic source, $x_1 = 9\\text{ mm}$ (Fig. 2a) and $x_2 = 18\\text{ mm}$ (Fig. 2b). As the temporal waveforms of sound pulses are signiﬁcantly changed as a function of propagation distance $x$, we seek to determine the phase velocity by the spectral analysis of such broadband sound pulses through the granular packing at a given pressure $P$.\nIndeed, if one considers a plane wave of angular frequency $\\omega$, $s(x, t) = A_{0}e^{-\\alpha x}e^{i(\\omega x/V_{\\varphi} - \\omega t)}$ where $\\alpha(\\omega)$ is the attenuation and $V_{\\varphi}(\\omega)$ is the phase velocity.\nThese two parameters can be determined from the ratio of magnitude $S(\\omega, x) = A_{0}e^{-\\alpha x}$ and the difference of phase $\\phi(\\omega, x) = \\omega x/V_{\\varphi}$ measured at two different distances of propagation separated by $\\Delta x = x_{2} − x_{1}$,\n$$ \\alpha = \\ln{\\frac{S_{1}}{S_{2}}}/\\Delta x\\\\ V_{\\varphi} = \\omega\\frac{\\Delta x}{\\Delta\\varphi} $$\n为了精确测量相干声传播的波速，我们测定了在距离声源不同距离测量的两个相干纵向声脉冲之间的时间延迟，分别为 $x_1 = 9\\text{ mm}$（图 2a）和 $x_2 = 18\\text{ mm}$（图 2b）。由于声脉冲的时间波形随传播距离 $x$ 的变化而显著改变，我们试图通过对在给定压力 $P$ 下穿过颗粒堆积的宽带声脉冲进行频谱分析来确定相位速度。\n事实上，如果考虑角频率为 $\\omega$ 的平面波，$s(x, t) = A_{0}e^{-\\alpha x}e^{i(\\omega x/V_{\\varphi} - \\omega t)}$ 其中 $\\alpha(\\omega)$ 是衰减，$V_{\\varphi}(\\omega)$ 是相速度。\n这两个参数可以通过在两个不同的传播距离上测量的幅度比 $S(\\omega, x) = A_{0}e^{-\\alpha x}$ 和相位差 $\\phi(\\omega, x) = \\omega x/V_{\\varphi}$ 来确定，这两个距离相隔 $\\Delta x = x_{2}- x_{1}$,\n$$ \\alpha = \\ln{\\frac{S_{1}}{S_{2}}}/\\Delta x\\\\ V_{\\varphi} = \\omega\\frac{\\Delta x}{\\Delta\\varphi} $$\nThe magnitude spectra (Fig. 3a, b) of the sound pulses measured at $x_1$ and $x_2$ are obtained by the Fourier transformation after the application of a window function to separate the coherent longitudinal wave from the shear wave and also from the codalike scattered waves. These magnitude spectra show that the central frequency of the transmitted sound pulse increases with increasing pressure and it decreases with increasing distance of propagation due to the scattering attenuation of the coherent wave, indicating that the granular medium acts as a low-pass filter. The phase velocity is determined with Eq. (4) using the phase spectra (not shown), as a function of frequency for different conﬁning pressure (Fig. 3c).\n在应用窗函数将相干纵波与剪切波以及同类散射波分离后，通过傅里叶变换获得了在 $x_1$ 和 $x_2$ 处测量的声脉冲的幅值频谱（图 3a、b）。这些幅值谱显示，由于相干波的散射衰减，透射声脉冲的中心频率随压力的增加而增加，并随传播距离的增加而减小，这表明颗粒介质起到了低通滤波器的作用。根据公式 (4)，利用相位频谱（未显示）确定了相位速度，它是不同约束压力下频率的函数（图 3c）。\nSpectra calculated from the coherent part of the wave in Fig. 2 at distance a $x1 = 9\\text{ mm}$, and b $x2 = 18\\text{ mm}$. c Phase velocity of the coherent wave, $V_{\\varphi}$, as a function of the frequency. The dashed arrows indicate the increasing confining pressure; $35, 88, 177, 265, 354, 442, 530, 618, 707$(color online). The vertical blue dotted lines indicate the available frequency range in which we perform our sound speed measurements\n图 2 中相干波部分在距离 a $x1 = 9\\text{ mm}$ 和 b $x2 = 18\\text{ mm}$ 时的频谱计算结果。c 相干波的相速度 $V_{\\varphi}$ 是频率的函数。虚线箭头表示不断增加的约束压力；$35, 88, 177, 265, 354, 442, 530, 618, 707$(彩色在线)。垂直蓝色虚线表示我们进行声速测量的可用频率范围\nWithin the available range of frequency (from $10$ to $100\\text{ kHz}$) obtained for different pressure, the measured phase velocity decreases slightly with increasing the frequency, indicating a small dispersion effect (the structures appearing outside the available frequency range are likely due to experimental limitations and should not be interpreted). This dispersion effect is not predicted by the existing effective medium theories. However, other models suggest possible dispersion effects related to the characteristic size of the particles in disordered amorphous systems. Further studies are needed to clarify this issue.\n在不同压力下获得的可用频率范围内（从 $10$ 到 $100\\text{ kHz}$），测量到的相速度随着频率的增加而略有下降，这表明存在微小的色散效应（出现在可用频率范围之外的结构可能是由于实验限制造成的，不应加以解释）。现有的有效介质理论无法预测这种色散效应。不过，其他模型表明，可能的频散效应与无序无定形系统中颗粒的特征尺寸有关。要澄清这个问题，还需要进一步的研究。\nIn Fig. 4, we plot the averaged phase velocity of longitu- dinal sound waves Vϕ as a function of conﬁning pressure P obtained in the jammed packings of glass beads and irregular/angular sand particles. Note that these data agree well (1 %) with the group velocity Vg (Fig. 4c, inset) determined at a given P, using the correlation method (i.e., the group delay) between the sound pulses detected at x1 and x2 (Fig. 2). We observe an increase of the sound speed with increasing conﬁning pressure, in both glass beads and sand packings. This increase is qualitatively captured by the effective medium model based on the hertzian contact shown in Eqs. (1) and (2). Furthermore, we observe that the size of the glass beads does not effect the sound speed. In contrast, we ﬁnd that the sound speeds measured in sand particle packings are signiﬁcantly lower than (about 20 %) those in glass beads packings, no matter what the conﬁning pressure is.\n",
+  "wordCount" : "5515",
+  "inLanguage": "zh",
+  "datePublished": "2023-11-29T00:18:06+08:00",
+  "dateModified": "2023-11-29T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/sonic/dgm/probing-the-effect-of-particle-shape/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/sonic/">🦇 超声波探测</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/sonic/dgm/">⛓ Densed Granular Media</a></div>
+            <h1 class="post-title">
+                Probing the effect of particle shape on the rigidity of jammed granular solids with sound speed measurements
+            </h1>
+            <div class="post-description">
+                该文章可用于系统学习如何测量群速度
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-11-29
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>5515字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>12分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#coherent-sound-propagation-in-jammed-packings" aria-label="Coherent sound propagation in jammed packings">Coherent sound propagation in jammed packings</a><ul>
+                        
+                <li>
+                    <a href="#experimental-procedure" aria-label="Experimental procedure">Experimental procedure</a></li>
+                <li>
+                    <a href="#sound-speed-measurement" aria-label="Sound speed measurement">Sound speed measurement</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><blockquote>
+<p>DOI: <a href="https://link.springer.com/article/10.1007/s10035-015-0575-z" target="_blank" rel="noopener nofollow noreferrer" >10.1007/s10035-015-0575-z</a></p>
+</blockquote>
+<h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>We describe a precise phase velocity measurement of longitudinal sound waves in granular solids under stress. We observe an important difference of the phase velocity between the packings of glass beads and sand particles, which is likely due to the interlocking effect caused by the particle shape.</p>
+<p>This effect can be captured by the contact coordination number using the effective medium theory. We also investigate the change of this coordination number in dry and wet granular packings, caused by cyclic loading or nonlinear sound transmission. These acoustic measurements show that the particle-level properties such as shape and friction signiﬁcantly influence the response of jammed granular solids to external driving.</p>
+</blockquote>
+<p>我们描述了在应力作用下对颗粒固体中的纵波相速度的精确测量。我们观察到玻璃珠和沙粒堆积之间的相速度存在很大差异，这可能是由于颗粒形状造成的连锁效应。</p>
+<p>这种效应可以用有效介质理论中的接触配位数来捕捉。我们还研究了干性和湿性颗粒堆积在循环加载或非线性声音传播情况下接触配位数的变化。这些声学测量结果表明，颗粒级的特性（如形状和摩擦力）极大地影响了堵塞态颗粒固体对外部驱动的响应。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>Amorphous systems as diverse as glasses, colloids, foams and granular materials may be governed by the common concept of jamming. A jammed state emerges when the density of randomly packed particles is high enough so that the particles all interact with their neighbors and resist flow. Numerous simulations and experiments have revealed that the average number of contacts per particle, i.e., the coordination number $Z$ (mechanically loaded), plays an essential role in the physical behavior of a granular system.</p>
+</blockquote>
+<p>玻璃、胶体、泡沫和颗粒材料等各种无定形系统都可能受 &ldquo;堵塞&rdquo; 这一常见概念的支配。当随机堆积颗粒的密度足够高，以至于所有颗粒都与相邻颗粒相互作用并抵抗流动时，就会出现堵塞状态。大量模拟和实验表明，每个颗粒的<strong>平均接触数</strong>，即配位数 $Z$（机械加载下），对颗粒系统的物理行为起着至关重要的作用。</p>
+<blockquote>
+<p>As the packing density $\phi$ of an ensemble of frictionless spheres is increased above a critical jamming value $\phi_{c}$, the system has finite bulk elastic modulus via an abrupt jump in $Z$ to reach the isostatic value $Z_{I}$ . Above the jamming point, $Z$ grows as a power-law of the excess packing density. Experimental techniques, such as X-ray tomography, MRI and fluorescent confocal microscopy have recently been developed to investigate the local geometry and the particle motion.</p>
+</blockquote>
+<p>当无摩擦球体聚集体的堆积密度 $\phi$ 增加到临界堵塞值 $\phi_{c}$ 以上时，系统的有限体弹性模量会通过 $Z$ 的突然跃迁达到等静态值 $Z_{I}$ 。在堵塞点之上，$Z$ 的增长与过量堆积密度成幂律关系。最近开发了 X 射线断层扫描、核磁共振成像和荧光共聚焦显微镜等实验技术，用于研究局部几何形状和粒子运动。</p>
+<hr>
+<blockquote>
+<p>Granular materials are composed of individual macroscopic solid grains that interact via dissipative contact forces. For frictionless spheres, $Z_{I} = 2d$ with $d$ the dimension; for frictional spheres, $Z_{I}$ drops from $6$ to a lower value $d + 1 = 4$ in a 3D system.</p>
+<p>In the jammed state, the mechanical properties depend to a large extent on the inhomogeneous contact force network. Photoelastic observations offer important insights in those contact forces during the jamming transition in 2D systems. However, in real 3D granular materials, the photoelastic method becomes more difficult to apply.</p>
+</blockquote>
+<p>颗粒材料由各个宏观固体颗粒组成，这些颗粒通过耗散接触力相互作用。对于无摩擦的球体，$Z_{I} = 2d$，$d$ 为维数；对于有摩擦的球体，在三维系统中，$Z_{I}$ 从 $6$ 降至较低值 $d + 1 = 4$。</p>
+<p>在堵塞态下，机械性质在很大程度上依赖于非均匀的接触力网络。在二维系统中，光弹性观测可提供有关堵塞转变期间接触力的重要见解。然而，在实际的三维颗粒材料中，光弹性方法变得更加难以应用。</p>
+<hr>
+<blockquote>
+<p>Sound waves propagate through the contacts between grains, making sound an alternative and unique probe to examine the elastic and dissipative responses of the contacts inside 3D disordered granular materials. If the jammed granular material is treated as homogenous, for example by coarse graining, effective medium theories may be applied using an afﬁne approximation to qualitatively connect the global response, like the bulk and shear elastic moduli $K_{\text{eff}}$ and $G_{\text{eff}}$, to the local geometry.</p>
+</blockquote>
+<p>声波通过颗粒之间的接触传播，使声音成为研究三维无序颗粒材料内部接触的弹性和耗散响应的另一种独特探针。如果将堵塞的颗粒材料视为均质材料，例如通过粗粒化处理，则可以使用有效介质理论，使用近似方法定性地将全局响应（如体积和剪切弹性模量 $K_{\text{eff}}$ 和 $G_{\text{eff}}$）与局部几何形状联系起来。</p>
+<blockquote>
+<p>In the case of isotropic compression, it was shown that,</p>
+<p>$$
+K_{\text{eff}}(P) = \frac{k_{n}}{12\pi}(\phi Z)^{\frac{2}{3}}\left(\frac{6\pi P}{k_{n}}\right)^{\frac{1}{3}}\\
+G_{\text{eff}}(P) = \frac{k_{n} - \frac{3}{2}k_{t}}{12\pi}(\phi Z)^{\frac{2}{3}}\left(\frac{6\pi P}{k_{n}}\right)^{\frac{1}{3}}
+$$</p>
+<p>where $P$ is the conﬁning pressure, $k_{n} = 4G/(1 − \nu)$ and $k_{t} = 8G/(2 − \nu)$ are the normal and tangential stiffness (with $G$ the shear modulus and $\nu$ Poisson ratio for grain materials), $Z$ is the coordination number (assumed to be constant).</p>
+</blockquote>
+<p>在各向同性压缩的情况下，结果表明</p>
+<p>$$
+K_{\text{eff}}(P) = \frac{k_{n}}{12\pi}(\phi Z)^{\frac{2}{3}}\left(\frac{6\pi P}{k_{n}}\right)^{\frac{1}{3}}\\
+G_{\text{eff}}(P) = \frac{k_{n} - \frac{3}{2}k_{t}}{12\pi}(\phi Z)^{\frac{2}{3}}\left(\frac{6\pi P}{k_{n}}\right)^{\frac{1}{3}}
+$$</p>
+<p>其中，$P$ 是约束压强，$k_{n} = 4G/(1 - \nu)$ 和 $k_{t} = 8G/(2 - \nu)$ 是法向和切向刚度（对于颗粒材料，$G$ 是剪切模量，$\nu$ 是泊松比），$Z$ 是配位数（假定为常数）。</p>
+<blockquote>
+<p>The scaling of $K_{\text{eff}}$ and $G_{\text{eff}}$ can be determined by the speeds of compression and shear waves, via $V_{P} = \sqrt{(K_{\text{eff}} + 2G_{\text{eff}})/\rho_{0}}$ and $V_{S} = \sqrt{G_{\text{eff}}/\rho_{0}}$ where $\rho = \rho_{0}\phi$ and $\rho_{0}$ is the particle density.</p>
+<p>It has been observed, however, that the sound speeds scale as $V\propto P^{1/4}$ at low $P$ and $V\propto P^{1/6}$ at high $P$ in jammed sphere packings (we will show that the experiments presented in this work remain in the $V\propto P^{1/6}$ regime).</p>
+<p>This observation can be explained by the mechanism of contact recruitment via buckling of the grains under compression through slippage or by the non spherical contacts. On the contrary, the number of contacts can be reduced by shear loading, as evidenced by the sound speed measurement.</p>
+</blockquote>
+<p>$K_{\text{eff}}$ 和 $G_{\text{eff}}$ 的缩放可以由压缩波和剪切波的速度决定、通过 $V_{P} = \sqrt{(K_{\text{eff}} + 2G_{\text{eff}})/\rho_{0}}$ 和 $V_{S} = \sqrt{G_{\text{eff}}/\rho_{0}}$ 其中 $\rho = \rho_{0}\phi$, 且 $\rho_{0}$ 是颗粒密度。</p>
+<p>然而，人们观察到，在堵塞球体堆积中，低 $P$ 值时声速为 $V\propto P^{1/4}$，高 $P$ 值时声速为 $V\propto P^{1/6}$（我们将证明本研究中的实验仍处于 $V\propto P^{1/6}$ 阶段）。</p>
+<p>这一观察结果可以通过颗粒在压缩条件下因滑动而屈服的接触____机制或非球形接触来解释。相反，正如声速测量所证明的那样，剪切加载可以减少接触的数量。</p>
+<hr>
+<blockquote>
+<p>In the nonlinear acoustic regime, high amplitude sound waves can act as controlled perturbations to explore the glassy dynamics of a granular system. On the scale of the grain contacts, we distinguish two types of nonlinearity: one arises from the normal loading, i.e. Hertzian contact, and the other from the tangential friction force.</p>
+<p>In the weakly nonlinear regime where the sound amplitude is much smaller than the grain overlap, reversible nonlinear responses, like second harmonic generation, are observed. Nevertheless, beyond a certain sound amplitude of only a few percent of the grain deformation, the sound-matter interactions become irreversible and are accompanied by slight compaction of magnitude $&lt;0.1$ %.</p>
+<p>Such a behavior is much more pronounced with low confining pressure $P$ in which strong ﬂuctuations are observed both in the velocity and the amplitude of sound waves propagating through granular packings. This is likely related to the modification of the contact networks caused by the sound wave.</p>
+</blockquote>
+<p>在非线性声学体系中，高振幅声波可以作为受控扰动来探索颗粒系统的玻璃化动力学。在颗粒接触的尺度上，我们区分了两种类型的非线性：一种来自法向载荷，即 Hertz 接触，另一种来自切向摩擦力。</p>
+<p>在声振幅远小于颗粒重叠的弱非线性状态下，可观察到可逆的非线性反应，如二次谐波的产生。然而，超过一定的声振幅（仅为颗粒变形的百分之几），声-物质相互作用就变得不可逆，并伴随着幅度为 $&lt;0.1$ % 的轻微压实。</p>
+<hr>
+<blockquote>
+<p>However, some important issues still remain unclear such as the effect of the particle-level properties (shape and friction) on the structure and the mechanical responses of jammed granular packings. In this work, we aim to elucidate the role of the particle shape on the rigidity of a granular solid within the framework of effective medium theories based on the Hertzian–Mindlin contact law via the coordination number $Z$.</p>
+<p>To this end, we develop a quantitative measurement of the phase velocity of longitudinal sound waves in the linear regime, and compare the pressure-dependent sound speed measured in the packings of glass beads and sand particles (Sect. 2). Next we investigate the evolution of a granular packing by the two following methods (Sect. 3): (i) repetitively applying a confining stress while measuring the sound speed; (ii) using <strong>nonlinear sound vibration</strong> to perturb the granular packing.</p>
+</blockquote>
+<p>然而，一些重要问题仍不清楚，例如颗粒级特性（形状和摩擦力）对结构以及堵塞颗粒堆积的机械响应的影响。在这项研究中，我们的目标是在基于 Hertzian–Mindlin 接触定律的有效介质理论框架内，通过配位数 $Z$ 解释颗粒形状对颗粒固体刚性的作用。</p>
+<p>为此，我们开发了线性(响应?)机制下纵波相速度的定量测量方法，并比较了在玻璃珠和沙粒堆积中测量到的随压力变化的声速（第 2 节）。接下来，我们用以下两种方法研究颗粒堆积的演变（第 3 节）：(i) 在测量声速的同时重复施加约束应力；(ii) 使用非线性声振动来扰动颗粒堆积。</p>
+<h1 id="coherent-sound-propagation-in-jammed-packings">Coherent sound propagation in jammed packings<a hidden class="anchor" aria-hidden="true" href="#coherent-sound-propagation-in-jammed-packings">#</a></h1>
+<h2 id="experimental-procedure">Experimental procedure<a hidden class="anchor" aria-hidden="true" href="#experimental-procedure">#</a></h2>
+<blockquote>
+<p>Our granular solids consist of random packing of spherical glass beads of diameter $d = 0.3\text{ mm}$ and $0.7\text{ mm}$ (made of soda lime glass) or sand particles of $d = 0.7\text{ mm}$ (made of $99$ % $\text{SiO}_{2}$). The densities of both materials are almost the same, about $2500\text{ kg/m}^3$. We measure the longitudinal sound speed through a single glass bead and a sand particle and ﬁnd $5000$ and $5200\text{ m/s}$, respectively (measurement of the transverse sound speed is not possible due to echos and reverberation).</p>
+</blockquote>
+<p>我们的颗粒状固体由直径为 $d = 0.3\text{ mm}$ 和 $0.7\text{ mm}$ （由钠钙玻璃制成）的球形玻璃珠或直径为 $d = 0.7\text{ mm}$ （由 $99$ % $\text{SiO}_{2}$ 制成）的沙粒随机堆积而成。这两种材料的密度几乎相同，约为 $2500\text{ kg/m}^3$。我们测量了穿过单个玻璃珠和沙粒的纵波声速，结果分别为 $5000$ 和 $5200\text{ m/s}$ （由于回声和混响，无法测量横波声速）。</p>
+<blockquote>
+<p>These data show a slight difference of $&lt;5$ % in elastic modulus. Glass beads and sand particles are poured via rain deposition into a rigid cylindrical cell with an inner diameter of $D = 60\text{ mm}$. After the cell is filled up to a height $x$ (varying from $9$ to $18\text{ mm}$), the confined granular packing is consolidated by applying ten-cycles of axial loading and unloading, via the upper piston, up to a pressure $P$ (ranging from $0.03$ to $1\text{ MPa}$) at which the acoustic measurements are conducted (Fig. 1).</p>
+</blockquote>
+<p>这些数据显示，弹性模量的差异略微小于 $5$%。玻璃珠和沙粒通过雨落法倒入内径为 $D = 60\text{ mm}$ 的刚性圆柱形池中。在小室被填充到一个高度 $x$（从 $9$ 到 $18\text{ mm}$ 不等）之后，通过上部活塞施加十个周期的轴向加载和卸载，将密闭的颗粒堆积加载到应力 $P$（从 $0.03$ 到 $1\text{ MPa}$ 不等），在此压力下进行声学测量（图 1）。</p>
+<blockquote>
+<p>The packing density of these granular materials is $\phi\approx 0.63$ for glass beads and $\phi\approx 0.59$ for sand particles. For generating and detecting the longitudinal sound waves in the granular sample, we use broadband piezoelectric transducers of $30\text{ mm}$ diameter which are placed in direct contact with the granular packing. In these experiments, the excitation is performed by sending one-cycle short pulse of $2\mu\text{s}$ duration with a broadband spectrum centered at $500\text{ kHz}$.</p>
+</blockquote>
+<p>这些颗粒材料的堆积密度为：玻璃珠约为 $0.63$，沙粒约为 $0.59$。为了产生和探测颗粒样本中的纵向声波，我们使用了直径为 $30 \text{ mm}$ 的宽带压电换能器，该换能器与颗粒堆积直接接触。在这些实验中，激励是通过发送持续时间为 $2\mu\text{s}$ 的单周期短脉冲来实现的，其宽带频谱的中心为 $500\text{ kHz}$。</p>
+<hr>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/29/i39nov4P6CwsuZQ.png" alt="1"  />
+</p>
+<blockquote>
+<p>Schematic of the setup used in the linear sound experiments. <strong>a</strong> Glass beads are contained in a metal cell and a pressure is applied via a piston. A transducer placed in the piston serves as acoustic source by sending a $2\mu\text{s}$ pulse and the propagating wave is measured by a second transducer placed at the bottom of the cell. An echo is indicated by the curved arrow. <strong>b</strong> Photo of the sand particles $d$~$0.7\text{ mm}$. <strong>c</strong> Photo of the glass beads $d$~$0.7\text{ mm}$.</p>
+</blockquote>
+<blockquote>
+<p>线性声实验中使用的装置示意图。<strong>a</strong> 玻璃珠装在一个金属池中，通过活塞施加压力。放置在活塞中的换能器通过发送 $2\mu\text{s}$ 脉冲作为声源，传播波由放置在颗粒池底部的第二个传感器测量。曲线箭头表示回声。<strong>b</strong> 沙粒的照片 $d$~$0.7\text{mm}$。<strong>c</strong> 玻璃珠的照片 $d$~$0.7\text{毫米}$。</p>
+</blockquote>
+</blockquote>
+<hr>
+<blockquote>
+<p>Typical short sound pulses (broadband) propagating through a glass bead packing of $d = 0.4\text{ mm}$ for a sample thickness $x_{1} = 9\text{ mm}$ and $x_{2} = 18\text{ mm}$ are shown in Fig. 2. The experiments are repeated for different confining pressures $P$ to study the evolution of the sound speed (see below).</p>
+<p>As shown previously in [11], the use of large acoustic source and receiver enhance the detection of the long-wavelength coherent sound waves and minimize the codalike acoustic speckles. Indeed, we clearly recognize the round-trip echo of the longitudinal sound wave even though it is strongly damped by the scattering attenuation.</p>
+<p>Note also that, with this protocol and confining pressure $P$, the coherent acoustic pulses are reproducible with ﬂuctuations $&lt;5$ % in amplitude and $3$ % in time-of-flight between different configuration (ten different conﬁgurations).These observations confirm the applicability of the effective medium theory (EMT) or mean-field approach to describe a jammed granular solid on the macroscopic scale, corresponding to the coherent wavelength $\lambda\sim 5\text{ mm}$ ($&gt;d\sim 0.5\text{ mm}$).</p>
+</blockquote>
+<p>典型的短声脉冲（宽带）在样品厚度为 $x_{1} = 9\text{ mm}$ 和 $x_{2} = 18\text{ mm}$的 $d = 0.4\text{ mm}$ 玻璃珠堆积中传播，如图 2 所示。针对不同的约束压力 $P$ 重复实验，以研究声速的演变（见下文）。</p>
+<p>如之前的文献[11]所示，使用大型声源和接收器可增强对长波长相干声波的探测，并最大限度地减少多重散射声学散乱峰。事实上，尽管纵向声波受到散射衰减的强烈阻尼效应，我们仍能清晰地识别出纵向声波的回响。</p>
+<p>还要注意的是，采用这种方案和约束压力 $P$，相干声脉冲在不同配置（$10$ 种不同配置）之间的振幅波动 $&lt;5$ % 和飞行时间波动 $3$ %，具有可重复性。这些观察结果证实了有效介质理论（EMT）或均场方法适用于描述宏观尺度上的堵塞态颗粒固体，相当于相干波长 $\lambda\sim 5\text{ mm}$ ($&gt;d\sim 0.5\text{mm}$)。</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/29/h5IriFdgJA9RMXy.png" alt="2"  />
+</p>
+<blockquote>
+<p>Measured sound signals propagating in granular samples consisting of glass beads, $d = 0.4\text{ mm}$, for increasing conﬁning pressures [indicated by the dotted arrows, 35, 88, 177, 265, 354, 442, 530, 618, 707 kPa (color online)] at distance $x_{1} = 9{\text{ mm}}$ (<strong>a</strong>), and $x_{2} = 18{\text{ mm}}$ (<strong>b</strong>). The small solid arrows indicate the echo’s</p>
+</blockquote>
+<blockquote>
+<p>在距离 $x_{1} = 9{\text{ mm}}$（<strong>a</strong>）和 $x_{2} = 18{\text{ mm}}$（<strong>b</strong>）处，测量到的声音信号在由玻璃珠组成的颗粒样品（$d = 0.4\text{毫米}$）中传播[虚线箭头表示$35,88,177,265,354,442,530,618,707\text{ kPa}$（彩色在线）]。实心小箭头表示回波</p>
+</blockquote>
+</blockquote>
+<h2 id="sound-speed-measurement">Sound speed measurement<a hidden class="anchor" aria-hidden="true" href="#sound-speed-measurement">#</a></h2>
+<blockquote>
+<p>To accurately measure the wave speed of the coherent sound propagation, we determine the time delay between two coherent longitudinal sound pulses measured at different distances from the acoustic source, $x_1 = 9\text{ mm}$ (Fig. 2a) and $x_2 = 18\text{ mm}$ (Fig. 2b). As the temporal waveforms of sound pulses are signiﬁcantly changed as a function of propagation distance $x$, we seek to determine the phase velocity by the spectral analysis of such broadband sound pulses through the granular packing at a given pressure $P$.</p>
+<p>Indeed, if one considers a plane wave of angular frequency $\omega$, $s(x, t) = A_{0}e^{-\alpha x}e^{i(\omega x/V_{\varphi} - \omega t)}$ where $\alpha(\omega)$ is the attenuation and $V_{\varphi}(\omega)$ is the phase velocity.</p>
+<p>These two parameters can be determined from the ratio of magnitude $S(\omega, x) = A_{0}e^{-\alpha x}$ and the difference of phase $\phi(\omega, x) = \omega x/V_{\varphi}$ measured at two different distances of propagation separated by $\Delta x = x_{2} − x_{1}$,</p>
+<p>$$
+\alpha = \ln{\frac{S_{1}}{S_{2}}}/\Delta x\\
+V_{\varphi} = \omega\frac{\Delta x}{\Delta\varphi}
+$$</p>
+</blockquote>
+<p>为了精确测量相干声传播的波速，我们测定了在距离声源不同距离测量的两个相干纵向声脉冲之间的时间延迟，分别为 $x_1 = 9\text{ mm}$（图 2a）和 $x_2 = 18\text{ mm}$（图 2b）。由于声脉冲的时间波形随传播距离 $x$ 的变化而显著改变，我们试图通过对在给定压力 $P$ 下穿过颗粒堆积的宽带声脉冲进行频谱分析来确定相位速度。</p>
+<p>事实上，如果考虑角频率为 $\omega$ 的平面波，$s(x, t) = A_{0}e^{-\alpha x}e^{i(\omega x/V_{\varphi} - \omega t)}$ 其中 $\alpha(\omega)$ 是衰减，$V_{\varphi}(\omega)$ 是相速度。</p>
+<p>这两个参数可以通过在两个不同的传播距离上测量的幅度比 $S(\omega, x) = A_{0}e^{-\alpha x}$ 和相位差 $\phi(\omega, x) = \omega x/V_{\varphi}$ 来确定，这两个距离相隔 $\Delta x = x_{2}- x_{1}$,</p>
+<p>$$
+\alpha = \ln{\frac{S_{1}}{S_{2}}}/\Delta x\\
+V_{\varphi} = \omega\frac{\Delta x}{\Delta\varphi}
+$$</p>
+<hr>
+<blockquote>
+<p>The magnitude spectra (Fig. 3a, b) of the sound pulses measured at $x_1$ and $x_2$ are obtained by the Fourier transformation <u>after the application of a window function to separate the coherent longitudinal wave from the shear wave and also from the codalike scattered waves</u>. These magnitude spectra show that the central frequency of the transmitted sound pulse increases with increasing pressure and it decreases with increasing distance of propagation due to the scattering attenuation of the coherent wave, indicating that the granular medium acts as a low-pass filter. The phase velocity is determined with Eq. (4) using the phase spectra (not shown), as a function of frequency for different conﬁning pressure (Fig. 3c).</p>
+</blockquote>
+<p><u>在应用窗函数将相干纵波与剪切波以及同类散射波分离后</u>，通过傅里叶变换获得了在 $x_1$ 和 $x_2$ 处测量的声脉冲的幅值频谱（图 3a、b）。这些幅值谱显示，由于相干波的散射衰减，透射声脉冲的中心频率随压力的增加而增加，并随传播距离的增加而减小，这表明颗粒介质起到了低通滤波器的作用。根据公式 (4)，利用相位频谱（未显示）确定了相位速度，它是不同约束压力下频率的函数（图 3c）。</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/29/aMDgJ2ydNPQOs8I.png" alt="3"  />
+</p>
+<blockquote>
+<p>Spectra calculated from the coherent part of the wave in Fig. 2 at distance <strong>a</strong> $x1 = 9\text{ mm}$, and <strong>b</strong> $x2 = 18\text{ mm}$. <strong>c</strong> Phase velocity of the coherent wave, $V_{\varphi}$, as a function of the frequency. The dashed arrows indicate the increasing confining pressure; $35, 88, 177, 265, 354, 442, 530, 618, 707$(color online). The vertical blue dotted lines indicate the available frequency range in which we perform our sound speed measurements</p>
+</blockquote>
+<blockquote>
+<p>图 2 中相干波部分在距离 <strong>a</strong> $x1 = 9\text{ mm}$ 和 <strong>b</strong> $x2 = 18\text{ mm}$ 时的频谱计算结果。<strong>c</strong> 相干波的相速度 $V_{\varphi}$ 是频率的函数。虚线箭头表示不断增加的约束压力；$35, 88, 177, 265, 354, 442, 530, 618, 707$(彩色在线)。垂直蓝色虚线表示我们进行声速测量的可用频率范围</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Within the available range of frequency (from $10$ to $100\text{ kHz}$) obtained for different pressure, the measured phase velocity decreases slightly with increasing the frequency, indicating a small dispersion effect (the structures appearing outside the available frequency range are likely due to experimental limitations and should not be interpreted). This dispersion effect is not predicted by the existing effective medium theories. However, other models suggest possible dispersion effects related to the characteristic size of the particles in disordered amorphous systems. Further studies are needed to clarify this issue.</p>
+</blockquote>
+<p>在不同压力下获得的可用频率范围内（从 $10$ 到 $100\text{ kHz}$），测量到的相速度随着频率的增加而略有下降，这表明存在微小的色散效应（出现在可用频率范围之外的结构可能是由于实验限制造成的，不应加以解释）。现有的有效介质理论无法预测这种色散效应。不过，其他模型表明，可能的频散效应与无序无定形系统中颗粒的特征尺寸有关。要澄清这个问题，还需要进一步的研究。</p>
+<hr>
+<blockquote>
+<p>In Fig. 4, we plot the averaged phase velocity of longitu- dinal sound waves Vϕ as a function of conﬁning pressure P obtained in the jammed packings of glass beads and irregular/angular sand particles. Note that these data agree well (1 %) with the group velocity Vg (Fig. 4c, inset) determined at a given P, using the correlation method (i.e., the group delay) between the sound pulses detected at x1 and x2 (Fig. 2). We observe an increase of the sound speed with increasing conﬁning pressure, in both glass beads and sand packings. This increase is qualitatively captured by the effective medium model based on the hertzian contact shown in Eqs. (1) and (2). Furthermore, we observe that the size of the glass beads does not effect the sound speed. In contrast, we ﬁnd that the sound speeds measured in sand particle packings are signiﬁcantly lower than (about 20 %) those in glass beads packings, no matter what the conﬁning pressure is.</p>
+</blockquote>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/sonic/dgm/mechanisms-for-acoustic-absorption-in-dry-and-weakly-wet-granular-media/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Mechanisms for Acoustic Absorption in Dry and Weakly Wet Granular Media</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/sonic/dgm/sound-in-sand/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Sound in Sand</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

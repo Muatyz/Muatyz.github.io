@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Ultrasound propagation in disordered granular media | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, granular">
+<meta name="description" content="DOI: 10.1557/PROC-627-BB3.5 Abstract We have identified, according to the ratio of the wavelength to the grain size, two distinct types of pulsed ultrasound transmission through a dry bead packing under stress: one corresponds to coherent ballistic waves characterized by the effective medium description, the other to the waves scattered by the inhomogeneous stress field within the granular medium. Over long distances of transport, the multiply scattered waves exhibit a diffusive character. Also we investigate the dynamics of the granular medium during a compaction under cyclic loading-unloading. Both the macroscopic deformation and the microscopic rearrangement have been measured, via an ultrasonic correlation technique using the multiple acoustic scattering very sensitive to the change of the system configuration. It is found that as the packing fraction increases, there is a continuous evolution of the system in response to external loading, from an">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style><meta property="og:title" content="Ultrasound propagation in disordered granular media" />
+<meta property="og:description" content="DOI: 10.1557/PROC-627-BB3.5 Abstract We have identified, according to the ratio of the wavelength to the grain size, two distinct types of pulsed ultrasound transmission through a dry bead packing under stress: one corresponds to coherent ballistic waves characterized by the effective medium description, the other to the waves scattered by the inhomogeneous stress field within the granular medium. Over long distances of transport, the multiply scattered waves exhibit a diffusive character. Also we investigate the dynamics of the granular medium during a compaction under cyclic loading-unloading. Both the macroscopic deformation and the microscopic rearrangement have been measured, via an ultrasonic correlation technique using the multiple acoustic scattering very sensitive to the change of the system configuration. It is found that as the packing fraction increases, there is a continuous evolution of the system in response to external loading, from an" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-01T00:18:06+08:00" />
+<meta property="article:modified_time" content="2023-11-01T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ultrasound propagation in disordered granular media"/>
+<meta name="twitter:description" content="DOI: 10.1557/PROC-627-BB3.5 Abstract We have identified, according to the ratio of the wavelength to the grain size, two distinct types of pulsed ultrasound transmission through a dry bead packing under stress: one corresponds to coherent ballistic waves characterized by the effective medium description, the other to the waves scattered by the inhomogeneous stress field within the granular medium. Over long distances of transport, the multiply scattered waves exhibit a diffusive character. Also we investigate the dynamics of the granular medium during a compaction under cyclic loading-unloading. Both the macroscopic deformation and the microscopic rearrangement have been measured, via an ultrasonic correlation technique using the multiple acoustic scattering very sensitive to the change of the system configuration. It is found that as the packing fraction increases, there is a continuous evolution of the system in response to external loading, from an"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🦇 超声波探测",
+          "item": "https://Muatyz.github.io/posts/read/sonic/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  4 ,
+          "name": "⛓ Densed Granular Media",
+          "item": "https://Muatyz.github.io/posts/read/sonic/dgm/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Ultrasound propagation in disordered granular media",
+      "item": "https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Ultrasound propagation in disordered granular media",
+  "name": "Ultrasound propagation in disordered granular media",
+  "description": "DOI: 10.1557/PROC-627-BB3.5 Abstract We have identified, according to the ratio of the wavelength to the grain size, two distinct types of pulsed ultrasound transmission through a dry bead packing under stress: one corresponds to coherent ballistic waves characterized by the effective medium description, the other to the waves scattered by the inhomogeneous stress field within the granular medium. Over long distances of transport, the multiply scattered waves exhibit a diffusive character. Also we investigate the dynamics of the granular medium during a compaction under cyclic loading-unloading. Both the macroscopic deformation and the microscopic rearrangement have been measured, via an ultrasonic correlation technique using the multiple acoustic scattering very sensitive to the change of the system configuration. It is found that as the packing fraction increases, there is a continuous evolution of the system in response to external loading, from an",
+  "keywords": [
+    "scmp", "granular"
+  ],
+  "articleBody": " DOI: 10.1557/PROC-627-BB3.5\nAbstract We have identified, according to the ratio of the wavelength to the grain size, two distinct types of pulsed ultrasound transmission through a dry bead packing under stress: one corresponds to coherent ballistic waves characterized by the effective medium description, the other to the waves scattered by the inhomogeneous stress field within the granular medium. Over long distances of transport, the multiply scattered waves exhibit a diffusive character. Also we investigate the dynamics of the granular medium during a compaction under cyclic loading-unloading.\nBoth the macroscopic deformation and the microscopic rearrangement have been measured, via an ultrasonic correlation technique using the multiple acoustic scattering very sensitive to the change of the system configuration. It is found that as the packing fraction increases, there is a continuous evolution of the system in response to external loading, from an irreversible behavior towards more elastic one.\n我们根据波长与颗粒大小之比，确定了两种不同类型的脉冲超声波在应力作用下通过干燥小球堆积的传输方式：一种是以有效介质描述为特征的相干弹道波，另一种是颗粒介质内不均匀应力场散射的波。在长距离传输过程中，多重散射波表现出扩散特性。此外，我们还研究了颗粒介质在循环加载-卸载的压实过程中的动力学。\n通过对系统构造变化非常敏感的多重声散射超声相关技术，测量了宏观变形和微观重排。研究发现，随着体积分数的增加，系统对外部载荷的反应会发生连续演化，从不可逆表现转变为更具弹性的行为。\nIntroduction The study of granular media is of great current interest both scientifically and practically. In a static assembly of cohesionless grains, experimental observations (e.g., photoelastic visualization) and computer simulations have shown very inhomogeneous spatial distributions of contact forces between particles, organized along force chains which extend over a scale of order 5-10 grains diameters. These force chains, carrying most of the forces in the system, involve only a small fraction of the total number of grains and are only marginally stable (“fragile matter”).\nAny external (thermal or mechanical) perturbation incompatible with the structure of the force chains or/and of sufficiently high amplitude, can lead to the plastic rearrangement of the system. Some new constitutive laws have been recently proposed to describe the static force transmission along the privileged force paths within granular systems and the instability of the force networks. In contrast to the conventional elastic description based on continuum mechanics, the equations governing the transmission of forces are hyperbolic instead elliptical, which lead to certain preferred directions as shown by experiments.\n对颗粒介质的研究在科学和实践方面都具有重大意义。在无内聚力颗粒的静态聚集体系中，实验观察（如光-弹性可视化）和计算机模拟显示，颗粒间接触力的空间分布非常不均匀，这些接触力沿着力链分布，延伸范围约为 $5-10$ 个颗粒直径。这些力链承载了系统中的大部分力，但只涉及颗粒总数中的一小部分，而且只具有微弱的稳定性（“脆弱物质”）。\n任何与力链结构不相容或/和振幅足够大的外部（热学或力学上的）扰动都会导致系统的塑性重排。最近有人提出了一些新的构成定律，用于描述粒状系统内沿特殊力路径的静态力传递以及力网络的不稳定性。与基于连续介质力学的传统弹性描述不同，这些力传递方程是双曲的，而不是椭圆的，这导致了实验所显示的某些优先方向。\nSound propagation in a disordered granular medium is of fundamental interest (multiple scattering). It also provides a very useful, and sometimes unique, probe of the internal structure such as force networks and the mechanical properties of real 3D granular packings, where the coherent photoelastic methods become impracticable.\nIn this paper, we investigate via ultrasound propagation, the dynamic force transmission at small amplitudes in glass bead packings under stress. Emphasis will be put on relevant length scales of observation for separating the different regimes of wave phenomena. Also the compaction of the granular packings under cyclic loading-unloading will be observed, in particular by measuring the correlation function of multiply scattered waves between successive runs.\n在无序颗粒介质中的声音传播具有重要意义（多重散射）。在相干光-弹性方法不可行的情况下，它还提供了一种非常有用的、有时甚至是唯一的方法，来探测真实三维颗粒堆积的内部结构（如力网络和机械性能）。\n在本文中，我们将通过超声波传播研究玻璃珠堆积在应力作用下的小振幅动态力传递。重点是观察关联长度的尺度，以区分不同的波现象。此外，还将观察颗粒堆积在循环加载-卸载过程中的压实情况，特别是通过测量连续运行之间多重散射波的关联函数。\nEXPERIMENTAL TECHNIQUE A schematic diagram of the experimental apparatus is shown in Fig. 1. Granular materials consist of random packings of mono- or poly-disperse glass beads. The sizes of the beads used in our experiments range from $400\\mu\\text{m}$ to several millimeters. They are contained in an aluminum cylinder of $30\\text{ mm}$ inner diameter with the top and bottom surfaces made of close-fitting pistons. The beads are poured gently into the container being vibrated horizontally, in order to prepare dense packed granular materials. A volume fraction of solid phase is thus obtained to be about 0.63.\n实验装置示意图如图 1 所示。颗粒材料由单分散或多分散玻璃珠的随机堆积组成。实验中使用的玻璃珠大小从 $400\\mu\\text{m}$ 到几毫米不等。它们被装在一个内径为 $30\\text{ mm}$ 的铝制圆筒中，圆筒的上下表面由紧密贴合的活塞制成。将珠子轻轻倒入水平振动的容器中，以制备致密的颗粒材料。固体相的体积分数约为 $0.63$。\nA normal load $P$ ranged from 0.03 to 3 MPa is applied to the upper piston using a jackscrew arrangement (œdometric test). At such load level, stress transmitted to the grains across the hertzian contact force is expected dominant compared with gravity and capillary effect.\nCompressional and shear waves are excited, by applying input pulses of one or more cycles centered at $500\\text{ kHz}$ onto the corresponding piezoelectric transducers. The vibration amplitude of the acoustic source is about 10 nm, measured in air by means of an optical interferometer. Two sizes of ultrasonic receiver are used: a large one, equal to that of the emitter (30 mm in diameter), and a small one (2 mm in diameter).\n使用千斤顶螺钉布置（几何试验）对上活塞施加 $0.03$ 至 $3$ 兆帕的法向载荷 $P$。与重力和毛细管效应相比，在这样的负载水平下，通过 Hertz 接触力传递到颗粒的应力预计会占主导地位。\n通过向相应的压电换能器 (压电陶瓷) 施加以 $500\\text{ kHz}$ 为中心的一个或多个周期的输入脉冲，可激发压缩波和剪切波。声源的振幅约为 $10\\text{ nm}$，这个数值可以在空气中通过光学干涉仪测量。实验中使用了两种尺寸的超声波接收器：一个与发射器大小相等的大接收器（直径 $30$ 毫米）和一个小接收器（直径 $2$ 毫米）。\nSchematic diagram of the vertical cross section of the apparatus. An aluminum cylinder contains the granular material. $E$ and $R$ correspond, respectively, to the ultrasonic emitter and receiver. A normal force is applied vertically upon the top piston of the container by using a jackscrew arrangement.\n设备垂直横截面示意图。铝制圆筒中装有颗粒材料。$E$ 和 $R$ 分别对应超声波发射器和接收器。使用千斤顶螺钉装置对容器顶部活塞垂直施加法向力。\nCHARACTERISTICS OF SOUND PROPAGATION Typical ultrasonic transmission through the glass packing of bead size $d = 0.4-0.8\\text{ mm}$ under an external load $P = 0.75\\text{ MPa}$ (corresponding to 50 daN) is illustrated in Fig. 2a. It is excited by a one-cycle pulse of $2\\mu\\text{s}$ duration and detected by a longitudinal transducer of $30\\text{ mm}$ in diameter placed at a distance $L \\approx 11{ mm}$ away from the source.\nThe detected signal is basically composed of two parts, as observed in a previous work: a coherent ballistic pulse $E$ traveling through an “effective contact medium” with a velocity $V_{\\text{eff}} ≈ 1000\\text{ m/s}$, followed closely by speckle-like multiply scattered waves $S$ due to the inhomogeneous distribution of stress within the granular system.\n图 2a 展示了在外部负载 $P = 0.75\\text{ MPa}$（相当于 $50\\text{ daN}$）条件下，超声波穿过尺寸为 $d = 0.4-0.8\\text{ mm}$ 的玻璃球堆积的典型传输过程。它由一个持续时间为 $2\\mu\\text{s}$ 的 单周期 脉冲激发，并由一个直径为 $30\\text{ mm}$ 的纵向传感器检测，该传感器放置在离源距离 $L \\approx 11{ mm}$ 处。\n检测到的信号基本上由两部分组成，正如之前的工作中所观察到的那样：一个相干的弹道脉冲 $E$ 以 $V_{\\text{eff}} ≈ 1000\\text{ m/s}$ 的速度穿过 “有效接触介质”, 紧随其后的是由于颗粒系统内应力分布不均而产生的斑纹状多散射波 $S$。\nTransmitted ultrasonic signals through the bead packing of $d = 0.4 - 0.8\\text{ mm}$ detected by a $30\\text{-mm-diam}$ transducer obtained under the same applied stress $P = 0.75\\text{ MPa}$ , first loading (a) and re-loading (b).\n在相同的外加应力 $P = 0.75\\text{ MPa}$ 下，首次加载（a）和重复加载（b）时，通过 $30\\text{-mm-}$直径 传感器检测到的 $d = 0.4 - 0.8\\text{ mm}$ 球珠堆积传输的超声波信号。\n如何理解 speckle-like? 在数据或信号中，“斑”（speckle）通常指的是一种具有随机性质的、类似点状或斑点状的结构或图案。这种结构通常由许多微小的、不规则的或随机分布的元素组成，在光学、成像、声学或其他领域中都会出现。\n结合给出的声学时域信号图应该能更好地体会到 speckle-like 所示的 “随机” 含义.\nIndeed, by performing a separate spectral analysis, we find that $E$ carries a rather narrow band of low frequencies while $S$ has a broadband spectrum dominated by high frequency (Fig. 3a). As the bead size increases $(d = 1.5\\text{ mm})$, the spectrum of $E$ shifts towards low frequencies while the spectrum of $S$ clearly exhibits a strong filtering out of high frequencies ($f \u003e f_{c} \\approx 500\\text{ kHz}$) (Fig. 3b). This result suggests a frequency cut-off occurring when the wavelength $\\lambda_{c} = V_{\\text{eff}}/f_{c}$ is comparable to the bead size $d$.\n事实上，通过进行单独的频谱分析，我们发现 $E$ 具有相当窄的低频带，而 $S$ 则具有以高频为主的宽带频谱（图 3a）。随着珠子尺寸的增大（$d = 1.5\\text{ mm}$），$E$ 的频谱转向低频，而 $S$ 的频谱则明显表现出强烈的低通特性（$f \u003e f_{c} \\approx 500\\text{ kHz}$）（图 3b）。这一结果表明，当波长 $\\lambda_{c} = V_{\\text{eff}}/f_{c}$ 与珠子大小 $d$ 相当时，会出现频率截断现象。\nSpectra of the $E$ and $S$ signals windowed from the total temporal waveform in the bead packing of $d = 0.4-0.8\\text{ mm}$ (a) and in that of $d = 1.5 \\pm 0.15\\text{ mm}$ (b)\n从 $0.4-0.8\\text{ mm}$ (a) 和 $0.15\\text{ mm}$ (b) 的球珠堆积中的总时域波形中筛选出的 $E$ 和 $S$ 信号的频谱\n如何从一个具体的时域信号中分解得到 $E$ 和 $S$, 并分别做频域分析呢?\nNote also that the detected ultrasonic signals ($E$ and $S$) remain stable against repetitive averaging (~ 100) over the duration of an experimental run ($\\leq 1\\text{ min}$).\nThis excellent reproducibility of the signals shows that the ultrasound at small amplitudes (~ $10\\text{ nm}$) used here, can propagate in the granular system under stress without producing any significant irreversible rearrangement. The characteristics of acoustic propagation in such a quasielastic medium can therefore be interpreted within the framework used to describe the vibrational properties of amorphous systems in terms of an inhomogeneous stress field.\n还要注意的是，检测到的超声波信号（$E$ 和 $S$）在实验进行期间（$\\leq 1\\text{ min}$）（约 100 次）重复平均仍保持稳定。\n信号的这种出色的复现性表明，这里使用的小振幅（~ $10\\text{ nm}$）超声波可以在应力作用下的颗粒系统中传播，而不会产生任何明显的不可逆重排。因此，声波在这种准弹性介质中传播的特性可以在描述非均匀应力场下 无定形(非晶)系统 的振动特性这一框架内进行解释。\nAt the scale much larger than the bead size $d (= 0.4-0.8 \\text{mm})$, the granular medium can thus be considered as homogeneous by a coarse-grained average. Since the coherent wave $E$ can only be self-averaging on a scale of order of its wavelength, this leads us to state that the correlation length of the stress filed is not large and cannot exceed a fraction of $\\lambda_{\\text{eff}}$, i.e. a few bead diameters - A result in qualitative agreement with the computer simulation and the photoelastic visualization.\n在远大于珠子尺寸 $d (= 0.4-0.8 \\text{mm})$ 的尺度上，颗粒介质可以通过 粗粒平均 被视为均质介质。由于相干波 $E$ 只能在其波长数量级的尺度上自平均，这就引导我们认为, 应力的关联长度并不大，不可能超过 $\\lambda_{\\text{eff}}$ 的分数，即几个球珠的直径–这一结果与计算机模拟和光弹性可视化在质量上是一致的。\nA fundamental difference between $E$ and $S$ signals lies in their sensitivity to the change of the packing configuration. Fig. 2b illustrate temporal waveforms detected under the same external load $P = 0.75\\text{ MPa}$ after performing an unloading-reloading cycle.\nAs clearly shown, $E$ exhibits a reversible behavior while $S$ is non-reproducible, i.e. configuration specific at the level of individual contacts. It is expected however that the global shape of $S$, which is determined by the statistical properties of the granular structure, shall be weakly altered by local irreversible events.\n$E$ 和 $S$ 信号之间的一个基本区别在于它们对堆积结构变化的敏感性。图 2b 展示了在相同的外部负载 $P = 0.75\\text{ MPa}$ 下，执行卸载-重载循环后检测到的时域波形。\n如图所示，$E$ 表现出可逆行为，而 $S$ 则是不可复现的，即在单个接触点的水平上具有特定的构型。然而，由颗粒结构的统计特性决定的 $S$ 的全局形状预计将受到局部不可逆事件的微弱改变。\nIn order to make $S$ as a more quantitative probe to configuration variations, we shall study the transport characteristics of multiply scattered acoustic waves.\nFig. 4 presents the time dependence of the average intensity of the transmitted $S$ signal detected by a small detector of $2\\text{ mm}$ in diameter. We used a ten-cycle pulse for excitation in order to have a well-defined frequency at $f = 500\\text{ kHz}$, corresponding to a wavelength $\\lambda\\approx 2\\text{ mm}$. This result was ensemble averaged over 50 different granular samples prepared in a similar way.\n为了让 $S$ 更定量地探测构型变化，我们将研究多重散射声波的传输特性。\n图 4 显示了直径为 $2\\text{ mm}$ 的小型探测器检测到的传输 $S$ 信号平均强度的时间相关性。我们使用了一个 十周期 的脉冲进行激发，以便在 $f = 500\\text{ kHz}$ 处有一个定义明确的频率，对应的波长为 $\\lambda\\approx 2\\text{ mm}$。这一结果是以类似方法制备的 50 个不同颗粒样品的系综平均值。\nNote that the time profile exhibits typical characteristics of a diffusive transport of strongly scattered sound observed in other random media. Using appropriate boundary conditions and resolving the diffusion equation, this will enable us to determine the diffusion coefficient and also the transport mean free path, being of the order of several bead sizes. More details about this study will be given elsewhere.\n请注意，该时域曲线显示了在其他随机介质中观察到的强散射声扩散传播的典型特征。利用适当的边界条件并求解扩散方程，我们就能确定扩散系数和传输平均自由程，其大小相当于几个球珠(直径)的数量级。有关这项研究的更多详情将在其他地方提供。\nTime profile of the average intensity of multiple acoustic scattering transmitted the randomly close-packed glass beads $d = 0.4 - 0.8\\text{ mm}$ for sample thickness $L\\approx 11\\text{ mm}$.\n样品厚度为 $L\\approx 11\\text{ mm}$ 时，随机紧密堆积玻璃珠的多次声散射平均强度的时间曲线。\nACOUSTIC PROBING OF GRANULAR MATERIALS Determination of elastic moduli 弹性模量的测定 Once the two distinct types of sound propagation in granular media are identified, we can unambiguously determine the compressional or shear wave velocities, $V_{P}$ and $V_{S}$ either by the time-of-flight method or by the phase spectrum analysis, if only the coherent $E$ signals are windowed from the total detected signal.\nIn the long-wavelength limit, the acoustic velocities are related to the bulk modulus $K$ and shear modulus $\\mu$ of the granular material $V_{P} = [(K + 4/3\\mu)/\\rho]^{1/2}$ and $V_{S} = (\\mu/\\rho)^{1/2}$ where $\\rho$ is the density of the material’s density.\n一旦确定了声音在颗粒介质中传播的两种不同类型，我们就可以通过飞行时间法或相位频谱分析法，明确地确定压缩波或剪切波的速度 $V_{P}$ 和 $V_{S}$，前提是从总的检测信号中只选取相干的 $E$ 信号。\n在长波极限下，声速与颗粒材料的体积模量 $K$ 和 剪切模量 $\\mu$ 有关: $V_{P} = [(K + 4/3\\mu)/\\rho]^{1/2}$ 和 $V_{S} = (\\mu/\\rho)^{1/2}$ 其中 $\\rho$ 是材料密度。\nCoherent compressional and shear waves’ propagation in the bead packing of $d = 0.2-0.3\\text{ mm}$, excited and detected by corresponding transducers, are shown in Fig. 5a. The measured shear wave velocity is given as a function of applied normal stress $P$ (Fig. 5b). The data behaves basically as a power law: $V_{S}\\propto P^{1/4.8}$, similar to those observed for the compressional wave velocity.\n图 5a 显示了由相应换能器激发和检测的相干压缩波和剪切波在(直径) $d = 0.2-0.3\\text{ mm}$ 的球珠堆积中的传播情况。测得的剪切波速度是外加法向应力 $P$ 的函数（图 5b）。数据基本表现为幂律：$V_{S}\\propto P^{1/4.8}$，与压缩波速度的观测结果类似。\nThe discrepancy between the experiment and the effective medium theory ($V_{S}\\propto P^{1/6}$), based on the Hertz-Mindlin contact, is believed to be associated with the breakdown of the assumptions underlying the effective medium theory, i.e. the co-ordination number is pressure independent, which are not the case in granular media. On the other hand, the ratio of $K/\\mu$ deduced from the experimental velocities ($V_{P} /V_{S}\\approx 1.79$) differs significantly from the prediction of the effective medium theory.\n实验与基于 Hertz-Mindlin 接触 的等效介质理论（$V_{S}\\propto P^{1/6}$）之间的差异, 被认为与等效介质理论的假设条件被破坏有关，即配位数与压力无关，而这在颗粒介质中并非如此。另一方面，从实验速度(拟合)推导出的 $K/\\mu$ 比率（$V_{P} /V_{S}\\approx 1.79$）与等效介质理论的预测值相差很大。\nOne interpretation recently proposed points to the failure of the affine (well-bonded) approximation used in the effective medium theory for calculating the shear modulus $\\mu$ of granular materials.\n最近提出的一种解释指出，等效介质理论中用于计算颗粒材料剪切模量 $\\mu$ 的仿射（良好结合）近似失效。\n(a) Propagation of coherent effective waves in the glass bead packings of d = 0.2 - 0.3 mm under external stress P = 2.3 MPa. Solid and dashed curves correspond respectively to compressional and shear ballistic pulses. (b) Shear velocity VS (data points) measured as a function of the normal stress P. A power-law behavior is fitted approximately.\n(a) 在外部压强 $P = 2.3$ 兆帕下，相干等效波在 $d = 0.2 - 0.3$ 毫米的玻璃珠堆积中传播。实线和虚线分别对应压缩和剪切弹道脉冲。(b) 作为法向应力 $P$ 的函数测量的剪切速度 VS（数据点）。\nCompaction under cyclic loading-unloading In the experiment a vertical column of $30\\text{ mm}$ in diameter filled with polydisperse glass beads $d = 0.4 -0.8\\text{ mm}$ to a initial height of $h_{0} = 10\\text{ mm}$ was subjected to slowly repeated loading- unloading by the upper piston between $5\\text{ daN}$ and $50\\text{ daN}$ (Fig. 1). A displacement sensor monitors the resulting height (volume) change of the granular packing.\n在实验中，一个直径为 $30\\text{ mm}$ 的垂直柱中填充了多分散玻璃球 $d = 0.4 -0.8\\text{ mm}$ ，初始高度为 $h_{0} = 10\\text{ mm}$ ，上部活塞在 $5\\text{ daN}$ 和 $50\\text{ daN}$ 之间缓慢地重复加载-卸载（图 1）。位移传感器监测颗粒堆积的高度（体积）变化。\nFig. 6a illustrates the typical height variation of the granular packing measured with a force step of $5\\text{ daN}$ for a few first cycles of loading-unloading. A few percent (~ $2%$) of the volume compaction ($\\Delta h/h_{0}$), due to plastic rearrangement of grains, is observed after $n\\sim 10$ cycles. Besides, $\\Delta h(n)$ plot follows approximately a logarithmic law: $\\Delta h/h_{0}\\sim \\ln(n)$, similar to those observed in the granular compaction subjected to vertical shakes with small amplitudes.\n图 6a 展示了在加载-卸载的最初几个周期中，以 $5\\text{daN}$ 的应力阶跃测量到的颗粒堆积的代表性高度变化。在 $n\\sim 10$ 循环后，由于颗粒的塑性重排，可以观察到百分之几（~ $2%$）的体积压实（$\\Delta h/h_{0}$）。此外，$\\Delta h(n)$ 图近似遵循对数规律：$\\Delta h/h_{0}\\sim \\ln(n)$，这与受到小振幅垂直振动的颗粒压实中观察到的情况类似。\nNow we present an original observation in which we make use of configuration-sensitive acoustic speckles $S$ to follow semi-quantitatively the irreversible rearrangement within the granular system during a macroscopic plastic deformation (compaction) produced by cyclic loading- unloading. To do so, we define a degree resemblance between two time signals $S_i(t)$ and $S_j(t)$, via their intercorrelation function $C_{i,j}(τ)$:\n$$ \\Gamma_{i,j}(\\tau) = C_{i,j}(\\tau)/[C_{i,i}(0)C_{j,j}(0)]^{1/2} $$\nThe value of $\\Gamma_{i,j}(\\tau=0)$ characterizes their resemblance and it is to be calculated for multiple acoustic scatterings transmitted through the granular material under successive cycles of loading- unloading ($n = i$ and $i + 1$). $\\Gamma_{i, i+1} (0) = 1$ would correspond to an ideal solid having a pure elastic response to applied forces.\n现在，我们提出一个新颖的观察方法，即利用构型敏感的声学峰 $S$, 半定量地跟踪颗粒系统在循环加载-卸载产生的宏观塑性变形（压实）过程中 内部 的不可逆重排。为此，我们通过两个时间信号 $S_i(t)$ 和 $S_j(t)$ 的相互关系函数 $C_{i,j}(τ)$ 来定义它们之间的相似度:\n$$ \\Gamma_{i,j}(\\tau) = C_{i,j}(\\tau)/[C_{i,i}(0)C_{j,j}(0)]^{1/2} $$\n$\\Gamma_{i,j}(\\tau=0)$ 的值描述了它们的相似性，它是在连续的加载-卸载循环（$n = i$ 和 $i+1$）下，通过颗粒材料传输的多次声散射计算得出的。$\\Gamma_{i, i+1} (0) = 1$ 相当于理想固体对外力的纯弹性响应。\n$\\Gamma_{n, n+1}(0)$, deduced from the acoustic speckles between two successive cycles $n$ and $n+1$ (Fig. 6b), increases progressively as the system becomes more and more compacted. Since the acoustic speckle is configuration specific, this result simply indicates that greater is the packing fraction, more reversible and elastic behaves the granular system with respect to applied forces.\n从两个连续周期 $n$ 和 $n+1$ 之间的声学峰（图 6b）推导出的 $\\Gamma_{n,n+1}(0)$，随着(颗粒)系统变得越来越紧密而逐渐增加。由于声学峰是特定构型的，因此这一结果简单地表明，堆积分数越大，颗粒系统对外力的可逆性和弹性就越大。\nThis is intuitively reasonable because as the packing fraction increases the important arrangement of grains tends to disappear and the force network becomes more tangled, with many shorter intersecting chains as being photoelastically observed in 2D granular systems.\n这在直觉上是合理的，因为随着堆积分数的增加，重要的晶粒排列趋于消失，力网络变得更加纠结，就像在二维颗粒系统中光弹性观察到的那样，有许多较短的相交链。\n(a) Height (or volume) variation of the granular packing under cyclic loading- unloading. (b) Correlation of two S signals (multiply scattered waves) transmitted through the bead packing between two successive cyclic loading-unloading.\n(a) 颗粒堆积在循环加载-卸载过程中的高度（或体积）变化。(b) 在两次连续的循环加载-卸载之间，通过颗粒堆积传输的两个 $S$ 信号（多重散射波）的相关性。\nThe two peaks observed in Fig. 6b are associated with partially unloading, i.e., unloading to $40\\text{ daN}$ instead of $5\\text{ daN}$, and then reloading to $50\\text{ daN}$. For such a small perturbation, the granular system exhibits a quasielastic character. These results are reminiscent of the pastelike behavior observed in other media such as concentrated suspensions, foams, etc. More quantitative results are expected by using Diffusing Acoustic Wave Spectroscopy (DAWS) in development.\n图 6b 中观察到的两个峰值与部分卸载有关，即卸载到 $40\\text{ daN}$ 而非 $5\\text{daN}$，然后重新负载到 $50\\text{daN}$。对于如此小的扰动，颗粒系统表现出准弹性特征。这些结果让人想起在其他介质（如浓缩悬浮液、泡沫等）中观察到的糊状行为。通过使用正在开发中的扩散声波光谱法（DAWS），有望获得更多定量结果。\nCONCLUSION Ultrasound propagation in the glass bead packing reveals that for small amplitudes of force transmissions, the static granular system can be considered as a nonlinear quasielastic inhomogeneous medium, given external (œdometric) loading.\nAt scales of coherent waves much larger than the grain and the stress correlation lengths, the effective medium theory based on a coarse-grained average of contact mechanics gives a quite good description. When the wavelength shortened ultrasounds encounter successive scatterings caused by the inhomogeneous stress filed, which leads to the onset of a diffusive transport over long distance propagation.\n超声波在玻璃珠堆积中的传播表明，在外部（œdometric）加载的情况下，对于较小的力传递振幅，静态颗粒系统可被视为非线性准弹性非均质介质。\n在相干波的尺度(波长?)远大于晶粒和应力相关长度的情况下，基于接触力学粗粒平均值的有效介质理论给出了很好的描述。当波长缩短的超声波遇到由不均匀应力引起的连续散射时，就会在长距离传播过程中发生扩散传输。\nAt a scale comparable to the characteristic length of wave transport, of the order of the correlation length of stress, the acoustic force transmission is expected to be along certain preferred directions. We believe that the ultrasonic correlation technique (DAWS) used in the study of the granular compaction will facilitates the connection between the microscopic structure (configurational rearrangements) and the macroscopic behavior of granular materials in response to externally applied forces.\n在与波传输特征长度（应力相关长度的数量级）相当的尺度上，预计声力传输将沿着某些优先方向进行。我们相信，用于研究颗粒压实的超声波相关技术（DAWS）将促进颗粒材料在外力作用下的微观结构（构型重排）与宏观行为之间的联系。\n",
+  "wordCount" : "6690",
+  "inLanguage": "zh",
+  "datePublished": "2023-11-01T00:18:06+08:00",
+  "dateModified": "2023-11-01T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/sonic/">🦇 超声波探测</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/sonic/dgm/">⛓ Densed Granular Media</a></div>
+            <h1 class="post-title">
+                Ultrasound propagation in disordered granular media
+            </h1>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-11-01
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>6690字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>14分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#experimental-technique" aria-label="EXPERIMENTAL TECHNIQUE">EXPERIMENTAL TECHNIQUE</a></li>
+                <li>
+                    <a href="#characteristics-of-sound-propagation" aria-label="CHARACTERISTICS OF SOUND PROPAGATION">CHARACTERISTICS OF SOUND PROPAGATION</a></li>
+                <li>
+                    <a href="#acoustic-probing-of-granular-materials" aria-label="ACOUSTIC PROBING OF GRANULAR MATERIALS">ACOUSTIC PROBING OF GRANULAR MATERIALS</a><ul>
+                        
+                <li>
+                    <a href="#determination-of-elastic-moduli-%e5%bc%b9%e6%80%a7%e6%a8%a1%e9%87%8f%e7%9a%84%e6%b5%8b%e5%ae%9a" aria-label="Determination of elastic moduli 弹性模量的测定">Determination of elastic moduli 弹性模量的测定</a></li>
+                <li>
+                    <a href="#compaction-under-cyclic-loading-unloading" aria-label="Compaction under cyclic loading-unloading">Compaction under cyclic loading-unloading</a></li></ul>
+                </li>
+                <li>
+                    <a href="#conclusion" aria-label="CONCLUSION">CONCLUSION</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><blockquote>
+<p>DOI: <a href="https://www.cambridge.org/core/journals/mrs-online-proceedings-library-archive/article/abs/ultrasound-propagation-in-disordered-granular-media/0CA21C40A90F990AEA745B52BEE5C754" target="_blank" rel="noopener nofollow noreferrer" >10.1557/PROC-627-BB3.5</a></p>
+</blockquote>
+<h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>We have identified, according to the ratio of the wavelength to the grain size, two distinct types of pulsed ultrasound transmission through a dry bead packing under stress: one corresponds to coherent ballistic waves characterized by the effective medium description, the other to the waves scattered by the inhomogeneous stress field within the granular medium. Over long distances of transport, the multiply scattered waves exhibit a diffusive character. Also we investigate the dynamics of the granular medium during a compaction under cyclic loading-unloading.</p>
+<p>Both the macroscopic deformation and the microscopic rearrangement have been measured, via an ultrasonic correlation technique using the multiple acoustic scattering very sensitive to the change of the system configuration. It is found that as the packing fraction increases, there is a continuous evolution of the system in response to external loading, from an irreversible behavior towards more elastic one.</p>
+</blockquote>
+<p>我们根据波长与颗粒大小之比，确定了两种不同类型的脉冲超声波在应力作用下通过干燥小球堆积的传输方式：一种是以有效介质描述为特征的相干弹道波，另一种是颗粒介质内不均匀应力场散射的波。在长距离传输过程中，多重散射波表现出扩散特性。此外，我们还研究了颗粒介质在循环加载-卸载的压实过程中的动力学。</p>
+<p>通过对系统构造变化非常敏感的多重声散射超声相关技术，测量了宏观变形和微观重排。研究发现，随着体积分数的增加，系统对外部载荷的反应会发生连续演化，从不可逆表现转变为更具弹性的行为。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>The study of granular media is of great current interest both scientifically and practically. In a static assembly of cohesionless grains, experimental observations (e.g., photoelastic visualization) and computer simulations have shown very inhomogeneous spatial distributions of contact forces between particles, organized along force chains which extend over a scale of order 5-10 grains diameters. These force chains, carrying most of the forces in the system, involve only a small fraction of the total number of grains and are only marginally stable (&ldquo;fragile matter&rdquo;).</p>
+<p>Any external (thermal or mechanical) perturbation incompatible with the structure of the force chains or/and of sufficiently high amplitude, can lead to the plastic rearrangement of the system. Some new constitutive laws have been recently proposed to describe the static force transmission along the privileged force paths within granular systems and the instability of the force networks. In contrast to the conventional elastic description based on continuum mechanics, the equations governing the transmission of forces are hyperbolic instead elliptical, which lead to certain preferred directions as shown by experiments.</p>
+</blockquote>
+<p>对颗粒介质的研究在科学和实践方面都具有重大意义。在无内聚力颗粒的静态聚集体系中，实验观察（如光-弹性可视化）和计算机模拟显示，颗粒间接触力的空间分布非常不均匀，这些接触力沿着力链分布，延伸范围约为 $5-10$ 个颗粒直径。这些力链承载了系统中的大部分力，但只涉及颗粒总数中的一小部分，而且只具有微弱的稳定性（&ldquo;脆弱物质&rdquo;）。</p>
+<p>任何与力链结构不相容或/和振幅足够大的外部（热学或力学上的）扰动都会导致系统的塑性重排。最近有人提出了一些新的构成定律，用于描述粒状系统内沿特殊力路径的静态力传递以及力网络的不稳定性。与基于连续介质力学的传统弹性描述不同，这些力传递方程是双曲的，而不是椭圆的，这导致了实验所显示的某些优先方向。</p>
+<hr>
+<blockquote>
+<p>Sound propagation in a disordered granular medium is of fundamental interest (multiple scattering). It also provides a very useful, and sometimes unique, probe of the internal structure such as force networks and the mechanical properties of real 3D granular packings, where the coherent photoelastic methods become impracticable.</p>
+<p>In this paper, we investigate via ultrasound propagation, the dynamic force transmission at small amplitudes in <strong>glass bead</strong> packings under stress. Emphasis will be put on <strong>relevant length</strong> scales of observation for separating the different regimes of wave phenomena. Also the compaction of the granular packings under cyclic loading-unloading will be observed, in particular by measuring the correlation function of multiply scattered waves between successive runs.</p>
+</blockquote>
+<p>在无序颗粒介质中的声音传播具有重要意义（多重散射）。在相干光-弹性方法不可行的情况下，它还提供了一种非常有用的、有时甚至是唯一的方法，来探测真实三维颗粒堆积的内部结构（如力网络和机械性能）。</p>
+<p>在本文中，我们将通过超声波传播研究<strong>玻璃珠</strong>堆积在应力作用下的小振幅动态力传递。重点是观察关联长度的尺度，以区分不同的波现象。此外，还将观察颗粒堆积在循环加载-卸载过程中的压实情况，特别是通过测量连续运行之间多重散射波的关联函数。</p>
+<h1 id="experimental-technique">EXPERIMENTAL TECHNIQUE<a hidden class="anchor" aria-hidden="true" href="#experimental-technique">#</a></h1>
+<blockquote>
+<p>A schematic diagram of the experimental apparatus is shown in Fig. 1. Granular materials consist of random packings of mono- or poly-disperse glass beads. The sizes of the beads used in our experiments range from $400\mu\text{m}$ to several millimeters. They are contained in an aluminum cylinder of $30\text{ mm}$ inner diameter with the top and bottom surfaces made of close-fitting pistons. The beads are poured gently into the container being vibrated horizontally, in order to prepare dense packed granular materials. A volume fraction of solid phase is thus obtained to be about 0.63.</p>
+</blockquote>
+<p>实验装置示意图如图 1 所示。颗粒材料由单分散或多分散玻璃珠的随机堆积组成。实验中使用的玻璃珠大小从 $400\mu\text{m}$ 到几毫米不等。它们被装在一个内径为 $30\text{ mm}$ 的铝制圆筒中，圆筒的上下表面由紧密贴合的活塞制成。将珠子轻轻倒入水平振动的容器中，以制备致密的颗粒材料。固体相的体积分数约为 $0.63$。</p>
+<blockquote>
+<p>A normal load $P$ ranged from 0.03 to 3 MPa is applied to the upper piston using a jackscrew arrangement (œdometric test). At such load level, stress transmitted to the grains across the hertzian contact force is expected dominant compared with gravity and capillary effect.</p>
+<p>Compressional and shear waves are excited, by applying input pulses of one or more cycles centered at $500\text{ kHz}$ onto the corresponding piezoelectric transducers. The vibration amplitude of the acoustic source is about 10 nm, measured in air by means of an optical interferometer. <u>Two sizes of ultrasonic receiver are used: a large one, equal to that of the emitter (30 mm in diameter), and a small one (2 mm in diameter).</u></p>
+</blockquote>
+<p>使用千斤顶螺钉布置（几何试验）对上活塞施加 $0.03$ 至 $3$ 兆帕的法向载荷 $P$。与重力和毛细管效应相比，在这样的负载水平下，通过 Hertz 接触力传递到颗粒的应力预计会占主导地位。</p>
+<p>通过向相应的压电换能器 (<em>压电陶瓷</em>) 施加以 $500\text{ kHz}$ 为中心的一个或多个周期的输入脉冲，可激发压缩波和剪切波。声源的振幅约为 $10\text{ nm}$，这个数值可以在空气中通过光学干涉仪测量。<u>实验中使用了两种尺寸的超声波接收器：一个与发射器大小相等的大接收器（直径 $30$ 毫米）和一个小接收器（直径 $2$ 毫米）。</u></p>
+<hr>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/01/6i7tq2TByuhDCxK.png" alt="Figrue 1"  />
+</p>
+<blockquote>
+<p>Schematic diagram of the vertical cross section of the apparatus. An aluminum cylinder contains the granular material. $E$ and $R$ correspond, respectively, to the ultrasonic emitter and receiver. A normal force is applied vertically upon the top piston of the container by using a jackscrew arrangement.</p>
+</blockquote>
+<blockquote>
+<p>设备垂直横截面示意图。铝制圆筒中装有颗粒材料。$E$ 和 $R$ 分别对应超声波发射器和接收器。使用千斤顶螺钉装置对容器顶部活塞垂直施加法向力。</p>
+</blockquote>
+</blockquote>
+<h1 id="characteristics-of-sound-propagation">CHARACTERISTICS OF SOUND PROPAGATION<a hidden class="anchor" aria-hidden="true" href="#characteristics-of-sound-propagation">#</a></h1>
+<blockquote>
+<p>Typical ultrasonic transmission through the glass packing of bead size $d = 0.4-0.8\text{ mm}$ under an external load $P = 0.75\text{ MPa}$ (corresponding to 50 daN) is illustrated in Fig. 2a. It is excited by a <em>one-cycle</em> pulse of $2\mu\text{s}$ duration and detected by a longitudinal transducer of $30\text{ mm}$ in diameter placed at a distance $L \approx 11{ mm}$ away from the source.</p>
+<p>The detected signal is basically composed of two parts, as observed in a previous work: a coherent ballistic pulse $E$ traveling through an &ldquo;effective contact medium&rdquo; with a velocity $V_{\text{eff}} ≈ 1000\text{ m/s}$, followed closely by <strong>speckle-like</strong> multiply scattered waves $S$ due to the inhomogeneous distribution of stress within the granular system.</p>
+</blockquote>
+<p>图 2a 展示了在外部负载 $P = 0.75\text{ MPa}$（相当于 $50\text{ daN}$）条件下，超声波穿过尺寸为 $d = 0.4-0.8\text{ mm}$ 的玻璃球堆积的典型传输过程。它由一个持续时间为 $2\mu\text{s}$ 的 <em>单周期</em> 脉冲激发，并由一个直径为 $30\text{ mm}$ 的纵向传感器检测，该传感器放置在离源距离 $L \approx 11{ mm}$ 处。</p>
+<p>检测到的信号基本上由两部分组成，正如之前的工作中所观察到的那样：一个相干的弹道脉冲 $E$ 以 $V_{\text{eff}} ≈ 1000\text{ m/s}$ 的速度穿过 &ldquo;有效接触介质&rdquo;, 紧随其后的是由于颗粒系统内应力分布不均而产生的<strong>斑纹状</strong>多散射波 $S$。</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/01/zMH6dqRvaGNLV7f.png" alt="Figure 2"  />
+</p>
+<blockquote>
+<p>Transmitted ultrasonic signals through the bead packing of $d = 0.4 - 0.8\text{ mm}$ detected by a $30\text{-mm-diam}$ transducer obtained under the same applied stress $P = 0.75\text{ MPa}$ , first loading (a) and re-loading (b).</p>
+</blockquote>
+<blockquote>
+<p>在相同的外加应力 $P = 0.75\text{ MPa}$ 下，首次加载（a）和重复加载（b）时，通过 $30\text{-mm-}$直径 传感器检测到的 $d = 0.4 - 0.8\text{ mm}$ 球珠堆积传输的超声波信号。</p>
+</blockquote>
+</blockquote>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>如何理解 speckle-like?<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>在数据或信号中，&ldquo;斑&rdquo;（speckle）通常指的是一种具有随机性质的、类似点状或斑点状的结构或图案。这种结构通常由许多微小的、不规则的或随机分布的元素组成，在光学、成像、声学或其他领域中都会出现。</p>
+<p>结合给出的声学时域信号图应该能更好地体会到 speckle-like 所示的 &ldquo;随机&rdquo; 含义.</p>
+</div>
+
+ </div>
+
+ </div>
+<blockquote>
+<p>Indeed, by performing a separate spectral analysis, we find that $E$ carries a rather narrow band of low frequencies while $S$ has a broadband spectrum dominated by high frequency (Fig. 3a). As the bead size increases $(d = 1.5\text{ mm})$, the spectrum of $E$ shifts towards low frequencies while the spectrum of $S$ clearly exhibits a strong filtering out of high frequencies ($f &gt; f_{c} \approx 500\text{ kHz}$) (Fig. 3b). <u>This result suggests a frequency cut-off occurring when the wavelength $\lambda_{c} = V_{\text{eff}}/f_{c}$ is comparable to the bead size $d$.</u></p>
+</blockquote>
+<p>事实上，通过进行单独的频谱分析，我们发现 $E$ 具有相当窄的低频带，而 $S$ 则具有以高频为主的宽带频谱（图 3a）。随着珠子尺寸的增大（$d = 1.5\text{ mm}$），$E$ 的频谱转向低频，而 $S$ 的频谱则明显表现出强烈的低通特性（$f &gt; f_{c} \approx 500\text{ kHz}$）（图 3b）。<u>这一结果表明，当波长 $\lambda_{c} = V_{\text{eff}}/f_{c}$ 与珠子大小 $d$ 相当时，会出现频率截断现象。</u></p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/01/oQHhCAMy5PlTmti.png" alt="Figure 3"  />
+</p>
+<blockquote>
+<p>Spectra of the $E$ and $S$ signals windowed from the total temporal waveform in the bead packing of $d = 0.4-0.8\text{ mm}$ (a) and in that of $d = 1.5 \pm 0.15\text{ mm}$ (b)</p>
+</blockquote>
+<blockquote>
+<p>从 $0.4-0.8\text{ mm}$ (a) 和 $0.15\text{ mm}$ (b) 的球珠堆积中的总时域波形中筛选出的 $E$ 和 $S$ 信号的频谱</p>
+</blockquote>
+</blockquote>
+<p><em>如何从一个具体的时域信号中分解得到 $E$ 和 $S$, 并分别做频域分析呢?</em></p>
+<hr>
+<blockquote>
+<p>Note also that the detected ultrasonic signals ($E$ and $S$) remain stable against repetitive averaging (~ 100) over the duration of an experimental run ($\leq 1\text{ min}$).</p>
+<p>This excellent reproducibility of the signals shows that the ultrasound at small amplitudes (~ $10\text{ nm}$) used here, can propagate in the granular system under stress without producing any significant irreversible rearrangement. The characteristics of acoustic propagation in such a quasielastic medium can therefore be interpreted within the framework used to describe the vibrational properties of <strong>amorphous systems</strong> in terms of an inhomogeneous stress field.</p>
+</blockquote>
+<p>还要注意的是，检测到的超声波信号（$E$ 和 $S$）在实验进行期间（$\leq 1\text{ min}$）（约 100 次）重复平均仍保持稳定。</p>
+<p>信号的这种出色的复现性表明，这里使用的小振幅（~ $10\text{ nm}$）超声波可以在应力作用下的颗粒系统中传播，而不会产生任何明显的不可逆重排。因此，声波在这种准弹性介质中传播的特性可以在描述非均匀应力场下 <strong>无定形(非晶)系统</strong> 的振动特性这一框架内进行解释。</p>
+<blockquote>
+<p>At the scale much larger than the bead size $d (= 0.4-0.8 \text{mm})$, the granular medium can thus be considered as homogeneous by a <strong>coarse-grained average</strong>. Since the coherent wave $E$ can only be self-averaging on a scale of order of its wavelength, this leads us to state that the correlation length of the stress filed is not large and cannot exceed a fraction of $\lambda_{\text{eff}}$, i.e. a few bead diameters - A result in qualitative agreement with the computer simulation and the photoelastic visualization.</p>
+</blockquote>
+<p>在远大于珠子尺寸 $d (= 0.4-0.8 \text{mm})$ 的尺度上，颗粒介质可以通过 <strong>粗粒平均</strong> 被视为均质介质。由于相干波 $E$ 只能在其波长数量级的尺度上自平均，这就引导我们认为, 应力的关联长度并不大，不可能超过 $\lambda_{\text{eff}}$ 的分数，即几个球珠的直径&ndash;这一结果与计算机模拟和光弹性可视化在质量上是一致的。</p>
+<hr>
+<blockquote>
+<p>A fundamental difference between $E$ and $S$ signals lies in their sensitivity to the change of the packing configuration. Fig. 2b illustrate temporal waveforms detected under the same external load $P = 0.75\text{ MPa}$ after performing an unloading-reloading cycle.</p>
+<p>As clearly shown, $E$ exhibits a reversible behavior while $S$ is <strong>non-reproducible</strong>, i.e. configuration specific at the level of individual contacts. It is expected however that the global shape of $S$, which is determined by the statistical properties of the granular structure, shall be weakly altered by <strong>local irreversible events</strong>.</p>
+</blockquote>
+<p>$E$ 和 $S$ 信号之间的一个基本区别在于它们对堆积结构变化的敏感性。图 2b 展示了在相同的外部负载 $P = 0.75\text{ MPa}$ 下，执行卸载-重载循环后检测到的时域波形。</p>
+<p>如图所示，$E$ 表现出可逆行为，而 $S$ 则是<strong>不可复现</strong>的，即在单个接触点的水平上具有特定的构型。然而，由颗粒结构的统计特性决定的 $S$ 的全局形状预计将受到<strong>局部不可逆事件</strong>的微弱改变。</p>
+<hr>
+<blockquote>
+<p>In order to make $S$ as a more quantitative probe to configuration variations, we shall study the transport characteristics of multiply scattered acoustic waves.</p>
+<p>Fig. 4 presents the time dependence of the average intensity of the transmitted $S$ signal detected by a small detector of $2\text{ mm}$ in diameter. We used a <em>ten-cycle</em> pulse for excitation in order to have a well-defined frequency at $f = 500\text{ kHz}$, corresponding to a wavelength $\lambda\approx 2\text{ mm}$. This result was ensemble averaged over 50 different granular samples prepared in a similar way.</p>
+</blockquote>
+<p>为了让 $S$ 更定量地探测构型变化，我们将研究多重散射声波的传输特性。</p>
+<p>图 4 显示了直径为 $2\text{ mm}$ 的小型探测器检测到的传输 $S$ 信号平均强度的时间相关性。我们使用了一个 <em>十周期</em> 的脉冲进行激发，以便在 $f = 500\text{ kHz}$ 处有一个定义明确的频率，对应的波长为 $\lambda\approx 2\text{ mm}$。这一结果是以类似方法制备的 50 个不同颗粒样品的系综平均值。</p>
+<blockquote>
+<p>Note that the time profile exhibits typical characteristics of a diffusive transport of strongly scattered sound observed in other random media. Using appropriate boundary conditions and resolving the diffusion equation, this will enable us to determine the diffusion coefficient and also the transport mean free path, being of the order of several bead sizes. More details about this study will be given elsewhere.</p>
+</blockquote>
+<p>请注意，该时域曲线显示了在其他随机介质中观察到的强散射声扩散传播的典型特征。利用适当的边界条件并求解扩散方程，我们就能确定扩散系数和传输平均自由程，其大小相当于几个球珠(直径)的数量级。有关这项研究的更多详情将在其他地方提供。</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/01/dperRFnMtKyHC9N.png" alt="Figure 4"  />
+</p>
+<blockquote>
+<p>Time profile of the average intensity of multiple acoustic scattering transmitted the randomly close-packed glass beads $d = 0.4 - 0.8\text{ mm}$ for sample thickness $L\approx 11\text{ mm}$.</p>
+</blockquote>
+<blockquote>
+<p>样品厚度为 $L\approx 11\text{ mm}$ 时，随机紧密堆积玻璃珠的多次声散射平均强度的时间曲线。</p>
+</blockquote>
+</blockquote>
+<h1 id="acoustic-probing-of-granular-materials">ACOUSTIC PROBING OF GRANULAR MATERIALS<a hidden class="anchor" aria-hidden="true" href="#acoustic-probing-of-granular-materials">#</a></h1>
+<h2 id="determination-of-elastic-moduli-弹性模量的测定">Determination of elastic moduli 弹性模量的测定<a hidden class="anchor" aria-hidden="true" href="#determination-of-elastic-moduli-弹性模量的测定">#</a></h2>
+<blockquote>
+<p>Once the two distinct types of sound propagation in granular media are identified, we can unambiguously determine the compressional or shear wave velocities, $V_{P}$ and $V_{S}$ either by the time-of-flight method or by the <strong>phase spectrum analysis</strong>, if only the coherent $E$ signals are windowed from the total detected signal.</p>
+<p>In the long-wavelength limit, the acoustic velocities are related to the <strong>bulk modulus</strong> $K$ and <strong>shear modulus</strong> $\mu$ of the granular material $V_{P} = [(K + 4/3\mu)/\rho]^{1/2}$ and $V_{S} = (\mu/\rho)^{1/2}$ where $\rho$ is the density of the material&rsquo;s density.</p>
+</blockquote>
+<p>一旦确定了声音在颗粒介质中传播的两种不同类型，我们就可以通过飞行时间法或<strong>相位频谱分析</strong>法，明确地确定压缩波或剪切波的速度 $V_{P}$ 和 $V_{S}$，前提是从总的检测信号中只选取相干的 $E$ 信号。</p>
+<p>在长波极限下，声速与颗粒材料的<strong>体积模量</strong> $K$ 和 <strong>剪切模量</strong> $\mu$ 有关: $V_{P} = [(K + 4/3\mu)/\rho]^{1/2}$ 和 $V_{S} = (\mu/\rho)^{1/2}$ 其中 $\rho$ 是材料密度。</p>
+<hr>
+<blockquote>
+<p>Coherent compressional and shear waves&rsquo; propagation in the bead packing of $d = 0.2-0.3\text{ mm}$, excited and detected by corresponding transducers, are shown in Fig. 5a. The measured shear wave velocity is given as a function of applied normal stress $P$ (Fig. 5b). The data behaves basically as a power law: $V_{S}\propto P^{1/4.8}$, similar to those observed for the compressional wave velocity.</p>
+</blockquote>
+<p>图 5a 显示了由相应换能器激发和检测的相干压缩波和剪切波在(直径) $d = 0.2-0.3\text{ mm}$ 的球珠堆积中的传播情况。测得的剪切波速度是外加法向应力 $P$ 的函数（图 5b）。数据基本表现为幂律：$V_{S}\propto P^{1/4.8}$，与压缩波速度的观测结果类似。</p>
+<blockquote>
+<p>The discrepancy between the experiment and the effective medium theory ($V_{S}\propto P^{1/6}$), based on the <strong>Hertz-Mindlin contact</strong>, is believed to be associated with the breakdown of the assumptions underlying the effective medium theory, i.e. the co-ordination number is pressure independent, which are not the case in granular media. On the other hand, the ratio of $K/\mu$ deduced from the experimental velocities ($V_{P} /V_{S}\approx 1.79$) differs significantly from the prediction of the effective medium theory.</p>
+</blockquote>
+<p>实验与基于 <strong>Hertz-Mindlin 接触</strong> 的等效介质理论（$V_{S}\propto P^{1/6}$）之间的差异, 被认为与等效介质理论的假设条件被破坏有关，<u>即配位数与压力无关，而这在颗粒介质中并非如此</u>。另一方面，从实验速度(拟合)推导出的 $K/\mu$ 比率（$V_{P} /V_{S}\approx 1.79$）与等效介质理论的预测值相差很大。</p>
+<blockquote>
+<p>One interpretation recently proposed points to the failure of the affine (well-bonded) approximation used in the effective medium theory for calculating the shear modulus $\mu$ of granular materials.</p>
+</blockquote>
+<p>最近提出的一种解释指出，等效介质理论中用于计算颗粒材料剪切模量 $\mu$ 的仿射（良好结合）近似失效。</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/03/nrmFvGf3OBRzxAc.png" alt="Figrue 5"  />
+</p>
+<blockquote>
+<p>(a) Propagation of coherent effective waves in the glass bead packings of d = 0.2 - 0.3 mm under external stress P = 2.3 MPa. Solid and dashed curves correspond respectively to compressional and shear ballistic pulses. (b) Shear velocity VS (data points) measured as a function of the normal stress P. A power-law behavior is fitted approximately.</p>
+</blockquote>
+<blockquote>
+<p>(a) 在外部压强 $P = 2.3$ 兆帕下，相干等效波在 $d = 0.2 - 0.3$ 毫米的玻璃珠堆积中传播。实线和虚线分别对应压缩和剪切弹道脉冲。(b) 作为法向应力 $P$ 的函数测量的剪切速度 VS（数据点）。</p>
+</blockquote>
+</blockquote>
+<h2 id="compaction-under-cyclic-loading-unloading">Compaction under cyclic loading-unloading<a hidden class="anchor" aria-hidden="true" href="#compaction-under-cyclic-loading-unloading">#</a></h2>
+<blockquote>
+<p>In the experiment a vertical column of $30\text{ mm}$ in diameter filled with polydisperse glass beads $d = 0.4 -0.8\text{ mm}$ to a initial height of $h_{0} = 10\text{ mm}$ was subjected to slowly repeated loading- unloading by the upper piston between $5\text{ daN}$ and $50\text{ daN}$ (Fig. 1). A displacement sensor monitors the resulting height (volume) change of the granular packing.</p>
+</blockquote>
+<p>在实验中，一个直径为 $30\text{ mm}$ 的垂直柱中填充了多分散玻璃球 $d = 0.4 -0.8\text{ mm}$ ，初始高度为 $h_{0} = 10\text{ mm}$ ，上部活塞在 $5\text{ daN}$ 和 $50\text{ daN}$ 之间缓慢地重复加载-卸载（图 1）。位移传感器监测颗粒堆积的高度（体积）变化。</p>
+<blockquote>
+<p>Fig. 6a illustrates the typical height variation of the granular packing measured with a force step of $5\text{ daN}$ for a few first cycles of loading-unloading. A few percent (~ $2%$) of the volume compaction ($\Delta h/h_{0}$), due to plastic rearrangement of grains, is observed after $n\sim 10$ cycles. Besides, $\Delta h(n)$ plot follows approximately a logarithmic law: $\Delta h/h_{0}\sim \ln(n)$, similar to those observed in the granular compaction subjected to vertical shakes with small amplitudes.</p>
+</blockquote>
+<p>图 6a 展示了在加载-卸载的最初几个周期中，以 $5\text{daN}$ 的应力阶跃测量到的颗粒堆积的代表性高度变化。在 $n\sim 10$ 循环后，由于颗粒的塑性重排，可以观察到百分之几（~ $2%$）的体积压实（$\Delta h/h_{0}$）。此外，$\Delta h(n)$ 图近似遵循对数规律：$\Delta h/h_{0}\sim \ln(n)$，这与受到小振幅垂直振动的颗粒压实中观察到的情况类似。</p>
+<hr>
+<blockquote>
+<p>Now we present an original observation in which we make use of configuration-sensitive acoustic speckles $S$ to follow semi-quantitatively the irreversible rearrangement <em>within</em> the granular system during a macroscopic plastic deformation (compaction) produced by cyclic loading- unloading. To do so, we define a degree resemblance between two time signals $S_i(t)$ and $S_j(t)$, via their intercorrelation function $C_{i,j}(τ)$:</p>
+<p>$$
+\Gamma_{i,j}(\tau) = C_{i,j}(\tau)/[C_{i,i}(0)C_{j,j}(0)]^{1/2}
+$$</p>
+<p>The value of $\Gamma_{i,j}(\tau=0)$ characterizes their resemblance and it is to be calculated for multiple acoustic scatterings transmitted through the granular material under successive cycles of loading- unloading ($n = i$ and $i + 1$). $\Gamma_{i, i+1} (0) = 1$ would correspond to an ideal solid having a pure elastic response to applied forces.</p>
+</blockquote>
+<p>现在，我们提出一个新颖的观察方法，即利用构型敏感的声学峰 $S$, 半定量地跟踪颗粒系统在循环加载-卸载产生的宏观塑性变形（压实）过程中 <em>内部</em> 的不可逆重排。为此，我们通过两个时间信号 $S_i(t)$ 和 $S_j(t)$ 的相互关系函数 $C_{i,j}(τ)$ 来定义它们之间的相似度:</p>
+<p>$$
+\Gamma_{i,j}(\tau) = C_{i,j}(\tau)/[C_{i,i}(0)C_{j,j}(0)]^{1/2}
+$$</p>
+<p>$\Gamma_{i,j}(\tau=0)$ 的值描述了它们的相似性，它是在连续的加载-卸载循环（$n = i$ 和 $i+1$）下，通过颗粒材料传输的多次声散射计算得出的。$\Gamma_{i, i+1} (0) = 1$ 相当于理想固体对外力的纯弹性响应。</p>
+<hr>
+<blockquote>
+<p>$\Gamma_{n, n+1}(0)$, deduced from the acoustic speckles between two successive cycles $n$ and $n+1$ (Fig. 6b), increases progressively as the system becomes more and more compacted. Since the acoustic speckle is configuration specific, this result simply indicates that greater is the packing fraction, more reversible and elastic behaves the granular system with respect to applied forces.</p>
+</blockquote>
+<p>从两个连续周期 $n$ 和 $n+1$ 之间的声学峰（图 6b）推导出的 $\Gamma_{n,n+1}(0)$，随着(颗粒)系统变得越来越紧密而逐渐增加。由于声学峰是特定构型的，因此这一结果简单地表明，堆积分数越大，颗粒系统对外力的可逆性和弹性就越大。</p>
+<blockquote>
+<p>This is intuitively reasonable because as the packing fraction increases the important arrangement of grains tends to disappear and the force network becomes more tangled, with many shorter intersecting chains as being photoelastically observed in 2D granular systems.</p>
+</blockquote>
+<p>这在直觉上是合理的，因为随着堆积分数的增加，重要的晶粒排列趋于消失，力网络变得更加纠结，就像在二维颗粒系统中光弹性观察到的那样，有许多较短的相交链。</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/08/DhzrUytEMO51afi.png" alt="Figure 6"  />
+</p>
+<blockquote>
+<blockquote>
+<p>(a) Height (or volume) variation of the granular packing under cyclic loading- unloading. (b) Correlation of two S signals (multiply scattered waves) transmitted through the bead packing between two successive cyclic loading-unloading.</p>
+</blockquote>
+<blockquote>
+<p>(a) 颗粒堆积在循环加载-卸载过程中的高度（或体积）变化。(b) 在两次连续的循环加载-卸载之间，通过颗粒堆积传输的两个 $S$ 信号（多重散射波）的相关性。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>The two peaks observed in Fig. 6b are associated with partially unloading, i.e., unloading to $40\text{ daN}$ instead of $5\text{ daN}$, and then reloading to $50\text{ daN}$. For such a small perturbation, the granular system exhibits a quasielastic character. These results are reminiscent of the pastelike behavior observed in other media such as concentrated suspensions, foams, etc. More quantitative results are expected by using <em>Diffusing Acoustic Wave Spectroscopy</em> (DAWS) in development.</p>
+</blockquote>
+<p>图 6b 中观察到的两个峰值与部分卸载有关，即卸载到 $40\text{ daN}$ 而非 $5\text{daN}$，然后重新负载到 $50\text{daN}$。对于如此小的扰动，颗粒系统表现出准弹性特征。这些结果让人想起在其他介质（如浓缩悬浮液、泡沫等）中观察到的糊状行为。通过使用正在开发中的<em>扩散声波光谱法</em>（DAWS），有望获得更多定量结果。</p>
+<h1 id="conclusion">CONCLUSION<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<blockquote>
+<p>Ultrasound propagation in the glass bead packing reveals that for small amplitudes of force transmissions, the static granular system can be considered as a nonlinear quasielastic inhomogeneous medium, given external (œdometric) loading.</p>
+<p>At scales of coherent waves much larger than the grain and the stress correlation lengths, the effective medium theory based on a coarse-grained average of contact mechanics gives a quite good description. When the wavelength shortened ultrasounds encounter successive scatterings caused by the inhomogeneous stress filed, which leads to the onset of a diffusive transport over long distance propagation.</p>
+</blockquote>
+<p>超声波在玻璃珠堆积中的传播表明，在外部（œdometric）加载的情况下，对于较小的力传递振幅，静态颗粒系统可被视为非线性准弹性非均质介质。</p>
+<p>在相干波的尺度(波长?)远大于晶粒和应力相关长度的情况下，基于接触力学粗粒平均值的有效介质理论给出了很好的描述。当波长缩短的超声波遇到由不均匀应力引起的连续散射时，就会在长距离传播过程中发生扩散传输。</p>
+<blockquote>
+<p>At a scale comparable to the characteristic length of wave transport, of the order of the correlation length of stress, the acoustic force transmission is expected to be along certain preferred directions. We believe that the ultrasonic correlation technique (DAWS) used in the study of the granular compaction will facilitates the connection between the microscopic structure (configurational rearrangements) and the macroscopic behavior of granular materials in response to externally applied forces.</p>
+</blockquote>
+<p>在与波传输特征长度（应力相关长度的数量级）相当的尺度上，预计声力传输将沿着某些优先方向进行。我们相信，用于研究颗粒压实的超声波相关技术（DAWS）将促进颗粒材料在外力作用下的微观结构（构型重排）与宏观行为之间的联系。</p>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/sonic/unread/zhou-zhi-gang-doc-paper/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>[周志刚]博士学位论文阅读笔记</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/granular/introduction-to-physics-of-granular-materials/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>[中字]Sands, Powders, and Grains: An Introduction to the Physics of Granular Materials</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
