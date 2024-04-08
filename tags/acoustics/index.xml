@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Acoustics on 无处惹尘埃</title>
+    <link>https://Muatyz.github.io/tags/acoustics/</link>
+    <description>Recent content in Acoustics on 无处惹尘埃</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Muartz</copyright>
+    <lastBuildDate>Mon, 08 Apr 2024 00:18:06 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/acoustics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Burgers Equation</title>
+      <link>https://Muatyz.github.io/posts/phy/scmp/burgers-equation/</link>
+      <pubDate>Mon, 08 Apr 2024 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/scmp/burgers-equation/</guid>
+      <description>节选自 Nonlinear Acoustics 有关推导 Burgers 方程的内容.</description>
+    </item>
+    
+  </channel>
+</rss>
