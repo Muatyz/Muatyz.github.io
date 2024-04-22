@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Magnetic resonance imaging in granular flows: An overview of recent advances | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, granular, mri">
+<meta name="description" content="对颗粒流进行核磁共振成像">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/granular/magnetic-resonance-in-granular-flows/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/granular/magnetic-resonance-in-granular-flows/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+  
+
+<meta property="og:title" content="Magnetic resonance imaging in granular flows: An overview of recent advances" />
+<meta property="og:description" content="对颗粒流进行核磁共振成像" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/granular/magnetic-resonance-in-granular-flows/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-19T00:18:06+08:00" />
+<meta property="article:modified_time" content="2024-04-19T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Magnetic resonance imaging in granular flows: An overview of recent advances"/>
+<meta name="twitter:description" content="对颗粒流进行核磁共振成像"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🛠 颗粒物质研究方法",
+          "item": "https://Muatyz.github.io/posts/read/granular/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Magnetic resonance imaging in granular flows: An overview of recent advances",
+      "item": "https://Muatyz.github.io/posts/read/granular/magnetic-resonance-in-granular-flows/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Magnetic resonance imaging in granular flows: An overview of recent advances",
+  "name": "Magnetic resonance imaging in granular flows: An overview of recent advances",
+  "description": "对颗粒流进行核磁共振成像",
+  "keywords": [
+    "scmp", "granular", "mri"
+  ],
+  "articleBody": " DOI: j.partic.2023.08.007\nAbstract In this review we explore the recent developments in the use of Magnetic Resonance Imaging (MRI) for studying granular flows. While MRI has been a valuable tool in this field for the past 40 years, recent advances in imaging hardware, reconstruction software and particles synthesis have significantly enhanced its capabilities. This article provides an overview of the current challenges of MRI and progress in the field of granular media, and gives a perspective of the possible future developments in the field.\n在这篇综述中，我们将探讨利用磁共振成像（MRI）研究颗粒流的最新进展。在过去的 40 年中，磁共振成像一直是这一领域的重要工具，而最近在成像硬件、重建软件和粒子合成方面的进步则大大增强了它的能力。本文概述了核磁共振成像目前面临的挑战和颗粒介质领域的进展，并展望了该领域未来可能的发展。\nIntroduction Granular materials are widely encountered in natural and industrial contexts. Despite being widespread, we do not fully un- derstand the material and flowing properties of granular systems. A key reason for this knowledge gap is the diversity of states in which these systems exist. Granular materials can exist in solid-like states such as soils, fluid-like states such as emptying through a silo and gas-like states such as pyroclastic flows. All these macroscale characteristics are governed by the interactions between individual grains that constitute the bulk material. The nature of the interactions between grains varies according to the size distribution, shape, and composition of the grains as well as the presence of interstitial fluid.\n颗粒材料广泛存在于自然和工业环境中。尽管广泛存在，但我们并不完全了解颗粒系统的材料和流动特性。造成这一知识空白的一个关键原因是这些系统存在的状态多种多样。颗粒材料可以以固态（如土壤）、液态（如通过筒仓排空）和气态（如火成岩流）的形式存在。所有这些宏观特征都受构成块体材料的单个颗粒之间相互作用的支配。颗粒之间相互作用的性质因颗粒的大小分布、形状和成分以及间隙流体的存在而异。\nBuilding an understanding of granular materials requires detailed measurements of location, orientation, motion, and forces experienced by grains. Imaging is a useful method because it allows for information associated with many particles to be collected simultaneously. Optical imaging is limited to pseudo-2D systems because of the opacity of granular packings, even when individual grains are transparent. Thus, noninvasive imaging technology is required for acquiring detailed measurements of 3D granular systems.\n要了解颗粒材料，需要对颗粒的位置、方向、运动和受力情况进行详细测量。成像是一种有用的方法，因为它可以同时收集与许多颗粒相关的信息。光学成像仅限于伪二维系统，因为颗粒填料不透明，即使单个颗粒是透明的。因此，需要采用非侵入式成像技术来获取三维颗粒系统的详细测量结果。\nMagnetic Resonance Imaging (MRI) is a noninvasive, 3D imaging modality that has been used for studying granular systems for the past 40 years. MRI is unique in being able to encode images with information about the velocity distribution, temperature and chemical composition. For this reason, it continues to be an important imaging tool to complement radiation-based methods that offer higher resolution and larger fields of view. Several re- views of MRI experiments on granular materials have been written during this period (Bonn et al., 2008; Fukushima, 1999; Kawaguchi, 2010), the most recent of which d to the authors’ knowledge d was performed by Stannarius (2017). In addition to imaging of granular flows, MRI has been implemented extensively across various research fields, such as fluid mechanics and rheology (Coussot, 2020; Elkins \u0026 Alley, 2007), cardiovascular flows (Soulat, McCarthy, \u0026 Markl, 2020), and imaging in multiphase and granular materials (Gladden \u0026 Sederman, 2013).\n磁共振成像（MRI）是一种无创三维成像模式，过去 40 年来一直用于研究颗粒系统。磁共振成像的独特之处在于，它能将速度分布、温度和化学成分等信息编码成图像。因此，核磁共振成像仍然是一种重要的成像工具，是对具有更高分辨率和更大视野的辐射方法的补充。在此期间，有多篇关于颗粒材料核磁共振成像实验的再观点文章（Bonn 等人，2008 年；Fukushima，1999 年；Kawaguchi，2010 年），据作者所知，其中最新的一篇是由 Stannarius（2017 年）完成的。除了颗粒流动成像之外，核磁共振成像技术还广泛应用于各个研究领域，例如流体力学和流变学（Coussot，2020 年；Elkins \u0026 Alley，2007 年）、心血管流动（Soulat、McCarthy \u0026 Markl，2020 年）以及多相和颗粒材料成像（Gladden \u0026 Sederman，2013 年）。\nThere have been many recent exciting developments in this area that demonstrate the usefulness of MRI as a tool for validating granular flow models and studying multiphase flows. Furthermore, progress in imaging hardware, reconstruction software, and experimental protocols has improved the MRI technique in the areas of time-resolved imaging and quantitative measurements. This review provides a brief summary of recent advances in MRI of granular flows since the mid-2010s to the present day. In particular, this review focuses on different studies and applications as compared to the scientific problems discussed in the review provided by Stannarius (2017). Additionally, perspectives on the future of the field is provided, outlining potential new lines of inquiry.\n该领域最近取得了许多令人振奋的进展，证明了磁共振成像作为验证颗粒流动模型和研究多相流的工具的实用性。此外，成像硬件、重建软件和实验方案方面的进步也改进了磁共振成像技术在时间分辨成像和定量测量方面的应用。本综述简要总结了自 2010 年代中期至今颗粒流磁共振成像技术的最新进展。特别是，与 Stannarius（2017 年）提供的综述中讨论的科学问题相比，本综述侧重于不同的研究和应用。此外，还对该领域的未来进行了展望，概述了潜在的新研究方向。\nFundamentals of MRI Overview of NMR and MRI The detailed fundamentals of MRI are well described in various textbooks (Callaghan, 1993; Brown, Cheng, Haacke, Thompson, \u0026 Venkatesan, 2014), where the latter also provides an overview of MR pulse sequence design. In the following a concise overview of the fundamentals underlying MR-based imaging is provided.\n各种教科书（Callaghan，1993；Brown，Cheng，Haacke，Thompson，\u0026 Venkatesan，2014）对核磁共振成像的基本原理进行了详细介绍，其中后者还对核磁共振脉冲序列设计进行了概述。下文将简要概述基于磁共振成像的基本原理。\nSeveral types of MRI system have been developed over the past decades. These MRI systems span from small benchtop conﬁgura- tions to human-scale clinical scanners. As each of these systems has its strengths and weaknesses, a summary of the performance of each category is provided in Table 1. A diagram of the main system components is shown by Fig. 1. All systems have these basic components in common (Webb, 2016):\nMain magnetic ﬁeld ($B_{0}$) to polarise the sample. High-ﬁeld systems ($B_{0}\u003e1\\text{ T}$) make use of helium-cooled super-conducting electromagnets. The conﬁgurations vary from dipolar arranged systems to closed bore or cylindrical sys-tems. Low-ﬁeld systems typically comprise of an array of permanent magnets. For these systems the conﬁgurations vary from horseshoe or C-shaped magnets to Halbach arrays. Additional actively driven shim coil electromagnets (resistive shims), and/or pieces of soft iron mounted on the inner surface of the magnet (passive shims) are used to increase the homogeneity of the main magnetic ﬁeld – and thus improve measurement accuracy.\nGradient coils. These coils generate a magnetic ﬁeld in addition to the main ﬁeld that varies linearly across the im- aging region. These coils enable the spatial encoding of the MR signal. There are usually three coils, one for each Carte- sian coordinate axis relative to the direction of the main ﬁeld. The coils generally require signiﬁcant current ampliﬁcation and cooling to produce gradients strong enough for imaging purposes.\nRF transmit and receive coils. Transmit coils produce a magnetic ﬁeld ($B_{1}$) orthogonal to the static ﬁeld that excites the sample to produce a signal, while receive coils detect this signal. Systems may comprise of a single transmit/receive RF coil such as used in microimaging systems, to RF coil arrays used for parallel imaging in clinical systems. Nowadays typically quadrature (or circularly polarized) coils are used, as they provide $\\sqrt{2}$ more signal compared to linear receiver coils.\n在过去的几十年里，已经开发出多种类型的磁共振成像系统。这些磁共振成像系统包括从小型台式设备到人体级临床扫描仪。这些系统各有优缺点，表 1 提供了各类系统的性能概要。图 1 显示了主要系统组件的示意图。所有系统都有这些共同的基本组件（Webb，2016 年）：\n主磁场（$B_{0}$） 使样品极化。高磁场系统（$B_{0}\u003e1\\text{ T}$）使用氦冷却超导电磁铁。这些系统的构造各不相同，有双极排列系统，也有闭孔或圆柱形系统。低电场系统通常由永久磁铁阵列组成。这些系统的结构从马蹄形或 C 形磁铁到 Halbach 阵列不等。附加的主动驱动垫片线圈电磁铁（电阻垫片）和/或安装在磁体内表面的软铁片（被动垫片）用于增加主磁场的均匀性——从而提高测量精度。\n梯度线圈。这些线圈在主磁场之外产生一个磁场，该磁场在整个成像区域呈线性变化。这些线圈可对磁共振信号进行空间编码。通常有三个线圈，相对于主磁场的方向，每个卡氏坐标轴一个。线圈通常需要大量的电流放大和冷却，以产生足够强的梯度，达到成像目的。\n射频发射和接收线圈。发射线圈产生一个与静态磁场正交的磁场 ($B_{1}$)，激发样本产生信号，而接收线圈则检测该信号。系统可包括单个发射/接收射频线圈（如微成像系统中使用的线圈）和用于临床系统并行成像的射频线圈阵列。现在通常使用正交（或圆极化）线圈，因为与线性接收线圈相比，它们能提供更多的信号。\nMRI, also known as nuclear magnetic resonance (NMR) imaging, makes use of the nonzero net magnetic moment of nuclei. Common naturally present isotopes used in MRI include $^{1}H$ (also referred to as proton imaging), $^{13}C$, $^{23}Na$, $^{27}Al$, $^{31}P$, and $^{129}Xe$. When exposed to a main magnetic ﬁeld, ${B_{0}}$, the unpaired nuclear spins of these isotopes interact with this external ﬁeld, resulting in a net magnet- isation ($M_{0}$) within the sample. The characteristic time-scale related to this (re-)magnetisation is the so-called spin-lattice or longitudinal relaxation time, ${T_{1}}$. Note that $T_{1}$ is sample-speciﬁc and therefore can be used as a means of contrast to distinguish between different materials.\n核磁共振成像（MRI）又称核磁共振（NMR）成像，利用的是原子核的非零净磁矩。核磁共振成像中常用的天然同位素包括 $^{1}H$（也称为质子成像）、$^{13}C$、$^{23}Na$、$^{27}Al$、$^{31}P$ 和 $^{129}Xe$。当暴露于主磁场${B_{0}}$时，这些同位素的非成对核自旋与外部磁场相互作用，从而在样品内部产生净磁化（$M_{0}$）。与这种（再）磁化相关的特征时间尺度是所谓的自旋晶格或纵向弛豫时间，即 ${T_{1}}$。请注意，{T_{1}}$ 是针对样品的，因此可用作区分不同材料的对比手段。\n",
+  "wordCount" : "3146",
+  "inLanguage": "zh",
+  "datePublished": "2024-04-19T00:18:06+08:00",
+  "dateModified": "2024-04-19T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/granular/magnetic-resonance-in-granular-flows/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/granular/">🛠 颗粒物质研究方法</a></div>
+            <h1 class="post-title">
+                Magnetic resonance imaging in granular flows: An overview of recent advances
+            </h1>
+            <div class="post-description">
+                对颗粒流进行核磁共振成像
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2024-04-19
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3146字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>7分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">Read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#fundamentals-of-mri" aria-label="Fundamentals of MRI">Fundamentals of MRI</a><ul>
+                        
+                <li>
+                    <a href="#overview-of-nmr-and-mri" aria-label="Overview of NMR and MRI">Overview of NMR and MRI</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><blockquote>
+<p>DOI: <a href="https://doi.org/10.1016/j.partic.2023.08.007" target="_blank" rel="noopener nofollow noreferrer" >j.partic.2023.08.007</a></p>
+</blockquote>
+<h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>In this review we explore the recent developments in the use of Magnetic Resonance Imaging (MRI) for studying granular flows. While MRI has been a valuable tool in this field for the past 40 years, recent advances in imaging hardware, reconstruction software and particles synthesis have significantly enhanced its capabilities. This article provides an overview of the current challenges of MRI and progress in the field of granular media, and gives a perspective of the possible future developments in the field.</p>
+</blockquote>
+<p>在这篇综述中，我们将探讨利用磁共振成像（MRI）研究颗粒流的最新进展。在过去的 40 年中，磁共振成像一直是这一领域的重要工具，而最近在成像硬件、重建软件和粒子合成方面的进步则大大增强了它的能力。本文概述了核磁共振成像目前面临的挑战和颗粒介质领域的进展，并展望了该领域未来可能的发展。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>Granular materials are widely encountered in natural and industrial contexts. Despite being widespread, we do not fully un- derstand the material and flowing properties of granular systems. A key reason for this knowledge gap is the diversity of states in which these systems exist. Granular materials can exist in solid-like states such as soils, fluid-like states such as emptying through a silo and gas-like states such as pyroclastic flows. All these macroscale characteristics are governed by the interactions between individual grains that constitute the bulk material. The nature of the interactions between grains varies according to the size distribution, shape, and composition of the grains as well as the presence of interstitial fluid.</p>
+</blockquote>
+<p>颗粒材料广泛存在于自然和工业环境中。尽管广泛存在，但我们并不完全了解颗粒系统的材料和流动特性。造成这一知识空白的一个关键原因是这些系统存在的状态多种多样。颗粒材料可以以固态（如土壤）、液态（如通过筒仓排空）和气态（如火成岩流）的形式存在。所有这些宏观特征都受构成块体材料的单个颗粒之间相互作用的支配。颗粒之间相互作用的性质因颗粒的大小分布、形状和成分以及间隙流体的存在而异。</p>
+<blockquote>
+<p>Building an understanding of granular materials requires detailed measurements of location, orientation, motion, and forces experienced by grains. Imaging is a useful method because it allows for information associated with many particles to be collected simultaneously. Optical imaging is limited to pseudo-2D systems because of the opacity of granular packings, even when individual grains are transparent. Thus, noninvasive imaging technology is required for acquiring detailed measurements of 3D granular systems.</p>
+</blockquote>
+<p>要了解颗粒材料，需要对颗粒的位置、方向、运动和受力情况进行详细测量。成像是一种有用的方法，因为它可以同时收集与许多颗粒相关的信息。光学成像仅限于伪二维系统，因为颗粒填料不透明，即使单个颗粒是透明的。因此，需要采用非侵入式成像技术来获取三维颗粒系统的详细测量结果。</p>
+<hr>
+<blockquote>
+<p>Magnetic Resonance Imaging (MRI) is a noninvasive, 3D imaging modality that has been used for studying granular systems for the past 40 years. MRI is unique in being able to encode images with information about the velocity distribution, temperature and chemical composition. For this reason, it continues to be an important imaging tool to complement radiation-based methods that offer higher resolution and larger fields of view. Several re- views of MRI experiments on granular materials have been written during this period (Bonn et al., 2008; Fukushima, 1999; Kawaguchi, 2010), the most recent of which d to the authors’ knowledge d was performed by Stannarius (2017). In addition to imaging of granular flows, MRI has been implemented extensively across various research fields, such as fluid mechanics and rheology (Coussot, 2020; Elkins &amp; Alley, 2007), cardiovascular flows (Soulat, McCarthy, &amp; Markl, 2020), and imaging in multiphase and granular materials (Gladden &amp; Sederman, 2013).</p>
+</blockquote>
+<p>磁共振成像（MRI）是一种无创三维成像模式，过去 40 年来一直用于研究颗粒系统。磁共振成像的独特之处在于，它能将速度分布、温度和化学成分等信息编码成图像。因此，核磁共振成像仍然是一种重要的成像工具，是对具有更高分辨率和更大视野的辐射方法的补充。在此期间，有多篇关于颗粒材料核磁共振成像实验的再观点文章（Bonn 等人，2008 年；Fukushima，1999 年；Kawaguchi，2010 年），据作者所知，其中最新的一篇是由 Stannarius（2017 年）完成的。除了颗粒流动成像之外，核磁共振成像技术还广泛应用于各个研究领域，例如流体力学和流变学（Coussot，2020 年；Elkins &amp; Alley，2007 年）、心血管流动（Soulat、McCarthy &amp; Markl，2020 年）以及多相和颗粒材料成像（Gladden &amp; Sederman，2013 年）。</p>
+<blockquote>
+<p>There have been many recent exciting developments in this area that demonstrate the usefulness of MRI as a tool for validating granular flow models and studying multiphase flows. Furthermore, progress in imaging hardware, reconstruction software, and experimental protocols has improved the MRI technique in the areas of time-resolved imaging and quantitative measurements. This review provides a brief summary of recent advances in MRI of granular flows since the mid-2010s to the present day. In particular, this review focuses on different studies and applications as compared to the scientific problems discussed in the review provided by Stannarius (2017). Additionally, perspectives on the future of the field is provided, outlining potential new lines of inquiry.</p>
+</blockquote>
+<p>该领域最近取得了许多令人振奋的进展，证明了磁共振成像作为验证颗粒流动模型和研究多相流的工具的实用性。此外，成像硬件、重建软件和实验方案方面的进步也改进了磁共振成像技术在时间分辨成像和定量测量方面的应用。本综述简要总结了自 2010 年代中期至今颗粒流磁共振成像技术的最新进展。特别是，与 Stannarius（2017 年）提供的综述中讨论的科学问题相比，本综述侧重于不同的研究和应用。此外，还对该领域的未来进行了展望，概述了潜在的新研究方向。</p>
+<h1 id="fundamentals-of-mri">Fundamentals of MRI<a hidden class="anchor" aria-hidden="true" href="#fundamentals-of-mri">#</a></h1>
+<h2 id="overview-of-nmr-and-mri">Overview of NMR and MRI<a hidden class="anchor" aria-hidden="true" href="#overview-of-nmr-and-mri">#</a></h2>
+<blockquote>
+<p>The detailed fundamentals of MRI are well described in various textbooks (Callaghan, 1993; Brown, Cheng, Haacke, Thompson, &amp; Venkatesan, 2014), where the latter also provides an overview of MR pulse sequence design. In the following a concise overview of the fundamentals underlying MR-based imaging is provided.</p>
+</blockquote>
+<p>各种教科书（Callaghan，1993；Brown，Cheng，Haacke，Thompson，&amp; Venkatesan，2014）对核磁共振成像的基本原理进行了详细介绍，其中后者还对核磁共振脉冲序列设计进行了概述。下文将简要概述基于磁共振成像的基本原理。</p>
+<blockquote>
+<p>Several types of MRI system have been developed over the past decades. These MRI systems span from small benchtop conﬁgura- tions to human-scale clinical scanners. As each of these systems has its strengths and weaknesses, a summary of the performance of each category is provided in Table 1. A diagram of the main system components is shown by Fig. 1. All systems have these basic components in common (Webb, 2016):</p>
+<ul>
+<li>
+<p><strong>Main magnetic ﬁeld ($B_{0}$)</strong> to polarise the sample. High-ﬁeld systems ($B_{0}&gt;1\text{ T}$) make use of helium-cooled super-conducting electromagnets. The conﬁgurations vary from dipolar arranged systems to closed bore or cylindrical sys-tems. Low-ﬁeld systems typically comprise of an array of permanent magnets. For these systems the conﬁgurations vary from horseshoe or C-shaped magnets to Halbach arrays. Additional actively driven shim coil electromagnets (resistive shims), and/or pieces of soft iron mounted on the inner surface of the magnet (passive shims) are used to increase the homogeneity of the main magnetic ﬁeld &ndash; and thus improve measurement accuracy.</p>
+</li>
+<li>
+<p><strong>Gradient coils</strong>. These coils generate a magnetic ﬁeld in addition to the main ﬁeld that varies linearly across the im- aging region. These coils enable the spatial encoding of the MR signal. There are usually three coils, one for each Carte- sian coordinate axis relative to the direction of the main ﬁeld. The coils generally require signiﬁcant current ampliﬁcation and cooling to produce gradients strong enough for imaging purposes.</p>
+</li>
+<li>
+<p><strong>RF transmit and receive coils</strong>. Transmit coils produce a magnetic ﬁeld ($B_{1}$) orthogonal to the static ﬁeld that excites the sample to produce a signal, while receive coils detect this signal. Systems may comprise of a single transmit/receive RF coil such as used in microimaging systems, to RF coil arrays used for parallel imaging in clinical systems. Nowadays typically quadrature (or circularly polarized) coils are used, as they provide $\sqrt{2}$ more signal compared to linear receiver coils.</p>
+</li>
+</ul>
+</blockquote>
+<p>在过去的几十年里，已经开发出多种类型的磁共振成像系统。这些磁共振成像系统包括从小型台式设备到人体级临床扫描仪。这些系统各有优缺点，表 1 提供了各类系统的性能概要。图 1 显示了主要系统组件的示意图。所有系统都有这些共同的基本组件（Webb，2016 年）：</p>
+<ul>
+<li>
+<p><strong>主磁场（$B_{0}$）</strong> 使样品极化。高磁场系统（$B_{0}&gt;1\text{ T}$）使用氦冷却超导电磁铁。这些系统的构造各不相同，有双极排列系统，也有闭孔或圆柱形系统。低电场系统通常由永久磁铁阵列组成。这些系统的结构从马蹄形或 C 形磁铁到 Halbach 阵列不等。附加的主动驱动垫片线圈电磁铁（电阻垫片）和/或安装在磁体内表面的软铁片（被动垫片）用于增加主磁场的均匀性——从而提高测量精度。</p>
+</li>
+<li>
+<p><strong>梯度线圈</strong>。这些线圈在主磁场之外产生一个磁场，该磁场在整个成像区域呈线性变化。这些线圈可对磁共振信号进行空间编码。通常有三个线圈，相对于主磁场的方向，每个卡氏坐标轴一个。线圈通常需要大量的电流放大和冷却，以产生足够强的梯度，达到成像目的。</p>
+</li>
+<li>
+<p><strong>射频发射和接收线圈</strong>。发射线圈产生一个与静态磁场正交的磁场 ($B_{1}$)，激发样本产生信号，而接收线圈则检测该信号。系统可包括单个发射/接收射频线圈（如微成像系统中使用的线圈）和用于临床系统并行成像的射频线圈阵列。现在通常使用正交（或圆极化）线圈，因为与线性接收线圈相比，它们能提供更多的信号。</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>MRI, also known as nuclear magnetic resonance (NMR) imaging, makes use of the nonzero net magnetic moment of nuclei. Common naturally present isotopes used in MRI include $^{1}H$ (also referred to as proton imaging), $^{13}C$, $^{23}Na$, $^{27}Al$, $^{31}P$, and $^{129}Xe$. When exposed to a main magnetic ﬁeld, ${B_{0}}$, the unpaired nuclear spins of these isotopes interact with this external ﬁeld, resulting in a net magnet- isation ($M_{0}$) within the sample. The characteristic time-scale related to this (re-)magnetisation is the so-called spin-lattice or longitudinal relaxation time, ${T_{1}}$. Note that $T_{1}$ is sample-speciﬁc and therefore can be used as a means of contrast to distinguish between different materials.</p>
+</blockquote>
+<p>核磁共振成像（MRI）又称核磁共振（NMR）成像，利用的是原子核的非零净磁矩。核磁共振成像中常用的天然同位素包括 $^{1}H$（也称为质子成像）、$^{13}C$、$^{23}Na$、$^{27}Al$、$^{31}P$ 和 $^{129}Xe$。当暴露于主磁场${B_{0}}$时，这些同位素的非成对核自旋与外部磁场相互作用，从而在样品内部产生净磁化（$M_{0}$）。与这种（再）磁化相关的特征时间尺度是所谓的自旋晶格或纵向弛豫时间，即 ${T_{1}}$。请注意，{T_{1}}$ 是针对样品的，因此可用作区分不同材料的对比手段。</p>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/cs/skills/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>博客使用技巧</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/sonic/nonlinearity/theoretical-study-nonlinear-elastic-wave-propagation/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Theoretical study of nonlinear elastic wave propagation</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
