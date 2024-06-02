@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Fri, 19 Apr 2024 00:18:06 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 May 2024 00:18:15 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Solidworks 安装方法</title>
       <link>https://Muatyz.github.io/posts/cs/solidworks/</link>
@@ -24,6 +24,33 @@
       
       <guid>https://Muatyz.github.io/posts/cs/skills/</guid>
       <description>记录一些经常用得到但是又很难记住的 Web 技巧</description>
+    </item>
+    
+    <item>
+      <title>2024 年度随笔</title>
+      <link>https://Muatyz.github.io/posts/life/2024-document/</link>
+      <pubDate>Mon, 20 May 2024 00:18:15 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/life/2024-document/</guid>
+      <description>5 月 05.20 完成作业 重新阅读有关stick-slip 的声学文章, 做好实验准备 阅读老师发的力学方面的新文章 安装实验室的架子 6 月 06.02 答辩讲稿 1: 各位老师和同学们大家好, 我的毕业论文所研究的题目是 &amp;ldquo;颗粒介质中的超声波传播&amp;rdquo;, 我的指导老师是原交叉所的王宇杰老师. 2: 接下来我将</description>
+    </item>
+    
+    <item>
+      <title>Effects of acoustic waves on stick–slip in granular media and implications for earthquakes</title>
+      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/effects-of-acoustic-waves-on-stick-slip-in-granular-media/</link>
+      <pubDate>Mon, 13 May 2024 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/effects-of-acoustic-waves-on-stick-slip-in-granular-media/</guid>
+      <description>声波对颗粒介质粘滑的影响及对地震的影响</description>
+    </item>
+    
+    <item>
+      <title>Understanding dynamic friction through spontaneously evolving laboratory earthquakes</title>
+      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/understanding-dynamic-friction-through-spontaneously-evolving-lab-earthquakes/</link>
+      <pubDate>Sat, 11 May 2024 00:18:06 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/understanding-dynamic-friction-through-spontaneously-evolving-lab-earthquakes/</guid>
+      <description>通过自发演化的实验室地震了解动态摩擦力</description>
     </item>
     
     <item>
