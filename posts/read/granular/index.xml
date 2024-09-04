@@ -50,7 +50,12 @@
       <pubDate>Sat, 23 Sep 2023 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/granular/edwards-entropy-and-compactivity/</guid>
-      <description>Abstract Formulating a statistical mechanics for granular matter remains a significant challenge, in part due to the difficulty associated with a complete characterization of the systems under study. We present a fully characterized model of a granular material consisting of $N$ two-dimensional, frictionless hard disks, confined between hard walls, including a complete enumeration of all possible jammed structures. We show that the properties of the jammed packings are independent of the distribution of defects within the system and that all the packings are isostatic. This suggests that the assumption of equal probability for states of equal volume, which provides one possible way of constructing the equivalent of a microcanonical ensemble, is likely to be valid for our model. An application of the second law of thermodynamics involving two subsystems in contact shows that the expected spontaneous equilibration of defects between</description>
+      <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Formulating a statistical mechanics for granular matter remains a significant challenge, in part due to the difficulty associated with a complete characterization of the systems under study.&lt;/p&gt;
+&lt;p&gt;We present a fully characterized model of a granular material consisting of $N$ two-dimensional, frictionless hard disks, confined between hard walls, including a complete enumeration of all possible jammed structures. We show that the properties of the jammed packings are independent of the distribution of defects within the system and that all the packings are isostatic.&lt;/p&gt;
+&lt;p&gt;This suggests that the assumption of equal probability for states of equal volume, which provides one possible way of constructing the equivalent of a microcanonical ensemble, is likely to be valid for our model.&lt;/p&gt;
+&lt;p&gt;An application of the second law of thermodynamics involving two subsystems in contact shows that the expected spontaneous equilibration of defects between the two is accompanied by an increase in entropy and that the equilibrium, obtained by entropy maximization, is characterized by the equality of compactivities.&lt;/p&gt;</description>
     </item>
     
     <item>

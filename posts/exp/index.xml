@@ -14,7 +14,26 @@
       <pubDate>Tue, 10 May 2022 00:18:15 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/exp/dci-soft-x-ray/</guid>
-      <description>指导老师: 张杰, 远晓辉 助教: 李璟隆 涉密内容警告 经过和助教的交流, 得知聚变涉及的内容比较敏感, 相关的代码必然不可能直接展示在本文中, 所以下面所有的代码均为 ChatGPT 给出的示例性代码以供思路上的参考. 研究背景 传统的中心点火方案存在两个问题: 同时压缩和加热带来的不可控性; 加热效率较低. 所以设计</description>
+      <description>&lt;p&gt;指导老师: &lt;a href=&#34;https://www.physics.sjtu.edu.cn/jsml/zhangjie.html&#34; target=&#34;_blank&#34; rel=&#34;noopener nofollow noreferrer&#34; &gt;张杰&lt;/a&gt;, &lt;a href=&#34;https://www.physics.sjtu.edu.cn/jsml/yuanxiaohui.html&#34; target=&#34;_blank&#34; rel=&#34;noopener nofollow noreferrer&#34; &gt;远晓辉&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;助教: &lt;a href=&#34;mailto:lijinglong@sjtu.edu.cn&#34;&gt;李璟隆&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;details admonition warning open&#34;&gt;
+
+ &lt;div class=&#34;details-summary admonition-title&#34;&gt;
+
+ &lt;i class=&#34;icon fas fa-exclamation-triangle fa-fw&#34;&gt;&lt;/i&gt;涉密内容警告&lt;i class=&#34;details-icon fas fa-angle-right fa-fw&#34;&gt;&lt;/i&gt;
+
+ &lt;/div&gt;
+
+ &lt;div class=&#34;details-content&#34;&gt;
+
+ &lt;div class=&#34;admonition-content&#34;&gt;经过和助教的交流, 得知聚变涉及的内容比较敏感, 相关的代码必然不可能直接展示在本文中, 所以下面所有的代码均为 ChatGPT 给出的&lt;strong&gt;示例性代码&lt;/strong&gt;以供思路上的参考.&lt;/div&gt;
+
+ &lt;/div&gt;
+
+ &lt;/div&gt;
+&lt;h1 id=&#34;研究背景&#34;&gt;研究背景&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/05/11/Xl1E3thVLsQdq9Z.png&#34; alt=&#34;双锥对撞点火方案&#34;  /&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -23,7 +42,17 @@
       <pubDate>Tue, 10 May 2022 00:18:15 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/exp/quantum-photon/</guid>
-      <description>实验目的 了解量子纠缠态的概念、性质及其在量子信息领域的应用, 进而深刻理解量子力学的本质与精髓; 学习光子纠缠源的制备原理, 学习相关的非线性光学的知识, 如自发参量放大与振荡、相位匹配、自发参量下转换等; 学习量子光学实验中涉及的基本实验仪器的原理和使用方法。如光纤传输和耦合的理论与技术</description>
+      <description>&lt;h1 id=&#34;实验目的&#34;&gt;实验目的&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;了解量子纠缠态的概念、性质及其在量子信息领域的应用, 进而深刻理解量子力学的本质与精髓;&lt;/li&gt;
+&lt;li&gt;学习光子纠缠源的制备原理, 学习相关的非线性光学的知识,  如自发参量放大与振荡、相位匹配、自发参量下转换等;&lt;/li&gt;
+&lt;li&gt;学习量子光学实验中涉及的基本实验仪器的原理和使用方法。如光纤传输和耦合的理论与技术, 单光子计数器, 符合门, 半波片, 极化片等实验装置的使用方法。让学生熟练掌握光学实验的光路调节和各种光学元件的调整技术。&lt;/li&gt;
+&lt;li&gt;学习对光子纠缠源产生的光子纠缠对比度的符合测量方法, 并通过测量验算Bell 不等式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;实验原理&#34;&gt;实验原理&lt;/h1&gt;
+&lt;h2 id=&#34;量子纠缠态&#34;&gt;量子纠缠态&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在任何量子力学表象中, 都无法表示为组成它的各子系统量子态矢的直积形式.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -32,7 +61,12 @@
       <pubDate>Tue, 10 May 2022 00:18:15 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/exp/muon-lifetime/</guid>
-      <description>Abstract In the experiment, you will learn how to use plastic scientillator to measure lifetime of muon in cosmic ray. The basic particle detection skills will be shown in this activity, including how to using a PMT detector, signal processing methods, and data analysis skills etc. 译： 在这个实验中, 你将学习如何使用塑料科学仪器来测量宇宙射线中 $\mu$ 子的寿命. 在这个活动中, 将展示基本的粒子检测技能, 包括如何使用 PMT 检测器、信号处理方法和数据分析技能等. Introduction Muon was discovered by Carl D. Anderson in 1936 in</description>
+      <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In the experiment, you will learn how to use plastic scientillator to measure lifetime of muon in cosmic ray. The basic particle detection skills will be shown in this activity, including how to using a PMT detector, signal processing methods, and data analysis skills etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;译：&lt;/p&gt;
+&lt;p&gt;在这个实验中, 你将学习如何使用塑料科学仪器来测量宇宙射线中 $\mu$ 子的寿命. 在这个活动中, 将展示基本的粒子检测技能, 包括如何使用 PMT 检测器、信号处理方法和数据分析技能等.&lt;/p&gt;</description>
     </item>
     
   </channel>

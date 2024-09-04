@@ -32,7 +32,13 @@
       <pubDate>Fri, 05 May 2023 12:20:21 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/cs/datastructure/template-code/</guid>
-      <description>序言 本文记录学习的经典数据结构的实现, 由于原严蔚敏的书中使用的代码为C with &amp;amp;, 因此在真正的实现上是需要依赖于 cpp 的, 因此本文在具体的实现上为了能够&amp;quot;真正使用&amp;quot;有一些细节上的改动. 在本文中的 ElemType 使用以下语句定义: #ifndef ElemType #define ElemType int #endif List Static Sequence List #define MaxSize 50 //数据类型为ElemType,</description>
+      <description>&lt;h1 id=&#34;序言&#34;&gt;序言&lt;/h1&gt;
+&lt;p&gt;本文记录学习的经典数据结构的实现, 由于原严蔚敏的书中使用的代码为&lt;code&gt;C with &amp;amp;&lt;/code&gt;, 因此在真正的实现上是需要依赖于 cpp 的, 因此本文在具体的实现上为了能够&amp;quot;真正使用&amp;quot;有一些细节上的改动.&lt;/p&gt;
+&lt;p&gt;在本文中的 ElemType 使用以下语句定义:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#ifndef ElemType
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define ElemType int
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#endif
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
     
   </channel>

@@ -7,7 +7,39 @@
 <meta name="robots" content="index, follow">
 <title>密度矩阵 | 无处惹尘埃</title>
 <meta name="keywords" content="">
-<meta name="description" content="投影算符 定义 假设对于一个物理量算符 $\hat{R}$, 其本征方程为 $$ \hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots) $$ 我们引入投影算符: $$ \hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}| $$ 所以显然有 $$ \hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle $$ 性质 厄密性 $$ \hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger} $$ 幂等性(Idempotent) $$ \hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k} $$ 完备性 $$ \sum_{k}\hat{\pi}_{k} = I $$ 证明: 对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开: $$ |\psi\rangle = c_{1}|\psi_{1}\rangle &#43; c_{2}|\psi_{2}\rangle &#43; \dots &#43; c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle} $$ 那么将投影算符和作">
+<meta name="description" content="投影算符
+定义
+假设对于一个物理量算符 $\hat{R}$, 其本征方程为
+$$
+\hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots)
+$$
+我们引入投影算符:
+$$
+\hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}|
+$$
+所以显然有
+$$
+\hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle
+$$
+性质
+
+厄密性
+
+$$
+\hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger}
+$$
+
+幂等性(Idempotent)
+
+$$
+\hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k}
+$$
+
+完备性
+
+$$
+\sum_{k}\hat{\pi}_{k} = I
+$$">
 <meta name="author" content="Muartz">
 <link rel="canonical" href="https://Muatyz.github.io/posts/phy/qp/density-matrix/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -110,11 +142,40 @@ MathJax.Hub.Queue(function() {
       border: "LXGW WenKai Screen", sans-serif, Arial;
       color: #515151;
   }
-</style>
-  
+</style><meta property="og:title" content="密度矩阵" />
+<meta property="og:description" content="投影算符
+定义
+假设对于一个物理量算符 $\hat{R}$, 其本征方程为
+$$
+\hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots)
+$$
+我们引入投影算符:
+$$
+\hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}|
+$$
+所以显然有
+$$
+\hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle
+$$
+性质
 
-<meta property="og:title" content="密度矩阵" />
-<meta property="og:description" content="投影算符 定义 假设对于一个物理量算符 $\hat{R}$, 其本征方程为 $$ \hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots) $$ 我们引入投影算符: $$ \hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}| $$ 所以显然有 $$ \hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle $$ 性质 厄密性 $$ \hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger} $$ 幂等性(Idempotent) $$ \hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k} $$ 完备性 $$ \sum_{k}\hat{\pi}_{k} = I $$ 证明: 对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开: $$ |\psi\rangle = c_{1}|\psi_{1}\rangle &#43; c_{2}|\psi_{2}\rangle &#43; \dots &#43; c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle} $$ 那么将投影算符和作" />
+厄密性
+
+$$
+\hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger}
+$$
+
+幂等性(Idempotent)
+
+$$
+\hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k}
+$$
+
+完备性
+
+$$
+\sum_{k}\hat{\pi}_{k} = I
+$$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Muatyz.github.io/posts/phy/qp/density-matrix/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-19T00:18:23+08:00" />
@@ -122,7 +183,39 @@ MathJax.Hub.Queue(function() {
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="密度矩阵"/>
-<meta name="twitter:description" content="投影算符 定义 假设对于一个物理量算符 $\hat{R}$, 其本征方程为 $$ \hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots) $$ 我们引入投影算符: $$ \hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}| $$ 所以显然有 $$ \hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle $$ 性质 厄密性 $$ \hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger} $$ 幂等性(Idempotent) $$ \hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k} $$ 完备性 $$ \sum_{k}\hat{\pi}_{k} = I $$ 证明: 对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开: $$ |\psi\rangle = c_{1}|\psi_{1}\rangle &#43; c_{2}|\psi_{2}\rangle &#43; \dots &#43; c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle} $$ 那么将投影算符和作"/>
+<meta name="twitter:description" content="投影算符
+定义
+假设对于一个物理量算符 $\hat{R}$, 其本征方程为
+$$
+\hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots)
+$$
+我们引入投影算符:
+$$
+\hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}|
+$$
+所以显然有
+$$
+\hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle
+$$
+性质
+
+厄密性
+
+$$
+\hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger}
+$$
+
+幂等性(Idempotent)
+
+$$
+\hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k}
+$$
+
+完备性
+
+$$
+\sum_{k}\hat{\pi}_{k} = I
+$$"/>
 
 
 <script type="application/ld+json">
@@ -166,7 +259,7 @@ MathJax.Hub.Queue(function() {
   "@type": "BlogPosting",
   "headline": "密度矩阵",
   "name": "密度矩阵",
-  "description": "投影算符 定义 假设对于一个物理量算符 $\\hat{R}$, 其本征方程为 $$ \\hat{R}|\\psi_{k}\\rangle = r_{k}|\\psi_{k}\\rangle\\quad(k = 0,1,\\dots) $$ 我们引入投影算符: $$ \\hat{\\pi}_{k} = |\\psi_{k}\\rangle\\langle\\psi_{k}| $$ 所以显然有 $$ \\hat{\\pi}_{k}|\\psi_{n}\\rangle = |\\psi_{k}\\rangle\\langle\\psi_{k}|\\psi_{n}\\rangle = \\delta_{kn}|\\psi_{k}\\rangle $$ 性质 厄密性 $$ \\hat{\\pi}_{k} = \\hat{\\pi}_{k}^{\\dagger} $$ 幂等性(Idempotent) $$ \\hat{\\pi}_{k}^{2} = |\\psi_{k}\\rangle\\langle\\psi_{k}|\\psi_{k}\\rangle\\langle\\psi_{k}|=|\\psi_{k}\\rangle\\langle\\psi_{k}|=\\hat{\\pi}_{k} $$ 完备性 $$ \\sum_{k}\\hat{\\pi}_{k} = I $$ 证明: 对任意的态 $|\\psi\\rangle$, 都可以将其写作基函数的展开: $$ |\\psi\\rangle = c_{1}|\\psi_{1}\\rangle + c_{2}|\\psi_{2}\\rangle + \\dots + c_{n}|\\psi_{n}\\rangle = \\sum_{i}{c_{i}|\\psi_{i}\\rangle} $$ 那么将投影算符和作",
+  "description": "投影算符 定义 假设对于一个物理量算符 $\\hat{R}$, 其本征方程为\n$$ \\hat{R}|\\psi_{k}\\rangle = r_{k}|\\psi_{k}\\rangle\\quad(k = 0,1,\\dots) $$\n我们引入投影算符:\n$$ \\hat{\\pi}_{k} = |\\psi_{k}\\rangle\\langle\\psi_{k}| $$\n所以显然有\n$$ \\hat{\\pi}_{k}|\\psi_{n}\\rangle = |\\psi_{k}\\rangle\\langle\\psi_{k}|\\psi_{n}\\rangle = \\delta_{kn}|\\psi_{k}\\rangle $$\n性质 厄密性 $$ \\hat{\\pi}_{k} = \\hat{\\pi}_{k}^{\\dagger} $$\n幂等性(Idempotent) $$ \\hat{\\pi}_{k}^{2} = |\\psi_{k}\\rangle\\langle\\psi_{k}|\\psi_{k}\\rangle\\langle\\psi_{k}|=|\\psi_{k}\\rangle\\langle\\psi_{k}|=\\hat{\\pi}_{k} $$\n完备性 $$ \\sum_{k}\\hat{\\pi}_{k} = I $$\n",
   "keywords": [
     ""
   ],

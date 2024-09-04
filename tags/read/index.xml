@@ -14,7 +14,13 @@
       <pubDate>Sun, 23 Jun 2024 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/</guid>
-      <description>Abstract Rate- and state-dependent friction (RSF) equations are commonly used to describe the time-dependent frictional response of fault gouge to perturbations in sliding velocity. Among the better-known versions are the Aging and Slip laws for the evolution of state. Although the Slip law is more successful, neither can predict all the robust features of lab data. RSF laws are also empirical, and their micromechanical origin is a matter of much debate. Here we use a granular physics-based model to explore the extent to which RSF behavior, as observed in rock and gouge friction experiments, can be explained by the response of a granular gouge layer with time-independent properties at the contact scale. 与速率和状态相关的摩擦（RSF）方程常用于描述断层破碎带</description>
+      <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rate- and state-dependent friction (RSF) equations are commonly used to describe the time-dependent frictional response of &lt;strong&gt;fault gouge&lt;/strong&gt; to perturbations in sliding velocity.
+Among the better-known versions are the Aging and Slip laws for the evolution of state. Although the Slip law is more successful, neither can predict all the robust features of lab data. RSF laws are also empirical, and their micromechanical origin is a matter of much debate. Here we use a granular physics-based model to explore the extent to which RSF behavior, as observed in rock and gouge friction experiments, can be explained by the response of a granular gouge layer with time-independent properties at the contact scale.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;与速率和状态相关的摩擦（RSF）方程常用于描述&lt;strong&gt;断层破碎带&lt;/strong&gt;对滑动速度扰动的与时间相关的摩擦响应。
+其中比较著名的是状态演化的老化定律和滑移定律。虽然滑动定律更为成功，但两者都无法预测实验室数据的所有稳健特征。RSF 法则也是经验性的，其微观机械起源还存在很多争议。在这里，我们使用一个基于颗粒物理学的模型来探索岩石和沟槽摩擦实验中观察到的 RSF 行为在多大程度上可以通过在接触尺度上具有与时间无关特性的粒状沟槽层的响应来解释。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -284,7 +290,13 @@
       <pubDate>Wed, 01 Nov 2023 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/</guid>
-      <description>DOI: 10.1557/PROC-627-BB3.5 Abstract We have identified, according to the ratio of the wavelength to the grain size, two distinct types of pulsed ultrasound transmission through a dry bead packing under stress: one corresponds to coherent ballistic waves characterized by the effective medium description, the other to the waves scattered by the inhomogeneous stress field within the granular medium. Over long distances of transport, the multiply scattered waves exhibit a diffusive character. Also we investigate the dynamics of the granular medium during a compaction under cyclic loading-unloading. Both the macroscopic deformation and the microscopic rearrangement have been measured, via an ultrasonic correlation technique using the multiple acoustic scattering very sensitive to the change of the system configuration. It is found that as the packing fraction increases, there is a continuous evolution of the system in response to external loading, from an</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;DOI: &lt;a href=&#34;https://www.cambridge.org/core/journals/mrs-online-proceedings-library-archive/article/abs/ultrasound-propagation-in-disordered-granular-media/0CA21C40A90F990AEA745B52BEE5C754&#34; target=&#34;_blank&#34; rel=&#34;noopener nofollow noreferrer&#34; &gt;10.1557/PROC-627-BB3.5&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We have identified, according to the ratio of the wavelength to the grain size, two distinct types of pulsed ultrasound transmission through a dry bead packing under stress: one corresponds to coherent ballistic waves characterized by the effective medium description, the other to the waves scattered by the inhomogeneous stress field within the granular medium. Over long distances of transport, the multiply scattered waves exhibit a diffusive character. Also we investigate the dynamics of the granular medium during a compaction under cyclic loading-unloading.&lt;/p&gt;
+&lt;p&gt;Both the macroscopic deformation and the microscopic rearrangement have been measured, via an ultrasonic correlation technique using the multiple acoustic scattering very sensitive to the change of the system configuration. It is found that as the packing fraction increases, there is a continuous evolution of the system in response to external loading, from an irreversible behavior towards more elastic one.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -320,7 +332,10 @@
       <pubDate>Tue, 10 Oct 2023 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/probing-intermittency-and-reversibility-in-a-dense-granular-suspension/</guid>
-      <description>Abstract We study the rheology of a dense granular suspension under shear strain with the simultaneous detection of multiply scattered ultrasound through the shear band. At a low shear rate, the dissipation is rate-independent and determined by the frictional contacts between grains. Under quasistatic shear, the stress–strain curve contains elastic loading parts interrupted by stress drops. Such an intermittency is concomitant with some large decorrelation events as measured by the ultrasound probe, sensitive to the position of the grains. Under cyclic shear, the correlations between the scattered ultrasonic waves show that at low shear strain, the grains exhibit reversible motion. Beyond this linear regime, some irreversible motion of the grains is detected. Moreover, the correlation between successive ultrasound signals suggests that some specific rearrangements, which add to the</description>
+      <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We study the &lt;strong&gt;rheology&lt;/strong&gt; of a dense granular suspension under shear strain with the simultaneous detection of multiply scattered ultrasound through the shear band. At a low shear rate, the dissipation is rate-independent and determined by the frictional contacts between grains. Under quasistatic shear, the stress–strain curve contains elastic loading parts interrupted by stress drops. Such an intermittency is concomitant with some large decorrelation events as measured by the ultrasound probe, sensitive to the position of the grains.&lt;/p&gt;
+&lt;p&gt;Under cyclic shear, the correlations between the scattered ultrasonic waves show that at low shear strain, the grains exhibit reversible motion. Beyond this linear regime, some irreversible motion of the grains is detected. Moreover, the correlation between successive ultrasound signals suggests that some specific rearrangements, which add to the homogeneous flow, take place near the maximum strain.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -329,7 +344,12 @@
       <pubDate>Mon, 09 Oct 2023 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/sonic/dgm/sound-pulse-broadening-in-stressed-granular-media/</guid>
-      <description>Abstract The pulse broadening and decay of coherent sound waves propagating in disordered granular media are investigated. We find that the pulse width of these compressional waves is broadened when the disorder is increased by mixing the beads made of different materials. To identify the responsible mechanism for the pulse broadening, we also perform the acoustic attenuation measurement by spectral analysis and the numerical simulation of pulsed sound wave propagation along 1D disordered elastic chains. The qualitative agreement between experiment and simulation reveals a dominant mechanism by scattering attenuation at the high-frequency range, which is consistent with theoretical models of sound wave scattering in strongly random media via a correlation length. 我们研究了相干声波在无序颗粒介质中传播时的脉冲展宽和衰减。</description>
+      <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The pulse broadening and decay of coherent sound waves propagating in disordered granular media are investigated. We find that the pulse width of these compressional waves is broadened when the disorder is increased by mixing the beads made of &lt;em&gt;different&lt;/em&gt; materials.&lt;/p&gt;
+&lt;p&gt;To identify the responsible mechanism for the pulse broadening, we also perform the acoustic attenuation measurement by spectral analysis and the numerical simulation of pulsed sound wave propagation along 1D disordered elastic chains. The qualitative agreement between experiment and simulation reveals a dominant mechanism by scattering attenuation at the &lt;em&gt;high-frequency&lt;/em&gt; range, which is consistent with theoretical models of sound wave scattering in strongly random media via a correlation length.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们研究了相干声波在无序颗粒介质中传播时的脉冲展宽和衰减。我们发现，通过混合&lt;em&gt;不同材料&lt;/em&gt;制成的珠子来增加无序度时，这些压缩波的脉冲宽度会变宽。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -338,7 +358,14 @@
       <pubDate>Mon, 09 Oct 2023 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-in-stressed-granular/</guid>
-      <description>X.jia Abstract Experimental observations of pulsed ultrasonic transmission through granular glass beads under oedometric loading are presented. We observe in the transmitted signals the coexistence of a coherent ballistic pulse traveling through an “effective contact medium” and a specklelike multiply scattered signal. The relative amplitudes of these signals strongly depend on the ratios of the bead size to the wavelength and to the detector size. Experimental data support recent descriptions of the inhomogeneous stress field within granular media. 本文介绍了在气压加载条件下脉冲超声波穿过颗粒状玻璃珠的实验观察结果。我们在传输信号中观察到，在</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;X.jia&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Experimental observations of pulsed ultrasonic transmission through granular glass beads under oedometric loading are presented. We observe in the transmitted signals the coexistence of a coherent &lt;strong&gt;ballistic pulse&lt;/strong&gt; traveling through an “effective contact medium” and a specklelike multiply scattered signal. The relative amplitudes of these signals strongly depend on the ratios of the bead size to the wavelength and to the detector size. Experimental data support recent descriptions of &lt;strong&gt;the inhomogeneous stress field&lt;/strong&gt; within granular media.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文介绍了在气压加载条件下脉冲超声波穿过颗粒状玻璃珠的实验观察结果。我们在传输信号中观察到，在 &amp;ldquo;有效接触介质&amp;rdquo; 中传播的相干&lt;strong&gt;弹道脉冲&lt;/strong&gt;与斑点状多散射信号共存。这些信号的相对振幅在很大程度上取决于珠子大小与波长和探测器大小之比。实验数据支持最近对颗粒介质内&lt;strong&gt;不均匀应力场&lt;/strong&gt;的描述。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -383,7 +410,11 @@
       <pubDate>Sun, 24 Sep 2023 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/effect-of-amp-and-dura-of-cyc-loa/</guid>
-      <description>Abstract Strong earthquakes with larger magnitude and longer durations trigger many landslides, however, how magnitude and duration affect landslides is still unclear. Many factors could contribute to this, including additional shear stress provided by strong ground motion, or “seismogenic liquefaction”; herein, we hypothesize that the dynamic weakening of sliding zone gouge is important. We explored the influence of earthquake magnitude and duration on landslide triggering by simulating the seismic response of sliding zone gouge using a dynamic ring-shear device and glass spheres. 震级较大、持续时间较长的强震会引发许多滑坡，但震级和持续时间如何影响</description>
+      <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Strong earthquakes with larger magnitude and longer durations trigger many landslides, however, how magnitude and duration affect landslides is still unclear. Many factors could contribute to this, including additional shear stress provided by strong ground motion, or “seismogenic liquefaction”; herein, we hypothesize that the dynamic weakening of sliding zone gouge is important. We explored the influence of earthquake magnitude and duration on landslide triggering by simulating the seismic response of sliding zone gouge using a dynamic ring-shear device and glass spheres.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;震级较大、持续时间较长的强震会引发许多滑坡，但震级和持续时间如何影响滑坡仍不清楚。造成这种情况的因素有很多，包括强地面运动提供的额外剪应力或 &amp;ldquo;地震引起的液化&amp;rdquo;；在此，我们假设滑动带冲沟的动态削弱非常重要。我们通过使用动态环剪装置和玻璃球模拟滑动带冲沟的地震响应，探讨了地震震级和持续时间对滑坡触发的影响。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -401,7 +432,16 @@
       <pubDate>Sun, 24 Sep 2023 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/stick-slip-nucleation-and-failure-in-uniform-glass-beads-detected-by-acoustic-emissions-in-ring-shear-experiments/</guid>
-      <description>DOI:10.1029/2023JB026612 Abstract Stress accumulation and release reflected by acoustic emissions (AEs) during shearing of granular materials provide important information on failure mechanisms in seismic faults and landslides controlled by stick-slip. Among many characteristics (amplitude, energy, counts, and frequency) of AE signals generated by stick-slip, stress changes corresponding to various frequency AEs in different stages of the stickslip process are not clear, which limits our knowledge of the characteristics of precursory signals before stickslip failure. To better understand the physical mechanisms of granular stick-slip, we monitored the mechanical and AE signals using high-frequency ($2 \text{MHz}$) synchronous acquisition during constant-speed shear of packs of uniform glass beads with different sizes at different normal stresses. 颗粒材料剪切过程中的声发射（AEs）所反映的应力积累和释</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;DOI:&lt;a href=&#34;https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2023JB026612&#34; target=&#34;_blank&#34; rel=&#34;noopener nofollow noreferrer&#34; &gt;10.1029/2023JB026612&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Stress accumulation and release reflected by &lt;strong&gt;acoustic emissions&lt;/strong&gt; (AEs) during shearing of granular materials provide important information on failure mechanisms in &lt;strong&gt;seismic faults&lt;/strong&gt; and landslides controlled by stick-slip.&lt;/p&gt;
+&lt;p&gt;Among many characteristics (amplitude, energy, counts, and frequency) of AE signals generated by stick-slip, stress changes corresponding to various frequency AEs in different stages of the stickslip process are not clear, which limits our knowledge of the characteristics of precursory signals before stickslip failure.&lt;/p&gt;
+&lt;p&gt;To better understand the physical mechanisms of granular stick-slip, we monitored the mechanical and AE signals using high-frequency ($2 \text{MHz}$) &lt;strong&gt;synchronous acquisition&lt;/strong&gt; during &lt;strong&gt;constant-speed shear&lt;/strong&gt; of packs of uniform glass beads with different sizes at different normal stresses.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;颗粒材料剪切过程中的&lt;strong&gt;声发射&lt;/strong&gt;（AEs）所反映的应力积累和释放，为研究&lt;strong&gt;地震断层&lt;/strong&gt;和滞滑控制的滑坡的破坏机制提供了重要信息。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -437,7 +477,12 @@
       <pubDate>Sat, 23 Sep 2023 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/granular/edwards-entropy-and-compactivity/</guid>
-      <description>Abstract Formulating a statistical mechanics for granular matter remains a significant challenge, in part due to the difficulty associated with a complete characterization of the systems under study. We present a fully characterized model of a granular material consisting of $N$ two-dimensional, frictionless hard disks, confined between hard walls, including a complete enumeration of all possible jammed structures. We show that the properties of the jammed packings are independent of the distribution of defects within the system and that all the packings are isostatic. This suggests that the assumption of equal probability for states of equal volume, which provides one possible way of constructing the equivalent of a microcanonical ensemble, is likely to be valid for our model. An application of the second law of thermodynamics involving two subsystems in contact shows that the expected spontaneous equilibration of defects between</description>
+      <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Formulating a statistical mechanics for granular matter remains a significant challenge, in part due to the difficulty associated with a complete characterization of the systems under study.&lt;/p&gt;
+&lt;p&gt;We present a fully characterized model of a granular material consisting of $N$ two-dimensional, frictionless hard disks, confined between hard walls, including a complete enumeration of all possible jammed structures. We show that the properties of the jammed packings are independent of the distribution of defects within the system and that all the packings are isostatic.&lt;/p&gt;
+&lt;p&gt;This suggests that the assumption of equal probability for states of equal volume, which provides one possible way of constructing the equivalent of a microcanonical ensemble, is likely to be valid for our model.&lt;/p&gt;
+&lt;p&gt;An application of the second law of thermodynamics involving two subsystems in contact shows that the expected spontaneous equilibration of defects between the two is accompanied by an increase in entropy and that the equilibrium, obtained by entropy maximization, is characterized by the equality of compactivities.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -464,7 +509,15 @@
       <pubDate>Fri, 21 Jul 2023 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/stack/away-from-magic-angle/</guid>
-      <description>Abstract Twisted bilayer graphene (TBG) is a recently discovered two-dimensional superlattice structure which exhibits strongly-correlated quantum many-body physics, including strange metallic behavior and unconventional superconductivity. 扭曲双层石墨烯(TBG)是最近发现的一种二维超晶格结构, 它表现出强相关量子多体物理学, 包括奇异的金属行为和非常规超导性. Most of TBG exotic properties are connected to the emergence of a pair of isolated and topological flat electronic bands at the so-called magic angle, $\theta \approx 1.05°$, which are nevertheless very fragile. TBG 的大部分奇异特性都与在所谓的魔</description>
+      <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Twisted bilayer graphene (TBG) is a recently discovered two-dimensional superlattice structure which exhibits strongly-correlated quantum many-body physics, including strange metallic behavior and unconventional superconductivity.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;扭曲双层石墨烯(TBG)是最近发现的一种二维超晶格结构, 它表现出强相关量子多体物理学, 包括奇异的金属行为和非常规超导性.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Most of TBG exotic properties are connected to the emergence of a pair of isolated and topological flat electronic bands at the so-called magic angle, $\theta \approx 1.05°$, which are nevertheless very fragile.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;TBG 的大部分奇异特性都与在所谓的魔角 $\theta \approx 1.05°$ 处出现的一对孤立的拓扑平坦电子带有关, 但这些电子带非常脆弱.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -473,7 +526,14 @@
       <pubDate>Thu, 05 May 2022 00:18:06 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/stack/moire-bands/</guid>
-      <description>Moiré bands in twisted double-layer graphene 双层石墨烯出现转角时, 在整体层面会出现摩尔纹. Abstract A moiré pattern is formed when two copies of a periodic pattern are overlaid with a relative twist. We address the electronic structure of a twisted two-layer graphene system, showing that in its continuum Dirac model the moiré pattern periodicity leads to moiré Bloch bands. The two layers become more strongly coupled and the Dirac velocity crosses zero several times as the twist angle is reduced. For a discrete set of magic angles the velocity vanishes, the lowest moiré band flattens, and the Dirac-point density-of states and the counterflow conductivity</description>
+      <description>&lt;h1 id=&#34;moiré-bands-in-twisted-double-layer-graphene&#34;&gt;Moiré bands in twisted double-layer graphene&lt;/h1&gt;
+&lt;p&gt;双层石墨烯出现转角时, 在整体层面会出现摩尔纹.&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A moiré pattern is formed when two copies of a periodic pattern are overlaid with a relative twist.
+We address the electronic structure of a twisted two-layer graphene system, showing that in its continuum Dirac model the moiré pattern periodicity leads to moiré Bloch bands.
+The two layers become more strongly coupled and the Dirac velocity crosses zero several times as the twist angle is reduced.
+For a discrete set of magic angles the velocity vanishes, the lowest moiré band flattens, and the Dirac-point density-of states and the counterflow conductivity are strongly enhanced.&lt;/p&gt;</description>
     </item>
     
   </channel>

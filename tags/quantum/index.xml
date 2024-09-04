@@ -41,7 +41,39 @@
       <pubDate>Sun, 19 Jun 2022 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/phy/qp/density-matrix/</guid>
-      <description>投影算符 定义 假设对于一个物理量算符 $\hat{R}$, 其本征方程为 $$ \hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots) $$ 我们引入投影算符: $$ \hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}| $$ 所以显然有 $$ \hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle $$ 性质 厄密性 $$ \hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger} $$ 幂等性(Idempotent) $$ \hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k} $$ 完备性 $$ \sum_{k}\hat{\pi}_{k} = I $$ 证明: 对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开: $$ |\psi\rangle = c_{1}|\psi_{1}\rangle + c_{2}|\psi_{2}\rangle + \dots + c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle} $$ 那么将投影算符和作</description>
+      <description>&lt;h1 id=&#34;投影算符&#34;&gt;投影算符&lt;/h1&gt;
+&lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
+&lt;p&gt;假设对于一个物理量算符 $\hat{R}$, 其本征方程为&lt;/p&gt;
+&lt;p&gt;$$
+\hat{R}|\psi_{k}\rangle = r_{k}|\psi_{k}\rangle\quad(k = 0,1,\dots)
+$$&lt;/p&gt;
+&lt;p&gt;我们引入&lt;strong&gt;投影算符&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;$$
+\hat{\pi}_{k} = |\psi_{k}\rangle\langle\psi_{k}|
+$$&lt;/p&gt;
+&lt;p&gt;所以显然有&lt;/p&gt;
+&lt;p&gt;$$
+\hat{\pi}_{k}|\psi_{n}\rangle = |\psi_{k}\rangle\langle\psi_{k}|\psi_{n}\rangle = \delta_{kn}|\psi_{k}\rangle
+$$&lt;/p&gt;
+&lt;h2 id=&#34;性质&#34;&gt;性质&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;厄密性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\hat{\pi}_{k} = \hat{\pi}_{k}^{\dagger}
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;幂等性(Idempotent)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\hat{\pi}_{k}^{2} = |\psi_{k}\rangle\langle\psi_{k}|\psi_{k}\rangle\langle\psi_{k}|=|\psi_{k}\rangle\langle\psi_{k}|=\hat{\pi}_{k}
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;完备性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\sum_{k}\hat{\pi}_{k} = I
+$$&lt;/p&gt;</description>
     </item>
     
   </channel>
