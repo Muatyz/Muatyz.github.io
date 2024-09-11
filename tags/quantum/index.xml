@@ -73,6 +73,17 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \sum_{k}\hat{\pi}_{k} = I
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;证明:&lt;/p&gt;
+&lt;p&gt;对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开:
+$$
+|\psi\rangle = c_{1}|\psi_{1}\rangle + c_{2}|\psi_{2}\rangle + \dots + c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle}
+$$
+那么将投影算符和作用到该态上:
+$$
+\sum_{k}\hat{\pi}_{k}|\psi\rangle = \sum_{k}|\psi_{k}\rangle\langle\psi_{k}|\sum_{i}c_{i}|\psi_{i}\rangle = \sum_{k}\sum_{i}c_{i}|\psi_{k}\rangle\langle\psi_{k}|\psi_{i}\rangle = \\
+\sum_{k}\sum_{i}c_{i}\delta_{ki}|\psi_{k}\rangle = \sum_{k}c_{k}|\psi_{k}\rangle = |\psi\rangle
 $$&lt;/p&gt;</description>
     </item>
     

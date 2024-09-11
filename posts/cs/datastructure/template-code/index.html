@@ -13,6 +13,486 @@
 #ifndef ElemType
 #define ElemType int
 #endif
+List
+Static Sequence List
+#define MaxSize 50
+//数据类型为ElemType, 长度为 MaxSize 的静态线性表
+typedef struct{
+    ElemType data[MaxSize];
+    int length;//表长
+}SqList
+
+int main(){
+
+}
+Dynamic Sequence List
+Definition
+#define InitSize 100
+
+typedef struct{
+    ElemType *data; //表的地址
+    int MaxSize;    //动态表的最大长度
+    int length;     //当前动态表的长度
+}SeqList;
+
+int main(){
+    SeqList L;
+    L.data = (ElemType *)malloc(sizeof(ElemType) * InitSize);   //动态分配
+    //
+    free(L);
+    return 0;
+}
+Operations
+//初始化动态表L
+bool InitList(SeqList &amp;L){
+    L.data = (ElemType *)malloc(sizeof(ElemType) * InitSize);
+    if(L.data == NULL){//分配内存失败
+        return false;
+    }
+    L.length = 0;
+    return true;
+}
+//在静态顺序表L中的第 i 位插入元素 e
+bool ListInsert(SqList &amp;L, int i, ElemType e){
+    if(i &lt; 1 || i &gt; L.length &#43; 1){  //判断传入的参数 i 是否合法
+        return false;
+    }
+    if(L.length &gt;= MaxSize){ //判断静态表是否已满
+        return false;
+    }
+    for(int j = L.length; j &gt;= i; j--){
+        L.data[j] = L.data[j - 1]; //依次后移
+    }
+    L.data[i - 1] = e;
+    L.length&#43;&#43;;
+    return true;
+}
+
+//删除静态顺序表 L 中的第 i 位元素, 并且通过传入参数 e 保存删除的元素
+bool ListDelete(SqList &amp;L, int i, ElemType &amp;e){
+    if(i &lt; 1 || i &gt; L.length){  //判断传入的参数 i 是否合法
+        return false;
+    }
+    for(int j = i; j &lt; L.lrngth; j&#43;&#43;){
+        L.data[j - 1] = L.data[j];//依次前移
+    }
+    L.length--;
+    return true;
+}
+
+//在静态顺序表 L 中查找第一个值为 e 的元素的[位置]
+bool LocateElem(SqList &amp;L, int i, ElemType e){
+    int i;
+    for(i = 0; i &lt; L.length; i&#43;&#43;){
+        if(L.data[i] == e){
+            return i &#43; 1;//查找的是位置, 因此数组下标需要&#43;1转换为编号
+        }
+    }
+    return 0;//查找失败
+}
+Linked List
+Definition
+//单链表
+typedef struct ListNode{
+    ElemType data;          //数据域
+    struct ListNode *next;  //下一结点地址
+}ListNode, *LinkList;
+Operations
+//头插法建立单链表 L
+LinkList List_HeadInsert(LinkList &amp;L){
+    ListNode *s;
+    int x;
+    L = (LinkList)malloc(sizeof(ListNode));
+    L -&gt; next = NULL;
+    scanf(&#34;%d&#34;, &amp;x);
+    while(x != 9999){   //输入9999即代表结束插入
+        s = (ListNode *)malloc(sizeof(ListNode));
+        s -&gt; data = x;
+        s -&gt; next = L -&gt; next;
+        L -&gt; next = s;
+        scanf(&#34;%d&#34;, &amp;x);
+    }
+    return L;
+}
+
+//尾插法建立单链表 L
+LinkList List_TailInsert(LinkList &amp;L){
+    int x;//接收键盘输入的数值
+    L = (LinkList)malloc(sizeof(ListNode));
+    ListNode *new_node, *tail = L;    //tail 为表尾指针
+    scanf(&#34;%d&#34;, &amp;x);
+    while(x != 9999){       //输入9999即代表结束插入
+        new_node = (ListNode *)malloc(sizeof(ListNode));
+        new_node -&gt; data = x;
+        tail -&gt; next = new_node;
+        tail = new_node;
+        scanf(&#34;%d&#34;, &amp;x);
+    }
+    tail -&gt; next = NULL;    //将尾指针置空
+    return L;
+}
+
+//在单链表 L 中按照序号查找结点
+ListNode *GetElem(LinkList L, int i){
+    if(i &lt; 1){//检查传入的参数 i 是否合法
+        return NULL;
+    }
+    int j = 1;
+    ListNode *ptr = L -&gt; next;
+    while(ptr != NULL &amp;&amp; j &lt; i){
+        ptr = ptr -&gt; next;
+        j&#43;&#43;;
+    }
+    return ptr;
+}
+
+//在单链表 L 中按照值查找结点
+ListNode *LocateElem(LinkList L, ElemType e){
+    ListNode *ptr = L -&gt; next;
+    while(ptr != NULL &amp;&amp; ptr -&gt; data != e){
+        ptr = ptr -&gt; next;
+    }
+    return ptr;
+}
+Stack(template)
+template&lt;typename T, int Size&gt;//模板类, 传入参数栈元素的数据类型 T, 和栈的最大深度 Size
+class Stack{
+private:
+    T data[size];
+    int top;    //当前栈中的栈顶元素的数组下标
+public:
+    Stack():top(-1){
+        //初始化函数
+    }
+
+    ~Stack(){
+        //析构函数
+    }
+
+    //向栈进入元素 item
+    bool push(T item){
+        if(top == Size - 1){    //检测栈是否已满
+            return false;
+        }
+        data[&#43;&#43;top] = item;
+        return true;
+    }
+
+    //出栈栈顶元素, 并且使用 topElem 记录这个元素
+    bool pop(T &amp;topElem){
+        if(top == -1){  //检验栈是否为空
+            return false;
+        }
+        topElem = data[top];
+        return true;
+    }
+
+    //判断栈是否为空
+    bool isEmpty(){
+        return top == -1;
+    }
+
+    //判断栈是否已满
+    bool isFull(){
+        return top == Size - 1;
+    }
+}
+Queue(Template)
+template&lt;typename T, int Size&gt;//模板类, 传入参数队列元素的数据类型 T, 和队列的最大长度 Size
+class Queue{
+private:
+    T data[Size];
+    int front;  //队头元素数组下标
+    int rear;   //队尾元素数组下标
+    int tag;    //辅助变量, 判断队列为空/满
+public:
+    Queue(): front(0), rear(0), tag(0){
+        //构造函数
+    }
+
+    ~Queue(){
+        //析构函数
+    }
+
+    //元素 item 入队
+    bool EnQueue(T, item){
+        if(front == rear &amp;&amp; tag == 1){  //判断队列是否已满
+            return false;
+        }
+        rear = (rear &#43; 1) % Size;
+        data[rear] = item;
+        tag = 1;    //进行入队操作后, 将tag = 1, 这样 rear == front时只有可能为满
+        return true;
+    }
+
+    //队列出队, 并且记录出队元素 item
+    bool DeQueue(T &amp;item){
+        if(front == rear &amp;&amp; tag == 0){  //判断队列是否为空
+            return false;
+        }
+        rear = (rear &#43; 1) % Size;
+        tag[rear] = item;
+        tag = 0;    //进行出队操作后, 将tag = 0, 这样 rear == front时只有可能为空
+        return true;
+    }
+
+    //判断队列是否为空
+    bool isEmpty(){
+        return front == rear &amp;&amp; tag == 0;
+    }
+
+    //判断队列是否为满
+    bool isFull(){
+        return front == rear &amp;&amp; tag == 1;
+    }
+}
+String
+Definition
+Static String
+static const int MAXLEN = 255;//字符串的最大长度
+
+//静态分配字符串
+typedef struct{
+    char ch[MAXLEN];//数据域
+    int length;     //字符串长度
+}SString
+Dynamic String
+//动态分配字符串
+typedef struct{
+    char *ch;       //字符数组的地址
+    int length;     //字符串长度
+}HString;
+Linked List String
+//使用字符串结点存储字符串
+typedef struct StringNode{
+    char ch[4]; //4个字符一组存放在一个结点中
+    struct StringNode *next;    //下一个字符结点的地址
+}StringNode, *String;
+Operations
+Static String
+//求静态字符串 S 中, 以 pos 为起点, 长为 len 的子串 sub.
+//在这里, 我们设定字符串的S[0]不存储任何元素, 而是从S[1]开始存储字符串的元素
+bool SubString(SString &amp;sub, SString S, int pos, int len){
+    if(pos &#43; len - 1 &gt; S.length){   //检测子串末尾是否已经溢出原串长度
+        return false;
+    }
+    for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){
+        sub.ch[i - pos &#43; 1] = S.ch[i];
+        
+    }
+}
+
+//比较两个静态串的大小
+//串的大小定义:(1)首先比长度(2)长度相等时, 比char对应的int.
+bool StrCompare(SString S, SString, T){
+    for(int i = 1; i &lt;= S.length &amp;&amp; i &lt;= T.length; i&#43;&#43;){
+        if(S.ch[i] != T.ch[i]){
+            return S.ch[i] - T.ch[i];
+        }
+    }
+    //未能在以上循环中完成输出, 说明两个串呈现包含关系(即S 是 T的子串, 或者相反)
+    //那么就应该使用长度来比较
+    return S.length - T.length;
+}
+
+//查询静态串的长度
+int StrLength(SStrng S){
+    return S.length;
+}
+
+//使用朴素便利方法查询子串 T 首次出现在 S 中时的位置
+int Index(SString S, SString T){
+    int i = 1, j = 1;
+    while(i &lt;= S.length &amp;&amp; j &lt;= T.length){
+        if(S.ch[i] == T.ch[i]){
+            //匹配成功, i,j同步后移以进行下一位的比较
+        }
+        else{
+            //匹配失败, 则 i 回到原先起点的下一位开始重新匹配
+            i = i - j &#43; 2;
+            j = 1;
+        }
+    }
+    if(j &gt; T.length){
+        return i - T.length;
+    }
+    else{
+        return 0;
+    }
+}
+
+//使用KMP算法, 借助next[]数组查询子串 T 首次出现在 S 中时的位置
+int Index_KMP(SString S, SString T, int next[]){
+    int i = 1, j = 1;
+    while(i &lt;= S.length &amp;&amp; j &lt;= T.length){
+        if(j == 0 || S.ch[i] = = T.ch[j]){
+            i&#43;&#43;;
+            j&#43;&#43;;
+        }
+        else{
+            j = next[j];
+        }
+    }
+    if(j &gt; T.length){
+        return i - T.length;
+    }
+    else{
+        return 0;
+    }
+}
+
+//根据next[]数组生成nextval[]数组, 从而优化KMP算法
+int *next2nextval(SString T, int next[]){
+    int *nextval = (int *)malloc(T.length * sizeof(char));
+    nextval[1] = 0;
+    for(int j = 2; j &lt;= T.length; j&#43;&#43;){
+        if(T.ch[next[j]] == T.ch[j]){
+            nextval[j] = nextval[next[j]];
+        }
+        else{
+            nextval[j] = next[j];
+        }
+    }
+    return nextval;
+}
+Dynamic String
+//初始化动态字符串
+bool InitHString(HString &amp;S){
+    S.ch = (char *)malloc(MAXLEN * sizeof(char));
+    if(S.ch == NULL){   //内存分配失败
+        return false;
+    }
+    S.length = 0;
+    return true;
+}
+Tree &amp; Binary Tree
+
+Binary Tree
+Definition
+#define MAXSIZE 10
+
+//二叉树结点
+typedef struct BiTNode{
+    ElemType data;          //数据域
+    struct BiTNode *lchild; //左子树根结点地址
+    struct BiTNode *rchild; //右子树根结点地址
+}BiTNode, *BiTree;
+Operations
+//初始化二叉树root
+void InitBiTree(BiTree &amp;root){
+    root = NULL;//通过置空来清洗之间root所在空间中地址
+    root = (BiTree)malloc(sizeof(BiTNode));
+    root -&gt; data = 1;
+    root -&gt; lchild = NULL;
+    root -&gt; rchild = NULL;
+}
+
+//向二叉树root中插入值为 val 的结点
+bool InsertBiTNode(BiTree &amp;root, ElemType val){
+    BiTNode *new_node = (BiTNode *)malloc(sizeof(BiTNode));
+    if(new_node == NULL){
+        return false;
+    }
+    if(root -&gt; lchild == NULL){
+        root -&gt; lchild = new_node;
+        new_node -&gt; data = val;
+        new_node -&gt; lchild = NULL;
+        new_node -&gt; rchild = NULL;
+    }
+    else if(root -&gt; rchild == NULL){
+        root -&gt; rchild = new_node;
+        new_node -&gt; data = val;
+        new_node -&gt; lchild = NULL;
+        new_node -&gt; rchild = NULL;
+    }
+    else{
+        std::cout &lt;&lt; &#34;Invalid root!&#34; &lt;&lt; std::endl;
+        return false;
+    }
+}
+
+//定义方位二叉树结点的行为
+void observe(BiTree T){
+    std::cout &lt;&lt; T -&gt; data &lt;&lt; std::endl;
+}
+
+//前根遍历二叉树 T
+//使用递归定义
+void PreOrder(BiTree T){
+    if(T != NULL){
+        observe(T);
+        PreOrder(T -&gt; lchild);
+        PreOrder(T -&gt; rchild);
+    }
+}
+
+//中根遍历二叉树 T
+//使用递归定义
+void InOrder(BiTree T){
+    if(T != NULL){
+        InOrder(T -&gt; lchild);
+        observe(T);
+        InOrder(T -&gt; rchild);
+    }
+}
+
+//后根遍历二叉树 T
+//使用递归定义
+void PostOrder(BiTree T){
+    if(T != NULL){
+        PostOrder(T -&gt; lchild);
+        PostOrder(T -&gt; rchild);
+        observer(T);
+    }
+}
+
+//层次遍历二叉树 T
+//借助队列模板类实现
+void LevelOrder(BiTree T){
+    Queue&lt;BiTree,20&gt;queue;
+    BiTree p = NULL;
+    queue.Enqueue(T);
+
+    while(!queue.isEmpty()){
+        queue.DeQueue(p);
+        observe(p);
+        if(p -&gt; lchild != NULL){
+            queue.EnQueue(p -&gt; lchild);
+        }
+        if(p -&gt; rchild != NULL){
+            queue.EnQueue(p -&gt; rchild);
+        }
+    }
+}
+Thread Tree
+Definition
+typedef struct ThreadNode{
+    ElemType data;              //数据域
+    struct ThreadNode *lchild;  //左子树的根结点地址
+    struct ThreadNode *rchild;  //右子树的根结点地址
+    int ltag;                   //标记左子树根结点是否为线索, 1 为 是, 0 为 非
+    int rtag;                   //标记右子树根结点是否为线索, 1 为 是, 0 为 非
+}
+Operation
+//使用全局变量 pre 来指定前驱结点
+ThreadNode *pre = NULL;
+
+//访问行为 visit()
+void visit(ThreadNode *nodeptr){
+    //没有左孩子, 则空链域可以用来存储前驱结点地址
+    if(nodeptr -&gt; lchild == NULL){
+        nodeptr -&gt; lchild = pre;
+        nodeptr -&gt; ltag = 1;
+    }
+
+    //没有右孩子, 则空链域可以用来存储后继结点地址
+    if(pre != NULL &amp;&amp; pre -&gt; rchild == NULL){
+        pre -&gt; rchild = nodeptr;
+        pre -&gt; rtag = 1;
+    }
+
+    pre = nodeptr;
+}
 ">
 <meta name="author" content="Muartz">
 <link rel="canonical" href="https://Muatyz.github.io/posts/cs/datastructure/template-code/">
@@ -123,6 +603,486 @@ MathJax.Hub.Queue(function() {
 #ifndef ElemType
 #define ElemType int
 #endif
+List
+Static Sequence List
+#define MaxSize 50
+//数据类型为ElemType, 长度为 MaxSize 的静态线性表
+typedef struct{
+    ElemType data[MaxSize];
+    int length;//表长
+}SqList
+
+int main(){
+
+}
+Dynamic Sequence List
+Definition
+#define InitSize 100
+
+typedef struct{
+    ElemType *data; //表的地址
+    int MaxSize;    //动态表的最大长度
+    int length;     //当前动态表的长度
+}SeqList;
+
+int main(){
+    SeqList L;
+    L.data = (ElemType *)malloc(sizeof(ElemType) * InitSize);   //动态分配
+    //
+    free(L);
+    return 0;
+}
+Operations
+//初始化动态表L
+bool InitList(SeqList &amp;L){
+    L.data = (ElemType *)malloc(sizeof(ElemType) * InitSize);
+    if(L.data == NULL){//分配内存失败
+        return false;
+    }
+    L.length = 0;
+    return true;
+}
+//在静态顺序表L中的第 i 位插入元素 e
+bool ListInsert(SqList &amp;L, int i, ElemType e){
+    if(i &lt; 1 || i &gt; L.length &#43; 1){  //判断传入的参数 i 是否合法
+        return false;
+    }
+    if(L.length &gt;= MaxSize){ //判断静态表是否已满
+        return false;
+    }
+    for(int j = L.length; j &gt;= i; j--){
+        L.data[j] = L.data[j - 1]; //依次后移
+    }
+    L.data[i - 1] = e;
+    L.length&#43;&#43;;
+    return true;
+}
+
+//删除静态顺序表 L 中的第 i 位元素, 并且通过传入参数 e 保存删除的元素
+bool ListDelete(SqList &amp;L, int i, ElemType &amp;e){
+    if(i &lt; 1 || i &gt; L.length){  //判断传入的参数 i 是否合法
+        return false;
+    }
+    for(int j = i; j &lt; L.lrngth; j&#43;&#43;){
+        L.data[j - 1] = L.data[j];//依次前移
+    }
+    L.length--;
+    return true;
+}
+
+//在静态顺序表 L 中查找第一个值为 e 的元素的[位置]
+bool LocateElem(SqList &amp;L, int i, ElemType e){
+    int i;
+    for(i = 0; i &lt; L.length; i&#43;&#43;){
+        if(L.data[i] == e){
+            return i &#43; 1;//查找的是位置, 因此数组下标需要&#43;1转换为编号
+        }
+    }
+    return 0;//查找失败
+}
+Linked List
+Definition
+//单链表
+typedef struct ListNode{
+    ElemType data;          //数据域
+    struct ListNode *next;  //下一结点地址
+}ListNode, *LinkList;
+Operations
+//头插法建立单链表 L
+LinkList List_HeadInsert(LinkList &amp;L){
+    ListNode *s;
+    int x;
+    L = (LinkList)malloc(sizeof(ListNode));
+    L -&gt; next = NULL;
+    scanf(&#34;%d&#34;, &amp;x);
+    while(x != 9999){   //输入9999即代表结束插入
+        s = (ListNode *)malloc(sizeof(ListNode));
+        s -&gt; data = x;
+        s -&gt; next = L -&gt; next;
+        L -&gt; next = s;
+        scanf(&#34;%d&#34;, &amp;x);
+    }
+    return L;
+}
+
+//尾插法建立单链表 L
+LinkList List_TailInsert(LinkList &amp;L){
+    int x;//接收键盘输入的数值
+    L = (LinkList)malloc(sizeof(ListNode));
+    ListNode *new_node, *tail = L;    //tail 为表尾指针
+    scanf(&#34;%d&#34;, &amp;x);
+    while(x != 9999){       //输入9999即代表结束插入
+        new_node = (ListNode *)malloc(sizeof(ListNode));
+        new_node -&gt; data = x;
+        tail -&gt; next = new_node;
+        tail = new_node;
+        scanf(&#34;%d&#34;, &amp;x);
+    }
+    tail -&gt; next = NULL;    //将尾指针置空
+    return L;
+}
+
+//在单链表 L 中按照序号查找结点
+ListNode *GetElem(LinkList L, int i){
+    if(i &lt; 1){//检查传入的参数 i 是否合法
+        return NULL;
+    }
+    int j = 1;
+    ListNode *ptr = L -&gt; next;
+    while(ptr != NULL &amp;&amp; j &lt; i){
+        ptr = ptr -&gt; next;
+        j&#43;&#43;;
+    }
+    return ptr;
+}
+
+//在单链表 L 中按照值查找结点
+ListNode *LocateElem(LinkList L, ElemType e){
+    ListNode *ptr = L -&gt; next;
+    while(ptr != NULL &amp;&amp; ptr -&gt; data != e){
+        ptr = ptr -&gt; next;
+    }
+    return ptr;
+}
+Stack(template)
+template&lt;typename T, int Size&gt;//模板类, 传入参数栈元素的数据类型 T, 和栈的最大深度 Size
+class Stack{
+private:
+    T data[size];
+    int top;    //当前栈中的栈顶元素的数组下标
+public:
+    Stack():top(-1){
+        //初始化函数
+    }
+
+    ~Stack(){
+        //析构函数
+    }
+
+    //向栈进入元素 item
+    bool push(T item){
+        if(top == Size - 1){    //检测栈是否已满
+            return false;
+        }
+        data[&#43;&#43;top] = item;
+        return true;
+    }
+
+    //出栈栈顶元素, 并且使用 topElem 记录这个元素
+    bool pop(T &amp;topElem){
+        if(top == -1){  //检验栈是否为空
+            return false;
+        }
+        topElem = data[top];
+        return true;
+    }
+
+    //判断栈是否为空
+    bool isEmpty(){
+        return top == -1;
+    }
+
+    //判断栈是否已满
+    bool isFull(){
+        return top == Size - 1;
+    }
+}
+Queue(Template)
+template&lt;typename T, int Size&gt;//模板类, 传入参数队列元素的数据类型 T, 和队列的最大长度 Size
+class Queue{
+private:
+    T data[Size];
+    int front;  //队头元素数组下标
+    int rear;   //队尾元素数组下标
+    int tag;    //辅助变量, 判断队列为空/满
+public:
+    Queue(): front(0), rear(0), tag(0){
+        //构造函数
+    }
+
+    ~Queue(){
+        //析构函数
+    }
+
+    //元素 item 入队
+    bool EnQueue(T, item){
+        if(front == rear &amp;&amp; tag == 1){  //判断队列是否已满
+            return false;
+        }
+        rear = (rear &#43; 1) % Size;
+        data[rear] = item;
+        tag = 1;    //进行入队操作后, 将tag = 1, 这样 rear == front时只有可能为满
+        return true;
+    }
+
+    //队列出队, 并且记录出队元素 item
+    bool DeQueue(T &amp;item){
+        if(front == rear &amp;&amp; tag == 0){  //判断队列是否为空
+            return false;
+        }
+        rear = (rear &#43; 1) % Size;
+        tag[rear] = item;
+        tag = 0;    //进行出队操作后, 将tag = 0, 这样 rear == front时只有可能为空
+        return true;
+    }
+
+    //判断队列是否为空
+    bool isEmpty(){
+        return front == rear &amp;&amp; tag == 0;
+    }
+
+    //判断队列是否为满
+    bool isFull(){
+        return front == rear &amp;&amp; tag == 1;
+    }
+}
+String
+Definition
+Static String
+static const int MAXLEN = 255;//字符串的最大长度
+
+//静态分配字符串
+typedef struct{
+    char ch[MAXLEN];//数据域
+    int length;     //字符串长度
+}SString
+Dynamic String
+//动态分配字符串
+typedef struct{
+    char *ch;       //字符数组的地址
+    int length;     //字符串长度
+}HString;
+Linked List String
+//使用字符串结点存储字符串
+typedef struct StringNode{
+    char ch[4]; //4个字符一组存放在一个结点中
+    struct StringNode *next;    //下一个字符结点的地址
+}StringNode, *String;
+Operations
+Static String
+//求静态字符串 S 中, 以 pos 为起点, 长为 len 的子串 sub.
+//在这里, 我们设定字符串的S[0]不存储任何元素, 而是从S[1]开始存储字符串的元素
+bool SubString(SString &amp;sub, SString S, int pos, int len){
+    if(pos &#43; len - 1 &gt; S.length){   //检测子串末尾是否已经溢出原串长度
+        return false;
+    }
+    for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){
+        sub.ch[i - pos &#43; 1] = S.ch[i];
+        
+    }
+}
+
+//比较两个静态串的大小
+//串的大小定义:(1)首先比长度(2)长度相等时, 比char对应的int.
+bool StrCompare(SString S, SString, T){
+    for(int i = 1; i &lt;= S.length &amp;&amp; i &lt;= T.length; i&#43;&#43;){
+        if(S.ch[i] != T.ch[i]){
+            return S.ch[i] - T.ch[i];
+        }
+    }
+    //未能在以上循环中完成输出, 说明两个串呈现包含关系(即S 是 T的子串, 或者相反)
+    //那么就应该使用长度来比较
+    return S.length - T.length;
+}
+
+//查询静态串的长度
+int StrLength(SStrng S){
+    return S.length;
+}
+
+//使用朴素便利方法查询子串 T 首次出现在 S 中时的位置
+int Index(SString S, SString T){
+    int i = 1, j = 1;
+    while(i &lt;= S.length &amp;&amp; j &lt;= T.length){
+        if(S.ch[i] == T.ch[i]){
+            //匹配成功, i,j同步后移以进行下一位的比较
+        }
+        else{
+            //匹配失败, 则 i 回到原先起点的下一位开始重新匹配
+            i = i - j &#43; 2;
+            j = 1;
+        }
+    }
+    if(j &gt; T.length){
+        return i - T.length;
+    }
+    else{
+        return 0;
+    }
+}
+
+//使用KMP算法, 借助next[]数组查询子串 T 首次出现在 S 中时的位置
+int Index_KMP(SString S, SString T, int next[]){
+    int i = 1, j = 1;
+    while(i &lt;= S.length &amp;&amp; j &lt;= T.length){
+        if(j == 0 || S.ch[i] = = T.ch[j]){
+            i&#43;&#43;;
+            j&#43;&#43;;
+        }
+        else{
+            j = next[j];
+        }
+    }
+    if(j &gt; T.length){
+        return i - T.length;
+    }
+    else{
+        return 0;
+    }
+}
+
+//根据next[]数组生成nextval[]数组, 从而优化KMP算法
+int *next2nextval(SString T, int next[]){
+    int *nextval = (int *)malloc(T.length * sizeof(char));
+    nextval[1] = 0;
+    for(int j = 2; j &lt;= T.length; j&#43;&#43;){
+        if(T.ch[next[j]] == T.ch[j]){
+            nextval[j] = nextval[next[j]];
+        }
+        else{
+            nextval[j] = next[j];
+        }
+    }
+    return nextval;
+}
+Dynamic String
+//初始化动态字符串
+bool InitHString(HString &amp;S){
+    S.ch = (char *)malloc(MAXLEN * sizeof(char));
+    if(S.ch == NULL){   //内存分配失败
+        return false;
+    }
+    S.length = 0;
+    return true;
+}
+Tree &amp; Binary Tree
+
+Binary Tree
+Definition
+#define MAXSIZE 10
+
+//二叉树结点
+typedef struct BiTNode{
+    ElemType data;          //数据域
+    struct BiTNode *lchild; //左子树根结点地址
+    struct BiTNode *rchild; //右子树根结点地址
+}BiTNode, *BiTree;
+Operations
+//初始化二叉树root
+void InitBiTree(BiTree &amp;root){
+    root = NULL;//通过置空来清洗之间root所在空间中地址
+    root = (BiTree)malloc(sizeof(BiTNode));
+    root -&gt; data = 1;
+    root -&gt; lchild = NULL;
+    root -&gt; rchild = NULL;
+}
+
+//向二叉树root中插入值为 val 的结点
+bool InsertBiTNode(BiTree &amp;root, ElemType val){
+    BiTNode *new_node = (BiTNode *)malloc(sizeof(BiTNode));
+    if(new_node == NULL){
+        return false;
+    }
+    if(root -&gt; lchild == NULL){
+        root -&gt; lchild = new_node;
+        new_node -&gt; data = val;
+        new_node -&gt; lchild = NULL;
+        new_node -&gt; rchild = NULL;
+    }
+    else if(root -&gt; rchild == NULL){
+        root -&gt; rchild = new_node;
+        new_node -&gt; data = val;
+        new_node -&gt; lchild = NULL;
+        new_node -&gt; rchild = NULL;
+    }
+    else{
+        std::cout &lt;&lt; &#34;Invalid root!&#34; &lt;&lt; std::endl;
+        return false;
+    }
+}
+
+//定义方位二叉树结点的行为
+void observe(BiTree T){
+    std::cout &lt;&lt; T -&gt; data &lt;&lt; std::endl;
+}
+
+//前根遍历二叉树 T
+//使用递归定义
+void PreOrder(BiTree T){
+    if(T != NULL){
+        observe(T);
+        PreOrder(T -&gt; lchild);
+        PreOrder(T -&gt; rchild);
+    }
+}
+
+//中根遍历二叉树 T
+//使用递归定义
+void InOrder(BiTree T){
+    if(T != NULL){
+        InOrder(T -&gt; lchild);
+        observe(T);
+        InOrder(T -&gt; rchild);
+    }
+}
+
+//后根遍历二叉树 T
+//使用递归定义
+void PostOrder(BiTree T){
+    if(T != NULL){
+        PostOrder(T -&gt; lchild);
+        PostOrder(T -&gt; rchild);
+        observer(T);
+    }
+}
+
+//层次遍历二叉树 T
+//借助队列模板类实现
+void LevelOrder(BiTree T){
+    Queue&lt;BiTree,20&gt;queue;
+    BiTree p = NULL;
+    queue.Enqueue(T);
+
+    while(!queue.isEmpty()){
+        queue.DeQueue(p);
+        observe(p);
+        if(p -&gt; lchild != NULL){
+            queue.EnQueue(p -&gt; lchild);
+        }
+        if(p -&gt; rchild != NULL){
+            queue.EnQueue(p -&gt; rchild);
+        }
+    }
+}
+Thread Tree
+Definition
+typedef struct ThreadNode{
+    ElemType data;              //数据域
+    struct ThreadNode *lchild;  //左子树的根结点地址
+    struct ThreadNode *rchild;  //右子树的根结点地址
+    int ltag;                   //标记左子树根结点是否为线索, 1 为 是, 0 为 非
+    int rtag;                   //标记右子树根结点是否为线索, 1 为 是, 0 为 非
+}
+Operation
+//使用全局变量 pre 来指定前驱结点
+ThreadNode *pre = NULL;
+
+//访问行为 visit()
+void visit(ThreadNode *nodeptr){
+    //没有左孩子, 则空链域可以用来存储前驱结点地址
+    if(nodeptr -&gt; lchild == NULL){
+        nodeptr -&gt; lchild = pre;
+        nodeptr -&gt; ltag = 1;
+    }
+
+    //没有右孩子, 则空链域可以用来存储后继结点地址
+    if(pre != NULL &amp;&amp; pre -&gt; rchild == NULL){
+        pre -&gt; rchild = nodeptr;
+        pre -&gt; rtag = 1;
+    }
+
+    pre = nodeptr;
+}
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Muatyz.github.io/posts/cs/datastructure/template-code/" />
@@ -139,6 +1099,486 @@ MathJax.Hub.Queue(function() {
 #ifndef ElemType
 #define ElemType int
 #endif
+List
+Static Sequence List
+#define MaxSize 50
+//数据类型为ElemType, 长度为 MaxSize 的静态线性表
+typedef struct{
+    ElemType data[MaxSize];
+    int length;//表长
+}SqList
+
+int main(){
+
+}
+Dynamic Sequence List
+Definition
+#define InitSize 100
+
+typedef struct{
+    ElemType *data; //表的地址
+    int MaxSize;    //动态表的最大长度
+    int length;     //当前动态表的长度
+}SeqList;
+
+int main(){
+    SeqList L;
+    L.data = (ElemType *)malloc(sizeof(ElemType) * InitSize);   //动态分配
+    //
+    free(L);
+    return 0;
+}
+Operations
+//初始化动态表L
+bool InitList(SeqList &amp;L){
+    L.data = (ElemType *)malloc(sizeof(ElemType) * InitSize);
+    if(L.data == NULL){//分配内存失败
+        return false;
+    }
+    L.length = 0;
+    return true;
+}
+//在静态顺序表L中的第 i 位插入元素 e
+bool ListInsert(SqList &amp;L, int i, ElemType e){
+    if(i &lt; 1 || i &gt; L.length &#43; 1){  //判断传入的参数 i 是否合法
+        return false;
+    }
+    if(L.length &gt;= MaxSize){ //判断静态表是否已满
+        return false;
+    }
+    for(int j = L.length; j &gt;= i; j--){
+        L.data[j] = L.data[j - 1]; //依次后移
+    }
+    L.data[i - 1] = e;
+    L.length&#43;&#43;;
+    return true;
+}
+
+//删除静态顺序表 L 中的第 i 位元素, 并且通过传入参数 e 保存删除的元素
+bool ListDelete(SqList &amp;L, int i, ElemType &amp;e){
+    if(i &lt; 1 || i &gt; L.length){  //判断传入的参数 i 是否合法
+        return false;
+    }
+    for(int j = i; j &lt; L.lrngth; j&#43;&#43;){
+        L.data[j - 1] = L.data[j];//依次前移
+    }
+    L.length--;
+    return true;
+}
+
+//在静态顺序表 L 中查找第一个值为 e 的元素的[位置]
+bool LocateElem(SqList &amp;L, int i, ElemType e){
+    int i;
+    for(i = 0; i &lt; L.length; i&#43;&#43;){
+        if(L.data[i] == e){
+            return i &#43; 1;//查找的是位置, 因此数组下标需要&#43;1转换为编号
+        }
+    }
+    return 0;//查找失败
+}
+Linked List
+Definition
+//单链表
+typedef struct ListNode{
+    ElemType data;          //数据域
+    struct ListNode *next;  //下一结点地址
+}ListNode, *LinkList;
+Operations
+//头插法建立单链表 L
+LinkList List_HeadInsert(LinkList &amp;L){
+    ListNode *s;
+    int x;
+    L = (LinkList)malloc(sizeof(ListNode));
+    L -&gt; next = NULL;
+    scanf(&#34;%d&#34;, &amp;x);
+    while(x != 9999){   //输入9999即代表结束插入
+        s = (ListNode *)malloc(sizeof(ListNode));
+        s -&gt; data = x;
+        s -&gt; next = L -&gt; next;
+        L -&gt; next = s;
+        scanf(&#34;%d&#34;, &amp;x);
+    }
+    return L;
+}
+
+//尾插法建立单链表 L
+LinkList List_TailInsert(LinkList &amp;L){
+    int x;//接收键盘输入的数值
+    L = (LinkList)malloc(sizeof(ListNode));
+    ListNode *new_node, *tail = L;    //tail 为表尾指针
+    scanf(&#34;%d&#34;, &amp;x);
+    while(x != 9999){       //输入9999即代表结束插入
+        new_node = (ListNode *)malloc(sizeof(ListNode));
+        new_node -&gt; data = x;
+        tail -&gt; next = new_node;
+        tail = new_node;
+        scanf(&#34;%d&#34;, &amp;x);
+    }
+    tail -&gt; next = NULL;    //将尾指针置空
+    return L;
+}
+
+//在单链表 L 中按照序号查找结点
+ListNode *GetElem(LinkList L, int i){
+    if(i &lt; 1){//检查传入的参数 i 是否合法
+        return NULL;
+    }
+    int j = 1;
+    ListNode *ptr = L -&gt; next;
+    while(ptr != NULL &amp;&amp; j &lt; i){
+        ptr = ptr -&gt; next;
+        j&#43;&#43;;
+    }
+    return ptr;
+}
+
+//在单链表 L 中按照值查找结点
+ListNode *LocateElem(LinkList L, ElemType e){
+    ListNode *ptr = L -&gt; next;
+    while(ptr != NULL &amp;&amp; ptr -&gt; data != e){
+        ptr = ptr -&gt; next;
+    }
+    return ptr;
+}
+Stack(template)
+template&lt;typename T, int Size&gt;//模板类, 传入参数栈元素的数据类型 T, 和栈的最大深度 Size
+class Stack{
+private:
+    T data[size];
+    int top;    //当前栈中的栈顶元素的数组下标
+public:
+    Stack():top(-1){
+        //初始化函数
+    }
+
+    ~Stack(){
+        //析构函数
+    }
+
+    //向栈进入元素 item
+    bool push(T item){
+        if(top == Size - 1){    //检测栈是否已满
+            return false;
+        }
+        data[&#43;&#43;top] = item;
+        return true;
+    }
+
+    //出栈栈顶元素, 并且使用 topElem 记录这个元素
+    bool pop(T &amp;topElem){
+        if(top == -1){  //检验栈是否为空
+            return false;
+        }
+        topElem = data[top];
+        return true;
+    }
+
+    //判断栈是否为空
+    bool isEmpty(){
+        return top == -1;
+    }
+
+    //判断栈是否已满
+    bool isFull(){
+        return top == Size - 1;
+    }
+}
+Queue(Template)
+template&lt;typename T, int Size&gt;//模板类, 传入参数队列元素的数据类型 T, 和队列的最大长度 Size
+class Queue{
+private:
+    T data[Size];
+    int front;  //队头元素数组下标
+    int rear;   //队尾元素数组下标
+    int tag;    //辅助变量, 判断队列为空/满
+public:
+    Queue(): front(0), rear(0), tag(0){
+        //构造函数
+    }
+
+    ~Queue(){
+        //析构函数
+    }
+
+    //元素 item 入队
+    bool EnQueue(T, item){
+        if(front == rear &amp;&amp; tag == 1){  //判断队列是否已满
+            return false;
+        }
+        rear = (rear &#43; 1) % Size;
+        data[rear] = item;
+        tag = 1;    //进行入队操作后, 将tag = 1, 这样 rear == front时只有可能为满
+        return true;
+    }
+
+    //队列出队, 并且记录出队元素 item
+    bool DeQueue(T &amp;item){
+        if(front == rear &amp;&amp; tag == 0){  //判断队列是否为空
+            return false;
+        }
+        rear = (rear &#43; 1) % Size;
+        tag[rear] = item;
+        tag = 0;    //进行出队操作后, 将tag = 0, 这样 rear == front时只有可能为空
+        return true;
+    }
+
+    //判断队列是否为空
+    bool isEmpty(){
+        return front == rear &amp;&amp; tag == 0;
+    }
+
+    //判断队列是否为满
+    bool isFull(){
+        return front == rear &amp;&amp; tag == 1;
+    }
+}
+String
+Definition
+Static String
+static const int MAXLEN = 255;//字符串的最大长度
+
+//静态分配字符串
+typedef struct{
+    char ch[MAXLEN];//数据域
+    int length;     //字符串长度
+}SString
+Dynamic String
+//动态分配字符串
+typedef struct{
+    char *ch;       //字符数组的地址
+    int length;     //字符串长度
+}HString;
+Linked List String
+//使用字符串结点存储字符串
+typedef struct StringNode{
+    char ch[4]; //4个字符一组存放在一个结点中
+    struct StringNode *next;    //下一个字符结点的地址
+}StringNode, *String;
+Operations
+Static String
+//求静态字符串 S 中, 以 pos 为起点, 长为 len 的子串 sub.
+//在这里, 我们设定字符串的S[0]不存储任何元素, 而是从S[1]开始存储字符串的元素
+bool SubString(SString &amp;sub, SString S, int pos, int len){
+    if(pos &#43; len - 1 &gt; S.length){   //检测子串末尾是否已经溢出原串长度
+        return false;
+    }
+    for(int i = pos; i &lt; pos &#43; len; i&#43;&#43;){
+        sub.ch[i - pos &#43; 1] = S.ch[i];
+        
+    }
+}
+
+//比较两个静态串的大小
+//串的大小定义:(1)首先比长度(2)长度相等时, 比char对应的int.
+bool StrCompare(SString S, SString, T){
+    for(int i = 1; i &lt;= S.length &amp;&amp; i &lt;= T.length; i&#43;&#43;){
+        if(S.ch[i] != T.ch[i]){
+            return S.ch[i] - T.ch[i];
+        }
+    }
+    //未能在以上循环中完成输出, 说明两个串呈现包含关系(即S 是 T的子串, 或者相反)
+    //那么就应该使用长度来比较
+    return S.length - T.length;
+}
+
+//查询静态串的长度
+int StrLength(SStrng S){
+    return S.length;
+}
+
+//使用朴素便利方法查询子串 T 首次出现在 S 中时的位置
+int Index(SString S, SString T){
+    int i = 1, j = 1;
+    while(i &lt;= S.length &amp;&amp; j &lt;= T.length){
+        if(S.ch[i] == T.ch[i]){
+            //匹配成功, i,j同步后移以进行下一位的比较
+        }
+        else{
+            //匹配失败, 则 i 回到原先起点的下一位开始重新匹配
+            i = i - j &#43; 2;
+            j = 1;
+        }
+    }
+    if(j &gt; T.length){
+        return i - T.length;
+    }
+    else{
+        return 0;
+    }
+}
+
+//使用KMP算法, 借助next[]数组查询子串 T 首次出现在 S 中时的位置
+int Index_KMP(SString S, SString T, int next[]){
+    int i = 1, j = 1;
+    while(i &lt;= S.length &amp;&amp; j &lt;= T.length){
+        if(j == 0 || S.ch[i] = = T.ch[j]){
+            i&#43;&#43;;
+            j&#43;&#43;;
+        }
+        else{
+            j = next[j];
+        }
+    }
+    if(j &gt; T.length){
+        return i - T.length;
+    }
+    else{
+        return 0;
+    }
+}
+
+//根据next[]数组生成nextval[]数组, 从而优化KMP算法
+int *next2nextval(SString T, int next[]){
+    int *nextval = (int *)malloc(T.length * sizeof(char));
+    nextval[1] = 0;
+    for(int j = 2; j &lt;= T.length; j&#43;&#43;){
+        if(T.ch[next[j]] == T.ch[j]){
+            nextval[j] = nextval[next[j]];
+        }
+        else{
+            nextval[j] = next[j];
+        }
+    }
+    return nextval;
+}
+Dynamic String
+//初始化动态字符串
+bool InitHString(HString &amp;S){
+    S.ch = (char *)malloc(MAXLEN * sizeof(char));
+    if(S.ch == NULL){   //内存分配失败
+        return false;
+    }
+    S.length = 0;
+    return true;
+}
+Tree &amp; Binary Tree
+
+Binary Tree
+Definition
+#define MAXSIZE 10
+
+//二叉树结点
+typedef struct BiTNode{
+    ElemType data;          //数据域
+    struct BiTNode *lchild; //左子树根结点地址
+    struct BiTNode *rchild; //右子树根结点地址
+}BiTNode, *BiTree;
+Operations
+//初始化二叉树root
+void InitBiTree(BiTree &amp;root){
+    root = NULL;//通过置空来清洗之间root所在空间中地址
+    root = (BiTree)malloc(sizeof(BiTNode));
+    root -&gt; data = 1;
+    root -&gt; lchild = NULL;
+    root -&gt; rchild = NULL;
+}
+
+//向二叉树root中插入值为 val 的结点
+bool InsertBiTNode(BiTree &amp;root, ElemType val){
+    BiTNode *new_node = (BiTNode *)malloc(sizeof(BiTNode));
+    if(new_node == NULL){
+        return false;
+    }
+    if(root -&gt; lchild == NULL){
+        root -&gt; lchild = new_node;
+        new_node -&gt; data = val;
+        new_node -&gt; lchild = NULL;
+        new_node -&gt; rchild = NULL;
+    }
+    else if(root -&gt; rchild == NULL){
+        root -&gt; rchild = new_node;
+        new_node -&gt; data = val;
+        new_node -&gt; lchild = NULL;
+        new_node -&gt; rchild = NULL;
+    }
+    else{
+        std::cout &lt;&lt; &#34;Invalid root!&#34; &lt;&lt; std::endl;
+        return false;
+    }
+}
+
+//定义方位二叉树结点的行为
+void observe(BiTree T){
+    std::cout &lt;&lt; T -&gt; data &lt;&lt; std::endl;
+}
+
+//前根遍历二叉树 T
+//使用递归定义
+void PreOrder(BiTree T){
+    if(T != NULL){
+        observe(T);
+        PreOrder(T -&gt; lchild);
+        PreOrder(T -&gt; rchild);
+    }
+}
+
+//中根遍历二叉树 T
+//使用递归定义
+void InOrder(BiTree T){
+    if(T != NULL){
+        InOrder(T -&gt; lchild);
+        observe(T);
+        InOrder(T -&gt; rchild);
+    }
+}
+
+//后根遍历二叉树 T
+//使用递归定义
+void PostOrder(BiTree T){
+    if(T != NULL){
+        PostOrder(T -&gt; lchild);
+        PostOrder(T -&gt; rchild);
+        observer(T);
+    }
+}
+
+//层次遍历二叉树 T
+//借助队列模板类实现
+void LevelOrder(BiTree T){
+    Queue&lt;BiTree,20&gt;queue;
+    BiTree p = NULL;
+    queue.Enqueue(T);
+
+    while(!queue.isEmpty()){
+        queue.DeQueue(p);
+        observe(p);
+        if(p -&gt; lchild != NULL){
+            queue.EnQueue(p -&gt; lchild);
+        }
+        if(p -&gt; rchild != NULL){
+            queue.EnQueue(p -&gt; rchild);
+        }
+    }
+}
+Thread Tree
+Definition
+typedef struct ThreadNode{
+    ElemType data;              //数据域
+    struct ThreadNode *lchild;  //左子树的根结点地址
+    struct ThreadNode *rchild;  //右子树的根结点地址
+    int ltag;                   //标记左子树根结点是否为线索, 1 为 是, 0 为 非
+    int rtag;                   //标记右子树根结点是否为线索, 1 为 是, 0 为 非
+}
+Operation
+//使用全局变量 pre 来指定前驱结点
+ThreadNode *pre = NULL;
+
+//访问行为 visit()
+void visit(ThreadNode *nodeptr){
+    //没有左孩子, 则空链域可以用来存储前驱结点地址
+    if(nodeptr -&gt; lchild == NULL){
+        nodeptr -&gt; lchild = pre;
+        nodeptr -&gt; ltag = 1;
+    }
+
+    //没有右孩子, 则空链域可以用来存储后继结点地址
+    if(pre != NULL &amp;&amp; pre -&gt; rchild == NULL){
+        pre -&gt; rchild = nodeptr;
+        pre -&gt; rtag = 1;
+    }
+
+    pre = nodeptr;
+}
 "/>
 
 
@@ -183,7 +1623,7 @@ MathJax.Hub.Queue(function() {
   "@type": "BlogPosting",
   "headline": "数据结构经典代码",
   "name": "数据结构经典代码",
-  "description": "序言 本文记录学习的经典数据结构的实现, 由于原严蔚敏的书中使用的代码为C with \u0026amp;, 因此在真正的实现上是需要依赖于 cpp 的, 因此本文在具体的实现上为了能够\u0026quot;真正使用\u0026quot;有一些细节上的改动.\n在本文中的 ElemType 使用以下语句定义:\n#ifndef ElemType #define ElemType int #endif ",
+  "description": "序言 本文记录学习的经典数据结构的实现, 由于原严蔚敏的书中使用的代码为C with \u0026amp;, 因此在真正的实现上是需要依赖于 cpp 的, 因此本文在具体的实现上为了能够\u0026quot;真正使用\u0026quot;有一些细节上的改动.\n在本文中的 ElemType 使用以下语句定义:\n#ifndef ElemType #define ElemType int #endif List Static Sequence List #define MaxSize 50 //数据类型为ElemType, 长度为 MaxSize 的静态线性表 typedef struct{ ElemType data[MaxSize]; int length;//表长 }SqList int main(){ } Dynamic Sequence List Definition #define InitSize 100 typedef struct{ ElemType *data; //表的地址 int MaxSize; //动态表的最大长度 int length; //当前动态表的长度 }SeqList; int main(){ SeqList L; L.data = (ElemType *)malloc(sizeof(ElemType) * InitSize); //动态分配 // free(L); return 0; } Operations //初始化动态表L bool InitList(SeqList \u0026amp;L){ L.data = (ElemType *)malloc(sizeof(ElemType) * InitSize); if(L.data == NULL){//分配内存失败 return false; } L.length = 0; return true; } //在静态顺序表L中的第 i 位插入元素 e bool ListInsert(SqList \u0026amp;L, int i, ElemType e){ if(i \u0026lt; 1 || i \u0026gt; L.length + 1){ //判断传入的参数 i 是否合法 return false; } if(L.length \u0026gt;= MaxSize){ //判断静态表是否已满 return false; } for(int j = L.length; j \u0026gt;= i; j--){ L.data[j] = L.data[j - 1]; //依次后移 } L.data[i - 1] = e; L.length++; return true; } //删除静态顺序表 L 中的第 i 位元素, 并且通过传入参数 e 保存删除的元素 bool ListDelete(SqList \u0026amp;L, int i, ElemType \u0026amp;e){ if(i \u0026lt; 1 || i \u0026gt; L.length){ //判断传入的参数 i 是否合法 return false; } for(int j = i; j \u0026lt; L.lrngth; j++){ L.data[j - 1] = L.data[j];//依次前移 } L.length--; return true; } //在静态顺序表 L 中查找第一个值为 e 的元素的[位置] bool LocateElem(SqList \u0026amp;L, int i, ElemType e){ int i; for(i = 0; i \u0026lt; L.length; i++){ if(L.data[i] == e){ return i + 1;//查找的是位置, 因此数组下标需要+1转换为编号 } } return 0;//查找失败 } Linked List Definition //单链表 typedef struct ListNode{ ElemType data; //数据域 struct ListNode *next; //下一结点地址 }ListNode, *LinkList; Operations //头插法建立单链表 L LinkList List_HeadInsert(LinkList \u0026amp;L){ ListNode *s; int x; L = (LinkList)malloc(sizeof(ListNode)); L -\u0026gt; next = NULL; scanf(\u0026#34;%d\u0026#34;, \u0026amp;x); while(x != 9999){ //输入9999即代表结束插入 s = (ListNode *)malloc(sizeof(ListNode)); s -\u0026gt; data = x; s -\u0026gt; next = L -\u0026gt; next; L -\u0026gt; next = s; scanf(\u0026#34;%d\u0026#34;, \u0026amp;x); } return L; } //尾插法建立单链表 L LinkList List_TailInsert(LinkList \u0026amp;L){ int x;//接收键盘输入的数值 L = (LinkList)malloc(sizeof(ListNode)); ListNode *new_node, *tail = L; //tail 为表尾指针 scanf(\u0026#34;%d\u0026#34;, \u0026amp;x); while(x != 9999){ //输入9999即代表结束插入 new_node = (ListNode *)malloc(sizeof(ListNode)); new_node -\u0026gt; data = x; tail -\u0026gt; next = new_node; tail = new_node; scanf(\u0026#34;%d\u0026#34;, \u0026amp;x); } tail -\u0026gt; next = NULL; //将尾指针置空 return L; } //在单链表 L 中按照序号查找结点 ListNode *GetElem(LinkList L, int i){ if(i \u0026lt; 1){//检查传入的参数 i 是否合法 return NULL; } int j = 1; ListNode *ptr = L -\u0026gt; next; while(ptr != NULL \u0026amp;\u0026amp; j \u0026lt; i){ ptr = ptr -\u0026gt; next; j++; } return ptr; } //在单链表 L 中按照值查找结点 ListNode *LocateElem(LinkList L, ElemType e){ ListNode *ptr = L -\u0026gt; next; while(ptr != NULL \u0026amp;\u0026amp; ptr -\u0026gt; data != e){ ptr = ptr -\u0026gt; next; } return ptr; } Stack(template) template\u0026lt;typename T, int Size\u0026gt;//模板类, 传入参数栈元素的数据类型 T, 和栈的最大深度 Size class Stack{ private: T data[size]; int top; //当前栈中的栈顶元素的数组下标 public: Stack():top(-1){ //初始化函数 } ~Stack(){ //析构函数 } //向栈进入元素 item bool push(T item){ if(top == Size - 1){ //检测栈是否已满 return false; } data[++top] = item; return true; } //出栈栈顶元素, 并且使用 topElem 记录这个元素 bool pop(T \u0026amp;topElem){ if(top == -1){ //检验栈是否为空 return false; } topElem = data[top]; return true; } //判断栈是否为空 bool isEmpty(){ return top == -1; } //判断栈是否已满 bool isFull(){ return top == Size - 1; } } Queue(Template) template\u0026lt;typename T, int Size\u0026gt;//模板类, 传入参数队列元素的数据类型 T, 和队列的最大长度 Size class Queue{ private: T data[Size]; int front; //队头元素数组下标 int rear; //队尾元素数组下标 int tag; //辅助变量, 判断队列为空/满 public: Queue(): front(0), rear(0), tag(0){ //构造函数 } ~Queue(){ //析构函数 } //元素 item 入队 bool EnQueue(T, item){ if(front == rear \u0026amp;\u0026amp; tag == 1){ //判断队列是否已满 return false; } rear = (rear + 1) % Size; data[rear] = item; tag = 1; //进行入队操作后, 将tag = 1, 这样 rear == front时只有可能为满 return true; } //队列出队, 并且记录出队元素 item bool DeQueue(T \u0026amp;item){ if(front == rear \u0026amp;\u0026amp; tag == 0){ //判断队列是否为空 return false; } rear = (rear + 1) % Size; tag[rear] = item; tag = 0; //进行出队操作后, 将tag = 0, 这样 rear == front时只有可能为空 return true; } //判断队列是否为空 bool isEmpty(){ return front == rear \u0026amp;\u0026amp; tag == 0; } //判断队列是否为满 bool isFull(){ return front == rear \u0026amp;\u0026amp; tag == 1; } } String Definition Static String static const int MAXLEN = 255;//字符串的最大长度 //静态分配字符串 typedef struct{ char ch[MAXLEN];//数据域 int length; //字符串长度 }SString Dynamic String //动态分配字符串 typedef struct{ char *ch; //字符数组的地址 int length; //字符串长度 }HString; Linked List String //使用字符串结点存储字符串 typedef struct StringNode{ char ch[4]; //4个字符一组存放在一个结点中 struct StringNode *next; //下一个字符结点的地址 }StringNode, *String; Operations Static String //求静态字符串 S 中, 以 pos 为起点, 长为 len 的子串 sub. //在这里, 我们设定字符串的S[0]不存储任何元素, 而是从S[1]开始存储字符串的元素 bool SubString(SString \u0026amp;sub, SString S, int pos, int len){ if(pos + len - 1 \u0026gt; S.length){ //检测子串末尾是否已经溢出原串长度 return false; } for(int i = pos; i \u0026lt; pos + len; i++){ sub.ch[i - pos + 1] = S.ch[i]; } } //比较两个静态串的大小 //串的大小定义:(1)首先比长度(2)长度相等时, 比char对应的int. bool StrCompare(SString S, SString, T){ for(int i = 1; i \u0026lt;= S.length \u0026amp;\u0026amp; i \u0026lt;= T.length; i++){ if(S.ch[i] != T.ch[i]){ return S.ch[i] - T.ch[i]; } } //未能在以上循环中完成输出, 说明两个串呈现包含关系(即S 是 T的子串, 或者相反) //那么就应该使用长度来比较 return S.length - T.length; } //查询静态串的长度 int StrLength(SStrng S){ return S.length; } //使用朴素便利方法查询子串 T 首次出现在 S 中时的位置 int Index(SString S, SString T){ int i = 1, j = 1; while(i \u0026lt;= S.length \u0026amp;\u0026amp; j \u0026lt;= T.length){ if(S.ch[i] == T.ch[i]){ //匹配成功, i,j同步后移以进行下一位的比较 } else{ //匹配失败, 则 i 回到原先起点的下一位开始重新匹配 i = i - j + 2; j = 1; } } if(j \u0026gt; T.length){ return i - T.length; } else{ return 0; } } //使用KMP算法, 借助next[]数组查询子串 T 首次出现在 S 中时的位置 int Index_KMP(SString S, SString T, int next[]){ int i = 1, j = 1; while(i \u0026lt;= S.length \u0026amp;\u0026amp; j \u0026lt;= T.length){ if(j == 0 || S.ch[i] = = T.ch[j]){ i++; j++; } else{ j = next[j]; } } if(j \u0026gt; T.length){ return i - T.length; } else{ return 0; } } //根据next[]数组生成nextval[]数组, 从而优化KMP算法 int *next2nextval(SString T, int next[]){ int *nextval = (int *)malloc(T.length * sizeof(char)); nextval[1] = 0; for(int j = 2; j \u0026lt;= T.length; j++){ if(T.ch[next[j]] == T.ch[j]){ nextval[j] = nextval[next[j]]; } else{ nextval[j] = next[j]; } } return nextval; } Dynamic String //初始化动态字符串 bool InitHString(HString \u0026amp;S){ S.ch = (char *)malloc(MAXLEN * sizeof(char)); if(S.ch == NULL){ //内存分配失败 return false; } S.length = 0; return true; } Tree \u0026amp; Binary Tree Binary Tree Definition #define MAXSIZE 10 //二叉树结点 typedef struct BiTNode{ ElemType data; //数据域 struct BiTNode *lchild; //左子树根结点地址 struct BiTNode *rchild; //右子树根结点地址 }BiTNode, *BiTree; Operations //初始化二叉树root void InitBiTree(BiTree \u0026amp;root){ root = NULL;//通过置空来清洗之间root所在空间中地址 root = (BiTree)malloc(sizeof(BiTNode)); root -\u0026gt; data = 1; root -\u0026gt; lchild = NULL; root -\u0026gt; rchild = NULL; } //向二叉树root中插入值为 val 的结点 bool InsertBiTNode(BiTree \u0026amp;root, ElemType val){ BiTNode *new_node = (BiTNode *)malloc(sizeof(BiTNode)); if(new_node == NULL){ return false; } if(root -\u0026gt; lchild == NULL){ root -\u0026gt; lchild = new_node; new_node -\u0026gt; data = val; new_node -\u0026gt; lchild = NULL; new_node -\u0026gt; rchild = NULL; } else if(root -\u0026gt; rchild == NULL){ root -\u0026gt; rchild = new_node; new_node -\u0026gt; data = val; new_node -\u0026gt; lchild = NULL; new_node -\u0026gt; rchild = NULL; } else{ std::cout \u0026lt;\u0026lt; \u0026#34;Invalid root!\u0026#34; \u0026lt;\u0026lt; std::endl; return false; } } //定义方位二叉树结点的行为 void observe(BiTree T){ std::cout \u0026lt;\u0026lt; T -\u0026gt; data \u0026lt;\u0026lt; std::endl; } //前根遍历二叉树 T //使用递归定义 void PreOrder(BiTree T){ if(T != NULL){ observe(T); PreOrder(T -\u0026gt; lchild); PreOrder(T -\u0026gt; rchild); } } //中根遍历二叉树 T //使用递归定义 void InOrder(BiTree T){ if(T != NULL){ InOrder(T -\u0026gt; lchild); observe(T); InOrder(T -\u0026gt; rchild); } } //后根遍历二叉树 T //使用递归定义 void PostOrder(BiTree T){ if(T != NULL){ PostOrder(T -\u0026gt; lchild); PostOrder(T -\u0026gt; rchild); observer(T); } } //层次遍历二叉树 T //借助队列模板类实现 void LevelOrder(BiTree T){ Queue\u0026lt;BiTree,20\u0026gt;queue; BiTree p = NULL; queue.Enqueue(T); while(!queue.isEmpty()){ queue.DeQueue(p); observe(p); if(p -\u0026gt; lchild != NULL){ queue.EnQueue(p -\u0026gt; lchild); } if(p -\u0026gt; rchild != NULL){ queue.EnQueue(p -\u0026gt; rchild); } } } Thread Tree Definition typedef struct ThreadNode{ ElemType data; //数据域 struct ThreadNode *lchild; //左子树的根结点地址 struct ThreadNode *rchild; //右子树的根结点地址 int ltag; //标记左子树根结点是否为线索, 1 为 是, 0 为 非 int rtag; //标记右子树根结点是否为线索, 1 为 是, 0 为 非 } Operation //使用全局变量 pre 来指定前驱结点 ThreadNode *pre = NULL; //访问行为 visit() void visit(ThreadNode *nodeptr){ //没有左孩子, 则空链域可以用来存储前驱结点地址 if(nodeptr -\u0026gt; lchild == NULL){ nodeptr -\u0026gt; lchild = pre; nodeptr -\u0026gt; ltag = 1; } //没有右孩子, 则空链域可以用来存储后继结点地址 if(pre != NULL \u0026amp;\u0026amp; pre -\u0026gt; rchild == NULL){ pre -\u0026gt; rchild = nodeptr; pre -\u0026gt; rtag = 1; } pre = nodeptr; } ",
   "keywords": [
     "data structure", "cs"
   ],

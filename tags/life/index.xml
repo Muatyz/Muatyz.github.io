@@ -33,7 +33,9 @@
 &lt;h1 id=&#34;6-月&#34;&gt;6 月&lt;/h1&gt;
 &lt;h2 id=&#34;0602&#34;&gt;06.02&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;答辩讲稿&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;1: 各位老师和同学们大家好, 我的毕业论文所研究的题目是 &amp;ldquo;颗粒介质中的超声波传播&amp;rdquo;, 我的指导老师是原交叉所的王宇杰老师.&lt;/p&gt;</description>
+&lt;p&gt;1: 各位老师和同学们大家好, 我的毕业论文所研究的题目是 &amp;ldquo;颗粒介质中的超声波传播&amp;rdquo;, 我的指导老师是原交叉所的王宇杰老师.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;2: 接下来我将分别从 &amp;ldquo;研究背景&amp;rdquo;, &amp;ldquo;研究方法与成果&amp;rdquo;, &amp;ldquo;总结&amp;rdquo; 三个方面来汇报我的毕业论文工作, 请各位老师批评指正.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -53,6 +55,18 @@
 \text{直博生}   &amp;amp; \text{李所}    &amp;amp; 28\\
 \hline
 \text{直硕生}   &amp;amp; \text{学院}    &amp;amp; 25-30\\
+\hline
+\end{array}\right|
+$$&lt;/p&gt;
+&lt;h1 id=&#34;直博生优营类型&#34;&gt;直博生优营类型&lt;/h1&gt;
+&lt;p&gt;$$
+\left|\begin{array}{c|c|c}
+\hline
+\text{类型} &amp;amp; \text{数目} &amp;amp; \text{政策} \\
+\hline
+A   &amp;amp; 50 + 28   &amp;amp; \text{预录取}\\
+\hline
+B   &amp;amp; 100    &amp;amp; \text{根据单位和二级学科依次递补}\\
 \hline
 \end{array}\right|
 $$&lt;/p&gt;</description>

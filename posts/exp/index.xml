@@ -33,7 +33,13 @@
  &lt;/div&gt;
 &lt;h1 id=&#34;研究背景&#34;&gt;研究背景&lt;/h1&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/05/11/Xl1E3thVLsQdq9Z.png&#34; alt=&#34;双锥对撞点火方案&#34;  /&gt;
-&lt;/p&gt;</description>
+&lt;/p&gt;
+&lt;p&gt;传统的中心点火方案存在两个问题:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同时压缩和加热带来的不可控性;&lt;/li&gt;
+&lt;li&gt;加热效率较低.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;所以设计了图示的有四个步骤组成的 &lt;strong&gt;DCI 方案&lt;/strong&gt;, 即&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -66,7 +72,10 @@
 &lt;p&gt;In the experiment, you will learn how to use plastic scientillator to measure lifetime of muon in cosmic ray. The basic particle detection skills will be shown in this activity, including how to using a PMT detector, signal processing methods, and data analysis skills etc.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;译：&lt;/p&gt;
-&lt;p&gt;在这个实验中, 你将学习如何使用塑料科学仪器来测量宇宙射线中 $\mu$ 子的寿命. 在这个活动中, 将展示基本的粒子检测技能, 包括如何使用 PMT 检测器、信号处理方法和数据分析技能等.&lt;/p&gt;</description>
+&lt;p&gt;在这个实验中, 你将学习如何使用塑料科学仪器来测量宇宙射线中 $\mu$ 子的寿命. 在这个活动中, 将展示基本的粒子检测技能, 包括如何使用 PMT 检测器、信号处理方法和数据分析技能等.&lt;/p&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Muon was discovered by Carl D. Anderson in 1936 in studying of cosmic radiation. Just like its cousin electron, muon does not take part in strong interaction, bus has mass roughly 200 times larger than that of electron. Because its short lifetime, the muon from out space normally decay out before they arrive earth. Therefore, muons which come into our laboratory are the results of the interactions between protons and the nuclei in our atmosphere, principally nitrogen, oxygen and argon. At top of the atmosphere, the incoming protons are traveling at relativistic speeds. When they penetrate the atmosphere, many particles like $\pi^{0,\pm}, n, K$, etc. can be created due to the interactions and theirs sequencial reactions.&lt;/p&gt;</description>
     </item>
     
   </channel>

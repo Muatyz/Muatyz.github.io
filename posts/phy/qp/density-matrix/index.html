@@ -39,6 +39,17 @@ $$
 
 $$
 \sum_{k}\hat{\pi}_{k} = I
+$$
+
+证明:
+对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开:
+$$
+|\psi\rangle = c_{1}|\psi_{1}\rangle &#43; c_{2}|\psi_{2}\rangle &#43; \dots &#43; c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle}
+$$
+那么将投影算符和作用到该态上:
+$$
+\sum_{k}\hat{\pi}_{k}|\psi\rangle = \sum_{k}|\psi_{k}\rangle\langle\psi_{k}|\sum_{i}c_{i}|\psi_{i}\rangle = \sum_{k}\sum_{i}c_{i}|\psi_{k}\rangle\langle\psi_{k}|\psi_{i}\rangle = \\
+\sum_{k}\sum_{i}c_{i}\delta_{ki}|\psi_{k}\rangle = \sum_{k}c_{k}|\psi_{k}\rangle = |\psi\rangle
 $$">
 <meta name="author" content="Muartz">
 <link rel="canonical" href="https://Muatyz.github.io/posts/phy/qp/density-matrix/">
@@ -175,6 +186,17 @@ $$
 
 $$
 \sum_{k}\hat{\pi}_{k} = I
+$$
+
+证明:
+对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开:
+$$
+|\psi\rangle = c_{1}|\psi_{1}\rangle &#43; c_{2}|\psi_{2}\rangle &#43; \dots &#43; c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle}
+$$
+那么将投影算符和作用到该态上:
+$$
+\sum_{k}\hat{\pi}_{k}|\psi\rangle = \sum_{k}|\psi_{k}\rangle\langle\psi_{k}|\sum_{i}c_{i}|\psi_{i}\rangle = \sum_{k}\sum_{i}c_{i}|\psi_{k}\rangle\langle\psi_{k}|\psi_{i}\rangle = \\
+\sum_{k}\sum_{i}c_{i}\delta_{ki}|\psi_{k}\rangle = \sum_{k}c_{k}|\psi_{k}\rangle = |\psi\rangle
 $$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Muatyz.github.io/posts/phy/qp/density-matrix/" /><meta property="article:section" content="posts" />
@@ -215,6 +237,17 @@ $$
 
 $$
 \sum_{k}\hat{\pi}_{k} = I
+$$
+
+证明:
+对任意的态 $|\psi\rangle$, 都可以将其写作基函数的展开:
+$$
+|\psi\rangle = c_{1}|\psi_{1}\rangle &#43; c_{2}|\psi_{2}\rangle &#43; \dots &#43; c_{n}|\psi_{n}\rangle = \sum_{i}{c_{i}|\psi_{i}\rangle}
+$$
+那么将投影算符和作用到该态上:
+$$
+\sum_{k}\hat{\pi}_{k}|\psi\rangle = \sum_{k}|\psi_{k}\rangle\langle\psi_{k}|\sum_{i}c_{i}|\psi_{i}\rangle = \sum_{k}\sum_{i}c_{i}|\psi_{k}\rangle\langle\psi_{k}|\psi_{i}\rangle = \\
+\sum_{k}\sum_{i}c_{i}\delta_{ki}|\psi_{k}\rangle = \sum_{k}c_{k}|\psi_{k}\rangle = |\psi\rangle
 $$"/>
 
 
@@ -259,7 +292,7 @@ $$"/>
   "@type": "BlogPosting",
   "headline": "密度矩阵",
   "name": "密度矩阵",
-  "description": "投影算符 定义 假设对于一个物理量算符 $\\hat{R}$, 其本征方程为\n$$ \\hat{R}|\\psi_{k}\\rangle = r_{k}|\\psi_{k}\\rangle\\quad(k = 0,1,\\dots) $$\n我们引入投影算符:\n$$ \\hat{\\pi}_{k} = |\\psi_{k}\\rangle\\langle\\psi_{k}| $$\n所以显然有\n$$ \\hat{\\pi}_{k}|\\psi_{n}\\rangle = |\\psi_{k}\\rangle\\langle\\psi_{k}|\\psi_{n}\\rangle = \\delta_{kn}|\\psi_{k}\\rangle $$\n性质 厄密性 $$ \\hat{\\pi}_{k} = \\hat{\\pi}_{k}^{\\dagger} $$\n幂等性(Idempotent) $$ \\hat{\\pi}_{k}^{2} = |\\psi_{k}\\rangle\\langle\\psi_{k}|\\psi_{k}\\rangle\\langle\\psi_{k}|=|\\psi_{k}\\rangle\\langle\\psi_{k}|=\\hat{\\pi}_{k} $$\n完备性 $$ \\sum_{k}\\hat{\\pi}_{k} = I $$\n",
+  "description": "投影算符 定义 假设对于一个物理量算符 $\\hat{R}$, 其本征方程为\n$$ \\hat{R}|\\psi_{k}\\rangle = r_{k}|\\psi_{k}\\rangle\\quad(k = 0,1,\\dots) $$\n我们引入投影算符:\n$$ \\hat{\\pi}_{k} = |\\psi_{k}\\rangle\\langle\\psi_{k}| $$\n所以显然有\n$$ \\hat{\\pi}_{k}|\\psi_{n}\\rangle = |\\psi_{k}\\rangle\\langle\\psi_{k}|\\psi_{n}\\rangle = \\delta_{kn}|\\psi_{k}\\rangle $$\n性质 厄密性 $$ \\hat{\\pi}_{k} = \\hat{\\pi}_{k}^{\\dagger} $$\n幂等性(Idempotent) $$ \\hat{\\pi}_{k}^{2} = |\\psi_{k}\\rangle\\langle\\psi_{k}|\\psi_{k}\\rangle\\langle\\psi_{k}|=|\\psi_{k}\\rangle\\langle\\psi_{k}|=\\hat{\\pi}_{k} $$\n完备性 $$ \\sum_{k}\\hat{\\pi}_{k} = I $$\n证明:\n对任意的态 $|\\psi\\rangle$, 都可以将其写作基函数的展开: $$ |\\psi\\rangle = c_{1}|\\psi_{1}\\rangle + c_{2}|\\psi_{2}\\rangle + \\dots + c_{n}|\\psi_{n}\\rangle = \\sum_{i}{c_{i}|\\psi_{i}\\rangle} $$ 那么将投影算符和作用到该态上: $$ \\sum_{k}\\hat{\\pi}_{k}|\\psi\\rangle = \\sum_{k}|\\psi_{k}\\rangle\\langle\\psi_{k}|\\sum_{i}c_{i}|\\psi_{i}\\rangle = \\sum_{k}\\sum_{i}c_{i}|\\psi_{k}\\rangle\\langle\\psi_{k}|\\psi_{i}\\rangle = \\\\ \\sum_{k}\\sum_{i}c_{i}\\delta_{ki}|\\psi_{k}\\rangle = \\sum_{k}c_{k}|\\psi_{k}\\rangle = |\\psi\\rangle $$\n",
   "keywords": [
     ""
   ],
