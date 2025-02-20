@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>A WEB-Type Approximation to the Schrodinger Equation | 无处惹尘埃</title>
+<meta name="keywords" content="wkb, quantum">
+<meta name="description" content="用于完成渐进分析的阅读笔记作业">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/qp/wkb-method/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/phy/qp/wkb-method/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="A WEB-Type Approximation to the Schrodinger Equation" />
+<meta property="og:description" content="用于完成渐进分析的阅读笔记作业" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/qp/wkb-method/" />
+<meta property="og:image" content="https://s2.loli.net/2025/01/03/moqifDjPJAnpFcx.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-01-03T00:18:06+08:00" />
+<meta property="article:modified_time" content="2025-01-03T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2025/01/03/moqifDjPJAnpFcx.png" />
+<meta name="twitter:title" content="A WEB-Type Approximation to the Schrodinger Equation"/>
+<meta name="twitter:description" content="用于完成渐进分析的阅读笔记作业"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "➿ Quantum Physics",
+          "item": "https://Muatyz.github.io/posts/phy/qp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "A WEB-Type Approximation to the Schrodinger Equation",
+      "item": "https://Muatyz.github.io/posts/phy/qp/wkb-method/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A WEB-Type Approximation to the Schrodinger Equation",
+  "name": "A WEB-Type Approximation to the Schrodinger Equation",
+  "description": "用于完成渐进分析的阅读笔记作业",
+  "keywords": [
+    "wkb", "quantum"
+  ],
+  "articleBody": "Abstract A method of approximating solutions of the one-dimensional Schrodinger equation is presented in this paper. The method closely resembles the usual WEB approximation. Whereas in the ordinary WEB method the exponential function is used as the basis of the approximation, in this paper the solutions of an arbitrary Schrodinger equation are used. The general advantage is that by proper choice of the arbitrary equation an improved approximation can be obtained. The method is illustrated by treating the potential well and potential barrier problems when there are two turning points. The approximations to the wave functions are continuous even across the turning points. The barrier transmission problem is treated uniformly for energies above and below the peak of the barrier.\n本文提出了一种一维薛定谔方程近似解的方法。 该方法与普通的 WEB 近似法非常相似。 普通的 WEB 方法使用指数函数作为近似的基础，而本文则使用任意薛定谔方程的解。 其总体优势在于，通过适当选择任意方程，可以获得改进的近似值。 本文通过处理存在两个转折点时的势阱和势垒问题来说明该方法。 即使跨越转折点，波函数的近似值也是连续的。 对于势垒峰值以上和以下的能量，势垒传输问题都是统一处理的。\nIntroduction The WEB method, as well as showing the correspondence between classical and quantum mechanics, provides useful approximations to the solutions of the one-dimensional Schrodinger equation. A limitation on its usefulness as an approximation is that it becomes infinite at the classical turning points of the motion. Langer introduced an approximation based on Bessel functions which remains finite at any one turning point and, far from the turning point, becomes identical with the WKB approximation. However, at a second turning point his result is infinite and, to obtain approximate solutions which are everywhere finite, one must join it to a similar approximation finite at the second turning point.\nWEB 方法不仅显示了经典力学与量子力学之间的对应关系，还为一维薛定谔方程的解提供了有用的近似值。 它作为近似值的局限性在于，在运动的经典转折点处，它的近似值变得无限大。 Langer 提出了一种基于 Bessel 函数的近似值，它在任何一个转折点都保持有限，而在远离转折点的地方，则与 WKB 近似值相同。 然而，在第二个转折点上，他的结果是无限的，为了得到处处有限的近似解，我们必须将它与在第二个转折点上有限的类似近似解连接起来。\nThe ordinary WEB method is based on the exponential function and Langer’s approximation on Bessel functions. In this paper it is shown that a general WKB-type approximation ca,n be constructed based on the solutions of an arbitrary Schrodinger equation. A good approximation is obtained if the arbitrary equation is chosen to resemble the Schrodinger equation to be solved. In this respect the approximation is similar to perturbation theory. As a particular example of the general approximation, if the arbitrary equation is that of a free particle, one obtains the ordinary WKB approximation. As another special case, I.anger’s approximation can be interpreted as arising from the Schrodinger equation in which the kinetic energy is a power of the coordinate. Also, by properly choosing the equation, one may find approximate solutions which are finite at several turning points. The only example considered below is that of two turning points; many problems fall into this class.\n普通 WEB 方法基于指数函数和贝塞尔函数的 Langer 近似。 本文表明，可以根据任意薛定谔方程的解来构建一般的 WKB 型近似方法。 如果选择的任意方程与要求解的薛定谔方程相似，就能获得良好的近似值。 在这方面，这种近似方法类似于扰动理论。 作为一般近似的一个特殊例子，如果任意方程是一个自由粒子的方程，就可以得到普通的 WKB 近似。 作为另一个特例，Langer 的近似可以解释为产生于薛定谔方程，其中动能是坐标的幂。 此外，通过适当选择方程，还可以得到在多个转折点上都是有限的近似解。 下面考虑的只是两个转折点的例子；许多问题都属于这一类。\nAn advantage of the method used here is that a problem does not need to be broken up into regions with connection formulas between them but instead a single approximate solution can be obtained which is continuous over the whole region. Because of this continuity one can use the approximate wave functions to discuss matrix elements. Ordinarily this is not done because of the infinities at the turning points. In general one must use numerical integration to calculate the matrix elements from the approximate wave functions. However, the numerical integration can be avoided in some special cases discussed in Sec. III. Another advantage of the method is that the problem of transmission through a potential barrier can be discussed uniformly for particle energies above and below the peak of the barrier. The usual WKB approximation gives complete transmission when the energy is above the peak.\n这里使用的方法的一个优点是，不需要将问题分割成若干区域，并在这些区域之间建立连接公式，而是可以得到一个在整个区域内连续的近似解。 由于这种连续性，我们可以使用近似波函数来讨论矩阵元素。 通常情况下，由于转折点处的无穷大，我们不会这样做。 一般来说，我们必须使用数值积分来计算近似波函数的矩阵元素。 不过，在第三节讨论的一些特殊情况下，可以避免数值积分。 该方法的另一个优点是可以统一讨论粒子能量高于和低于势垒峰值时通过势垒的传输问题。 当能量高于峰值时，通常的 WKB 近似方法给出了完全的传输。\nThe general treatment, for an unspeci6ed basic function, is given in Sec. II. The application to a potential well problem with two turning points is given in Sec. III, basing the approximation on the solutions of the Schrodinger equation for a harmonic oscillator. In, Sec. IV the complementary problem of transmission through a potential barrier is discussed.\n第二节给出了对未指定基本函数的一般处理方法。 第三节给出了对具有两个转折点的势阱问题的应用，其近似方法基于谐振子薛定谔方程的解。 第四节讨论了通过势垒传输的补充问题。\nGenearal Treatment The general problem is to find approximate solutions of the one-dimensional Schrodinger equation,\n$$ \\begin{aligned} \\frac{\\mathrm{d}^{2}\\psi(x)}{\\mathrm{d}x^{2}} + \\left[\\frac{p^{2}(x)}{\\hbar^{2}}\\right]\\psi(x) = 0 \\end{aligned} $$\nwhere\n$$ \\begin{aligned} p^{2}(x) = W - V(x) \\end{aligned} $$\nHere $W$ is $2m$ times the total energy of a particle of mass m moving in a potential $V(x)/2m$. The approximate solutions are to be based on preselected functions $\\phi(S)$ which satisfy\n$$ \\begin{aligned} \\frac{\\mathrm{d}^{2}\\phi(S)}{\\mathrm{d}S^{2}} + \\left[\\frac{P^{2}(S)}{\\hbar^{2}}\\right]\\phi(S) = 0 \\end{aligned} $$\nfor some function $P(S)$. Ordinarily one will be guided to an appropriate choice of $\\phi(S)$ by choosing $P(S)$ qualitatively similar to $p(x)$. In the ordinary WKB method one finds approximations to the solutions of Eq. (1) by first changing the dependent variable from $\\psi(x)$ to $S(x)$ through the substitution\n$$ \\begin{aligned} \\psi(x) = e^{\\frac{i}{\\hbar}S(x)}. \\end{aligned} $$\n一般问题是找到一维薛定谔方程的近似解， $$ \\begin{aligned} \\frac{\\mathrm{d}^{2}\\psi(x)}{\\mathrm{d}x^{2}} + \\left[\\frac{p^{2}(x)}{\\hbar^{2}}\\right]\\psi(x) = 0 \\end{aligned} $$\n其中\n$$ \\begin{aligned} p^{2}(x) = W - V(x) \\end{aligned} $$\n这里 $W$ 是质量为 $m$ 的粒子在势能 $V(x)/2m$ 中运动的总能量的 $2m$ 倍。 近似解是基于预选函数 $\\phi(S)$ 的，该函数满足\n$$ \\begin{aligned} \\frac{\\mathrm{d}^{2}\\phi(S)}{\\mathrm{d}S^{2}} + \\left[\\frac{P^{2}(S)}{\\hbar^{2}}\\right]\\phi(S) = 0 \\end{aligned} $$\n对于某个函数 $P(S)$。 通常情况下，通过选择与 $p(x)$ 在质量上相似的 $P(S)$ 来引导选择适当的 $\\phi(S)$。 在普通的 WKB 方法中，首先通过替换将依赖变量从 $\\psi(x)$ 更改为 $S(x)$ 来找到方程 (1) 的近似解，\n$$ \\begin{aligned} \\psi(x) = e^{\\frac{i}{\\hbar}S(x)}. \\end{aligned} $$\nThe problem then reduces to finding a solution of\n$$ \\begin{aligned} -S^{\\prime 2} + i\\hbar S^{\\prime\\prime} + p^{2} = 0 \\end{aligned} $$\nand one thinks of solving this by a series expansion on $\\hbar$, which is assumed to be small:\n$$ \\begin{aligned} S(x) = S_{0}(x) + S_{1}(x)\\hbar + S_{2}(x)\\hbar^{2} + \\cdots \\end{aligned} $$\nOrdinarily only the 6rst two terms are calculated, with the result that\n$$ \\begin{aligned} \\psi\\approx p^{-\\frac{1}{2}}e^{\\pm\\frac{i}{\\hbar}\\int p(x)\\mathrm{d}x}, \\end{aligned} $$\nwhere the usual connection formulas between regions on opposite sides of the turning points (points at which $p=0$) are to be used.\n然后问题就简化为找到方程的解\n$$ \\begin{aligned} -S^{\\prime 2} + i\\hbar S^{\\prime\\prime} + p^{2} = 0 \\end{aligned} $$\n人们考虑通过 $\\hbar$ 的级数展开来解决这个问题，假设 $\\hbar$ 很小：\n$$ \\begin{aligned} S(x) = S_{0}(x) + S_{1}(x)\\hbar + S_{2}(x)\\hbar^{2} + \\cdots \\end{aligned} $$\n通常只计算前两项，结果是\n$$ \\begin{aligned} \\psi\\approx p^{-\\frac{1}{2}}e^{\\pm\\frac{i}{\\hbar}\\int p(x)\\mathrm{d}x}, \\end{aligned} $$\n其中通常使用连接公式来连接转折点两侧的区域（$p=0$ 的点）。\nIn parallel with the ordinary WKB method, the first step in attacking the general problem is to change the dependent variable to $S(x)$ by the substitution\n$$ \\begin{aligned} \\psi(x) = T(x)\\phi(S(x)), \\end{aligned} $$\nwhere the function $T(x)$ will be specified below. It is needed in order to obtain an equation in $S$, independent of $\\phi$. On substituting Eq. (8) into Eq. (1), one finds immediately that\n$$ \\begin{aligned} \\psi^{\\prime\\prime} + \\frac{p^{2}}{\\hbar^{2}}\\psi = \\left(\\frac{\\hbar^{2}T^{\\prime\\prime}}{T} - S^{\\prime 2}P^{2} + p^{2}\\right)\\frac{T\\phi}{\\hbar^{2}} + \\left(\\frac{2T^{\\prime}}{T} + \\frac{S^{\\prime\\prime}}{S^{\\prime}}\\right)TS^{\\prime}\\frac{\\mathrm{d}\\phi}{\\mathrm{d}S}, \\end{aligned} $$\nwhere Eq. (3) has been used to eliminate p\". Here one sees that if\n$$ \\begin{aligned} T = S^{\\prime -\\frac{1}{2}}, \\end{aligned} $$\nthen the problem reduces to finding a solution of\n$$ \\begin{aligned} \\frac{\\hbar^{2}T^{\\prime\\prime}}{T} - S^{\\prime 2}P^{2} + p^{2} = 0. \\end{aligned} $$\n与普通的 WKB 方法类似，解决一般问题的第一步是通过替换将依赖变量更改为 $S(x)$，\n$$ \\begin{aligned} \\psi(x) = T(x)\\phi(S(x)), \\end{aligned} $$\n其中函数 $T(x)$ 将在下面指定。 为了得到一个与 $\\phi$ 无关的 $S$ 方程，需要它。 将方程 (8) 代入方程 (1) 中，立即发现\n$$ \\begin{aligned} \\psi^{\\prime\\prime} + \\frac{p^{2}}{\\hbar^{2}}\\psi = \\left(\\frac{\\hbar^{2}T^{\\prime\\prime}}{T} - S^{\\prime 2}P^{2} + p^{2}\\right)\\frac{T\\phi}{\\hbar^{2}} + \\left(\\frac{2T^{\\prime}}{T} + \\frac{S^{\\prime\\prime}}{S^{\\prime}}\\right)TS^{\\prime}\\frac{\\mathrm{d}\\phi}{\\mathrm{d}S}, \\end{aligned} $$\n其中使用方程 (3) 来消除 $p^{\\prime\\prime}$。 这里可以看到，如果\n$$ \\begin{aligned} T = S^{\\prime -\\frac{1}{2}}, \\end{aligned} $$\n那么问题就简化为找到方程的解\n$$ \\begin{aligned} \\frac{\\hbar^{2}T^{\\prime\\prime}}{T} - S^{\\prime 2}P^{2} + p^{2} = 0. \\end{aligned} $$\nThe value of $T$ from Eq. (10) makes this a differential equation in $S(x)$ alone. The next step is to find a series solution for small $\\hbar$. Since only $\\hbar^{2}$ appears in Eq. (11) one may write\n$$ \\begin{aligned} S(x) = S_{0}(x) + S_{2}(x)\\hbar^{2} + S_{4}(x)\\hbar^{4} + \\cdots \\end{aligned} $$\nIf, as usual, the approximation is carried to two orders in $\\hbar$, only $S_{0}$ will be retained in this series, and evidently from Eq. (11)\n$$ \\begin{aligned} S_{0}^{\\prime 2}P^{2} = p^{2}. \\end{aligned} $$\nIf the positive square root is used, the approximate solutions are\n$$ \\begin{aligned} \\psi_{\\text{app}} = S^{\\prime -\\frac{1}{2}}\\phi(S). \\end{aligned} $$\nwhere\n$$ \\begin{aligned} \\int_{s_{0}}^{S}P(\\sigma)\\mathrm{d}\\sigma = \\int_{x_{0}}^{x}p(\\xi)\\mathrm{d}\\xi. \\end{aligned} $$\nThe two independent solutions $\\phi(S)$ of Eq. (3) give the approximations to two independent solutions of Eq. (1). In many problems the integration constants $s_{0}$, $x_{0}$ may be chosen to make the approximate wave function continuous across the turning points, as will be illustrated in Secs. III and IV. With the choice $P^{2}(S)=1$, the approximation reduces immediately to the ordinary WXB approximation. By taking xp to be a turning point of $p^{2}(x)$, $P^{2}(S) = S^{\\nu}$, and $s_{0}=0$, one obtains Langer’s approximation for the case when $p^{2}(x)$ has a zero of the $\\nu$th order at the turning point.\n方程 (10) 中的 $T$ 值使得这是一个仅包含 $S(x)$ 的微分方程。 下一步是找到小 $\\hbar$ 的级数解。 由于方程 (11) 中只出现 $\\hbar^{2}$，因此可以写成\n$$ \\begin{aligned} S(x) = S_{0}(x) + S_{2}(x)\\hbar^{2} + S_{4}(x)\\hbar^{4} + \\cdots \\end{aligned} $$\n如果像往常一样，近似值被计算到 $\\hbar$ 的两个阶，那么在这个级数中只保留 $S_{0}$，显然从方程 (11) 中\n$$ \\begin{aligned} S_{0}^{\\prime 2}P^{2} = p^{2}. \\end{aligned} $$\n如果使用正平方根，近似解为\n$$ \\begin{aligned} \\psi_{\\text{app}} = S^{\\prime -\\frac{1}{2}}\\phi(S). \\end{aligned} $$\n其中\n$$ \\begin{aligned} \\int_{s_{0}}^{S}P(\\sigma)\\mathrm{d}\\sigma = \\int_{x_{0}}^{x}p(\\xi)\\mathrm{d}\\xi. \\end{aligned} $$\n方程 (3) 的两个独立解 $\\phi(S)$ 给出了方程 (1) 的两个独立解的近似值。 在许多问题中，积分常数 $s_{0}$，$x_{0}$ 可以被选择为使近似波函数在转折点处连续，如第三节和第四节所示。 通过选择 $P^{2}(S)=1$，近似值立即简化为普通的 WKB 近似。 通过取 $p^{2}(x)$ 的转折点，$P^{2}(S) = S^{\\nu}$，$s_{0}=0$，可以得到 Langer 的近似值，即当 $p^{2}(x)$ 在转折点处有 $\\nu$ 阶零点时。\nWhenever the function $S(x)$ is real, as in Secs. III and IV, the approximate wave function will exactly satisfy the conservation of probability equation,\n$$ \\begin{aligned} \\frac{\\hbar}{2im}\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\psi_{\\text{app}}^{*}\\frac{\\mathrm{d}}{\\mathrm{d}x}\\psi_{\\text{app}} - \\psi_{\\text{app}}\\frac{\\mathrm{d}}{\\mathrm{d}x}\\psi_{\\text{app}}^{*}\\right) \\\\ = \\frac{\\hbar}{2im}S^{\\prime}\\frac{\\mathrm{d}}{\\mathrm{d}S}\\left(\\phi^{*}\\frac{\\mathrm{d}}{\\mathrm{d}S}\\phi - \\phi\\frac{\\mathrm{d}}{\\mathrm{d}S}\\phi^{*}\\right) = 0. \\end{aligned} $$\nThis is a consequence of the choice of $T$ in Eq. (10) and the fact that $\\phi$ itself satisfies a Schrodinger equation. One may verify that\n$$ \\begin{aligned} \\psi_{\\text{app}}^{\\prime\\prime} + \\frac{p^{2}}{\\hbar^{2}}\\psi_{\\text{app}} = \\left[\\frac{3}{4}\\left(\\frac{S^{\\prime\\prime}}{S^{\\prime}}\\right)^{2} - \\frac{1}{2}\\frac{S^{\\prime\\prime\\prime}}{S^{\\prime}}\\right]\\psi_{\\text{app}}. \\end{aligned} $$\nThe accuracy of the approximation depends on the size of the term on the right.\n无论何时函数 $S(x)$ 是实数，如第三节和第四节，近似波函数将完全满足概率守恒方程，\n$$ \\begin{aligned} \\frac{\\hbar}{2im}\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\psi_{\\text{app}}^{*}\\frac{\\mathrm{d}}{\\mathrm{d}x}\\psi_{\\text{app}} - \\psi_{\\text{app}}\\frac{\\mathrm{d}}{\\mathrm{d}x}\\psi_{\\text{app}}^{*}\\right) \\\\ = \\frac{\\hbar}{2im}S^{\\prime}\\frac{\\mathrm{d}}{\\mathrm{d}S}\\left(\\phi^{*}\\frac{\\mathrm{d}}{\\mathrm{d}S}\\phi - \\phi\\frac{\\mathrm{d}}{\\mathrm{d}S}\\phi^{*}\\right) = 0. \\end{aligned} $$\n这是方程 (10) 中 $T$ 的选择和 $\\phi$ 本身满足薛定谔方程的事实的结果。 可以验证\n$$ \\begin{aligned} \\psi_{\\text{app}}^{\\prime\\prime} + \\frac{p^{2}}{\\hbar^{2}}\\psi_{\\text{app}} = \\left[\\frac{3}{4}\\left(\\frac{S^{\\prime\\prime}}{S^{\\prime}}\\right)^{2} - \\frac{1}{2}\\frac{S^{\\prime\\prime\\prime}}{S^{\\prime}}\\right]\\psi_{\\text{app}}. \\end{aligned} $$\n近似的准确性取决于右侧项的大小。\nApplication to a Potential Well Problems In this section the approximation will be applied to the problem of a particle in a potential well with just two turning points $x_{1}$ and $x_{2}$. Only the simple case when the zeros of $p^{2}$ at $x_{1}$ and $x_{2}$ are of first order will be considered. The potential will then be qualitatively as shown in Fig. 1. The solutions of the harmonic oscillator problem,\n$$ \\begin{aligned} \\frac{\\mathrm{d}^{2}\\phi}{\\mathrm{d}S^{2}} + (E-S^{2})\\phi = 0 \\end{aligned} $$\n(here $E$ is a parameter which will be chosen later), are convenient to use as the basis of the approximation in this problem because their properties are very well known and because $P^{2}(S)$ has the same type and number of zeros as $p^{2}(x)$.\n在本节中，将近似应用于势阱问题，其中粒子在势阱中有两个转折点 $x_{1}$ 和 $x_{2}$。 只考虑 $p^{2}$ 在 $x_{1}$ 和 $x_{2}$ 处的零点是一阶的简单情况。 势能将是如图 1 所示的质量。 谐振子问题的解，\n$$ \\begin{aligned} \\frac{\\mathrm{d}^{2}\\phi}{\\mathrm{d}S^{2}} + (E-S^{2})\\phi = 0 \\end{aligned} $$\n（这里 $E$ 是一个稍后将选择的参数），在这个问题中作为近似的基础是方便的，因为它们的性质非常熟悉，而且 $P^{2}(S)$ 的零点类型和数量与 $p^{2}(x)$ 相同。\nUsing the notation of Whittaker and Watson to describe the solutions of Eq. (18), one finds the following approximate solutions of Eq. (1):\n$$ \\begin{aligned} \\psi\u0026\\approx S^{\\prime -\\frac{1}{2}}D_{\\frac{1}{2}(E - 1)}(\\sqrt{2}S),\\\\ \\psi\u0026\\approx S^{\\prime -\\frac{1}{2}}D_{\\frac{1}{2}(E - 1)}(-\\sqrt{2}S), \\end{aligned} $$\nwhere\n$$ \\begin{aligned} \\int_{-\\sqrt{E}}^{S}(E - \\sigma^{2})^{\\frac{1}{2}}\\mathrm{d}\\sigma = \\int_{x_{1}}^{x}p(\\xi)\\mathrm{d}\\xi. \\end{aligned} $$\nThese are independent if $(E-1)/2$ is no—t an integer. The integration constants in Eq. (21) have been chosen for the following reason. Since $S^{\\prime}=p(x)/P(S)$, if the function $S(x)$ is chosen so that the zero of $P(S)$ at $—\\sqrt{E}$ corresponds to the zero of $p(x)$ at $x_{1}$, then $S(x)$ will be continuous at this point. This means that the approximate wave function itself will be continuous across the turning point $x_{1}$. Continuity across the second turning point $x_{2}$ is obtained similarly if one chooses the parameter $E$ so that\n$$ \\begin{aligned} \\int_{x_{1}}^{x_{2}}p(\\xi)\\mathrm{d}\\xi = \\int_{-\\sqrt{E}}^{\\sqrt{E}}(E-\\sigma^{2})^{\\frac{1}{2}}\\mathrm{d}\\sigma = \\frac{1}{2}E\\pi. \\end{aligned} $$\n使用 Whittaker 和 Watson 的符号来描述方程 (18) 的解，可以找到方程 (1) 的以下近似解：\n$$ \\begin{aligned} \\psi\u0026\\approx S^{\\prime -\\frac{1}{2}}D_{\\frac{1}{2}(E - 1)}(\\sqrt{2}S),\\\\ \\psi\u0026\\approx S^{\\prime -\\frac{1}{2}}D_{\\frac{1}{2}(E - 1)}(-\\sqrt{2}S), \\end{aligned} $$\n其中\n$$ \\begin{aligned} \\int_{-\\sqrt{E}}^{S}(E - \\sigma^{2})^{\\frac{1}{2}}\\mathrm{d}\\sigma = \\int_{x_{1}}^{x}p(\\xi)\\mathrm{d}\\xi. \\end{aligned} $$\n如果 $(E-1)/2$ 不是整数，则这些是独立的。 方程 (21) 中的积分常数之所以被选择，是因为以下原因。 由于 $S^{\\prime}=p(x)/P(S)$，如果选择函数 $S(x)$ 使得 $P(S)$ 在 $-\\sqrt{E}$ 处的零点对应于 $p(x)$ 在 $x_{1}$ 处的零点，那么 $S(x)$ 将在这一点连续。 这意味着近似波函数本身将在转折点 $x_{1}$ 处连续。 类似地，如果选择参数 $E$ 使得\n$$ \\begin{aligned} \\int_{x_{1}}^{x_{2}}p(\\xi)\\mathrm{d}\\xi = \\int_{-\\sqrt{E}}^{\\sqrt{E}}(E-\\sigma^{2})^{\\frac{1}{2}}\\mathrm{d}\\sigma = \\frac{1}{2}E\\pi. \\end{aligned} $$\nThis makes $S$ real when $x$ is real and completely specifies two independent continuous approximate solutions of Eq. (1). In some problems it is of interest to have asymptotic expansions of the approximate wave functions for large $x$. From Eq. (21) it is seen that\n$$ \\begin{aligned} \\lim_{x\\rightarrow \\pm\\infty}S(x) = \\pm\\infty \\end{aligned} $$\nso that the asymptotic behaviors of the. approximate wave functions depend on the asymptotic forms of the function $D_{(E-1)/2}$. Using these asymptotic forms as given in Eqs. (39) and (45) in the Appendix and expanding Eq. (21) for $S\\rightarrow\\pm\\infty$, one finds that\n$$ \\begin{aligned} \u0026\\left[\\frac{1}{\\sqrt{2\\pi}}\\left(\\frac{2e}{E}\\right)^{\\frac{1}{2}E}\\Gamma\\left(\\frac{E}{2}+\\frac{1}{2}\\right)\\right]\\\\ \u0026\\times 2\\cos{\\left(\\frac{E\\pi}{2}\\right)}|p|^{-\\frac{1}{2}}e^{\\int_{x}^{x_{1}}|p(\\xi)|\\mathrm{d}\\xi} + \\sin{\\left(\\frac{1}{2}\\right)}|p|^{-\\frac{1}{2}}e^{-\\int_{x}^{x_{1}}|p(\\xi)|\\mathrm{d}\\xi}\\\\ \u0026\\stackrel{x\\rightarrow -\\infty}{\\longleftarrow}2^{\\frac{1}{4}}\\left(\\frac{2e}{E}\\right)^{\\frac{E}{4}}\\frac{1}{\\sqrt{S^{\\prime}}}D_{\\frac{1}{2}(E-1)}(\\sqrt{2}S)\\\\ \u0026\\stackrel{x\\rightarrow +\\infty}{\\longrightarrow}\\frac{1}{\\sqrt{|p|}}e^{-\\int_{x_{2}}^{x}|p(\\xi)|\\mathrm{d}\\xi}, \\end{aligned} $$\n$$ \\begin{aligned} \u0026\\frac{1}{\\sqrt{|p|}}e^{-\\int_{x}^{x_{1}}|p(\\xi)|\\mathrm{d}\\xi}\\\\ \u0026\\stackrel{x\\rightarrow -\\infty}{\\longleftarrow} 2^{\\frac{1}{4}}\\left(\\frac{2e}{E}\\right)^{\\frac{E}{4}}\\frac{1}{\\sqrt{S^{\\prime}}}D_{\\frac{1}{2}(E-1)}(-\\sqrt{2}S)\\\\ \u0026\\stackrel{x\\rightarrow +\\infty}{\\longrightarrow}\\left[\\frac{1}{\\sqrt{2\\pi}}\\left(\\frac{2e}{E}\\right)^{\\frac{E}{2}}\\Gamma\\left(\\frac{E}{2}+\\frac{1}{2}\\right)\\right]\\\\ \u0026\\times 2\\cos{\\left(\\frac{E\\pi}{2}\\right)}\\frac{1}{\\sqrt{|p|}}e^{\\int_{x_{2}}^{x}|p(\\xi)|\\mathrm{d}\\xi} + \\sin{\\left(\\frac{E\\pi}{2}\\right)}\\frac{1}{\\sqrt{|p|}}e^{-\\int_{x_{2}}^{x}|p(\\xi)|\\mathrm{d}\\xi}. \\end{aligned} $$\nWhen $W$ is large, it is clear from Eq. (22) that the parameter $E$ is large. In that case the factor in the square brackets in Eqs. (23) and (24) approaches one, as is seen by using the Stirling approximation for the $\\Gamma$-function. The connection between the two exponential regions is then identical with the one obtained by the ordinary WKB method using the usual connection formulas across the turning points without regard to direction.\n这使得当 $x$ 是实数时 $S$ 是实数，并完全指定了方程 (1) 的两个独立连续近似解。 在一些问题中，有兴趣对大 $x$ 的近似波函数进行渐近展开。 从方程 (21) 中可以看出\n$$ \\begin{aligned} \\lim_{x\\rightarrow \\pm\\infty}S(x) = \\pm\\infty \\end{aligned} $$\n因此，近似波函数的渐近行为取决于函数 $D_{(E-1)/2}$ 的渐近形式。 使用附录中方程 (39) 和 (45) 给出的这些渐近形式，并将方程 (21) 展开到 $S\\rightarrow\\pm\\infty$，可以发现\n$$ \\begin{aligned} \u0026\\left[\\frac{1}{\\sqrt{2\\pi}}\\left(\\frac{2e}{E}\\right)^{\\frac{1}{2}E}\\Gamma\\left(\\frac{E}{2}+\\frac{1}{2}\\right)\\right]\\\\ \u0026\\times 2\\cos{\\left(\\frac{E\\pi}{2}\\right)}|p|^{-\\frac{1}{2}}e^{\\int_{x}^{x_{1}}|p(\\xi)|\\mathrm{d}\\xi} + \\sin{\\left(\\frac{1}{2}\\right)}|p|^{-\\frac{1}{2}}e^{-\\int_{x}^{x_{1}}|p(\\xi)|\\mathrm{d}\\xi}\\\\ \u0026\\stackrel{x\\rightarrow -\\infty}{\\longleftarrow}2^{\\frac{1}{4}}\\left(\\frac{2e}{E}\\right)^{\\frac{E}{4}}\\frac{1}{\\sqrt{S^{\\prime}}}D_{\\frac{1}{2}(E-1)}(\\sqrt{2}S)\\\\ \u0026\\stackrel{x\\rightarrow +\\infty}{\\longrightarrow}\\frac{1}{\\sqrt{|p|}}e^{-\\int_{x_{2}}^{x}|p(\\xi)|\\mathrm{d}\\xi}, \\end{aligned} $$\n$$ \\begin{aligned} \u0026\\frac{1}{\\sqrt{|p|}}e^{-\\int_{x}^{x_{1}}|p(\\xi)|\\mathrm{d}\\xi}\\\\ \u0026\\stackrel{x\\rightarrow -\\infty}{\\longleftarrow} 2^{\\frac{1}{4}}\\left(\\frac{2e}{E}\\right)^{\\frac{E}{4}}\\frac{1}{\\sqrt{S^{\\prime}}}D_{\\frac{1}{2}(E-1)}(-\\sqrt{2}S)\\\\ \u0026\\stackrel{x\\rightarrow +\\infty}{\\longrightarrow}\\left[\\frac{1}{\\sqrt{2\\pi}}\\left(\\frac{2e}{E}\\right)^{\\frac{E}{2}}\\Gamma\\left(\\frac{E}{2}+\\frac{1}{2}\\right)\\right]\\\\ \u0026\\times 2\\cos{\\left(\\frac{E\\pi}{2}\\right)}\\frac{1}{\\sqrt{|p|}}e^{\\int_{x_{2}}^{x}|p(\\xi)|\\mathrm{d}\\xi} + \\sin{\\left(\\frac{E\\pi}{2}\\right)}\\frac{1}{\\sqrt{|p|}}e^{-\\int_{x_{2}}^{x}|p(\\xi)|\\mathrm{d}\\xi}. \\end{aligned} $$\n当 $W$ 很大时，从方程 (22) 可以看出参数 $E$ 很大。 在这种情况下，方程 (23) 和 (24) 中的方括号中的因子接近于一，通过使用 $\\Gamma$ 函数的 Stirling 近似可以看出。 连接两个指数区域的连接与使用通常的连接公式跨转折点而不考虑方向得到的普通 WKB 方法是相同的。\nFor the bound states one must use the solutions of Eq. (18) which are finite at infinite $S$. These solutions are\n$$ \\begin{aligned} D_{n}(\\sqrt{2}s) = 2^{-\\frac{n}{2}}H_{n}(S)e^{-\\frac{S^{2}}{2}}, \\end{aligned} $$\nwhere $n= (E - 1)/2$ is a positive integer or zero and the $H_{n}$ are the Hermite polynomials. The approximations to the bound state wave functions are then\n$$ \\begin{aligned} \\psi_{n}\\approx A_{n}S^{\\prime -\\frac{1}{2}}e^{-\\frac{S^{2}}{2}}H_{n}(S), \\end{aligned} $$\nwhere $S$ is still given by Eq. (21) and the $A_{n}$ are normalizing constants. The eigenvalue condition, from Eq. (22), is\n$$ \\begin{aligned} \\int_{x_{1}}^{x_{2}}p(\\xi)\\mathrm{d}\\xi = \\left(n + \\frac{1}{2}\\right)\\pi,\\quad n = 0,1,2,\\cdots, \\end{aligned} $$\nwhich is identical with the usual WKB eigencondition. If a different $P(S)$ had been used, a different condition might have been obtained. The potential\n$$ \\begin{aligned} V(x) = -1.922\\frac{e^{x}}{1 + e^{x}} - 11.20\\frac{e^{x}}{(1 + e^{x})^{2}} \\end{aligned} $$\nhas been chosen for an example. The reason for choosing this type of potential is that the exact solutions for the bound states can be expressed in terms of elementary functions. The constants have been chosen to allow only two energy levels and to make the wave functions unsymmetrical. The exact and approximate wave functions have been plotted in Fig. 2.\n对于束缚态，必须使用方程 (18) 的在无穷大 $S$ 处有限的解。 这些解是\n$$ \\begin{aligned} D_{n}(\\sqrt{2}s) = 2^{-\\frac{n}{2}}H_{n}(S)e^{-\\frac{S^{2}}{2}}, \\end{aligned} $$\n其中 $n= (E - 1)/2$ 是正整数或零，$H_{n}$ 是 Hermite 多项式。 那么束缚态波函数的近似值为\n$$ \\begin{aligned} \\psi_{n}\\approx A_{n}S^{\\prime -\\frac{1}{2}}e^{-\\frac{S^{2}}{2}}H_{n}(S), \\end{aligned} $$\n其中 $S$ 仍然由方程 (21) 给出，$A_{n}$ 是归一化常数。 从方程 (22) 中的特征值条件是\n$$ \\begin{aligned} \\int_{x_{1}}^{x_{2}}p(\\xi)\\mathrm{d}\\xi = \\left(n + \\frac{1}{2}\\right)\\pi,\\quad n = 0,1,2,\\cdots, \\end{aligned} $$\n这与通常的 WKB 特征值条件相同。 如果使用不同的 $P(S)$，可能会得到不同的条件。 选择了一个例子的势能\n$$ \\begin{aligned} V(x) = -1.922\\frac{e^{x}}{1 + e^{x}} - 11.20\\frac{e^{x}}{(1 + e^{x})^{2}} \\end{aligned} $$\n选择这种类型的势能的原因是束缚态的精确解可以用初等函数表示。 选择常数是为了只允许两个能级，并使波函数不对称。 图 2 中绘制了精确和近似波函数。\nSince the approximate wave functions are continuous, they can be used to obtain approximations to matrix elements. In many problems diagonal matrix elements can be found by making a further approxnnation which avoids calculating the wave functions and making a numerical integration. Consider, for example,\n$$ \\begin{aligned} \\int_{-\\infty}^{+\\infty}|\\psi_{n}|^{2}x^{m}\\mathrm{d}x \u0026\\approx A_{n}^{2}\\int_{-\\infty}^{+\\infty}\\frac{1}{S^{\\prime}}e^{-S^{2}}H_{n}^{2}(S)x^{m}\\mathrm{d}x\\\\ \u0026= A_{n}^{2}\\int_{-\\infty}^{+\\infty}\\frac{1}{S^{\\prime 2}}e^{-S^{2}}H_{n}^{2}x^{m}\\mathrm{d}S, \\end{aligned} $$\nwhere $m$ is some integer. This quantity might be evaluated by expressing $x$ and $S^{\\prime -1}$ as power series in $S$ and performing the integration. As an approximation one may use, instead of power series, $(2K+1)$-degree polynomials chosen to give the correct values of $x(S)$ and its derivatives up to the $K$th order at both turning points. The values at other points could be used but the turning points are especially suitable since their locations are known immediately once the energy has been found and also since ordinarily the wave function will be large only in the region between these points. The needed derivatives at a first-order turning point can be found by using Eq. (15) to make a series expansion of the type\n$$ \\begin{aligned} x(S) = x_{0} + \\left[\\left(\\frac{\\mathrm{d}p^{2}}{\\mathrm{d}x}\\right)_{x_{0}}/\\left(\\frac{\\mathrm{d}P^{2}}{\\mathrm{d}S}\\right)_{s_{0}}\\right]^{-\\frac{1}{3}}(S-s_{0}) + \\cdots. \\end{aligned} $$\nOne can easily express $(S^{\\prime})^{-1}$ in terms of $S$ by differentiating the polynomial $x(S)$ with respect to $S$.\n由于近似波函数是连续的，因此可以用它们来获得矩阵元的近似值。 在许多问题中，对角矩阵元可以通过进一步的近似来找到，避免计算波函数并进行数值积分。 例如，考虑\n$$ \\begin{aligned} \\int_{-\\infty}^{+\\infty}|\\psi_{n}|^{2}x^{m}\\mathrm{d}x \u0026\\approx A_{n}^{2}\\int_{-\\infty}^{+\\infty}\\frac{1}{S^{\\prime}}e^{-S^{2}}H_{n}^{2}(S)x^{m}\\mathrm{d}x\\\\ \u0026= A_{n}^{2}\\int_{-\\infty}^{+\\infty}\\frac{1}{S^{\\prime 2}}e^{-S^{2}}H_{n}^{2}x^{m}\\mathrm{d}S, \\end{aligned} $$\n其中 $m$ 是某个整数。 可以通过将 $x$ 和 $S^{\\prime -1}$ 表示为 $S$ 的幂级数并执行积分来评估这个量。 作为近似，可以使用 $(2K+1)$ 阶多项式，选择这些多项式以在两个转折点处给出 $K$ 阶的正确值 $x(S)$ 及其导数。 可以使用其他点的值，但转折点特别适合，因为一旦能量被找到，它们的位置就立即知道，而且通常波函数只在这些点之间的区域内很大。 可以通过使用方程 (15) 对类型进行级数展开来找到一阶转折点处所需的导数\n$$ \\begin{aligned} x(S) = x_{0} + \\left[\\left(\\frac{\\mathrm{d}p^{2}}{\\mathrm{d}x}\\right)_{x_{0}}/\\left(\\frac{\\mathrm{d}P^{2}}{\\mathrm{d}S}\\right)_{s_{0}}\\right]^{-\\frac{1}{3}}(S-s_{0}) + \\cdots. \\end{aligned} $$\n可以通过将多项式 $x(S)$ 对 $S$ 求导来很容易地用 $S$ 表示 $(S^{\\prime})^{-1}$。\nAs a special case of Eq. (29) this procedure may be used to normalize the approximate wave functions of bound states so that their integral squares are one. For example, for the two levels of the Eckart potential used above, one finds for the normalizing constants $A_{0}$ and $A_{1}$:\n$A_{0}$(first level) $A_{1}$(second level) Numerical integration 1.627 1.686 First degree polynomial approximation($K=0$) 1.600 1.483 Third degree polynomial approximation($K=1$) 1.629 1.700 As a further example $\\langle x^{2}\\rangle_{\\text{Av}}$, the expected value of $x^{2}$, has been calculated for the two bound states of the above Eckart potential. Third-degree polynomials were used, both for normalizing and for evaluating the integral. For comparison the same quantity has been calculated using the exact wave functions and also using the approximate wave functions with numerical integration throughout. The results are as follows:\nFirst level Second level $\\langle x^{2}\\rangle_{\\text{Av}}$(approximate wave function, polynomials) 1.237 9.52 $\\langle x^{2}\\rangle_{\\text{Av}}$(exact wave function, numerical integration) 1.223 10.19 $\\langle x^{2}\\rangle_{\\text{Av}}$(approximate wave function, numerical integration) 1.224 10.51 The polynomial method in general may be criticized because there is no way of estimating the error in the approximation of a matrix element and because it cannot be applied to off-diagonal matrix elements, since different functions $S(x)$ arise for different energies.\n作为方程 (29) 的特殊情况，可以使用这个过程来归一化束缚态的近似波函数，使其积分平方为一。 例如，对于上面使用的 Eckart 势能的两个能级，可以找到归一化常数 $A_{0}$ 和 $A_{1}$：\n$A_{0}$(第一能级) $A_{1}$(第二能级) 数值积分 1.627 1.686 一次多项式近似($K=0$) 1.600 1.483 三次多项式近似($K=1$) 1.629 1.700 作为进一步的例子，已经计算了上述 Eckart 势能的两个束缚态的 $\\langle x^{2}\\rangle_{\\text{Av}}$，即 $x^{2}$ 的期望值。 用于归一化和计算积分的是三次多项式。 为了比较，已经使用精确波函数和在整个过程中使用数值积分的近似波函数计算了相同的量。 结果如下：\n第一能级 第二能级 $\\langle x^{2}\\rangle_{\\text{Av}}$(近似波函数，多项式) 1.237 9.52 $\\langle x^{2}\\rangle_{\\text{Av}}$(精确波函数，数值积分) 1.223 10.19 $\\langle x^{2}\\rangle_{\\text{Av}}$(近似波函数，数值积分) 1.224 10.51 一般来说，多项式方法可能会受到批评，因为没有办法估计矩阵元的近似误差，因为它不能应用于非对角矩阵元，因为不同的能量会产生不同的函数 $S(x)$。\nApplication to Potential Barrier Problems The penetration of a particle through a potential barrier will be discussed in this section. The discussion will be restricted to those potentials for which, when the energy is below the peak of the barrier, $p^{2}(x)$ has two first order zeros $x_{1}$ and $x_{2}$, where $x_{1}",
+  "wordCount" : "6409",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2025/01/03/moqifDjPJAnpFcx.png","datePublished": "2025-01-03T00:18:06+08:00",
+  "dateModified": "2025-01-03T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/qp/wkb-method/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/qp/">➿ Quantum Physics</a></div>
+            <h1 class="post-title">
+                A WEB-Type Approximation to the Schrodinger Equation
+            </h1>
+            <div class="post-description">
+                用于完成渐进分析的阅读笔记作业
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-01-03
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>6409字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>13分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">Read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2025/01/03/moqifDjPJAnpFcx.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#genearal-treatment" aria-label="Genearal Treatment">Genearal Treatment</a></li>
+                <li>
+                    <a href="#application-to-a-potential-well-problems" aria-label="Application to a Potential Well Problems">Application to a Potential Well Problems</a></li>
+                <li>
+                    <a href="#application-to-potential-barrier-problems" aria-label="Application to Potential Barrier Problems">Application to Potential Barrier Problems</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>A method of approximating solutions of the one-dimensional Schrodinger equation is presented in this paper. The method closely resembles the usual WEB approximation. Whereas in the ordinary WEB method the exponential function is used as the basis of the approximation, in this paper the solutions of an arbitrary Schrodinger equation are used. The general advantage is that by proper choice of the arbitrary equation an improved approximation can be obtained. The method is illustrated by treating the potential well and potential barrier problems when there are two turning points. The approximations to the wave functions are continuous even across the turning points. The barrier transmission problem is treated uniformly for energies above and below the peak of the barrier.</p>
+</blockquote>
+<p>本文提出了一种一维薛定谔方程近似解的方法。 该方法与普通的 WEB 近似法非常相似。 普通的 WEB 方法使用指数函数作为近似的基础，而本文则使用任意薛定谔方程的解。 其总体优势在于，通过适当选择任意方程，可以获得改进的近似值。 本文通过处理存在两个转折点时的势阱和势垒问题来说明该方法。 即使跨越转折点，波函数的近似值也是连续的。 对于势垒峰值以上和以下的能量，势垒传输问题都是统一处理的。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>The WEB method, as well as showing the correspondence between classical and quantum mechanics, provides useful approximations to the solutions of the one-dimensional Schrodinger equation. A limitation on its usefulness as an approximation is that it becomes infinite at the classical turning points of the motion. Langer introduced an approximation based on Bessel functions which remains finite at any one turning point and, far from the turning point, becomes identical with the WKB approximation. However, at a second turning point his result is infinite and, to obtain approximate solutions which are everywhere finite, one must join it to a similar approximation finite at the second turning point.</p>
+</blockquote>
+<p>WEB 方法不仅显示了经典力学与量子力学之间的对应关系，还为一维薛定谔方程的解提供了有用的近似值。 它作为近似值的局限性在于，在运动的经典转折点处，它的近似值变得无限大。 Langer 提出了一种基于 Bessel 函数的近似值，它在任何一个转折点都保持有限，而在远离转折点的地方，则与 WKB 近似值相同。 然而，在第二个转折点上，他的结果是无限的，为了得到处处有限的近似解，我们必须将它与在第二个转折点上有限的类似近似解连接起来。</p>
+<blockquote>
+<p>The ordinary WEB method is based on the exponential function and Langer&rsquo;s approximation on Bessel functions. In this paper it is shown that a general WKB-type approximation ca,n be constructed based on the solutions of an arbitrary Schrodinger equation. A good approximation is obtained if the arbitrary equation is chosen to resemble the Schrodinger equation to be solved. In this respect the approximation is similar to perturbation theory. As a particular example of the general approximation, if the arbitrary equation is that of a free particle, one obtains the ordinary WKB  approximation. As another special case, I.anger&rsquo;s approximation can be interpreted as arising from the Schrodinger equation in which the kinetic energy is a power of the coordinate. Also, by properly choosing the equation, one may find approximate solutions which are finite at several turning points. The only example considered below is that of two turning points; many problems fall into this class.</p>
+</blockquote>
+<p>普通 WEB 方法基于指数函数和贝塞尔函数的 Langer 近似。 本文表明，可以根据任意薛定谔方程的解来构建一般的 WKB 型近似方法。 如果选择的任意方程与要求解的薛定谔方程相似，就能获得良好的近似值。 在这方面，这种近似方法类似于扰动理论。 作为一般近似的一个特殊例子，如果任意方程是一个自由粒子的方程，就可以得到普通的 WKB 近似。 作为另一个特例，Langer  的近似可以解释为产生于薛定谔方程，其中动能是坐标的幂。 此外，通过适当选择方程，还可以得到在多个转折点上都是有限的近似解。 下面考虑的只是两个转折点的例子；许多问题都属于这一类。</p>
+<blockquote>
+<p>An advantage of the method used here is that a problem does not need to be broken up into regions with connection formulas between them but instead a single approximate solution can be obtained which is continuous over the whole region. Because of this continuity one can use the approximate wave functions to discuss matrix elements. Ordinarily this is not done because of the infinities at the turning points. In general one must use numerical integration to calculate the matrix elements from the approximate wave functions. However, the numerical integration can be avoided in  some special cases discussed in Sec. III. Another advantage of the method is that the problem of transmission through a potential barrier can be discussed uniformly for particle energies above and below the peak of the barrier. The usual WKB approximation gives complete transmission when the energy is above the peak.</p>
+</blockquote>
+<p>这里使用的方法的一个优点是，不需要将问题分割成若干区域，并在这些区域之间建立连接公式，而是可以得到一个在整个区域内连续的近似解。 由于这种连续性，我们可以使用近似波函数来讨论矩阵元素。 通常情况下，由于转折点处的无穷大，我们不会这样做。 一般来说，我们必须使用数值积分来计算近似波函数的矩阵元素。 不过，在第三节讨论的一些特殊情况下，可以避免数值积分。 该方法的另一个优点是可以统一讨论粒子能量高于和低于势垒峰值时通过势垒的传输问题。 当能量高于峰值时，通常的 WKB 近似方法给出了完全的传输。</p>
+<blockquote>
+<p>The general treatment, for an unspeci6ed basic function, is given in Sec. II. The application to a potential well problem with two turning points is given in Sec. III, basing the approximation on the solutions of the Schrodinger equation for a harmonic oscillator. In, Sec. IV the complementary problem of transmission through a potential barrier is discussed.</p>
+</blockquote>
+<p>第二节给出了对未指定基本函数的一般处理方法。 第三节给出了对具有两个转折点的势阱问题的应用，其近似方法基于谐振子薛定谔方程的解。 第四节讨论了通过势垒传输的补充问题。</p>
+<h1 id="genearal-treatment">Genearal Treatment<a hidden class="anchor" aria-hidden="true" href="#genearal-treatment">#</a></h1>
+<blockquote>
+<p>The general problem is to find approximate solutions of the one-dimensional Schrodinger equation,</p>
+<p>$$
+\begin{aligned}
+\frac{\mathrm{d}^{2}\psi(x)}{\mathrm{d}x^{2}} + \left[\frac{p^{2}(x)}{\hbar^{2}}\right]\psi(x) = 0
+\end{aligned}
+$$</p>
+<p>where</p>
+<p>$$
+\begin{aligned}
+p^{2}(x) = W - V(x)
+\end{aligned}
+$$</p>
+<p>Here $W$ is $2m$ times the total energy of a particle of mass m moving in a potential $V(x)/2m$. The approximate solutions are to be based on preselected functions $\phi(S)$ which satisfy</p>
+<p>$$
+\begin{aligned}
+\frac{\mathrm{d}^{2}\phi(S)}{\mathrm{d}S^{2}} + \left[\frac{P^{2}(S)}{\hbar^{2}}\right]\phi(S) = 0
+\end{aligned}
+$$</p>
+<p>for some function $P(S)$. Ordinarily one will be guided to an appropriate choice of $\phi(S)$ by choosing $P(S)$ qualitatively similar to $p(x)$. In the ordinary WKB method one finds approximations to the solutions of Eq. (1) by first changing the dependent variable from $\psi(x)$ to $S(x)$ through the substitution</p>
+<p>$$
+\begin{aligned}
+\psi(x) = e^{\frac{i}{\hbar}S(x)}.
+\end{aligned}
+$$</p>
+</blockquote>
+<p>一般问题是找到一维薛定谔方程的近似解，
+$$
+\begin{aligned}
+\frac{\mathrm{d}^{2}\psi(x)}{\mathrm{d}x^{2}} + \left[\frac{p^{2}(x)}{\hbar^{2}}\right]\psi(x) = 0
+\end{aligned}
+$$</p>
+<p>其中</p>
+<p>$$
+\begin{aligned}
+p^{2}(x) = W - V(x)
+\end{aligned}
+$$</p>
+<p>这里 $W$ 是质量为 $m$ 的粒子在势能 $V(x)/2m$ 中运动的总能量的 $2m$ 倍。 近似解是基于预选函数 $\phi(S)$ 的，该函数满足</p>
+<p>$$
+\begin{aligned}
+\frac{\mathrm{d}^{2}\phi(S)}{\mathrm{d}S^{2}} + \left[\frac{P^{2}(S)}{\hbar^{2}}\right]\phi(S) = 0
+\end{aligned}
+$$</p>
+<p>对于某个函数 $P(S)$。 通常情况下，通过选择与 $p(x)$ 在质量上相似的 $P(S)$ 来引导选择适当的 $\phi(S)$。 在普通的 WKB 方法中，首先通过替换将依赖变量从 $\psi(x)$ 更改为 $S(x)$ 来找到方程 (1) 的近似解，</p>
+<p>$$
+\begin{aligned}
+\psi(x) = e^{\frac{i}{\hbar}S(x)}.
+\end{aligned}
+$$</p>
+<blockquote>
+<p>The problem then reduces to finding a solution of</p>
+<p>$$
+\begin{aligned}
+-S^{\prime 2} + i\hbar S^{\prime\prime} + p^{2} = 0
+\end{aligned}
+$$</p>
+<p>and one thinks of solving this by a series expansion on $\hbar$, which is assumed to be small:</p>
+<p>$$
+\begin{aligned}
+S(x) = S_{0}(x) + S_{1}(x)\hbar + S_{2}(x)\hbar^{2} + \cdots
+\end{aligned}
+$$</p>
+<p>Ordinarily only the 6rst two terms are calculated, with the result that</p>
+<p>$$
+\begin{aligned}
+\psi\approx p^{-\frac{1}{2}}e^{\pm\frac{i}{\hbar}\int p(x)\mathrm{d}x},
+\end{aligned}
+$$</p>
+<p>where the usual connection formulas between regions on opposite sides of the turning points (points at which $p=0$) are to be used.</p>
+</blockquote>
+<p>然后问题就简化为找到方程的解</p>
+<p>$$
+\begin{aligned}
+-S^{\prime 2} + i\hbar S^{\prime\prime} + p^{2} = 0
+\end{aligned}
+$$</p>
+<p>人们考虑通过 $\hbar$ 的级数展开来解决这个问题，假设 $\hbar$ 很小：</p>
+<p>$$
+\begin{aligned}
+S(x) = S_{0}(x) + S_{1}(x)\hbar + S_{2}(x)\hbar^{2} + \cdots
+\end{aligned}
+$$</p>
+<p>通常只计算前两项，结果是</p>
+<p>$$
+\begin{aligned}
+\psi\approx p^{-\frac{1}{2}}e^{\pm\frac{i}{\hbar}\int p(x)\mathrm{d}x},
+\end{aligned}
+$$</p>
+<p>其中通常使用连接公式来连接转折点两侧的区域（$p=0$ 的点）。</p>
+<blockquote>
+<p>In parallel with the ordinary WKB method, the first step in attacking the general problem is to change the dependent variable to $S(x)$ by the substitution</p>
+<p>$$
+\begin{aligned}
+\psi(x) = T(x)\phi(S(x)),
+\end{aligned}
+$$</p>
+<p>where the function $T(x)$ will be specified below. It is needed in order to obtain an equation in $S$, independent of $\phi$. On substituting Eq. (8) into Eq. (1), one finds immediately that</p>
+<p>$$
+\begin{aligned}
+\psi^{\prime\prime} + \frac{p^{2}}{\hbar^{2}}\psi = \left(\frac{\hbar^{2}T^{\prime\prime}}{T} - S^{\prime 2}P^{2} + p^{2}\right)\frac{T\phi}{\hbar^{2}} + \left(\frac{2T^{\prime}}{T} + \frac{S^{\prime\prime}}{S^{\prime}}\right)TS^{\prime}\frac{\mathrm{d}\phi}{\mathrm{d}S},
+\end{aligned}
+$$</p>
+<p>where Eq. (3) has been used to eliminate p&quot;. Here one sees that if</p>
+<p>$$
+\begin{aligned}
+T = S^{\prime -\frac{1}{2}},
+\end{aligned}
+$$</p>
+<p>then the problem reduces to finding a solution of</p>
+<p>$$
+\begin{aligned}
+\frac{\hbar^{2}T^{\prime\prime}}{T} - S^{\prime 2}P^{2} + p^{2} = 0.
+\end{aligned}
+$$</p>
+</blockquote>
+<p>与普通的 WKB 方法类似，解决一般问题的第一步是通过替换将依赖变量更改为 $S(x)$，</p>
+<p>$$
+\begin{aligned}
+\psi(x) = T(x)\phi(S(x)),
+\end{aligned}
+$$</p>
+<p>其中函数 $T(x)$ 将在下面指定。 为了得到一个与 $\phi$ 无关的 $S$ 方程，需要它。 将方程 (8) 代入方程 (1) 中，立即发现</p>
+<p>$$
+\begin{aligned}
+\psi^{\prime\prime} + \frac{p^{2}}{\hbar^{2}}\psi = \left(\frac{\hbar^{2}T^{\prime\prime}}{T} - S^{\prime 2}P^{2} + p^{2}\right)\frac{T\phi}{\hbar^{2}} + \left(\frac{2T^{\prime}}{T} + \frac{S^{\prime\prime}}{S^{\prime}}\right)TS^{\prime}\frac{\mathrm{d}\phi}{\mathrm{d}S},
+\end{aligned}
+$$</p>
+<p>其中使用方程 (3) 来消除 $p^{\prime\prime}$。 这里可以看到，如果</p>
+<p>$$
+\begin{aligned}
+T = S^{\prime -\frac{1}{2}},
+\end{aligned}
+$$</p>
+<p>那么问题就简化为找到方程的解</p>
+<p>$$
+\begin{aligned}
+\frac{\hbar^{2}T^{\prime\prime}}{T} - S^{\prime 2}P^{2} + p^{2} = 0.
+\end{aligned}
+$$</p>
+<blockquote>
+<p>The value of $T$ from Eq. (10) makes this a differential equation in $S(x)$ alone. The next step is to find a series solution for small $\hbar$. Since only $\hbar^{2}$ appears in Eq. (11) one may write</p>
+<p>$$
+\begin{aligned}
+S(x) = S_{0}(x) + S_{2}(x)\hbar^{2} + S_{4}(x)\hbar^{4} + \cdots
+\end{aligned}
+$$</p>
+<p>If, as usual, the approximation is carried to two orders in $\hbar$, only $S_{0}$ will be retained in this series, and evidently from Eq. (11)</p>
+<p>$$
+\begin{aligned}
+S_{0}^{\prime 2}P^{2} = p^{2}.
+\end{aligned}
+$$</p>
+<p>If the positive square root is used, the approximate solutions are</p>
+<p>$$
+\begin{aligned}
+\psi_{\text{app}} = S^{\prime -\frac{1}{2}}\phi(S).
+\end{aligned}
+$$</p>
+<p>where</p>
+<p>$$
+\begin{aligned}
+\int_{s_{0}}^{S}P(\sigma)\mathrm{d}\sigma = \int_{x_{0}}^{x}p(\xi)\mathrm{d}\xi.
+\end{aligned}
+$$</p>
+<p>The two independent solutions $\phi(S)$ of Eq. (3) give the approximations to two independent solutions of Eq. (1). In many problems the integration constants $s_{0}$, $x_{0}$ may be chosen to make the approximate wave function continuous across the turning points, as will be illustrated in Secs. III and IV. With the choice $P^{2}(S)=1$, the approximation reduces immediately to the ordinary WXB approximation. By taking xp to be a turning point of $p^{2}(x)$, $P^{2}(S) = S^{\nu}$, and $s_{0}=0$, one obtains Langer&rsquo;s approximation for the case when $p^{2}(x)$ has a zero of the $\nu$th order at the turning point.</p>
+</blockquote>
+<p>方程 (10) 中的 $T$ 值使得这是一个仅包含 $S(x)$ 的微分方程。 下一步是找到小 $\hbar$ 的级数解。 由于方程 (11) 中只出现 $\hbar^{2}$，因此可以写成</p>
+<p>$$
+\begin{aligned}
+S(x) = S_{0}(x) + S_{2}(x)\hbar^{2} + S_{4}(x)\hbar^{4} + \cdots
+\end{aligned}
+$$</p>
+<p>如果像往常一样，近似值被计算到 $\hbar$ 的两个阶，那么在这个级数中只保留 $S_{0}$，显然从方程 (11) 中</p>
+<p>$$
+\begin{aligned}
+S_{0}^{\prime 2}P^{2} = p^{2}.
+\end{aligned}
+$$</p>
+<p>如果使用正平方根，近似解为</p>
+<p>$$
+\begin{aligned}
+\psi_{\text{app}} = S^{\prime -\frac{1}{2}}\phi(S).
+\end{aligned}
+$$</p>
+<p>其中</p>
+<p>$$
+\begin{aligned}
+\int_{s_{0}}^{S}P(\sigma)\mathrm{d}\sigma = \int_{x_{0}}^{x}p(\xi)\mathrm{d}\xi.
+\end{aligned}
+$$</p>
+<p>方程 (3) 的两个独立解 $\phi(S)$ 给出了方程 (1) 的两个独立解的近似值。 在许多问题中，积分常数 $s_{0}$，$x_{0}$ 可以被选择为使近似波函数在转折点处连续，如第三节和第四节所示。 通过选择 $P^{2}(S)=1$，近似值立即简化为普通的 WKB 近似。 通过取 $p^{2}(x)$ 的转折点，$P^{2}(S) = S^{\nu}$，$s_{0}=0$，可以得到 Langer 的近似值，即当 $p^{2}(x)$ 在转折点处有 $\nu$ 阶零点时。</p>
+<blockquote>
+<p>Whenever the function $S(x)$ is real, as in Secs. III and IV, the approximate wave function will exactly satisfy the conservation of probability equation,</p>
+<p>$$
+\begin{aligned}
+\frac{\hbar}{2im}\frac{\mathrm{d}}{\mathrm{d}x}\left(\psi_{\text{app}}^{*}\frac{\mathrm{d}}{\mathrm{d}x}\psi_{\text{app}} - \psi_{\text{app}}\frac{\mathrm{d}}{\mathrm{d}x}\psi_{\text{app}}^{*}\right) \\
+= \frac{\hbar}{2im}S^{\prime}\frac{\mathrm{d}}{\mathrm{d}S}\left(\phi^{*}\frac{\mathrm{d}}{\mathrm{d}S}\phi - \phi\frac{\mathrm{d}}{\mathrm{d}S}\phi^{*}\right) = 0.
+\end{aligned}
+$$</p>
+<p>This is a consequence of the choice of $T$ in Eq. (10) and the fact that $\phi$ itself satisfies a Schrodinger equation. One may verify that</p>
+<p>$$
+\begin{aligned}
+\psi_{\text{app}}^{\prime\prime} + \frac{p^{2}}{\hbar^{2}}\psi_{\text{app}} = \left[\frac{3}{4}\left(\frac{S^{\prime\prime}}{S^{\prime}}\right)^{2} - \frac{1}{2}\frac{S^{\prime\prime\prime}}{S^{\prime}}\right]\psi_{\text{app}}.
+\end{aligned}
+$$</p>
+<p>The accuracy of the approximation depends on the size of the term on the right.</p>
+</blockquote>
+<p>无论何时函数 $S(x)$ 是实数，如第三节和第四节，近似波函数将完全满足概率守恒方程，</p>
+<p>$$
+\begin{aligned}
+\frac{\hbar}{2im}\frac{\mathrm{d}}{\mathrm{d}x}\left(\psi_{\text{app}}^{*}\frac{\mathrm{d}}{\mathrm{d}x}\psi_{\text{app}} - \psi_{\text{app}}\frac{\mathrm{d}}{\mathrm{d}x}\psi_{\text{app}}^{*}\right) \\
+= \frac{\hbar}{2im}S^{\prime}\frac{\mathrm{d}}{\mathrm{d}S}\left(\phi^{*}\frac{\mathrm{d}}{\mathrm{d}S}\phi - \phi\frac{\mathrm{d}}{\mathrm{d}S}\phi^{*}\right) = 0.
+\end{aligned}
+$$</p>
+<p>这是方程 (10) 中 $T$ 的选择和 $\phi$ 本身满足薛定谔方程的事实的结果。 可以验证</p>
+<p>$$
+\begin{aligned}
+\psi_{\text{app}}^{\prime\prime} + \frac{p^{2}}{\hbar^{2}}\psi_{\text{app}} = \left[\frac{3}{4}\left(\frac{S^{\prime\prime}}{S^{\prime}}\right)^{2} - \frac{1}{2}\frac{S^{\prime\prime\prime}}{S^{\prime}}\right]\psi_{\text{app}}.
+\end{aligned}
+$$</p>
+<p>近似的准确性取决于右侧项的大小。</p>
+<h1 id="application-to-a-potential-well-problems">Application to a Potential Well Problems<a hidden class="anchor" aria-hidden="true" href="#application-to-a-potential-well-problems">#</a></h1>
+<blockquote>
+<p>In this section the approximation will be applied to the problem of a particle in a potential well with just two turning points $x_{1}$ and $x_{2}$. Only the simple case when the zeros of $p^{2}$ at $x_{1}$ and $x_{2}$ are of first order will be considered. The potential will then be qualitatively as shown in Fig. 1. The solutions of the harmonic oscillator problem,</p>
+<p>$$
+\begin{aligned}
+\frac{\mathrm{d}^{2}\phi}{\mathrm{d}S^{2}} + (E-S^{2})\phi = 0
+\end{aligned}
+$$</p>
+<p>(here $E$ is a parameter which will be chosen later), are convenient to use as the basis of the approximation in this problem because their properties are very well  known and because $P^{2}(S)$ has the same type and number of zeros as $p^{2}(x)$.</p>
+</blockquote>
+<p>在本节中，将近似应用于势阱问题，其中粒子在势阱中有两个转折点 $x_{1}$ 和 $x_{2}$。 只考虑 $p^{2}$ 在 $x_{1}$ 和 $x_{2}$ 处的零点是一阶的简单情况。 势能将是如图 1 所示的质量。 谐振子问题的解，</p>
+<p>$$
+\begin{aligned}
+\frac{\mathrm{d}^{2}\phi}{\mathrm{d}S^{2}} + (E-S^{2})\phi = 0
+\end{aligned}
+$$</p>
+<p>（这里 $E$ 是一个稍后将选择的参数），在这个问题中作为近似的基础是方便的，因为它们的性质非常熟悉，而且 $P^{2}(S)$ 的零点类型和数量与 $p^{2}(x)$ 相同。</p>
+<blockquote>
+<p>Using the notation of Whittaker and Watson to  describe the solutions of Eq. (18), one finds the following approximate solutions of Eq. (1):</p>
+<p>$$
+\begin{aligned}
+\psi&amp;\approx S^{\prime -\frac{1}{2}}D_{\frac{1}{2}(E - 1)}(\sqrt{2}S),\\
+\psi&amp;\approx S^{\prime -\frac{1}{2}}D_{\frac{1}{2}(E - 1)}(-\sqrt{2}S),
+\end{aligned}
+$$</p>
+<p>where</p>
+<p>$$
+\begin{aligned}
+\int_{-\sqrt{E}}^{S}(E - \sigma^{2})^{\frac{1}{2}}\mathrm{d}\sigma = \int_{x_{1}}^{x}p(\xi)\mathrm{d}\xi.
+\end{aligned}
+$$</p>
+<p>These are independent if $(E-1)/2$ is no—t an integer. The integration constants in Eq. (21) have been chosen for the following reason. Since $S^{\prime}=p(x)/P(S)$, if the function $S(x)$ is chosen so that the zero of $P(S)$ at $—\sqrt{E}$ corresponds to the zero of $p(x)$ at $x_{1}$, then $S(x)$ will be continuous at this point. This means that the approximate wave function itself will be continuous across the turning point $x_{1}$. Continuity across the second turning point $x_{2}$ is obtained similarly if one chooses the parameter $E$ so that</p>
+<p>$$
+\begin{aligned}
+\int_{x_{1}}^{x_{2}}p(\xi)\mathrm{d}\xi = \int_{-\sqrt{E}}^{\sqrt{E}}(E-\sigma^{2})^{\frac{1}{2}}\mathrm{d}\sigma = \frac{1}{2}E\pi.
+\end{aligned}
+$$</p>
+</blockquote>
+<p>使用 Whittaker 和 Watson 的符号来描述方程 (18) 的解，可以找到方程 (1) 的以下近似解：</p>
+<p>$$
+\begin{aligned}
+\psi&amp;\approx S^{\prime -\frac{1}{2}}D_{\frac{1}{2}(E - 1)}(\sqrt{2}S),\\
+\psi&amp;\approx S^{\prime -\frac{1}{2}}D_{\frac{1}{2}(E - 1)}(-\sqrt{2}S),
+\end{aligned}
+$$</p>
+<p>其中</p>
+<p>$$
+\begin{aligned}
+\int_{-\sqrt{E}}^{S}(E - \sigma^{2})^{\frac{1}{2}}\mathrm{d}\sigma = \int_{x_{1}}^{x}p(\xi)\mathrm{d}\xi.
+\end{aligned}
+$$</p>
+<p>如果 $(E-1)/2$ 不是整数，则这些是独立的。 方程 (21) 中的积分常数之所以被选择，是因为以下原因。 由于 $S^{\prime}=p(x)/P(S)$，如果选择函数 $S(x)$ 使得 $P(S)$ 在 $-\sqrt{E}$ 处的零点对应于 $p(x)$ 在 $x_{1}$ 处的零点，那么 $S(x)$ 将在这一点连续。 这意味着近似波函数本身将在转折点 $x_{1}$ 处连续。 类似地，如果选择参数 $E$ 使得</p>
+<p>$$
+\begin{aligned}
+\int_{x_{1}}^{x_{2}}p(\xi)\mathrm{d}\xi = \int_{-\sqrt{E}}^{\sqrt{E}}(E-\sigma^{2})^{\frac{1}{2}}\mathrm{d}\sigma = \frac{1}{2}E\pi.
+\end{aligned}
+$$</p>
+<blockquote>
+<p>This makes $S$ real when $x$ is real and completely specifies two independent continuous approximate solutions of Eq. (1). In some problems it is of interest to have asymptotic expansions of the approximate wave functions for large $x$. From Eq. (21) it is seen that</p>
+<p>$$
+\begin{aligned}
+\lim_{x\rightarrow \pm\infty}S(x) = \pm\infty
+\end{aligned}
+$$</p>
+<p>so that the asymptotic behaviors of the. approximate wave functions depend on the asymptotic forms of the function $D_{(E-1)/2}$. Using these asymptotic forms as given in Eqs. (39) and (45) in the Appendix and expanding Eq. (21) for $S\rightarrow\pm\infty$, one finds that</p>
+<p>$$
+\begin{aligned}
+&amp;\left[\frac{1}{\sqrt{2\pi}}\left(\frac{2e}{E}\right)^{\frac{1}{2}E}\Gamma\left(\frac{E}{2}+\frac{1}{2}\right)\right]\\
+&amp;\times 2\cos{\left(\frac{E\pi}{2}\right)}|p|^{-\frac{1}{2}}e^{\int_{x}^{x_{1}}|p(\xi)|\mathrm{d}\xi} + \sin{\left(\frac{1}{2}\right)}|p|^{-\frac{1}{2}}e^{-\int_{x}^{x_{1}}|p(\xi)|\mathrm{d}\xi}\\
+&amp;\stackrel{x\rightarrow -\infty}{\longleftarrow}2^{\frac{1}{4}}\left(\frac{2e}{E}\right)^{\frac{E}{4}}\frac{1}{\sqrt{S^{\prime}}}D_{\frac{1}{2}(E-1)}(\sqrt{2}S)\\
+&amp;\stackrel{x\rightarrow +\infty}{\longrightarrow}\frac{1}{\sqrt{|p|}}e^{-\int_{x_{2}}^{x}|p(\xi)|\mathrm{d}\xi},
+\end{aligned}
+$$</p>
+</blockquote>
+<blockquote>
+<p>$$
+\begin{aligned}
+&amp;\frac{1}{\sqrt{|p|}}e^{-\int_{x}^{x_{1}}|p(\xi)|\mathrm{d}\xi}\\
+&amp;\stackrel{x\rightarrow -\infty}{\longleftarrow} 2^{\frac{1}{4}}\left(\frac{2e}{E}\right)^{\frac{E}{4}}\frac{1}{\sqrt{S^{\prime}}}D_{\frac{1}{2}(E-1)}(-\sqrt{2}S)\\
+&amp;\stackrel{x\rightarrow +\infty}{\longrightarrow}\left[\frac{1}{\sqrt{2\pi}}\left(\frac{2e}{E}\right)^{\frac{E}{2}}\Gamma\left(\frac{E}{2}+\frac{1}{2}\right)\right]\\
+&amp;\times 2\cos{\left(\frac{E\pi}{2}\right)}\frac{1}{\sqrt{|p|}}e^{\int_{x_{2}}^{x}|p(\xi)|\mathrm{d}\xi}  + \sin{\left(\frac{E\pi}{2}\right)}\frac{1}{\sqrt{|p|}}e^{-\int_{x_{2}}^{x}|p(\xi)|\mathrm{d}\xi}.
+\end{aligned}
+$$</p>
+<p>When $W$ is large, it is clear from Eq. (22) that the parameter $E$ is large. In that case the factor in the square brackets in Eqs. (23) and (24) approaches one, as is seen by using the Stirling approximation for the $\Gamma$-function. The connection between the two exponential regions is then identical with the one obtained by the ordinary WKB method using the usual connection formulas across the turning points without regard to direction.</p>
+</blockquote>
+<p>这使得当 $x$ 是实数时 $S$ 是实数，并完全指定了方程 (1) 的两个独立连续近似解。 在一些问题中，有兴趣对大 $x$ 的近似波函数进行渐近展开。 从方程 (21) 中可以看出</p>
+<p>$$
+\begin{aligned}
+\lim_{x\rightarrow \pm\infty}S(x) = \pm\infty
+\end{aligned}
+$$</p>
+<p>因此，近似波函数的渐近行为取决于函数 $D_{(E-1)/2}$ 的渐近形式。 使用附录中方程 (39) 和 (45) 给出的这些渐近形式，并将方程 (21) 展开到 $S\rightarrow\pm\infty$，可以发现</p>
+<p>$$
+\begin{aligned}
+&amp;\left[\frac{1}{\sqrt{2\pi}}\left(\frac{2e}{E}\right)^{\frac{1}{2}E}\Gamma\left(\frac{E}{2}+\frac{1}{2}\right)\right]\\
+&amp;\times 2\cos{\left(\frac{E\pi}{2}\right)}|p|^{-\frac{1}{2}}e^{\int_{x}^{x_{1}}|p(\xi)|\mathrm{d}\xi} + \sin{\left(\frac{1}{2}\right)}|p|^{-\frac{1}{2}}e^{-\int_{x}^{x_{1}}|p(\xi)|\mathrm{d}\xi}\\
+&amp;\stackrel{x\rightarrow -\infty}{\longleftarrow}2^{\frac{1}{4}}\left(\frac{2e}{E}\right)^{\frac{E}{4}}\frac{1}{\sqrt{S^{\prime}}}D_{\frac{1}{2}(E-1)}(\sqrt{2}S)\\
+&amp;\stackrel{x\rightarrow +\infty}{\longrightarrow}\frac{1}{\sqrt{|p|}}e^{-\int_{x_{2}}^{x}|p(\xi)|\mathrm{d}\xi},
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
+&amp;\frac{1}{\sqrt{|p|}}e^{-\int_{x}^{x_{1}}|p(\xi)|\mathrm{d}\xi}\\
+&amp;\stackrel{x\rightarrow -\infty}{\longleftarrow} 2^{\frac{1}{4}}\left(\frac{2e}{E}\right)^{\frac{E}{4}}\frac{1}{\sqrt{S^{\prime}}}D_{\frac{1}{2}(E-1)}(-\sqrt{2}S)\\
+&amp;\stackrel{x\rightarrow +\infty}{\longrightarrow}\left[\frac{1}{\sqrt{2\pi}}\left(\frac{2e}{E}\right)^{\frac{E}{2}}\Gamma\left(\frac{E}{2}+\frac{1}{2}\right)\right]\\
+&amp;\times 2\cos{\left(\frac{E\pi}{2}\right)}\frac{1}{\sqrt{|p|}}e^{\int_{x_{2}}^{x}|p(\xi)|\mathrm{d}\xi}  + \sin{\left(\frac{E\pi}{2}\right)}\frac{1}{\sqrt{|p|}}e^{-\int_{x_{2}}^{x}|p(\xi)|\mathrm{d}\xi}.
+\end{aligned}
+$$</p>
+<p>当 $W$ 很大时，从方程 (22) 可以看出参数 $E$ 很大。 在这种情况下，方程 (23) 和 (24) 中的方括号中的因子接近于一，通过使用 $\Gamma$ 函数的 Stirling 近似可以看出。 连接两个指数区域的连接与使用通常的连接公式跨转折点而不考虑方向得到的普通 WKB 方法是相同的。</p>
+<blockquote>
+<p>For the bound states one must use the solutions of Eq. (18) which are finite at infinite $S$. These solutions are</p>
+<p>$$
+\begin{aligned}
+D_{n}(\sqrt{2}s) = 2^{-\frac{n}{2}}H_{n}(S)e^{-\frac{S^{2}}{2}},
+\end{aligned}
+$$</p>
+<p>where $n= (E - 1)/2$ is a positive integer or zero and the $H_{n}$ are the Hermite polynomials. The approximations to the bound state wave functions are then</p>
+<p>$$
+\begin{aligned}
+\psi_{n}\approx A_{n}S^{\prime -\frac{1}{2}}e^{-\frac{S^{2}}{2}}H_{n}(S),
+\end{aligned}
+$$</p>
+<p>where $S$ is still given by Eq. (21) and the $A_{n}$ are normalizing constants. The eigenvalue condition, from Eq. (22), is</p>
+<p>$$
+\begin{aligned}
+\int_{x_{1}}^{x_{2}}p(\xi)\mathrm{d}\xi = \left(n + \frac{1}{2}\right)\pi,\quad n = 0,1,2,\cdots,
+\end{aligned}
+$$</p>
+<p>which is identical with the usual WKB eigencondition. If a different $P(S)$ had been used, a different condition might have been obtained. The potential</p>
+<p>$$
+\begin{aligned}
+V(x) = -1.922\frac{e^{x}}{1 + e^{x}} - 11.20\frac{e^{x}}{(1 + e^{x})^{2}}
+\end{aligned}
+$$</p>
+<p>has been chosen for an example. The reason for choosing this type of potential is that the exact solutions for the bound states can be expressed in terms of elementary functions. The constants have been chosen to allow only two energy levels and to make the wave functions unsymmetrical. The exact and approximate wave functions have been plotted in Fig. 2.</p>
+</blockquote>
+<p>对于束缚态，必须使用方程 (18) 的在无穷大 $S$ 处有限的解。 这些解是</p>
+<p>$$
+\begin{aligned}
+D_{n}(\sqrt{2}s) = 2^{-\frac{n}{2}}H_{n}(S)e^{-\frac{S^{2}}{2}},
+\end{aligned}
+$$</p>
+<p>其中 $n= (E - 1)/2$ 是正整数或零，$H_{n}$ 是 Hermite 多项式。 那么束缚态波函数的近似值为</p>
+<p>$$
+\begin{aligned}
+\psi_{n}\approx A_{n}S^{\prime -\frac{1}{2}}e^{-\frac{S^{2}}{2}}H_{n}(S),
+\end{aligned}
+$$</p>
+<p>其中 $S$ 仍然由方程 (21) 给出，$A_{n}$ 是归一化常数。 从方程 (22) 中的特征值条件是</p>
+<p>$$
+\begin{aligned}
+\int_{x_{1}}^{x_{2}}p(\xi)\mathrm{d}\xi = \left(n + \frac{1}{2}\right)\pi,\quad n = 0,1,2,\cdots,
+\end{aligned}
+$$</p>
+<p>这与通常的 WKB 特征值条件相同。 如果使用不同的 $P(S)$，可能会得到不同的条件。 选择了一个例子的势能</p>
+<p>$$
+\begin{aligned}
+V(x) = -1.922\frac{e^{x}}{1 + e^{x}} - 11.20\frac{e^{x}}{(1 + e^{x})^{2}}
+\end{aligned}
+$$</p>
+<p>选择这种类型的势能的原因是束缚态的精确解可以用初等函数表示。 选择常数是为了只允许两个能级，并使波函数不对称。 图 2 中绘制了精确和近似波函数。</p>
+<blockquote>
+<p>Since the approximate wave functions are continuous, they can be used to obtain approximations to matrix elements. In many problems diagonal matrix elements can be found by making a further approxnnation which avoids calculating the wave functions and making a numerical integration. Consider, for example,</p>
+<p>$$
+\begin{aligned}
+\int_{-\infty}^{+\infty}|\psi_{n}|^{2}x^{m}\mathrm{d}x &amp;\approx A_{n}^{2}\int_{-\infty}^{+\infty}\frac{1}{S^{\prime}}e^{-S^{2}}H_{n}^{2}(S)x^{m}\mathrm{d}x\\
+&amp;= A_{n}^{2}\int_{-\infty}^{+\infty}\frac{1}{S^{\prime 2}}e^{-S^{2}}H_{n}^{2}x^{m}\mathrm{d}S,
+\end{aligned}
+$$</p>
+<p>where $m$ is some integer. This quantity might be evaluated by expressing $x$ and $S^{\prime -1}$ as power series in $S$ and performing the integration. As an approximation one may use, instead of power series, $(2K+1)$-degree polynomials chosen to give the correct values of $x(S)$ and its derivatives up to the $K$th order at both turning points. The values at other points could be used but the turning points are especially suitable since their locations are known immediately once the energy has been found and also since ordinarily the wave function will be large only in the region between these points. The needed derivatives at a first-order turning point can be found by using Eq. (15) to make a series expansion of the type</p>
+<p>$$
+\begin{aligned}
+x(S) = x_{0} + \left[\left(\frac{\mathrm{d}p^{2}}{\mathrm{d}x}\right)_{x_{0}}/\left(\frac{\mathrm{d}P^{2}}{\mathrm{d}S}\right)_{s_{0}}\right]^{-\frac{1}{3}}(S-s_{0}) + \cdots.
+\end{aligned}
+$$</p>
+<p>One can easily express $(S^{\prime})^{-1}$ in terms of $S$ by differentiating the polynomial $x(S)$ with respect to $S$.</p>
+</blockquote>
+<p>由于近似波函数是连续的，因此可以用它们来获得矩阵元的近似值。 在许多问题中，对角矩阵元可以通过进一步的近似来找到，避免计算波函数并进行数值积分。 例如，考虑</p>
+<p>$$
+\begin{aligned}
+\int_{-\infty}^{+\infty}|\psi_{n}|^{2}x^{m}\mathrm{d}x &amp;\approx A_{n}^{2}\int_{-\infty}^{+\infty}\frac{1}{S^{\prime}}e^{-S^{2}}H_{n}^{2}(S)x^{m}\mathrm{d}x\\
+&amp;= A_{n}^{2}\int_{-\infty}^{+\infty}\frac{1}{S^{\prime 2}}e^{-S^{2}}H_{n}^{2}x^{m}\mathrm{d}S,
+\end{aligned}
+$$</p>
+<p>其中 $m$ 是某个整数。 可以通过将 $x$ 和 $S^{\prime -1}$ 表示为 $S$ 的幂级数并执行积分来评估这个量。 作为近似，可以使用 $(2K+1)$ 阶多项式，选择这些多项式以在两个转折点处给出 $K$ 阶的正确值 $x(S)$ 及其导数。 可以使用其他点的值，但转折点特别适合，因为一旦能量被找到，它们的位置就立即知道，而且通常波函数只在这些点之间的区域内很大。 可以通过使用方程 (15) 对类型进行级数展开来找到一阶转折点处所需的导数</p>
+<p>$$
+\begin{aligned}
+x(S) = x_{0} + \left[\left(\frac{\mathrm{d}p^{2}}{\mathrm{d}x}\right)_{x_{0}}/\left(\frac{\mathrm{d}P^{2}}{\mathrm{d}S}\right)_{s_{0}}\right]^{-\frac{1}{3}}(S-s_{0}) + \cdots.
+\end{aligned}
+$$</p>
+<p>可以通过将多项式 $x(S)$ 对 $S$ 求导来很容易地用 $S$ 表示 $(S^{\prime})^{-1}$。</p>
+<blockquote>
+<p>As a special case of Eq. (29) this procedure may be used to normalize the approximate wave functions of bound states so that their integral squares are one. For example, for the two levels of the Eckart potential used above, one finds for the normalizing constants $A_{0}$ and $A_{1}$:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">$A_{0}$(first level)</th>
+          <th style="text-align: left">$A_{1}$(second level)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Numerical integration</td>
+          <td style="text-align: left">1.627</td>
+          <td style="text-align: left">1.686</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">First degree polynomial approximation($K=0$)</td>
+          <td style="text-align: left">1.600</td>
+          <td style="text-align: left">1.483</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Third degree polynomial approximation($K=1$)</td>
+          <td style="text-align: left">1.629</td>
+          <td style="text-align: left">1.700</td>
+      </tr>
+  </tbody>
+</table>
+<p>As a further example $\langle x^{2}\rangle_{\text{Av}}$, the expected value of $x^{2}$, has been calculated for the two bound states of the above Eckart potential. Third-degree polynomials were used, both for normalizing and for evaluating the integral. For comparison the same quantity has been calculated using the exact wave functions and also using the approximate wave functions with numerical integration throughout. The results are as follows:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">First level</th>
+          <th style="text-align: left">Second level</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$\langle x^{2}\rangle_{\text{Av}}$(approximate wave function, polynomials)</td>
+          <td style="text-align: left">1.237</td>
+          <td style="text-align: left">9.52</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\langle x^{2}\rangle_{\text{Av}}$(exact wave function, numerical integration)</td>
+          <td style="text-align: left">1.223</td>
+          <td style="text-align: left">10.19</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\langle x^{2}\rangle_{\text{Av}}$(approximate wave function, numerical integration)</td>
+          <td style="text-align: left">1.224</td>
+          <td style="text-align: left">10.51</td>
+      </tr>
+  </tbody>
+</table>
+<p>The polynomial method in general may be criticized because there is no way of estimating the error in the approximation of a matrix element and because it cannot be applied to off-diagonal matrix elements, since different functions $S(x)$ arise for different energies.</p>
+</blockquote>
+<p>作为方程 (29) 的特殊情况，可以使用这个过程来归一化束缚态的近似波函数，使其积分平方为一。 例如，对于上面使用的 Eckart 势能的两个能级，可以找到归一化常数 $A_{0}$ 和 $A_{1}$：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">$A_{0}$(第一能级)</th>
+          <th style="text-align: left">$A_{1}$(第二能级)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">数值积分</td>
+          <td style="text-align: left">1.627</td>
+          <td style="text-align: left">1.686</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">一次多项式近似($K=0$)</td>
+          <td style="text-align: left">1.600</td>
+          <td style="text-align: left">1.483</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">三次多项式近似($K=1$)</td>
+          <td style="text-align: left">1.629</td>
+          <td style="text-align: left">1.700</td>
+      </tr>
+  </tbody>
+</table>
+<p>作为进一步的例子，已经计算了上述 Eckart 势能的两个束缚态的 $\langle x^{2}\rangle_{\text{Av}}$，即 $x^{2}$ 的期望值。 用于归一化和计算积分的是三次多项式。 为了比较，已经使用精确波函数和在整个过程中使用数值积分的近似波函数计算了相同的量。 结果如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">第一能级</th>
+          <th style="text-align: left">第二能级</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$\langle x^{2}\rangle_{\text{Av}}$(近似波函数，多项式)</td>
+          <td style="text-align: left">1.237</td>
+          <td style="text-align: left">9.52</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\langle x^{2}\rangle_{\text{Av}}$(精确波函数，数值积分)</td>
+          <td style="text-align: left">1.223</td>
+          <td style="text-align: left">10.19</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\langle x^{2}\rangle_{\text{Av}}$(近似波函数，数值积分)</td>
+          <td style="text-align: left">1.224</td>
+          <td style="text-align: left">10.51</td>
+      </tr>
+  </tbody>
+</table>
+<p>一般来说，多项式方法可能会受到批评，因为没有办法估计矩阵元的近似误差，因为它不能应用于非对角矩阵元，因为不同的能量会产生不同的函数 $S(x)$。</p>
+<h1 id="application-to-potential-barrier-problems">Application to Potential Barrier Problems<a hidden class="anchor" aria-hidden="true" href="#application-to-potential-barrier-problems">#</a></h1>
+<blockquote>
+<p>The penetration of a particle through a potential barrier will be discussed in this section. The discussion will be restricted to those potentials for which, when the energy is below the peak of the barrier, $p^{2}(x)$ has two first order zeros $x_{1}$ and $x_{2}$, where $x_{1}&lt;x_{2}$. As a further restriction on the type of potential discussed, it will be assumed that the two real turning points for energies below the peak of the barrier go unambiguously into two complex turning points for energies above the peak of the barrier. Since $p^{2}(x)$ is a real function, these two turning points will be complex conjugate; the one with the positive imaginary part will be called $x_{1}$ and the other $x_{2}$. As basic functions for the approximation the solutions of the equation</p>
+<p>$$
+\begin{aligned}
+\frac{\mathrm{d}^{2}\phi}{\mathrm{d}S^{2}} + (E + S^{2})\phi = 0
+\end{aligned}
+$$</p>
+<p>will be used. The zeros of $(E+^{2})$ will be labeled in  parallel with those of $p(x)$ so that when $E$ is negative $s_{1} = -\sqrt{-E}$, $s_{2} = +\sqrt{-E}$ and when $E$ is positive $s_{1} = +i\sqrt{E}$, $s_{2} = -i\sqrt{E}$.</p>
+</blockquote>
+<p>本节将讨论粒子穿过势垒的渗透。 讨论将仅限于那些势能，当能量低于势垒的峰值时，$p^{2}(x)$ 有两个一阶零点 $x_{1}$ 和 $x_{2}$，其中 $x_{1}&lt;x_{2}$。 作为对讨论的势能类型的进一步限制，将假定能量低于势垒峰值的两个实转折点明确地进入能量高于势垒峰值的两个复转折点。 由于 $p^{2}(x)$ 是一个实函数，这两个转折点将是复共轭的； 具有正虚部的那个将被称为 $x_{1}$，另一个将被称为 $x_{2}$。 作为近似的基本函数，将使用方程的解</p>
+<p>$$
+\begin{aligned}
+\frac{\mathrm{d}^{2}\phi}{\mathrm{d}S^{2}} + (E + S^{2})\phi = 0
+\end{aligned}
+$$</p>
+<p>将使用。 $(E+^{2})$ 的零点将与 $p(x)$ 的零点平行标记，因此当 $E$ 为负时 $s_{1} = -\sqrt{-E}$，$s_{2} = +\sqrt{-E}$，当 $E$ 为正时 $s_{1} = +i\sqrt{E}$，$s_{2} = -i\sqrt{E}$。</p>
+<blockquote>
+<p>Following the general treatment, and in parallel with the potential well problem, one finds the following approximate solutions:</p>
+</blockquote>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/sm/illustrastions-of-the-dynamical-theory-of-gases/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Illustrastion of the Dynamical Theory of Gases</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/life/th-research/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>单卡研究日志</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

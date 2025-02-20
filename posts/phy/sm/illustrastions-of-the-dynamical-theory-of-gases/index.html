@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Illustrastion of the Dynamical Theory of Gases | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, statistical mechanics">
+<meta name="description" content="高等统计物理的阅读材料之一">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/sm/illustrastions-of-the-dynamical-theory-of-gases/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/phy/sm/illustrastions-of-the-dynamical-theory-of-gases/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Illustrastion of the Dynamical Theory of Gases" />
+<meta property="og:description" content="高等统计物理的阅读材料之一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/sm/illustrastions-of-the-dynamical-theory-of-gases/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-02-19T00:18:06+08:00" />
+<meta property="article:modified_time" content="2025-02-19T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Illustrastion of the Dynamical Theory of Gases"/>
+<meta name="twitter:description" content="高等统计物理的阅读材料之一"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "✡️ Advanced Statistical Mechanics",
+          "item": "https://Muatyz.github.io/posts/phy/sm/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Illustrastion of the Dynamical Theory of Gases",
+      "item": "https://Muatyz.github.io/posts/phy/sm/illustrastions-of-the-dynamical-theory-of-gases/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Illustrastion of the Dynamical Theory of Gases",
+  "name": "Illustrastion of the Dynamical Theory of Gases",
+  "description": "高等统计物理的阅读材料之一",
+  "keywords": [
+    "scmp", "statistical mechanics"
+  ],
+  "articleBody": "Summary In view of the current interest in the theory of gases proposed by Bernoulli (Selection 3), Joule, Krönig, Clausius (Selections 8 and 9) and others, a mathematical investigation of the laws of motion of a large number of small, hard, and perfectly elastic spheres acting on one another only during impact seems desirable.\n鉴于目前人们对伯努利（选修 3）、焦耳、克罗尼格、克劳修斯（选修 8 和 9）等人提出的气体理论的兴趣，对大量小而硬、完全弹性的球体仅在撞击过程中彼此作用的运动规律进行数学研究似乎是可取的。\nIt is shown that the number of spheres whose velocity lies between $v$ and $v + \\mathrm{d}v$ is\n$$ N\\frac{4}{\\alpha^{3}\\sqrt{\\pi}}v^{2}e^{-v^{2}/\\alpha^{2}}\\mathrm{d}v $$\nwhere $N$ is the total number of spheres, and $\\alpha$ is a constant related to the average velocity:\n$$ \\text{mean value of } v^{2} = \\frac{3}{2}\\alpha^{2}. $$\n这里表明，速度在 $v$ 和 $v + \\mathrm{d}v$ 之间的球体数为\n$$ N\\frac{4}{\\alpha^{3}\\sqrt{\\pi}}v^{2}e^{-v^{2}/\\alpha^{2}}\\mathrm{d}v $$\n其中 $N$ 是球体的总数，$\\alpha$ 是与平均速度有关的常数：\n$$ \\text{平均值 } v^{2} = \\frac{3}{2}\\alpha^{2}. $$\nIf two systems of particles move in the same vessel, it is proved that the mean kinetic energy of each particle will be the same in the two systems.\nKnown results pertaining to the mean free path and pressure on the surface of the container are rederived, taking account of the fact that the velocities are distributed according to the above law.\nThe internal friction (viscosity) of a system of particles is predicted to be independent of density, and proportional to the square root of the absolute temperature; there is apparently no experimental evidence to confirm this prediction for real gases.\n如果两个粒子系统在同一容器中运动，那么证明每个粒子的平均动能在两个系统中是相同的。\n重新推导了有关平均自由程和容器表面压力的已知结果，考虑到速度按上述规律分布。\n预测了粒子系统的内部摩擦（粘度）与密度无关，与绝对温度的平方根成正比；对于真实气体，似乎没有实验证据来证实这一预测。\nA discussion of collisions between perfectly elastic bodies of any form leads to the conclusion that the final equilibrium state of any number of systems of moving particles of any form is that in which the average kinetic energy of translation along each of the three axes is the same in all the systems, and equal to the average kinetic energy of rotation about each of the three principal axes of each particle (equipartition theorem). This mathematical result appears to be in conflict with known experimental values for the specific heats of gases.\n对任何形状的完全弹性体之间的碰撞进行讨论，得出结论：任何形状的移动粒子系统的最终平衡状态是，沿三个轴的每个系统的平均平动动能相同，并且等于每个粒子的三个主轴的平均旋转动能（等分定理）。这一数学结果似乎与已知的气体比热的实验值相矛盾。\nPart I On the Motions and Collisions of Perfectly Elastic Spheres So many of the properties of matter, especially when in the gaseous form, can be deduced from the hypothesis that their minute parts are in rapid motion, the velocity increasing with the temperature, that the precise nature of this motion becomes a subject of rational curiosity. Daniel Bernoulli, Herapath, Joule, Krönig, Clausius, etc. have shewn that the relations between pressure, temperature, and density in a perfect gas can be explained by supposing the particles to move with uniform velocity in straight lines, striking against the sides of the containing vessel and thus producing pressure. It is not necessary to suppose each particle to travel to any great distance in the same straight line; for the effect in producing pressure will be the same if the particles strike against each other; so that the straight line described may be very short.\n许多物质的性质，特别是在气态时，可以从这样一个假设中推导出来：它们的微小部分在快速运动，速度随温度增加而增加，因此这种运动的确切性质成为理性好奇的主题。丹尼尔·伯努利、赫拉帕斯、焦耳、克罗尼格、克劳修斯等人已经表明，可以通过假设粒子在直线上以均匀速度运动，撞击容器的侧面，从而产生压力，来解释完美气体之间的压力、温度和密度之间的关系。不必假设每个粒子在同一直线上运动到很远的距离；因为如果粒子相互碰撞，产生压力的效果将是相同的；因此描述的直线可能非常短。\nM. Clausius has determined the mean length of path in terms of the average distance of the particles, and the distance between the centres of two particles when collision takes place. We have at present no means of ascertaining either of these distances; but certain phenomena, such as the internal friction of gases, the conduction of heat through a gas, and the diffusion of one gas through another, seem to indicate the possibility of determining accurately the mean length of path which a particle describes between two successive collisions. In order to lay the foundation of such investigations on strict mechanical principles, I shall demonstrate the laws of motion of an indefinite number of small, hard, and perfectly elastic spheres acting on one another only during impact.\n克劳修斯先生已经确定了路径的平均长度，这个长度是以粒子的平均距离和碰撞发生时两个粒子中心之间的距离为基础的。我们目前没有办法确定这两个距离中的任何一个；但是某些现象，如气体的内部摩擦、热量通过气体的传导以及一种气体通过另一种气体的扩散，似乎表明了确定粒子在两次连续碰撞之间所描述的平均路径长度的可能性。为了在严格的机械原理基础上奠定这类研究的基础，我将证明一个无限多个小而硬、完全弹性的球体仅在碰撞过程中彼此作用的运动规律。\nIf the properties of such a system of bodies are found to correspond to those of gases, an important physical analogy will be established, which may lead to more accurate knowledge of the properties of matter. If experiments on gases are inconsistent with the hypothesis of these propositions, then our theory, though consistent with itself, is proved to be incapable of explaining the phenomena of gases. In either case it is necessary to follow out the consequences of the hypothesis.\n如果这样一个体系的性质被发现与气体的性质相符，那么将建立一个重要的物理类比，这可能会导致对物质性质的更准确的认识。如果气体的实验与这些命题的假设不一致，那么我们的理论，虽然与自身一致，但被证明无法解释气体的现象。在任何一种情况下，都有必要推导出假设的后果。\nOn the Motion and Collision of Perfectly Elastic Spheres Prop. I. Two spheres moving in opposite directions with velocities inversely as their masses strike one another; to determine their motions after impact.\nLet P and be the position of the centres at impact; AP, BQ the directions and magnitudes of the velocities before impact; Pa, Qb the same after impact; then, resolving the velocities parallel and perpendicular to PQ the line of centres, we find that the velocities parallel to the line of centres are exactly reversed, while those perpendicular to that line are unchanged. Compounding these velocities again, we find that the velocity of each ball is the same before and after impact, and that the directions before and after impact lie in the same plane with the line of centres, and make equal angles with it.\n命题 I. 两个方向相反、速度与质量成反比的球体相互撞击；确定它们撞击后的运动。\n设 P 和 Q 为碰撞时的中心位置；AP、BQ 为碰撞前的速度的方向和大小；Pa、Qb 为碰撞后的速度的方向和大小；然后，将速度分解为平行和垂直于 PQ 中心线的分量，我们发现平行于中心线的速度完全反向，而垂直于该线的速度保持不变。再次合成这些速度，我们发现每个球体的速度在撞击前后是相同的，并且撞击前后的方向都在与中心线相同的平面上，并且与中心线成相等的角度。\nProp. II. To find the probability of the direction of the velocity after impact lying between given limits.\nIn order that a collision may take place, the line of motion of one of the balls must pass the centre of the other at a distance less than the sum of their radii; that is, it must pass through a circle whose centre is that of the other ball, and radius ($s$) the sum of the radii of the balls. Within this circle every position is equally probable, and therefore the probability of the distance from the centre being between $r$ and $r + dr$ is\n$$ \\frac{2r\\mathrm{d}r}{s^{2}}. $$\nNow let $\\phi$ be the angle $APa$ between the original direction and the direction after impact, than $APN = \\frac{1}{2}\\phi$, and $r = s\\sin{\\frac{1}{2}\\phi}$, and the probability becomes\n$$ \\frac{1}{2}\\sin{\\phi}\\mathrm{d}\\phi. $$\nThe area of a spherical zone between the angles of polar distance $\\phi$ and $\\phi + \\mathrm{d}\\phi$ is\n$$ 2\\pi\\sin{\\phi}\\mathrm{d}\\phi; $$\ntherefore if $\\omega$ be any small area on the surface of a sphere, radius unity, the probability of the direction of rebound passing through this area is\n$$ \\frac{\\omega}{4\\pi}; $$\nso that the probability is independent of $\\phi$, that is, all directions of rebound are equally likely.\n命题 II. 找到撞击后速度方向落在给定限制之间的概率。\n为了发生碰撞，一个球的运动线必须通过另一个球的中心，距离小于它们半径之和；也就是说，它必须通过一个以另一个球的中心为圆心、半径（$s$）为球半径之和的圆。在这个圆内，每个位置都是等可能的，因此距离中心的概率在 $r$ 和 $r + \\mathrm{d}r$ 之间的概率是\n$$ \\frac{2r\\mathrm{d}r}{s^{2}}. $$\n现在设 $\\phi$ 为原始方向和撞击后方向之间的角度 $APa$，则 $APN = \\frac{1}{2}\\phi$，$r = s\\sin{\\frac{1}{2}\\phi}$，概率变为\n$$ \\frac{1}{2}\\sin{\\phi}\\mathrm{d}\\phi. $$\n极角为 $\\phi$ 和 $\\phi + \\mathrm{d}\\phi$ 之间的球形区域的面积为\n$$ 2\\pi\\sin{\\phi}\\mathrm{d}\\phi; $$\n因此，如果 $\\omega$ 是单位半径球面上的任意小面积，那么反弹方向通过这个面积的概率是\n$$ \\frac{\\omega}{4\\pi}; $$\n因此概率与 $\\phi$ 无关，也就是说，所有的反弹方向都是等可能的。\nProp. III. Given the direction and magnitude of the velocities of two spheres before impact, and the line of centres at impact; to find the velocities after impact.\nLet $OA$, $OB$ represent the velocities before impact, so that if there had been no action between the bodies they would have been at $A$ and $B$ at the end of a second. Join $AB$, and let $G$ be their centre of gravity, the position of which is not affected by their mutual action. Draw $GN$ parallel to the line of centres at impact (not necessarily in the plane $AOB$). Draw $aGb$ in the plane $AGN$, making $NGa = NGA$, and $Ga = GA$ and $Gb = GB$; then by Prop. I. $Ga$ and $Gb$ will be the velocities relative to $G$; and compounding these with $OG$, we have $Oa$ and $Ob$ for the true velocities after impact.\n命题 III. 给定撞击前两个球的速度的方向和大小，以及碰撞时的中心线；找到撞击后的速度。\n设 $OA$、$OB$ 表示撞击前的速度，因此如果两个球之间没有作用，它们将在一秒钟后分别到达 $A$ 和 $B$。连接 $AB$，设 $G$ 为它们的重心，其位置不受它们的相互作用的影响。画出 $GN$ 平行于碰撞时的中心线（不一定在平面 $AOB$ 中）。在平面 $AGN$ 中画出 $aGb$，使 $NGa = NGA$，$Ga = GA$ 和 $Gb = GB$；然后根据命题 I，$Ga$ 和 $Gb$ 将是相对于 $G$ 的速度；将这些速度与 $OG$ 合成，我们有 $Oa$ 和 $Ob$ 为撞击后的真实速度。\nBy Prop. II. all directions of the line aGb are equally probable. It appears therefore that the velocity after impact is compounded of the velocity of the centre of gravity, and of a velocity equal to the velocity of the sphere relative to the centre of gravity, which may with equal probability be in any direction whatever.\nIf a great many equal spherical particles were in motion in a perfectly elastic vessel, collisions would take place among the particles, and their velocities would be altered at every collision; so that after a certain time the vis viva will be divided among the particles according to some regular law, the average number of particles whose velocity lies between certain limits being ascertainable, though the velocity of each particle changes at every collision.\n根据命题 II，线 aGb 的所有方向都是等可能的。因此，撞击后的速度似乎是由重心的速度和相对于重心的球体的速度合成的，这个速度可能是任何方向的等概率。\n如果有许多相等的球形粒子在一个完全弹性的容器中运动，粒子之间会发生碰撞，每次碰撞都会改变它们的速度；因此在一定时间后，动能将根据某种规律分配给粒子，可以确定速度在某些限制之间的粒子的平均数量，尽管每个粒子在每次碰撞时速度都会改变。\nProp. IV. To find the average number of particles whose velocities lie between given limits, after a great number of collisions among a great number of equal particles.\nLet $N$ be the whole number of particles. Let $x$, $y$, $z$ be the components of the velocity of each particle in three rectangular directions, and let the number of particles for which $x$ lies between $x$ and $x + \\mathrm{d}x$, be $Nf(x)\\mathrm{d}x$, where $f(x)$ is a function of $x$ to be determined.\nThe number of particles for which $y$ lies between $y$ and $y + \\mathrm{d}y$ will be $Nf(y)\\mathrm{d}y$; and the number for which $z$ lies between $z$ and $z + \\mathrm{d}z$ will be $Nf(z)\\mathrm{d}z$, where $f$ always stands for the same function.\n命题 IV. 找到在许多相等粒子之间发生许多碰撞后，速度落在给定限制之间的粒子的平均数量。\n设 $N$ 为所有粒子的总数。设 $x$、$y$、$z$ 为每个粒子速度在三个直角方向上的分量，并且对于 $x$ 落在 $x$ 和 $x + \\mathrm{d}x$ 之间的粒子数为 $Nf(x)\\mathrm{d}x$，其中 $f(x)$ 是一个待确定的 $x$ 的函数。\n对于 $y$ 落在 $y$ 和 $y + \\mathrm{d}y$ 之间的粒子数将为 $Nf(y)\\mathrm{d}y$；对于 $z$ 落在 $z$ 和 $z + \\mathrm{d}z$ 之间的粒子数将为 $Nf(z)\\mathrm{d}z$，其中 $f$ 总是代表相同的函数。\nNow the existence of the velocity $x$ does not in any way affect that of the velocities $y$ or $z$, since these are all at right angles to each other and independent, so that the number of particles whose velocity lies between $x$ and $x + \\mathrm{d}x$, and also between $y$ and $y + \\mathrm{d}y$, and also between $z$ and $z + \\mathrm{d}z$, is\n$$ Nf(x)f(y)f(z)\\mathrm{d}x \\mathrm{d}y \\mathrm{d}z. $$\nIf we suppose the $N$ particles to start from the origin at the same instant, then this will be the number in the element of volume $(dx dy dz)$ after unit of time, and the number referred to unit of volume will be\n$$ Nf(x)f(y)f(z). $$\nBut the directions of the coordinates are perfectly arbitrary, and therefore this number must depend on the distance from the origin alone, that is\n$$ f(x)f(y)f(z) = \\phi(x^{2} + y^{2} + z^{2}). $$\nSolving this functional equation, we find\n$$ f(x) = Ce^{Ax^{2}}, \\quad \\phi(r^{2}) = C^{3}e^{Ar^{2}}, $$\n现在速度 $x$ 的存在并不以任何方式影响速度 $y$ 或 $z$ 的存在，因为它们都是相互垂直且独立的，因此速度落在 $x$ 和 $x + \\mathrm{d}x$ 之间，同时也落在 $y$ 和 $y + \\mathrm{d}y$ 之间，同时也落在 $z$ 和 $z + \\mathrm{d}z$ 之间的粒子数为\n$$ Nf(x)f(y)f(z)\\mathrm{d}x \\mathrm{d}y \\mathrm{d}z. $$\n如果我们假设 $N$ 个粒子在同一时刻从原点出发，那么这将是单位时间后体积元 $(dx dy dz)$ 中的数量，而单位体积中的数量将是\n$$ Nf(x)f(y)f(z). $$\n但是坐标的方向是完全任意的，因此这个数量必须仅取决于距离原点的距离，即\n$$ f(x)f(y)f(z) = \\phi(x^{2} + y^{2} + z^{2}). $$\n解这个函数方程，我们得到\n$$ f(x) = Ce^{Ax^{2}}, \\quad \\phi(r^{2}) = C^{3}e^{Ar^{2}}, $$\nIf we make $A$ positive, the number of particles will increase with the velocity, and we should find the whole number of particles infinite. We therefore make $A$ negative and equal to $- 1/\\alpha^{2}$, so that the number between $x$ and $x + \\mathrm{d}x$ is\n$$ NCe^{-(x^{2}/\\alpha^{2})} \\mathrm{d}x. $$\nIntegrating from $x = -\\infty$ to $x = +\\infty$, we find the whole number of particles,\n$$ NC\\sqrt{\\pi}\\alpha = N,\\quad \\therefore C = \\frac{1}{\\alpha\\sqrt{\\pi}}. $$\nf(x) is therefore\n$$ \\frac{1}{\\alpha\\sqrt{\\pi}}e^{-(x^{2}/\\alpha^{2})}. $$\n如果我们取 $A$ 为正数，粒子的数量将随着速度增加而增加，我们将发现所有粒子的数量是无限的。因此我们取 $A$ 为负数，并且等于 $- 1/\\alpha^{2}$，使得 $x$ 和 $x + \\mathrm{d}x$ 之间的粒子数为\n$$ NCe^{-(x^{2}/\\alpha^{2})} \\mathrm{d}x. $$\n从 $x = -\\infty$ 积分到 $x = +\\infty$，我们得到所有粒子的总数，\n$$ NC\\sqrt{\\pi}\\alpha = N,\\quad \\therefore C = \\frac{1}{\\alpha\\sqrt{\\pi}}. $$\n因此 $f(x)$ 为\n$$ \\frac{1}{\\alpha\\sqrt{\\pi}}e^{-(x^{2}/\\alpha^{2})}. $$\nWhence we may draw the following conclusions:\nThe number of particles whose velocity, resolved in a certain direction, lies between $x$ and $x + \\mathrm{d}x$ is $$ \\begin{aligned} N\\frac{1}{\\alpha\\sqrt{\\pi}}e^{-(x^{2}/\\alpha^{2})} \\mathrm{d}x.\\tag{1} \\end{aligned} $$\nThe number whose actual velocity lies between $v$ and $v+\\mathrm{d}v$ is\n$$ \\begin{aligned} N\\frac{4}{\\alpha^{3}\\sqrt{\\pi}}v^{2}e^{-v^{2}/\\alpha^{2}}\\mathrm{d}v.\\tag{2} \\end{aligned} $$\nTo find the mean value of $v$, add the velocities of all the particles together and divide by the number of particles; the result is $$ \\begin{aligned} \\text{mean velocity } = \\frac{2\\alpha}{\\sqrt{\\pi}}.\\tag{3} \\end{aligned} $$\nTo find the mean value of $v^{2}$, add all the values together and divide by $N$, $$ \\begin{aligned} \\text{mean value of } v^{2} = \\frac{3}{2}\\alpha^{2}.\\tag{4} \\end{aligned} $$\nThis is greater than the square of the mean velocity, as it ought to be.\n因此我们可以得出以下结论：\n速度在某个方向上分解的粒子数，速度落在 $x$ 和 $x + \\mathrm{d}x$ 之间的粒子数为 $$ \\begin{aligned} N\\frac{1}{\\alpha\\sqrt{\\pi}}e^{-(x^{2}/\\alpha^{2})} \\mathrm{d}x.\\tag{1} \\end{aligned} $$\n实际速度落在 $v$ 和 $v+\\mathrm{d}v$ 之间的粒子数为 $$ \\begin{aligned} N\\frac{4}{\\alpha^{3}\\sqrt{\\pi}}v^{2}e^{-v^{2}/\\alpha^{2}}\\mathrm{d}v.\\tag{2} \\end{aligned} $$\n要找到 $v$ 的平均值，将所有粒子的速度相加，然后除以粒子数；结果为 $$ \\begin{aligned} \\text{平均速度 } = \\frac{2\\alpha}{\\sqrt{\\pi}}.\\tag{3} \\end{aligned} $$\n要找到 $v^{2}$ 的平均值，将所有值相加，然后除以 $N$， $$ \\begin{aligned} \\text{平均值 } v^{2} = \\frac{3}{2}\\alpha^{2}.\\tag{4} \\end{aligned} $$\n这比平均速度的平方大，正如应该的那样。\nIt appears from this proposition that the velocities are distributed among the particles according to the same law as the errors are distributed among the observations in the theory of the \" method of least squares.\" The velocities range from 0 to ∞, but the number of those having great velocities is comparatively small. In addition to these velocities, which are in all directions equally, there may be a general motion of translation of the entire system of particles which must be compounded with the motion of the particles relatively to one another. We may call the one the motion of translation, and the other the motion of agitation.\n从这个命题中可以看出，速度在粒子之间的分布与误差在“最小二乘法”理论中的观测值之间的分布相同。速度范围从 0 到 ∞，但速度很大的粒子数量相对较小。除了这些速度，这些速度在所有方向上都是相等的，还可能有整个粒子系统的平移运动，这必须与粒子之间的运动相结合。我们可以称一个为平移运动，另一个为搅动运动。\n",
+  "wordCount" : "4699",
+  "inLanguage": "zh",
+  "datePublished": "2025-02-19T00:18:06+08:00",
+  "dateModified": "2025-02-19T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/sm/illustrastions-of-the-dynamical-theory-of-gases/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/sm/">✡️ Advanced Statistical Mechanics</a></div>
+            <h1 class="post-title">
+                Illustrastion of the Dynamical Theory of Gases
+            </h1>
+            <div class="post-description">
+                高等统计物理的阅读材料之一
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-02-19
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>4699字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>10分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">Read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#summary" aria-label="Summary">Summary</a></li>
+                <li>
+                    <a href="#part-i" aria-label="Part I">Part I</a><ul>
+                        
+                <li>
+                    <a href="#on-the-motions-and-collisions-of-perfectly-elastic-spheres" aria-label="On the Motions and Collisions of Perfectly Elastic Spheres">On the Motions and Collisions of Perfectly Elastic Spheres</a></li>
+                <li>
+                    <a href="#on-the-motion-and-collision-of-perfectly-elastic-spheres" aria-label="On the Motion and Collision of Perfectly Elastic Spheres">On the Motion and Collision of Perfectly Elastic Spheres</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h1>
+<blockquote>
+<p>In view of the current interest in the theory of gases proposed by Bernoulli (Selection 3), Joule, Krönig, Clausius (Selections 8 and 9) and others, a mathematical investigation of the laws of motion of a large number of small, hard, and perfectly elastic spheres acting on one another only during impact seems desirable.</p>
+</blockquote>
+<p>鉴于目前人们对伯努利（选修 3）、焦耳、克罗尼格、克劳修斯（选修 8 和 9）等人提出的气体理论的兴趣，对大量小而硬、完全弹性的球体仅在撞击过程中彼此作用的运动规律进行数学研究似乎是可取的。</p>
+<blockquote>
+<p>It is shown that the number of spheres whose velocity lies between $v$ and $v + \mathrm{d}v$ is</p>
+<p>$$
+N\frac{4}{\alpha^{3}\sqrt{\pi}}v^{2}e^{-v^{2}/\alpha^{2}}\mathrm{d}v
+$$</p>
+<p>where $N$ is the total number of spheres, and $\alpha$ is a constant related to the average velocity:</p>
+<p>$$
+\text{mean value of } v^{2} = \frac{3}{2}\alpha^{2}.
+$$</p>
+</blockquote>
+<p>这里表明，速度在 $v$ 和 $v + \mathrm{d}v$ 之间的球体数为</p>
+<p>$$
+N\frac{4}{\alpha^{3}\sqrt{\pi}}v^{2}e^{-v^{2}/\alpha^{2}}\mathrm{d}v
+$$</p>
+<p>其中 $N$ 是球体的总数，$\alpha$ 是与平均速度有关的常数：</p>
+<p>$$
+\text{平均值 } v^{2} = \frac{3}{2}\alpha^{2}.
+$$</p>
+<blockquote>
+<p>If two systems of particles move in the same vessel, it is proved that the mean kinetic energy of each particle will be the same in the two systems.</p>
+<p>Known results pertaining to the mean free path and pressure on the surface of the container are rederived, taking account of the fact that the velocities are distributed according to the above law.</p>
+<p>The internal friction (viscosity) of a system of particles is predicted to be independent of density, and proportional to the square root of the absolute temperature; there is apparently no experimental evidence to confirm this prediction for real gases.</p>
+</blockquote>
+<p>如果两个粒子系统在同一容器中运动，那么证明每个粒子的平均动能在两个系统中是相同的。</p>
+<p>重新推导了有关平均自由程和容器表面压力的已知结果，考虑到速度按上述规律分布。</p>
+<p>预测了粒子系统的内部摩擦（粘度）与密度无关，与绝对温度的平方根成正比；对于真实气体，似乎没有实验证据来证实这一预测。</p>
+<blockquote>
+<p>A discussion of collisions between perfectly elastic bodies of any form leads to the conclusion that the final equilibrium state of any number of systems of moving particles of any form is that in which the average kinetic energy of translation along each of the three axes is the same in all the systems, and equal to the average kinetic energy of rotation about each of the three principal axes of each particle (equipartition theorem). This mathematical result appears to be in conflict with known experimental values for the specific heats of gases.</p>
+</blockquote>
+<p>对任何形状的完全弹性体之间的碰撞进行讨论，得出结论：任何形状的移动粒子系统的最终平衡状态是，沿三个轴的每个系统的平均平动动能相同，并且等于每个粒子的三个主轴的平均旋转动能（等分定理）。这一数学结果似乎与已知的气体比热的实验值相矛盾。</p>
+<h1 id="part-i">Part I<a hidden class="anchor" aria-hidden="true" href="#part-i">#</a></h1>
+<h2 id="on-the-motions-and-collisions-of-perfectly-elastic-spheres">On the Motions and Collisions of Perfectly Elastic Spheres<a hidden class="anchor" aria-hidden="true" href="#on-the-motions-and-collisions-of-perfectly-elastic-spheres">#</a></h2>
+<blockquote>
+<p>So many of the properties of matter, especially when in the gaseous form, can be deduced from the hypothesis that their minute parts are in rapid motion, the velocity increasing with the temperature, that the precise nature of this motion becomes a subject of rational curiosity. Daniel Bernoulli, Herapath, Joule, Krönig, Clausius, etc. have shewn that the relations between pressure, temperature, and density in a perfect gas can be explained by supposing the particles to move with uniform velocity in straight lines, striking against the sides of the containing vessel and thus producing pressure. It is not necessary to suppose each particle to travel to any great distance in the same straight line; for the effect in producing pressure will be the same if the particles strike against each other; so that the straight line described may be very short.</p>
+</blockquote>
+<p>许多物质的性质，特别是在气态时，可以从这样一个假设中推导出来：它们的微小部分在快速运动，速度随温度增加而增加，因此这种运动的确切性质成为理性好奇的主题。丹尼尔·伯努利、赫拉帕斯、焦耳、克罗尼格、克劳修斯等人已经表明，可以通过假设粒子在直线上以均匀速度运动，撞击容器的侧面，从而产生压力，来解释完美气体之间的压力、温度和密度之间的关系。不必假设每个粒子在同一直线上运动到很远的距离；因为如果粒子相互碰撞，产生压力的效果将是相同的；因此描述的直线可能非常短。</p>
+<blockquote>
+<p>M. Clausius has determined the mean length of path in terms of the average distance of the particles, and the distance between the centres of two particles when collision takes place. We have at present no means of ascertaining either of these distances; but certain phenomena, such as the internal friction of gases, the conduction of heat through a gas, and the diffusion of one gas through another, seem to indicate the possibility of determining accurately the mean length of path which a particle describes between two successive collisions. In order to lay the foundation of such investigations on strict mechanical principles, I shall demonstrate the laws of motion of an indefinite  number of small, hard, and perfectly elastic spheres acting on one another only during impact.</p>
+</blockquote>
+<p>克劳修斯先生已经确定了路径的平均长度，这个长度是以粒子的平均距离和碰撞发生时两个粒子中心之间的距离为基础的。我们目前没有办法确定这两个距离中的任何一个；但是某些现象，如气体的内部摩擦、热量通过气体的传导以及一种气体通过另一种气体的扩散，似乎表明了确定粒子在两次连续碰撞之间所描述的平均路径长度的可能性。为了在严格的机械原理基础上奠定这类研究的基础，我将证明一个无限多个小而硬、完全弹性的球体仅在碰撞过程中彼此作用的运动规律。</p>
+<blockquote>
+<p>If the properties of such a system of bodies are found to correspond to those of gases, an important physical analogy will be established, which may lead to more accurate knowledge of the properties of matter. If experiments on gases are inconsistent with the hypothesis of these propositions, then our theory, though consistent with itself, is proved to be incapable of explaining the phenomena of gases. In either case it is necessary to follow out the consequences of the hypothesis.</p>
+</blockquote>
+<p>如果这样一个体系的性质被发现与气体的性质相符，那么将建立一个重要的物理类比，这可能会导致对物质性质的更准确的认识。如果气体的实验与这些命题的假设不一致，那么我们的理论，虽然与自身一致，但被证明无法解释气体的现象。在任何一种情况下，都有必要推导出假设的后果。</p>
+<h2 id="on-the-motion-and-collision-of-perfectly-elastic-spheres">On the Motion and Collision of Perfectly Elastic Spheres<a hidden class="anchor" aria-hidden="true" href="#on-the-motion-and-collision-of-perfectly-elastic-spheres">#</a></h2>
+<blockquote>
+<p>Prop. I. Two spheres moving in opposite directions with velocities inversely as their masses strike one another; to determine their motions after impact.</p>
+<p>Let P and be the position of the centres at impact; AP, BQ the directions and magnitudes of the velocities before impact; Pa, Qb the same after impact; then, resolving the velocities parallel and perpendicular to PQ the line of centres, we find that the velocities parallel to the line of centres are exactly reversed, while those perpendicular to that line are unchanged. Compounding these velocities again, we find that the velocity of each ball is the same before and after impact, and that the directions before and after impact lie in the same plane with the line of centres, and make equal angles with it.</p>
+</blockquote>
+<p>命题 I. 两个方向相反、速度与质量成反比的球体相互撞击；确定它们撞击后的运动。</p>
+<p>设 P 和 Q 为碰撞时的中心位置；AP、BQ 为碰撞前的速度的方向和大小；Pa、Qb 为碰撞后的速度的方向和大小；然后，将速度分解为平行和垂直于 PQ 中心线的分量，我们发现平行于中心线的速度完全反向，而垂直于该线的速度保持不变。再次合成这些速度，我们发现每个球体的速度在撞击前后是相同的，并且撞击前后的方向都在与中心线相同的平面上，并且与中心线成相等的角度。</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/02/19/hYwCvBl6z3Es1u2.png" alt=""  />
+</p>
+</blockquote>
+<blockquote>
+<p>Prop. II. To find the probability of the direction of the velocity after impact lying between given limits.</p>
+<p>In order that a collision may take place, the line of motion of one of the balls must pass the centre of the other at a distance less than the sum of their radii; that is, it must pass through a circle whose centre is that of the other ball, and radius ($s$) the sum of the radii of the balls. Within this circle every position is equally probable, and therefore the probability of the distance from the centre being between $r$ and $r + dr$ is</p>
+<p>$$
+\frac{2r\mathrm{d}r}{s^{2}}.
+$$</p>
+<p>Now let $\phi$ be the angle $APa$ between the original direction and the direction after impact, than $APN = \frac{1}{2}\phi$, and $r = s\sin{\frac{1}{2}\phi}$, and the probability becomes</p>
+<p>$$
+\frac{1}{2}\sin{\phi}\mathrm{d}\phi.
+$$</p>
+<p>The area of a spherical zone between the angles of polar distance $\phi$ and $\phi + \mathrm{d}\phi$ is</p>
+<p>$$
+2\pi\sin{\phi}\mathrm{d}\phi;
+$$</p>
+<p>therefore if $\omega$ be any small area on the surface of a sphere, radius unity, the probability of the direction of rebound passing through this area is</p>
+<p>$$
+\frac{\omega}{4\pi};
+$$</p>
+<p>so that the probability is independent of $\phi$, that is, all directions of rebound are equally likely.</p>
+</blockquote>
+<p>命题 II. 找到撞击后速度方向落在给定限制之间的概率。</p>
+<p>为了发生碰撞，一个球的运动线必须通过另一个球的中心，距离小于它们半径之和；也就是说，它必须通过一个以另一个球的中心为圆心、半径（$s$）为球半径之和的圆。在这个圆内，每个位置都是等可能的，因此距离中心的概率在 $r$ 和 $r + \mathrm{d}r$ 之间的概率是</p>
+<p>$$
+\frac{2r\mathrm{d}r}{s^{2}}.
+$$</p>
+<p>现在设 $\phi$ 为原始方向和撞击后方向之间的角度 $APa$，则 $APN = \frac{1}{2}\phi$，$r = s\sin{\frac{1}{2}\phi}$，概率变为</p>
+<p>$$
+\frac{1}{2}\sin{\phi}\mathrm{d}\phi.
+$$</p>
+<p>极角为 $\phi$ 和 $\phi + \mathrm{d}\phi$ 之间的球形区域的面积为</p>
+<p>$$
+2\pi\sin{\phi}\mathrm{d}\phi;
+$$</p>
+<p>因此，如果 $\omega$ 是单位半径球面上的任意小面积，那么反弹方向通过这个面积的概率是</p>
+<p>$$
+\frac{\omega}{4\pi};
+$$</p>
+<p>因此概率与 $\phi$ 无关，也就是说，所有的反弹方向都是等可能的。</p>
+<blockquote>
+<p>Prop. III. Given the direction and magnitude of the velocities of two spheres before impact, and the line of centres at impact; to find the velocities after impact.</p>
+<p>Let $OA$, $OB$ represent the velocities before impact, so that if there had been no action between the bodies they would have been at $A$ and $B$ at the end of a second. Join $AB$, and let $G$ be their centre of gravity, the position of which is not affected by their mutual action. Draw $GN$ parallel to the line of centres at impact (not necessarily in the plane $AOB$). Draw $aGb$ in the plane $AGN$, making $NGa = NGA$, and $Ga = GA$ and $Gb = GB$; then by Prop. I. $Ga$ and $Gb$ will be the velocities relative to $G$; and compounding these with $OG$, we have $Oa$ and $Ob$ for the true velocities after impact.</p>
+</blockquote>
+<p>命题 III. 给定撞击前两个球的速度的方向和大小，以及碰撞时的中心线；找到撞击后的速度。</p>
+<p>设 $OA$、$OB$ 表示撞击前的速度，因此如果两个球之间没有作用，它们将在一秒钟后分别到达 $A$ 和 $B$。连接 $AB$，设 $G$ 为它们的重心，其位置不受它们的相互作用的影响。画出 $GN$ 平行于碰撞时的中心线（不一定在平面 $AOB$ 中）。在平面 $AGN$ 中画出 $aGb$，使 $NGa = NGA$，$Ga = GA$ 和 $Gb = GB$；然后根据命题 I，$Ga$ 和 $Gb$ 将是相对于 $G$ 的速度；将这些速度与 $OG$ 合成，我们有 $Oa$ 和 $Ob$ 为撞击后的真实速度。</p>
+<blockquote>
+<p>By Prop. II. all directions of the line aGb are equally probable. It appears therefore that the velocity after impact is compounded of the velocity of the centre of gravity, and of a velocity equal to the velocity of the sphere relative to the centre of gravity, which may with equal probability be in any direction whatever.</p>
+<p>If a great many equal spherical particles were in motion in a perfectly elastic vessel, collisions would take place among the particles, and their velocities would be altered at every collision; so that after a certain time the vis viva will be divided among the particles according to some regular law, the average number of particles whose velocity lies between certain limits being ascertainable, though the velocity of each particle changes at every collision.</p>
+</blockquote>
+<p>根据命题 II，线 aGb 的所有方向都是等可能的。因此，撞击后的速度似乎是由重心的速度和相对于重心的球体的速度合成的，这个速度可能是任何方向的等概率。</p>
+<p>如果有许多相等的球形粒子在一个完全弹性的容器中运动，粒子之间会发生碰撞，每次碰撞都会改变它们的速度；因此在一定时间后，动能将根据某种规律分配给粒子，可以确定速度在某些限制之间的粒子的平均数量，尽管每个粒子在每次碰撞时速度都会改变。</p>
+<blockquote>
+<p>Prop. IV. To find the average number of particles whose velocities lie between given limits, after a great number of collisions among a great number of equal particles.</p>
+<p>Let $N$ be the whole number of particles. Let $x$, $y$, $z$ be the components of the velocity of each particle in three rectangular directions, and let the number of particles for which $x$ lies between $x$ and $x + \mathrm{d}x$, be $Nf(x)\mathrm{d}x$, where $f(x)$ is a function of $x$ to be determined.</p>
+<p>The number of particles for which $y$ lies between $y$ and $y + \mathrm{d}y$ will be $Nf(y)\mathrm{d}y$; and the number for which $z$ lies between $z$ and $z + \mathrm{d}z$ will be $Nf(z)\mathrm{d}z$, where $f$ always stands for the same function.</p>
+</blockquote>
+<p>命题 IV. 找到在许多相等粒子之间发生许多碰撞后，速度落在给定限制之间的粒子的平均数量。</p>
+<p>设 $N$ 为所有粒子的总数。设 $x$、$y$、$z$ 为每个粒子速度在三个直角方向上的分量，并且对于 $x$ 落在 $x$ 和 $x + \mathrm{d}x$ 之间的粒子数为 $Nf(x)\mathrm{d}x$，其中 $f(x)$ 是一个待确定的 $x$ 的函数。</p>
+<p>对于 $y$ 落在 $y$ 和 $y + \mathrm{d}y$ 之间的粒子数将为 $Nf(y)\mathrm{d}y$；对于 $z$ 落在 $z$ 和 $z + \mathrm{d}z$ 之间的粒子数将为 $Nf(z)\mathrm{d}z$，其中 $f$ 总是代表相同的函数。</p>
+<blockquote>
+<p>Now the existence of the velocity $x$ does not in any way affect that of the velocities $y$ or $z$, since these are all at right angles to each other and independent, so that the number of particles whose velocity lies between $x$ and $x + \mathrm{d}x$, and also between $y$ and $y + \mathrm{d}y$, and also between $z$ and $z + \mathrm{d}z$, is</p>
+<p>$$
+Nf(x)f(y)f(z)\mathrm{d}x \mathrm{d}y \mathrm{d}z.
+$$</p>
+<p>If we suppose the $N$ particles to start from the origin at the same instant, then this will be the number in the element of volume $(dx dy dz)$ after unit of time, and the number referred to unit of volume will be</p>
+<p>$$
+Nf(x)f(y)f(z).
+$$</p>
+<p>But the directions of the coordinates are perfectly arbitrary, and therefore this number must depend on the distance from the origin alone, that is</p>
+<p>$$
+f(x)f(y)f(z) = \phi(x^{2} + y^{2} + z^{2}).
+$$</p>
+<p>Solving this functional equation, we find</p>
+<p>$$
+f(x) = Ce^{Ax^{2}}, \quad \phi(r^{2}) = C^{3}e^{Ar^{2}},
+$$</p>
+</blockquote>
+<p>现在速度 $x$ 的存在并不以任何方式影响速度 $y$ 或 $z$ 的存在，因为它们都是相互垂直且独立的，因此速度落在 $x$ 和 $x + \mathrm{d}x$ 之间，同时也落在 $y$ 和 $y + \mathrm{d}y$ 之间，同时也落在 $z$ 和 $z + \mathrm{d}z$ 之间的粒子数为</p>
+<p>$$
+Nf(x)f(y)f(z)\mathrm{d}x \mathrm{d}y \mathrm{d}z.
+$$</p>
+<p>如果我们假设 $N$ 个粒子在同一时刻从原点出发，那么这将是单位时间后体积元 $(dx dy dz)$ 中的数量，而单位体积中的数量将是</p>
+<p>$$
+Nf(x)f(y)f(z).
+$$</p>
+<p>但是坐标的方向是完全任意的，因此这个数量必须仅取决于距离原点的距离，即</p>
+<p>$$
+f(x)f(y)f(z) = \phi(x^{2} + y^{2} + z^{2}).
+$$</p>
+<p>解这个函数方程，我们得到</p>
+<p>$$
+f(x) = Ce^{Ax^{2}}, \quad \phi(r^{2}) = C^{3}e^{Ar^{2}},
+$$</p>
+<blockquote>
+<p>If we make $A$ positive, the number of particles will increase with the velocity, and we should find the whole number of particles infinite. We therefore make $A$ negative and equal to $- 1/\alpha^{2}$, so that the number between $x$ and $x + \mathrm{d}x$ is</p>
+<p>$$
+NCe^{-(x^{2}/\alpha^{2})} \mathrm{d}x.
+$$</p>
+<p>Integrating from $x = -\infty$ to $x = +\infty$, we find the whole number of particles,</p>
+<p>$$
+NC\sqrt{\pi}\alpha = N,\quad \therefore C = \frac{1}{\alpha\sqrt{\pi}}.
+$$</p>
+<p>f(x) is therefore</p>
+<p>$$
+\frac{1}{\alpha\sqrt{\pi}}e^{-(x^{2}/\alpha^{2})}.
+$$</p>
+</blockquote>
+<p>如果我们取 $A$ 为正数，粒子的数量将随着速度增加而增加，我们将发现所有粒子的数量是无限的。因此我们取 $A$ 为负数，并且等于 $- 1/\alpha^{2}$，使得 $x$ 和 $x + \mathrm{d}x$ 之间的粒子数为</p>
+<p>$$
+NCe^{-(x^{2}/\alpha^{2})} \mathrm{d}x.
+$$</p>
+<p>从 $x = -\infty$ 积分到 $x = +\infty$，我们得到所有粒子的总数，</p>
+<p>$$
+NC\sqrt{\pi}\alpha = N,\quad \therefore C = \frac{1}{\alpha\sqrt{\pi}}.
+$$</p>
+<p>因此 $f(x)$ 为</p>
+<p>$$
+\frac{1}{\alpha\sqrt{\pi}}e^{-(x^{2}/\alpha^{2})}.
+$$</p>
+<blockquote>
+<p>Whence we may draw the following conclusions:</p>
+<ol>
+<li>
+<p>The number of particles whose velocity, resolved in a certain direction, lies between $x$ and $x + \mathrm{d}x$ is
+$$
+\begin{aligned}
+N\frac{1}{\alpha\sqrt{\pi}}e^{-(x^{2}/\alpha^{2})} \mathrm{d}x.\tag{1}
+\end{aligned}
+$$</p>
+</li>
+<li>
+<p>The number whose actual velocity lies between $v$ and $v+\mathrm{d}v$ is</p>
+</li>
+</ol>
+<p>$$
+\begin{aligned}
+N\frac{4}{\alpha^{3}\sqrt{\pi}}v^{2}e^{-v^{2}/\alpha^{2}}\mathrm{d}v.\tag{2}
+\end{aligned}
+$$</p>
+<ol start="3">
+<li>To find the mean value of $v$, add the velocities of all the particles together and divide by the number of particles; the result is</li>
+</ol>
+<p>$$
+\begin{aligned}
+\text{mean velocity } = \frac{2\alpha}{\sqrt{\pi}}.\tag{3}
+\end{aligned}
+$$</p>
+<ol start="4">
+<li>To find the mean value of $v^{2}$, add all the values together and divide by $N$,</li>
+</ol>
+<p>$$
+\begin{aligned}
+\text{mean value of } v^{2} = \frac{3}{2}\alpha^{2}.\tag{4}
+\end{aligned}
+$$</p>
+<p>This is greater than the square of the mean velocity, as it ought to be.</p>
+</blockquote>
+<p>因此我们可以得出以下结论：</p>
+<ol>
+<li>速度在某个方向上分解的粒子数，速度落在 $x$ 和 $x + \mathrm{d}x$ 之间的粒子数为</li>
+</ol>
+<p>$$
+\begin{aligned}
+N\frac{1}{\alpha\sqrt{\pi}}e^{-(x^{2}/\alpha^{2})} \mathrm{d}x.\tag{1}
+\end{aligned}
+$$</p>
+<ol start="2">
+<li>实际速度落在 $v$ 和 $v+\mathrm{d}v$ 之间的粒子数为</li>
+</ol>
+<p>$$
+\begin{aligned}
+N\frac{4}{\alpha^{3}\sqrt{\pi}}v^{2}e^{-v^{2}/\alpha^{2}}\mathrm{d}v.\tag{2}
+\end{aligned}
+$$</p>
+<ol start="3">
+<li>要找到 $v$ 的平均值，将所有粒子的速度相加，然后除以粒子数；结果为</li>
+</ol>
+<p>$$
+\begin{aligned}
+\text{平均速度 } = \frac{2\alpha}{\sqrt{\pi}}.\tag{3}
+\end{aligned}
+$$</p>
+<ol start="4">
+<li>要找到 $v^{2}$ 的平均值，将所有值相加，然后除以 $N$，</li>
+</ol>
+<p>$$
+\begin{aligned}
+\text{平均值 } v^{2} = \frac{3}{2}\alpha^{2}.\tag{4}
+\end{aligned}
+$$</p>
+<p>这比平均速度的平方大，正如应该的那样。</p>
+<blockquote>
+<p>It appears from this proposition that the velocities are distributed among the particles according to the same law as the errors are distributed among the observations in the theory of the &quot; method of least squares.&quot; The velocities range from 0 to ∞, but the number of those having great velocities is comparatively small. In addition to these velocities, which are in all directions equally, there may be a general motion of translation of the entire system of particles which must be compounded with the motion of the particles relatively to one another. We may call the one the motion of translation, and the other the motion of agitation.</p>
+</blockquote>
+<p>从这个命题中可以看出，速度在粒子之间的分布与误差在“最小二乘法”理论中的观测值之间的分布相同。速度范围从 0 到 ∞，但速度很大的粒子数量相对较小。除了这些速度，这些速度在所有方向上都是相等的，还可能有整个粒子系统的平移运动，这必须与粒子之间的运动相结合。我们可以称一个为平移运动，另一个为搅动运动。</p>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/cs/skills/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>博客使用技巧</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/phy/qp/wkb-method/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>A WEB-Type Approximation to the Schrodinger Equation</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
