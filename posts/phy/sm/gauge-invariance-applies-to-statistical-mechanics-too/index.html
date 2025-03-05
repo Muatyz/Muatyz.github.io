@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Gauge invariance applies to statistical mechanics too | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, statistical mechanics">
+<meta name="description" content="高等统计物理的阅读材料之一">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/sm/gauge-invariance-applies-to-statistical-mechanics-too/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/phy/sm/gauge-invariance-applies-to-statistical-mechanics-too/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Gauge invariance applies to statistical mechanics too" />
+<meta property="og:description" content="高等统计物理的阅读材料之一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/sm/gauge-invariance-applies-to-statistical-mechanics-too/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-03-04T00:18:06+08:00" />
+<meta property="article:modified_time" content="2025-03-04T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gauge invariance applies to statistical mechanics too"/>
+<meta name="twitter:description" content="高等统计物理的阅读材料之一"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "✡️ Advanced Statistical Mechanics",
+          "item": "https://Muatyz.github.io/posts/phy/sm/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Gauge invariance applies to statistical mechanics too",
+      "item": "https://Muatyz.github.io/posts/phy/sm/gauge-invariance-applies-to-statistical-mechanics-too/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Gauge invariance applies to statistical mechanics too",
+  "name": "Gauge invariance applies to statistical mechanics too",
+  "description": "高等统计物理的阅读材料之一",
+  "keywords": [
+    "scmp", "statistical mechanics"
+  ],
+  "articleBody": " Mathematical tools from the abstract world of quantum fields have surprising relevance to the seemingly more concrete realm of particles in boxes.\n来自量子场抽象世界的数学工具与看似更具体的盒中粒子领域有着惊人的关联.\nTo the uninitiated, the standard model of particle physics can seem like a random hodgepodge of particles and forces: quarks and gluons, charged leptons and neutrinos, W and Z bosons, each with its own idiosyncratic properties and behaviors. To paraphrase I. I. Rabi’s remark about the muon, “Who ordered that … or that … or that?” But a deeper dive into the theory reveals a method to the madness. Far from being arbitrary, many features of the model follow mathematically from the symmetries of the universe. Once the symmetries are known, much of the rest follows inevitably.\n对于未接触过的人来说, 粒子物理标准模型似乎是一种随机的粒子和力的混合: 夸克和胶子, 带电轻子和中微子, W 和 Z 玻色子, 每种粒子都有其独特的特性和行为. 用 I. I. Rabi 关于 $\\mu$ 子的话来说, “谁点的这个…或者那个…或者那个？“但对理论的深入研究揭示了这种疯狂背后的方法. 许多模型的特征并非任意的, 而是从宇宙的对称性中数学推导出来的. 一旦这些对称性被知晓, 其他的大部分内容就会不可避免地跟随而来.\nThe theoretical workhorse for deriving physical laws from symmetries is the gauge transformation. Roughly speaking, you start with a quantity, such as the phase of a quantum mechanical wavefunction, that doesn’t affect any physical observables, and you write it as a local function that takes different values at different points in space. Turn the mathematical crank, and out pops a physical law—in this case, a description of the existence and behavior of photons.\n从对称性中推导物理定律的理论工具是规范变换. 粗略地说, 你从一个量开始, 比如量子力学波函数的相位, 它不会影响任何物理可观测量, 然后将其写成一个局部函数, 该函数在空间中的不同点取不同的值. 转动数学曲柄, 就会得到一个物理定律——在这种情况下, 是光子的存在和行为的描述.\nNow, Matthias Schmidt and col leagues at the University of Bayreuth in Germany have shown that gauge transformations can also be fruitful in a seemingly disparate area of physics: statistical mechanics. They’re still exploring all the consequences of their discovery, but they’ve already uncovered a plethora of mathematical structure, equations that can help to characterize soft-matter systems, and questions about what statistical mechanical averages really mean.\n现在, 德国拜罗伊特大学的 Matthias Schmidt 和他的同事们已经表明, 规范变换在看似不相关的物理领域——统计力学中也是富有成果的. 他们仍在探索他们发现的所有后果, 但他们已经发现了大量的数学结构, 可以帮助表征软物质系统的方程, 以及关于统计力学平均值到底意味着什么的问题.\nMindset shift It all started with an offhand remark in 2019. Schmidt was working with Sophie Hermann, a new PhD student in his group, to explore the effect of a mathematical manipulation that he called “shifting.” “Sophie is a very clear and systematic thinker,” says Schmidt, “and she kept insisting that it was unclear what ‘shifting’ actually implies.”\nGrasping for an answer, he appealed to a topic he’d covered in his undergraduate classical mechanics course, which Hermann had taken a few years previously: “Think of it like using Noether’s theorem,” he said. “Translational invariance in a given direction implies conservation of momentum in that direction.”\n一切都始于 2019 年的一句随意的评论. Schmidt 正在与他的研究组中的新博士生 Sophie Hermann 合作, 探讨他称之为\"移动\"的数学操作的影响. Schmidt 说: “Sophie 是一个非常清晰和系统性思考者, 她一直坚持认为不清楚‘移动’实际意味着什么. \"\n为了找到答案, 他提到了他在本科经典力学课程中涉及的一个主题, 而 Hermann 几年前就已经学过了: “想象一下使用 Noether 定理, “他说. “在给定方向上的平移不变性意味着在该方向上动量守恒. \"\nSchmidt was referring to Emmy Noether, the foremother of modern thinking about the role of symmetry in physics. With her theorem, published in 1918, she proved that whenever a system is invariant under a continuous symmetry, it has a corresponding conserved quantity. Translational symmetry implies conservation of momentum, rotational symmetry implies conservation of angular momentum, and timetranslation symmetry implies conservation of energy.\nSchmidt 指的是 Emmy Noether, 现代物理中关于对称性作用的思考的先驱. 在 1918 年发表的定理中, 她证明了每当一个系统在连续对称性下不变时, 它就有一个相应的守恒量. 平移对称性意味着动量守恒, 旋转对称性意味着角动量守恒, 时间平移对称性意味着能量守恒.\nThose undergraduate-friendly examples might seem pedestrian and hardly worth mentioning, but the theorem’s implications go far deeper. Noether herself was drawn to the problem by the desire to reconcile what physicists thought they knew about classical mechanics with the new theories of special and general relativity. A relativistic universe—especially if it’s expanding—might not be translationally or time-translationally invariant, so it might not conserve momentum and energy. But it has other symmetries, and thus other conserved quantities. Noether laid the foundations for understanding it all.\n这些本科生友好的例子可能看起来很平凡, 几乎不值一提, 但定理的含义更深远. Noether 本人之所以对这个问题感兴趣, 是因为她希望通过将物理学家认为他们对经典力学的了解与特殊相对论和广义相对论的新理论相协调. 一个相对论的宇宙——特别是如果它在膨胀——可能不是平移或时间平移不变的, 因此它可能不会保持动量和能量. 但它有其他的对称性, 因此有其他的守恒量. Noether 奠定了理解这一切的基础.\n“It was meant to be a throwaway comment,” says Schmidt. “What I hadn’t expected was that Sophie would go back to Noether’s original paper, work through it, and come back with the conclusion that the idea actually has some real substance in it. Once that was clear, we just sat down and worked it out as clearly as we could.”\nTo start with a simple example, they considered shifting the position r of each particle in an ensemble by a constant vector ε. That’s not inherently a symmetry of the underlying classical mechanical system, because they envisioned the particles moving in an external energy potential $V(\\mathbf{r})$ that stays put under the shift. So when the particles’ positions change, their energies do too. But when the researchers looked at the system as a statistical mechanical ensemble, something more subtle happened.\nSchmidt 说: “这是一个随意的评论. 我没有预料到 Sophie 会回到 Noether 的原始论文, 仔细研究它, 并得出结论, 这个想法实际上有一些真实的内容. 一旦这一点清楚了, 我们就坐下来尽可能清楚地解决这个问题. \"\n为了从一个简单的例子开始, 他们考虑了将集合中每个粒子的位置 $\\mathbf{r}$ 移动一个常矢量 $\\varepsilon$. 这并不是基础经典力学系统的对称性, 因为他们设想粒子在一个保持不变的外部能量势 $V(\\mathbf{r})$ 中运动. 因此, 当粒子的位置发生变化时, 它们的能量也会发生变化. 但当研究人员将系统视为统计力学集合时, 发生了更微妙的事情.\nThe basic operation of equilibrium statistical mechanics is the computation of weighted averages by integrating over all possible arrangements of individual particles, with each arrangement, or “microstate,” weighted by $e^{−E/kT}$, in which E is the total energy, $T$ is the temperature, and $k$ is Boltzmann’s constant. The weighting reflects the fact that lowenergy microstates always show up with the highest probability, but the higher-energy ones are not ruled out, especially at higher temperatures.\n平衡态统计力学的基本操作是通过对所有可能的单个粒子排列进行积分来计算加权平均值, 每个排列或\"微观状态\"都由 $e^{−E/kT}$ 加权, 其中 $E$ 是总能量, $T$ 是温度, $k$ 是玻尔兹曼常数. 加权反映了低能量微观状态总是以最高的概率出现, 但更高能量的微观状态并未被排除, 特别是在较高的温度下.\nShifting a microstate changes its energy and, therefore, its weight in the average. As a result, it turns out, the equilibrium average—of any observable quantity—is unaffected by the shift. Shifting by ε is not a symmetry under classical mechanics, but under statistical mechanics, it is.\nMathematically, the symmetry means that in thermal equilibrium, the derivative $\\mathrm{d}X/\\mathrm{d}\\varepsilon = 0$, no matter what $X$ is. Hermann and Schmidt took $X$ to be $\\sum V$, the sum of the total potential energy of all particles—and the derivative of potential energy is just the force exerted by that potential. Ergo, in equilibrium, $\\sum F_{\\text{ext}}$, the sum of external forces on the system, equals zero.\n移动一个微观状态会改变其能量, 因此也会改变其在平均值中的权重. 结果表明, 任何可观测量的平衡平均值——不受移动的影响. 通过 $\\varepsilon$ 移动在经典力学下不是一个对称性, 但在统计力学下是.\n从数学上讲, 这种对称性意味着(系统)在热平衡状态下, 无论 $X$ 是什么, 导数 $\\mathrm{d}X/\\mathrm{d}\\varepsilon = 0$. Hermann 和 Schmidt 将 $X$ 取为 $\\sum V$, 所有粒子的总势能之和——势能的导数就是该势能施加的力. 因此, 在平衡状态下, 系统上外力的总和 $\\sum F_{\\text{ext}}$ 等于零.\nThat might seem boringly obvious. If $\\sum F_{\\text{ext}}$ were not zero, the system would start to move, which would mean it hadn’t been in equilibrium after all. But as the researchers pointed out, $\\sum F_{\\text{ext}}=0$ is not true for most of the individual microstates. Rather, it’s a nontrivial statement about the nature of thermal equilibriuma so-called sum rule—and Noether’s theorem offered a new way of proving it.\n这可能看起来显而易见. 如果 $\\sum F_{\\text{ext}}$ 不为零, 系统将开始运动, 这意味着它根本不处于平衡状态. 但正如研究人员指出的那样, $\\sum F_{\\text{ext}}=0$ 对于大多数单个微观状态来说并不成立. 相反, 这是关于热平衡性质的一个非平凡陈述——所谓的求和规则——而 Noether 定理提供了一种新的证明方法.\nFrom global to local With subsequent waves of group members over the past five years—including Florian Sammüller and Johanna MüllerSchmidt and Hermann continued to develop the theory. In particular, says Schmidt, “Noether’s theorem comes in two flavors, local and global. We’d started with global shifts, but the real powerhouse is the local version.”\nGeneralizing from global to local symmetry would mean changing ε from a single vector to a position-dependent function $\\varepsilon(\\mathbf{r})$. In general, shifting by $\\varepsilon(\\mathbf{r})$ is not a statistical mechanical symmetry: The shift spreads out some particles and moves others closer together. The distortion leaves the respective microstates either overrepresented or underrepresented in the integral over all microstates.\n在过去的五年里, 随着一波波的团队成员——包括 Florian Sammüller 和 Johanna MüllerSchmidt 和 Hermann 继续发展这一理论. Schmidt 说: “Noether 定理有两种版本, 局部和全局. 我们从全局移动开始, 但真正的强大之处在于局部版本. \"\n从全局对称性推广到局部对称性意味着将 $\\varepsilon$ 从一个单一矢量变为一个位置相关函数 $\\varepsilon(\\mathbf{r})$. 一般来说, 通过 $\\varepsilon(\\mathbf{r})$ 移动不是一个统计力学对称性: 移动会使一些粒子分散开来, 而使另一些粒子靠近. 这种扭曲会使各自的微观状态在所有微观状态的积分中要么过表示, 要么欠表示.\nBut the thermal average is an integral over not just the particles’ positions but also their momenta. So the Bayreuth researchers introduced a corresponding momentum transform, as shown in figure 1, that compensated for the effect of the position shift: Where $\\varepsilon(\\mathbf{r})$ spread the positions apart, the momenta were correspondingly compressed, and vice versa. As a result, the position–momentum shift (still referred to as simply $\\varepsilon$ for brevity) once again left the equilibrium averages of all observables unchanged.\nUnraveling the consequences of the local symmetry follows similar lines. Now, $\\mathrm{d}X/\\mathrm{d}\\varepsilon(\\mathbf{r})$ is what’s called a functional derivative—a derivative with respect to a function—but just like an ordinary derivative with respect to a number, it can still be set to zero for any observable $X$. Moreover, one can study the second derivatives with respect to $\\varepsilon$ to generate higher-order sum rules that relate the spatial correlations among forces and other quantities.\n但热平均值是对粒子的位置和动量的积分. 因此, 拜罗伊特的研究人员引入了一个相应的动量变换, 如图 1 所示, 以补偿位置移动的影响: 当 $\\varepsilon(\\mathbf{r})$ 使位置分开时, 动量相应地被压缩, 反之亦然. 结果, 位置-动量移动（为简洁起见仍然简称为 $\\varepsilon$）再次使所有可观测量的平衡平均值保持不变.\n解开局部对称性的后果遵循类似的线路. 现在, $\\mathrm{d}X/\\mathrm{d}\\varepsilon(\\mathbf{r})$ 是所谓的泛函导数——对函数的导数——但就像对数的普通导数一样, 它仍然可以对任何可观测量 $X$ 设置为零. 此外, 可以研究关于 $\\varepsilon$ 的二阶导数, 以生成关于力和其他量之间的空间相关性的高阶求和规则.\n“All these sum rules just say, ‘Zero equals zero,’ \" says Schmidt, “or ‘These two things add up to zero,’ where one is an obvious everyday object, and the other is some strange correlation function that you’d never otherwise think of measuring. But it’s really worth it to study them, because they can tell you a lot about the system you’re looking at.”\nFor example, for their first foray into exploring the consequences of the local symmetry, they looked at simulations of liquids and gels. Those two forms of matter have obvious differences on the macroscale, but it can be tricky to relate their properties to what’s happening on the microscale. “The natural thing to want to measure is the shell structure–how likely particles are to be some distance apart,” says Sammüller. That quantity, plotted as $g$ in the upper panels of figure 2, is qualitatively similar between model liquids and model gels.\nSchmidt 说: “所有这些求和规则都只是说, ‘零等于零’, 或者‘这两个东西加起来等于零’, 其中一个是一个明显的日常对象, 另一个是一些奇怪的相关函数, 你从未想过要测量. 但研究它们真的很值得, 因为它们可以告诉你很多关于你正在研究的系统的信息. \"\n例如, 对于他们首次探索局部对称性后果的尝试, 他们观察了液体和凝胶的模拟. 这两种物质在宏观尺度上有明显的差异, 但将它们的性质与微观尺度上发生的事情联系起来可能会有些棘手. Sammüller 说: “想要测量的自然事物是壳结构——粒子之间相隔多远的可能性. \" 这个量, 作为图 2 上子图中的 $g$ 绘制, 模型液体和模型凝胶之间在定性上是相似的.\nBut when the researchers differentiated energy twice with respect to $\\varepsilon(\\mathbf{r})$, they got a sum rule relating derivatives of $g$ to correlations of forces $g_{ff}$ and force gradients $g_{\\nabla f}$. The correlations would be hard to measure in real fluids, but they’re certainly measurable in simulations and possibly even in experiments on micron-sized colloids. And as the bottom panels show, they’re starkly different between liquids and gels, and the quantities that the sum rule predicts to be equal really are.\n“These quantities that come out of the analysis can be very sensitive to various important physical mechanisms,” says Sammüller. “They might even be useful for designing liquids with tailored properties.”\n但当研究人员对能量关于 $\\varepsilon(\\mathbf{r})$ 两次求导时, 他们得到了一个关于 $g$ 的导数与力的相关性 $g_{ff}$ 和力梯度 $g_{\\nabla f}$ 的求和规则. 这些相关性在真实流体中很难测量, 但它们在模拟中肯定是可测量的, 甚至在微米级胶体的实验中也是可能的. 正如底部面板所示, 它们在液体和凝胶之间有着明显的不同, 而求和规则预测相等的量确实是相等的.\nFull circle “We could have continued like this,” says Schmidt, “with a new paper for every observable: ‘Now we can do this for energy, now for kinetic energy,’ and so on.” But when Müller joined the group, she brought with her a master’s degree in mathematics—and the tools to show just how general the shifting theory really was.\nThe universe of all possible shifts $\\varepsilon(\\mathrm{r})$, it turned out, forms a mathematical structure called a Lie algebra (named after Norwegian mathematician Sophus Lie—nothing to do with prevarication). Lie algebras turn up in many other areas of physics and mathematics, including in the gauge transformations from particle physics. “Dealing with gauge invariance and Lie algebras is such a standard thing in other areas,” says Schmidt, “and it helps us to better understand, assess, and manage the implications of the mathematics.”\nSchmidt 说: “我们本可以继续这样下去, 对每个可观测量写一篇新论文: ‘现在我们可以对能量做这个, 现在对动能做这个’, 等等. \" 但当 Müller 加入团队时, 她带来了数学硕士学位——以及展示移动理论实际上有多么普遍的工具.\n所有可能移动 $\\varepsilon(\\mathrm{r})$ 的宇宙, 原来形成了一个称为李代数的数学结构（以挪威数学家 Sophus Lie 命名——与说谎(lie)无关）. 李代数出现在许多其他物理和数学领域, 包括粒子物理中的规范变换. Schmidt 说: “在其他领域处理规范不变性和李代数是一件很标准的事情, 它帮助我们更好地理解、评估和管理数学的含义. \"\nIn particular, the Lie algebra structure sets clear boundaries on the types of sum rules that the $\\varepsilon(\\mathrm{r})$ shifts can generate. No matter what observable quantity the researchers start with or which functional derivatives they calculate, they’ll end up with a sum rule involving correlations of forces and other specific force-like quantities. “These do form a hierarchy of increasing complexity, but the complexity is within the limits set by the Lie algebra,” says Schmidt. “The sum rules don’t proliferate into an uncontrolled, everincreasing range of quantities that they relate to each other.”\nThe implications of the $\\varepsilon(\\mathrm{r})$ shifts were falling into place, but there remained the matter of Hermann’s original question: What does the shift really mean? “Gauge invariance is a brutal thing somehow,” says Schmidt, “because it says that all these things that one can reach with the gauge transformation are really the same.” That is, the gauge transformation is more than a mere mathematical manipulation: The transformed and untransformed versions of the system are physically indistinguishable, which means they’re also physically equivalent.\n特别是, 李代数结构为 $\\varepsilon(\\mathrm{r})$ 移动可以生成的求和规则类型设定了明确的边界. 无论研究人员从哪个可观测量开始, 或者计算哪些泛函导数, 他们最终都会得到一个涉及力的相关性和其他特定类似力的数量的求和规则. Schmidt 说: “这确实形成了一个逐渐复杂的层次结构, 但这种复杂性是在李代数设定的限制范围内的. 求和规则不会无限制地扩散到与彼此相关的数量的不断增加的范围. \"\n$\\varepsilon(\\mathrm{r})$ 移动的含义正在逐渐清晰, 但仍然存在 Hermann 最初的问题: 移动到底意味着什么？Schmidt 说: “规范不变性在某种程度上是一种残酷的事情, 因为它说所有这些可以通过规范变换达到的东西实际上是相同的. “也就是说, 规范变换不仅仅是一种简单的数学操作: 系统的变换和未变换版本在物理上是无法区分的, 这意味着它们在物理上是等价的.\nOther common targets of gauge transformations, such as quantum fields and electromagnetic potentials, are already such abstract entities that it’s relatively easy to accept that one way of writing them down is no more physically real than any other. Statistical mechanics seems different in that regard, because classical intuition gives rise to mental movies of ensembles of particles zipping around in boxes. Those microstates might seem too concrete to exist as part of an $\\varepsilon(\\mathrm{r})$-shifted equivalence class: Surely one set of positions and momenta must be the real one?\n“It’s absolutely weird that gauge invariance also applies in this context, and it’s hard to get your head around,” says Schmidt. “But it’s the averages we’re taking that are the abstract thing. The movies aren’t real—they’re just one very specific illustration. It’s possible to look at a system too accurately.”\n度规变换的其他常见目标, 如量子场和电磁势, 已经是如此抽象的实体, 以至于人们相对容易接受这样一种写法并不比其他写法在物理上更真实. 统计力学在这方面似乎有所不同, 因为经典的直觉会让人在脑海中浮现出在盒子里飞来飞去的粒子集合体. 这些微观状态似乎过于具体, 不可能作为一个 $\\varepsilon(\\mathrm{r})$ 移位等价类的一部分而存在: 肯定有一组位置和力矩是真实的吗？\n",
+  "wordCount" : "5494",
+  "inLanguage": "zh",
+  "datePublished": "2025-03-04T00:18:06+08:00",
+  "dateModified": "2025-03-04T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/sm/gauge-invariance-applies-to-statistical-mechanics-too/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/sm/">✡️ Advanced Statistical Mechanics</a></div>
+            <h1 class="post-title">
+                Gauge invariance applies to statistical mechanics too
+            </h1>
+            <div class="post-description">
+                高等统计物理的阅读材料之一
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-03-04
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>5494字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>11分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">Read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#mindset-shift" aria-label="Mindset shift">Mindset shift</a></li>
+                <li>
+                    <a href="#from-global-to-local" aria-label="From global to local">From global to local</a></li>
+                <li>
+                    <a href="#full-circle" aria-label="Full circle">Full circle</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><blockquote>
+<p>Mathematical tools from the abstract world of quantum fields have surprising relevance to the seemingly more concrete realm of particles in boxes.</p>
+</blockquote>
+<p>来自量子场抽象世界的数学工具与看似更具体的盒中粒子领域有着惊人的关联.</p>
+<blockquote>
+<p>To the uninitiated, the standard model of particle physics can seem like a random hodgepodge of particles and forces: quarks and gluons, charged leptons and neutrinos, W and Z bosons, each with its own idiosyncratic properties and behaviors. To paraphrase I. I. Rabi&rsquo;s remark about the muon, &ldquo;Who ordered that &hellip; or that &hellip; or that?&rdquo; But a deeper dive into the theory reveals a method to the madness. Far from being arbitrary, many features of the model follow mathematically from the symmetries of the universe. Once the symmetries are known, much of the rest follows inevitably.</p>
+</blockquote>
+<p>对于未接触过的人来说, 粒子物理标准模型似乎是一种随机的粒子和力的混合: 夸克和胶子, 带电轻子和中微子, W 和 Z 玻色子, 每种粒子都有其独特的特性和行为. 用 I. I. Rabi 关于 $\mu$ 子的话来说, &ldquo;谁点的这个&hellip;或者那个&hellip;或者那个？&ldquo;但对理论的深入研究揭示了这种疯狂背后的方法. 许多模型的特征并非任意的, 而是从宇宙的对称性中数学推导出来的. 一旦这些对称性被知晓, 其他的大部分内容就会不可避免地跟随而来.</p>
+<blockquote>
+<p>The theoretical workhorse for deriving physical laws from symmetries is the gauge transformation. Roughly speaking, you start with a quantity, such as the phase of a quantum mechanical wavefunction, that doesn&rsquo;t affect any physical observables, and you write it as a local function that takes different values at different points in space. Turn the mathematical crank, and out pops a physical  law—in this case, a description of the existence and behavior of photons.</p>
+</blockquote>
+<p>从对称性中推导物理定律的理论工具是规范变换. 粗略地说, 你从一个量开始, 比如量子力学波函数的相位, 它不会影响任何物理可观测量, 然后将其写成一个局部函数, 该函数在空间中的不同点取不同的值. 转动数学曲柄, 就会得到一个物理定律——在这种情况下, 是光子的存在和行为的描述.</p>
+<blockquote>
+<p>Now, Matthias Schmidt and col leagues at the University of Bayreuth in Germany have shown that gauge transformations can also be fruitful in a seemingly disparate area of physics: statistical mechanics. They&rsquo;re still exploring all the consequences of their discovery, but they&rsquo;ve already uncovered a plethora of mathematical structure, equations that can help to characterize soft-matter systems, and questions about what statistical mechanical averages really mean.</p>
+</blockquote>
+<p>现在, 德国拜罗伊特大学的 Matthias Schmidt 和他的同事们已经表明, 规范变换在看似不相关的物理领域——统计力学中也是富有成果的. 他们仍在探索他们发现的所有后果, 但他们已经发现了大量的数学结构, 可以帮助表征软物质系统的方程, 以及关于统计力学平均值到底意味着什么的问题.</p>
+<h1 id="mindset-shift">Mindset shift<a hidden class="anchor" aria-hidden="true" href="#mindset-shift">#</a></h1>
+<blockquote>
+<p>It all started with an offhand remark in 2019. Schmidt was working with Sophie Hermann, a new PhD student in his group, to explore the effect of a mathematical manipulation that he called &ldquo;shifting.&rdquo; &ldquo;Sophie is a very clear and systematic thinker,&rdquo; says Schmidt, &ldquo;and she kept insisting that it was unclear what ‘shifting&rsquo; actually implies.&rdquo;</p>
+<p>Grasping for an answer, he appealed to a topic he&rsquo;d covered in his undergraduate classical mechanics course, which Hermann had taken a few years previously: &ldquo;Think of it like using Noether&rsquo;s theorem,&rdquo; he said. &ldquo;Translational invariance in a given direction implies conservation of momentum in that direction.&rdquo;</p>
+</blockquote>
+<p>一切都始于 2019 年的一句随意的评论. Schmidt 正在与他的研究组中的新博士生 Sophie Hermann 合作, 探讨他称之为&quot;移动&quot;的数学操作的影响. Schmidt 说: &ldquo;Sophie 是一个非常清晰和系统性思考者, 她一直坚持认为不清楚‘移动&rsquo;实际意味着什么. &quot;</p>
+<p>为了找到答案, 他提到了他在本科经典力学课程中涉及的一个主题, 而 Hermann 几年前就已经学过了: &ldquo;想象一下使用 Noether 定理, &ldquo;他说. &ldquo;在给定方向上的平移不变性意味着在该方向上动量守恒. &quot;</p>
+<blockquote>
+<p>Schmidt was referring to Emmy Noether, the foremother of modern thinking about the role of symmetry in physics. With her theorem, published in 1918, she proved that whenever a system is invariant under a continuous symmetry, it has a corresponding conserved quantity. Translational symmetry implies conservation of momentum, rotational symmetry implies conservation of angular momentum, and timetranslation symmetry implies conservation of energy.</p>
+</blockquote>
+<p>Schmidt 指的是 Emmy Noether, 现代物理中关于对称性作用的思考的先驱. 在 1918 年发表的定理中, 她证明了每当一个系统在连续对称性下不变时, 它就有一个相应的守恒量. 平移对称性意味着动量守恒, 旋转对称性意味着角动量守恒, 时间平移对称性意味着能量守恒.</p>
+<blockquote>
+<p>Those undergraduate-friendly examples might seem pedestrian and hardly worth mentioning, but the theorem&rsquo;s implications go far deeper. Noether herself was drawn to the problem by the desire to reconcile what physicists thought they knew about classical mechanics with the new theories of special and general relativity. A relativistic universe—especially if it&rsquo;s expanding—might not be translationally or time-translationally invariant, so it might not conserve momentum and energy. But it has other symmetries, and thus other conserved quantities. Noether laid the foundations for understanding it all.</p>
+</blockquote>
+<p>这些本科生友好的例子可能看起来很平凡, 几乎不值一提, 但定理的含义更深远. Noether 本人之所以对这个问题感兴趣, 是因为她希望通过将物理学家认为他们对经典力学的了解与特殊相对论和广义相对论的新理论相协调. 一个相对论的宇宙——特别是如果它在膨胀——可能不是平移或时间平移不变的, 因此它可能不会保持动量和能量. 但它有其他的对称性, 因此有其他的守恒量. Noether 奠定了理解这一切的基础.</p>
+<blockquote>
+<p>&ldquo;It was meant to be a throwaway comment,&rdquo; says Schmidt. &ldquo;What I hadn&rsquo;t expected was that Sophie would go back to Noether&rsquo;s original paper, work through it, and come back with the conclusion that the idea actually has some real substance in it. Once that was clear, we just sat down and worked it out as clearly as we could.&rdquo;</p>
+<p>To start with a simple example, they considered shifting the position r of each particle in an ensemble by a constant vector ε. That&rsquo;s not inherently a symmetry of the underlying classical mechanical system, because they envisioned the particles moving in an external energy potential $V(\mathbf{r})$ that stays put under the shift. So when the particles&rsquo; positions change, their energies do too. But when the researchers looked at the system as a statistical mechanical ensemble, something more subtle happened.</p>
+</blockquote>
+<p>Schmidt 说: &ldquo;这是一个随意的评论. 我没有预料到 Sophie 会回到 Noether 的原始论文, 仔细研究它, 并得出结论, 这个想法实际上有一些真实的内容. 一旦这一点清楚了, 我们就坐下来尽可能清楚地解决这个问题. &quot;</p>
+<p>为了从一个简单的例子开始, 他们考虑了将集合中每个粒子的位置 $\mathbf{r}$ 移动一个常矢量 $\varepsilon$. 这并不是基础经典力学系统的对称性, 因为他们设想粒子在一个保持不变的外部能量势 $V(\mathbf{r})$ 中运动. 因此, 当粒子的位置发生变化时, 它们的能量也会发生变化. 但当研究人员将系统视为统计力学集合时, 发生了更微妙的事情.</p>
+<blockquote>
+<p>The basic operation of equilibrium statistical mechanics is the computation of weighted averages by integrating over all possible arrangements of individual particles, with each arrangement, or &ldquo;microstate,&rdquo; weighted by $e^{−E/kT}$, in which E is the total energy, $T$ is the temperature, and $k$ is Boltzmann&rsquo;s constant. The weighting reflects the fact that lowenergy microstates always show up with the highest probability, but the higher-energy ones are not ruled out, especially at higher temperatures.</p>
+</blockquote>
+<p>平衡态统计力学的基本操作是通过对所有可能的单个粒子排列进行积分来计算加权平均值, 每个排列或&quot;微观状态&quot;都由 $e^{−E/kT}$ 加权, 其中 $E$ 是总能量, $T$ 是温度, $k$ 是玻尔兹曼常数. 加权反映了低能量微观状态总是以最高的概率出现, 但更高能量的微观状态并未被排除, 特别是在较高的温度下.</p>
+<blockquote>
+<p>Shifting a microstate changes its energy and, therefore, its weight in the average. As a result, it turns out, the equilibrium average—of any observable  quantity—is unaffected by the shift. Shifting by ε is not a symmetry under classical mechanics, but under statistical mechanics, it is.</p>
+<p>Mathematically, the symmetry means that in thermal equilibrium, the derivative $\mathrm{d}X/\mathrm{d}\varepsilon = 0$, no matter what $X$ is. Hermann and Schmidt took $X$ to be $\sum V$, the sum of the total potential energy of all particles—and the derivative of potential energy is just the force exerted by that potential. Ergo, in equilibrium, $\sum F_{\text{ext}}$, the sum of external forces on the system, equals zero.</p>
+</blockquote>
+<p>移动一个微观状态会改变其能量, 因此也会改变其在平均值中的权重. 结果表明, 任何可观测量的平衡平均值——不受移动的影响. 通过 $\varepsilon$ 移动在经典力学下不是一个对称性, 但在统计力学下是.</p>
+<p>从数学上讲, 这种对称性意味着(系统)在热平衡状态下, 无论 $X$ 是什么, 导数 $\mathrm{d}X/\mathrm{d}\varepsilon = 0$. Hermann 和 Schmidt 将 $X$ 取为 $\sum V$, 所有粒子的总势能之和——势能的导数就是该势能施加的力. 因此, 在平衡状态下, 系统上外力的总和 $\sum F_{\text{ext}}$ 等于零.</p>
+<blockquote>
+<p>That might seem boringly obvious. If $\sum F_{\text{ext}}$ were not zero, the system would start to move, which would mean it hadn&rsquo;t been in equilibrium after all. But as the researchers pointed out, $\sum F_{\text{ext}}=0$ is not true for most of the individual microstates. Rather, it&rsquo;s a nontrivial statement about the nature of thermal equilibriuma so-called sum rule—and Noether&rsquo;s theorem offered a new way of proving it.</p>
+</blockquote>
+<p>这可能看起来显而易见. 如果 $\sum F_{\text{ext}}$ 不为零, 系统将开始运动, 这意味着它根本不处于平衡状态. 但正如研究人员指出的那样, $\sum F_{\text{ext}}=0$ 对于大多数单个微观状态来说并不成立. 相反, 这是关于热平衡性质的一个非平凡陈述——所谓的求和规则——而 Noether 定理提供了一种新的证明方法.</p>
+<h1 id="from-global-to-local">From global to local<a hidden class="anchor" aria-hidden="true" href="#from-global-to-local">#</a></h1>
+<blockquote>
+<p>With subsequent waves of group members over the past five years—including Florian Sammüller and Johanna MüllerSchmidt and Hermann continued to develop the theory. In particular, says Schmidt, &ldquo;Noether&rsquo;s theorem comes in two flavors, local and global. We&rsquo;d started with global shifts, but the real powerhouse is the local version.&rdquo;</p>
+<p>Generalizing from global to local symmetry would mean changing ε from a single vector to a position-dependent function $\varepsilon(\mathbf{r})$. In general, shifting by $\varepsilon(\mathbf{r})$ is not a statistical mechanical symmetry: The shift spreads out some particles and moves others closer together. The distortion leaves the respective microstates either overrepresented or underrepresented in the integral over all microstates.</p>
+</blockquote>
+<p>在过去的五年里, 随着一波波的团队成员——包括 Florian Sammüller 和 Johanna MüllerSchmidt 和 Hermann 继续发展这一理论. Schmidt 说: &ldquo;Noether 定理有两种版本, 局部和全局. 我们从全局移动开始, 但真正的强大之处在于局部版本. &quot;</p>
+<p>从全局对称性推广到局部对称性意味着将 $\varepsilon$ 从一个单一矢量变为一个位置相关函数 $\varepsilon(\mathbf{r})$. 一般来说, 通过 $\varepsilon(\mathbf{r})$ 移动不是一个统计力学对称性: 移动会使一些粒子分散开来, 而使另一些粒子靠近. 这种扭曲会使各自的微观状态在所有微观状态的积分中要么过表示, 要么欠表示.</p>
+<blockquote>
+<p>But the thermal average is an integral over not just the particles&rsquo; positions but also their momenta. So the Bayreuth researchers introduced a corresponding momentum transform, as shown in figure 1, that compensated for the effect of the position shift: Where $\varepsilon(\mathbf{r})$ spread the positions apart, the momenta were correspondingly compressed, and vice versa. As a result, the position–momentum shift (still referred to as simply $\varepsilon$ for brevity) once again left the equilibrium averages of all observables unchanged.</p>
+<p>Unraveling the consequences of the local symmetry follows similar lines. Now, $\mathrm{d}X/\mathrm{d}\varepsilon(\mathbf{r})$ is what&rsquo;s called a functional derivative—a derivative with respect to a function—but just like an ordinary derivative with respect to a number, it can still be set to zero for any observable $X$. Moreover, one can study the second derivatives with respect to $\varepsilon$ to generate higher-order sum rules that relate the spatial correlations among forces and other quantities.</p>
+</blockquote>
+<p>但热平均值是对粒子的位置和动量的积分. 因此, 拜罗伊特的研究人员引入了一个相应的动量变换, 如图 1 所示, 以补偿位置移动的影响: 当 $\varepsilon(\mathbf{r})$ 使位置分开时, 动量相应地被压缩, 反之亦然. 结果, 位置-动量移动（为简洁起见仍然简称为 $\varepsilon$）再次使所有可观测量的平衡平均值保持不变.</p>
+<p>解开局部对称性的后果遵循类似的线路. 现在, $\mathrm{d}X/\mathrm{d}\varepsilon(\mathbf{r})$ 是所谓的泛函导数——对函数的导数——但就像对数的普通导数一样, 它仍然可以对任何可观测量 $X$ 设置为零. 此外, 可以研究关于 $\varepsilon$ 的二阶导数, 以生成关于力和其他量之间的空间相关性的高阶求和规则.</p>
+<blockquote>
+<p>&ldquo;All these sum rules just say, ‘Zero equals zero,&rsquo; &quot; says Schmidt, &ldquo;or ‘These two things add up to zero,&rsquo; where one is an obvious everyday object, and the other is some strange correlation function that you&rsquo;d never otherwise think of measuring. But it&rsquo;s really worth it to study them, because they can tell you a lot about the system you&rsquo;re looking at.&rdquo;</p>
+<p>For example, for their first foray into exploring the consequences of the local symmetry, they looked at simulations of liquids and gels. Those two forms of matter have obvious differences on the macroscale, but it can be tricky to relate their properties to what&rsquo;s happening on the microscale. &ldquo;The natural thing to want to measure is the shell structure&ndash;how likely particles are to be some distance apart,&rdquo; says Sammüller. That quantity, plotted as $g$ in the upper panels of figure 2, is qualitatively similar between model liquids and model gels.</p>
+</blockquote>
+<p>Schmidt 说: &ldquo;所有这些求和规则都只是说, ‘零等于零&rsquo;, 或者‘这两个东西加起来等于零&rsquo;, 其中一个是一个明显的日常对象, 另一个是一些奇怪的相关函数, 你从未想过要测量. 但研究它们真的很值得, 因为它们可以告诉你很多关于你正在研究的系统的信息. &quot;</p>
+<p>例如, 对于他们首次探索局部对称性后果的尝试, 他们观察了液体和凝胶的模拟. 这两种物质在宏观尺度上有明显的差异, 但将它们的性质与微观尺度上发生的事情联系起来可能会有些棘手. Sammüller 说: &ldquo;想要测量的自然事物是壳结构——粒子之间相隔多远的可能性. &quot; 这个量, 作为图 2 上子图中的 $g$ 绘制, 模型液体和模型凝胶之间在定性上是相似的.</p>
+<blockquote>
+<p>But when the researchers differentiated energy twice with respect to $\varepsilon(\mathbf{r})$, they got a sum rule relating derivatives of $g$ to correlations of forces $g_{ff}$ and force gradients $g_{\nabla f}$. The correlations would be hard to measure in real fluids, but they&rsquo;re certainly measurable in simulations and possibly even in experiments on micron-sized colloids. And as the bottom panels show, they&rsquo;re starkly different between liquids and gels, and the quantities that the sum rule predicts to be equal really are.</p>
+<p>&ldquo;These quantities that come out of the analysis can be very sensitive to various important physical mechanisms,&rdquo; says Sammüller. &ldquo;They might even be useful for designing liquids with tailored properties.&rdquo;</p>
+</blockquote>
+<p>但当研究人员对能量关于 $\varepsilon(\mathbf{r})$ 两次求导时, 他们得到了一个关于 $g$ 的导数与力的相关性 $g_{ff}$ 和力梯度 $g_{\nabla f}$ 的求和规则. 这些相关性在真实流体中很难测量, 但它们在模拟中肯定是可测量的, 甚至在微米级胶体的实验中也是可能的. 正如底部面板所示, 它们在液体和凝胶之间有着明显的不同, 而求和规则预测相等的量确实是相等的.</p>
+<h1 id="full-circle">Full circle<a hidden class="anchor" aria-hidden="true" href="#full-circle">#</a></h1>
+<blockquote>
+<p>&ldquo;We could have continued like this,&rdquo; says Schmidt, &ldquo;with a new paper for every observable: ‘Now we can do this for energy, now for kinetic energy,&rsquo; and so on.&rdquo; But when Müller joined the group, she brought with her a master&rsquo;s degree in mathematics—and the tools to show just how general the shifting theory really was.</p>
+<p>The universe of all possible shifts $\varepsilon(\mathrm{r})$, it turned out, forms a mathematical structure called a Lie algebra (named after Norwegian mathematician Sophus Lie—nothing to do with prevarication). Lie algebras turn up in many other areas of physics and mathematics, including in the gauge transformations from particle physics. &ldquo;Dealing with gauge invariance and Lie algebras is such a standard thing in other areas,&rdquo; says Schmidt, &ldquo;and it helps us to better understand, assess, and manage the implications of the mathematics.&rdquo;</p>
+</blockquote>
+<p>Schmidt 说: &ldquo;我们本可以继续这样下去, 对每个可观测量写一篇新论文: ‘现在我们可以对能量做这个, 现在对动能做这个&rsquo;, 等等. &quot; 但当 Müller 加入团队时, 她带来了数学硕士学位——以及展示移动理论实际上有多么普遍的工具.</p>
+<p>所有可能移动 $\varepsilon(\mathrm{r})$ 的宇宙, 原来形成了一个称为李代数的数学结构（以挪威数学家 Sophus Lie 命名——与说谎(lie)无关）. 李代数出现在许多其他物理和数学领域, 包括粒子物理中的规范变换. Schmidt 说: &ldquo;在其他领域处理规范不变性和李代数是一件很标准的事情, 它帮助我们更好地理解、评估和管理数学的含义. &quot;</p>
+<blockquote>
+<p>In particular, the Lie algebra structure sets clear boundaries on the types of sum rules that the $\varepsilon(\mathrm{r})$ shifts can generate. No matter what observable quantity the researchers start with or which functional derivatives they calculate, they&rsquo;ll end up with a sum rule involving correlations of forces and other specific force-like quantities. &ldquo;These do form a hierarchy of increasing complexity, but the complexity is within the limits set by the Lie algebra,&rdquo; says Schmidt. &ldquo;The sum rules don&rsquo;t proliferate into an uncontrolled, everincreasing range of quantities that they relate to each other.&rdquo;</p>
+<p>The implications of the $\varepsilon(\mathrm{r})$ shifts were falling into place, but there remained the matter of Hermann&rsquo;s original question: What does the shift really mean? &ldquo;Gauge invariance is a brutal thing somehow,&rdquo; says Schmidt, &ldquo;because it says that all these things that one can reach with the gauge transformation are really the same.&rdquo; That is, the gauge transformation is more than a mere mathematical manipulation: The transformed and untransformed versions of the system are physically indistinguishable, which means they&rsquo;re also physically equivalent.</p>
+</blockquote>
+<p>特别是, 李代数结构为 $\varepsilon(\mathrm{r})$ 移动可以生成的求和规则类型设定了明确的边界. 无论研究人员从哪个可观测量开始, 或者计算哪些泛函导数, 他们最终都会得到一个涉及力的相关性和其他特定类似力的数量的求和规则. Schmidt 说: &ldquo;这确实形成了一个逐渐复杂的层次结构, 但这种复杂性是在李代数设定的限制范围内的. 求和规则不会无限制地扩散到与彼此相关的数量的不断增加的范围. &quot;</p>
+<p>$\varepsilon(\mathrm{r})$ 移动的含义正在逐渐清晰, 但仍然存在 Hermann 最初的问题: 移动到底意味着什么？Schmidt 说: &ldquo;规范不变性在某种程度上是一种残酷的事情, 因为它说所有这些可以通过规范变换达到的东西实际上是相同的. &ldquo;也就是说, 规范变换不仅仅是一种简单的数学操作: 系统的变换和未变换版本在物理上是无法区分的, 这意味着它们在物理上是等价的.</p>
+<blockquote>
+<p>Other common targets of gauge transformations, such as quantum fields and electromagnetic potentials, are already such abstract entities that it&rsquo;s relatively easy to accept that one way of writing them down is no more physically real than any other. Statistical mechanics seems different in that regard, because classical intuition gives rise to mental movies of ensembles of particles zipping around in boxes. Those microstates might seem too concrete to exist as part of an $\varepsilon(\mathrm{r})$-shifted equivalence class: Surely one set of positions and momenta must be the real one?</p>
+<p>&ldquo;It&rsquo;s absolutely weird that gauge invariance also applies in this context, and it&rsquo;s hard to get your head around,&rdquo; says Schmidt. &ldquo;But it&rsquo;s the averages we&rsquo;re taking that are the abstract thing. The movies aren&rsquo;t real—they&rsquo;re just one very specific illustration. It&rsquo;s possible to look at a system too accurately.&rdquo;</p>
+</blockquote>
+<p>度规变换的其他常见目标, 如量子场和电磁势, 已经是如此抽象的实体, 以至于人们相对容易接受这样一种写法并不比其他写法在物理上更真实.  统计力学在这方面似乎有所不同, 因为经典的直觉会让人在脑海中浮现出在盒子里飞来飞去的粒子集合体.  这些微观状态似乎过于具体, 不可能作为一个 $\varepsilon(\mathrm{r})$ 移位等价类的一部分而存在: 肯定有一组位置和力矩是真实的吗？</p>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/sm/thermo-dynamics-enrico-fermi/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Entropy, Fermi</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/phy/sm/gauge-invariance-of-equilibrium-statistical-mechanics/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Gauge Invariance of Equilibrium Statistical Mechanics</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

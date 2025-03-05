@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Gauge Invariance of Equilibrium Statistical Mechanics | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, statistical mechanics">
+<meta name="description" content="高等统计物理的阅读材料之一">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/sm/gauge-invariance-of-equilibrium-statistical-mechanics/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/phy/sm/gauge-invariance-of-equilibrium-statistical-mechanics/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Gauge Invariance of Equilibrium Statistical Mechanics" />
+<meta property="og:description" content="高等统计物理的阅读材料之一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/sm/gauge-invariance-of-equilibrium-statistical-mechanics/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-03-04T00:18:06+08:00" />
+<meta property="article:modified_time" content="2025-03-04T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gauge Invariance of Equilibrium Statistical Mechanics"/>
+<meta name="twitter:description" content="高等统计物理的阅读材料之一"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "✡️ Advanced Statistical Mechanics",
+          "item": "https://Muatyz.github.io/posts/phy/sm/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Gauge Invariance of Equilibrium Statistical Mechanics",
+      "item": "https://Muatyz.github.io/posts/phy/sm/gauge-invariance-of-equilibrium-statistical-mechanics/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Gauge Invariance of Equilibrium Statistical Mechanics",
+  "name": "Gauge Invariance of Equilibrium Statistical Mechanics",
+  "description": "高等统计物理的阅读材料之一",
+  "keywords": [
+    "scmp", "statistical mechanics"
+  ],
+  "articleBody": "Abstract We identify a recently proposed shifting operation on classical phase space as a gauge transformation for statistical mechanical microstates. The infinitesimal generators of the continuous gauge group form a noncommutative Lie algebra, which induces exact sum rules when thermally averaged. Gauge invariance with respect to finite shifting is demonstrated via Monte Carlo simulation in the transformed phase space which generates identical equilibrium averages. Our results point toward a deeper basis of statistical mechanics than previously known, and they offer avenues for systematic construction of exact identities and of sampling algorithms.\n我们将最近提出的经典相空间移位操作确定为统计力学微观状态的量规变换。 连续量规群的无穷小生成元构成了一个非交换李代数，在热学平均时会产生精确的和规则。 通过在转换后的相空间中进行蒙特卡罗模拟，产生了相同的平衡平均值，从而证明了有限位移的量规不变性。 我们的研究结果指出了统计力学比以前已知的更深层次的基础，并为系统地构建精确同分异构体和采样算法提供了途径。\nOne of the arguably most important applications of Noether’s theorem of invariant variations is the systematic treatment of local gauge invariances within the fundamental physical field theories for the electromagnetic, weak, and strong interactions. Using the corresponding continuous gauge groups U(1), SU(2), and SU(3) as fundamental building blocks for theory construction is one of the most successful strategies in modern physics. The nature of the physical mechanisms that underlie the symmetry do not, however, feature explicitly in Noether’s theorem. The theorem rather constitutes a power tool to obtain exact equations, usually in the form of global or local conservation laws, from an underlying continuous symmetry that needs to have been identified within (or input into) a variational formulation of the considered physics.\n在电磁、弱和强相互作用的基本物理场理论中， Noether 定理的不变变分的系统处理局部量规不变性可能是最重要的应用之一。 使用相应的连续量规群 U(1)、SU(2) 和 SU(3) 作为理论构建的基本构件是现代物理学中最成功的策略之一。 然而，支撑对称性的物理机制的性质并没有明确地出现在 Noether 定理中。 该定理实际上是一种强大的工具，用于从需要在所考虑的物理的变分形式中已经确定（或输入）的连续对称性中获得精确方程，通常以全局或局部守恒定律的形式。\nThe roots of statistical mechanics are older than the modern gauge field theories. Nevertheless, Noether’s theorem has been applied only relatively recently in various different productive ways to the physics of equilibrium and nonequilibrium many-body systems. The role that exact sum rules play in statistical mechanics is akin to that of conservation laws in dynamical theories, in that they allow one to constrain and rationalize the nature of the physics, without, in general, determining the full solution of the problem at hand.\n统计力学的根源比现代规范场理论要古老。 然而， Noether 定理最近才以各种不同的生产方式应用于平衡和非平衡多体系统的物理学。 精确和规则在统计力学中的作用类似于动力学理论中守恒定律的作用，因为它们允许人们约束和理性化物理的性质，但通常不确定手头问题的完整解决方案。\nIn a range of recent investigations, Noether’s theorem has been applied to a specific shifting operation on phase space, where, instead of the more usual conservation laws, both well-known and new statistical mechanical sum rules were obtained systematically. Thereby, Noether’s concept of invariance against continuous transformation is applied to statistical mechanical functionals, such as the partition sum. While similarities with global spatial translational invariance, as generates linear momentum conservation, were discussed, neither the physical nature nor the mathematical structure of the general phase space shifting transformation have been unraveled.\n在最近的一系列研究中，Noether 定理被应用于相空间的特定变换操作，在此过程中，系统地获得了著名的和新的统计力学和规则，而不是更常见的守恒定律。 因此，Noether 的连续变换不变性概念被应用于统计力学函数，如分割和。 虽然讨论了与产生线性动量守恒的全局空间平移不变性的相似性，但一般相空间平移变换的物理本质和数学结构都没有被解开。\nHere, we identify the phase space shifting transformation as a local gauge symmetry transformation that is inherent to the statistical mechanics of particle-based systems. Realizing the defining feature of a gauge transformation, the application of the local shifting has no effect on any physical observables. Despite the shifting being geometric, the transformation is noncommutative, even when displacing only infinitesimally. A noncommutative Lie algebra of generators characterizes infinitesimal transformations. Corresponding exact sum rules follow for thermal averages. Finite transformations retain the gauge invariance, as we demonstrate via Monte Carlo computer simulations.\n在这里，我们将相空间移位变换确定为粒子系统的统计力学固有的局部度规对称变换。 实现度规变换的定义特征，局部移位的应用对任何物理可观测量都没有影响。 尽管移位是几何的，但即使只是微小位移，变换也是非交换的。 无穷小变换的生成元构成非交换李代数。 对热学平均值遵循相应的精确和规则。 我们通过蒙特卡罗计算机模拟证明，有限变换保持量规不变性。\nThe shifting operation put forward in Refs. affects the positions $\\mathbf{r}_{i}$ and momenta $\\mathbf{p}_{i}$ of each particle $i = i,\\cdots,N$ via the following transformation:\n$$ \\begin{align} \\mathbf{r}_{i} \u0026\\rightarrow \\mathbf{r}_{i} + \\epsilon(\\mathbf{r}_{i}) = \\widetilde{\\mathbf{r}}_{i},\\tag{1}\\\\ \\mathbf{p}_{i} \u0026\\rightarrow \\left[1 + \\nabla_{i}\\epsilon(\\mathbf{r}_{i})\\right]^{-1}\\cdot \\mathbf{p}_{i} = \\widetilde{\\mathbf{p}}_{i},\\tag{2} \\end{align} $$\nwhere the $d$-dimensional vector field $\\epsilon(\\mathbf{r}_{i})$ is such that Eq. (1) is a diffeomorphism, i.e., together with its inverse is bijective and smooth; d is the spatial dimensionality, and the tilde indicates the new phase space variables. In Eq. (2), the symbol $\\mathbf{1}$ denotes the $d\\times d$ unit matrix, $\\nabla_{i}$ is the derivative with respect to $\\mathbf{r}_{i}$, and the superscript $−1$ denotes matrix inversion. The transformation is canonical in the sense of classical mechanics, and, hence, the differential phase space volume element is preserved, $\\mathrm{d}\\mathbf{r}_{i}\\mathrm{d}\\mathbf{p}_{i} = \\mathrm{d}\\widetilde{\\mathbf{r}}_{i}\\mathrm{d}\\widetilde{\\mathbf{p}}_{i}$. This property is fundamental for thermal averages to arise as invariant under the application of Eqs. (1) and (2).\n在参考文献中提出的移位操作通过以下变换影响每个粒子 $i = i,\\cdots,N$ 的位置 $\\mathbf{r}_{i}$ 和动量 $\\mathbf{p}_{i}$：\n$$ \\begin{align} \\mathbf{r}_{i} \u0026\\rightarrow \\mathbf{r}_{i} + \\epsilon(\\mathbf{r}_{i}) = \\widetilde{\\mathbf{r}}_{i},\\tag{1}\\\\ \\mathbf{p}_{i} \u0026\\rightarrow \\left[\\mathbb{I} + \\nabla_{i}\\epsilon(\\mathbf{r}_{i})\\right]^{-1}\\cdot \\mathbf{p}_{i} = \\widetilde{\\mathbf{p}}_{i},\\tag{2} \\end{align} $$\n其中 $d$ 维向量场 $\\epsilon(\\mathbf{r}_{i})$ 是使得方程 (1) 是微分同胚的，即，与其逆一起是双射和光滑的； $d$ 是空间维度，而波浪线表示新的相空间变量。 在方程 (2) 中，符号 $\\mathbb{I}$ 表示 $d\\times d$ 单位矩阵，$\\nabla_{i}$ 是关于 $\\mathbf{r}_{i}$ 的导数，上标 $−1$ 表示矩阵求逆。 变换在经典力学的意义上是规范的，因此，微分相空间体积元保持不变，$\\mathrm{d}\\mathbf{r}_{i}\\mathrm{d}\\mathbf{p}_{i} = \\mathrm{d}\\widetilde{\\mathbf{r}}_{i}\\mathrm{d}\\widetilde{\\mathbf{p}}_{i}$。 这个性质对于热学平均值在应用方程 (1) 和 (2) 时作为不变量出现是基本的。\nTo be specific, we consider the statistical mechanics of Hamiltonians $H$ with the standard form\n$$ \\begin{aligned} H = \\sum_{i}\\frac{\\mathbf{p}_{i}^{2}}{2m} + u(\\mathbf{r}^{N}) + \\sum_{i}V_{\\text{ext}}(\\mathbf{r}_{i}),\\tag{3} \\end{aligned} $$\nwhere the sums run over all $N$ particle indices $i$, $m$ denotes the particle mass, $u(\\mathbf{r}^{N})$ is the interparticle interaction potential, and $V_{\\text{ext}}(\\mathbf{r})$ is an external one-body potential. We use the shorthand notation $\\mathbf{r}^{N} = \\mathbf{r}_{1},\\dots,\\mathbf{r}_{N}$ and $\\mathbf{p}^{N} = \\mathbf{p}_{1},\\dots,\\mathbf{p}_{N}$ to indicate the phase space variables of all particles. The statistical mechanics is based on the grand ensemble with chemical potential $\\mu$ and temperature $T$. The grand partition sum is $\\Xi = \\text{Tr}e^{-\\beta(H-\\mu N)}$, where the classical trace is defined as $\\begin{aligned}\\text{Tr}\\cdot = \\sum_{N=0}^{\\infty}(N!h^{dN})^{-1}\\int\\mathrm{d}\\mathbf{r}^{N}\\mathrm{d}\\mathbf{p}^{N}\\end{aligned}$, with $\\begin{aligned}\\int\\mathrm{d}\\mathbf{r}^{N}\\mathrm{d}\\mathbf{p}^{N}\\end{aligned}$ denoting the phase space integral over the position and momentum coordinates of all $N$ particles, $\\beta = 1/(k_{B}T)$, and $k_{B}$ denoting the Boltzmann constant. The grand potential is $\\Omega = -k_{B}T\\ln\\Xi$, and thermal averages are obtained as $\\langle\\cdot\\rangle = \\text{Tr}\\cdot e^{-\\beta(H-\\mu N)}/\\Xi$.\n具体来说，我们考虑具有标准形式的哈密顿量 $H$ 的统计力学\n$$ \\begin{aligned} H = \\sum_{i}\\frac{\\mathbf{p}_{i}^{2}}{2m} + u(\\mathbf{r}^{N}) + \\sum_{i}V_{\\text{ext}}(\\mathbf{r}_{i}),\\tag{3} \\end{aligned} $$\n其中求和是对所有 $N$ 粒子指标 $i$ 进行的，$m$ 表示粒子质量，$u(\\mathbf{r}^{N})$ 是粒子间相互作用势，$V_{\\text{ext}}(\\mathbf{r})$ 是外部单体势。 我们使用简写符号 $\\mathbf{r}^{N} = \\mathbf{r}_{1},\\dots,\\mathbf{r}_{N}$ 和 $\\mathbf{p}^{N} = \\mathbf{p}_{1},\\dots,\\mathbf{p}_{N}$ 来表示所有粒子的相空间变量。 统计力学是基于具有化学势 $\\mu$ 和温度 $T$ 的大系。 大配分和是 $\\Xi = \\text{Tr}e^{-\\beta(H-\\mu N)}$，其中经典迹定义为 $\\begin{aligned}\\text{Tr}\\cdot = \\sum_{N=0}^{\\infty}(N!h^{dN})^{-1}\\int\\mathrm{d}\\mathbf{r}^{N}\\mathrm{d}\\mathbf{p}^{N}\\end{aligned}$，其中 $\\begin{aligned}\\int\\mathrm{d}\\mathbf{r}^{N}\\mathrm{d}\\mathbf{p}^{N}\\end{aligned}$ 表示对所有 $N$ 粒子的位置和动量坐标的相空间积分，$\\beta = 1/(k_{B}T)$，$k_{B}$ 表示玻尔兹曼常数。 大势是 $\\Omega = -k_{B}T\\ln\\Xi$，热平均值是通过 $\\langle\\cdot\\rangle = \\text{Tr}\\cdot e^{-\\beta(H-\\mu N)}/\\Xi$ 获得的。\nWe here introduce operator methods to capture the essence of the phase space shifting (1) and (2). Specifically, we define the following, at each position $\\mathbf{r}$ localized, phase space shifting operators:\n$$ \\begin{aligned} \\mathbf{\\sigma}(\\mathbf{r}) = \\sum_{i}\\left[\\delta(\\mathbf{r}-\\mathbf{r}_{i})\\nabla_{i} + \\mathbf{p}_{i}\\nabla\\delta(\\mathbf{r}-\\mathbf{r}_{i})\\cdot\\nabla_{\\mathbf{p}_{i}}\\right]\\tag{4} \\end{aligned} $$\nwhere $\\delta(\\cdot)$ denotes the Dirac distribution in $d$ dimensions, $\\nabla$ indicates the derivative with respect to position $\\mathbf{r}$, $\\nabla_{\\mathbf{p}_{i}}$ is the momentum derivative with respect to $\\mathbf{p}_{i}$, and we recall that $\\nabla_{i}$ is the derivative with respect to $\\mathbf{r}_{i}$. The shifting operators (4) possess two key properties. First, $\\mathbf{\\sigma}(\\mathbf{r})$ is antiself-adjoint on phase space:\n$$ \\begin{aligned} \\mathbf{\\sigma}^{\\dagger}(\\mathbf{r}) = -\\mathbf{\\sigma}(\\mathbf{r}).\\tag{5} \\end{aligned} $$\nThe adjoint operator is indicated by the dagger, and it has the standard definition: $\\begin{aligned}\\int\\mathrm{d}\\mathbf{r}^{N}\\mathrm{d}\\mathbf{p}^{N}f\\mathbf{\\sigma}(\\mathbf{r})g = \\int\\mathrm{d}\\mathbf{r}^{N}\\mathrm{d}\\mathbf{p}^{N}g\\mathbf{\\sigma}^{\\dagger}(\\mathbf{r})f\\end{aligned}$ for arbitrary phase space functions $f(\\mathbf{r}^{N},\\mathbf{p}^{N})$ and $g(\\mathbf{r}^{N},\\mathbf{p}^{N})$. Equation (5) is readily proven via phase space integration by parts and the product rule (for $f$ and $g$ being well behaved).\n我们在这里引入了运算符方法来捕捉相空间移位 (1) 和 (2) 的本质。 具体来说，我们在每个位置 $\\mathbf{r}$ 局部化的相空间引入了以下移位算符：\n$$ \\begin{aligned} \\mathbf{\\sigma}(\\mathbf{r}) = \\sum_{i}\\left[\\delta(\\mathbf{r}-\\mathbf{r}_{i})\\nabla_{i} + \\mathbf{p}_{i}\\nabla\\delta(\\mathbf{r}-\\mathbf{r}_{i})\\cdot\\nabla_{\\mathbf{p}_{i}}\\right]\\tag{4} \\end{aligned} $$\n其中 $\\delta(\\cdot)$ 表示 $d$ 维中的狄拉克分布，$\\nabla$ 表示关于位置 $\\mathbf{r}$ 的导数，$\\nabla_{\\mathbf{p}_{i}}$ 是关于 $\\mathbf{p}_{i}$ 的动量导数，我们回忆 $\\nabla_{i}$ 是关于 $\\mathbf{r}_{i}$ 的导数。 移位算符 (4) 具有两个关键属性。 首先，$\\mathbf{\\sigma}(\\mathbf{r})$ 在相空间上是反自伴的：\n$$ \\begin{aligned} \\mathbf{\\sigma}^{\\dagger}(\\mathbf{r}) = -\\mathbf{\\sigma}(\\mathbf{r}).\\tag{5} \\end{aligned} $$\n伴随算符由符号 $\\dagger$ 表示，它具有标准定义：$\\begin{aligned}\\int\\mathrm{d}\\mathbf{r}^{N}\\mathrm{d}\\mathbf{p}^{N}f\\mathbf{\\sigma}(\\mathbf{r})g = \\int\\mathrm{d}\\mathbf{r}^{N}\\mathrm{d}\\mathbf{p}^{N}g\\mathbf{\\sigma}^{\\dagger}(\\mathbf{r})f\\end{aligned}$ 对于任意相空间函数 $f(\\mathbf{r}^{N},\\mathbf{p}^{N})$ 和 $g(\\mathbf{r}^{N},\\mathbf{p}^{N})$。 方程 (5) 可以通过相空间分部积分和乘法规则（对于行为良好的 $f$ 和 $g$）很容易地证明。\nSecond, the consecutive action of two shifting operators that are, respectively, localized at positions $\\mathbf{r}$ and $\\mathbf{r}^{\\prime}$ satisfies the commutator relation:\n$$ [\\mathbf{\\sigma}(\\mathbf{r}),\\mathbf{\\sigma}(\\mathbf{r}^{\\prime})] = \\mathbf{\\sigma}(\\mathbf{r}^{\\prime})[\\nabla\\delta(\\mathbf{r}-\\mathbf{r}^{\\prime})] + [\\nabla\\delta(\\mathbf{r}-\\mathbf{r}^{\\prime})]\\mathbf{\\sigma}(\\mathbf{r}).\\tag{6} $$\nWe have used the standard definition of commutators of vectors: $[\\mathbf{\\sigma}(\\mathbf{r}),\\mathbf{\\sigma}(\\mathbf{r}^{\\prime})] = \\mathbf{\\sigma}(\\mathbf{r})\\mathbf{\\sigma}(\\mathbf{r}^{\\prime}) - \\mathbf{\\sigma}(\\mathbf{r}^{\\prime})\\mathbf{\\sigma}(\\mathbf{r})^{T}$, where the superscript $T$ denotes matrix transposition, such that the (Cartesian) $ab$ component is $[\\sigma_{a}(\\mathbf{r}),\\sigma_{b}(\\mathbf{r}^{\\prime})] = \\sigma_{a}(\\mathbf{r})\\sigma_{b}(\\mathbf{r}^{\\prime}) - \\sigma_{b}(\\mathbf{r}^{\\prime})\\sigma_{a}(\\mathbf{r})$. Equation (6) follows from explicit calculation via applying the sequence of two shifting operators (4) and simplifying. It is also straightforward to show that the commutator (6) is anti-self-adjoint: $[\\mathbf{\\sigma}(\\mathbf{r}),\\mathbf{\\sigma}(\\mathbf{r}^{\\prime})]^{\\dagger} = -[\\mathbf{\\sigma}(\\mathbf{r}),\\mathbf{\\sigma}(\\mathbf{r}^{\\prime})]$, as is a general property of the commutator of two anti-self-adjoint operators. Furthermore, the commutator (6) is antisymmetric: $[\\mathbf{\\sigma}(\\mathbf{r}),\\mathbf{\\sigma}(\\mathbf{r}^{\\prime})] = -[\\mathbf{\\sigma}(\\mathbf{r}^{\\prime}), \\mathbf{\\sigma}(\\mathbf{r})]^{T}$, and it satisfies the Jacobi identity: $[\\sigma_{a}(\\mathbf{r}),[\\sigma_{b}(\\mathbf{r}^{\\prime}),\\sigma_{c}(\\mathbf{r}^{\\prime\\prime})]] + [\\sigma_{b}(\\mathbf{r}^{\\prime}),[\\sigma_{c}(\\mathbf{r}^{\\prime\\prime}),\\sigma_{a}(\\mathbf{r})]] + [\\sigma_{c}(\\mathbf{r}^{\\prime\\prime}),[\\sigma_{a}(\\mathbf{r}),\\sigma_{b}(\\mathbf{r}^{\\prime})]]$, as can be be proven by explicit calculation.\n其次，分别位于位置 $\\mathbf{r}$ 和 $\\mathbf{r}^{\\prime}$ 的两个移位算符的连续作用满足对易关系：\n$$ [\\mathbf{\\sigma}(\\mathbf{r}),\\mathbf{\\sigma}(\\mathbf{r}^{\\prime})] = \\mathbf{\\sigma}(\\mathbf{r}^{\\prime})[\\nabla\\delta(\\mathbf{r}-\\mathbf{r}^{\\prime})] + [\\nabla\\delta(\\mathbf{r}-\\mathbf{r}^{\\prime})]\\mathbf{\\sigma}(\\mathbf{r}).\\tag{6} $$\n我们使用了向量对易的标准定义： $[\\mathbf{\\sigma}(\\mathbf{r}), \\mathbf{\\sigma}(\\mathbf{r}^{\\prime})] = \\mathbf{\\sigma}(\\mathbf{r})\\mathbf{\\sigma}(\\mathbf{r}^{\\prime}) - \\mathbf{\\sigma}(\\mathbf{r}^{\\prime})\\mathbf{\\sigma}(\\mathbf{r})^{T}$, 其中上标 $T$ 表示矩阵转置、 这样（笛卡尔）$ab$ 分量为 $[\\sigma_{a}(\\mathbf{r}), \\sigma_{b}(\\mathbf{r}^{\\prime})] = \\sigma_{a}(\\mathbf{r})\\sigma_{b}(\\mathbf{r}^{\\prime}) - \\sigma_{b}(\\mathbf{r}^{\\prime})\\sigma_{a}(\\mathbf{r})$. 等式 (6) 是通过应用两个移位算子序列 (4) 并简化后的显式计算得出的。 还可以直接证明，对易子 (6) 是反自伴的： $[\\mathbf{\\sigma}(\\mathbf{r}), \\mathbf{\\sigma}(\\mathbf{r}^{\\prime})]^{\\dagger} = -[\\mathbf{\\sigma}(\\mathbf{r}), \\mathbf{\\sigma}(\\mathbf{r}^{\\prime})]$, 这是两个反自伴算子的对易子的一般性质。 此外，对易子 (6) 是反对称的： $[\\mathbf{\\sigma}(\\mathbf{r}), \\mathbf{\\sigma}(\\mathbf{r}^{\\prime})] = -[\\mathbf{\\sigma}(\\mathbf{r}^{\\prime}), \\mathbf{\\sigma}(\\mathbf{r})]^{T}$，并且满足 Jacobi 恒等式： $[\\sigma_{a}(\\mathbf{r}), [\\sigma_{b}(\\mathbf{r}^{\\prime}), \\sigma_{c}(\\mathbf{r}^{\\prime\\prime})]] + [\\sigma_{b}(\\mathbf{r}^{\\prime}), [\\sigma_{c}(\\mathbf{r}^{\\prime\\prime}), \\sigma_{a}(\\mathbf{r})]] + [\\sigma_{c}(\\mathbf{r}^{\\prime\\prime}), [\\sigma_{a}(\\mathbf{r}), \\sigma_{b}(\\mathbf{r}^{\\prime})]]$，可以通过显式计算证明。\nThe above set of distinctive properties of $\\mathbf{\\sigma}(\\mathbf{r})$ is closely connected to a Lie algebra structure of infinitesimal phase space shifting, as we lay out in the following. That the operators (6) represent infinitesimal versions of the phase space shifting according to (1) and (2) can be seen by multiplying with a given shifting field εðrÞ and integrating over $\\mathbf{r}$ to generate an operator $\\begin{aligned}\\sum[\\epsilon]=\\int\\mathrm{d}\\mathbf{r}\\epsilon(\\mathbf{r})\\cdot\\mathbf{\\sigma}(\\mathbf{r})\\end{aligned}$ that shifts according to the given form of $\\epsilon(\\mathbf{r})$. Using $\\mathbf{\\sigma}(\\mathbf{r})$ in the form (4) and integrating gives\n",
+  "wordCount" : "3484",
+  "inLanguage": "zh",
+  "datePublished": "2025-03-04T00:18:06+08:00",
+  "dateModified": "2025-03-04T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/sm/gauge-invariance-of-equilibrium-statistical-mechanics/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/sm/">✡️ Advanced Statistical Mechanics</a></div>
+            <h1 class="post-title">
+                Gauge Invariance of Equilibrium Statistical Mechanics
+            </h1>
+            <div class="post-description">
+                高等统计物理的阅读材料之一
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-03-04
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3484字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>7分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">Read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "https://www.muartz.com", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>We identify a recently proposed shifting operation on classical phase space as a gauge transformation for statistical mechanical microstates. The infinitesimal generators of the continuous gauge group form a noncommutative Lie algebra, which induces exact sum rules when thermally averaged. Gauge invariance with respect to finite shifting is demonstrated via Monte Carlo simulation in the transformed phase space which generates identical equilibrium averages. Our results point toward a deeper basis of statistical mechanics than previously known, and they offer avenues for systematic construction of exact identities and of sampling algorithms.</p>
+</blockquote>
+<p>我们将最近提出的经典相空间移位操作确定为统计力学微观状态的量规变换。 连续量规群的无穷小生成元构成了一个非交换李代数，在热学平均时会产生精确的和规则。 通过在转换后的相空间中进行蒙特卡罗模拟，产生了相同的平衡平均值，从而证明了有限位移的量规不变性。 我们的研究结果指出了统计力学比以前已知的更深层次的基础，并为系统地构建精确同分异构体和采样算法提供了途径。</p>
+<blockquote>
+<p>One of the arguably most important applications of Noether’s theorem of invariant variations  is the systematic treatment of local gauge invariances within the fundamental physical field theories for the electromagnetic, weak, and strong interactions. Using the corresponding continuous gauge groups U(1), SU(2), and SU(3) as fundamental building blocks for theory construction is one of the most successful strategies in modern physics. The nature of the physical mechanisms that underlie the symmetry do not, however, feature explicitly in Noether’s theorem. The theorem rather constitutes a power tool to obtain exact equations, usually in the form of global or local conservation laws, from an underlying continuous symmetry that needs to have been identified within (or input into) a variational formulation of the considered physics.</p>
+</blockquote>
+<p>在电磁、弱和强相互作用的基本物理场理论中， Noether 定理的不变变分的系统处理局部量规不变性可能是最重要的应用之一。 使用相应的连续量规群 U(1)、SU(2) 和 SU(3) 作为理论构建的基本构件是现代物理学中最成功的策略之一。 然而，支撑对称性的物理机制的性质并没有明确地出现在 Noether 定理中。 该定理实际上是一种强大的工具，用于从需要在所考虑的物理的变分形式中已经确定（或输入）的连续对称性中获得精确方程，通常以全局或局部守恒定律的形式。</p>
+<blockquote>
+<p>The roots of statistical mechanics are older than the modern gauge field theories. Nevertheless, Noether’s theorem has been applied only relatively recently in various different productive ways to the physics of equilibrium and nonequilibrium many-body systems. The role that exact sum rules play in statistical mechanics is akin to that of conservation laws in dynamical theories, in that they allow one to constrain and rationalize the nature of the physics, without, in general, determining the full solution of the problem at hand.</p>
+</blockquote>
+<p>统计力学的根源比现代规范场理论要古老。 然而， Noether 定理最近才以各种不同的生产方式应用于平衡和非平衡多体系统的物理学。 精确和规则在统计力学中的作用类似于动力学理论中守恒定律的作用，因为它们允许人们约束和理性化物理的性质，但通常不确定手头问题的完整解决方案。</p>
+<blockquote>
+<p>In a range of recent investigations, Noether’s theorem has been applied to a specific shifting operation on phase space, where, instead of the more usual conservation laws, both well-known and new statistical mechanical sum rules were obtained systematically. Thereby, Noether’s concept of invariance against continuous transformation is applied to statistical mechanical functionals, such as the partition sum. While similarities with global spatial translational invariance, as generates linear momentum conservation, were discussed, neither the physical nature nor the mathematical structure of the general phase space shifting transformation have been unraveled.</p>
+</blockquote>
+<p>在最近的一系列研究中，Noether 定理被应用于相空间的特定变换操作，在此过程中，系统地获得了著名的和新的统计力学和规则，而不是更常见的守恒定律。 因此，Noether 的连续变换不变性概念被应用于统计力学函数，如分割和。 虽然讨论了与产生线性动量守恒的全局空间平移不变性的相似性，但一般相空间平移变换的物理本质和数学结构都没有被解开。</p>
+<blockquote>
+<p>Here, we identify the phase space shifting transformation as a local gauge symmetry transformation that is inherent to the statistical mechanics of particle-based systems. Realizing the defining feature of a gauge transformation, the application of the local shifting has no effect on any physical observables. Despite the shifting being geometric, the transformation is noncommutative, even when displacing only infinitesimally. A noncommutative Lie algebra of generators characterizes infinitesimal transformations. Corresponding exact sum rules follow for thermal averages. Finite transformations retain the gauge invariance, as we demonstrate via Monte Carlo computer simulations.</p>
+</blockquote>
+<p>在这里，我们将相空间移位变换确定为粒子系统的统计力学固有的局部度规对称变换。 实现度规变换的定义特征，局部移位的应用对任何物理可观测量都没有影响。 尽管移位是几何的，但即使只是微小位移，变换也是非交换的。 无穷小变换的生成元构成非交换李代数。 对热学平均值遵循相应的精确和规则。 我们通过蒙特卡罗计算机模拟证明，有限变换保持量规不变性。</p>
+<blockquote>
+<p>The shifting operation put forward in Refs. affects the positions $\mathbf{r}_{i}$ and momenta $\mathbf{p}_{i}$ of each particle $i = i,\cdots,N$ via the following transformation:</p>
+<p>$$
+\begin{align}
+\mathbf{r}_{i} &amp;\rightarrow \mathbf{r}_{i} + \epsilon(\mathbf{r}_{i}) = \widetilde{\mathbf{r}}_{i},\tag{1}\\
+\mathbf{p}_{i} &amp;\rightarrow \left[1 + \nabla_{i}\epsilon(\mathbf{r}_{i})\right]^{-1}\cdot \mathbf{p}_{i} = \widetilde{\mathbf{p}}_{i},\tag{2}
+\end{align}
+$$</p>
+<p>where the $d$-dimensional vector field $\epsilon(\mathbf{r}_{i})$ is such that Eq. (1) is a diffeomorphism, i.e., together with its inverse is bijective and smooth; d is the spatial dimensionality, and the tilde indicates the new phase space variables. In Eq. (2), the symbol $\mathbf{1}$ denotes the $d\times d$ unit matrix, $\nabla_{i}$ is the derivative with respect to $\mathbf{r}_{i}$, and the superscript $−1$ denotes matrix inversion. The transformation is canonical in the sense of classical mechanics, and, hence, the differential phase space volume element is preserved, $\mathrm{d}\mathbf{r}_{i}\mathrm{d}\mathbf{p}_{i} = \mathrm{d}\widetilde{\mathbf{r}}_{i}\mathrm{d}\widetilde{\mathbf{p}}_{i}$. This property is fundamental for thermal averages to arise as invariant under the application of Eqs. (1) and (2).</p>
+</blockquote>
+<p>在参考文献中提出的移位操作通过以下变换影响每个粒子 $i = i,\cdots,N$ 的位置 $\mathbf{r}_{i}$ 和动量 $\mathbf{p}_{i}$：</p>
+<p>$$
+\begin{align}
+\mathbf{r}_{i} &amp;\rightarrow \mathbf{r}_{i} + \epsilon(\mathbf{r}_{i}) = \widetilde{\mathbf{r}}_{i},\tag{1}\\
+\mathbf{p}_{i} &amp;\rightarrow \left[\mathbb{I} + \nabla_{i}\epsilon(\mathbf{r}_{i})\right]^{-1}\cdot \mathbf{p}_{i} = \widetilde{\mathbf{p}}_{i},\tag{2}
+\end{align}
+$$</p>
+<p>其中 $d$ 维向量场 $\epsilon(\mathbf{r}_{i})$ 是使得方程 (1) 是微分同胚的，即，与其逆一起是双射和光滑的； $d$ 是空间维度，而波浪线表示新的相空间变量。 在方程 (2) 中，符号 $\mathbb{I}$ 表示 $d\times d$ 单位矩阵，$\nabla_{i}$ 是关于 $\mathbf{r}_{i}$ 的导数，上标 $−1$ 表示矩阵求逆。 变换在经典力学的意义上是规范的，因此，微分相空间体积元保持不变，$\mathrm{d}\mathbf{r}_{i}\mathrm{d}\mathbf{p}_{i} = \mathrm{d}\widetilde{\mathbf{r}}_{i}\mathrm{d}\widetilde{\mathbf{p}}_{i}$。 这个性质对于热学平均值在应用方程 (1) 和 (2) 时作为不变量出现是基本的。</p>
+<blockquote>
+<p>To be specific, we consider the statistical mechanics of Hamiltonians $H$ with the standard form</p>
+<p>$$
+\begin{aligned}
+H = \sum_{i}\frac{\mathbf{p}_{i}^{2}}{2m} + u(\mathbf{r}^{N}) + \sum_{i}V_{\text{ext}}(\mathbf{r}_{i}),\tag{3}
+\end{aligned}
+$$</p>
+<p>where the sums run over all $N$ particle indices $i$, $m$ denotes the particle mass, $u(\mathbf{r}^{N})$ is the interparticle interaction potential, and $V_{\text{ext}}(\mathbf{r})$ is an external one-body potential. We use the shorthand notation $\mathbf{r}^{N} = \mathbf{r}_{1},\dots,\mathbf{r}_{N}$ and $\mathbf{p}^{N} = \mathbf{p}_{1},\dots,\mathbf{p}_{N}$ to indicate the phase space variables of all particles. The statistical mechanics is based on the grand ensemble with chemical potential $\mu$ and temperature $T$. The grand partition sum is $\Xi = \text{Tr}e^{-\beta(H-\mu N)}$, where the classical trace is defined as $\begin{aligned}\text{Tr}\cdot = \sum_{N=0}^{\infty}(N!h^{dN})^{-1}\int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}\end{aligned}$, with $\begin{aligned}\int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}\end{aligned}$ denoting the phase space integral over the position and momentum coordinates of all $N$ particles, $\beta = 1/(k_{B}T)$, and $k_{B}$ denoting the Boltzmann constant. The grand potential is $\Omega = -k_{B}T\ln\Xi$, and thermal averages are obtained as $\langle\cdot\rangle = \text{Tr}\cdot e^{-\beta(H-\mu N)}/\Xi$.</p>
+</blockquote>
+<p>具体来说，我们考虑具有标准形式的哈密顿量 $H$ 的统计力学</p>
+<p>$$
+\begin{aligned}
+H = \sum_{i}\frac{\mathbf{p}_{i}^{2}}{2m} + u(\mathbf{r}^{N}) + \sum_{i}V_{\text{ext}}(\mathbf{r}_{i}),\tag{3}
+\end{aligned}
+$$</p>
+<p>其中求和是对所有 $N$ 粒子指标 $i$ 进行的，$m$ 表示粒子质量，$u(\mathbf{r}^{N})$ 是粒子间相互作用势，$V_{\text{ext}}(\mathbf{r})$ 是外部单体势。 我们使用简写符号 $\mathbf{r}^{N} = \mathbf{r}_{1},\dots,\mathbf{r}_{N}$ 和 $\mathbf{p}^{N} = \mathbf{p}_{1},\dots,\mathbf{p}_{N}$ 来表示所有粒子的相空间变量。 统计力学是基于具有化学势 $\mu$ 和温度 $T$ 的大系。 大配分和是 $\Xi = \text{Tr}e^{-\beta(H-\mu N)}$，其中经典迹定义为 $\begin{aligned}\text{Tr}\cdot = \sum_{N=0}^{\infty}(N!h^{dN})^{-1}\int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}\end{aligned}$，其中 $\begin{aligned}\int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}\end{aligned}$ 表示对所有 $N$ 粒子的位置和动量坐标的相空间积分，$\beta = 1/(k_{B}T)$，$k_{B}$ 表示玻尔兹曼常数。 大势是 $\Omega = -k_{B}T\ln\Xi$，热平均值是通过 $\langle\cdot\rangle = \text{Tr}\cdot e^{-\beta(H-\mu N)}/\Xi$ 获得的。</p>
+<blockquote>
+<p>We here introduce operator methods to capture the essence of the phase space shifting (1) and (2). Specifically, we define the following, at each position $\mathbf{r}$ localized, phase space shifting operators:</p>
+<p>$$
+\begin{aligned}
+\mathbf{\sigma}(\mathbf{r}) = \sum_{i}\left[\delta(\mathbf{r}-\mathbf{r}_{i})\nabla_{i} + \mathbf{p}_{i}\nabla\delta(\mathbf{r}-\mathbf{r}_{i})\cdot\nabla_{\mathbf{p}_{i}}\right]\tag{4}
+\end{aligned}
+$$</p>
+<p>where $\delta(\cdot)$ denotes the Dirac distribution in $d$ dimensions, $\nabla$ indicates the derivative with respect to position $\mathbf{r}$, $\nabla_{\mathbf{p}_{i}}$ is the momentum derivative with respect to $\mathbf{p}_{i}$, and we recall that $\nabla_{i}$ is the derivative with respect to $\mathbf{r}_{i}$. The shifting operators (4) possess two key properties. First, $\mathbf{\sigma}(\mathbf{r})$ is antiself-adjoint on phase space:</p>
+<p>$$
+\begin{aligned}
+\mathbf{\sigma}^{\dagger}(\mathbf{r}) = -\mathbf{\sigma}(\mathbf{r}).\tag{5}
+\end{aligned}
+$$</p>
+<p>The adjoint operator is indicated by the dagger, and  it has the standard definition: $\begin{aligned}\int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}f\mathbf{\sigma}(\mathbf{r})g = \int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}g\mathbf{\sigma}^{\dagger}(\mathbf{r})f\end{aligned}$ for arbitrary phase space functions $f(\mathbf{r}^{N},\mathbf{p}^{N})$ and $g(\mathbf{r}^{N},\mathbf{p}^{N})$. Equation (5) is readily proven via phase space integration by parts and the product rule (for $f$ and $g$ being well behaved).</p>
+</blockquote>
+<p>我们在这里引入了运算符方法来捕捉相空间移位 (1) 和 (2) 的本质。 具体来说，我们在每个位置 $\mathbf{r}$ 局部化的相空间引入了以下移位算符：</p>
+<p>$$
+\begin{aligned}
+\mathbf{\sigma}(\mathbf{r}) = \sum_{i}\left[\delta(\mathbf{r}-\mathbf{r}_{i})\nabla_{i} + \mathbf{p}_{i}\nabla\delta(\mathbf{r}-\mathbf{r}_{i})\cdot\nabla_{\mathbf{p}_{i}}\right]\tag{4}
+\end{aligned}
+$$</p>
+<p>其中 $\delta(\cdot)$ 表示 $d$ 维中的狄拉克分布，$\nabla$ 表示关于位置 $\mathbf{r}$ 的导数，$\nabla_{\mathbf{p}_{i}}$ 是关于 $\mathbf{p}_{i}$ 的动量导数，我们回忆 $\nabla_{i}$ 是关于 $\mathbf{r}_{i}$ 的导数。 移位算符 (4) 具有两个关键属性。 首先，$\mathbf{\sigma}(\mathbf{r})$ 在相空间上是反自伴的：</p>
+<p>$$
+\begin{aligned}
+\mathbf{\sigma}^{\dagger}(\mathbf{r}) = -\mathbf{\sigma}(\mathbf{r}).\tag{5}
+\end{aligned}
+$$</p>
+<p>伴随算符由符号 $\dagger$ 表示，它具有标准定义：$\begin{aligned}\int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}f\mathbf{\sigma}(\mathbf{r})g = \int\mathrm{d}\mathbf{r}^{N}\mathrm{d}\mathbf{p}^{N}g\mathbf{\sigma}^{\dagger}(\mathbf{r})f\end{aligned}$ 对于任意相空间函数 $f(\mathbf{r}^{N},\mathbf{p}^{N})$ 和 $g(\mathbf{r}^{N},\mathbf{p}^{N})$。 方程 (5) 可以通过相空间分部积分和乘法规则（对于行为良好的 $f$ 和 $g$）很容易地证明。</p>
+<blockquote>
+<p>Second, the consecutive action of two shifting operators that are, respectively, localized at positions $\mathbf{r}$ and $\mathbf{r}^{\prime}$ satisfies the commutator relation:</p>
+<p>$$
+[\mathbf{\sigma}(\mathbf{r}),\mathbf{\sigma}(\mathbf{r}^{\prime})] = \mathbf{\sigma}(\mathbf{r}^{\prime})[\nabla\delta(\mathbf{r}-\mathbf{r}^{\prime})] + [\nabla\delta(\mathbf{r}-\mathbf{r}^{\prime})]\mathbf{\sigma}(\mathbf{r}).\tag{6}
+$$</p>
+<p>We have used the standard definition of commutators of vectors: $[\mathbf{\sigma}(\mathbf{r}),\mathbf{\sigma}(\mathbf{r}^{\prime})] = \mathbf{\sigma}(\mathbf{r})\mathbf{\sigma}(\mathbf{r}^{\prime}) - \mathbf{\sigma}(\mathbf{r}^{\prime})\mathbf{\sigma}(\mathbf{r})^{T}$, where the superscript $T$ denotes matrix transposition, such that the (Cartesian) $ab$ component is $[\sigma_{a}(\mathbf{r}),\sigma_{b}(\mathbf{r}^{\prime})] = \sigma_{a}(\mathbf{r})\sigma_{b}(\mathbf{r}^{\prime}) - \sigma_{b}(\mathbf{r}^{\prime})\sigma_{a}(\mathbf{r})$. Equation (6) follows from explicit calculation via applying the sequence of two shifting operators (4) and simplifying. It is also straightforward to show that the commutator (6) is anti-self-adjoint: $[\mathbf{\sigma}(\mathbf{r}),\mathbf{\sigma}(\mathbf{r}^{\prime})]^{\dagger} = -[\mathbf{\sigma}(\mathbf{r}),\mathbf{\sigma}(\mathbf{r}^{\prime})]$, as is a general property of the commutator of two anti-self-adjoint operators. Furthermore, the commutator (6) is antisymmetric: $[\mathbf{\sigma}(\mathbf{r}),\mathbf{\sigma}(\mathbf{r}^{\prime})] = -[\mathbf{\sigma}(\mathbf{r}^{\prime}), \mathbf{\sigma}(\mathbf{r})]^{T}$, and it satisfies the Jacobi identity: $[\sigma_{a}(\mathbf{r}),[\sigma_{b}(\mathbf{r}^{\prime}),\sigma_{c}(\mathbf{r}^{\prime\prime})]] + [\sigma_{b}(\mathbf{r}^{\prime}),[\sigma_{c}(\mathbf{r}^{\prime\prime}),\sigma_{a}(\mathbf{r})]] + [\sigma_{c}(\mathbf{r}^{\prime\prime}),[\sigma_{a}(\mathbf{r}),\sigma_{b}(\mathbf{r}^{\prime})]]$, as can be be proven by explicit calculation.</p>
+</blockquote>
+<p>其次，分别位于位置 $\mathbf{r}$ 和 $\mathbf{r}^{\prime}$ 的两个移位算符的连续作用满足对易关系：</p>
+<p>$$
+[\mathbf{\sigma}(\mathbf{r}),\mathbf{\sigma}(\mathbf{r}^{\prime})] = \mathbf{\sigma}(\mathbf{r}^{\prime})[\nabla\delta(\mathbf{r}-\mathbf{r}^{\prime})] + [\nabla\delta(\mathbf{r}-\mathbf{r}^{\prime})]\mathbf{\sigma}(\mathbf{r}).\tag{6}
+$$</p>
+<p>我们使用了向量对易的标准定义： $[\mathbf{\sigma}(\mathbf{r}), \mathbf{\sigma}(\mathbf{r}^{\prime})] = \mathbf{\sigma}(\mathbf{r})\mathbf{\sigma}(\mathbf{r}^{\prime}) - \mathbf{\sigma}(\mathbf{r}^{\prime})\mathbf{\sigma}(\mathbf{r})^{T}$, 其中上标 $T$ 表示矩阵转置、 这样（笛卡尔）$ab$ 分量为 $[\sigma_{a}(\mathbf{r}), \sigma_{b}(\mathbf{r}^{\prime})] = \sigma_{a}(\mathbf{r})\sigma_{b}(\mathbf{r}^{\prime}) - \sigma_{b}(\mathbf{r}^{\prime})\sigma_{a}(\mathbf{r})$. 等式 (6) 是通过应用两个移位算子序列 (4) 并简化后的显式计算得出的。 还可以直接证明，对易子 (6) 是反自伴的： $[\mathbf{\sigma}(\mathbf{r}), \mathbf{\sigma}(\mathbf{r}^{\prime})]^{\dagger} = -[\mathbf{\sigma}(\mathbf{r}), \mathbf{\sigma}(\mathbf{r}^{\prime})]$, 这是两个反自伴算子的对易子的一般性质。 此外，对易子 (6) 是反对称的： $[\mathbf{\sigma}(\mathbf{r}), \mathbf{\sigma}(\mathbf{r}^{\prime})] = -[\mathbf{\sigma}(\mathbf{r}^{\prime}), \mathbf{\sigma}(\mathbf{r})]^{T}$，并且满足 Jacobi 恒等式： $[\sigma_{a}(\mathbf{r}), [\sigma_{b}(\mathbf{r}^{\prime}), \sigma_{c}(\mathbf{r}^{\prime\prime})]] + [\sigma_{b}(\mathbf{r}^{\prime}), [\sigma_{c}(\mathbf{r}^{\prime\prime}), \sigma_{a}(\mathbf{r})]] + [\sigma_{c}(\mathbf{r}^{\prime\prime}), [\sigma_{a}(\mathbf{r}), \sigma_{b}(\mathbf{r}^{\prime})]]$，可以通过显式计算证明。</p>
+<blockquote>
+<p>The above set of distinctive properties of $\mathbf{\sigma}(\mathbf{r})$ is closely connected to a Lie algebra structure of infinitesimal phase space shifting, as we lay out in the following. That the operators (6) represent infinitesimal versions of the phase space shifting according to (1) and (2) can be seen by multiplying with a given shifting field εðrÞ and integrating over $\mathbf{r}$ to generate an operator $\begin{aligned}\sum[\epsilon]=\int\mathrm{d}\mathbf{r}\epsilon(\mathbf{r})\cdot\mathbf{\sigma}(\mathbf{r})\end{aligned}$ that shifts according to the given form of $\epsilon(\mathbf{r})$. Using $\mathbf{\sigma}(\mathbf{r})$ in the form (4) and integrating gives</p>
+</blockquote>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/phy/sm/gauge-invariance-applies-to-statistical-mechanics-too/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Gauge invariance applies to statistical mechanics too</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/phy/sm/statistical-mechanics-third-edition/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Statistical Mechanics Third Edition by R. K. Pathria</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
