@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Nonlinear elasticity of granular media | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, granular">
+<meta name="description" content="颗粒介质中的非线性弹性">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Nonlinear elasticity of granular media" />
+<meta property="og:description" content="颗粒介质中的非线性弹性" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-03T00:18:06+08:00" />
+<meta property="article:modified_time" content="2024-01-03T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nonlinear elasticity of granular media"/>
+<meta name="twitter:description" content="颗粒介质中的非线性弹性"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "💾 归档",
+          "item": "https://Muatyz.github.io/posts/read/stack/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  4 ,
+          "name": "🛠 颗粒物质研究方法",
+          "item": "https://Muatyz.github.io/posts/read/stack/granular/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  5 ,
+          "name": "🦇 超声波探测",
+          "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  6 ,
+          "name": "⛓ Nonlinearity",
+          "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  7 ,
+      "name": "Nonlinear elasticity of granular media",
+      "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Nonlinear elasticity of granular media",
+  "name": "Nonlinear elasticity of granular media",
+  "description": "颗粒介质中的非线性弹性",
+  "keywords": [
+    "scmp", "granular"
+  ],
+  "articleBody": "Abstract The linear and nonlinear elastic properties of granular media are analyzed within the context of effective medium theories, as well as with numerical molecular dynamic simulations, assuming the validity of the Hertz-Mindlin theory at the single contact level.\nThere is a crucial distinction between force laws which are path independent, leading to a hyper-elastic effective medium theory, and those which are path dependent, for which the deformation history must be followed explicitly.\n假定 Hertz-Mindlin 理论在单接触层面上有效，在有效介质理论以及分子动力学数值模拟的背景下分析了颗粒介质的线性和非线性弹性的特性。\n与路径无关的力定律和与路径相关的力定律之间存在着关键的区别，前者导致了超弹性有效介质理论，而后者则必须明确地遵循变形历史。\nThe effective medium theories provide a reasonable description of existing experimental data, considered as a function of applied stress, but there are significant discrepancies. Numerical simulations resolve the question as to whether the problem lies with the treatment of the individual grain-grain contact or with the effective medium approximation (ema).\nWe find that the problem lies principally with the latter: The bulk modulus is well described by the ema but the shear modulus is not, principally because the ema does not correctly allow for the grains to relax from the affine motion assumed by the ema.\n有效介质理论合理地描述了作为外加应力函数的现有实验数据，但存在显著差异。数值模拟解决了是单个颗粒-颗粒接触处理方法的问题还是有效介质近似(ema)的问题。\n我们发现问题主要在于后者：体积模量可以用 ema 很好地描述，但剪切模量却不能，这主要是因为 ema 没有正确地允许颗粒从 ema 假设的仿射运动中弛豫下来。\nIntroduction The elastic properties of granular aggregates, such as sedimentary rocks, can be enormously nonlinear as compared with the properties of nonporous materials. The end member of such systems may be taken to be a loose/unconsolidated aggregate of glass beads which acquire a stiffness solely as a result of applied stress.\nThis is because if two grains are just touching, the force, considered as a function of displacement, does not initially grow linearly, as with most systems, but it has a power law behavior (Eqs. (1) and (2) below).\n与无孔材料的特性相比，沉积岩等颗粒集合体的弹性特性可能极其非线性。此类系统的终端部件可以看作是由玻璃珠组成的松散/未固结的集合体，其刚度完全是外加应力的结果。\n这是因为，如果两粒玻璃珠恰好接触，被考虑为位移函数的力最初并不像大多数系统那样线性增长，而是具有幂律行为(下文公式 (1) 和 (2))。\nAside from posing an interesting problem in the physics of disordered systems, these systems are unusually nonlinear in their response and they can exhibit path dependence.\nBy this we mean that the work done in deforming the system can depend upon whether one first compresses the system, then shears it, or first shears then compresses, or compresses and shears simultaneously, etc. The result depends upon the path taken in $\\{\\varepsilon_{ij}\\}$ space and not just on the final state of strain $\\{\\varepsilon_{ij}(\\text{final})\\}$.\n除了在无序系统物理学中提出了一个有趣的问题之外，这些系统的反应还具有非同寻常的非线性，它们可以表现出路径依赖性。\n我们的意思是，系统变形所做的功取决于是先压缩系统，然后再剪切，还是先剪切后压缩，还是压缩和剪切同时进行，等等。结果取决于在 ${\\varepsilon_{ij}}$ 空间中的路径，而不仅仅取决于应变的最终状态 ${\\varepsilon_{ij}(\\text{final})}$。\nHere, we review some recent theoretical research we have undertaken in an attempt to understand these systems. We first discuss effective medium theories of the elastic properties, then we present our molecular dynamic simulations, and we end with a brief summary.\n在此，我们回顾了最近为了解这些系统而开展的一些理论研究。我们首先讨论弹性特性的有效介质理论，然后介绍我们的分子动力学模拟，最后进行简要总结。\nEffective medium theories The starting point is the behavior of a single grain-grain contact, which we assume to be describable by the Hertz-Mindlin theory and variations thereof. Two touching grains are displaced in compression along a line joining their centers by an amount $2w$. They may also suffer a transverse relative displacement of their centers by an amount $2s$, holding their rotational orientation fixed for the moment.\nThe normal and transverse forces, $\\mathbf{f}_{n}$ and $\\mathbf{f}_{t}$ may be written in terms of $w$ and $s$. The idea is that as two spheres are pressed together the circle of contact continuously grows; the result is that the contact becomes increasingly stiffer with respect to further compression.\n我们以单个颗粒-颗粒接触的行为为出发点，假定它可以用 Hertz-Mindlin 理论及其变式来描述。两个接触的颗粒在压缩过程中沿着连接其中心的直线发生位移，位移量为 $2w$。它们的中心还可能发生横向相对位移，位移量为 $2s$，此时它们的旋转方向保持不变。\n法向力和横向力 $\\mathbf{f}_{n}$ 和 $\\mathbf{f}_{t}$ 可以用 $w$ 和 $s$ 来表示。其原理是，当两个球体被压在一起时，接触圆不断增大；其结果是，相对于进一步的压缩，接触变得越来越坚硬。\nSimilarly, it may be assumed, for example, that the contact circle is a no-slip zone. The more the spheres are pressed together, the stiffer the contact becomes with respect to transverse relative displacement of the sphere centers (assuming the spheres are not allowed to rotate). The relevant expressions relating the forces to the displacements may be written as\n$$ f_{n} = \\frac{2}{3}C_{n}R^{1/2}w^{3/2}, \\tag{1}\\label{eq1} $$ $$ \\Delta f_{t} = C_{t}(Rw)^{1/2}\\Delta s.\\tag{2}\\label{eq2} $$\nThe prefactors $C_{n}=4G/(1-\\nu)$ and $C_{t}=8G/(2-\\nu)$ are defined in terms of the shear modulus $G$ and the Poisson’s ratio $\\nu$ of the individual particles. $R$ is the harmonic mean of the radii of the two spheres.\n同样，也可以假设接触圆为无滑动区。球体压在一起越多，相对于球体中心的横向相对位移(假设球体不允许旋转)，接触就越僵硬。力与位移的相关表达式可写成\n$$ f_{n} = \\frac{2}{3}C_{n}R^{1/2}w^{3/2},\\\\ \\Delta f_{t} = C_{t}(Rw)^{1/2}\\Delta s. $$\n其中，前因子 $C_{n}=4G/(1-\\nu)$ 和 $C_{t}=8G/(2-\\nu)$ 以单个颗粒的剪切模量 $G$ 和泊松比 $\\nu$ 定义。$R$ 是两个球体半径的调和平均值。\nEq. (2) is written in differential form to emphasize the fact that the actual value of the transverse force, $f_{t}$, depends upon the deformation path taken in $\\{w,s\\}$ space and not simply on the final values of $w$ and $s$. Thus $f_{t}$ depends upon the entire history of the trajectory: $f_{t} = f_{t}[\\{w(\\xi)\\},\\{s(\\xi)\\}]$ where $\\xi$ is some conveniently chosen parameter (see Refs. [2,3] and references therein).\n公式 (2) 以微分的形式书写，以强调横向力 $f_{t}$ 的实际值取决于在 $\\{w,s\\}$ 空间中的变形路径，而不仅仅取决于 $w$ 和 $s$ 的最终值。因此 $f_{t}$ 取决于轨迹的整个历史：$f_{t} = f_{t}[\\{w(\\xi)\\},\\{s(\\xi)\\}]$, 其中 $\\xi$ 是某个为方便选择的参数(见参考文献 [2,3] 及其中的参考文献)。\nAlong a given trajectory there is no hysteresis, meaning the grain-grain contact is exactly reversible along that trajectory. But one does different amounts of work depending upon the trajectory taken; if one releases the forces along a trajectory different than the one in which they were established, there will be a net loss of energy. This behavior of a single grain-grain contact leads directly to the path dependence of the macroscopic ensemble, considered as a function of applied strain, $\\{\\varepsilon_{ij}\\}$.\n在给定的轨迹上没有滞后现象，这意味着颗粒与颗粒之间的接触在该轨迹上是完全可逆的。但是，不同的轨迹会产生不同的功，如果沿着不同的轨迹释放力，就会产生净能量损失。单个颗粒-颗粒接触的这种行为直接导致了宏观集合的路径依赖性，将其视为施加应变的函数，$\\{\\varepsilon_{ij}\\}$。\nThe basic idea of the e!ective medium theories relevant to these problems is that the macroscopic work done in deforming the system is set equal to the sum of the work done on each grain-grain contact and that the latter is replaced by a suitable average. There are two assumptions: (1) The center of each grain displaces according to the dictates of the macroscopic strain tensor, $\\varepsilon_{ij}$:\n$$ u_{i} = \\varepsilon_{ij}X_{j},\\tag{3}\\label{eq3} $$\nwhere $\\mathbf{X}$ is the initial position of the center of the grain. When the deformation is describable by a symmetric deformation, $\\nabla\\times\\mathbf{u} = 0$, none of the grains rotate. This is called the “assumption of affine motion”. (2) Each grain experiences essentially the same environment as any other grain. On average, the distribution of contacts is spherically symmetric. Under these assumptions, the total work done on the system may be written in terms of angular averages of the work done on a single contact. This sort of “effective medium theory” is simpler than the conventional Bruggeman type of ema (see also Ref. [5]) in that it is more analogous to a simple average of the non-linear spring constants.\n与这些问题相关的有效介质理论的基本思想是：将系统变形所做的宏观功设定为等于每个颗粒-颗粒接触所做的功之和，并用一个合适的平均值代替后者。这里有两个假设：(1) 每个颗粒的中心都根据宏观应变张量 $\\varepsilon_{ij}$ 的要求进行位移：\n$$ u_{i} = \\varepsilon_{ij}X_{j}, $$\n其中 $\\mathbf{X}$ 是颗粒中心的初始位置。当变形可以用对称变形来描述时，即 $\\nabla\\times\\mathbf{u} = 0$，颗粒都不会旋转。这被称为 “仿射运动假设”。(2) 每个颗粒与其他颗粒所处的环境基本相同。平均而言，接触分布呈球形对称。根据这些假设，系统所做的总功可以用单个接触点所做功的角度平均值来表示。这种 “有效介质理论” 比传统的 Bruggeman 类型的 ema 更简单(另见参考文献 [5])，因为它更类似于非线性弹簧常数的简单平均值。\nAs written, the transverse force, Eq. (2), was derived under the assumption that once the grains are pressed together, there is perfect sticking of the contact circles. This force is path dependent, meaning that whether the grains are first pressed and then sheared, or vice versa, makes a di!erence in the work done on the contact. The numerical value of $f_{t}$ depends upon the path taken in $(w, s)$ space. Were we to assume, on the other hand, that there is perfect slippage of the particles, $\\mathbf{f}_{t}\\equiv 0$ instead of Eq. (2), then the resulting forces are path independent.\n如上文所述，公式 (2) 中的横向力是在假定一旦颗粒被压在一起，接触圆完全粘连的情况下得出的。这个力与路径有关，也就是说，颗粒是先被挤压后被剪切，还是先被剪切后被挤压，都会对接触做功产生影响。$f_{t}$ 的数值取决于在 $(w, s)$ 空间中的路径。另一方面，如果我们假设粒子完全滑动，$\\mathbf{f}_{t}\\equiv 0$ 而不是公式 (2)，那么所产生的力与路径无关。\nThe practical result of this path independent assumption is that the resulting work done in deforming the system is now a function of the state of strain and is not dependent upon the way in which the strain is applied. The path independent forces lend themselves to the development of a macroscopic strain energy density, and thus to a well-defined theory of hyper-elasticity, whereas the path dependent forces need to be treated specially. We consider these two cases in turn.\n这种与路径无关的假设的实际结果是，系统变形所产生的功现在是应变状态的函数，而不依赖于施加应变的方式。与路径无关的力适合于宏观应变能密度的发展，从而适合于明确定义的超弹性理论，而与路径有关的力则需要特殊处理。我们依次考虑这两种情况。\nA cautionary note: In reality the contact may slip over an annular ring if the coefficient of friction is finite. In the limit of infinitesimal $\\Delta s$ we either neglect the slippage altogether or we assume complete slip, as the case may be. In any case, the forces are conservative in the sense that if the deformation path, whatever it may be, is reversed exactly, the total work done is zero.\n注意事项：在现实中，如果摩擦系数是有限的，接触点可能会在环形圈上滑动。在无限小 $\\Delta s$ 的极限中，我们要么完全忽略滑动，要么假设完全滑动，视情况而定。在任何情况下，力都是保守的，因为如果变形路径(不管是什么路径)被完全反转，那么所做的总功为零。\nPath independent forces If the work done on a single contact is independent of the order in which the normal and transverse forces are applied, i.e. they are path independent, then the system as a whole is said to be hyper-elastic. An energy density, $U(\\{\\varepsilon_{ij}\\})$, can be defined in terms of the macroscopic strain tensor, $\\varepsilon_{ij}$, and it can usefully be expanded in powers thereof. For any isotropic system this expansion takes the form:\n$$ U(\\{\\varepsilon_{ij}\\}) = U_{0} - p\\varepsilon_{ii} + \\frac{1}{2}\\left[K - \\frac{2}{3}\\mu\\right]\\varepsilon_{ii}^{2} + \\mu\\varepsilon_{ij}^{2} + \\frac{1}{3}A\\varepsilon_{ij}\\varepsilon_{jk}\\varepsilon_{ki} + B\\varepsilon_{ik}^{2}\\varepsilon_{ll} + \\frac{1}{3}\\varepsilon_{ll}^{3} + \\dots.\\tag{4}\\label{eq4} $$\nHere, $p$ is the static pressure and the strain tensor, $\\varepsilon_{ij}$, is measured relative to the system in its reference state at pressure $p$.\n如果在单个接触上所做的功与施加法向力和横向力的顺序无关，即与路径无关，那么整个系统就被称为超弹性系统。能量密度 $U(\\{\\varepsilon_{ij}\\})$ 可以用宏观应变张量 $\\varepsilon_{ij}$ 来定义，并且可以用它的幂来展开。对于任何各向同性系统，这种展开形式为:\n$$ U(\\{\\varepsilon_{ij}\\}) = U_{0} - p\\varepsilon_{ii} + \\frac{1}{2}\\left[K - \\frac{2}{3}\\mu\\right]\\varepsilon_{ii}^{2} + \\mu\\varepsilon_{ij}^{2} + \\frac{1}{3}A\\varepsilon_{ij}\\varepsilon_{jk}\\varepsilon_{ki} + B\\varepsilon_{ik}^{2}\\varepsilon_{ll} + \\frac{1}{3}\\varepsilon_{ll}^{3} + \\dots. $$\nThe second-order elastic constants are $K$, the bulk modulus, and $\\mu$, the shear modulus; they determine the speeds of small amplitude sound:\n$$ V_{p} = \\sqrt{\\frac{K + \\frac{4}{3}\\mu}{\\rho}}\\tag{5}\\label{eq5} $$\nis the compressional sound speed and\n$$ V_{s} = \\sqrt{\\frac{\\mu}{\\rho}}\\tag{6}\\label{eq6} $$\nis the shear speed. ($\\rho$ is the density.) The third-order elastic constants, $A$, $B$, $C$ describe how the speeds of sound change to first order in an additional applied stress, $\\Delta\\sigma_{ij}$, and they also describe such nonlinear e!ects as second harmonic generation, shock wave formation, etc. For the path-independent model described above (i.e. when we set $\\mathbf{f}_{t}\\equiv 0$), it is straightforward to carry out this expansion to derive analytic expressions for the various moduli. Indeed, the path-independent models can be generalized slightly to include those in which the beads are first welded together over a radius $b \u003e 0$.\n二阶弹性常数是体积模量 $K$ 和剪切模量 $\\mu$；它们决定了小振幅声的速度:\n$$ V_{p} = \\sqrt{\\frac{K + \\frac{4}{3}\\mu}{\\rho}} $$\n是压缩声速，而\n$$ V_{s} = \\sqrt{\\frac{\\mu}{\\rho}} $$\n是剪切速度($\\rho$ 是密度)。三阶弹性常数 $A$、$B$、$C$ 描述了声速如何在额外外加应力 $\\Delta\\sigma_{ij}$ 的作用下发生一阶变化，它们还描述了二次谐波产生、冲击波形成等非线性效应。对于上述与路径无关的模型(即当我们设置 $\\mathbf{f}_{t}\\equiv 0$时)，进行这种扩展可以直接得出各种模量的解析表达式。事实上，路径无关模型可以稍加推广，以纳入那些球珠首先在半径 $b \u003e 0$ 上粘连在一起的模型。\nTheoretical predictions of the speeds of sound from this path-independent model for different values of $b$ are plotted in Fig. 1, taken from Ref. [2]. One of the thirdorder constants from this model is plotted in Fig. 2. (Here, the third order constants are in the ratio $A:B:C::8:4:1$ so it is necessary to plot only one of them.)\n图 1 是这一与路径无关的模型对不同 $b$ 值的声速的理论预测，摘自参考文献 [2].图 2 中绘制了该模型的一个三阶常数(此处三阶常数的比例为 $A:B:C::8:4:1$，因此只需绘制其中一个常数)。\nFor the case in which $b=0$ (i.e. unconsolidated beads) the ema predictions can be simply expressed as functions of the pressure:\n$$ K = \\frac{C_{n}}{12\\pi}[(1-\\phi)Z]^{2/3}\\left[\\frac{6\\pi p}{C_{n}}\\right]^{1/3}, \\tag{7}\\label{eq7} $$ $$ \\mu = \\frac{C_{n}}{20\\pi}[(1-\\phi)Z]^{2/3}\\left[\\frac{6\\pi p}{C_{n}}\\right]^{1/3}, \\tag{8}\\label{eq8} $$ $$ A = -\\frac{C_{n}}{70\\pi}[(1-\\phi)Z]^{4/3}\\left[\\frac{6\\pi p}{C_{n}}\\right]^{-1/3}. \\tag{9}\\label{eq9} $$\nHere, $Z$ is the average coordination number and $\\phi$ is the porosity.\n对于 $b=0$ 的情况(即非固结球珠)，ema 预测值可以简单地表示为压力的函数:\n$$ \\begin{aligned} K \u0026= \\frac{C_{n}}{12\\pi}[(1-\\phi)Z]^{2/3}\\left[\\frac{6\\pi p}{C_{n}}\\right]^{1/3},\\\\ \\mu \u0026= \\frac{C_{n}}{20\\pi}[(1-\\phi)Z]^{2/3}\\left[\\frac{6\\pi p}{C_{n}}\\right]^{1/3},\\\\ A \u0026= -\\frac{C_{n}}{70\\pi}[(1-\\phi)Z]^{4/3}\\left[\\frac{6\\pi p}{C_{n}}\\right]^{-1/3}. \\end{aligned} $$\n这里，$Z$ 是平均配位数，$\\phi$ 是孔隙率。\nPath independent ema predictions of pressure dependent sound speeds of granular media with welded contacts. The experimental data of Domenico should be compared against the $b=0$ curves. A coordination number $Z=9$ was assumed (from Ref. [2]).\n具有固连接触的颗粒介质的压力相关声速的路径无关 ema 预测。 Domenico 的实验数据应与 $b=0$ 曲线进行比较。假设配位数为 $Z=9$(来自参考文献 [2])。\nFrom Eqs. (7)-(9) as well as from Figs. 1 and 2, we see that, for unconsolidated beads, the second-order constants decrease to zero as the confining pressure decreases to zero but the third-order (and higher) elastic constants actually diverge. It is in this sense that unconsolidated granular media can be said to be extremely nonlinear.\n从公式 (7)-(9) 以及图 1 和图 2 中我们可以看出，对于未固结的球珠，二阶常数会随着约束压力的减小而减小到零，但三阶(及以上)弹性常数实际上是发散的。从这个意义上说，未固结的颗粒介质可以说是极其非线性的。\nThe presence of a welded contact, $b\u003e0$, acts to cut-off the divergence, but even so these systems can be orders of magnitude more nonlinear than ordinary, non-granular materials, such as metals, glasses, plastics, etc., for which the third-order constants are of the same order of magnitude as the second.\n固连接触($b\u003e0$)的存在可截断发散，但即便如此，这些系统的非线性程度仍可能比金属、玻璃、塑料等普通非颗粒材料高出几个数量级，后者的三阶常数与二阶常数的数量级相同。\nPath dependent forces When the transverse force is given by Eq. (2), the work done in deforming the system is dependent upon the order (path) in which this is done. An expansion such as Eq. (4) therefore does not exist. Nonetheless, it is possible to develop an e!ective medium theory in which one keeps track of the order (path) in which the deformation is applied.\n当横向力由式(2)给出时，系统变形所做的功取决于变形的顺序(路径)。因此，像公式 (4) 这样的展开式是不存在的。尽管如此，我们仍有可能发展出一种有效介质理论，其中我们可以追踪形变的顺序(路径)。\nThe resulting stress tensor, $\\sigma_{ij}$, depends upon the path taken in arriving at the final state of strain, $\\varepsilon_{ij}$. As it turns out, the second-order elastic constants are in fact, well-defined path-independent quantities which depend only upon the final state of strain.\n由此产生的应力张量 $\\sigma_{ij}$ 取决于最终应变状态的路径 $\\varepsilon_{ij}$。事实证明，二阶弹性常数实际上是定义明确的与路径无关的量，只取决于最终的应变状态。\nIn a typical experiment, however, the sound speeds may be measured as a function of applied stress, $\\sigma_{ij}$, not applied strain, $\\varepsilon_{ij}$, and so the sound speeds, considered as a function of applied stress, depend upon the order in which those stresses are applied. If the deformation path can be parameterized by some known functions, $\\{\\varepsilon_{ij}(\\xi)\\}$ where $\\xi$ is a convenient parameter, the relationship between sound speeds and applied stress can be derived.\n然而，在典型的实验中，声速可能是作为外加应力($\\sigma_{ij}$)而不是外加应变($\\varepsilon_{ij}$)的函数来测量的，因此作为外加应力函数的声速取决于外加应力的顺序。如果变形路径可以用一些已知函数参数化，即 $\\{\\varepsilon_{ij}(\\xi)\\}$，(其中 $\\xi$ 是一个为方便设定的参数)，就可以得出声速与外加应力之间的关系。\nFor the special case of loose beads in which the system is hydrostatically compressed to its final pressure, $p$, the ema expressions for $K$ and $\\mu$ are particularly simple. $K$ is unchanged from Eq. (7) and $\\mu$ is changed by virtue of the transverse forces:\n$$ K = \\frac{C_{n}}{12\\pi}[(1-\\phi)Z]^{2/3}\\left[\\frac{6\\pi p}{C_{n}}\\right]^{1/3}, \\tag{10}\\label{eq10} $$ $$ \\mu = \\frac{C_{n} + \\frac{3}{2}C_{t}}{20\\pi}[(1-\\phi)Z]^{2/3}\\left[\\frac{6\\pi p}{C_{n}}\\right]^{1/3}.\\tag{11}\\label{eq11} $$\nWe see that $K$ is predicted to be independent of $C_{t}$ and $\\mu$ is predicted to be linearly dependent upon $C_{t}$, a point to which we return later.\n对于松散球珠的特殊情况，即系统被静液压压缩至最终压力 $p$，$K$ 和 $\\mu$ 的 ema 表达式特别简单。$K$ 与公式 (7) 一致，而 $\\mu$ 则因横向力而改变:\n$$ \\begin{aligned} K \u0026= \\frac{C_{n}}{12\\pi}[(1-\\phi)Z]^{2/3}\\left[\\frac{6\\pi p}{C_{n}}\\right]^{1/3},\\\\ \\mu \u0026= \\frac{C_{n} + \\frac{3}{2}C_{t}}{20\\pi}[(1-\\phi)Z]^{2/3}\\left[\\frac{6\\pi p}{C_{n}}\\right]^{1/3}. \\end{aligned} $$\nThe ema can be applied to any stress protocol, not just hydrostatic stress. In Fig. 3 we show the results of measurements of sound speeds on loose glass beads confined to a rigid cylinder. This is the so-called uniaxial strain test. The speeds are plotted as a function of applied stress, $\\sigma_{zz}$. We show the predictions of the effective medium theory, in which certain reasonable assumptions about some of the parameters were made. (See Ref. [10] for details.) We see that the application of non-hydrostatic stress breaks the symmetry of the system, with the result that the speed of a longitudinal wave traveling along the direction of the applied stress increases more rapidly than that propagating perpendicular to it.\nema 可以应用于任何应力协议，而不仅仅是等静压力。图 3 显示了对约束在刚体圆柱中的松散玻璃珠的声速测量结果。这就是所谓的单轴应变测试。声速是外加应力 $\\sigma_{zz}$ 的函数。我们展示了有效介质理论的预测结果，其中对某些参数做了合理的假设(详见参考文献 [10])。我们看到，非等静应力的施加打破了系统的对称性，结果是沿施加应力方向传播的纵波的速度比垂直于施加应力方向传播的纵波的速度增加得更快。\nAdditionally, a transverse wave propagating perpendicular to the direction of applied stress can have two inequivalent polarizations each of which is different than that of a transverse wave parallel to the direction of applied stress. The effective medium theory for the different sound speeds is in rough accord with the experimental data.\n此外，垂直于外加应力方向传播的横波可以有两个不等效的极化，每个极化都不同于平行于外加应力方向的横波。不同声速的有效介质理论与实验数据基本一致。\nMolecular dynamics simulations With reasonable choices of the relevant parameters, the effective medium theories described above can give a good approximate description of the acoustic properties of granular media, as in Fig. 1, but there are problems, even for the simplest case of unconsolidated beads: (1) The effective medium theory predicts that the second order moduli vary with confining pressure as $p^{1/3}$, regardless of the values of coordination number, $Z$, and regardless of the values of $C_{n}$ or $C_{t}$. It is clear from Fig. 1 that the real data do not obey this power law.\n在合理选择相关参数的情况下，上述有效介质理论可以很好地近似描述颗粒介质的声学特性，如图 1 所示，但即使对于最简单的未固结珠子情况也存在问题：(1)有效介质理论预测二阶模量随约束压力的变化为 $p^{1/3}$，与配位数 $Z$、$C_{n}$ 或 $C_{t}$ 的值无关。从图 1 中可以明显看出，实际数据并不服从这一幂律。\n(2) Absent a molecular dynamics simulation, one does not know the appropriate value of the average coordination number, $Z$, to use in Eqs. (10) and (11). (3) The ratio $K/\\mu$, or, equivalently $V_{p}/V_{s}$, is predicted from Eqs. (10) and (11) to be independent of pressure. Experimentally the ratio $K/\\mu$ is indeed roughly constant but with a value which is intermediate between the two ema predictions, Eqs. (7) and (8) on the one hand, and Eqs. (10) and (11) on the other. Thus the implication is that $C_{t}$ (in Eq. (11)) is much smaller in real systems than expected from the Mindlin theory, Eq. (2), or that the ema is wrong.\n(2) 在没有进行分子动力学模拟的情况下，我们不知道在公式 (10) 和 (11) 中使用的平均配位数 $Z$ 的适当值。(3) 根据公式 (10) 和 (11) 预测，比值 $K/\\mu$，或等价于 $V_{p}/V_{s}$，与压力无关。实验结果表明，$K/\\mu$ 的比值确实大致恒定，但其值介于两个 ema 预测值之间：一方面是公式 (7) 和 (8)，另一方面是公式 (10) 和 (11)。因此，这意味着实际系统中的 $C_{t}$ (式 (11))比 Mindlin (式 (2)) 所预期的要小得多，或者说 ema 是错误的。\nThese facts have motivated us to undertake molecular dynamics simulations. In Fig. 4 we show the existing experimental data for $K$ and $\\mu$ on loose glass beads along with predictions of the effective medium theory (Eqs. (10) and (11)). From the simulations we find that the numerical value of the average coordination number is $Z\\approx 6$ (not $Z=9$ as in Fig. 1) for pressures less than $200\\text{ MPa}$, so this is the value we use in Eqs. (10) and (11). We also show the results for our simulations.\n这些事实促使我们进行分子动力学模拟。图 4 显示了松散玻璃珠上 $K$ 和 $\\mu$ 的现有实验数据以及有效介质理论的预测值（公式 (10) 和 (11)）。通过模拟我们发现，在压力小于 $200\\text{ MPa}$ 时，平均配位数的数值为 $Z\\approx 6$（而不是图 1 中的 $Z=9$），因此这就是我们在公式 (10) 和 (11) 中使用的数值。我们还展示了模拟结果。\nAlthough there is scatter within and disagreement between the different data sets, we see immediately that the simulations, the effective medium theory, and the data are in reasonable agreement for the bulk modulus, $K$. The experimental data and the simulations are in reasonable agreement for $\\mu$. The ema, however, signi\"cantly over-predicts $\\mu$. Our conclusions are that the assumption of the Hertz-Mindlin contact law, Eqs. (1) and (2), is not seriously in error, the ema is quite accurate in predicting $K$, and it is quite inaccurate in predicting $\\mu$.\n虽然不同数据集之间存在差异和分歧，但我们一眼就能看出，模拟、有效介质理论和数据在体积模量 $K$ 方面是合理一致的。对于 $\\mu$ 而言，实验数据和模拟数据是合理一致的。然而，ema 对 $\\mu$ 的预测明显过高。我们的结论是，Hertz-Mindlin 接触定律的假设（公式 (1) 和 (2)）没有严重错误，ema 在预测 $K$ 时相当准确，而在预测 $\\mu$ 时相当不准确。\nPressure dependence of the elastic moduli from MD, experiments, and path dependent ema: (a) bulk modulus, and (b) shear modulus. The data are from Refs. [9,11,12].\n从 MD、实验和路径依赖的 ema 得出的弹性模量的压强依赖性：(a) 体积模量，(b) 剪切模量。数据来自参考文献 [9,11,12]。\nAccording to the ema, the transverse force, $f_{t}$, contributes only to the shear modulus and not to the bulk modulus. Thus, we are motivated to examine molecular dynamic simulations in which $C_{t}$ in Eq. (2) is replaced by $\\alpha C_{t}$ where the dimensionless parameter $\\alpha$ is varied from $0$ to $1$. The results for a confining pressure of $p=100\\text{ kPa}$ are shown in Fig. 5, along with the predictions of Eqs. (10) and (11). The simulations confirm that $K$ is essentially independent of the strength of the transverse force. Astonishingly, the shear modulus is extremely sensitive in that it (nearly) vanishes as $\\alpha\\rightarrow 0$, in sharp contrast to the prediction of Eq. (11).\n根据 ema，横向力 $f_{t}$ 只对剪切模量有贡献，而对体积模量没有贡献。因此，我们研究了分子动力学模拟，将公式 (2) 中的 $C_{t}$ 替换为 $\\alpha C_{t}$，其中无量纲参数 $\\alpha$ 变化范围是从 $0$ 到 $1$。图 5 显示了约束压力为 $p=100\\text{ kPa}$ 时的结果，以及公式 (10) 和 (11) 的预测值。模拟结果证实 $K$ 基本上与横向力的强度无关。令人惊讶的是，剪切模量极其敏感，当 $\\alpha\\rightarrow 0$ 时，它（几乎）消失，这与公式 (11) 的预测形成了鲜明对比。\nWhat is the most serious problem with the ema? We believe it to be the “affine assumption” we discussed earlier. Thus, we redo the numerical simulations by forcing each ball to translate according to Eq. (3) and not rotate at all. Finally, these simulations, which are also shown in Fig. 5 are indeed in agreement with the ema predictions, Eq. (11). What is evidently happening in the unconstrained simulations, and in the experiments, is that the beads in the immediate neighborhood of each grain move around relative to the central grain in such a way that if there are central forces only ($C_{t} = 0$), there is a nearly complete relaxation of the system to an applied shear. The system is a fluid, or nearly so.\nema 最严重的问题是什么？我们认为是我们之前讨论过的 “仿射假设”。因此，我们重新进行了数值模拟，强迫每个球根据公式 (3) 进行平移，而完全不旋转。最后，这些模拟结果也如图 5 所示，确实与公式 (11) 中的 ema 预测一致。在无约束模拟和实验中明显发生的情况是，每个颗粒附近的珠子相对于中心颗粒左右移动，如果只有对心力（$C_{t} = 0$），系统对外加剪切力几乎完全弛豫。这个系统是一个流体，或者说几乎就是。\nConclusions We have found that: (1) The Hertz-Mindlin contact theory is a good approximation to the actual grain-grain contact law in real glass bead systems subjected to a known stress. (2) The very simple effective medium approximation gives a reasonable, if approximate, description of the response of the system. (3) There is a big difference between systems in which the forces may be presumed to be conservative and path independent and those for which the forces are path dependent. In the former, a hyper-elastic theory of the elastic constants may be developed whereas in the latter the third-order (and higher-order) constants are undefinable. (4) The molecular dynamic simulations establish the validity of the effective medium theory for the bulk modulus and also establish that the ema for the shear modulus is in serious error. The problem lies with the inability of the ema to correctly treat the relaxation of the surrounding grains when a shear deformation is applied.\n我们发现(1) Hertz-Mindlin 接触理论是实际玻璃珠系统在已知应力作用下颗粒-颗粒接触规律的良好近似。(2) 非常简单的有效介质近似对系统的响应进行了合理的描述，即使只是近似描述。(3) 在可以假定力是保守的、与路径无关的系统与那些力与路径有关的系统之间存在着很大的差异。在前者中，可以建立弹性常数的超弹性理论，而在后者中，三阶（和更高阶）常数是无法定义的。(4) 分子动力学模拟证明了有效介质理论对体积模量的有效性，同时也证明了剪切模量的 ema 存在严重错误。问题在于当施加剪切变形时，ema 无法正确处理周围颗粒的弛豫。\n",
+  "wordCount" : "7667",
+  "inLanguage": "zh",
+  "datePublished": "2024-01-03T00:18:06+08:00",
+  "dateModified": "2024-01-03T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/">💾 归档</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/">🛠 颗粒物质研究方法</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/sonic/">🦇 超声波探测</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/">⛓ Nonlinearity</a></div>
+            <h1 class="post-title">
+                Nonlinear elasticity of granular media
+            </h1>
+            <div class="post-description">
+                颗粒介质中的非线性弹性
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2024-01-03
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>7667字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>16分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">Read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#effective-medium-theories" aria-label="Effective medium theories">Effective medium theories</a><ul>
+                        
+                <li>
+                    <a href="#path-independent-forces" aria-label="Path independent forces">Path independent forces</a></li>
+                <li>
+                    <a href="#path-dependent-forces" aria-label="Path dependent forces">Path dependent forces</a></li></ul>
+                </li>
+                <li>
+                    <a href="#molecular-dynamics-simulations" aria-label="Molecular dynamics simulations">Molecular dynamics simulations</a></li>
+                <li>
+                    <a href="#conclusions" aria-label="Conclusions">Conclusions</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>The linear and nonlinear elastic properties of granular media are analyzed within the context of effective medium theories, as well as with numerical molecular dynamic simulations, assuming the validity of the Hertz-Mindlin theory at the single contact level.</p>
+<p>There is a crucial distinction between force laws which are path independent, leading to a hyper-elastic effective medium theory, and those which are path dependent, for which the deformation history must be followed explicitly.</p>
+</blockquote>
+<p>假定 Hertz-Mindlin 理论在单接触层面上有效，在有效介质理论以及分子动力学数值模拟的背景下分析了颗粒介质的线性和非线性弹性的特性。</p>
+<p>与路径无关的力定律和与路径相关的力定律之间存在着关键的区别，前者导致了超弹性有效介质理论，而后者则必须明确地遵循变形历史。</p>
+<blockquote>
+<p>The effective medium theories provide a reasonable description of existing experimental data, considered as a function of applied stress, but there are significant discrepancies. Numerical simulations resolve the question as to whether the problem lies with the treatment of the individual grain-grain contact or with the effective medium approximation (ema).</p>
+<p>We find that the problem lies principally with the latter: The bulk modulus is well described by the ema but the shear modulus is not, principally because the ema does not correctly allow for the grains to relax from the affine motion assumed by the ema.</p>
+</blockquote>
+<p>有效介质理论合理地描述了作为外加应力函数的现有实验数据，但存在显著差异。数值模拟解决了是单个颗粒-颗粒接触处理方法的问题还是有效介质近似(ema)的问题。</p>
+<p>我们发现问题主要在于后者：体积模量可以用 ema 很好地描述，但剪切模量却不能，这主要是因为 ema 没有正确地允许颗粒从 ema 假设的仿射运动中弛豫下来。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>The elastic properties of granular aggregates, such as sedimentary rocks, can be enormously nonlinear as compared with the properties of <strong>nonporous materials</strong>. The end member of such systems may be taken to be a loose/unconsolidated aggregate of glass beads which acquire a stiffness solely as a result of applied stress.</p>
+<p>This is because if two grains are just touching, the force, considered as a function of displacement, does not initially grow linearly, as with most systems, but it has a power law behavior (Eqs. (1) and (2) below).</p>
+</blockquote>
+<p>与<strong>无孔材料</strong>的特性相比，沉积岩等颗粒集合体的弹性特性可能极其非线性。此类系统的终端部件可以看作是由玻璃珠组成的松散/未固结的集合体，其刚度完全是外加应力的结果。</p>
+<p>这是因为，如果两粒玻璃珠恰好接触，被考虑为位移函数的力最初并不像大多数系统那样线性增长，而是具有幂律行为(下文公式 (1) 和 (2))。</p>
+<blockquote>
+<p>Aside from posing an interesting problem in the physics of disordered systems, these systems are unusually nonlinear in their response and they can exhibit path dependence.</p>
+<p>By this we mean that the work done in deforming the system can depend upon whether one first compresses the system, then shears it, or first shears then compresses, or compresses and shears simultaneously, etc. The result depends upon the path taken in $\{\varepsilon_{ij}\}$ space and not just on the final state of strain $\{\varepsilon_{ij}(\text{final})\}$.</p>
+</blockquote>
+<p>除了在无序系统物理学中提出了一个有趣的问题之外，这些系统的反应还具有非同寻常的非线性，它们可以表现出路径依赖性。</p>
+<p>我们的意思是，系统变形所做的功取决于是先压缩系统，然后再剪切，还是先剪切后压缩，还是压缩和剪切同时进行，等等。结果取决于在 ${\varepsilon_{ij}}$ 空间中的路径，而不仅仅取决于应变的最终状态 ${\varepsilon_{ij}(\text{final})}$。</p>
+<hr>
+<blockquote>
+<p>Here, we review some recent theoretical research we have undertaken in an attempt to understand these systems. We first discuss effective medium theories of the elastic properties, then we present our molecular dynamic simulations, and we end with a brief summary.</p>
+</blockquote>
+<p>在此，我们回顾了最近为了解这些系统而开展的一些理论研究。我们首先讨论弹性特性的有效介质理论，然后介绍我们的分子动力学模拟，最后进行简要总结。</p>
+<h1 id="effective-medium-theories">Effective medium theories<a hidden class="anchor" aria-hidden="true" href="#effective-medium-theories">#</a></h1>
+<blockquote>
+<p>The starting point is the behavior of a single grain-grain contact, which we assume to be describable by the Hertz-Mindlin theory and variations thereof. Two touching grains are displaced in compression along a line joining their centers by an amount $2w$. They may also suffer a transverse relative displacement of their centers by an amount $2s$, holding their rotational orientation fixed for the moment.</p>
+<p>The normal and transverse forces, $\mathbf{f}_{n}$ and $\mathbf{f}_{t}$ may be written in terms of $w$ and $s$. The idea is that as two spheres are pressed together the circle of contact continuously grows; the result is that the contact becomes increasingly stiffer with respect to further compression.</p>
+</blockquote>
+<p>我们以单个颗粒-颗粒接触的行为为出发点，假定它可以用 Hertz-Mindlin 理论及其变式来描述。两个接触的颗粒在压缩过程中沿着连接其中心的直线发生位移，位移量为 $2w$。它们的中心还可能发生横向相对位移，位移量为 $2s$，此时它们的旋转方向保持不变。</p>
+<p>法向力和横向力 $\mathbf{f}_{n}$ 和 $\mathbf{f}_{t}$ 可以用 $w$ 和 $s$ 来表示。其原理是，当两个球体被压在一起时，接触圆不断增大；其结果是，相对于进一步的压缩，接触变得越来越坚硬。</p>
+<blockquote>
+<p>Similarly, it may be assumed, for example, that the contact circle is a no-slip zone. The more the spheres are pressed together, the stiffer the contact becomes with respect to transverse relative displacement of the sphere centers (assuming the spheres are not allowed to rotate). The relevant expressions relating the forces to the displacements may be written as</p>
+<p>$$
+f_{n} = \frac{2}{3}C_{n}R^{1/2}w^{3/2}, \tag{1}\label{eq1}
+$$
+$$
+\Delta f_{t} = C_{t}(Rw)^{1/2}\Delta s.\tag{2}\label{eq2}
+$$</p>
+<p>The prefactors $C_{n}=4G/(1-\nu)$ and $C_{t}=8G/(2-\nu)$ are defined in terms of the shear modulus $G$ and the Poisson&rsquo;s ratio $\nu$ of the individual particles. $R$ is the <strong>harmonic mean</strong> of the radii of the two spheres.</p>
+</blockquote>
+<p>同样，也可以假设接触圆为无滑动区。球体压在一起越多，相对于球体中心的横向相对位移(假设球体不允许旋转)，接触就越僵硬。力与位移的相关表达式可写成</p>
+<p>$$
+f_{n} = \frac{2}{3}C_{n}R^{1/2}w^{3/2},\\
+\Delta f_{t} = C_{t}(Rw)^{1/2}\Delta s.
+$$</p>
+<p>其中，前因子 $C_{n}=4G/(1-\nu)$ 和 $C_{t}=8G/(2-\nu)$ 以单个颗粒的剪切模量 $G$ 和泊松比 $\nu$ 定义。$R$ 是两个球体半径的<strong>调和平均值</strong>。</p>
+<hr>
+<blockquote>
+<p>Eq. (2) is written in differential form to emphasize the fact that the actual value of the transverse force, $f_{t}$, depends upon the deformation path taken in $\{w,s\}$ space and not simply on the final values of $w$ and $s$. Thus $f_{t}$ depends upon the entire history of the trajectory: $f_{t} = f_{t}[\{w(\xi)\},\{s(\xi)\}]$ where $\xi$ is some conveniently chosen parameter (see Refs. [2,3] and references therein).</p>
+</blockquote>
+<p>公式 (2) 以微分的形式书写，以强调横向力 $f_{t}$ 的实际值取决于在 $\{w,s\}$ 空间中的变形路径，而不仅仅取决于 $w$ 和 $s$ 的最终值。因此 $f_{t}$ 取决于轨迹的整个历史：$f_{t} = f_{t}[\{w(\xi)\},\{s(\xi)\}]$, 其中 $\xi$ 是某个为方便选择的参数(见参考文献 [2,3] 及其中的参考文献)。</p>
+<blockquote>
+<p>Along a given trajectory there is no hysteresis, meaning the grain-grain contact is exactly reversible along that trajectory. But one does different amounts of work depending upon the trajectory taken; if one releases the forces along a trajectory different than the one in which they were established, there will be a net loss of energy. This behavior of a single grain-grain contact leads directly to the path dependence of the macroscopic ensemble, considered as a function of applied strain, $\{\varepsilon_{ij}\}$.</p>
+</blockquote>
+<p>在给定的轨迹上没有滞后现象，这意味着颗粒与颗粒之间的接触在该轨迹上是完全可逆的。但是，不同的轨迹会产生不同的功，如果沿着不同的轨迹释放力，就会产生净能量损失。单个颗粒-颗粒接触的这种行为直接导致了宏观集合的路径依赖性，将其视为施加应变的函数，$\{\varepsilon_{ij}\}$。</p>
+<hr>
+<blockquote>
+<p>The basic idea of the e!ective medium theories relevant to these problems is that the macroscopic work done in deforming the system is set equal to the sum of the work done on each grain-grain contact and that the latter is replaced by a suitable average. There are two assumptions: (1) The center of each grain displaces according to the dictates of the macroscopic strain tensor, $\varepsilon_{ij}$:</p>
+<p>$$
+u_{i} = \varepsilon_{ij}X_{j},\tag{3}\label{eq3}
+$$</p>
+<p>where $\mathbf{X}$ is the initial position of the center of the grain. When the deformation is describable by a symmetric deformation, $\nabla\times\mathbf{u} = 0$, none of the grains rotate. This is called the &ldquo;assumption of affine motion&rdquo;. (2) Each grain experiences essentially the same environment as any other grain. On average, the distribution of contacts is spherically symmetric. Under these assumptions, the total work done on the system may be written in terms of angular averages of the work done on a single contact. This sort of &ldquo;effective medium theory&rdquo; is simpler than the conventional Bruggeman type of ema (see also Ref. [5]) in that it is more analogous to a simple average of the non-linear spring constants.</p>
+</blockquote>
+<p>与这些问题相关的有效介质理论的基本思想是：将系统变形所做的宏观功设定为等于每个颗粒-颗粒接触所做的功之和，并用一个合适的平均值代替后者。这里有两个假设：(1) 每个颗粒的中心都根据宏观应变张量 $\varepsilon_{ij}$ 的要求进行位移：</p>
+<p>$$
+u_{i} = \varepsilon_{ij}X_{j},
+$$</p>
+<p>其中 $\mathbf{X}$ 是颗粒中心的初始位置。当变形可以用对称变形来描述时，即 $\nabla\times\mathbf{u} = 0$，颗粒都不会旋转。这被称为 &ldquo;仿射运动假设&rdquo;。(2) 每个颗粒与其他颗粒所处的环境基本相同。平均而言，接触分布呈球形对称。根据这些假设，系统所做的总功可以用单个接触点所做功的角度平均值来表示。这种 &ldquo;有效介质理论&rdquo; 比传统的 Bruggeman 类型的 ema 更简单(另见参考文献 [5])，因为它更类似于非线性弹簧常数的简单平均值。</p>
+<blockquote>
+<p>As written, the transverse force, Eq. (2), was derived under the assumption that once the grains are pressed together, there is perfect sticking of the contact circles. This force is path dependent, meaning that whether the grains are first pressed and then sheared, or vice versa, makes a di!erence in the work done on the contact. The numerical value of $f_{t}$ depends upon the path taken in $(w, s)$ space. Were we to assume, on the other hand, that there is perfect slippage of the particles, $\mathbf{f}_{t}\equiv 0$ instead of Eq. (2), then the resulting forces are path independent.</p>
+</blockquote>
+<p>如上文所述，公式 (2) 中的横向力是在假定一旦颗粒被压在一起，接触圆完全粘连的情况下得出的。这个力与路径有关，也就是说，颗粒是先被挤压后被剪切，还是先被剪切后被挤压，都会对接触做功产生影响。$f_{t}$ 的数值取决于在 $(w, s)$ 空间中的路径。另一方面，如果我们假设粒子完全滑动，$\mathbf{f}_{t}\equiv 0$ 而不是公式 (2)，那么所产生的力与路径无关。</p>
+<blockquote>
+<p>The practical result of this path independent assumption is that the resulting work done in deforming the system is now a function of the state of strain and is not dependent upon the way in which the strain is applied. The path independent forces lend themselves to the development of a macroscopic strain energy density, and thus to a well-defined theory of hyper-elasticity, whereas the path dependent forces need to be treated specially. We consider these two cases in turn.</p>
+</blockquote>
+<p>这种与路径无关的假设的实际结果是，系统变形所产生的功现在是应变状态的函数，而不依赖于施加应变的方式。与路径无关的力适合于宏观应变能密度的发展，从而适合于明确定义的超弹性理论，而与路径有关的力则需要特殊处理。我们依次考虑这两种情况。</p>
+<blockquote>
+<p>A cautionary note: In reality the contact may slip over an annular ring if the coefficient of friction is finite. In the limit of infinitesimal $\Delta s$ we either neglect the slippage altogether or we assume complete slip, as the case may be. In any case, the forces are conservative in the sense that if the deformation path, whatever it may be, is reversed exactly, the total work done is zero.</p>
+</blockquote>
+<p>注意事项：在现实中，如果摩擦系数是有限的，接触点可能会在环形圈上滑动。在无限小 $\Delta s$ 的极限中，我们要么完全忽略滑动，要么假设完全滑动，视情况而定。在任何情况下，力都是保守的，因为如果变形路径(不管是什么路径)被完全反转，那么所做的总功为零。</p>
+<h2 id="path-independent-forces">Path independent forces<a hidden class="anchor" aria-hidden="true" href="#path-independent-forces">#</a></h2>
+<blockquote>
+<p>If the work done on a single contact is independent of the order in which the normal and transverse forces are applied, i.e. they are path independent, then the system as a whole is said to be hyper-elastic. An energy density, $U(\{\varepsilon_{ij}\})$, can be defined in terms of the macroscopic strain tensor, $\varepsilon_{ij}$, and it can usefully be expanded in powers thereof. For any isotropic system this expansion takes the form:</p>
+<p>$$
+U(\{\varepsilon_{ij}\}) = U_{0} - p\varepsilon_{ii} + \frac{1}{2}\left[K - \frac{2}{3}\mu\right]\varepsilon_{ii}^{2} + \mu\varepsilon_{ij}^{2} + \frac{1}{3}A\varepsilon_{ij}\varepsilon_{jk}\varepsilon_{ki} + B\varepsilon_{ik}^{2}\varepsilon_{ll} + \frac{1}{3}\varepsilon_{ll}^{3} + \dots.\tag{4}\label{eq4}
+$$</p>
+<p>Here, $p$ is the static pressure and the strain tensor, $\varepsilon_{ij}$, is measured relative to the system in its reference state at pressure $p$.</p>
+</blockquote>
+<p>如果在单个接触上所做的功与施加法向力和横向力的顺序无关，即与路径无关，那么整个系统就被称为超弹性系统。能量密度 $U(\{\varepsilon_{ij}\})$ 可以用宏观应变张量 $\varepsilon_{ij}$ 来定义，并且可以用它的幂来展开。对于任何各向同性系统，这种展开形式为:</p>
+<p>$$
+U(\{\varepsilon_{ij}\}) = U_{0} - p\varepsilon_{ii} + \frac{1}{2}\left[K - \frac{2}{3}\mu\right]\varepsilon_{ii}^{2} + \mu\varepsilon_{ij}^{2} + \frac{1}{3}A\varepsilon_{ij}\varepsilon_{jk}\varepsilon_{ki} + B\varepsilon_{ik}^{2}\varepsilon_{ll} + \frac{1}{3}\varepsilon_{ll}^{3} + \dots.
+$$</p>
+<blockquote>
+<p>The second-order elastic constants are $K$, the bulk modulus, and $\mu$, the shear modulus; they determine the speeds of small amplitude sound:</p>
+<p>$$
+V_{p} = \sqrt{\frac{K + \frac{4}{3}\mu}{\rho}}\tag{5}\label{eq5}
+$$</p>
+<p>is the compressional sound speed and</p>
+<p>$$
+V_{s} = \sqrt{\frac{\mu}{\rho}}\tag{6}\label{eq6}
+$$</p>
+<p>is the shear speed. ($\rho$ is the density.) The third-order elastic constants, $A$, $B$, $C$ describe how the speeds of sound change to first order in an additional applied stress, $\Delta\sigma_{ij}$, and they also describe such nonlinear e!ects as second harmonic generation, shock wave formation, etc. For the path-independent model described above (i.e. when we set $\mathbf{f}_{t}\equiv 0$), it is straightforward to carry out this expansion to derive analytic expressions for the various moduli. Indeed, the path-independent models can be generalized slightly to include those in which the beads are first welded together over a radius $b &gt; 0$.</p>
+</blockquote>
+<p>二阶弹性常数是体积模量 $K$ 和剪切模量 $\mu$；它们决定了小振幅声的速度:</p>
+<p>$$
+V_{p} = \sqrt{\frac{K + \frac{4}{3}\mu}{\rho}}
+$$</p>
+<p>是压缩声速，而</p>
+<p>$$
+V_{s} = \sqrt{\frac{\mu}{\rho}}
+$$</p>
+<p>是剪切速度($\rho$ 是密度)。三阶弹性常数 $A$、$B$、$C$ 描述了声速如何在额外外加应力 $\Delta\sigma_{ij}$ 的作用下发生一阶变化，它们还描述了二次谐波产生、冲击波形成等非线性效应。对于上述与路径无关的模型(即当我们设置 $\mathbf{f}_{t}\equiv 0$时)，进行这种扩展可以直接得出各种模量的解析表达式。事实上，路径无关模型可以稍加推广，以纳入那些球珠首先在半径 $b &gt; 0$ 上粘连在一起的模型。</p>
+<hr>
+<blockquote>
+<p>Theoretical predictions of the speeds of sound from this path-independent model for different values of $b$ are plotted in Fig. 1, taken from Ref. [2]. One of the thirdorder constants from this model is plotted in Fig. 2. (Here, the third order constants are in the ratio $A:B:C::8:4:1$ so it is necessary to plot only one of them.)</p>
+</blockquote>
+<p>图 1 是这一与路径无关的模型对不同 $b$ 值的声速的理论预测，摘自参考文献 [2].图 2 中绘制了该模型的一个三阶常数(此处三阶常数的比例为 $A:B:C::8:4:1$，因此只需绘制其中一个常数)。</p>
+<hr>
+<blockquote>
+<p>For the case in which $b=0$ (i.e. unconsolidated beads) the ema predictions can be simply expressed as functions of the pressure:</p>
+<p>$$
+K = \frac{C_{n}}{12\pi}[(1-\phi)Z]^{2/3}\left[\frac{6\pi p}{C_{n}}\right]^{1/3}, \tag{7}\label{eq7}
+$$
+$$
+\mu = \frac{C_{n}}{20\pi}[(1-\phi)Z]^{2/3}\left[\frac{6\pi p}{C_{n}}\right]^{1/3}, \tag{8}\label{eq8}
+$$
+$$
+A = -\frac{C_{n}}{70\pi}[(1-\phi)Z]^{4/3}\left[\frac{6\pi p}{C_{n}}\right]^{-1/3}. \tag{9}\label{eq9}
+$$</p>
+<p>Here, $Z$ is the average coordination number and $\phi$ is the porosity.</p>
+</blockquote>
+<p>对于 $b=0$ 的情况(即非固结球珠)，ema 预测值可以简单地表示为压力的函数:</p>
+<p>$$
+\begin{aligned}
+K &amp;= \frac{C_{n}}{12\pi}[(1-\phi)Z]^{2/3}\left[\frac{6\pi p}{C_{n}}\right]^{1/3},\\
+\mu &amp;= \frac{C_{n}}{20\pi}[(1-\phi)Z]^{2/3}\left[\frac{6\pi p}{C_{n}}\right]^{1/3},\\
+A &amp;= -\frac{C_{n}}{70\pi}[(1-\phi)Z]^{4/3}\left[\frac{6\pi p}{C_{n}}\right]^{-1/3}.
+\end{aligned}
+$$</p>
+<p>这里，$Z$ 是平均配位数，$\phi$ 是孔隙率。</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2024/01/02/XU4QEVSn8dKaoxi.png" alt="1"  />
+</p>
+<blockquote>
+<p>Path independent ema predictions of pressure dependent sound speeds of granular media with welded contacts. The experimental data of Domenico should be compared against the $b=0$ curves. A coordination number $Z=9$ was assumed (from Ref. [2]).</p>
+</blockquote>
+<blockquote>
+<p>具有固连接触的颗粒介质的压力相关声速的路径无关 ema 预测。 Domenico 的实验数据应与 $b=0$ 曲线进行比较。假设配位数为 $Z=9$(来自参考文献 [2])。</p>
+</blockquote>
+</blockquote>
+<hr>
+<blockquote>
+<p>From Eqs. (7)-(9) as well as from Figs. 1 and 2, we see that, for unconsolidated beads, the second-order constants decrease to zero as the confining pressure decreases to zero but the third-order (and higher) elastic constants actually diverge. It is in this sense that unconsolidated granular media can be said to be extremely nonlinear.</p>
+</blockquote>
+<p>从公式 (7)-(9) 以及图 1 和图 2 中我们可以看出，对于未固结的球珠，二阶常数会随着约束压力的减小而减小到零，但三阶(及以上)弹性常数实际上是发散的。从这个意义上说，未固结的颗粒介质可以说是极其非线性的。</p>
+<blockquote>
+<p>The presence of a welded contact, $b&gt;0$, acts to cut-off the divergence, but even so these systems can be orders of magnitude more nonlinear than ordinary, non-granular materials, such as metals, glasses, plastics, etc., for which the third-order constants are of the same order of magnitude as the second.</p>
+</blockquote>
+<p>固连接触($b&gt;0$)的存在可截断发散，但即便如此，这些系统的非线性程度仍可能比金属、玻璃、塑料等普通非颗粒材料高出几个数量级，后者的三阶常数与二阶常数的数量级相同。</p>
+<h2 id="path-dependent-forces">Path dependent forces<a hidden class="anchor" aria-hidden="true" href="#path-dependent-forces">#</a></h2>
+<blockquote>
+<p>When the transverse force is given by Eq. (2), the work done in deforming the system is dependent upon the order (path) in which this is done. An expansion such as Eq. (4) therefore does not exist. Nonetheless, it is possible to develop an e!ective medium theory in which one keeps track of the order (path) in which the deformation is applied.</p>
+</blockquote>
+<p>当横向力由式(2)给出时，系统变形所做的功取决于变形的顺序(路径)。因此，像公式 (4) 这样的展开式是不存在的。尽管如此，我们仍有可能发展出一种有效介质理论，其中我们可以追踪形变的顺序(路径)。</p>
+<blockquote>
+<p>The resulting stress tensor, $\sigma_{ij}$, depends upon the path taken in arriving at the final state of strain, $\varepsilon_{ij}$. As it turns out, the second-order elastic constants are in fact, well-defined path-independent quantities which depend only upon the final state of strain.</p>
+</blockquote>
+<p>由此产生的应力张量 $\sigma_{ij}$ 取决于最终应变状态的路径 $\varepsilon_{ij}$。事实证明，二阶弹性常数实际上是定义明确的与路径无关的量，只取决于最终的应变状态。</p>
+<blockquote>
+<p>In a typical experiment, however, the sound speeds may be measured as a function of applied stress, $\sigma_{ij}$, not applied strain, $\varepsilon_{ij}$, and so the sound speeds, considered as a function of applied stress, depend upon the order in which those stresses are applied. If the deformation path can be parameterized by some known functions, $\{\varepsilon_{ij}(\xi)\}$ where $\xi$ is a convenient parameter, the relationship between sound speeds and applied stress can be derived.</p>
+</blockquote>
+<p>然而，在典型的实验中，声速可能是作为外加应力($\sigma_{ij}$)而不是外加应变($\varepsilon_{ij}$)的函数来测量的，因此作为外加应力函数的声速取决于外加应力的顺序。如果变形路径可以用一些已知函数参数化，即 $\{\varepsilon_{ij}(\xi)\}$，(其中 $\xi$ 是一个为方便设定的参数)，就可以得出声速与外加应力之间的关系。</p>
+<hr>
+<blockquote>
+<p>For the special case of loose beads in which the system is hydrostatically compressed to its final pressure, $p$, the ema expressions for $K$ and $\mu$ are particularly simple. $K$ is unchanged from Eq. (7) and $\mu$ is changed by virtue of the transverse forces:</p>
+<p>$$
+K = \frac{C_{n}}{12\pi}[(1-\phi)Z]^{2/3}\left[\frac{6\pi p}{C_{n}}\right]^{1/3}, \tag{10}\label{eq10}
+$$
+$$
+\mu = \frac{C_{n} + \frac{3}{2}C_{t}}{20\pi}[(1-\phi)Z]^{2/3}\left[\frac{6\pi p}{C_{n}}\right]^{1/3}.\tag{11}\label{eq11}
+$$</p>
+<p>We see that $K$ is predicted to be independent of $C_{t}$ and $\mu$ is predicted to be linearly dependent upon $C_{t}$, a point to which we return later.</p>
+</blockquote>
+<p>对于松散球珠的特殊情况，即系统被静液压压缩至最终压力 $p$，$K$ 和 $\mu$ 的 ema 表达式特别简单。$K$ 与公式 (7) 一致，而 $\mu$ 则因横向力而改变:</p>
+<p>$$
+\begin{aligned}
+K &amp;= \frac{C_{n}}{12\pi}[(1-\phi)Z]^{2/3}\left[\frac{6\pi p}{C_{n}}\right]^{1/3},\\
+\mu &amp;= \frac{C_{n} + \frac{3}{2}C_{t}}{20\pi}[(1-\phi)Z]^{2/3}\left[\frac{6\pi p}{C_{n}}\right]^{1/3}.
+\end{aligned}
+$$</p>
+<hr>
+<blockquote>
+<p>The ema can be applied to any stress protocol, not just hydrostatic stress. In Fig. 3 we show the results of measurements of sound speeds on loose glass beads confined to a rigid cylinder. This is the so-called uniaxial strain test. The speeds are plotted as a function of applied stress, $\sigma_{zz}$. We show the predictions of the effective medium theory, in which certain reasonable assumptions about some of the parameters were made. (See Ref. [10] for details.) We see that the application of non-hydrostatic stress breaks the symmetry of the system, with the result that the speed of a longitudinal wave traveling along the direction of the applied stress increases more rapidly than that propagating perpendicular to it.</p>
+</blockquote>
+<p>ema 可以应用于任何应力协议，而不仅仅是等静压力。图 3 显示了对约束在刚体圆柱中的松散玻璃珠的声速测量结果。这就是所谓的单轴应变测试。声速是外加应力 $\sigma_{zz}$ 的函数。我们展示了有效介质理论的预测结果，其中对某些参数做了合理的假设(详见参考文献 [10])。我们看到，非等静应力的施加打破了系统的对称性，结果是沿施加应力方向传播的纵波的速度比垂直于施加应力方向传播的纵波的速度增加得更快。</p>
+<blockquote>
+<p>Additionally, a transverse wave propagating perpendicular to the direction of applied stress can have two inequivalent polarizations each of which is different than that of a transverse wave parallel to the direction of applied stress. The effective medium theory for the different sound speeds is in rough accord with the experimental data.</p>
+</blockquote>
+<p>此外，垂直于外加应力方向传播的横波可以有两个不等效的极化，每个极化都不同于平行于外加应力方向的横波。不同声速的有效介质理论与实验数据基本一致。</p>
+<h1 id="molecular-dynamics-simulations">Molecular dynamics simulations<a hidden class="anchor" aria-hidden="true" href="#molecular-dynamics-simulations">#</a></h1>
+<blockquote>
+<p>With reasonable choices of the relevant parameters, the effective medium theories described above can give a good approximate description of the acoustic properties of granular media, as in Fig. 1, but there are problems, even for the simplest case of unconsolidated beads: (1) The effective medium theory predicts that the second order moduli vary with confining pressure as $p^{1/3}$, regardless of the values of coordination number, $Z$, and regardless of the values of $C_{n}$ or $C_{t}$. It is clear from Fig. 1 that the real data do not obey this power law.</p>
+</blockquote>
+<p>在合理选择相关参数的情况下，上述有效介质理论可以很好地近似描述颗粒介质的声学特性，如图 1 所示，但即使对于最简单的未固结珠子情况也存在问题：(1)有效介质理论预测二阶模量随约束压力的变化为 $p^{1/3}$，与配位数 $Z$、$C_{n}$ 或 $C_{t}$ 的值无关。从图 1 中可以明显看出，实际数据并不服从这一幂律。</p>
+<blockquote>
+<p>(2) Absent a molecular dynamics simulation, one does not know the appropriate value of the average coordination number, $Z$, to use in Eqs. (10) and (11). (3) The ratio $K/\mu$, or, equivalently $V_{p}/V_{s}$, is predicted from Eqs. (10) and (11) to be independent of pressure. Experimentally the ratio $K/\mu$ is indeed roughly constant but with a value which is intermediate between the two ema predictions, Eqs. (7) and (8) on the one hand, and Eqs. (10) and (11) on the other. Thus the implication is that $C_{t}$ (in Eq. (11)) is much smaller in real systems than expected from the Mindlin theory, Eq. (2), or that the ema is wrong.</p>
+</blockquote>
+<p>(2) 在没有进行分子动力学模拟的情况下，我们不知道在公式 (10) 和 (11) 中使用的平均配位数 $Z$ 的适当值。(3) 根据公式 (10) 和 (11) 预测，比值 $K/\mu$，或等价于 $V_{p}/V_{s}$，与压力无关。实验结果表明，$K/\mu$ 的比值确实大致恒定，但其值介于两个 ema 预测值之间：一方面是公式 (7) 和 (8)，另一方面是公式 (10) 和 (11)。因此，这意味着实际系统中的 $C_{t}$ (式 (11))比 Mindlin (式 (2)) 所预期的要小得多，或者说 ema 是错误的。</p>
+<hr>
+<blockquote>
+<p>These facts have motivated us to undertake molecular dynamics simulations. In Fig. 4 we show the existing experimental data for $K$ and $\mu$ on loose glass beads along with predictions of the effective medium theory (Eqs. (10) and (11)). From the simulations we find that the numerical value of the average coordination number is $Z\approx 6$ (not $Z=9$ as in Fig. 1) for pressures less than $200\text{ MPa}$, so this is the value we use in Eqs. (10) and (11). We also show the results for our simulations.</p>
+</blockquote>
+<p>这些事实促使我们进行分子动力学模拟。图 4 显示了松散玻璃珠上 $K$ 和 $\mu$ 的现有实验数据以及有效介质理论的预测值（公式 (10) 和 (11)）。通过模拟我们发现，在压力小于 $200\text{ MPa}$ 时，平均配位数的数值为 $Z\approx 6$（而不是图 1 中的 $Z=9$），因此这就是我们在公式 (10) 和 (11) 中使用的数值。我们还展示了模拟结果。</p>
+<blockquote>
+<p>Although there is scatter within and disagreement between the different data sets, we see immediately that the simulations, the effective medium theory, and the data are in reasonable agreement for the bulk modulus, $K$. The experimental data and the simulations are in reasonable agreement for $\mu$. The ema, however, signi&quot;cantly over-predicts $\mu$. Our conclusions are that the assumption of the Hertz-Mindlin contact law, Eqs. (1) and (2), is not seriously in error, the ema is quite accurate in predicting $K$, and it is quite inaccurate in predicting $\mu$.</p>
+</blockquote>
+<p>虽然不同数据集之间存在差异和分歧，但我们一眼就能看出，模拟、有效介质理论和数据在体积模量 $K$ 方面是合理一致的。对于 $\mu$ 而言，实验数据和模拟数据是合理一致的。然而，ema 对 $\mu$ 的预测明显过高。我们的结论是，Hertz-Mindlin 接触定律的假设（公式 (1) 和 (2)）没有严重错误，ema 在预测 $K$ 时相当准确，而在预测 $\mu$ 时相当不准确。</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2024/01/03/KXU6pbjeASnH4CL.png" alt="4"  />
+</p>
+<blockquote>
+<p>Pressure dependence of the elastic moduli from MD, experiments, and path dependent ema: (a) bulk modulus, and (b) shear modulus. The data are from Refs. [9,11,12].</p>
+</blockquote>
+<blockquote>
+<p>从 MD、实验和路径依赖的 ema 得出的弹性模量的压强依赖性：(a) 体积模量，(b) 剪切模量。数据来自参考文献 [9,11,12]。</p>
+</blockquote>
+</blockquote>
+<hr>
+<blockquote>
+<p>According to the ema, the transverse force, $f_{t}$, contributes only to the shear modulus and not to the bulk modulus. Thus, we are motivated to examine molecular dynamic simulations in which $C_{t}$ in Eq. (2) is replaced by $\alpha C_{t}$ where the dimensionless parameter $\alpha$ is varied from $0$ to $1$. The results for a confining pressure of $p=100\text{ kPa}$ are shown in Fig. 5, along with the predictions of Eqs. (10) and (11). The simulations confirm that $K$ is essentially independent of the strength of the transverse force. Astonishingly, the shear modulus is extremely sensitive in that it (nearly) vanishes as $\alpha\rightarrow 0$, in sharp contrast to the prediction of Eq. (11).</p>
+</blockquote>
+<p>根据 ema，横向力 $f_{t}$ 只对剪切模量有贡献，而对体积模量没有贡献。因此，我们研究了分子动力学模拟，将公式 (2) 中的 $C_{t}$ 替换为 $\alpha C_{t}$，其中无量纲参数 $\alpha$ 变化范围是从 $0$ 到 $1$。图 5 显示了约束压力为 $p=100\text{ kPa}$ 时的结果，以及公式 (10) 和 (11) 的预测值。模拟结果证实 $K$ 基本上与横向力的强度无关。令人惊讶的是，剪切模量极其敏感，当 $\alpha\rightarrow 0$ 时，它（几乎）消失，这与公式 (11) 的预测形成了鲜明对比。</p>
+<blockquote>
+<p>What is the most serious problem with the ema? We believe it to be the &ldquo;affine assumption&rdquo; we discussed earlier. Thus, we redo the numerical simulations by forcing each ball to translate according to Eq. (3) and not rotate at all. Finally, these simulations, which are also shown in Fig. 5 are indeed in agreement with the ema predictions, Eq. (11). What is evidently happening in the unconstrained simulations, and in the experiments, is that the beads in the immediate neighborhood of each grain move around relative to the central grain in such a way that if there are central forces only ($C_{t} = 0$), there is a nearly complete relaxation of the system to an applied shear. The system is a fluid, or nearly so.</p>
+</blockquote>
+<p>ema 最严重的问题是什么？我们认为是我们之前讨论过的 &ldquo;仿射假设&rdquo;。因此，我们重新进行了数值模拟，强迫每个球根据公式 (3) 进行平移，而完全不旋转。最后，这些模拟结果也如图 5 所示，确实与公式 (11) 中的 ema 预测一致。在无约束模拟和实验中明显发生的情况是，每个颗粒附近的珠子相对于中心颗粒左右移动，如果只有对心力（$C_{t} = 0$），系统对外加剪切力几乎完全弛豫。这个系统是一个流体，或者说几乎就是。</p>
+<h1 id="conclusions">Conclusions<a hidden class="anchor" aria-hidden="true" href="#conclusions">#</a></h1>
+<blockquote>
+<p>We have found that: (1) The Hertz-Mindlin contact theory is a good approximation to the actual grain-grain contact law in real glass bead systems subjected to a known stress. (2) The very simple effective medium approximation gives a reasonable, if approximate, description of the response of the system. (3) There is a big difference between systems in which the forces may be presumed to be conservative and path independent and those for which the forces are path dependent. In the former, a hyper-elastic theory of the elastic constants may be developed whereas in the latter the third-order (and higher-order) constants are undefinable. (4) The molecular dynamic simulations establish the validity of the effective medium theory for the bulk modulus and also establish that the ema for the shear modulus is in serious error. The problem lies with the inability of the ema to correctly treat the relaxation of the surrounding grains when a shear deformation is applied.</p>
+</blockquote>
+<p>我们发现(1) Hertz-Mindlin 接触理论是实际玻璃珠系统在已知应力作用下颗粒-颗粒接触规律的良好近似。(2) 非常简单的有效介质近似对系统的响应进行了合理的描述，即使只是近似描述。(3) 在可以假定力是保守的、与路径无关的系统与那些力与路径有关的系统之间存在着很大的差异。在前者中，可以建立弹性常数的超弹性理论，而在后者中，三阶（和更高阶）常数是无法定义的。(4) 分子动力学模拟证明了有效介质理论对体积模量的有效性，同时也证明了剪切模量的 ema 存在严重错误。问题在于当施加剪切变形时，ema 无法正确处理周围颗粒的弛豫。</p>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/sounds-of-failure/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Sounds of Failure: Passive Acoustic Measurements of Excited Vibrational Modes</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/evolution-of-granular-packings-by-nonlinear-acoustic-waves/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Evolution of granular packings by nonlinear acoustic waves</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

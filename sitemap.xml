@@ -2,22 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://Muatyz.github.io/posts/phy/calphy/</loc>
+    <lastmod>2025-09-26T00:18:23+08:00</lastmod>
+  </url><url>
     <loc>https://Muatyz.github.io/posts/cs/solidworks/</loc>
     <lastmod>2023-10-18T12:20:21+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/calphy/</loc>
-    <lastmod>2022-07-26T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/cs/skills/</loc>
     <lastmod>2023-05-05T12:20:21+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/sm/</loc>
-    <lastmod>2025-03-04T00:18:06+08:00</lastmod>
-  </url><url>
     <loc>https://Muatyz.github.io/posts/</loc>
-    <lastmod>2025-03-04T00:18:06+08:00</lastmod>
+    <lastmod>2025-09-26T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/categories/</loc>
+    <lastmod>2025-09-26T00:18:23+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/tags/numerical-calculation/</loc>
+    <lastmod>2025-09-26T00:18:23+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/tags/physics/</loc>
+    <lastmod>2025-09-26T00:18:23+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/categories/physics/</loc>
+    <lastmod>2025-09-26T00:18:23+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/phy/calphy/variational-intergration-for-ideal-magnetohydrodynamics/</loc>
+    <lastmod>2025-09-26T00:18:23+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/tags/</loc>
+    <lastmod>2025-09-26T00:18:23+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/phy/</loc>
+    <lastmod>2025-09-26T00:18:23+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/</loc>
+    <lastmod>2025-09-26T00:18:23+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/phy/sm/</loc>
     <lastmod>2025-03-04T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/sm/thermo-dynamics-enrico-fermi/</loc>
@@ -36,15 +57,6 @@
     <lastmod>2025-03-04T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/sm/statistical-mechanics-third-edition/</loc>
-    <lastmod>2025-03-04T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/tags/</loc>
-    <lastmod>2025-03-04T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/posts/phy/</loc>
-    <lastmod>2025-03-04T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/</loc>
     <lastmod>2025-03-04T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/sm/illustrastions-of-the-dynamical-theory-of-gases/</loc>
@@ -74,13 +86,16 @@
     <loc>https://Muatyz.github.io/posts/read/stack/maks/</loc>
     <lastmod>2024-12-01T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/</loc>
     <lastmod>2024-06-23T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/</loc>
     <lastmod>2024-06-23T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/</loc>
+    <lastmod>2024-06-23T00:18:06+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/</loc>
     <lastmod>2024-06-23T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/life/2024-document/</loc>
@@ -89,22 +104,19 @@
     <loc>https://Muatyz.github.io/tags/life/</loc>
     <lastmod>2024-05-20T00:18:15+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/effects-of-acoustic-waves-on-stick-slip-in-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/effects-of-acoustic-waves-on-stick-slip-in-granular-media/</loc>
     <lastmod>2024-05-13T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/understanding-dynamic-friction-through-spontaneously-evolving-lab-earthquakes/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/understanding-dynamic-friction-through-spontaneously-evolving-lab-earthquakes/</loc>
     <lastmod>2024-05-11T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/granular/magnetic-resonance-in-granular-flows/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/magnetic-resonance-in-granular-flows/</loc>
     <lastmod>2024-04-19T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/granular/</loc>
-    <lastmod>2024-04-19T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/nonlinearity/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/</loc>
     <lastmod>2024-04-15T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/nonlinearity/theoretical-study-nonlinear-elastic-wave-propagation/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/theoretical-study-nonlinear-elastic-wave-propagation/</loc>
     <lastmod>2024-04-15T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/scmp/</loc>
@@ -119,73 +131,73 @@
     <loc>https://Muatyz.github.io/posts/phy/scmp/burgers-equation/</loc>
     <lastmod>2024-04-08T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/the-physical-mechanisms-pf-induced-earthquakes/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/the-physical-mechanisms-pf-induced-earthquakes/</loc>
     <lastmod>2024-01-19T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/sounds-of-failure/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/sounds-of-failure/</loc>
     <lastmod>2024-01-07T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/</loc>
     <lastmod>2024-01-03T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/nonlinearity/evolution-of-granular-packings-by-nonlinear-acoustic-waves/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/evolution-of-granular-packings-by-nonlinear-acoustic-waves/</loc>
     <lastmod>2023-12-29T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/high-time-resolved-studies-of-stick-slip-show-similar-dilatancy/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/high-time-resolved-studies-of-stick-slip-show-similar-dilatancy/</loc>
     <lastmod>2023-12-26T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/triggering/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/</loc>
     <lastmod>2023-12-22T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/unread/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/</loc>
     <lastmod>2023-12-22T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/triggering/onset-of-sliding-in-amorphous-films-triggered-by/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/onset-of-sliding-in-amorphous-films-triggered-by/</loc>
     <lastmod>2023-12-22T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/unread/relaxation-at-the-angle-of-repose/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/relaxation-at-the-angle-of-repose/</loc>
     <lastmod>2023-12-22T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/triggering/shear-wave-induced-softening-and-simulltaneous-compaction/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/shear-wave-induced-softening-and-simulltaneous-compaction/</loc>
     <lastmod>2023-12-22T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/triggering/triggering-granular-avalanches-with-ultrasound/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/triggering-granular-avalanches-with-ultrasound/</loc>
     <lastmod>2023-12-19T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/unread/low-freq-behavior-of-beads-constrained-on-a-lattice/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/low-freq-behavior-of-beads-constrained-on-a-lattice/</loc>
     <lastmod>2023-12-18T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/probing-the-shear-band-formation-in-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/probing-the-shear-band-formation-in-granular-media/</loc>
     <lastmod>2023-12-18T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/nonlinearity/nonlinear-dynamics-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-dynamics-granular-media/</loc>
     <lastmod>2023-12-14T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/triggering/elastic-weakening-of-a-dense-granular-pack-by-acoustic-fluidization/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/elastic-weakening-of-a-dense-granular-pack-by-acoustic-fluidization/</loc>
     <lastmod>2023-12-12T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/</loc>
     <lastmod>2023-12-13T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/diffusivity-of-ultrasound-in-polycrystals/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/diffusivity-of-ultrasound-in-polycrystals/</loc>
     <lastmod>2023-12-13T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/unread/transverse-shear-oscillator-investigation-of-boundary-lubrication-in-weakly-adhered-films/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/transverse-shear-oscillator-investigation-of-boundary-lubrication-in-weakly-adhered-films/</loc>
     <lastmod>2023-12-01T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/exp-test-of-the-diffusion-approx-for-multi-scattered-sound/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/exp-test-of-the-diffusion-approx-for-multi-scattered-sound/</loc>
     <lastmod>2023-11-30T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/scmp/seismology/</loc>
     <lastmod>2023-11-30T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/mechanisms-for-acoustic-absorption-in-dry-and-weakly-wet-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/mechanisms-for-acoustic-absorption-in-dry-and-weakly-wet-granular-media/</loc>
     <lastmod>2023-11-29T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/probing-the-effect-of-particle-shape/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/probing-the-effect-of-particle-shape/</loc>
     <lastmod>2023-11-29T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/sound-in-sand/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/</loc>
     <lastmod>2023-11-29T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/scmp/effective-medium-theory/</loc>
@@ -197,13 +209,13 @@
     <loc>https://Muatyz.github.io/posts/phy/scmp/acoustic-research/</loc>
     <lastmod>2023-11-28T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/unread/zhou-zhi-gang-doc-paper/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/zhou-zhi-gang-doc-paper/</loc>
     <lastmod>2023-11-08T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/</loc>
     <lastmod>2023-11-01T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/granular/introduction-to-physics-of-granular-materials/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/introduction-to-physics-of-granular-materials/</loc>
     <lastmod>2023-10-23T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/cs/</loc>
@@ -215,25 +227,19 @@
     <loc>https://Muatyz.github.io/posts/life/reference-stack/</loc>
     <lastmod>2023-10-18T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/probing-intermittency-and-reversibility-in-a-dense-granular-suspension/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/probing-intermittency-and-reversibility-in-a-dense-granular-suspension/</loc>
     <lastmod>2023-10-10T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/sound-pulse-broadening-in-stressed-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-pulse-broadening-in-stressed-granular-media/</loc>
     <lastmod>2023-10-09T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-in-stressed-granular/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/ultrasound-in-stressed-granular/</loc>
     <lastmod>2023-10-09T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/monte-carlo-simulations-of-ultrasound-scattering/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/monte-carlo-simulations-of-ultrasound-scattering/</loc>
     <lastmod>2023-10-07T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/tags/langevin-dynamics/</loc>
-    <lastmod>2023-09-28T00:18:23+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/tags/physics/</loc>
-    <lastmod>2023-09-28T00:18:23+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/categories/physics/</loc>
     <lastmod>2023-09-28T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/tags/random/</loc>
@@ -245,40 +251,40 @@
     <loc>https://Muatyz.github.io/posts/phy/scmp/langevin-dynamics/</loc>
     <lastmod>2023-09-28T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/granular/random-loose-packing/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/random-loose-packing/</loc>
     <lastmod>2023-09-25T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/elastic-waves-in-dense-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/elastic-waves-in-dense-granular-media/</loc>
     <lastmod>2023-09-25T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/granular/edwards-statistical-mechanics-for-jammed-granular-matter/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/edwards-statistical-mechanics-for-jammed-granular-matter/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/ct/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/ct/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/effect-of-amp-and-dura-of-cyc-loa/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/effect-of-amp-and-dura-of-cyc-loa/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/dgm/sound-velocity-fluctuations-in-confined-granular-materials/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-velocity-fluctuations-in-confined-granular-materials/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/stickslip/stick-slip-nucleation-and-failure-in-uniform-glass-beads-detected-by-acoustic-emissions-in-ring-shear-experiments/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/stick-slip-nucleation-and-failure-in-uniform-glass-beads-detected-by-acoustic-emissions-in-ring-shear-experiments/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/unread/time-reversal-of-ultrasound-in-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/time-reversal-of-ultrasound-in-granular-media/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/sonic/nonlinearity/transitional-nonlinear-elastic-behaviour-in-dense-granular-media/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/transitional-nonlinear-elastic-behaviour-in-dense-granular-media/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/ct/xcj-glass-former/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/ct/xcj-glass-former/</loc>
     <lastmod>2023-09-24T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/granular/edwards-entropy-and-compactivity/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/edwards-entropy-and-compactivity/</loc>
     <lastmod>2023-09-23T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/granular/eq-of-temp/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/eq-of-temp/</loc>
     <lastmod>2023-09-23T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/tags/condensed-matter-physics/</loc>
@@ -290,11 +296,8 @@
     <loc>https://Muatyz.github.io/posts/phy/scmp/research/</loc>
     <lastmod>2023-09-21T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/ct/effective-temp/</loc>
+    <loc>https://Muatyz.github.io/posts/read/stack/granular/ct/effective-temp/</loc>
     <lastmod>2023-09-21T00:18:06+08:00</lastmod>
-  </url><url>
-    <loc>https://Muatyz.github.io/tags/numerical-calculation/</loc>
-    <lastmod>2023-06-19T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/calphy/1d-spin-chain/</loc>
     <lastmod>2022-07-26T00:18:23+08:00</lastmod>

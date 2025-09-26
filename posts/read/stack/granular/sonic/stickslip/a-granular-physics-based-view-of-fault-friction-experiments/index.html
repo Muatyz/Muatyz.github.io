@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>A Granular Physics-Based View of Fault Friction Experiments | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, granular">
+<meta name="description" content="Abstract
+
+Rate- and state-dependent friction (RSF) equations are commonly used to describe the time-dependent frictional response of fault gouge to perturbations in sliding velocity.
+Among the better-known versions are the Aging and Slip laws for the evolution of state. Although the Slip law is more successful, neither can predict all the robust features of lab data. RSF laws are also empirical, and their micromechanical origin is a matter of much debate. Here we use a granular physics-based model to explore the extent to which RSF behavior, as observed in rock and gouge friction experiments, can be explained by the response of a granular gouge layer with time-independent properties at the contact scale.
+
+与速率和状态相关的摩擦（RSF）方程常用于描述断层破碎带对滑动速度扰动的与时间相关的摩擦响应。
+其中比较著名的是状态演化的老化定律和滑移定律。虽然滑动定律更为成功，但两者都无法预测实验室数据的所有稳健特征。RSF 法则也是经验性的，其微观机械起源还存在很多争议。在这里，我们使用一个基于颗粒物理学的模型来探索岩石和沟槽摩擦实验中观察到的 RSF 行为在多大程度上可以通过在接触尺度上具有与时间无关特性的粒状沟槽层的响应来解释。">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="A Granular Physics-Based View of Fault Friction Experiments" />
+<meta property="og:description" content="Abstract
+
+Rate- and state-dependent friction (RSF) equations are commonly used to describe the time-dependent frictional response of fault gouge to perturbations in sliding velocity.
+Among the better-known versions are the Aging and Slip laws for the evolution of state. Although the Slip law is more successful, neither can predict all the robust features of lab data. RSF laws are also empirical, and their micromechanical origin is a matter of much debate. Here we use a granular physics-based model to explore the extent to which RSF behavior, as observed in rock and gouge friction experiments, can be explained by the response of a granular gouge layer with time-independent properties at the contact scale.
+
+与速率和状态相关的摩擦（RSF）方程常用于描述断层破碎带对滑动速度扰动的与时间相关的摩擦响应。
+其中比较著名的是状态演化的老化定律和滑移定律。虽然滑动定律更为成功，但两者都无法预测实验室数据的所有稳健特征。RSF 法则也是经验性的，其微观机械起源还存在很多争议。在这里，我们使用一个基于颗粒物理学的模型来探索岩石和沟槽摩擦实验中观察到的 RSF 行为在多大程度上可以通过在接触尺度上具有与时间无关特性的粒状沟槽层的响应来解释。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/" />
+<meta property="og:image" content="https://s2.loli.net/2024/06/23/ZIsqHTwcEYdLk7B.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-06-23T00:18:06+08:00" />
+<meta property="article:modified_time" content="2024-06-23T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2024/06/23/ZIsqHTwcEYdLk7B.png" />
+<meta name="twitter:title" content="A Granular Physics-Based View of Fault Friction Experiments"/>
+<meta name="twitter:description" content="Abstract
+
+Rate- and state-dependent friction (RSF) equations are commonly used to describe the time-dependent frictional response of fault gouge to perturbations in sliding velocity.
+Among the better-known versions are the Aging and Slip laws for the evolution of state. Although the Slip law is more successful, neither can predict all the robust features of lab data. RSF laws are also empirical, and their micromechanical origin is a matter of much debate. Here we use a granular physics-based model to explore the extent to which RSF behavior, as observed in rock and gouge friction experiments, can be explained by the response of a granular gouge layer with time-independent properties at the contact scale.
+
+与速率和状态相关的摩擦（RSF）方程常用于描述断层破碎带对滑动速度扰动的与时间相关的摩擦响应。
+其中比较著名的是状态演化的老化定律和滑移定律。虽然滑动定律更为成功，但两者都无法预测实验室数据的所有稳健特征。RSF 法则也是经验性的，其微观机械起源还存在很多争议。在这里，我们使用一个基于颗粒物理学的模型来探索岩石和沟槽摩擦实验中观察到的 RSF 行为在多大程度上可以通过在接触尺度上具有与时间无关特性的粒状沟槽层的响应来解释。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "💾 归档",
+          "item": "https://Muatyz.github.io/posts/read/stack/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  4 ,
+          "name": "🛠 颗粒物质研究方法",
+          "item": "https://Muatyz.github.io/posts/read/stack/granular/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  5 ,
+          "name": "🦇 超声波探测",
+          "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  6 ,
+          "name": "🎢 Stick-Slip",
+          "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  7 ,
+      "name": "A Granular Physics-Based View of Fault Friction Experiments",
+      "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A Granular Physics-Based View of Fault Friction Experiments",
+  "name": "A Granular Physics-Based View of Fault Friction Experiments",
+  "description": "Abstract Rate- and state-dependent friction (RSF) equations are commonly used to describe the time-dependent frictional response of fault gouge to perturbations in sliding velocity. Among the better-known versions are the Aging and Slip laws for the evolution of state. Although the Slip law is more successful, neither can predict all the robust features of lab data. RSF laws are also empirical, and their micromechanical origin is a matter of much debate. Here we use a granular physics-based model to explore the extent to which RSF behavior, as observed in rock and gouge friction experiments, can be explained by the response of a granular gouge layer with time-independent properties at the contact scale.\n与速率和状态相关的摩擦（RSF）方程常用于描述断层破碎带对滑动速度扰动的与时间相关的摩擦响应。 其中比较著名的是状态演化的老化定律和滑移定律。虽然滑动定律更为成功，但两者都无法预测实验室数据的所有稳健特征。RSF 法则也是经验性的，其微观机械起源还存在很多争议。在这里，我们使用一个基于颗粒物理学的模型来探索岩石和沟槽摩擦实验中观察到的 RSF 行为在多大程度上可以通过在接触尺度上具有与时间无关特性的粒状沟槽层的响应来解释。\n",
+  "keywords": [
+    "scmp", "granular"
+  ],
+  "articleBody": "Abstract Rate- and state-dependent friction (RSF) equations are commonly used to describe the time-dependent frictional response of fault gouge to perturbations in sliding velocity. Among the better-known versions are the Aging and Slip laws for the evolution of state. Although the Slip law is more successful, neither can predict all the robust features of lab data. RSF laws are also empirical, and their micromechanical origin is a matter of much debate. Here we use a granular physics-based model to explore the extent to which RSF behavior, as observed in rock and gouge friction experiments, can be explained by the response of a granular gouge layer with time-independent properties at the contact scale.\n与速率和状态相关的摩擦（RSF）方程常用于描述断层破碎带对滑动速度扰动的与时间相关的摩擦响应。 其中比较著名的是状态演化的老化定律和滑移定律。虽然滑动定律更为成功，但两者都无法预测实验室数据的所有稳健特征。RSF 法则也是经验性的，其微观机械起源还存在很多争议。在这里，我们使用一个基于颗粒物理学的模型来探索岩石和沟槽摩擦实验中观察到的 RSF 行为在多大程度上可以通过在接触尺度上具有与时间无关特性的粒状沟槽层的响应来解释。\nWe examine slip histories for which abundant lab data are available and find that the granular model (1) mimics the Slip law for those loading protocols where the Slip law accurately models laboratory data (velocity-step and slide-hold tests) and (2) deviates from the Slip law under conditions where the Slip law fails to match laboratory data (the reslide portions of slide-hold-slide tests), in the proper sense to better match those data. The simulations also indicate that state is sometimes decoupled from porosity in a way that is inconsistent with traditional interpretations of “state” in RSF. Finally, if the “granular temperature” of the gouge is suitably normalized by the confining pressure, it produces an estimate of the direct velocity effect (the RSF parameter $a$) that is consistent with our simulations and in the ballpark of lab data.\n我们研究了有大量实验室数据的滑移历史，发现颗粒模型（1）在滑移定律能准确模拟实验室数据的加载协议（速度-步长和滑移-保持试验）中模拟了滑移定律，（2）在滑移定律不能与实验室数据匹配的条件下（滑移-保持-滑移试验中的再滑移部分）偏离了滑移定律，在适当的意义上更好地匹配了这些数据。模拟还表明，状态有时与孔隙度脱钩，这与 RSF 中对 “状态” 的传统解释不一致。最后，如果用约束压力对断裂带的 “颗粒温度” 进行适当的归一化处理，就可以得到直接速度效应（RSF 参数 $a$）的估计值，该估计值与我们的模拟结果一致，并与实验室数据相近。\nIntroduction Models for estimating the length and time scales of earthquake nucleation rely on a mathematical description of the evolution of local fault friction with time (Dieterich, 1992; Dieterich \u0026 Kilgore, 1996). The commonly accepted framework for modeling this behavior, at least at sliding speeds too small for thermal effects to become important, is “rate- and state-dependent friction,” or RSF (Dieterich, 1978, 1979, 1981, 1994; Marone, 1998b; Ruina, 1983).\n估算地震成核的长度和时间尺度的模型依赖于对局部断层摩擦随时间演变的数学描述（Dieterich，1992；Dieterich \u0026 Kilgore，1996）。至少在滑动速度极小、以至于热效应不重要的情况下，这种行为建模的公认框架是 “与速率和状态相关的摩擦” 或(简称为) RSF（Dieterich，1978、1979、1981、1994；Marone，1998b；Ruina，1983）。\nThe RSF framework embodies the notion that frictional strength depends upon a nebulous property termed “state,” a function of recent slip history, and the current slip rate. Several versions of RSF laws exist, but the two most popular ones are the slip-dependent “Slip law,” which does a better job matching lab data, and the time-dependent “Aging law,” which matches less data (Bhattacharya et al., 2015, 2017) but which has more published theoretical justifications (e.g., Baumberger \u0026 Caroli, 2006).\nHowever, none of the existing RSF laws reproduce all of the robust features of available laboratory data (Bhattacharya et al., 2017; Kato \u0026 Tullis, 2001). This shortcoming, coupled with the largely empirical nature of RSF, severely limits our ability to apply laboratory-derived friction laws to fault slip in the Earth.\nRSF 框架体现了这样一种理念，即摩擦强度取决于一种被称为 “状态” 的模糊属性，它是近期滑移历史和当前滑移速率的函数。RSF 定律有多个版本，但最流行的两个版本是与滑移相关的 “滑移定律” 和与时间相关的 “老化定律\"，前者与实验室数据的匹配度较高；后者与数据的匹配度较低（Bhattacharya等人，2015年，2017年），但有更多已发表的理论依据（如Baumberger和Caroli，2006年）。\n然而，现有的 RSF 法都不能再现现有实验室数据的所有稳健特征（Bhattacharya 等人，2017 年；Kato \u0026 Tullis，2001 年）。这一缺陷，再加上 RSF 在很大程度上的经验性质，严重限制了我们将实验室得出的摩擦定律应用于地球断层滑移的能力。\nIn this paper, we adopt the working hypothesis that rock friction is governed by the behavior of a granular gouge with constant Coulomb friction at grain-grain contacts. Note that by not considering time-dependent plasticity or chemical reactions at the contact scale, we are throwing out what is traditionally thought to be the source of the rate and state dependence of friction (e.g., Baumberger \u0026 Caroli, 2006; Dieterich \u0026 Kilgore, 1994); all the relevant time dependence in our simulations arises from momentum transfer between the gouge particles, even at very low slip speeds. We use the discrete element method (DEM) to investigate the behavior of a 3-D granular layer sheared at constant normal stress between two rigid and parallel blocks.\n在本文中，我们采用的工作假设是，岩石摩擦力受颗粒沟槽行为的支配，在晶粒与晶粒接触处具有恒定的 Coulomb 摩擦力。需要注意的是，由于不考虑接触尺度上与时间相关的塑性或化学反应，我们抛开了传统上被认为是摩擦速率和状态依赖性的来源（例如 Baumberger \u0026 Caroli, 2006; Dieterich \u0026 Kilgore, 1994）；在我们的模拟中，所有相关的时间依赖性都来自于沟槽颗粒之间的动量传递，即使在极低的滑移速度下也是如此。我们使用离散元法（DEM）来研究两个刚性平行块体之间在恒定法向应力下剪切的三维颗粒层的行为。\nThe model geometry and loading conditions are designed to mimic laboratory rock and gouge friction experiments (we note that laboratory experiments on even initially bare rock surfaces develop, through mechanical wear, either a granular powder or a granular gouge layer, depending upon the total slip distance and that the phenomenology of RSF is common to both those experiments that start with bare rock and those where gouge is used as the starting material (Marone, 1998b)).\n模型的几何形状和加载条件是模仿实验室岩石和凿岩摩擦实验而设计的（我们注意到，即使是最初裸岩表面的实验室实验，也会通过机械磨损形成颗粒状粉末层或颗粒状凿岩层，这取决于总滑移距离，而且 RSF 现象在以裸岩为起点的实验和以凿岩为起点材料的实验中都是相同的（Marone，1998b））。\nIn this paper we emphasize velocity-step tests, employing a range of shearing velocities ($10^{−5}$ to $2\\text{ m/s}$) and confining pressures ($1–25\\text{ MPa}$) to model steps of $\\pm 1–3$ orders of magnitude. These velocity steps are supplemented by a small number of slide-hold and slide-hold-slide tests designed to allow additional comparisons to laboratory experiments and provide further insight into the gouge behavior.\n在本文中，我们强调速度阶跃试验，采用一系列剪切速度（$10^{-5}$ 至 $2\\text{ m/s}$）和约束压力（$1-25\\text{ MPa}$）来模拟 $\\pm 1-3$ 数量级的阶跃。除了这些速度级数之外，还进行了少量的滑动-保持和滑动-保持-滑动试验，目的是与实验室实验进行更多比较，并进一步深入了解凿岩行为。\nConsistent with RSF and several earlier numerical studies of sheared granular layers, we find that in response to imposed velocity steps there is an immediate “direct velocity effect” (e.g., an increase in friction in response to a step velocity increase), followed by a more gradual “state evolution effect” where the sign of the friction change is reversed (Abe et al., 2002; Hatano, 2009; Makse et al., 2004; Morgan, 2004). Furthermore, the magnitudes of these direct and evolution effects are proportional to the logarithm of the velocity jump, with implied values of the relevant RSF parameters ($a$ and $b$) that are not far from lab values.\n与 RSF 和早期对剪切颗粒层的一些数值研究相一致，我们发现，在对施加的速度阶跃做出响应时，会立即出现 “直接速度效应”（例如，摩擦力会随着速度的阶跃增加而增加），随后会出现更渐进的 “状态演化效应”，即摩擦力变化的符号会反转（Abe 等，2002 年；Hatano，2009 年；Makse 等，2004 年；Morgan，2004 年）。此外，这些直接效应和演化效应的大小与速度跃迁的对数成正比，相关 RSF 参数（$a$ 和$b$）的隐含值与实验室值相差无几。\nPerhaps our most significant finding is that the granular flow model mimics the Slip state evolution law for those sliding protocols where the Slip law does a good job matching laboratory experiments, and deviates from the Slip law, in the proper sense to better match lab data, for those sliding protocols where the Slip law does a poor job.\nThe former category includes both velocity-step tests (Bhattacharya et al., 2015; Blanpied et al., 1998; Ruina, 1980; Marone, 1998a; Rathbun \u0026 Marone, 2013; Ruina, 1983; Tullis \u0026 Weeks, 1986) and slide-hold tests (Bhattacharya et al., 2017). Consistent with both lab experiments and the Slip law, and unlike the Aging law, following a simulated velocity-step friction approaches its future steady-state value over slip distances that are independent of both the magnitude and sign of the step (a few grain diameters, in our simulations, or strains of $\\sim 15\\%$).\n也许我们最重要的发现是，对于滑动定律与实验室实验匹配较好的滑动方案，颗粒流模型模拟了滑动状态演化定律；而对于滑动定律与实验室数据匹配较差的滑动方案，颗粒流模型在适当意义上偏离了滑动定律，以更好地匹配实验室数据。\n前一类包括速度步进测试（Bhattacharya 等人，2015年；Blanpied 等人，1998年；Ruina，1980年；Marone，1998年a；Rathbun 和 Marone，2013年；Ruina，1983年；Tullis 和 Weeks，1986年）和滑动保持测试（Bhattacharya 等人，2017年）。与实验室实验和滑移定律一致，与老化定律不同的是，在模拟速度阶跃之后，摩擦力会在滑移距离上接近其未来的稳态值，而滑移距离与阶跃的大小和符号无关（在我们的模拟中，几个晶粒直径或应变为 $\\sim 15\\%$ ）。\nAnd consistent with lab experiments, during the hold portion of simulated slide-hold tests stress decays in a manner consistent with the Slip law using RSF parameters not far from those derived from the velocity-step tests, whereas the Aging law, with its time-dependent healing, underestimates the stress decay.\nMoreover, during the simulated hold, the gouge layer compacts roughly as the logarithm of hold time, similar to lab experiments. This is despite the fact that the stress decay, being well modeled by the Slip law, implies a lack of state evolution. Because state evolution in RSF is traditionally thought to involve the “mushrooming” of contacting asperities and porosity reduction, this indicates that in both the granular simulations and the lab, state is decoupled from gouge thickness (porosity) in a way that is inconsistent with most current interpretations of RSF.\n与实验室实验一致的是，在模拟滑动保持试验的保持部分，应力的衰减方式与滑移定律一致，使用的 RSF 参数与从速度步进试验中得出的参数相差无几，而老化定律因其随时间变化的愈合方式，低估了应力的衰减。\n此外，在模拟保持过程中，压痕层的压实程度大致与保持时间的对数有关，这与实验室实验类似。尽管应力衰减已被滑移定律很好地模拟，但这仍意味着缺乏状态演化。由于传统上认为 RSF 中的状态演化涉及接触尖晶的 “蘑菇化” 和孔隙率的降低，这表明在粒状模拟和实验室中，状态都与沟槽厚度（孔隙率）脱钩，这与目前对 RSF 的大多数解释不一致。\nThe granular flow model differs from the Slip law prediction during the reslides following holds, in that the Slip law parameters that fit the hold well underestimate the peak stress upon the reslide. Qualitatively, this is the same way in which the Slip law fails to match laboratory data (Bhattacharya et al., 2017). Collectively, our results hint that the physics-based granular flow model may do a better job of matching the transient response of laboratory rock and gouge friction experiments than any existing empirical RSF constitutive law. This is despite having apparently fewer tunable parameters.\n颗粒流模型与滑移定律预测的滞留后再滑移过程不同，因为滑移定律参数能很好地适应滞留，但却低估了再滑移时的峰值应力。从定性上讲，这与滑移定律与实验室数据不匹配的情况相同（Bhattacharya 等人，2017 年）。总之，我们的研究结果表明，基于物理的颗粒流模型在匹配实验室岩石和凿岩摩擦实验的瞬态响应方面，可能比任何现有的经验 RSF 构成定律做得更好。尽管可调参数明显较少。\nAlthough the model contains a large number of dimensionless parameters, most of these are fixed by the boundary conditions and the elastic moduli of the gouge particles, and the remainder seems to exert very little influence on the frictional behavior of the system. An exception is the grain size distribution; we find that a quasi-normal distribution gives rise to steady-state velocity-strengthening behavior, whereas a quasi-exponential distribution is close to velocity neutral, perhaps transitioning from velocity-weakening to velocity-strengthening behavior with increasing slip speed. Grain shape may also play a significant role, but only spherical grains are employed here.\n虽然该模型包含大量无量纲参数，但其中大部分参数都被边界条件和沟槽颗粒的弹性模量所固定，其余参数似乎对系统的摩擦行为影响甚微。但粒度分布是个例外；我们发现，准正态分布会产生稳态速度加强行为，而准指数分布则接近速度中性，随着滑移速度的增加，可能会从速度减弱行为过渡到速度加强行为。颗粒形状也可能起重要作用，但这里只采用球形晶粒。\nThe granular model is also well suited to allow us to explore the microphysical origins of its RSF-like behavior. In section 5.4 we begin to address this question, by measuring the kinetic energy of the gouge layer for a range of shear velocities, confining pressures and system sizes. By assuming that this kinetic energy plays the role of temperature in the classical understanding of the rate dependence of friction as a thermally activated Arrhenius processes (Chester, 1994; Lapusta et al., 2000; Nakatani, 2001; Rice et al., 2001), we obtain an estimate of the magnitude of the direct velocity effect (the RSF parameter $a$) that is close to that determined by fitting the simulated velocity steps.\n颗粒模型也非常适合让我们探索其类似 RSF 行为的微观物理根源。在第 5.4 节中，我们通过测量一系列剪切速度、约束压力和系统尺寸下的冲蚀层动能，开始解决这个问题。通过假定该动能在对摩擦速率依赖性的经典理解中扮演温度的角色，即热激活 Arrhenius 过程（Chester，1994；Lapusta 等人，2000；Nakatani，2001；Rice 等人，2001），我们得到了直接速度效应（RSF 参数 $a$）的估计值，该估计值与模拟速度阶跃拟合得到的估计值接近。\nIn exploring the granular model, our intent is not to imply that time-dependent contact-scale processes do not contribute to laboratory friction. Clear evidence of time-dependent contact plasticity comes from the see-through experiments of Dieterich and Kilgore (1994), and evidence of the importance of chemistry and time-dependent interfacial chemical bond formation comes from, among many other studies, the humidity-controlled gouge experiments of Frye and Marone (2002) and the atomic force single-asperity slide-hold-slide experiments of Li et al. (2011). It is not yet clear, however, under what conditions such effects dominate the transient frictional strength of interfaces.\n在探讨颗粒模型时，我们的意图并不是暗示随时间变化的接触尺度过程对实验室摩擦不起作用。Dieterich 和 Kilgore（1994 年）的透视实验提供了随时间变化的接触塑性的明显证据，Frye 和 Marone（2002 年）的湿度控制刨削实验以及 Li 等人（2011 年）的原子力单过盈量滑动-对持-滑动实验等许多研究也提供了化学和随时间变化的界面化学键形成的重要性的证据。然而，目前还不清楚在什么条件下，这种效应会主导界面的瞬态摩擦强度。\nNearly all papers that justify a state evolution law on physical grounds do so for the Aging law (e.g., time-dependent plasticity increasing contact area as log time; Baumberger \u0026 Caroli, 2006; Berthoud et al., 1999), even though this law reproduces relatively little laboratory friction data. An exception is Sleep (2006), who proposed that the Slip law arises from the highly nonlinear stress-strain relation at contacting asperities.\nHere we explore a physics-based model that may do a better job of matching (room temperature and humidity) laboratory rock and gouge friction data than any constitutive law currently in use, and that simultaneously allows one to investigate the attributes of the model that give rise to this behavior.\n几乎所有以物理为依据证明状态演变规律的论文都是针对老化规律的（例如，随时间变化的塑性使接触面积随对数时间增加；Baumberger \u0026 Caroli，2006；Berthoud 等人，1999），尽管该规律对实验室摩擦数据的再现相对较少。但 Sleep（2006 年）是个例外，他提出滑移定律源于接触表面的高度非线性应力-应变关系。\n在此，我们将探讨一种基于物理学的模型，它在匹配（室温和湿度）实验室岩石和凿岩摩擦数据方面可能比目前使用的任何构成法则都更出色，同时还能让我们研究产生这种行为的模型属性。\nRSF Background RSF laws treat friction as a function of the sliding rate, $V$, and the “state variable”, $\\theta$. $\\theta$ has traditionally been thought of as a proxy for true contact area on the sliding interface (Nakatani, 2001), but it has recently been shown that under some circumstances time-dependent contact quality can be the dominant contributor to the evolution of state (Li et al., 2011). In its simplest form, RSF is described by two coupled, first-order, ordinary differential equations. The first describes the relation between friction $\\mu$, defined as the ratio of shear stress to normal stress, and the RSF variables:\n$$ \\begin{equation} \\mu = \\mu_{*} + a\\log{\\frac{V}{V_{*}}} + b\\log{\\frac{\\theta}{\\theta_{*}}}\\tag{1} \\end{equation} $$\nwhere $\\mu_{*}$ is the nominal steady-state coefficient of friction at the reference velocity $V_{*}$ and state $\\theta_{*}$. The coefficients $a$ and $b$ control the magnitude of velocity and state dependence of the frictional strength, respectively. The second equation describes the evolution of the state variable $\\theta$, the two most widely used forms being\n$$ \\begin{align} \\text{Aging law:}\\quad \\frac{\\mathrm{d}\\theta}{\\mathrm{d}t} = 1 - \\frac{V\\theta}{D_{c}}\\tag{2}\\\\ \\text{Slip law:}\\quad \\frac{\\mathrm{d}\\theta}{\\mathrm{d}t} = - \\frac{V\\theta}{D_{c}}\\ln{\\frac{V\\theta}{D_{c}}} \\end{align} $$\nwith $D_{c}$ being some characteristic slip distance (Dieterich, 1979; Ruina, 1983). Equation (2) is often referred to as the Aging law since state can evolve with time in the absence of slip; equation (3) is referred to as the Slip law since state evolves only with slip ($\\dot{\\theta} = 0$ when $V = 0$).\nRSF 定律将摩擦力视为滑动速率 $V$ 和 “状态变量” $\\theta$ 的函数。$\\theta$ 传统上被认为是滑动界面上真实接触面积的替代物（Nakatani，2001年），但最近的研究表明，在某些情况下，随时间变化的接触质量可能是状态演变的主要因素（Li 等人，2011年）。在最简单的形式中，RSF 由两个耦合的一阶常微分方程描述。第一个方程描述了摩擦力 $\\mu$（定义为剪应力与法向应力之比）与 RSF 变量之间的关系：\n$$ \\begin{equation} \\mu = \\mu_{*} + a\\log{\\frac{V}{V_{*}}} + b\\log{\\frac{\\theta}{\\theta_{*}}}\\tag{1} \\end{equation} $$\n其中 $\\mu_{*}$ 是在参考速度 $V_{*}$ 和状态 $\\theta_{*}$ 时的名义稳态摩擦系数。系数 $a$ 和 $b$ 分别控制摩擦强度与速度和状态相关的大小。第二个方程描述状态变量 $\\theta$ 的演变，最常用的两种形式是\n$$ \\begin{align} \\text{Aging law:}\\quad \\frac{\\mathrm{d}\\theta}{\\mathrm{d}t} = 1 - \\frac{V\\theta}{D_{c}}\\tag{2}\\\\ \\text{Slip law:}\\quad \\frac{\\mathrm{d}\\theta}{\\mathrm{d}t} = - \\frac{V\\theta}{D_{c}}\\ln{\\frac{V\\theta}{D_{c}}} \\end{align} $$\n其中 $D_{c}$ 是某个特征滑移距离（Dieterich，1979 年；Ruina，1983 年）。方程 (2) 通常被称为老化定律，因为在没有滑移的情况下，状态可以随时间变化；方程 (3) 被称为滑移定律，因为状态只随滑移变化（当 $V = 0$ 时，$\\dot{\\theta}=0$）。\nIt is well established that neither the Aging law nor the Slip law adequately describes the full range of laboratory friction experiments (Beeler et al., 1994; Kato \u0026 Tullis, 2001). Laboratory experiments show that in a sufficiently stiff system, for both initially bare rock samples and gouge, following a step change in load point velocity friction approaches its new steady-state value quasi-exponentially over a characteristic slip distance that is independent of both the magnitude and the sign of the velocity step (Bhattacharya et al., 2015; Blanpied et al., 1998; Marone, 1998b; Ruina, 1983).\nThis is precisely the Slip law prediction of state evolution (Nakatani, 2001). The Aging law, on the other hand, predicts a slip-weakening distance that increases as the logarithm of the velocity jump for step velocity increases, and, owing to the approximately linear increase of state with time, exceedingly small slip distances for frictional strength recovery following large step velocity decreases. Both behaviors are completely inconsistent with laboratory data (Nakatani, 2001).\n众所周知，老化定律和滑动定律都不能充分描述实验室摩擦实验的全部过程（Beeler 等人，1994 年；Kato \u0026 Tullis，2001 年）。实验室实验表明，在一个足够坚硬的系统中，对于最初裸露的岩石样本和沟带，在载荷点速度发生阶跃变化后，摩擦力会在一个与速度阶跃的大小和符号无关的特征滑移距离内，准指数地接近其新的稳态值（Bhattacharya 等人，2015 年；Blanpied 等人，1998 年；Marone，1998 年 b；Ruina，1983 年）。\n这正是滑移定律对状态演变的预测（Nakatani，2001 年）。另一方面，老化定律预测的滑移减弱距离随着阶跃速度的对数增加而增加，并且由于状态随时间的近似线性增加，在阶跃速度大幅下降后摩擦强度恢复的滑移距离极小。这两种行为与实验室数据完全不符（Nakatani，2001 年）。\nIn contrast, conventional wisdom holds that slide-hold-slide experiments are better explained by the Aging law. In part, this stems from the work of Beeler et al. (1994), who ran experiments on initially bare granite surfaces at two different machine stiffnesses and hence two different amounts of slip during the load point holds. They found that the rate of healing, as inferred from the peak stress upon the reslide, was independent of stiffness and hence independent of the small amount of interfacial slip during the load point holds, seemingly consistent with the Aging law and inconsistent with the Slip law.\n与此相反，传统观点认为滑动-保持-滑动实验更适合用老化定律来解释。这部分源于 Beeler 等人（1994 年）的研究，他们在最初裸露的花岗岩表面上进行了两种不同机器刚度的实验，因此在负载点保持期间有两种不同的滑动量。他们发现，根据重新滑动时的峰值应力推断，愈合率与刚度无关，因此也与加载点保持期间的少量界面滑移无关，这似乎与老化定律一致，而与滑移定律不一致。\nHowever, Bhattacharya et al. (2017) showed that the Beeler et al. peak stress data could be fit about as well by the Slip law as by the Aging law, and moreover that the stiffness-dependent stress decay during the load point holds could be well modeled by the Slip law, although with a slightly different value of ($a − b$) than was determined from contemporaneous velocity steps, and was completely inconsistent with the Aging law.\n然而，Bhattacharya 等人（2017 年）的研究表明，Beeler 等人的峰值应力数据与老化定律一样可以用滑移定律来拟合，此外，加载点保持期间与刚度相关的应力衰减也可以用滑移定律很好地模拟，尽管（$a - b$）的值与根据同期速度阶跃确定的值略有不同，而且与老化定律完全不一致。\nThe property of the Aging law that prevents it from matching the stress decay during the holds is precisely its time-dependent nature: The gouge strengthens too much to allow any more slip. The rock friction community is thus left in the awkward position that while most theoretical justifications for state evolution are designed to explain the time-dependent healing of the Aging law (e.g., Baumberger et al., 1999), this law seems to explain rather little laboratory rock friction data.\n老化定律之所以无法与夹持过程中的应力衰减相匹配，正是因为它具有随时间变化的特性：凿岩强度过大，不允许再发生滑移。因此，岩石摩擦学界陷入了一个尴尬的境地：虽然大多数状态演化的理论依据都是为了解释老化定律随时间变化的愈合作用（如 Baumberger 等人，1999 年），但这一定律似乎几乎无法解释实验室岩石摩擦数据。\n(a) A visualization of the “default” granular gouge simulation. A normal grain size distribution is used, with mean grain diameter $D_{\\text{mean}} = 3\\text{ mm}$. Colors show the velocity of each grain in the $x$ direction, averaged over an upper-plate sliding distance of $D_{\\text{mean}}$ during steady sliding at a driving velocity of $V_{lp} = 2 × 10^{−4}\\text{ m/s}$. The actual velocity profile, averaged over $400$ planes normal to $z$, is shown to the right (black dots). (b) The size distribution of grains in the gouge layer in the default model.\n(a) “默认” 颗粒刨削模拟的可视化效果。采用正态粒度分布，平均粒径为 $D_{\\text{mean}} = 3\\text{ mm}$。颜色显示的是在驱动速度为 $V_{lp} = 2 × 10^{-4}\\text{ m/s}$ 的稳定滑动过程中，每个晶粒在 $x$ 方向上的速度，该速度是上平板滑动距离 $D_{\\text{mean}}$ 的平均值。右侧显示的是实际速度曲线（黑点），它是 $z$ 法线上 $400$ 平面的平均值。(b) 默认模型中断层中晶粒的尺寸分布。\nThe Computational Model Our DEM simulations are performed using the granular module of lammps (Large-scale Atomic/Molecular Massively Parallel Simulator), a multiscale computational platform developed and maintained by Sandia National Laboratory (https://lammps.sandia.gov). What we will refer to as the “default” model consists of a packing of $4,815$ grains: $4,527$ in the gouge layer and 288 in the top and bottom rigid blocks. The grains in the gouge layer have a polydisperse normal-like size distribution (Figure 1b), with a diameter range $d = [1 ∶ 5]\\text{ mm}$ and average diameter $D_{\\text{mean}} = 3\\text{ mm}$ (Figure 1a).\nThe granular gouge is confined between two parallel and rigid plates that are constructed from grains with diameter $d = 5\\text{ mm}$. Grain density and Young’s modulus are chosen equal to properties of glass beads (Table 1). The model domain is rectangular with periodic boundary conditions applied in the $x$ and $y$ directions. The size of the system in each direction is $L_{x} = L_{y} = 1.5L_{z} = 20D_{\\text{mean}}$.\n我们的 DEM 模拟是使用 lammps（大规模原子/分子大规模并行模拟器）的颗粒模块进行的，lammps 是 Sandia 国家实验室开发和维护的多尺度计算平台 (https://lammps.sandia.gov)。我们将其称为 “默认” 模型，由 $4,815$ 个晶粒堆积而成：其中，$4527$ 个晶粒位于断裂层，$288$ 个晶粒位于顶部和底部刚性块。刨削层中的晶粒具有多分散正态尺寸分布（图 1b），直径范围为 $d = [1 ∶ 5]\\text{ mm}$，平均直径为 $D_{\\text{mean}} = 3\\text{ mm}$（图 1a）。\n颗粒状断层被限制在两块平行的刚性板之间，这两块刚性板由直径为 $d = 5\\text{ mm}$ 的颗粒构成。晶粒密度和杨氏模量与玻璃珠的特性相同（表 1）。模型域为矩形，在 $x$ 和 $y$ 方向应用周期性边界条件。系统在每个方向上的尺寸为 $L_{x} = L_{y} = 1.5L_{z} = 20D_{\\text{mean}}$。\nThe system is initially prepared by randomly inserting (under gravity) grains in the simulation box with a desired initial packing fraction of $\\sim 0.5$. The system is then allowed to relax for about $10^{6}$ time steps, after which three initially identical and relaxed realizations are subjected to confining pressures $\\sigma_{n} = [1, 5, 25]\\text{ MPa}$. The confining pressure is applied for 1 min, by which time the fast phase of compaction is completed. These confined gouge samples are then subject to shearing at a desired driving velocity imposed by the top rigid plate, while the vertical position of the top wall is adjusted by a servo-control system to maintain the specified (constant) confining pressure.\n系统的初始准备工作是（在重力作用下）在模拟箱中随机插入晶粒，初始堆积分数为 $\\sim 0.5$。然后让系统弛豫约 $10^{6}$ 个时间步长，之后将三个最初相同且松弛的变量施加约束压力 $\\sigma_{n} = [1, 5, 25]\\text{ MPa}$。约束压力持续 1 分钟，此时压实的快速阶段已经完成。然后，这些受约束的断裂带样品将在顶部刚性板施加的所需驱动速度下受到剪切，同时顶壁的垂直位置由伺服控制系统调整，以保持指定（恒定）的约束压力。\nWe find that the servo-control system keeps the normal stress constant to within about $\\pm 0.1\\%$ of the desired value at slip speeds of $0.1\\text{ m/s}$ (see supporting information Figure S2 for an example of the servo control during and following a velocity step), and that the variation about the desired value is reduced by about a factor of 5 at slip speeds 5 times smaller. The nondefault systems are prepared using an identical protocol at a confining pressure of $\\sigma_{n} = 5\\text{ MPa}$.\n我们发现，在滑移速度为 $0.1\\text{ m/s}$ 时，伺服控制系统能将法向应力保持在理想值的 $0.1\\text{ m/s}$ 范围内（速度阶跃过程中和之后的伺服控制示例见图S2），而在滑移速度小 5 倍的情况下，理想值的变化减少了约 5 倍。在限制压力为 $\\sigma_{n} = 5\\text{ MPa}$ 时，使用相同的协议制备非默认系统。\nThe driving velocity is applied to the system via a linear spring with a default stiffness of $10^{14}\\text{ N/m}$ attached to the top plate; for practical purposes, this stiffness can be considered to be infinite, in that changes in load point velocity are transferred nearly instantaneously to the upper plate. The grains are modeled as compressible spheres of diameter $d$ that interact when in contact via the Hertz-Mindlin model (Johnson, 1985; Landau \u0026 Lifshitz, 1959; Mindlin, 1949).\n驱动速度通过连接到顶板的线性弹簧施加到系统中，该弹簧的默认刚度为 $10^{14}\\text{ N/m}$；出于实用目的，该刚度可视为无限大，因为负载点速度的变化几乎会瞬间传递到上板。晶粒被模拟为直径为 $d$ 的可压缩球体，在接触时通过 Hertz-Mindlin 模型相互作用（Johnson, 1985; Landau \u0026 Lifshitz, 1959; Mindlin, 1949）。\nFor two contacting particles $\\{i, j\\}$, at positions $\\{r_{i}, r_{j}\\}$, with diameters $d_{i}$ and $d_{j}$, velocities $\\{v_{i}, v_{j}\\}$ and angular velocities $\\{\\omega_{i}, \\omega_{j}\\}$, the force on particle $i$ is computed as follows: The normal compression $\\delta_{ij}$, relative normal velocity $v_{n_{ij}}$ , and relative tangential velocity $v_{t_{ij}}$ are given by\n$$ \\begin{align} \\delta_{ij} \u0026= \\frac{1}{2}\\left(d_{i} + d_{j}\\right) - r_{ij}\\quad \\tag{4}\\\\ v_{n_{ij}} \u0026= \\left(v_{ij}\\cdot n_{ij}\\right)n_{ij}\\quad \\tag{5}\\\\ v_{t_{ij}} \u0026= v_{ij} - v_{n_{ij}} - \\frac{1}{2}\\left(\\omega_{i} + \\omega_{j}\\right)\\times r_{ij}\\quad \\tag{6} \\end{align} $$\nwhere $r_{ij} = r_{i} − r_{j}$ , $nij = \\vec{r}_{ij}∕r_{ij}$, with $r_{ij} = |\\vec{r}_{ij}|$, and $v_{ij} = v_{i} − v_{j}$. The rate of change of the elastic tangential displacement $u_{t_{ij}}$ , set to zero at the initiation of a contact, is given by\n$$ \\begin{align} \\frac{\\mathrm{d}u_{t_{ij}}}{\\mathrm{d}t} = v_{t_{ij}} - \\frac{(u_{t_{ij}}\\cdot v_{ij})}{r_{ij}^{2}} \\tag{7} \\end{align} $$\nwhere the second term in equation (7) comes from the rigid body rotation around the contact point. Its implementation is there to insure that $u_{t_{ij}}$ always locates in the local tangent plane of contact (Silbert et al., 2001).\n对于两个接触的粒子 ${i, j}$, 位置 $\\{r_{i}, r_{j}\\}$,直径 $d_{i}$ 和 $d_{j}$,速度 ${v_{i}, v_{j}}$ 和角速度 $\\{\\omega_{i}, \\omega_{j}\\}$,粒子 $i$ 上的力计算如下：法向压缩率 $\\delta_{ij}$、相对法向速度 $v_{n_{ij}}$ 和相对切向速度 $v_{t_{ij}}$ 分别为\n$$ \\begin{align} \\delta_{ij} \u0026= \\frac{1}{2}\\left(d_{i} + d_{j}\\right) - r_{ij}\\quad \\tag{4}\\\\ v_{n_{ij}} \u0026= \\left(v_{ij}\\cdot n_{ij}\\right)n_{ij}\\quad \\tag{5}\\\\ v_{t_{ij}} \u0026= v_{ij} - v_{n_{ij}} - \\frac{1}{2}\\left(\\omega_{i} + \\omega_{j}\\right)\\times r_{ij}\\quad \\tag{6} \\end{align} $$\n其中 $r_{ij} = r_{i}- r_{j}$ , $nij = \\vec{r}_{ij}∕r_{ij}$，其中 $r_{ij} = |\\vec{r}_{ij}|$, $v_{ij} = v_{i} - v_{j}$。在接触开始时设定为零的弹性切向位移 $u_{t_{ij}}$ 的变化率为\n$$ \\begin{align} \\frac{\\mathrm{d}u_{t_{ij}}}{\\mathrm{d}t} = v_{t_{ij}} - \\frac{(u_{t_{ij}}\\cdot v_{ij})}{r_{ij}^{2}} \\tag{7} \\end{align} $$\n其中方程 (7) 中的第二项来自于围绕接触点的刚体旋转。其实施是为了确保 $u_{t_{ij}}$ 始终位于接触点的局部切平面内（Silbert 等人，2001 年）。\nThe normal and tangential forces acting on particle $i$ are then given by\n$$ \\begin{align} F_{n_{ij}} \u0026= \\sqrt{\\delta_{ij}}\\sqrt{\\frac{d_{i}d_{j}}{2(d_{i} + d_{j})}}(k_{n}\\delta_{ij}n_{ij} - m_{\\text{eff}}\\gamma_{n}v_{n_{ij}})\\quad \\tag{8}\\\\ F_{t_{ij}} \u0026= \\sqrt{\\delta_{ij}}\\sqrt{\\frac{d_{i}d_{j}}{2(d_{i} + d_{j})}}(-k_{t}u_{t_{ij}} - m_{\\text{eff}}\\gamma_{t}v_{t_{ij}})\\quad \\tag{9} \\end{align} $$\nwhere $k_{n}$ and $k_{t}$ are the normal and tangential stiffness, given by $k_{n} = (2∕3)E∕(1−ν^{2})$ and $k_{t} = 2E∕(1+ν)(2−ν)$ (Mindlin, 1949), with $E$ being Young’s modulus and $\\nu$ Poisson’s ratio, and $m_{\\text{eff}} = m_{i}m_{j}∕(m_{i} + m_{j})$ is the effective mass of spheres with masses $m_{i}$ and $m_{j}$ (we note that the most appropriate value of $k_{t}$ seems to be a matter of some debate, with Shäfer et al. (1996) suggesting values roughly $1,000$ times smaller).\n作用在粒子 $i$ 上的法向力和切向力分别为\n$$ \\begin{align} F_{n_{ij}} \u0026= \\sqrt{\\delta_{ij}}\\sqrt{\\frac{d_{i}d_{j}}{2(d_{i} + d_{j})}}(k_{n}\\delta_{ij}n_{ij} - m_{\\text{eff}}\\gamma_{n}v_{n_{ij}})\\quad \\tag{8}\\\\ F_{t_{ij}} \u0026= \\sqrt{\\delta_{ij}}\\sqrt{\\frac{d_{i}d_{j}}{2(d_{i} + d_{j})}}(-k_{t}u_{t_{ij}} - m_{\\text{eff}}\\gamma_{t}v_{t_{ij}})\\quad \\tag{9} \\end{align} $$\n其中 $k_{n}$ 和 $k_{t}$ 是法向刚度和切向刚度，分别为 $k_{n} = (2∕3)E∕(1-ν^{2})$ 和 $k_{t} = 2E∕(1+ν)(2-ν)$ (Mindlin, 1949)，其中 $E$ 为杨氏模量，$\\nu$ 为泊松比、和 $m_{\\text{eff}} = m_{i}m_{j}∕(m_{i} + m_{j})$ 是质量分别为 $m_{i}$ 和 $m_{j}$ 的球体的有效质量（我们注意到 $k_{t}$ 的最合适值似乎还存在争议，Shäfer 等人（1996 年）提出的值大约是 $m_{i}$ 和 $m_{j}$ 。(1996)提出的数值要小 $1000$ 左右）。\n$\\gamma_{n}$ and $\\gamma_{t}$ are the normal and tangential damping (viscoelastic) constants, respectively; we maintain the default lammps option of $\\gamma_{t} = 0.5\\gamma_{n}$. As indicated by equations (8) and (9), the model implements damping for both normal and tangential contacts as a spring and dashpot in parallel. Note that the Hertzian normal force given by (8) increases nonlinearly with grain compression $\\delta_{ij}$ (equation (4)), as $\\delta^{3∕2}_{ij}$ in the absence of damping, consistent with the elastic deformation of contacting spheres.\n$\\gamma_{n}$ 和 $\\gamma_{t}$ 分别是法向和切向阻尼（粘弹性）常数；我们保持默认的 lammps 选项 $\\gamma_{t} = 0.5\\gamma_{n}$ 。如公式 (8) 和 (9) 所示，模型以弹簧和仪表盘并联的方式实现了法向和切向接触的阻尼。请注意，在没有阻尼的情况下，(8) 式给出的 Hertz 法向力随颗粒压缩量 $\\delta_{ij}$ （等式 (4)）的非线性增加而增加，如 $\\delta^{3∕2}_{ij}$ ，这与接触球体的弹性变形一致。\nIn a gravitational field $g$, the translational and rotational accelerations of particles are determined by Newton’s second law, in terms of the total forces and torques on each particle, $i$:\n$$ \\begin{align} F_{i}^{tot} \u0026= m_{i}g + \\sum_{j}(F_{n_{ij}} + F_{t_{ij}})\\tag{10}\\\\ \\tau_{i}^{tot} \u0026= -\\frac{1}{2}\\sum_{j}F_{t_{ij}}\\times r_{ij}\\tag{11} \\end{align} $$\nThe grain-grain coefficient of friction, $\\mu_{g}$, is the upper limit of the tangential force through the Coulomb criterion $F_{t} \\leq \\mu_{g}F_{n}$. The tangential force between two grains grows according to the nonlinear Hertz-Mindlin contact law until $F_{t}∕F_{n} = \\mu_{g}$ and is then held at $F_{t} = \\mu_{g}F_{n}$ until either $F_{t} \\leq \\mu_{g}F_{n}$ or the grains loose contact.\n在重力场 $g$ 中，粒子的平移和旋转加速度由牛顿第二定律决定，与每个粒子上的总力和总转矩 $i$ 有关：\n$$ \\begin{align} F_{i}^{tot} \u0026= m_{i}g + \\sum_{j}(F_{n_{ij}} + F_{t_{ij}})\\tag{10}\\\\ \\tau_{i}^{tot} \u0026= -\\frac{1}{2}\\sum_{j}F_{t_{ij}}\\times r_{ij}\\tag{11} \\end{align} $$\n粒子间的摩擦系数 $\\mu_{g}$ 是通过库仑准则 $F_{t} \\leq \\mu_{g}F_{n}$ 确定的切向力的上限。两个粒子之间的切向力根据非线性的 Hertz-Mindlin 接触定律增长，直到 $F_{t}∕F_{n} = \\mu_{g}$，然后保持在 $F_{t} = \\mu_{g}F_{n}$，直到 $F_{t} \\leq \\mu_{g}F_{n}$ 或颗粒失去接触。\nThe amount of energy lost in collisions is characterized by the coefficient of restitution. The values of restitution coefficients, εn and εt for the normal and tangential directions respectively, are related to their respective damping coefficients $\\gamma_{n,t}$ and contact stiffness $k_{n,t}$. The restitution coefficient for the normal direction can be calculated by solving the following equation that describes the normal component of the relative motion of two spheres in contact:\n$$ \\begin{align} \\ddot{\\delta} + \\frac{E\\sqrt{2d_{\\text{eff}}}}{3m_{\\text{eff}}(1 - \\nu^{2})}\\left(\\delta^{3/2} + \\frac{3}{2}A\\sqrt{\\delta}\\dot{\\delta}\\right) = 0\\tag{12} \\end{align} $$\nwith the initial conditions $\\delta(0) = v_{n}$ and $\\delta(0) = 0$. In this equation, $A = \\frac{1}{3}\\frac{(3\\gamma_{t}-\\gamma_{n})^{2}}{(3\\gamma_{t} + 2\\gamma_{n})}\\left(\\frac{(1-v^{2})(1-2v)}{Ev^{2}}\\right)$, and $d_{\\text{eff}} = d_{i}d_j∕(d_i + d_j)$ is the effective diameter for spheres of diameters $d_i$ and $d_j$. The normal component of the coefficient of restitution can be obtained from the ratio of normal velocity of grains at the end of the collision, defined as $\\dot{\\delta}(t_{col})$, to their initial normal impact velocity: $\\epsilon_{n} = \\dot{\\delta}(t_{col})/\\dot{\\delta(0)}$.\nThe collision time $t_{col}$ is determined by solving equation (12) for the adopted physical properties and initial velocities of two colliding grains. A similar procedure is performed for calculating the restitution coefficient in the tangential direction. We use a time step of $\\Delta t = t_{col}∕100$ throughout this study, with tcol evaluated assuming an impact velocity $\\dot{\\delta}(0)$ of $25\\text{ m/s}$ ($t_{col}$ in (12) depends very weakly upon $\\dot{\\delta}(0)$, as roughly $\\dot{\\delta}(0)^{1/5}$ (Shäfer et al., 1996)). The restitution coefficient in the default model is chosen to be very high ($\\epsilon_{n} = 0.98$), such that the system is damped minimally.\nAlthough in one sense damping introduces time dependence at the contact scale, we find by varying the restitution coefficients from nearly 0 (complete damping) to nearly 1 (no damping) that they exert no significant influence on the system behavior in the slow-sliding regime of interest. For this reason we refer to the model as having no time dependence at the contact scale. The full details of the granular module of lammps are described in the lammps manual and several references (Brilliantov et al., 1996; Silbert et al., 2001; Zhang \u0026 Makse, 2005).\n",
+  "wordCount" : "10223",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2024/06/23/ZIsqHTwcEYdLk7B.png","datePublished": "2024-06-23T00:18:06+08:00",
+  "dateModified": "2024-06-23T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/">💾 归档</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/">🛠 颗粒物质研究方法</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/sonic/">🦇 超声波探测</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/">🎢 Stick-Slip</a></div>
+            <h1 class="post-title">
+                A Granular Physics-Based View of Fault Friction Experiments
+            </h1>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2024-06-23
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>10223字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>21分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">Read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2024/06/23/ZIsqHTwcEYdLk7B.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#rsf-background" aria-label="RSF Background">RSF Background</a></li>
+                <li>
+                    <a href="#the-computational-model" aria-label="The Computational Model">The Computational Model</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>Rate- and state-dependent friction (RSF) equations are commonly used to describe the time-dependent frictional response of <strong>fault gouge</strong> to perturbations in sliding velocity.
+Among the better-known versions are the Aging and Slip laws for the evolution of state. Although the Slip law is more successful, neither can predict all the robust features of lab data. RSF laws are also empirical, and their micromechanical origin is a matter of much debate. Here we use a granular physics-based model to explore the extent to which RSF behavior, as observed in rock and gouge friction experiments, can be explained by the response of a granular gouge layer with time-independent properties at the contact scale.</p>
+</blockquote>
+<p>与速率和状态相关的摩擦（RSF）方程常用于描述<strong>断层破碎带</strong>对滑动速度扰动的与时间相关的摩擦响应。
+其中比较著名的是状态演化的老化定律和滑移定律。虽然滑动定律更为成功，但两者都无法预测实验室数据的所有稳健特征。RSF 法则也是经验性的，其微观机械起源还存在很多争议。在这里，我们使用一个基于颗粒物理学的模型来探索岩石和沟槽摩擦实验中观察到的 RSF 行为在多大程度上可以通过在接触尺度上具有与时间无关特性的粒状沟槽层的响应来解释。</p>
+<blockquote>
+<p>We examine slip histories for which abundant lab data are available and find that the granular model (1) mimics the Slip law for those loading protocols where the <strong>Slip law</strong> accurately models laboratory data (velocity-step and slide-hold tests) and (2) deviates from the Slip law under conditions where the Slip law fails to match laboratory data (the reslide portions of slide-hold-slide tests), in the proper sense to better match those data. The simulations also indicate that state is sometimes decoupled from porosity in a way that is inconsistent with traditional interpretations of &ldquo;state&rdquo; in RSF. Finally, if the &ldquo;granular temperature&rdquo; of the gouge is suitably normalized by the confining pressure, it produces an estimate of the direct velocity effect (the RSF parameter $a$) that is consistent with our simulations and in the ballpark of lab data.</p>
+</blockquote>
+<p>我们研究了有大量实验室数据的滑移历史，发现颗粒模型（1）在滑移定律能准确模拟实验室数据的加载协议（速度-步长和滑移-保持试验）中模拟了<strong>滑移定律</strong>，（2）在滑移定律不能与实验室数据匹配的条件下（滑移-保持-滑移试验中的再滑移部分）偏离了滑移定律，在适当的意义上更好地匹配了这些数据。模拟还表明，状态有时与孔隙度脱钩，这与 RSF 中对 &ldquo;状态&rdquo; 的传统解释不一致。最后，如果用约束压力对断裂带的 &ldquo;颗粒温度&rdquo; 进行适当的归一化处理，就可以得到直接速度效应（RSF 参数 $a$）的估计值，该估计值与我们的模拟结果一致，并与实验室数据相近。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>Models for estimating the length and time scales of earthquake nucleation rely on a mathematical description of the evolution of local fault friction with time (Dieterich, 1992; Dieterich &amp; Kilgore, 1996). The commonly accepted framework for modeling this behavior, at least at sliding speeds too small for thermal effects to become important, is &ldquo;rate- and state-dependent friction,&rdquo; or RSF (Dieterich, 1978, 1979, 1981, 1994; Marone, 1998b; Ruina, 1983).</p>
+</blockquote>
+<p>估算地震成核的长度和时间尺度的模型依赖于对局部断层摩擦随时间演变的数学描述（Dieterich，1992；Dieterich &amp; Kilgore，1996）。至少在滑动速度极小、以至于热效应不重要的情况下，这种行为建模的公认框架是 &ldquo;与速率和状态相关的摩擦&rdquo; 或(简称为) RSF（Dieterich，1978、1979、1981、1994；Marone，1998b；Ruina，1983）。</p>
+<blockquote>
+<p>The RSF framework embodies the notion that frictional strength depends upon a nebulous property termed “state,” a function of recent slip history, and the current slip rate. Several versions of RSF laws exist, but the two most popular ones are the slip-dependent &ldquo;<strong>Slip law</strong>,&rdquo; which does a better job matching lab data, and the time-dependent “<strong>Aging law</strong>,” which matches less data (Bhattacharya et al., 2015, 2017) but which has more published theoretical justifications (e.g., Baumberger &amp; Caroli, 2006).</p>
+<p>However, none of the existing RSF laws reproduce all of the robust features of available laboratory data (Bhattacharya et al., 2017; Kato &amp; Tullis, 2001). This shortcoming, coupled with the largely empirical nature of RSF, severely limits our ability to apply laboratory-derived friction laws to fault slip in the Earth.</p>
+</blockquote>
+<p>RSF 框架体现了这样一种理念，即摩擦强度取决于一种被称为 &ldquo;状态&rdquo; 的模糊属性，它是近期滑移历史和当前滑移速率的函数。RSF 定律有多个版本，但最流行的两个版本是与滑移相关的 &ldquo;<strong>滑移定律</strong>&rdquo; 和与时间相关的 &ldquo;<strong>老化定律</strong>&quot;，前者与实验室数据的匹配度较高；后者与数据的匹配度较低（Bhattacharya等人，2015年，2017年），但有更多已发表的理论依据（如Baumberger和Caroli，2006年）。</p>
+<p>然而，现有的 RSF 法都不能再现现有实验室数据的所有稳健特征（Bhattacharya 等人，2017 年；Kato &amp; Tullis，2001 年）。这一缺陷，再加上 RSF 在很大程度上的经验性质，严重限制了我们将实验室得出的摩擦定律应用于地球断层滑移的能力。</p>
+<hr>
+<blockquote>
+<p>In this paper, we adopt the working hypothesis that rock friction is governed by the behavior of a granular <strong>gouge</strong> with constant Coulomb friction at grain-grain contacts. Note that by not considering time-dependent plasticity or chemical reactions at the contact scale, we are throwing out what is traditionally thought to be the source of the rate and state dependence of friction (e.g., Baumberger &amp; Caroli, 2006; Dieterich &amp; Kilgore, 1994); all the relevant time dependence in our simulations arises from momentum transfer between the gouge particles, even at very low slip speeds. We use the discrete element method (DEM) to investigate the behavior of a 3-D granular layer sheared at constant normal stress between two rigid and parallel blocks.</p>
+</blockquote>
+<p>在本文中，我们采用的工作假设是，岩石摩擦力受颗粒<strong>沟槽</strong>行为的支配，在晶粒与晶粒接触处具有恒定的 Coulomb 摩擦力。需要注意的是，由于不考虑接触尺度上与时间相关的塑性或化学反应，我们抛开了传统上被认为是摩擦速率和状态依赖性的来源（例如 Baumberger &amp; Caroli, 2006; Dieterich &amp; Kilgore, 1994）；在我们的模拟中，所有相关的时间依赖性都来自于沟槽颗粒之间的动量传递，即使在极低的滑移速度下也是如此。我们使用离散元法（DEM）来研究两个刚性平行块体之间在恒定法向应力下剪切的三维颗粒层的行为。</p>
+<blockquote>
+<p>The model geometry and loading conditions are designed to mimic laboratory rock and gouge friction experiments (we note that laboratory experiments on even initially bare rock surfaces develop, through mechanical wear, either a granular powder or a granular gouge layer, depending upon the total slip distance and that the phenomenology of RSF is common to both those experiments that start with bare rock and those where gouge is used as the starting material (Marone, 1998b)).</p>
+</blockquote>
+<p>模型的几何形状和加载条件是模仿实验室岩石和凿岩摩擦实验而设计的（我们注意到，即使是最初裸岩表面的实验室实验，也会通过机械磨损形成颗粒状粉末层或颗粒状凿岩层，这取决于总滑移距离，而且 RSF 现象在以裸岩为起点的实验和以凿岩为起点材料的实验中都是相同的（Marone，1998b））。</p>
+<blockquote>
+<p>In this paper we emphasize velocity-step tests, employing a range of shearing velocities ($10^{−5}$ to $2\text{ m/s}$) and confining pressures ($1–25\text{ MPa}$) to model steps of $\pm 1–3$ orders of magnitude. These velocity steps are supplemented by a small number of slide-hold and slide-hold-slide tests designed to allow additional comparisons to laboratory experiments and provide further insight into the gouge behavior.</p>
+</blockquote>
+<p>在本文中，我们强调速度阶跃试验，采用一系列剪切速度（$10^{-5}$ 至 $2\text{ m/s}$）和约束压力（$1-25\text{ MPa}$）来模拟 $\pm 1-3$ 数量级的阶跃。除了这些速度级数之外，还进行了少量的滑动-保持和滑动-保持-滑动试验，目的是与实验室实验进行更多比较，并进一步深入了解凿岩行为。</p>
+<hr>
+<blockquote>
+<p>Consistent with RSF and several earlier numerical studies of sheared granular layers, we find that in response to imposed velocity steps there is an immediate &ldquo;direct velocity effect&rdquo; (e.g., an increase in friction in response to a step velocity increase), followed by a more gradual “state evolution effect” where the sign of the friction change is reversed (Abe et al., 2002; Hatano, 2009; Makse et al., 2004; Morgan, 2004). Furthermore, the magnitudes of these direct and evolution effects are proportional to the logarithm of the velocity jump, with implied values of the relevant RSF parameters ($a$ and $b$) that are not far from lab values.</p>
+</blockquote>
+<p>与 RSF 和早期对剪切颗粒层的一些数值研究相一致，我们发现，在对施加的速度阶跃做出响应时，会立即出现 &ldquo;直接速度效应&rdquo;（例如，摩擦力会随着速度的阶跃增加而增加），随后会出现更渐进的 &ldquo;状态演化效应&rdquo;，即摩擦力变化的符号会反转（Abe 等，2002 年；Hatano，2009 年；Makse 等，2004 年；Morgan，2004 年）。此外，这些直接效应和演化效应的大小与速度跃迁的对数成正比，相关 RSF 参数（$a$ 和$b$）的隐含值与实验室值相差无几。</p>
+<hr>
+<blockquote>
+<p>Perhaps our most significant finding is that the granular flow model mimics the Slip state evolution law for those sliding protocols where the Slip law does a good job matching laboratory experiments, and deviates from the Slip law, in the proper sense to better match lab data, for those sliding protocols where the Slip law does a poor job.</p>
+<p>The former category includes both velocity-step tests (Bhattacharya et al., 2015; Blanpied et al., 1998; Ruina, 1980; Marone, 1998a; Rathbun &amp; Marone, 2013; Ruina, 1983; Tullis &amp; Weeks, 1986) and slide-hold tests (Bhattacharya et al., 2017). Consistent with both lab experiments and the Slip law, and unlike the Aging law, following a simulated velocity-step friction approaches its future steady-state value over slip distances that are independent of both the magnitude and sign of the step (a few grain diameters, in our simulations, or strains of $\sim 15\%$).</p>
+</blockquote>
+<p>也许我们最重要的发现是，对于滑动定律与实验室实验匹配较好的滑动方案，颗粒流模型模拟了滑动状态演化定律；而对于滑动定律与实验室数据匹配较差的滑动方案，颗粒流模型在适当意义上偏离了滑动定律，以更好地匹配实验室数据。</p>
+<p>前一类包括速度步进测试（Bhattacharya 等人，2015年；Blanpied 等人，1998年；Ruina，1980年；Marone，1998年a；Rathbun 和 Marone，2013年；Ruina，1983年；Tullis 和 Weeks，1986年）和滑动保持测试（Bhattacharya 等人，2017年）。与实验室实验和滑移定律一致，与老化定律不同的是，在模拟速度阶跃之后，摩擦力会在滑移距离上接近其未来的稳态值，而滑移距离与阶跃的大小和符号无关（在我们的模拟中，几个晶粒直径或应变为 $\sim 15\%$ ）。</p>
+<blockquote>
+<p>And consistent with lab experiments, during the hold portion of simulated slide-hold tests stress decays in a manner consistent with the Slip law using RSF parameters not far from those derived from the velocity-step tests, whereas the Aging law, with its time-dependent healing, underestimates the stress decay.</p>
+<p>Moreover, during the simulated hold, the gouge layer compacts roughly as the logarithm of <strong>hold time</strong>, similar to lab experiments. This is despite the fact that the stress decay, being well modeled by the Slip law, implies a lack of state evolution. Because state evolution in RSF is traditionally thought to involve the “mushrooming” of contacting <strong>asperities</strong> and porosity reduction, this indicates that in both the granular simulations and the lab, state is decoupled from gouge thickness (porosity) in a way that is inconsistent with most current interpretations of RSF.</p>
+</blockquote>
+<p>与实验室实验一致的是，在模拟滑动保持试验的保持部分，应力的衰减方式与滑移定律一致，使用的 RSF 参数与从速度步进试验中得出的参数相差无几，而老化定律因其随时间变化的愈合方式，低估了应力的衰减。</p>
+<p>此外，在模拟保持过程中，压痕层的压实程度大致与<strong>保持时间</strong>的对数有关，这与实验室实验类似。尽管应力衰减已被滑移定律很好地模拟，但这仍意味着缺乏状态演化。由于传统上认为 RSF 中的状态演化涉及<strong>接触尖晶</strong>的 &ldquo;蘑菇化&rdquo; 和孔隙率的降低，这表明在粒状模拟和实验室中，状态都与沟槽厚度（孔隙率）脱钩，这与目前对 RSF 的大多数解释不一致。</p>
+<hr>
+<blockquote>
+<p>The granular flow model differs from the Slip law prediction during the reslides following holds, in that the Slip law parameters that fit the hold well underestimate the peak stress upon the reslide. Qualitatively, this is the same way in which the Slip law fails to match laboratory data (Bhattacharya et al., 2017). Collectively, our results hint that the physics-based granular flow model may do a better job of matching the transient response of laboratory rock and gouge friction experiments than any existing empirical RSF constitutive law. This is despite having apparently fewer tunable parameters.</p>
+</blockquote>
+<p>颗粒流模型与滑移定律预测的滞留后再滑移过程不同，因为滑移定律参数能很好地适应滞留，但却低估了再滑移时的峰值应力。从定性上讲，这与滑移定律与实验室数据不匹配的情况相同（Bhattacharya 等人，2017 年）。总之，我们的研究结果表明，基于物理的颗粒流模型在匹配实验室岩石和凿岩摩擦实验的瞬态响应方面，可能比任何现有的经验 RSF 构成定律做得更好。尽管可调参数明显较少。</p>
+<blockquote>
+<p>Although the model contains a large number of dimensionless parameters, most of these are fixed by the boundary conditions and the elastic moduli of the <strong>gouge particles</strong>, and the remainder seems to exert very little influence on the frictional behavior of the system. An exception is the grain size distribution; we find that <strong>a quasi-normal distribution gives rise to steady-state velocity-strengthening behavior, whereas a quasi-exponential distribution is close to velocity neutral</strong>, perhaps transitioning from velocity-weakening to velocity-strengthening behavior with increasing slip speed. Grain shape may also play a significant role, but only spherical grains are employed here.</p>
+</blockquote>
+<p>虽然该模型包含大量无量纲参数，但其中大部分参数都被边界条件和<strong>沟槽颗粒</strong>的弹性模量所固定，其余参数似乎对系统的摩擦行为影响甚微。但粒度分布是个例外；我们发现，<strong>准正态分布会产生稳态速度加强行为，而准指数分布则接近速度中性</strong>，随着滑移速度的增加，可能会从速度减弱行为过渡到速度加强行为。颗粒形状也可能起重要作用，但这里只采用球形晶粒。</p>
+<blockquote>
+<p>The granular model is also well suited to allow us to explore the microphysical origins of its RSF-like behavior. In section 5.4 we begin to address this question, by measuring the kinetic energy of the <strong>gouge layer</strong> for a range of shear velocities, confining pressures and system sizes. By assuming that this kinetic energy plays the role of temperature in the classical understanding of the rate dependence of friction as a thermally activated Arrhenius processes (Chester, 1994; Lapusta et al., 2000; Nakatani, 2001; Rice et al., 2001), we obtain an estimate of the magnitude of the direct velocity effect (the RSF parameter $a$) that is close to that determined by fitting the simulated velocity steps.</p>
+</blockquote>
+<p>颗粒模型也非常适合让我们探索其类似 RSF 行为的微观物理根源。在第 5.4 节中，我们通过测量一系列剪切速度、约束压力和系统尺寸下的<strong>冲蚀层</strong>动能，开始解决这个问题。通过假定该动能在对摩擦速率依赖性的经典理解中扮演温度的角色，即热激活 Arrhenius 过程（Chester，1994；Lapusta 等人，2000；Nakatani，2001；Rice 等人，2001），我们得到了直接速度效应（RSF 参数 $a$）的估计值，该估计值与模拟速度阶跃拟合得到的估计值接近。</p>
+<blockquote>
+<p>In exploring the granular model, our intent is not to imply that time-dependent contact-scale processes do not contribute to laboratory friction. Clear evidence of time-dependent contact plasticity comes from the see-through experiments of Dieterich and Kilgore (1994), and evidence of the importance of chemistry and time-dependent interfacial chemical bond formation comes from, among many other studies, the humidity-controlled gouge experiments of Frye and Marone (2002) and the atomic force single-asperity slide-hold-slide experiments of Li et al. (2011). It is not yet clear, however, under what conditions such effects dominate the transient frictional strength of interfaces.</p>
+</blockquote>
+<p>在探讨颗粒模型时，我们的意图并不是暗示随时间变化的接触尺度过程对实验室摩擦不起作用。Dieterich 和 Kilgore（1994 年）的透视实验提供了随时间变化的接触塑性的明显证据，Frye 和 Marone（2002 年）的湿度控制刨削实验以及 Li 等人（2011 年）的原子力单过盈量滑动-对持-滑动实验等许多研究也提供了化学和随时间变化的界面化学键形成的重要性的证据。然而，目前还不清楚在什么条件下，这种效应会主导界面的瞬态摩擦强度。</p>
+<blockquote>
+<p>Nearly all papers that justify a state evolution law on physical grounds do so for the Aging law (e.g., time-dependent plasticity increasing contact area as log time; Baumberger &amp; Caroli, 2006; Berthoud et al., 1999), even though this law reproduces relatively little laboratory friction data. An exception is Sleep (2006), who proposed that the Slip law arises from the highly nonlinear stress-strain relation at contacting asperities.</p>
+<p>Here we explore a physics-based model that may do a better job of matching (room temperature and humidity) laboratory rock and gouge friction data than any constitutive law currently in use, and that simultaneously allows one to investigate the attributes of the model that give rise to this behavior.</p>
+</blockquote>
+<p>几乎所有以物理为依据证明状态演变规律的论文都是针对老化规律的（例如，随时间变化的塑性使接触面积随对数时间增加；Baumberger &amp; Caroli，2006；Berthoud 等人，1999），尽管该规律对实验室摩擦数据的再现相对较少。但 Sleep（2006 年）是个例外，他提出滑移定律源于接触表面的高度非线性应力-应变关系。</p>
+<p>在此，我们将探讨一种基于物理学的模型，它在匹配（室温和湿度）实验室岩石和凿岩摩擦数据方面可能比目前使用的任何构成法则都更出色，同时还能让我们研究产生这种行为的模型属性。</p>
+<h1 id="rsf-background">RSF Background<a hidden class="anchor" aria-hidden="true" href="#rsf-background">#</a></h1>
+<blockquote>
+<p>RSF laws treat friction as a function of the sliding rate, $V$, and the &ldquo;state variable&rdquo;, $\theta$. $\theta$ has traditionally been thought of as a proxy for true contact area on the sliding interface (Nakatani, 2001), but it has recently been shown that under some circumstances time-dependent contact quality can be the dominant contributor to the evolution of state (Li et al., 2011). In its simplest form, RSF is described by two coupled, first-order, ordinary differential equations. The first describes the relation between friction $\mu$, defined as the ratio of shear stress to normal stress, and the RSF variables:</p>
+<p>$$
+\begin{equation}
+\mu = \mu_{*} + a\log{\frac{V}{V_{*}}} + b\log{\frac{\theta}{\theta_{*}}}\tag{1}
+\end{equation}
+$$</p>
+<p>where $\mu_{*}$ is the nominal steady-state coefficient of friction at the reference velocity $V_{*}$ and state $\theta_{*}$. The coefficients $a$ and $b$ control the magnitude of velocity and state dependence of the frictional strength, respectively. The second equation describes the evolution of the state variable $\theta$, the two most widely used forms being</p>
+<p>$$
+\begin{align}
+\text{Aging law:}\quad \frac{\mathrm{d}\theta}{\mathrm{d}t} = 1 - \frac{V\theta}{D_{c}}\tag{2}\\
+\text{Slip law:}\quad \frac{\mathrm{d}\theta}{\mathrm{d}t} = - \frac{V\theta}{D_{c}}\ln{\frac{V\theta}{D_{c}}}
+\end{align}
+$$</p>
+<p>with $D_{c}$ being some characteristic slip distance (Dieterich, 1979; Ruina, 1983). Equation (2) is often referred to as the Aging law since <strong>state can evolve with time in the absence of slip</strong>; equation (3) is referred to as the Slip law since <strong>state evolves only with slip</strong> ($\dot{\theta} = 0$ when $V = 0$).</p>
+</blockquote>
+<p>RSF 定律将摩擦力视为滑动速率 $V$ 和 &ldquo;状态变量&rdquo; $\theta$ 的函数。$\theta$ 传统上被认为是滑动界面上真实接触面积的替代物（Nakatani，2001年），但最近的研究表明，在某些情况下，随时间变化的接触质量可能是状态演变的主要因素（Li 等人，2011年）。在最简单的形式中，RSF 由两个耦合的一阶常微分方程描述。第一个方程描述了摩擦力 $\mu$（定义为剪应力与法向应力之比）与 RSF 变量之间的关系：</p>
+<p>$$
+\begin{equation}
+\mu = \mu_{*} + a\log{\frac{V}{V_{*}}} + b\log{\frac{\theta}{\theta_{*}}}\tag{1}
+\end{equation}
+$$</p>
+<p>其中 $\mu_{*}$ 是在参考速度 $V_{*}$ 和状态 $\theta_{*}$ 时的名义稳态摩擦系数。系数 $a$ 和 $b$ 分别控制摩擦强度与速度和状态相关的大小。第二个方程描述状态变量 $\theta$ 的演变，最常用的两种形式是</p>
+<p>$$
+\begin{align}
+\text{Aging law:}\quad \frac{\mathrm{d}\theta}{\mathrm{d}t} = 1 - \frac{V\theta}{D_{c}}\tag{2}\\
+\text{Slip law:}\quad \frac{\mathrm{d}\theta}{\mathrm{d}t} = - \frac{V\theta}{D_{c}}\ln{\frac{V\theta}{D_{c}}}
+\end{align}
+$$</p>
+<p>其中 $D_{c}$ 是某个特征滑移距离（Dieterich，1979 年；Ruina，1983 年）。方程 (2) 通常被称为老化定律，因为<strong>在没有滑移的情况下，状态可以随时间变化</strong>；方程 (3) 被称为滑移定律，因为<strong>状态只随滑移变化</strong>（当 $V = 0$ 时，$\dot{\theta}=0$）。</p>
+<hr>
+<blockquote>
+<p>It is well established that neither the Aging law nor the Slip law adequately describes the full range of laboratory friction experiments (Beeler et al., 1994; Kato &amp; Tullis, 2001). Laboratory experiments show that in a sufficiently stiff system, for both initially bare rock samples and <strong>gouge</strong>, following a step change in load point velocity friction approaches its new steady-state value quasi-exponentially over a characteristic slip distance that is independent of both the magnitude and the sign of the velocity step (Bhattacharya et al., 2015; Blanpied et al., 1998; Marone, 1998b; Ruina, 1983).</p>
+<p>This is precisely the Slip law prediction of state evolution (Nakatani, 2001). The Aging law, on the other hand, predicts a slip-weakening distance that increases as the logarithm of the velocity jump for step velocity increases, and, owing to the approximately linear increase of state with time, exceedingly small slip distances for frictional strength recovery following large step velocity decreases. Both behaviors are completely inconsistent with laboratory data (Nakatani, 2001).</p>
+</blockquote>
+<p>众所周知，老化定律和滑动定律都不能充分描述实验室摩擦实验的全部过程（Beeler 等人，1994 年；Kato &amp; Tullis，2001 年）。实验室实验表明，在一个足够坚硬的系统中，对于最初裸露的岩石样本和沟带，在载荷点速度发生阶跃变化后，摩擦力会在一个与速度阶跃的大小和符号无关的特征滑移距离内，准指数地接近其新的稳态值（Bhattacharya 等人，2015 年；Blanpied 等人，1998 年；Marone，1998 年 b；Ruina，1983 年）。</p>
+<p>这正是滑移定律对状态演变的预测（Nakatani，2001 年）。另一方面，老化定律预测的滑移减弱距离随着阶跃速度的对数增加而增加，并且由于状态随时间的近似线性增加，在阶跃速度大幅下降后摩擦强度恢复的滑移距离极小。这两种行为与实验室数据完全不符（Nakatani，2001 年）。</p>
+<hr>
+<blockquote>
+<p>In contrast, conventional wisdom holds that slide-hold-slide experiments are better explained by the Aging law. In part, this stems from the work of Beeler et al. (1994), who ran experiments on initially bare granite surfaces at two different machine stiffnesses and hence two different amounts of slip during the load point holds. They found that the rate of healing, as inferred from the peak stress upon the reslide, was independent of stiffness and hence independent of the small amount of interfacial slip during the load point holds, seemingly consistent with the Aging law and inconsistent with the Slip law.</p>
+</blockquote>
+<p>与此相反，传统观点认为滑动-保持-滑动实验更适合用老化定律来解释。这部分源于 Beeler 等人（1994 年）的研究，他们在最初裸露的花岗岩表面上进行了两种不同机器刚度的实验，因此在负载点保持期间有两种不同的滑动量。他们发现，根据重新滑动时的峰值应力推断，愈合率与刚度无关，因此也与加载点保持期间的少量界面滑移无关，这似乎与老化定律一致，而与滑移定律不一致。</p>
+<blockquote>
+<p>However, Bhattacharya et al. (2017) showed that the Beeler et al. peak stress data could be fit about as well by the Slip law as by the Aging law, and moreover that the stiffness-dependent stress decay during the load point holds could be well modeled by the Slip law, although with a slightly different value of ($a − b$) than was determined from contemporaneous velocity steps, and was completely inconsistent with the Aging law.</p>
+</blockquote>
+<p>然而，Bhattacharya 等人（2017 年）的研究表明，Beeler 等人的峰值应力数据与老化定律一样可以用滑移定律来拟合，此外，加载点保持期间与刚度相关的应力衰减也可以用滑移定律很好地模拟，尽管（$a - b$）的值与根据同期速度阶跃确定的值略有不同，而且与老化定律完全不一致。</p>
+<blockquote>
+<p>The property of the Aging law that prevents it from matching the stress decay during the holds is precisely its time-dependent nature: The gouge strengthens too much to allow any more slip. The rock friction community is thus left in the awkward position that while most theoretical justifications for state evolution are designed to explain the time-dependent healing of the Aging law (e.g., Baumberger et al., 1999), this law seems to explain rather little laboratory rock friction data.</p>
+</blockquote>
+<p>老化定律之所以无法与夹持过程中的应力衰减相匹配，正是因为它具有随时间变化的特性：凿岩强度过大，不允许再发生滑移。因此，岩石摩擦学界陷入了一个尴尬的境地：虽然大多数状态演化的理论依据都是为了解释老化定律随时间变化的愈合作用（如 Baumberger 等人，1999 年），但这一定律似乎几乎无法解释实验室岩石摩擦数据。</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2024/07/13/sKRPXFBvZEf8Tha.png" alt=""  />
+
+(a) A visualization of the “default” granular gouge simulation. A normal grain size distribution is used, with mean grain diameter $D_{\text{mean}} = 3\text{ mm}$. Colors show the velocity of each grain in the $x$ direction, averaged over an upper-plate sliding distance of $D_{\text{mean}}$ during steady sliding at a driving velocity of $V_{lp} = 2 × 10^{−4}\text{ m/s}$. The actual velocity profile, averaged over $400$ planes normal to $z$, is shown to the right (black dots). (b) The size distribution of grains in the gouge layer in the default model.</p>
+</blockquote>
+<p>(a) &ldquo;默认&rdquo; 颗粒刨削模拟的可视化效果。采用正态粒度分布，平均粒径为 $D_{\text{mean}} = 3\text{ mm}$。颜色显示的是在驱动速度为 $V_{lp} = 2 × 10^{-4}\text{ m/s}$ 的稳定滑动过程中，每个晶粒在 $x$ 方向上的速度，该速度是上平板滑动距离 $D_{\text{mean}}$ 的平均值。右侧显示的是实际速度曲线（黑点），它是 $z$ 法线上 $400$ 平面的平均值。(b) 默认模型中断层中晶粒的尺寸分布。</p>
+</blockquote>
+<h1 id="the-computational-model">The Computational Model<a hidden class="anchor" aria-hidden="true" href="#the-computational-model">#</a></h1>
+<blockquote>
+<p>Our DEM simulations are performed using the granular module of lammps (Large-scale Atomic/Molecular Massively Parallel Simulator), a multiscale computational platform developed and maintained by Sandia National Laboratory (<a href="https://lammps.sandia.gov" target="_blank" rel="noopener nofollow noreferrer" >https://lammps.sandia.gov</a>). What we will refer to as the &ldquo;default&rdquo; model consists of a packing of $4,815$ grains: $4,527$ in the gouge layer and 288 in the top and bottom rigid blocks. The grains in the gouge layer have a polydisperse normal-like size distribution (Figure 1b), with a diameter range $d = [1 ∶ 5]\text{ mm}$ and average diameter $D_{\text{mean}} = 3\text{ mm}$ (Figure 1a).</p>
+<p>The granular gouge is confined between two parallel and rigid plates that are constructed from grains with diameter $d = 5\text{ mm}$. Grain density and Young&rsquo;s modulus are chosen equal to properties of glass beads (Table 1). The model domain is rectangular with periodic boundary conditions applied in the $x$ and $y$ directions. The size of the system in each direction is $L_{x} = L_{y} = 1.5L_{z} = 20D_{\text{mean}}$.</p>
+</blockquote>
+<p>我们的 DEM 模拟是使用 lammps（大规模原子/分子大规模并行模拟器）的颗粒模块进行的，lammps 是 Sandia 国家实验室开发和维护的多尺度计算平台 (<a href="https://lammps.sandia.gov" target="_blank" rel="noopener nofollow noreferrer" >https://lammps.sandia.gov</a>)。我们将其称为 &ldquo;默认&rdquo; 模型，由 $4,815$ 个晶粒堆积而成：其中，$4527$ 个晶粒位于断裂层，$288$ 个晶粒位于顶部和底部刚性块。刨削层中的晶粒具有多分散正态尺寸分布（图 1b），直径范围为 $d = [1 ∶ 5]\text{ mm}$，平均直径为 $D_{\text{mean}} = 3\text{ mm}$（图 1a）。</p>
+<p>颗粒状断层被限制在两块平行的刚性板之间，这两块刚性板由直径为 $d = 5\text{ mm}$ 的颗粒构成。晶粒密度和杨氏模量与玻璃珠的特性相同（表 1）。模型域为矩形，在 $x$ 和 $y$ 方向应用周期性边界条件。系统在每个方向上的尺寸为 $L_{x} = L_{y} = 1.5L_{z} = 20D_{\text{mean}}$。</p>
+<hr>
+<blockquote>
+<p>The system is initially prepared by randomly inserting (under gravity) grains in the simulation box with a desired initial packing fraction of $\sim 0.5$. The system is then allowed to relax for about $10^{6}$ time steps, after which three initially identical and relaxed realizations are subjected to confining pressures $\sigma_{n} = [1, 5, 25]\text{ MPa}$. The confining pressure is applied for 1 min, by which time the fast phase of compaction is completed. These confined gouge samples are then subject to shearing at a desired driving velocity imposed by the top rigid plate, while the vertical position of the top wall is adjusted by a servo-control system to maintain the specified (constant) confining pressure.</p>
+</blockquote>
+<p>系统的初始准备工作是（在重力作用下）在模拟箱中随机插入晶粒，初始堆积分数为 $\sim 0.5$。然后让系统弛豫约 $10^{6}$ 个时间步长，之后将三个最初相同且松弛的变量施加约束压力 $\sigma_{n} = [1, 5, 25]\text{ MPa}$。约束压力持续 1 分钟，此时压实的快速阶段已经完成。然后，这些受约束的断裂带样品将在顶部刚性板施加的所需驱动速度下受到剪切，同时顶壁的垂直位置由伺服控制系统调整，以保持指定（恒定）的约束压力。</p>
+<blockquote>
+<p>We find that the servo-control system keeps the normal stress constant to within about $\pm 0.1\%$ of the desired value at slip speeds of $0.1\text{ m/s}$ (see supporting information Figure S2 for an example of the servo control during and following a velocity step), and that the variation about the desired value is reduced by about a factor of 5 at slip speeds 5 times smaller. The nondefault systems are prepared using an identical protocol at a confining pressure of $\sigma_{n} = 5\text{ MPa}$.</p>
+</blockquote>
+<p>我们发现，在滑移速度为 $0.1\text{ m/s}$ 时，伺服控制系统能将法向应力保持在理想值的 $0.1\text{ m/s}$ 范围内（速度阶跃过程中和之后的伺服控制示例见图S2），而在滑移速度小 5 倍的情况下，理想值的变化减少了约 5 倍。在限制压力为 $\sigma_{n} = 5\text{ MPa}$ 时，使用相同的协议制备非默认系统。</p>
+<blockquote>
+<p>The driving velocity is applied to the system via a linear spring with a default stiffness of $10^{14}\text{ N/m}$ attached to the top plate; for practical purposes, this stiffness can be considered to be infinite, in that changes in load point velocity are transferred nearly instantaneously to the upper plate. The grains are modeled as compressible spheres of diameter $d$ that interact when in contact via the Hertz-Mindlin model (Johnson, 1985; Landau &amp; Lifshitz, 1959; Mindlin, 1949).</p>
+</blockquote>
+<p>驱动速度通过连接到顶板的线性弹簧施加到系统中，该弹簧的默认刚度为 $10^{14}\text{ N/m}$；出于实用目的，该刚度可视为无限大，因为负载点速度的变化几乎会瞬间传递到上板。晶粒被模拟为直径为 $d$ 的可压缩球体，在接触时通过 Hertz-Mindlin 模型相互作用（Johnson, 1985; Landau &amp; Lifshitz, 1959; Mindlin, 1949）。</p>
+<hr>
+<blockquote>
+<p>For two contacting particles $\{i, j\}$, at positions $\{r_{i}, r_{j}\}$, with diameters $d_{i}$ and $d_{j}$, velocities $\{v_{i}, v_{j}\}$ and angular velocities $\{\omega_{i}, \omega_{j}\}$, the force on particle $i$ is computed as follows: The normal compression $\delta_{ij}$, relative normal velocity $v_{n_{ij}}$ , and relative tangential velocity $v_{t_{ij}}$ are given by</p>
+<p>$$
+\begin{align}
+\delta_{ij} &amp;= \frac{1}{2}\left(d_{i} + d_{j}\right) - r_{ij}\quad \tag{4}\\
+v_{n_{ij}} &amp;= \left(v_{ij}\cdot n_{ij}\right)n_{ij}\quad \tag{5}\\
+v_{t_{ij}} &amp;= v_{ij} - v_{n_{ij}} - \frac{1}{2}\left(\omega_{i} + \omega_{j}\right)\times r_{ij}\quad \tag{6}
+\end{align}
+$$</p>
+<p>where $r_{ij} = r_{i} − r_{j}$ , $nij = \vec{r}_{ij}∕r_{ij}$, with $r_{ij} = |\vec{r}_{ij}|$, and $v_{ij} = v_{i} − v_{j}$. The rate of change of the elastic tangential displacement $u_{t_{ij}}$ , set to zero at the initiation of a contact, is given by</p>
+<p>$$
+\begin{align}
+\frac{\mathrm{d}u_{t_{ij}}}{\mathrm{d}t} = v_{t_{ij}} - \frac{(u_{t_{ij}}\cdot v_{ij})}{r_{ij}^{2}} \tag{7}
+\end{align}
+$$</p>
+<p>where the second term in equation (7) comes from the rigid body rotation around the contact point. Its implementation is there to insure that $u_{t_{ij}}$ always locates in the local tangent plane of contact (Silbert et al., 2001).</p>
+</blockquote>
+<p>对于两个接触的粒子 ${i, j}$, 位置 $\{r_{i}, r_{j}\}$,直径 $d_{i}$ 和 $d_{j}$,速度 ${v_{i}, v_{j}}$ 和角速度 $\{\omega_{i}, \omega_{j}\}$,粒子 $i$ 上的力计算如下：法向压缩率 $\delta_{ij}$、相对法向速度 $v_{n_{ij}}$ 和相对切向速度 $v_{t_{ij}}$ 分别为</p>
+<p>$$
+\begin{align}
+\delta_{ij} &amp;= \frac{1}{2}\left(d_{i} + d_{j}\right) - r_{ij}\quad \tag{4}\\
+v_{n_{ij}} &amp;= \left(v_{ij}\cdot n_{ij}\right)n_{ij}\quad \tag{5}\\
+v_{t_{ij}} &amp;= v_{ij} - v_{n_{ij}} - \frac{1}{2}\left(\omega_{i} + \omega_{j}\right)\times r_{ij}\quad \tag{6}
+\end{align}
+$$</p>
+<p>其中 $r_{ij} = r_{i}- r_{j}$ , $nij = \vec{r}_{ij}∕r_{ij}$，其中 $r_{ij} = |\vec{r}_{ij}|$, $v_{ij} = v_{i} - v_{j}$。在接触开始时设定为零的弹性切向位移 $u_{t_{ij}}$ 的变化率为</p>
+<p>$$
+\begin{align}
+\frac{\mathrm{d}u_{t_{ij}}}{\mathrm{d}t} = v_{t_{ij}} - \frac{(u_{t_{ij}}\cdot v_{ij})}{r_{ij}^{2}} \tag{7}
+\end{align}
+$$</p>
+<p>其中方程 (7) 中的第二项来自于围绕接触点的刚体旋转。其实施是为了确保 $u_{t_{ij}}$ 始终位于接触点的局部切平面内（Silbert 等人，2001 年）。</p>
+<blockquote>
+<p>The normal and tangential forces acting on particle $i$ are then given by</p>
+<p>$$
+\begin{align}
+F_{n_{ij}} &amp;= \sqrt{\delta_{ij}}\sqrt{\frac{d_{i}d_{j}}{2(d_{i} + d_{j})}}(k_{n}\delta_{ij}n_{ij} - m_{\text{eff}}\gamma_{n}v_{n_{ij}})\quad \tag{8}\\
+F_{t_{ij}} &amp;= \sqrt{\delta_{ij}}\sqrt{\frac{d_{i}d_{j}}{2(d_{i} + d_{j})}}(-k_{t}u_{t_{ij}} - m_{\text{eff}}\gamma_{t}v_{t_{ij}})\quad \tag{9}
+\end{align}
+$$</p>
+<p>where $k_{n}$ and $k_{t}$ are the normal and tangential stiffness, given by $k_{n} = (2∕3)E∕(1−ν^{2})$ and $k_{t} = 2E∕(1+ν)(2−ν)$ (Mindlin, 1949), with $E$ being Young&rsquo;s modulus and $\nu$ Poisson&rsquo;s ratio, and $m_{\text{eff}} = m_{i}m_{j}∕(m_{i} + m_{j})$ is the effective mass of spheres with masses $m_{i}$ and $m_{j}$ (we note that the most appropriate value of $k_{t}$ seems to be a matter of some debate, with Shäfer et al. (1996) suggesting values roughly $1,000$ times smaller).</p>
+</blockquote>
+<p>作用在粒子 $i$ 上的法向力和切向力分别为</p>
+<p>$$
+\begin{align}
+F_{n_{ij}} &amp;= \sqrt{\delta_{ij}}\sqrt{\frac{d_{i}d_{j}}{2(d_{i} + d_{j})}}(k_{n}\delta_{ij}n_{ij} - m_{\text{eff}}\gamma_{n}v_{n_{ij}})\quad \tag{8}\\
+F_{t_{ij}} &amp;= \sqrt{\delta_{ij}}\sqrt{\frac{d_{i}d_{j}}{2(d_{i} + d_{j})}}(-k_{t}u_{t_{ij}} - m_{\text{eff}}\gamma_{t}v_{t_{ij}})\quad \tag{9}
+\end{align}
+$$</p>
+<p>其中 $k_{n}$ 和 $k_{t}$ 是法向刚度和切向刚度，分别为 $k_{n} = (2∕3)E∕(1-ν^{2})$ 和 $k_{t} = 2E∕(1+ν)(2-ν)$ (Mindlin, 1949)，其中 $E$ 为杨氏模量，$\nu$ 为泊松比、和 $m_{\text{eff}} = m_{i}m_{j}∕(m_{i} + m_{j})$ 是质量分别为 $m_{i}$ 和 $m_{j}$ 的球体的有效质量（我们注意到 $k_{t}$ 的最合适值似乎还存在争议，Shäfer 等人（1996 年）提出的值大约是 $m_{i}$ 和 $m_{j}$ 。(1996)提出的数值要小 $1000$ 左右）。</p>
+<blockquote>
+<p>$\gamma_{n}$ and $\gamma_{t}$ are the normal and tangential damping (viscoelastic) constants, respectively; we maintain the default lammps option of $\gamma_{t} = 0.5\gamma_{n}$. As indicated by equations (8) and (9), the model implements damping for both normal and tangential contacts as a spring and dashpot in parallel. Note that the Hertzian normal force given by (8) increases nonlinearly with grain compression $\delta_{ij}$ (equation (4)), as $\delta^{3∕2}_{ij}$ in the absence of damping, consistent with the elastic deformation of contacting spheres.</p>
+</blockquote>
+<p>$\gamma_{n}$ 和 $\gamma_{t}$ 分别是法向和切向阻尼（粘弹性）常数；我们保持默认的 lammps 选项 $\gamma_{t} = 0.5\gamma_{n}$ 。如公式 (8) 和 (9) 所示，模型以弹簧和仪表盘并联的方式实现了法向和切向接触的阻尼。请注意，在没有阻尼的情况下，(8) 式给出的 Hertz 法向力随颗粒压缩量 $\delta_{ij}$ （等式 (4)）的非线性增加而增加，如 $\delta^{3∕2}_{ij}$ ，这与接触球体的弹性变形一致。</p>
+<hr>
+<blockquote>
+<p>In a gravitational field $g$, the translational and rotational accelerations of particles are determined by Newton&rsquo;s second law, in terms of the total forces and torques on each particle, $i$:</p>
+<p>$$
+\begin{align}
+F_{i}^{tot} &amp;= m_{i}g + \sum_{j}(F_{n_{ij}} + F_{t_{ij}})\tag{10}\\
+\tau_{i}^{tot} &amp;= -\frac{1}{2}\sum_{j}F_{t_{ij}}\times r_{ij}\tag{11}
+\end{align}
+$$</p>
+<p>The grain-grain coefficient of friction, $\mu_{g}$, is the upper limit of the tangential force through the Coulomb criterion $F_{t} \leq \mu_{g}F_{n}$. The tangential force between two grains grows according to the nonlinear Hertz-Mindlin contact law until $F_{t}∕F_{n} = \mu_{g}$ and is then held at $F_{t} = \mu_{g}F_{n}$ until either $F_{t} \leq \mu_{g}F_{n}$ or the grains loose contact.</p>
+</blockquote>
+<p>在重力场 $g$ 中，粒子的平移和旋转加速度由牛顿第二定律决定，与每个粒子上的总力和总转矩 $i$ 有关：</p>
+<p>$$
+\begin{align}
+F_{i}^{tot} &amp;= m_{i}g + \sum_{j}(F_{n_{ij}} + F_{t_{ij}})\tag{10}\\
+\tau_{i}^{tot} &amp;= -\frac{1}{2}\sum_{j}F_{t_{ij}}\times r_{ij}\tag{11}
+\end{align}
+$$</p>
+<p>粒子间的摩擦系数 $\mu_{g}$ 是通过库仑准则 $F_{t} \leq \mu_{g}F_{n}$ 确定的切向力的上限。两个粒子之间的切向力根据非线性的 Hertz-Mindlin 接触定律增长，直到 $F_{t}∕F_{n} = \mu_{g}$，然后保持在 $F_{t} = \mu_{g}F_{n}$，直到 $F_{t} \leq \mu_{g}F_{n}$ 或颗粒失去接触。</p>
+<blockquote>
+<p>The amount of energy lost in collisions is characterized by the coefficient of restitution. The values of restitution coefficients, εn and εt for the normal and tangential directions respectively, are related to their respective damping coefficients $\gamma_{n,t}$ and contact stiffness $k_{n,t}$. The restitution coefficient for the normal direction can be calculated by solving the following equation that describes the normal component of the relative motion of two spheres in contact:</p>
+<p>$$
+\begin{align}
+\ddot{\delta} + \frac{E\sqrt{2d_{\text{eff}}}}{3m_{\text{eff}}(1 - \nu^{2})}\left(\delta^{3/2} + \frac{3}{2}A\sqrt{\delta}\dot{\delta}\right) = 0\tag{12}
+\end{align}
+$$</p>
+<p>with the initial conditions $\delta(0) = v_{n}$ and $\delta(0) = 0$. In this equation, $A = \frac{1}{3}\frac{(3\gamma_{t}-\gamma_{n})^{2}}{(3\gamma_{t} + 2\gamma_{n})}\left(\frac{(1-v^{2})(1-2v)}{Ev^{2}}\right)$, and $d_{\text{eff}} =  d_{i}d_j∕(d_i + d_j)$ is the effective diameter for spheres of diameters $d_i$ and $d_j$. The normal component of the coefficient of restitution can be obtained from the ratio of normal velocity of grains at the end of the collision,  defined as $\dot{\delta}(t_{col})$, to their initial normal impact velocity: $\epsilon_{n} = \dot{\delta}(t_{col})/\dot{\delta(0)}$.</p>
+</blockquote>
+<blockquote>
+<p>The collision time $t_{col}$ is determined by solving equation (12) for the adopted physical properties and initial velocities of two colliding grains. A similar procedure is performed for calculating the restitution coefficient in the tangential direction. We use a time step of $\Delta t = t_{col}∕100$ throughout this study, with tcol evaluated assuming an impact velocity $\dot{\delta}(0)$ of $25\text{ m/s}$ ($t_{col}$ in (12) depends very weakly upon $\dot{\delta}(0)$, as roughly $\dot{\delta}(0)^{1/5}$ (Shäfer et al., 1996)). The restitution coefficient in the default model is chosen to be very high ($\epsilon_{n} = 0.98$), such that the system is damped minimally.</p>
+</blockquote>
+<blockquote>
+<p>Although in one sense damping introduces time dependence at the contact scale, we find by varying the restitution coefficients from nearly 0 (complete damping) to nearly 1 (no damping) that they exert no significant influence on the system behavior in the slow-sliding regime of interest. For this reason we refer to the model as having no time dependence at the contact scale. The full details of the granular module of lammps are described in the lammps manual and several references (Brilliantov et al., 1996; Silbert et al., 2001; Zhang &amp; Makse, 2005).</p>
+</blockquote>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/stack/maks/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>自然辩证法概论复习提纲</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/life/2024-document/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>2024 年度随笔</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

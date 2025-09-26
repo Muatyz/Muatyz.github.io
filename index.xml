@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Tue, 04 Mar 2025 00:18:06 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Sep 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Solidworks 安装方法</title>
       <link>https://Muatyz.github.io/posts/cs/solidworks/</link>
@@ -24,6 +24,15 @@
       
       <guid>https://Muatyz.github.io/posts/cs/skills/</guid>
       <description>记录一些经常用得到但是又很难记住的 Web 技巧</description>
+    </item>
+    
+    <item>
+      <title>Variational Integration for Ideal Magnetohydrodynamics and Formation of Current Singularities</title>
+      <link>https://Muatyz.github.io/posts/phy/calphy/variational-intergration-for-ideal-magnetohydrodynamics/</link>
+      <pubDate>Fri, 26 Sep 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/calphy/variational-intergration-for-ideal-magnetohydrodynamics/</guid>
+      <description>节选自周尧老师的数值计算方案论文</description>
     </item>
     
     <item>
@@ -109,10 +118,10 @@
     
     <item>
       <title>A Granular Physics-Based View of Fault Friction Experiments</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/</link>
       <pubDate>Sun, 23 Jun 2024 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/a-granular-physics-based-view-of-fault-friction-experiments/</guid>
       <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Rate- and state-dependent friction (RSF) equations are commonly used to describe the time-dependent frictional response of &lt;strong&gt;fault gouge&lt;/strong&gt; to perturbations in sliding velocity.
@@ -154,37 +163,37 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>Effects of acoustic waves on stick–slip in granular media and implications for earthquakes</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/effects-of-acoustic-waves-on-stick-slip-in-granular-media/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/effects-of-acoustic-waves-on-stick-slip-in-granular-media/</link>
       <pubDate>Mon, 13 May 2024 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/effects-of-acoustic-waves-on-stick-slip-in-granular-media/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/effects-of-acoustic-waves-on-stick-slip-in-granular-media/</guid>
       <description>声波对颗粒介质粘滑的影响及对地震的影响</description>
     </item>
     
     <item>
       <title>Understanding dynamic friction through spontaneously evolving laboratory earthquakes</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/understanding-dynamic-friction-through-spontaneously-evolving-lab-earthquakes/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/understanding-dynamic-friction-through-spontaneously-evolving-lab-earthquakes/</link>
       <pubDate>Sat, 11 May 2024 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/understanding-dynamic-friction-through-spontaneously-evolving-lab-earthquakes/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/understanding-dynamic-friction-through-spontaneously-evolving-lab-earthquakes/</guid>
       <description>通过自发演化的实验室地震了解动态摩擦力</description>
     </item>
     
     <item>
       <title>Magnetic resonance imaging in granular flows: An overview of recent advances</title>
-      <link>https://Muatyz.github.io/posts/read/granular/magnetic-resonance-in-granular-flows/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/magnetic-resonance-in-granular-flows/</link>
       <pubDate>Fri, 19 Apr 2024 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/granular/magnetic-resonance-in-granular-flows/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/magnetic-resonance-in-granular-flows/</guid>
       <description>对颗粒流进行核磁共振成像</description>
     </item>
     
     <item>
       <title>Theoretical study of nonlinear elastic wave propagation</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/nonlinearity/theoretical-study-nonlinear-elastic-wave-propagation/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/theoretical-study-nonlinear-elastic-wave-propagation/</link>
       <pubDate>Thu, 11 Apr 2024 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/nonlinearity/theoretical-study-nonlinear-elastic-wave-propagation/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/theoretical-study-nonlinear-elastic-wave-propagation/</guid>
       <description>致密颗粒介质中的过渡非线性弹性行为</description>
     </item>
     
@@ -199,145 +208,145 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>The physical mechanisms of induced earthquakes</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/the-physical-mechanisms-pf-induced-earthquakes/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/the-physical-mechanisms-pf-induced-earthquakes/</link>
       <pubDate>Fri, 19 Jan 2024 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/the-physical-mechanisms-pf-induced-earthquakes/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/the-physical-mechanisms-pf-induced-earthquakes/</guid>
       <description>寒假推荐阅读文章</description>
     </item>
     
     <item>
       <title>Sounds of Failure: Passive Acoustic Measurements of Excited Vibrational Modes</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/sounds-of-failure/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/sounds-of-failure/</link>
       <pubDate>Sun, 07 Jan 2024 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/sounds-of-failure/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/sounds-of-failure/</guid>
       <description>监听滞滑过程的受激模态密度</description>
     </item>
     
     <item>
       <title>Nonlinear elasticity of granular media</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/</link>
       <pubDate>Wed, 03 Jan 2024 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-elasticity-of-granular-media/</guid>
       <description>颗粒介质中的非线性弹性</description>
     </item>
     
     <item>
       <title>Evolution of granular packings by nonlinear acoustic waves</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/nonlinearity/evolution-of-granular-packings-by-nonlinear-acoustic-waves/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/evolution-of-granular-packings-by-nonlinear-acoustic-waves/</link>
       <pubDate>Fri, 29 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/nonlinearity/evolution-of-granular-packings-by-nonlinear-acoustic-waves/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/evolution-of-granular-packings-by-nonlinear-acoustic-waves/</guid>
       <description>在颗粒介质中的非线性传播</description>
     </item>
     
     <item>
       <title>High time-resolved studies of stick–slip show similar dilatancy to fast and slow earthquakes</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/high-time-resolved-studies-of-stick-slip-show-similar-dilatancy/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/high-time-resolved-studies-of-stick-slip-show-similar-dilatancy/</link>
       <pubDate>Tue, 26 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/high-time-resolved-studies-of-stick-slip-show-similar-dilatancy/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/high-time-resolved-studies-of-stick-slip-show-similar-dilatancy/</guid>
       <description>超高时间分辨率下的滞滑超声信号研究</description>
     </item>
     
     <item>
       <title>Onset of Sliding in Amorphous Films Triggered by High-Frequency Oscillatory Shear</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/triggering/onset-of-sliding-in-amorphous-films-triggered-by/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/onset-of-sliding-in-amorphous-films-triggered-by/</link>
       <pubDate>Fri, 22 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/triggering/onset-of-sliding-in-amorphous-films-triggered-by/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/onset-of-sliding-in-amorphous-films-triggered-by/</guid>
       <description>高频振荡剪切触发非晶薄膜开始滑动</description>
     </item>
     
     <item>
       <title>Relaxation at the Angle of Repose</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/unread/relaxation-at-the-angle-of-repose/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/relaxation-at-the-angle-of-repose/</link>
       <pubDate>Fri, 22 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/unread/relaxation-at-the-angle-of-repose/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/relaxation-at-the-angle-of-repose/</guid>
       <description>Jia 2019 暑校关于颗粒受振雪崩/流变学的推荐文章</description>
     </item>
     
     <item>
       <title>Shear-wave-induced softening and simultaneous compaction in dense granular media through acoustic lubrication at flow heterogeneities</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/triggering/shear-wave-induced-softening-and-simulltaneous-compaction/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/shear-wave-induced-softening-and-simulltaneous-compaction/</link>
       <pubDate>Fri, 22 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/triggering/shear-wave-induced-softening-and-simulltaneous-compaction/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/shear-wave-induced-softening-and-simulltaneous-compaction/</guid>
       <description>颗粒介质中的非线性声学共振-剪切篇</description>
     </item>
     
     <item>
       <title>Triggering granular avalanches with ultrasound</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/triggering/triggering-granular-avalanches-with-ultrasound/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/triggering-granular-avalanches-with-ultrasound/</link>
       <pubDate>Tue, 19 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/triggering/triggering-granular-avalanches-with-ultrasound/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/triggering-granular-avalanches-with-ultrasound/</guid>
       <description>超声波的诱导效应</description>
     </item>
     
     <item>
       <title>Low-Frequency Behavior of Beads Constrained on a Lattice</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/unread/low-freq-behavior-of-beads-constrained-on-a-lattice/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/low-freq-behavior-of-beads-constrained-on-a-lattice/</link>
       <pubDate>Mon, 18 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/unread/low-freq-behavior-of-beads-constrained-on-a-lattice/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/low-freq-behavior-of-beads-constrained-on-a-lattice/</guid>
       <description>相似性参数$\Gamma$的起始文章</description>
     </item>
     
     <item>
       <title>Probing the shear-band formation in granular media with sound waves</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/probing-the-shear-band-formation-in-granular-media/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/probing-the-shear-band-formation-in-granular-media/</link>
       <pubDate>Mon, 18 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/probing-the-shear-band-formation-in-granular-media/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/probing-the-shear-band-formation-in-granular-media/</guid>
       <description>用声波检测颗粒介质中的剪切带的形成</description>
     </item>
     
     <item>
       <title>Nonlinear dynamics, granular media and dynamic earthquake triggering</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/nonlinearity/nonlinear-dynamics-granular-media/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-dynamics-granular-media/</link>
       <pubDate>Thu, 14 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/nonlinearity/nonlinear-dynamics-granular-media/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/nonlinear-dynamics-granular-media/</guid>
       <description>颗粒介质里的非线性动力学</description>
     </item>
     
     <item>
       <title>Elastic weakening of a dense granular pack by acoustic fluidization: Slipping, compaction, and aging</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/triggering/elastic-weakening-of-a-dense-granular-pack-by-acoustic-fluidization/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/elastic-weakening-of-a-dense-granular-pack-by-acoustic-fluidization/</link>
       <pubDate>Tue, 12 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/triggering/elastic-weakening-of-a-dense-granular-pack-by-acoustic-fluidization/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/triggering/elastic-weakening-of-a-dense-granular-pack-by-acoustic-fluidization/</guid>
       <description>压缩波的波速能够体现模量的软化</description>
     </item>
     
     <item>
       <title>DIFFUSIVITY OF ULTRASOUND IN POLYCRYSTALS</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/diffusivity-of-ultrasound-in-polycrystals/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/diffusivity-of-ultrasound-in-polycrystals/</link>
       <pubDate>Fri, 01 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/diffusivity-of-ultrasound-in-polycrystals/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/diffusivity-of-ultrasound-in-polycrystals/</guid>
       <description>推导出多分散体系的超声扩散方程(relevant radiative transport equations, RTE)的原始论文, 可用于了解用于颗粒介质的扩散方程是如何导出的.</description>
     </item>
     
     <item>
       <title>Transverse Shear Oscillator Investigation of Boundary Lubrication in Weakly Adhered Films</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/unread/transverse-shear-oscillator-investigation-of-boundary-lubrication-in-weakly-adhered-films/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/transverse-shear-oscillator-investigation-of-boundary-lubrication-in-weakly-adhered-films/</link>
       <pubDate>Fri, 01 Dec 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/unread/transverse-shear-oscillator-investigation-of-boundary-lubrication-in-weakly-adhered-films/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/transverse-shear-oscillator-investigation-of-boundary-lubrication-in-weakly-adhered-films/</guid>
       <description>摩擦表面级别的精细结构研究</description>
     </item>
     
     <item>
       <title>Experimental test of the diffusion approximation for multiply scattered sound</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/exp-test-of-the-diffusion-approx-for-multi-scattered-sound/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/exp-test-of-the-diffusion-approx-for-multi-scattered-sound/</link>
       <pubDate>Thu, 30 Nov 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/exp-test-of-the-diffusion-approx-for-multi-scattered-sound/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/exp-test-of-the-diffusion-approx-for-multi-scattered-sound/</guid>
       <description>求解声场扩散模型的参考方法</description>
     </item>
     
@@ -352,28 +361,28 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>Mechanisms for Acoustic Absorption in Dry and Weakly Wet Granular Media</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/mechanisms-for-acoustic-absorption-in-dry-and-weakly-wet-granular-media/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/mechanisms-for-acoustic-absorption-in-dry-and-weakly-wet-granular-media/</link>
       <pubDate>Wed, 29 Nov 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/mechanisms-for-acoustic-absorption-in-dry-and-weakly-wet-granular-media/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/mechanisms-for-acoustic-absorption-in-dry-and-weakly-wet-granular-media/</guid>
       <description>介绍品质因子 $Q$(或者耗散 $Q^{-1}$) 在对颗粒介质研究中的作用</description>
     </item>
     
     <item>
       <title>Probing the effect of particle shape on the rigidity of jammed granular solids with sound speed measurements</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/probing-the-effect-of-particle-shape/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/probing-the-effect-of-particle-shape/</link>
       <pubDate>Wed, 29 Nov 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/probing-the-effect-of-particle-shape/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/probing-the-effect-of-particle-shape/</guid>
       <description>该文章可用于系统学习如何测量群速度</description>
     </item>
     
     <item>
       <title>Sound in Sand</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/sound-in-sand/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/</link>
       <pubDate>Wed, 29 Nov 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/sound-in-sand/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/</guid>
       <description>早期有关声学在颗粒介质中的应用研究</description>
     </item>
     
@@ -406,19 +415,19 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>[周志刚]博士学位论文阅读笔记</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/unread/zhou-zhi-gang-doc-paper/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/zhou-zhi-gang-doc-paper/</link>
       <pubDate>Wed, 08 Nov 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/unread/zhou-zhi-gang-doc-paper/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/zhou-zhi-gang-doc-paper/</guid>
       <description>中科院物理研究所, 厚美瑛老师指导的&amp;lt;颗粒固体的力学响应和声波传播的研究&amp;gt;, 适合作为颗粒物质新手学习声学相关的内容</description>
     </item>
     
     <item>
       <title>Ultrasound propagation in disordered granular media</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/</link>
       <pubDate>Wed, 01 Nov 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/ultrasound-propagation-in-disordered-granular-media/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;DOI: &lt;a href=&#34;https://www.cambridge.org/core/journals/mrs-online-proceedings-library-archive/article/abs/ultrasound-propagation-in-disordered-granular-media/0CA21C40A90F990AEA745B52BEE5C754&#34; target=&#34;_blank&#34; rel=&#34;noopener nofollow noreferrer&#34; &gt;10.1557/PROC-627-BB3.5&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -430,10 +439,10 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>[中字]Sands, Powders, and Grains: An Introduction to the Physics of Granular Materials</title>
-      <link>https://Muatyz.github.io/posts/read/granular/introduction-to-physics-of-granular-materials/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/introduction-to-physics-of-granular-materials/</link>
       <pubDate>Fri, 20 Oct 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/granular/introduction-to-physics-of-granular-materials/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/introduction-to-physics-of-granular-materials/</guid>
       <description>导师推荐的适用于本科高年级学生的颗粒物理教材</description>
     </item>
     
@@ -457,10 +466,10 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>Probing intermittency and reversibility in a dense granular suspension under shear using multiply scattered ultrasound</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/probing-intermittency-and-reversibility-in-a-dense-granular-suspension/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/probing-intermittency-and-reversibility-in-a-dense-granular-suspension/</link>
       <pubDate>Tue, 10 Oct 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/probing-intermittency-and-reversibility-in-a-dense-granular-suspension/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/probing-intermittency-and-reversibility-in-a-dense-granular-suspension/</guid>
       <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;We study the &lt;strong&gt;rheology&lt;/strong&gt; of a dense granular suspension under shear strain with the simultaneous detection of multiply scattered ultrasound through the shear band. At a low shear rate, the dissipation is rate-independent and determined by the frictional contacts between grains. Under quasistatic shear, the stress–strain curve contains elastic loading parts interrupted by stress drops. Such an intermittency is concomitant with some large decorrelation events as measured by the ultrasound probe, sensitive to the position of the grains.&lt;/p&gt;
@@ -469,10 +478,10 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>Sound pulse broadening in stressed granular media</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/sound-pulse-broadening-in-stressed-granular-media/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-pulse-broadening-in-stressed-granular-media/</link>
       <pubDate>Mon, 09 Oct 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/sound-pulse-broadening-in-stressed-granular-media/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-pulse-broadening-in-stressed-granular-media/</guid>
       <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The pulse broadening and decay of coherent sound waves propagating in disordered granular media are investigated. We find that the pulse width of these compressional waves is broadened when the disorder is increased by mixing the beads made of &lt;em&gt;different&lt;/em&gt; materials.&lt;/p&gt;
@@ -483,10 +492,10 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>Ultrasound Propagation in Externally Stressed Granular Media</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-in-stressed-granular/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/ultrasound-in-stressed-granular/</link>
       <pubDate>Mon, 09 Oct 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/ultrasound-in-stressed-granular/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/ultrasound-in-stressed-granular/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;X.jia&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -499,10 +508,10 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>Monte Carlo Simulations of Ultrasound Scattering and Absorption in Finite-Size Heterogeneous Materials</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/monte-carlo-simulations-of-ultrasound-scattering/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/monte-carlo-simulations-of-ultrasound-scattering/</link>
       <pubDate>Sat, 07 Oct 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/monte-carlo-simulations-of-ultrasound-scattering/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/monte-carlo-simulations-of-ultrasound-scattering/</guid>
       <description>蒙特卡洛算法在超声波探测中的应用</description>
     </item>
     
@@ -517,37 +526,37 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>[中字]Random Loose Packing in Granular Matter</title>
-      <link>https://Muatyz.github.io/posts/read/granular/random-loose-packing/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/random-loose-packing/</link>
       <pubDate>Mon, 25 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/granular/random-loose-packing/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/random-loose-packing/</guid>
       <description>随机松散堆积</description>
     </item>
     
     <item>
       <title>Codalike Multiple Scattering of Elastic Waves in Dense Granular Media</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/elastic-waves-in-dense-granular-media/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/elastic-waves-in-dense-granular-media/</link>
       <pubDate>Mon, 25 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/elastic-waves-in-dense-granular-media/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/elastic-waves-in-dense-granular-media/</guid>
       <description>随机松散堆积</description>
     </item>
     
     <item>
       <title>[中字]Edwards statistical mechanics for jammed granular matter</title>
-      <link>https://Muatyz.github.io/posts/read/granular/edwards-statistical-mechanics-for-jammed-granular-matter/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/edwards-statistical-mechanics-for-jammed-granular-matter/</link>
       <pubDate>Sun, 24 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/granular/edwards-statistical-mechanics-for-jammed-granular-matter/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/edwards-statistical-mechanics-for-jammed-granular-matter/</guid>
       <description>系统介绍 Edwards 表述的小册子.</description>
     </item>
     
     <item>
       <title>Effect of Amplitude and Duration of Cyclic Loading on Frictional Sliding Instability in Granular Media: Implication to Earthquake Triggering of Landslides</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/effect-of-amp-and-dura-of-cyc-loa/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/effect-of-amp-and-dura-of-cyc-loa/</link>
       <pubDate>Sun, 24 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/effect-of-amp-and-dura-of-cyc-loa/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/effect-of-amp-and-dura-of-cyc-loa/</guid>
       <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Strong earthquakes with larger magnitude and longer durations trigger many landslides, however, how magnitude and duration affect landslides is still unclear. Many factors could contribute to this, including additional shear stress provided by strong ground motion, or “seismogenic liquefaction”; herein, we hypothesize that the dynamic weakening of sliding zone gouge is important. We explored the influence of earthquake magnitude and duration on landslide triggering by simulating the seismic response of sliding zone gouge using a dynamic ring-shear device and glass spheres.&lt;/p&gt;
@@ -557,19 +566,19 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>Sound velocity fluctuations in confined granular materials: Coarse-graining lengths and elastic heterogeneities</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/dgm/sound-velocity-fluctuations-in-confined-granular-materials/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-velocity-fluctuations-in-confined-granular-materials/</link>
       <pubDate>Sun, 24 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/dgm/sound-velocity-fluctuations-in-confined-granular-materials/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-velocity-fluctuations-in-confined-granular-materials/</guid>
       <description>固结颗粒材料中的声速波动：粗粒化长度和弹性异质性</description>
     </item>
     
     <item>
       <title>Stick-Slip Nucleation and Failure in Uniform Glass Beads Detected by Acoustic Emissions in Ring-Shear Experiments: Implications for Identifying the Acoustic Emissions of Earthquake Foreshocks</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/stickslip/stick-slip-nucleation-and-failure-in-uniform-glass-beads-detected-by-acoustic-emissions-in-ring-shear-experiments/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/stick-slip-nucleation-and-failure-in-uniform-glass-beads-detected-by-acoustic-emissions-in-ring-shear-experiments/</link>
       <pubDate>Sun, 24 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/stickslip/stick-slip-nucleation-and-failure-in-uniform-glass-beads-detected-by-acoustic-emissions-in-ring-shear-experiments/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/stickslip/stick-slip-nucleation-and-failure-in-uniform-glass-beads-detected-by-acoustic-emissions-in-ring-shear-experiments/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;DOI:&lt;a href=&#34;https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2023JB026612&#34; target=&#34;_blank&#34; rel=&#34;noopener nofollow noreferrer&#34; &gt;10.1029/2023JB026612&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -584,37 +593,37 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>Time reversal of ultrasound in granular media</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/unread/time-reversal-of-ultrasound-in-granular-media/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/time-reversal-of-ultrasound-in-granular-media/</link>
       <pubDate>Sun, 24 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/unread/time-reversal-of-ultrasound-in-granular-media/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/unread/time-reversal-of-ultrasound-in-granular-media/</guid>
       <description>本文详细探讨了在颗粒介质中的&amp;#34;可逆性&amp;#34;概念</description>
     </item>
     
     <item>
       <title>Transitional nonlinear elastic behaviour in dense granular media</title>
-      <link>https://Muatyz.github.io/posts/read/sonic/nonlinearity/transitional-nonlinear-elastic-behaviour-in-dense-granular-media/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/transitional-nonlinear-elastic-behaviour-in-dense-granular-media/</link>
       <pubDate>Sun, 24 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/sonic/nonlinearity/transitional-nonlinear-elastic-behaviour-in-dense-granular-media/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/sonic/nonlinearity/transitional-nonlinear-elastic-behaviour-in-dense-granular-media/</guid>
       <description>致密颗粒介质中的过渡非线性弹性行为</description>
     </item>
     
     <item>
       <title>作为模型玻璃体系的颗粒物质结构学研究</title>
-      <link>https://Muatyz.github.io/posts/read/ct/xcj-glass-former/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/ct/xcj-glass-former/</link>
       <pubDate>Sun, 24 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/ct/xcj-glass-former/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/ct/xcj-glass-former/</guid>
       <description>夏成杰, 2018</description>
     </item>
     
     <item>
       <title>[中字]Edwards entropy and compactivity in a model of granular matter</title>
-      <link>https://Muatyz.github.io/posts/read/granular/edwards-entropy-and-compactivity/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/edwards-entropy-and-compactivity/</link>
       <pubDate>Sat, 23 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/granular/edwards-entropy-and-compactivity/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/edwards-entropy-and-compactivity/</guid>
       <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Formulating a statistical mechanics for granular matter remains a significant challenge, in part due to the difficulty associated with a complete characterization of the systems under study.&lt;/p&gt;
@@ -625,10 +634,10 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>[中字]Equivalence of Fluctuation-Dissipation and Edwards’ Temperature in Cyclically Sheared Granular Systems</title>
-      <link>https://Muatyz.github.io/posts/read/granular/eq-of-temp/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/eq-of-temp/</link>
       <pubDate>Sat, 23 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/granular/eq-of-temp/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/eq-of-temp/</guid>
       <description>通过两种定义来确定循环剪切颗粒系统中的两种温度, 这两种温度存在很强的一致性.</description>
     </item>
     
@@ -643,10 +652,10 @@ Among the better-known versions are the Aging and Slip laws for the evolution of
     
     <item>
       <title>A dynamic synchrotron X-ray imaging study of effective temperature in a vibrated granular medium</title>
-      <link>https://Muatyz.github.io/posts/read/ct/effective-temp/</link>
+      <link>https://Muatyz.github.io/posts/read/stack/granular/ct/effective-temp/</link>
       <pubDate>Thu, 21 Sep 2023 00:18:06 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/ct/effective-temp/</guid>
+      <guid>https://Muatyz.github.io/posts/read/stack/granular/ct/effective-temp/</guid>
       <description>利用超快同步辐射成像技术追踪示踪颗粒计算有效温度</description>
     </item>
     

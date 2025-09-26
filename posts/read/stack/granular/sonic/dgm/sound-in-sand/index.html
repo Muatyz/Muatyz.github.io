@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Sound in Sand | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, granular">
+<meta name="description" content="早期有关声学在颗粒介质中的应用研究">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Sound in Sand" />
+<meta property="og:description" content="早期有关声学在颗粒介质中的应用研究" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-29T00:18:06+08:00" />
+<meta property="article:modified_time" content="2023-11-29T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Sound in Sand"/>
+<meta name="twitter:description" content="早期有关声学在颗粒介质中的应用研究"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "💾 归档",
+          "item": "https://Muatyz.github.io/posts/read/stack/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  4 ,
+          "name": "🛠 颗粒物质研究方法",
+          "item": "https://Muatyz.github.io/posts/read/stack/granular/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  5 ,
+          "name": "🦇 超声波探测",
+          "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  6 ,
+          "name": "⛓ Densed Granular Media",
+          "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  7 ,
+      "name": "Sound in Sand",
+      "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Sound in Sand",
+  "name": "Sound in Sand",
+  "description": "早期有关声学在颗粒介质中的应用研究",
+  "keywords": [
+    "scmp", "granular"
+  ],
+  "articleBody": " DOI: https://doi.org/10.1103/PhysRevLett.68.2301\nAbstract We have studied the vibrations in a granular material and have found that they are qualitatively different from those found in solids or liquids. In response to an external oscillation, the vibrations experienced by a single particle in the material are exceedingly noisy with a power spectrum $S(f)\\propto f^{2.2}$ over more than 5 decades in frequency. The frequency response depends on the detailed packing of the beads, reminiscent of conductance Auctuations in mesoscopic metals.\n我们研究了颗粒材料中的振动，发现它们与固体或液体中的振动有着本质的区别。在响应外部振荡时，材料中的单个颗粒所经历的振动噪声非常大，其功率谱 $S(f)\\propto f^{2.2}$ 的频率超过 5 个数量级。频率响应取决于微珠的详细堆积，这让人想起介观金属中的电导波动。\nThe fundamental properties of a system are often governed by its elementary excitations. For a dry, non-cohesive, granular material like sand, the excitations of primary interest are the vibrations. As a result of the nature of the contacts between individual grains in such a material, one can expect its vibrational excitations to be quite different from those associated with normal solids or liquids. The contact between two spherical grains, known as a Hertzian contact, has a nonlinear stress-strain relation $\\Delta\\propto P^{2/3}$, where $\\Delta$ is the deformation of a grain under a pressure $P$.\n一个系统的基本特性通常受其基本激励的支配。对于像沙子这样干燥、无粘性的颗粒材料来说，主要的激励是振动。由于这种材料中各个颗粒之间接触的性质，我们可以预期其振动激振与普通固体或液体的振动激振大不相同。两个球形晶粒之间的接触称为 Hertz 接触，具有非线性的应力-应变关系 $\\Delta\\propto P^{2/3}$，其中 $\\Delta$ 是颗粒在压力 $P$ 下的变形。\nBy modeling sand as a homogeneous medium one derives that the sound speed $c$ varies as $c\\propto P^{1/6}$. Since the pressure at a point far away from the container walls is proportional to the depth $h$, this implies that $c\\propto h^{1/6}$ . Because sound travels faster at the bottom, acoustic waves launched horizontally in- side the sand will bend upward in a “mirage” effect and eventually escape from the top surface. Thus no conventional horizontal sound is allowed. Furthermore, the top surface is singular in the sense that $c=0$ and $\\mathrm{d}c/\\mathrm{d}h$ diverges at that point.\n通过将沙子模拟成均质介质，可以得出声速 $c$ 的变化为 $c\\propto P^{1/6}$。由于远离容器壁点的压力与深度 $h$ 成正比，这意味着 $c\\propto h^{1/6}$ 。由于声音在底部传播得更快，因此在沙子一侧水平发射的声波会因 “海市蜃楼” 效应中向上弯曲，最终从顶面逃逸。因此，不允许发出传统的水平声波。此外，顶面是奇异的，即 $c=0$ 和 $\\mathrm{d}c/\\mathrm{d}h$ 在该点发散。\nSuch an analysis may, however, be too simple since real sand is not homogeneous but granular. In sand, each particle has several physical contacts with its neighbors leading to the formation of a three-dimensional force- chain network. Because of this distinctive arching behavior of granular material, the spatial fluctuations of the network can extend to length scales much larger than the size of a single grain. Small amplitude vibrations, which are very sensitive to the degree of contact between particles, travel predominantly along this quasistatic network so that it may not be valid to treat them in the same manner as in a homogeneous system.\n然而，这种分析可能过于简单，因为真实的沙子并不是均质的，而是颗粒状的。在沙子中，每个颗粒都与其相邻颗粒有多个物理接触点，从而形成一个三维力链网络。由于颗粒材料的这种独特的拱形行为，网络的空间波动可以延伸到比单个颗粒大得多的长度尺度。小振幅振动对颗粒之间的接触程度非常敏感，主要沿着这种准静态网络传播，因此用均质系统中的相同方式来处理它们可能是无效的。\nSeveral studies have been made of what happens to a sandpile when it is subjected to large vibrations. Convection due to vibration within a sandpile has been known since Faraday; Evesque and Rajchenbach and Laroche, Duady, and Fauve have recently studied the role of this convection in the instability of a flat free surface of a sandpile. Other studies have shown that vibrations can cause the slope of the free surface of a sand- pile to relax logarithmically.\n关于砂堆在受到巨大振动时会发生什么情况，已经进行了多项研究。自法拉第以来，人们就知道砂堆内部振动引起的对流；Evesque 和 Rajchenbach 以及 Laroche、Duady 和 Fauve 最近研究了这种对流在砂堆平坦自由表面不稳定性中的作用。其他研究表明，振动可导致砂堆自由表面的斜度发生对数松弛。\nMehta and Barker have also argued that, depending on the vibration intensity, sand can also become more compact as well as more fluid. We report here the nature of the low amplitude vibration of individual particles within a granular medium and show some of the surprising ways that sound propagation in this medium differs from that found in homogeneous consolidated materials.\nMehta 和 Barker 还认为，根据振动强度的不同，沙子也会变得更加密实或流动。我们在此报告了颗粒介质中单个颗粒低振幅振动的性质，并展示了声音在这种介质中传播与在均质固结材料中传播的一些令人惊讶的不同之处。\nIn our experiments, the granular material, which consisted of spherical glass beads of diameter $d=0.5\\text{ cm}$, was contained in a rigid box of lateral dimensions $28\\text{ cm}\\times 28\\text{ cm}$ as shown in the inset of Fig. l (a). The depth of material ranged from 8 to 15 cm. In order to reduce the reflection of the sound waves from the walls, the con- tainer was lined with 3-cm-thick Styrofoam sheets. The results we report here are insensitive to the boundary con- ditions. This was tested by replacing the Styrofoam with other materials. In addition, the apparatus was carefully isolated from external vibrations and temperature fluctuations. In order to have a source with a well-defined amplitude and direction of motion, the vibration was transmitted to the grains by a 7-cm-diam aluminum disk buried in the material which was connected to an external speaker by a horizontal rigid rod, as shown in the illustration. We monitored the acceleration of the disk with an accelerometer attached to its back and controlled its am- plitude through an electronic feedback loop. We embed- ded small detection accelerometers in the same at dis- tances from 2 to 10 cm away from the center of the source. The size of the accelerometers, diameter 0.7 cm and length 1.2 cm, were chosen to be comparable to that of a single bead, in order to measure the motion equivalent to that of a single grain. Since accelerometers are quite massive, they respond only to vibrations transmitted through their contacts with the solid sur- roundings instead of to the sound pressure in air. They detect the acceleration along their axes, which we aligned to be along the direction of motion of the disk.\n",
+  "wordCount" : "1622",
+  "inLanguage": "zh",
+  "datePublished": "2023-11-29T00:18:06+08:00",
+  "dateModified": "2023-11-29T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/">💾 归档</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/">🛠 颗粒物质研究方法</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/sonic/">🦇 超声波探测</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/">⛓ Densed Granular Media</a></div>
+            <h1 class="post-title">
+                Sound in Sand
+            </h1>
+            <div class="post-description">
+                早期有关声学在颗粒介质中的应用研究
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-11-29
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1622字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>4分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">Read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><blockquote>
+<p>DOI: <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.2301" target="_blank" rel="noopener nofollow noreferrer" >https://doi.org/10.1103/PhysRevLett.68.2301</a></p>
+</blockquote>
+<h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>We have studied the vibrations in a granular material and have found that they are qualitatively different from those found in solids or liquids. In response to an external oscillation, the vibrations experienced by a single particle in the material are exceedingly noisy with a power spectrum $S(f)\propto f^{2.2}$ over more than 5 decades in frequency. The frequency response depends on the detailed packing of the beads, reminiscent of conductance Auctuations in mesoscopic metals.</p>
+</blockquote>
+<p>我们研究了颗粒材料中的振动，发现它们与固体或液体中的振动有着本质的区别。在响应外部振荡时，材料中的单个颗粒所经历的振动噪声非常大，其功率谱 $S(f)\propto f^{2.2}$ 的频率超过 5 个数量级。频率响应取决于微珠的详细堆积，这让人想起介观金属中的电导波动。</p>
+<blockquote>
+<p>The fundamental properties of a system are often governed by its elementary excitations. For a dry, non-cohesive, granular material like sand, the excitations of primary interest are the vibrations. As a result of the nature of the contacts between individual grains in such a material, one can expect its vibrational excitations to be quite different from those associated with normal solids or liquids. The contact between two spherical grains, known as a Hertzian contact, has a nonlinear stress-strain relation $\Delta\propto P^{2/3}$, where $\Delta$ is the deformation of a grain under a pressure $P$.</p>
+</blockquote>
+<p>一个系统的基本特性通常受其基本激励的支配。对于像沙子这样干燥、无粘性的颗粒材料来说，主要的激励是振动。由于这种材料中各个颗粒之间接触的性质，我们可以预期其振动激振与普通固体或液体的振动激振大不相同。两个球形晶粒之间的接触称为 Hertz 接触，具有非线性的应力-应变关系 $\Delta\propto P^{2/3}$，其中 $\Delta$ 是颗粒在压力 $P$ 下的变形。</p>
+<blockquote>
+<p>By modeling sand as a homogeneous medium one derives that the sound speed $c$ varies as $c\propto P^{1/6}$. Since the pressure at a point far away from the container walls is proportional to the depth $h$, this implies that $c\propto h^{1/6}$ . Because sound travels faster at the bottom, acoustic waves launched horizontally in- side the sand will bend upward in a &ldquo;mirage&rdquo; effect and eventually escape from the top surface. Thus no conventional horizontal sound is allowed. Furthermore, the top surface is singular in the sense that $c=0$ and $\mathrm{d}c/\mathrm{d}h$ diverges at that point.</p>
+</blockquote>
+<p>通过将沙子模拟成均质介质，可以得出声速 $c$ 的变化为 $c\propto P^{1/6}$。由于远离容器壁点的压力与深度 $h$ 成正比，这意味着 $c\propto h^{1/6}$ 。由于声音在底部传播得更快，因此在沙子一侧水平发射的声波会因 &ldquo;海市蜃楼&rdquo; 效应中向上弯曲，最终从顶面逃逸。因此，不允许发出传统的水平声波。此外，顶面是奇异的，即 $c=0$ 和 $\mathrm{d}c/\mathrm{d}h$ 在该点发散。</p>
+<hr>
+<blockquote>
+<p>Such an analysis may, however, be too simple since real sand is not homogeneous but granular. In sand, each particle has several physical contacts with its neighbors leading to the formation of a three-dimensional force- chain network. Because of this distinctive arching behavior of granular material, the spatial fluctuations of the network can extend to length scales much larger than the size of a single grain. Small amplitude vibrations, which are very sensitive to the degree of contact between particles, travel predominantly along this quasistatic network so that it may not be valid to treat them in the same manner as in a homogeneous system.</p>
+</blockquote>
+<p>然而，这种分析可能过于简单，因为真实的沙子并不是均质的，而是颗粒状的。在沙子中，每个颗粒都与其相邻颗粒有多个物理接触点，从而形成一个三维力链网络。由于颗粒材料的这种独特的拱形行为，网络的空间波动可以延伸到比单个颗粒大得多的长度尺度。小振幅振动对颗粒之间的接触程度非常敏感，主要沿着这种准静态网络传播，因此用均质系统中的相同方式来处理它们可能是无效的。</p>
+<hr>
+<blockquote>
+<p>Several studies have been made of what happens to a sandpile when it is subjected to large vibrations. Convection due to vibration within a sandpile has been known since Faraday; Evesque and Rajchenbach and Laroche, Duady, and Fauve have recently studied the role of this convection in the instability of a flat free surface of a sandpile. Other studies have shown that vibrations can cause the slope of the free surface of a sand- pile to relax logarithmically.</p>
+</blockquote>
+<p>关于砂堆在受到巨大振动时会发生什么情况，已经进行了多项研究。自法拉第以来，人们就知道砂堆内部振动引起的对流；Evesque 和 Rajchenbach 以及 Laroche、Duady 和 Fauve 最近研究了这种对流在砂堆平坦自由表面不稳定性中的作用。其他研究表明，振动可导致砂堆自由表面的斜度发生对数松弛。</p>
+<blockquote>
+<p>Mehta and Barker have also argued that, depending on the vibration intensity, sand can also become more compact as well as more fluid. We report here the nature of the low amplitude vibration of individual particles within a granular medium and show some of the surprising ways that sound propagation in this medium differs from that found in homogeneous consolidated materials.</p>
+</blockquote>
+<p>Mehta 和 Barker 还认为，根据振动强度的不同，沙子也会变得更加密实或流动。我们在此报告了颗粒介质中单个颗粒低振幅振动的性质，并展示了声音在这种介质中传播与在均质固结材料中传播的一些令人惊讶的不同之处。</p>
+<hr>
+<blockquote>
+<p>In our experiments, the granular material, which consisted of spherical glass beads of diameter $d=0.5\text{ cm}$, was contained in a rigid box of lateral dimensions $28\text{ cm}\times 28\text{ cm}$ as shown in the inset of Fig. l (a). The depth of material ranged from 8 to 15 cm. In order to reduce the reflection of the sound waves from the walls, the con- tainer was lined with 3-cm-thick Styrofoam sheets. The results we report here are insensitive to the boundary con- ditions. This was tested by replacing the Styrofoam with other materials. In addition, the apparatus was carefully isolated from external vibrations and temperature fluctuations. In order to have a source with a well-defined amplitude and direction of motion, the vibration was transmitted to the grains by a 7-cm-diam aluminum disk buried in the material which was connected to an external speaker by a horizontal rigid rod, as shown in the illustration. We monitored the acceleration of the disk with an accelerometer attached to its back and controlled its am- plitude through an electronic feedback loop. We embed- ded small detection accelerometers in the same at dis- tances from 2 to 10 cm away from the center of the source. The size of the accelerometers, diameter 0.7 cm and length 1.2 cm, were chosen to be comparable to that of a single bead, in order to measure the motion equivalent to that of a single grain. Since accelerometers are quite massive, they respond only to vibrations transmitted through their contacts with the solid sur- roundings instead of to the sound pressure in air. They detect the acceleration along their axes, which we aligned to be along the direction of motion of the disk.</p>
+</blockquote>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/probing-the-effect-of-particle-shape/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Probing the effect of particle shape on the rigidity of jammed granular solids with sound speed measurements</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/phy/scmp/effective-medium-theory/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>等效介质理论(EMT)</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

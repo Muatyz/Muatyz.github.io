@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Wed, 26 Jul 2023 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/phy/calphy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Sep 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/phy/calphy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Variational Integration for Ideal Magnetohydrodynamics and Formation of Current Singularities</title>
+      <link>https://Muatyz.github.io/posts/phy/calphy/variational-intergration-for-ideal-magnetohydrodynamics/</link>
+      <pubDate>Fri, 26 Sep 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/phy/calphy/variational-intergration-for-ideal-magnetohydrodynamics/</guid>
+      <description>节选自周尧老师的数值计算方案论文</description>
+    </item>
+    
     <item>
       <title>自旋链</title>
       <link>https://Muatyz.github.io/posts/phy/calphy/1d-spin-chain/</link>

@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Tue, 04 Mar 2025 00:18:06 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Sep 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Numerical Calculation</title>
+      <link>https://Muatyz.github.io/tags/numerical-calculation/</link>
+      <pubDate>Fri, 26 Sep 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/tags/numerical-calculation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Physics</title>
+      <link>https://Muatyz.github.io/tags/physics/</link>
+      <pubDate>Fri, 26 Sep 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/tags/physics/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Read</title>
       <link>https://Muatyz.github.io/tags/read/</link>
@@ -54,15 +72,6 @@
     </item>
     
     <item>
-      <title>Physics</title>
-      <link>https://Muatyz.github.io/tags/physics/</link>
-      <pubDate>Thu, 28 Sep 2023 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/tags/physics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Random</title>
       <link>https://Muatyz.github.io/tags/random/</link>
       <pubDate>Thu, 28 Sep 2023 00:18:23 +0800</pubDate>
@@ -95,15 +104,6 @@
       <pubDate>Thu, 21 Sep 2023 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/tags/topological/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Numerical Calculation</title>
-      <link>https://Muatyz.github.io/tags/numerical-calculation/</link>
-      <pubDate>Wed, 26 Jul 2023 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/tags/numerical-calculation/</guid>
       <description></description>
     </item>
     
