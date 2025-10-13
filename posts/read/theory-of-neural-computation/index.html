@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Theory of Neural Computation | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="每周阅读笔记">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Theory of Neural Computation" />
+<meta property="og:description" content="每周阅读笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/theory-of-neural-computation/" />
+<meta property="og:image" content="https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-10-12T00:18:23+08:00" />
+<meta property="article:modified_time" content="2025-10-12T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png" />
+<meta name="twitter:title" content="Theory of Neural Computation"/>
+<meta name="twitter:description" content="每周阅读笔记"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Theory of Neural Computation",
+      "item": "https://Muatyz.github.io/posts/read/theory-of-neural-computation/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Theory of Neural Computation",
+  "name": "Theory of Neural Computation",
+  "description": "每周阅读笔记",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Introduction 1.1 Inspiration from Neuroscience Neurons McCulloch-Pitts Neuron Model\n$$ n_{i}(t+1) = \\Theta\\left[\\sum_{j}w_{ij}n_{j}(t)-\\mu_{i}\\right],\\quad \\Theta(x) = \\begin{cases} 1, \u0026 x \\geq 0 \\\\ 0, \u0026 \\text{otherwise} \\end{cases} $$\n$w_{ij}$: the strength of the synapse connecting neuron $j$ to neuron $i$.\ngraded response: respond to their input in a continuous way\nasynchronous updating(异步更新)\n$$ n_{i}:= g\\left( \\sum_{j}w_{ij}n_{j}-\\mu_{i} \\right) $$\n$n_{i}$: the state or activation of unit $i$.\n$g(x)$: (nonlinear) activation function, gain function, transfer function, or squashing function\nneuron $\\rightarrow$ unit(processing element, neurodes), synapse(突触) $\\rightarrow$ weight(权重).\nParallel Processing 数量的巨大以允许错误与噪声.\n1.2 History associative content-addressable memory(联想内容寻址记忆), CAM\nThe Hopfield Model 2.1 The Associative Memory Problem Store a set of $p$ patterns $\\xi_{i}^{\\mu}$? in such a way that when presented with a new pattern $\\zeta_{i}$, the network responds by producing whichever one o f the stored patterns most closely resembles $\\zeta_{i}$.\n存储 $p$ 个图案 $\\xi_{i}^{\\mu}$ 为一组，这样当出现一个新图案 $\\zeta_{i}$ 时，网络就会做出反应，生成存储图案中与 $\\zeta_{i}$ 最相似的图案。其中 $\\mu=1,2,\\cdots,p$ 是图案的索引，$i=1,2,\\cdots N$ 是神经元的索引.\nHamming distance:\n$$ \\sum_{i}[\\xi_{i}^{\\mu}(1-\\zeta_{i}) + (1-\\xi_{i}^{\\mu})\\zeta_{i}] $$\n如何构建 $w_{ij}$, 使得输入测试图案 $n_{i}=\\zeta_{i}$ 时, 输出记忆图案 $n_{i}=\\xi_{i}^{\\mu_{0}}$, 其中 $\\mu_{0}$ 使得 Hamming distance($\\zeta_{i},\\xi_{i}^{\\mu}$) 最小.\n记忆图案是相空间中 $\\mu$ 个吸引子(attractor).\n2.2 The Model $n_{i}=0,1$ 记录单元的状态, 引入 $S_{i} = 2n_{i}-1 = \\pm 1$ 表示是否激活.\n令激活函数为符号函数:\n$$ S_{i} := \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}-\\theta_{i}\\right),\\quad \\text{sgn}(x) = \\begin{cases} 1, \u0026 x \\geq 0 \\\\ -1, \u0026 x \u003c 0 \\end{cases} $$\n$\\theta_{i}$: threshold(阈值), 其中 $\\theta_{i} = 2\\mu_{i}-\\sum_{j}w_{ij}$. 为简化可令 $\\theta_{i}=0$, 那么\n$$ S_{i} := \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}\\right) $$\n异步更新(asynchronous)/同步更新(synchronous).\n随机选取一个节点 $i$, 令其更新 令各节点以某概率判定是否更新. 两种方法是等价的.\n异步更新的终点是没有任何 $S_{i}$ 可变化. 这要求 $w_{ij}$: 1. 图案可被记忆为稳定点; 2. 抗微扰.\nOne Pattern 只记忆一个图案 $\\{\\xi_{i}\\}$, 则收敛条件为\n$$ \\text{sgn}\\left(\\sum_{j}^{N}w_{ij}\\xi_{j}\\right) = \\xi_{i},\\quad \\forall i $$\n取\n$$ w_{ij} = \\frac{1}{N}\\xi_{i}\\xi_{j} $$\n因为 $\\xi_{j}^{2} = 1$, 可以轻松验证该记忆方法成立.\n因为是符号函数, 因此即使初始态 $h_{i}=\\sum_{j}w_{ij}S_{j}$ 偏差于 $\\xi_{i}$, 只要符号不变, 仍然会收敛到 $\\xi_{i}$. 这就是 attractor(吸引子).\n在这种激活函数下, 吸引子成对存在.\nMany Patterns Hebb’s rule: 对于存储总共 $p$ 个图案, 使用 $\\mu$ 标记其中一种, 延拓定义\n$$ w_{ij} = \\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu} $$\n对第 $\\nu$ 个图案的稳定性条件: $\\text{sgn}(h_{i}^{\\nu}) = \\xi_{i}^{\\nu}$\n令输入\n$$ h_{i}^{\\nu} \\equiv \\sum_{j}w_{ij}\\xi_{j}^{\\nu} = \\frac{1}{N}\\sum_{j}\\sum_{\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} = \\xi_{i}^{\\nu} + \\frac{1}{N}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} $$\n第二项(被称为 crosstalk)足够小(\u003c1)甚至为 $0$ 时, 稳定性条件满足.\nStorage Capacity 令第二项乘上 $-\\xi_{i}^{\\nu}$, 从而引入\n$$ C_{i}^{\\nu} \\equiv -\\xi_{i}^{\\nu}\\frac{1}{N}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} $$\n那么\n$$ h_{i}^{\\nu} = \\xi_{i}^{\\nu} - \\frac{C_{i}^{\\nu}}{\\xi_{i}^{\\nu}} = \\xi_{i}^{\\nu}(1 - C_{i}^{\\nu}) $$\n因为 $(\\xi_{i}^{\\nu})^{2}=1$. 那么当 $C_{i}^{\\nu}\u003e1$ 时, $h_{i}^{\\nu}$ 将与 $\\xi_{i}^{\\nu}$ 异号.\n令存储图案中 $\\xi_{j}^{\\mu} = \\pm 1$ 等概率独立分布. 那么引入 $X_{j\\mu}=(\\xi_{i}^{\\nu}\\xi_{i}^{\\mu})\\xi_{j}^{\\nu}\\xi_{j}^{\\mu}$, 且有 $E[X_{j\\mu}]=0$, $\\text{Var}(X_{j\\mu})=1$.\n因此\n$$ \\begin{aligned} E[C_{i}^{\\nu}] \u0026=0 \\\\ \\text{Var}(C_{i}^{\\nu}) \u0026= \\frac{1}{N^{2}}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\text{Var}[X_{j\\mu}] = \\frac{1}{N^{2}}\\sum_{j}\\sum_{\\mu \\neq \\nu}1 = \\frac{1}{N^{2}}N(p-1) \\end{aligned} $$\n那么近似 $C_{i}^{\\nu}\\approx \\mathcal{N}\\left(0,\\frac{p}{N}\\right)$.\n规定 $P_{\\text{error}} = \\text{Prob}(C_{i}^{\\nu}\u003e1)$ 为出错概率, 那么 $P_{\\text{error}} \u003c\\epsilon$ 时的 $p = p_{\\text{max}}$ 被称作 storage capacity(存储容量).\n$$ P_{\\text{error}} = \\frac{1}{\\sqrt{2\\pi}\\sigma}\\int_{1}^{\\infty}e^{-x^{2}}/2\\sigma^{2}\\mathrm{d}x = \\frac{1}{2}[1-\\text{erf}(1/\\sqrt{2\\sigma^{2}})] = \\frac{1}{2}[1-\\text{erf}(\\sqrt{N/2p})] $$\nerror function: $$ \\text{erf}(x) = \\frac{2}{\\sqrt{\\pi}}\\int_{0}^{x}e^{-u^{2}}\\mathrm{d}u $$\n利用极限\n$$ \\lim_{x\\rightarrow\\infty}1-\\text{erf}(x) \\rightarrow e^{-x^{2}}/\\sqrt{\\pi}x $$\n近似\n$$ \\log{P_{\\text{error}}} \\approx -\\log{2} - N/2p - \\frac{1}{2}\\log{\\pi} - \\frac{1}{2}\\log{(N/2p)} $$\n错误率条件 $P_{\\text{error}}\u003c0.01/N$ 转化为 $N/2p\u003elog{N}$, 得到 $p_{\\text{max}} = N/2\\log{N}$.\nThe Energy Function 定义能量函数为\n$$ H = -\\frac{1}{2}\\sum_{i}\\sum_{j}w_{ij}S_{i}S_{j} $$\nLyapunov function.\n对称阵($w_{ij}=w_{ji}$) 时能量函数存在. 此时不妨写作\n$$ H = C - \\sum_{(ij)}w_{ij}S_{i}S_{j} $$\n尝试更新一次节点 $i$:\n$$ S_{i}^{\\prime} = \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}\\right) $$\n$S_{i}^{\\prime} = S_{i}$ 能量不变; $S_{i}^{\\prime} = -S_{i}$, 能量变换为\n$$ H^{\\prime} - H = -\\sum_{j\\neq i}w_{ij}S_{i}^{\\prime}S_{j} + \\sum_{j\\neq i}w_{ij}S_{i}S_{j} = 2S_{i}\\sum_{j\\neq i}w_{ij}S_{j} = 2S_{i}\\sum_{j}w_{ij}S_{j} - 2w_{ii} $$\n其中 $w_{ii} = p/N$, 所以 $\\Delta H\u003c0$.\n通过设定 $w_{ii}=0$, 使得 $S_{i}=\\pm 1$ 不会同时为稳定态.\nStarting from an Energy Function 单图案.\n$$ H = -\\frac{1}{2N}\\left(\\sum_{i}S_{i}\\xi_{i}\\right)^{2} $$\n多图案.\n$$ \\begin{aligned} H \u0026= - \\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} \\\\ \u0026= -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)\\left(\\sum_{i}S_{j}\\xi_{j}^{\\mu}\\right) = -\\frac{1}{2}\\sum_{ij}\\left(\\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\right)S_{i}S_{j} \\end{aligned} $$\n采用 Hebb’s rule 时即为能量函数的定义. 这就是通过最小能量观点寻找 $w_{ij}$ 的思路.\nSpurious States(杂散态) Hebb’s rule 适用的是 retrieval states(记忆态).\nSpurious States 被定义为奇数个 retrieval states 的线性组合. 如\n$$ \\xi_{i}^{\\text{mix}} = \\text{sgn}\\left(\\pm \\xi_{i}^{\\mu_{1}} \\pm \\xi_{i}^{\\mu_{2}} \\pm \\xi_{i}^{\\mu_{3}}\\right) $$\n以 $(+,+,+)$ 为例, 输入\n$$ h_{i}^{\\text{mix}} = \\frac{1}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\text{mix}} = \\frac{1}{2}\\xi_{i}^{\\mu_{1}} + \\frac{1}{2}\\xi_{i}^{\\mu_{2}} + \\frac{1}{2}\\xi_{i}^{\\mu_{3}} + \\text{cross-terms} $$\n大 $p$ 时出现 spin glass states. 这些同样是能量函数的局部极小值点, 需要后续通过各类方法判别并排除.\n2.3 Statistical Mechanics of Magnetic Systems 磁场\n$$ h_{i} = \\sum_{j}w_{ij}S_{j} + h^{\\text{ext}},\\quad w_{ij} = w_{ji} $$\n能量\n$$ H = -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}S_{j} - h^{\\text{ext}}\\sum_{i}S_{i} $$\n外部磁场 $\\leftrightarrow$ 阈值.\nFinite Temperature Dynamics 温度 热涨落 使得自旋翻转.\nGlauber dynamics:\n$$ S_{i} := \\begin{cases} +1 \u0026 \\text{with probability } g(h_{i}) \\\\ -1 \u0026 \\text{with probability } 1 - g(h_{i}) \\end{cases},\\quad g(h) = f_{\\beta}(h)\\equiv \\frac{1}{1+e^{-2\\beta h}},\\quad \\beta = \\frac{1}{k_{B}T} $$\n注意到性质 $1-f_{\\beta}(h) = f_{\\beta}(-h)$.\n则写作对称形式\n$$ \\text{Prob}(S_{i}=\\pm 1) = f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+e^{\\mp 2\\beta h_{i}}} $$\n$T\\rightarrow 0$($\\beta\\rightarrow\\infty$) 时, $f_{\\beta}(h)$ 退化为阶跃函数 $\\Theta(h)$, 则 $S_{i}:=\\text{sgn}(h_{i})$;\n$T\\rightarrow \\infty$($\\beta\\rightarrow 0$) 时, $f_{\\beta}(h)\\rightarrow 1/2$, 则 $S_{i}$ 以 $1/2$ 概率取 $\\pm 1$, 即完全随机.\nA Single Spin in Equilibrium $$ \\langle S\\rangle = \\text{Prob}(+1)\\cdot (+1) + \\text{Prob}(-1)\\cdot (-1) = \\frac{1}{1+e^{-2\\beta h}} - \\frac{1}{1+e^{2\\beta h}} = \\tanh(\\beta h) $$\nhyperbolic tangent function: $$ \\tanh(x) = \\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}} $$\nMean Field Theory 磁场平均值和自旋平均值:\n$$ \\begin{aligned} \\langle h_{i}\\rangle \u0026= \\sum_{j}w_{ij}\\langle S_{j}\\rangle + h^{\\text{ext}}\\\\ \\langle S_{i}\\rangle \u0026= \\tanh\\left(\\beta\\langle h_{i}\\rangle\\right) = \\tanh\\left(\\beta\\sum_{j}w_{ij}\\langle S_{j}\\rangle + \\beta h^{\\text{ext}}\\right) \\end{aligned} $$\nThe Ferromagnet(铁磁体) 铁磁态下 $w_{ij}\u003e0$, $\\langle S_{i}\\rangle = \\langle S\\rangle$.\n$$ w_{ij} = \\frac{J}{N} $$\n$$ \\langle S\\rangle = \\tanh(\\beta J\\langle S\\rangle) $$\n高温一个顺磁解, 低温多两个铁磁解(自发磁化 spontaneous magnetization).\n2.4 Stochastic Networks 令神经元的激活/静息概率为\n$$ \\text{Prob}(S_{i} = \\pm 1) = f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+e^{\\mp 2\\beta h_{i}}} $$\n$f_{\\beta}(h)$: logistic function(逻辑函数).\n引入等效温度 pseudo-temperature $T$, 即 $\\beta\\equiv \\frac{1}{T}$.\n低温极限下 sigmoid 函数退化为阶跃函数, 概率函数退化为 McCulloch-Pitts rule.\n对称阵 $w_{ij}$ 使得系综平均可以达到且与时间无关.\nMean Field Theory $p\\ll N$\n平均场方程:\n$$ \\langle S_{i}\\rangle = \\tanh{\\left(\\frac{\\beta}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\langle S_{j}\\rangle\\right)}. $$\n假定 $\\langle S_{i}\\rangle = m\\xi_{i}^{\\nu}$:\n$$ m\\xi_{i}^{\\nu} = \\tanh{\\left(\\frac{\\beta}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}m\\xi_{j}^{\\nu}\\right)}\\Rightarrow m\\xi_{i}^{\\nu} = \\tanh{(\\beta m\\xi_{i}^{\\nu})}\\Rightarrow m = \\tanh{(\\beta m)} $$\n记忆态在 $T",
+  "wordCount" : "1892",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png","datePublished": "2025-10-12T00:18:23+08:00",
+  "dateModified": "2025-10-12T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/theory-of-neural-computation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a></div>
+            <h1 class="post-title">
+                Theory of Neural Computation
+            </h1>
+            <div class="post-description">
+                每周阅读笔记
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-10-12
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1892字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>4分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a><ul>
+                        
+                <li>
+                    <a href="#11-inspiration-from-neuroscience" aria-label="1.1 Inspiration from Neuroscience">1.1 Inspiration from Neuroscience</a><ul>
+                        
+                <li>
+                    <a href="#neurons" aria-label="Neurons">Neurons</a></li>
+                <li>
+                    <a href="#parallel-processing" aria-label="Parallel Processing">Parallel Processing</a></li></ul>
+                </li>
+                <li>
+                    <a href="#12-history" aria-label="1.2 History">1.2 History</a></li></ul>
+                </li>
+                <li>
+                    <a href="#the-hopfield-model" aria-label="The Hopfield Model">The Hopfield Model</a><ul>
+                        
+                <li>
+                    <a href="#21-the-associative-memory-problem" aria-label="2.1 The Associative Memory Problem">2.1 The Associative Memory Problem</a></li>
+                <li>
+                    <a href="#22-the-model" aria-label="2.2 The Model">2.2 The Model</a><ul>
+                        
+                <li>
+                    <a href="#one-pattern" aria-label="One Pattern">One Pattern</a></li>
+                <li>
+                    <a href="#many-patterns" aria-label="Many Patterns">Many Patterns</a></li>
+                <li>
+                    <a href="#storage-capacity" aria-label="Storage Capacity">Storage Capacity</a></li>
+                <li>
+                    <a href="#the-energy-function" aria-label="The Energy Function">The Energy Function</a></li>
+                <li>
+                    <a href="#starting-from-an-energy-function" aria-label="Starting from an Energy Function">Starting from an Energy Function</a></li>
+                <li>
+                    <a href="#spurious-states%e6%9d%82%e6%95%a3%e6%80%81" aria-label="Spurious States(杂散态)">Spurious States(杂散态)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#23-statistical-mechanics-of-magnetic-systems" aria-label="2.3 Statistical Mechanics of Magnetic Systems">2.3 Statistical Mechanics of Magnetic Systems</a><ul>
+                        
+                <li>
+                    <a href="#finite-temperature-dynamics" aria-label="Finite Temperature Dynamics">Finite Temperature Dynamics</a></li>
+                <li>
+                    <a href="#a-single-spin-in-equilibrium" aria-label="A Single Spin in Equilibrium">A Single Spin in Equilibrium</a></li>
+                <li>
+                    <a href="#mean-field-theory" aria-label="Mean Field Theory">Mean Field Theory</a></li>
+                <li>
+                    <a href="#the-ferromagnet%e9%93%81%e7%a3%81%e4%bd%93" aria-label="The Ferromagnet(铁磁体)">The Ferromagnet(铁磁体)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#24-stochastic-networks" aria-label="2.4 Stochastic Networks">2.4 Stochastic Networks</a><ul>
+                        
+                <li>
+                    <a href="#mean-field-theory-1" aria-label="Mean Field Theory">Mean Field Theory</a></li></ul>
+                </li>
+                <li>
+                    <a href="#25-capacity-of-the-stochastic-network" aria-label="2.5 Capacity of the Stochastic Network">2.5 Capacity of the Stochastic Network</a><ul>
+                        
+                <li>
+                    <a href="#capacity-calculation" aria-label="Capacity Calculation">Capacity Calculation</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<h2 id="11-inspiration-from-neuroscience">1.1 Inspiration from Neuroscience<a hidden class="anchor" aria-hidden="true" href="#11-inspiration-from-neuroscience">#</a></h2>
+<h3 id="neurons">Neurons<a hidden class="anchor" aria-hidden="true" href="#neurons">#</a></h3>
+<p>McCulloch-Pitts Neuron Model</p>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/12/CAyHLcoaRu2GKqz.png" alt=""  />
+</p>
+<p>$$
+n_{i}(t+1) = \Theta\left[\sum_{j}w_{ij}n_{j}(t)-\mu_{i}\right],\quad
+\Theta(x) = \begin{cases}
+1, &amp; x \geq 0 \\
+0, &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<p>$w_{ij}$: the strength of the synapse connecting neuron $j$ to neuron $i$.</p>
+<p>graded response: respond to their input in a continuous way</p>
+<p>asynchronous updating(异步更新)</p>
+<p>$$
+n_{i}:= g\left(
+\sum_{j}w_{ij}n_{j}-\mu_{i}
+\right)
+$$</p>
+<blockquote>
+<p>$n_{i}$: the state or activation of unit $i$.</p>
+<p>$g(x)$: (nonlinear) activation function, gain function, transfer function, or squashing function</p>
+</blockquote>
+<p>neuron $\rightarrow$ unit(processing element, neurodes), synapse(突触) $\rightarrow$ weight(权重).</p>
+<h3 id="parallel-processing">Parallel Processing<a hidden class="anchor" aria-hidden="true" href="#parallel-processing">#</a></h3>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/12/FqBn6sHu7A3EVUO.png" alt=""  />
+</p>
+<p>数量的巨大以允许错误与噪声.</p>
+<h2 id="12-history">1.2 History<a hidden class="anchor" aria-hidden="true" href="#12-history">#</a></h2>
+<p>associative content-addressable memory(联想内容寻址记忆), CAM</p>
+<h1 id="the-hopfield-model">The Hopfield Model<a hidden class="anchor" aria-hidden="true" href="#the-hopfield-model">#</a></h1>
+<h2 id="21-the-associative-memory-problem">2.1 The Associative Memory Problem<a hidden class="anchor" aria-hidden="true" href="#21-the-associative-memory-problem">#</a></h2>
+<blockquote>
+<p>Store a set of $p$ patterns $\xi_{i}^{\mu}$? in such a way that when presented with a new pattern $\zeta_{i}$, the network responds by producing whichever one o f the stored patterns most closely resembles $\zeta_{i}$.</p>
+</blockquote>
+<p>存储 $p$ 个图案 $\xi_{i}^{\mu}$ 为一组，这样当出现一个新图案 $\zeta_{i}$ 时，网络就会做出反应，生成存储图案中与 $\zeta_{i}$ 最相似的图案。其中 $\mu=1,2,\cdots,p$ 是图案的索引，$i=1,2,\cdots N$ 是神经元的索引.</p>
+<p>Hamming distance:</p>
+<p>$$
+\sum_{i}[\xi_{i}^{\mu}(1-\zeta_{i}) + (1-\xi_{i}^{\mu})\zeta_{i}]
+$$</p>
+<p>如何构建 $w_{ij}$, 使得输入测试图案 $n_{i}=\zeta_{i}$ 时, 输出记忆图案 $n_{i}=\xi_{i}^{\mu_{0}}$, 其中 $\mu_{0}$ 使得 Hamming distance($\zeta_{i},\xi_{i}^{\mu}$) 最小.</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/12/YlxrHLwtsOBGZXC.png" alt=""  />
+</p>
+</blockquote>
+<p>记忆图案是相空间中 $\mu$ 个吸引子(attractor).</p>
+<h2 id="22-the-model">2.2 The Model<a hidden class="anchor" aria-hidden="true" href="#22-the-model">#</a></h2>
+<p>$n_{i}=0,1$ 记录单元的状态, 引入 $S_{i} = 2n_{i}-1 = \pm 1$ 表示是否激活.</p>
+<p>令激活函数为符号函数:</p>
+<p>$$
+S_{i} := \text{sgn}\left(\sum_{j}w_{ij}S_{j}-\theta_{i}\right),\quad \text{sgn}(x) = \begin{cases}
+1, &amp; x \geq 0 \\
+-1, &amp; x &lt; 0
+\end{cases}
+$$</p>
+<p>$\theta_{i}$: threshold(阈值), 其中 $\theta_{i} = 2\mu_{i}-\sum_{j}w_{ij}$. 为简化可令 $\theta_{i}=0$, 那么</p>
+<p>$$
+S_{i} := \text{sgn}\left(\sum_{j}w_{ij}S_{j}\right)
+$$</p>
+<p>异步更新(asynchronous)/同步更新(synchronous).</p>
+<blockquote>
+<ol>
+<li>随机选取一个节点 $i$, 令其更新</li>
+<li>令各节点以某概率判定是否更新.</li>
+</ol>
+<p>两种方法是等价的.</p>
+</blockquote>
+<p>异步更新的终点是没有任何 $S_{i}$ 可变化. 这要求 $w_{ij}$: 1. 图案可被记忆为稳定点; 2. 抗微扰.</p>
+<h3 id="one-pattern">One Pattern<a hidden class="anchor" aria-hidden="true" href="#one-pattern">#</a></h3>
+<p>只记忆一个图案 $\{\xi_{i}\}$, 则收敛条件为</p>
+<p>$$
+\text{sgn}\left(\sum_{j}^{N}w_{ij}\xi_{j}\right) = \xi_{i},\quad \forall i
+$$</p>
+<p>取</p>
+<p>$$
+w_{ij} = \frac{1}{N}\xi_{i}\xi_{j}
+$$</p>
+<p>因为 $\xi_{j}^{2} = 1$, 可以轻松验证该记忆方法成立.</p>
+<p>因为是符号函数, 因此即使初始态 $h_{i}=\sum_{j}w_{ij}S_{j}$ 偏差于 $\xi_{i}$, 只要符号不变, 仍然会收敛到 $\xi_{i}$. 这就是 attractor(吸引子).</p>
+<p>在这种激活函数下, 吸引子成对存在.</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/12/hzEOak3HnRCtL5G.png" alt=""  />
+</p>
+</blockquote>
+<h3 id="many-patterns">Many Patterns<a hidden class="anchor" aria-hidden="true" href="#many-patterns">#</a></h3>
+<p>Hebb&rsquo;s rule: 对于存储总共 $p$ 个图案, 使用 $\mu$ 标记其中一种, 延拓定义</p>
+<p>$$
+w_{ij} = \frac{1}{N}\sum_{\mu=1}^{p}\xi_{i}^{\mu}\xi_{j}^{\mu}
+$$</p>
+<p>对第 $\nu$ 个图案的稳定性条件: $\text{sgn}(h_{i}^{\nu}) = \xi_{i}^{\nu}$</p>
+<p>令输入</p>
+<p>$$
+h_{i}^{\nu} \equiv \sum_{j}w_{ij}\xi_{j}^{\nu} = \frac{1}{N}\sum_{j}\sum_{\mu}\xi_{i}^{\mu}\xi_{j}^{\mu}\xi_{j}^{\nu} = \xi_{i}^{\nu} + \frac{1}{N}\sum_{j}\sum_{\mu \neq \nu}\xi_{i}^{\mu}\xi_{j}^{\mu}\xi_{j}^{\nu}
+$$</p>
+<p>第二项(被称为 crosstalk)足够小(&lt;1)甚至为 $0$ 时, 稳定性条件满足.</p>
+<h3 id="storage-capacity">Storage Capacity<a hidden class="anchor" aria-hidden="true" href="#storage-capacity">#</a></h3>
+<p>令第二项乘上 $-\xi_{i}^{\nu}$, 从而引入</p>
+<p>$$
+C_{i}^{\nu} \equiv -\xi_{i}^{\nu}\frac{1}{N}\sum_{j}\sum_{\mu \neq \nu}\xi_{i}^{\mu}\xi_{j}^{\mu}\xi_{j}^{\nu}
+$$</p>
+<p>那么</p>
+<p>$$
+h_{i}^{\nu} = \xi_{i}^{\nu} - \frac{C_{i}^{\nu}}{\xi_{i}^{\nu}} = \xi_{i}^{\nu}(1 - C_{i}^{\nu})
+$$</p>
+<p>因为 $(\xi_{i}^{\nu})^{2}=1$. 那么当 $C_{i}^{\nu}&gt;1$ 时, $h_{i}^{\nu}$ 将与 $\xi_{i}^{\nu}$ 异号.</p>
+<p>令存储图案中 $\xi_{j}^{\mu} = \pm 1$ 等概率独立分布. 那么引入 $X_{j\mu}=(\xi_{i}^{\nu}\xi_{i}^{\mu})\xi_{j}^{\nu}\xi_{j}^{\mu}$, 且有 $E[X_{j\mu}]=0$, $\text{Var}(X_{j\mu})=1$.</p>
+<p>因此</p>
+<p>$$
+\begin{aligned}
+E[C_{i}^{\nu}] &amp;=0 \\
+\text{Var}(C_{i}^{\nu}) &amp;= \frac{1}{N^{2}}\sum_{j}\sum_{\mu \neq \nu}\text{Var}[X_{j\mu}] = \frac{1}{N^{2}}\sum_{j}\sum_{\mu \neq \nu}1 = \frac{1}{N^{2}}N(p-1)
+\end{aligned}
+$$</p>
+<p>那么近似 $C_{i}^{\nu}\approx \mathcal{N}\left(0,\frac{p}{N}\right)$.</p>
+<p>规定 $P_{\text{error}} = \text{Prob}(C_{i}^{\nu}&gt;1)$ 为出错概率, 那么 $P_{\text{error}} &lt;\epsilon$ 时的 $p = p_{\text{max}}$ 被称作 storage capacity(存储容量).</p>
+<p>$$
+P_{\text{error}} = \frac{1}{\sqrt{2\pi}\sigma}\int_{1}^{\infty}e^{-x^{2}}/2\sigma^{2}\mathrm{d}x = \frac{1}{2}[1-\text{erf}(1/\sqrt{2\sigma^{2}})] = \frac{1}{2}[1-\text{erf}(\sqrt{N/2p})]
+$$</p>
+<blockquote>
+<p>error function:
+$$
+\text{erf}(x) = \frac{2}{\sqrt{\pi}}\int_{0}^{x}e^{-u^{2}}\mathrm{d}u
+$$</p>
+</blockquote>
+<p>利用极限</p>
+<p>$$
+\lim_{x\rightarrow\infty}1-\text{erf}(x) \rightarrow e^{-x^{2}}/\sqrt{\pi}x
+$$</p>
+<p>近似</p>
+<p>$$
+\log{P_{\text{error}}} \approx -\log{2} - N/2p - \frac{1}{2}\log{\pi} - \frac{1}{2}\log{(N/2p)}
+$$</p>
+<p>错误率条件 $P_{\text{error}}&lt;0.01/N$ 转化为 $N/2p&gt;log{N}$, 得到 $p_{\text{max}} = N/2\log{N}$.</p>
+<h3 id="the-energy-function">The Energy Function<a hidden class="anchor" aria-hidden="true" href="#the-energy-function">#</a></h3>
+<p>定义能量函数为</p>
+<p>$$
+H = -\frac{1}{2}\sum_{i}\sum_{j}w_{ij}S_{i}S_{j}
+$$</p>
+<p>Lyapunov function.</p>
+<p>对称阵($w_{ij}=w_{ji}$) 时能量函数存在. 此时不妨写作</p>
+<p>$$
+H = C - \sum_{(ij)}w_{ij}S_{i}S_{j}
+$$</p>
+<p>尝试更新一次节点 $i$:</p>
+<p>$$
+S_{i}^{\prime} = \text{sgn}\left(\sum_{j}w_{ij}S_{j}\right)
+$$</p>
+<p>$S_{i}^{\prime} = S_{i}$ 能量不变; $S_{i}^{\prime} = -S_{i}$, 能量变换为</p>
+<p>$$
+H^{\prime} - H = -\sum_{j\neq i}w_{ij}S_{i}^{\prime}S_{j} + \sum_{j\neq i}w_{ij}S_{i}S_{j} = 2S_{i}\sum_{j\neq i}w_{ij}S_{j} = 2S_{i}\sum_{j}w_{ij}S_{j} - 2w_{ii}
+$$</p>
+<p>其中 $w_{ii} = p/N$, 所以 $\Delta H&lt;0$.</p>
+<p>通过设定 $w_{ii}=0$, 使得 $S_{i}=\pm 1$ 不会同时为稳定态.</p>
+<h3 id="starting-from-an-energy-function">Starting from an Energy Function<a hidden class="anchor" aria-hidden="true" href="#starting-from-an-energy-function">#</a></h3>
+<p>单图案.</p>
+<p>$$
+H = -\frac{1}{2N}\left(\sum_{i}S_{i}\xi_{i}\right)^{2}
+$$</p>
+<p>多图案.</p>
+<p>$$
+\begin{aligned}
+H &amp;= - \frac{1}{2N}\sum_{\mu=1}^{p}\left(\sum_{i}S_{i}\xi_{i}^{\mu}\right)^{2} \\
+&amp;= -\frac{1}{2N}\sum_{\mu=1}^{p}\left(\sum_{i}S_{i}\xi_{i}^{\mu}\right)\left(\sum_{i}S_{j}\xi_{j}^{\mu}\right) = -\frac{1}{2}\sum_{ij}\left(\frac{1}{N}\sum_{\mu=1}^{p}\xi_{i}^{\mu}\xi_{j}^{\mu}\right)S_{i}S_{j}
+\end{aligned}
+$$</p>
+<p>采用 Hebb&rsquo;s rule 时即为能量函数的定义. 这就是通过最小能量观点寻找 $w_{ij}$ 的思路.</p>
+<h3 id="spurious-states杂散态">Spurious States(杂散态)<a hidden class="anchor" aria-hidden="true" href="#spurious-states杂散态">#</a></h3>
+<p>Hebb&rsquo;s rule 适用的是 retrieval states(记忆态).</p>
+<p>Spurious States 被定义为奇数个 retrieval states 的线性组合. 如</p>
+<p>$$
+\xi_{i}^{\text{mix}} = \text{sgn}\left(\pm \xi_{i}^{\mu_{1}} \pm \xi_{i}^{\mu_{2}} \pm \xi_{i}^{\mu_{3}}\right)
+$$</p>
+<p>以 $(+,+,+)$ 为例, 输入</p>
+<p>$$
+h_{i}^{\text{mix}} = \frac{1}{N}\sum_{j\mu}\xi_{i}^{\mu}\xi_{j}^{\mu}\xi_{j}^{\text{mix}} = \frac{1}{2}\xi_{i}^{\mu_{1}} + \frac{1}{2}\xi_{i}^{\mu_{2}} + \frac{1}{2}\xi_{i}^{\mu_{3}} + \text{cross-terms}
+$$</p>
+<p>大 $p$ 时出现 spin glass states. 这些同样是能量函数的局部极小值点, 需要后续通过各类方法判别并排除.</p>
+<h2 id="23-statistical-mechanics-of-magnetic-systems">2.3 Statistical Mechanics of Magnetic Systems<a hidden class="anchor" aria-hidden="true" href="#23-statistical-mechanics-of-magnetic-systems">#</a></h2>
+<p>磁场</p>
+<p>$$
+h_{i} = \sum_{j}w_{ij}S_{j} + h^{\text{ext}},\quad w_{ij} = w_{ji}
+$$</p>
+<p>能量</p>
+<p>$$
+H = -\frac{1}{2}\sum_{ij}w_{ij}S_{i}S_{j} - h^{\text{ext}}\sum_{i}S_{i}
+$$</p>
+<p>外部磁场 $\leftrightarrow$ 阈值.</p>
+<h3 id="finite-temperature-dynamics">Finite Temperature Dynamics<a hidden class="anchor" aria-hidden="true" href="#finite-temperature-dynamics">#</a></h3>
+<p>温度 热涨落 使得自旋翻转.</p>
+<p>Glauber dynamics:</p>
+<p>$$
+S_{i} := \begin{cases}
++1 &amp; \text{with probability } g(h_{i}) \\
+-1 &amp; \text{with probability } 1 - g(h_{i})
+\end{cases},\quad g(h) = f_{\beta}(h)\equiv \frac{1}{1+e^{-2\beta h}},\quad \beta = \frac{1}{k_{B}T}
+$$</p>
+<p>注意到性质 $1-f_{\beta}(h) = f_{\beta}(-h)$.</p>
+<p>则写作对称形式</p>
+<p>$$
+\text{Prob}(S_{i}=\pm 1) = f_{\beta}(\pm h_{i}) = \frac{1}{1+e^{\mp 2\beta h_{i}}}
+$$</p>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/12/MbktpjSUlued9wO.png" alt=""  />
+</p>
+<p>$T\rightarrow 0$($\beta\rightarrow\infty$) 时, $f_{\beta}(h)$ 退化为阶跃函数 $\Theta(h)$, 则 $S_{i}:=\text{sgn}(h_{i})$;</p>
+<p>$T\rightarrow \infty$($\beta\rightarrow 0$) 时, $f_{\beta}(h)\rightarrow 1/2$, 则 $S_{i}$ 以 $1/2$ 概率取 $\pm 1$, 即完全随机.</p>
+<h3 id="a-single-spin-in-equilibrium">A Single Spin in Equilibrium<a hidden class="anchor" aria-hidden="true" href="#a-single-spin-in-equilibrium">#</a></h3>
+<p>$$
+\langle S\rangle = \text{Prob}(+1)\cdot (+1) + \text{Prob}(-1)\cdot (-1) = \frac{1}{1+e^{-2\beta h}} - \frac{1}{1+e^{2\beta h}} = \tanh(\beta h)
+$$</p>
+<blockquote>
+<p>hyperbolic tangent function:
+$$
+\tanh(x) = \frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}
+$$</p>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/12/QW61iKcCrqRgaZd.png" alt=""  />
+</p>
+</blockquote>
+<h3 id="mean-field-theory">Mean Field Theory<a hidden class="anchor" aria-hidden="true" href="#mean-field-theory">#</a></h3>
+<p>磁场平均值和自旋平均值:</p>
+<p>$$
+\begin{aligned}
+\langle h_{i}\rangle &amp;= \sum_{j}w_{ij}\langle S_{j}\rangle + h^{\text{ext}}\\
+\langle S_{i}\rangle &amp;= \tanh\left(\beta\langle h_{i}\rangle\right) = \tanh\left(\beta\sum_{j}w_{ij}\langle S_{j}\rangle + \beta h^{\text{ext}}\right)
+\end{aligned}
+$$</p>
+<h3 id="the-ferromagnet铁磁体">The Ferromagnet(铁磁体)<a hidden class="anchor" aria-hidden="true" href="#the-ferromagnet铁磁体">#</a></h3>
+<p>铁磁态下 $w_{ij}&gt;0$, $\langle S_{i}\rangle = \langle S\rangle$.</p>
+<p>$$
+w_{ij} = \frac{J}{N}
+$$</p>
+<p>$$
+\langle S\rangle = \tanh(\beta J\langle S\rangle)
+$$</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/13/FtXqxhlMK7rQeV9.png" alt=""  />
+</p>
+<p>高温一个顺磁解, 低温多两个铁磁解(自发磁化 spontaneous magnetization).</p>
+</blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/13/eIMiAyw3EZdT47S.png" alt=""  />
+</p>
+</blockquote>
+<h2 id="24-stochastic-networks">2.4 Stochastic Networks<a hidden class="anchor" aria-hidden="true" href="#24-stochastic-networks">#</a></h2>
+<p>令神经元的激活/静息概率为</p>
+<p>$$
+\text{Prob}(S_{i} = \pm 1) = f_{\beta}(\pm h_{i}) = \frac{1}{1+e^{\mp 2\beta h_{i}}}
+$$</p>
+<p>$f_{\beta}(h)$: logistic function(逻辑函数).</p>
+<p>引入等效温度 pseudo-temperature $T$, 即 $\beta\equiv \frac{1}{T}$.</p>
+<p>低温极限下 sigmoid 函数退化为阶跃函数, 概率函数退化为 McCulloch-Pitts rule.</p>
+<p>对称阵 $w_{ij}$ 使得系综平均可以达到且与时间无关.</p>
+<h3 id="mean-field-theory-1">Mean Field Theory<a hidden class="anchor" aria-hidden="true" href="#mean-field-theory-1">#</a></h3>
+<p>$p\ll N$</p>
+<p>平均场方程:</p>
+<p>$$
+\langle S_{i}\rangle = \tanh{\left(\frac{\beta}{N}\sum_{j\mu}\xi_{i}^{\mu}\xi_{j}^{\mu}\langle S_{j}\rangle\right)}.
+$$</p>
+<p>假定 $\langle S_{i}\rangle = m\xi_{i}^{\nu}$:</p>
+<p>$$
+m\xi_{i}^{\nu} = \tanh{\left(\frac{\beta}{N}\sum_{j\mu}\xi_{i}^{\mu}\xi_{j}^{\mu}m\xi_{j}^{\nu}\right)}\Rightarrow m\xi_{i}^{\nu} = \tanh{(\beta m\xi_{i}^{\nu})}\Rightarrow m = \tanh{(\beta m)}
+$$</p>
+<p>记忆态在 $T&lt;T_{c} = 1$ 时稳定.</p>
+<p>$$
+m = \frac{\langle S_{i}\rangle}{\xi_{i}^{\nu}} = \text{Prob}(\text{bit }i\text{ is correct}) - \text{Prob}(\text{bit }i\text{ is incorrect})
+$$</p>
+<p>$$
+\langle N_{\text{correct}}\rangle = \frac{1}{2}N(1+m)
+$$</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/13/854daTcO3pgufVK.png" alt=""  />
+</p>
+</blockquote>
+<p>这不是完美装置. 反转态和混合态都会存在.</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/13/wJ2ympMLhTiRzdN.png" alt=""  />
+</p>
+</blockquote>
+<h2 id="25-capacity-of-the-stochastic-network">2.5 Capacity of the Stochastic Network<a hidden class="anchor" aria-hidden="true" href="#25-capacity-of-the-stochastic-network">#</a></h2>
+<p>考察 $p\sim N$.</p>
+<p>定义 load parameter(负载参数): $\alpha = \frac{p}{N}$.</p>
+<p>保留 crosstalk 项, 即</p>
+<p>$$
+m_{\nu} = \frac{1}{N}\sum_{i}\xi_{i}^{\nu}\langle S_{i}\rangle
+$$</p>
+<p>$$
+r = \frac{1}{\alpha}\sum_{\nu\neq 1}m_{\nu}^{2}
+$$</p>
+<p>是系统构型的均方重叠.</p>
+<h3 id="capacity-calculation">Capacity Calculation<a hidden class="anchor" aria-hidden="true" href="#capacity-calculation">#</a></h3>
+<p>平均场方程:</p>
+<p>$$
+\begin{aligned}
+m_{\nu} &amp;= \frac{1}{N}\sum_{i}\xi_{i}^{\nu}\tanh{\left(\beta\sum_{\mu}\xi_{i}^{\mu}m_{\mu}\right)} = \frac{1}{N}\sum_{i}\xi_{i}^{\nu}\xi_{i}^{1}\tanh{\left[
+\beta\left(
+m_{1} + \xi_{i}^{\nu}\xi_{i}^{1}m_{\nu} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
+\right)
+\right]}\\
+&amp;= \frac{1}{N}\sum_{i}\xi_{i}^{\nu}\xi_{i}^{1}\tanh{\left[
+\beta\left(
+m_{1} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
+\right)
+\right]} + \frac{\beta}{N}\sum_{i}\left\{
+1-\tanh^{2}\left[
+\beta\left(
+m_{1} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
+\right)
+\right]
+\right\}m_{\nu}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>因为第二项极小:
+$$
+\frac{\mathrm{d}}{\mathrm{d}x}\tanh(x) = 1-\tanh^{2}(x)
+$$</p>
+</blockquote>
+<p>中心极限定理: $N^{-1}\sum_{i}$ 视为 Gaussian 噪声 $\sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}$, 方差为 $\alpha r$.</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Neurons with graded response have collective computational properties like those of two-state neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/neural-networks-and-physical-systems-with-emergent-collective-computational-abilities/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Neural networks and physical systems with emergent collective computational abilities</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
