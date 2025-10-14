@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>软物质导论 复习提纲 | 无处惹尘埃</title>
+<meta name="keywords" content="scmp, granular">
+<meta name="description" content="整理自Jakob的软物质导论课件与作业, 可能未必完整覆盖博资考范围">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/phy/scmp/review-soft-matter-physics/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/phy/scmp/review-soft-matter-physics/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "www.muartz.com"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="软物质导论 复习提纲" />
+<meta property="og:description" content="整理自Jakob的软物质导论课件与作业, 可能未必完整覆盖博资考范围" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/phy/scmp/review-soft-matter-physics/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-10-14T00:18:06+08:00" />
+<meta property="article:modified_time" content="2025-10-14T00:18:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="软物质导论 复习提纲"/>
+<meta name="twitter:description" content="整理自Jakob的软物质导论课件与作业, 可能未必完整覆盖博资考范围"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 PHY",
+          "item": "https://Muatyz.github.io/posts/phy/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🔧 (Soft) Condensed Matter Physics",
+          "item": "https://Muatyz.github.io/posts/phy/scmp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "软物质导论 复习提纲",
+      "item": "https://Muatyz.github.io/posts/phy/scmp/review-soft-matter-physics/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "软物质导论 复习提纲",
+  "name": "软物质导论 复习提纲",
+  "description": "整理自Jakob的软物质导论课件与作业, 可能未必完整覆盖博资考范围",
+  "keywords": [
+    "scmp", "granular"
+  ],
+  "articleBody": "Polydiversity $N$:聚合度(degree of polymerization), 即 polymer 的长度\n$M_{N}$: 分子质量, 若每个单元的质量为 $M_{MON}$, 则 $M_{N} = NM_{MON}$\n$n_{N}$: 数量分数. 即随机抽选一个 polymer, 聚合度为 $N$ 的概率\n$w_{N}$: 权重分数,\n$$ w_{N} = \\frac{n_{N}M_{N}}{\\sum_{N}n_{N}M_{N}} = \\frac{n_{N}N}{\\sum_{N}n_{N}N} $$\nK 阶矩(moment):\n$$ m_{k} = \\sum_{N}n_{N}M_{N}^{k},\\quad m_{0} = \\sum_{N}n_{N} = 1 $$\n数平均质量\n$$ M_{n} \\equiv \\frac{m_{1}}{m_{0}} = \\frac{\\sum_{N}n_{N}M_{N}}{\\sum_{N}n_{N}} = \\sum_{M}n_{N}M_{N} $$\n加权平均质量\n$$ M_{w} \\equiv \\frac{m_{2}}{m_{1}} = \\frac{\\sum_{N}n_{N}M_{N}^{2}}{\\sum_{N}n_{N}M_{N}} $$\n多分散度(Polydiversity Index)\n$$ \\text{PI} = \\frac{M_{w}}{M_{n}} \\geq 1 $$\n使用 Cauchy-Schwarz 不等式可证明.\n$$ \\left(\\sum_{i=1}^{n}u_{i}^{2}\\right)\\left(\\sum_{i=1}^{n}v_{i}^{2}\\right)\\geq \\left(\\sum_{i=1}^{n}u_{i}v_{i}\\right) $$\n令 $u_{i}=\\sqrt{n_{N}}M_{N}$, $v_{i}=\\sqrt{n_{N}}$.\nMixing entropy 总数 $A$ 和 $B$ 的物质, 处于态 $|1\\rangle, |2\\rangle, \\cdots$ 的数目各自为 $a_{1},b_{1}$; $a_{2}, b_{2}\\cdots$.\n混合和分离的状态数依次为\n$$ \\Omega_{\\text{Mix}} = \\frac{(A+B)!}{a_{1}!b_{1}!a_{2}!b_{2}!\\cdots},\\quad \\Omega_{\\text{Sep}} = \\frac{A!}{a_{1}!a_{2}!\\cdots}\\frac{B!}{b_{1}!b_{2}!\\cdots} $$\n混合熵\n$$ \\Delta S_{\\text{mix}} = -k_{B}\\left( A\\ln{\\frac{A}{A+B}} + B\\ln{\\frac{B}{A+B}} \\right) $$\n令体积分数 $\\phi_{A} = \\frac{V_{A}}{V_{A}+V_{B}}$, $\\phi_{B} = \\frac{V_{B}}{V_{A}+V_{B}} = 1 - \\phi_{A}$. 若两种物质的基本组成单位体积都是 $v_{0}$, 那么可以约定\n$$ n = \\frac{V_{A}+V_{B}}{v_{0}} $$\n混合熵写作\n$$ \\Delta S_{\\text{mix}} = - k_{B}(n_{A}\\ln{\\phi_{A}} + n_{B}\\ln{\\phi_{B}}) $$\n每个基本组成单位的混合熵(Entropy of mixing per lattice site)\n$$ \\Delta \\bar{S}_{\\text{mix}} = -k_{B}\\left[ \\frac{\\phi_{A}}{N_{A}}\\ln{\\phi_{A}} + \\frac{\\phi_{B}}{N_{B}}\\ln{\\phi_{B}} \\right] $$\n其中 $N_{A}, N_{B}$ 分别是 $A, B$ 的聚合度(分子长度).\nCondensation polynomials 1D random walk polymer 步长 $a$, 步数 $N = n_{l} + n_{r}$, 末端位置 $R = (n_{r} - n_{l})a$.\n$$ \\begin{aligned} p(R,N) \u0026= \\frac{N!}{(\\frac{Na+R}{2a})!(\\frac{Na-R}{2a})!}\\left(\\frac{1}{2}\\right)^{N}\\\\ \\ln{p} \u0026\\approx \\ln{\\sqrt{\\frac{2}{\\pi N}}} - \\frac{R^{2}}{2Na^{2}}\\\\ p(R,N) \u0026\\approx \\sqrt{\\frac{2}{\\pi N}}\\exp{\\left(-\\frac{R^{2}}{2Na^{2}}\\right)} \\end{aligned} $$\n通过 $\\int_{-Na}^{Na}p\\mathrm{d}R$ 计算归一化系数为 $2a$. 所以最后的概率密度为\n$$ p(R;N) = \\sqrt{\\frac{1}{2\\pi Na^{2}}} \\exp{\\left(-\\frac{R^{2}}{2Na^{2}}\\right)} $$\n这是一个高斯分布, 均值为 $\\bar{R} = 0$, 方差为 $\\sigma_{R}^{2} = Na^{2}$.\nFreely-jointed chain Ideal chain. 单元长度 $l$, 段间成角 $\\theta$, 则围线长度(contour length) $R_{\\text{max}} = nl\\cos{\\frac{\\theta}{2}}$.\nFreely jointed chain. 3D random walk.\n$$ \\langle R^{2} \\rangle = \\sum_{i,j}\\langle \\vec{r}_{i}\\cdot \\vec{r}_{j} \\rangle = \\sum_{i,j}\\langle \\cos{\\theta_{ij}} \\rangle = nl^{2} $$\n对于每个单元 $i$, 定义参数 characteristic ratio(特征比)\n$$ C_{i}^{\\prime} \\equiv \\sum_{j=1}^{n}\\langle \\cos{\\theta_{ij}}\\rangle,\\quad C_{n} = \\frac{1}{n}\\sum_{i=1}^{n}C_{i}^{\\prime} $$\n这样方均位移为\n$$ \\langle R^{2}\\rangle = l^{2}\\sum_{i=1}^{n}\\sum_{j=1}^{n}\\langle \\cos{\\theta_{ij}}\\rangle = l^{2}\\sum_{i=1}^{n}C_{i}^{\\prime} = C_{n}nl^{2} $$\n长链极限\n$$ \\langle R^{2}\\rangle \\approx C_{\\infty}nl^{2} $$\n定义 Kuhn length $b$, 从而将 Ideal chain 等效为 freely-jointed chain:\n$$ Nb = R_{\\text{max}},\\quad \\langle R^{2}\\rangle = Nb^{2} = bR_{\\text{max}} = C_{\\infty}nl^{2} $$\n于是反解\n$$ N = \\frac{R_{\\text{max}}^{2}}{C_{\\infty}nl^{2}},\\quad b = \\frac{\\langle R^{2}\\rangle}{R_{\\text{max}}} = \\frac{C_{\\infty}nl^{2}}{R_{\\text{max}}} $$\nFreely rotating chain. 固定 $\\theta$, 随机 $\\phi$.\n$$ \\langle R^{2}\\rangle = nl^{2} + l^{2}\\sum_{i=1}^{n}\\left( \\sum_{k=1}^{i-1}\\cos^{k}{\\theta} + \\sum_{k=1}^{n-i}\\cos^{k}{\\theta} \\right)\\simeq nl^{2}\\frac{1+\\cos{\\theta}}{1-\\cos{\\theta}} $$\npersistence segment 长度定义为\n$$ s_{p} = -\\frac{1}{\\ln{\\cos{\\theta}}} $$\n更严谨的定义是\n$$ \\langle \\cos{\\theta(s)}\\rangle = e^{-s/L_{p}} $$\nworm-like chain 是 freely-rotating chain 连接角 $\\theta \\to 0$ 的极限.\n$$ s_{p} = -\\frac{1}{\\ln{\\cos{\\theta}}} \\simeq \\frac{2}{\\theta^{2}},\\quad l_{p} \\equiv s_{p}l = l\\frac{2}{\\theta^{2}},\\quad C_{\\infty} = \\frac{1+\\cos{\\theta}}{1-\\cos{\\theta}} \\simeq \\frac{2-\\theta^{2}/2}{\\theta^{2}/2} \\simeq \\frac{4}{\\theta^{2}},\\quad b = l\\frac{C_{\\infty}}{\\cos{(\\theta/2)}} \\simeq l\\frac{4}{\\theta^{2}} = 2l_{p} $$\nRadius of gyration(均方根半径) $$ \\langle R_{g}^{2}\\rangle = \\frac{1}{N}\\sum_{i=1}^{N}\\langle (\\vec{R}_{i} - \\vec{R}_{\\text{CM}})^{2}\\rangle,\\quad \\vec{R}_{\\text{CM}} = \\frac{\\sum_{i=1}^{N}M_{i}\\vec{R}_{i}}{\\sum_{i=1}^{N}M_{i}} $$\n另一种计算方式为\n$$ R_{g}^{2} = \\frac{1}{N^{2}}\\sum_{i=1}^{N}\\sum_{j=i}^{N}\\left(\\vec{R}_{i}-\\vec{R}_{j}\\right)^{2} = \\frac{1}{N^{2}}\\int_{0}^{N}\\mathrm{d}u\\int_{u}^{N}\\mathrm{d}v\\left(\\vec{R}(u)-\\vec{R}(v)\\right)^{2} $$\nideal linear chain:\n$$ \\langle R_{g}^{2}\\rangle = \\frac{1}{6}\\langle R^{2}\\rangle = \\frac{1}{6}Nb^{2} = \\frac{l_{bp}\\xi_{p}}{3} $$\nEntropic Force $$ p(N,x) = \\frac{1}{\\sqrt{2\\pi Na^{2}}}\\exp{\\left(-\\frac{x^{2}}{2Na^{2}}\\right)} $$\n熵变\n$$ \\Delta S = k_{B}\\ln{\\frac{\\Omega(N,x)}{\\Omega(N,0)}} = k_{B}\\ln{\\frac{p(N,x)}{p(N,0)}} = -\\frac{k_{B}}{2Na^{2}}x^{2} $$\n自由能变\n$$ \\Delta G = \\Delta U - T\\Delta S = \\frac{k_{B}T}{2Na^{2}}x^{2} $$\n熵弹性力\n$$ f = \\frac{\\partial G(N,x)}{\\partial x} = \\frac{k_{B}T}{Na^{2}}x $$\n限定该力在 $x\\ll Na$ 范围内.\n热力学回顾:\n$$ H\\equiv U+PV,\\quad F\\equiv U-TS, \\quad G\\equiv H-TS = U-TS+PV, $$\n$$ F = -\\frac{\\partial G}{\\partial L} $$\n对于 freely-jointed chain 有 $U,T,P$ 不变, 即\n$$ F_{\\text{FJC}} = -T\\frac{\\partial S}{\\partial L} $$\nMembrane curvature 表面张力: $$\\gamma = \\frac{F}{L} = \\frac{\\mathrm{d}W}{\\mathrm{d}A}$$\nLaplace-Young law: $$\\Delta P = \\frac{2\\gamma}{R}$$\n表面方程 $$ \\vec{r} = (u,v,h(u,v)) = (x,y,h(x,y)) $$\n切向矢量 $$ \\vec{r}_{u} = \\frac{\\partial\\vec{r}}{\\partial u},\\quad \\vec{r}_{v} = \\frac{\\partial\\vec{r}}{\\partial v} $$\n法向矢量 $$ \\hat{n} = \\frac{\\vec{r}_{u}\\times \\vec{r}_{v}}{|\\vec{r}_{u}\\times \\vec{r}_{v}|} $$\n在 Monge gauge 下, 有\n$$ \\vec{r}_{u} = \\vec{r}_{x} = (1,0,h_{x}),\\quad \\vec{r}_{v} = \\vec{r}_{y} = (0,1,h_{y})\\\\ \\mathrm{d}A = \\mathrm{d}x\\mathrm{d}y\\sqrt{1+h^{2}_{x}+h_{y}^{2}} $$\n更一般性地,\n$$ (\\mathrm{d}s)^{2} = (\\mathrm{d}\\vec{r})^{2} = (\\vec{r}_{u}\\mathrm{d}u + \\vec{r}_{v}\\mathrm{d}v)^{2} = E\\mathrm{d}u^{2} + 2F\\mathrm{d}u\\mathrm{d}v + G\\mathrm{d}v^{2}\\\\ E = \\left(\\frac{\\partial\\vec{r}}{\\partial u}\\right)^{2},\\quad F = \\frac{\\partial\\vec{r}}{\\partial u}\\cdot \\frac{\\partial\\vec{r}}{\\partial v},\\quad G = \\left(\\frac{\\partial\\vec{r}}{\\partial v}\\right)^{2} $$\n定义参数 metric(度规) $g$:\n$$ g = EG-F^{2} = (\\vec{r}_{u}\\times \\vec{r}_{v})^{2} \u003e 0 $$\n那么\n$$ \\mathrm{d}A = |\\vec{r}_{u}\\times \\vec{r}_{v}|\\mathrm{d}u\\mathrm{d}v = \\sqrt{g}\\mathrm{d}u\\mathrm{d}v $$\n法向矢量\n$$ \\hat{n} = \\frac{\\hat{z} - h_{x}\\hat{x} - h_{y}\\hat{y}}{\\sqrt{1+h_{x}^{2}+h_{y}^{2}}} $$\n二阶导\n$$ \\vec{r}^{\\prime\\prime} = u^{\\prime\\prime}\\vec{r}_{u} + v^{\\prime\\prime}\\vec{r}_{v} + (u^{\\prime})^{2}\\vec{r}_{uu} + (v^{\\prime})^{2}\\vec{r}_{vv} + 2(u^{\\prime}v^{\\prime})\\vec{r}_{uv} $$\n曲率被定义为 $$ \\kappa = \\vec{r}^{\\prime\\prime}\\cdot \\hat{n} = \\frac{L(\\mathrm{d}u)^{2}+2M\\mathrm{d}u\\mathrm{d}v + N(\\mathrm{d}v)^{2}}{E(\\mathrm{d}u)^{2} + 2F\\mathrm{d}u\\mathrm{d}v + G(\\mathrm{d}v)^{2}}\\\\ L = -\\hat{n}_{u}\\cdot \\vec{r}_{u},\\quad M = -\\hat{n}_{u}\\cdot \\vec{r}_{v},\\quad N = -\\hat{n}_{v}\\cdot \\vec{r}_{v} $$\n因此曲率也可写作\n$$ \\kappa = -\\frac{\\mathrm{d}\\vec{r}\\cdot\\mathrm{d}\\hat{n}}{\\mathrm{d}\\vec{r}\\cdot\\mathrm{d}\\vec{r}} $$\n设任意位置矢量 $\\hat{a} = l\\vec{r}_{u} + m\\vec{r}_{v}$. 则该位置的曲率为\n$$ \\kappa = Ll^{2} + 2Mlm + Nm^{2} $$\n因为 $a^{2} = El^{2} + 2Flm + Gm^{2} = 1$, 以此为约束求解 Lagrange 极值:\n$$ \\widetilde{\\kappa} = Ll^{2} + 2Mlm + Nm^{2} - \\lambda(El^{2} + 2Flm + Gm^{2}) $$\n令 $\\partial\\widetilde{\\kappa}/\\partial l = \\partial\\widetilde{\\kappa}/\\partial m = 0$ 求得 $l,m$. 于是得到 $\\kappa$ 的两个根:\n$$ \\text{Mean curvature:}\\quad H = \\frac{EN+GL-2FM}{2(EG-F^{2})}\\\\ \\text{Gaussian curvature:}\\quad K = \\frac{LN-M^{2}}{EG-F^{2}} $$\n若\n$$ E = 1+ h_{x}^{2},\\quad F = h_{x}h_{y},\\quad G = 1+h_{y}^{2}\\\\ L = \\frac{h_{xx}}{\\sqrt{1+h_{x}^{2}+h_{y}^{2}}},\\quad M = \\frac{h_{xy}}{\\sqrt{1+h_{x}^{2}+h_{y}^{2}}},\\quad N = \\frac{h_{yy}}{\\sqrt{1+h_{x}^{2}+h_{y}^{2}}} $$\n则\n$$ H = \\frac{(1+h_{x}^{2})h_{yy} + (1+h_{y}^{2})h_{xx} - 2h_{x}h_{y}h_{xy}}{2(1+h_{x}^{2}+h_{y}^{2})^{3/2}},\\quad K = \\frac{h_{xx}h_{yy} - h_{xy}^{2}}{(1+h_{x}^{2}+h_{y}^{2})^{2}} $$\n若 $h_{x}, h_{y} \\ll 1$, 则\n$$ H\\approx \\frac{1}{2}(h_{xx} + h_{yy}),\\quad K \\approx h_{xx}h_{yy} - h_{xy}^{2} $$\n表面能\n$$ \\mathrm{d}E_{\\text{surface}} = \\left[ \\frac{\\kappa}{2}\\left( \\frac{1}{R_{1}} + \\frac{1}{R_{2}} - \\frac{2}{R_{0}}\\right)^{2} + \\frac{\\kappa_{G}}{R_{1}R_{2}} \\right]\\mathrm{d}A $$\n通过 Hessian 矩阵来处理曲率问题:\n2D 曲面\n$$ \\mathbf{H}(\\mathbf{x}) = \\begin{pmatrix} \\frac{\\partial^{2}h}{\\partial x^{2}} \u0026 \\frac{\\partial^{2}h}{\\partial x\\partial y}\\\\ \\frac{\\partial^{2}h}{\\partial y\\partial x} \u0026 \\frac{\\partial^{2}h}{\\partial y^{2}} \\end{pmatrix} $$\n通过求 $\\text{det}(\\mathbf{H}-\\lambda\\mathbf{I}) = 0$ 的本征值得到曲率:\n$$ \\mathbf{H}_{D}(\\mathbf{x}) = \\begin{pmatrix} \\frac{\\partial^{2}h}{\\partial^{2}a} \u0026 0\\\\ 0 \u0026 \\frac{\\partial^{2}h}{\\partial^{2}b} \\end{pmatrix} = \\begin{pmatrix} \\kappa_{1} \u0026 0\\\\ 0 \u0026 \\kappa_{2} \\end{pmatrix},\\quad \\kappa_{1,2} = \\frac{1}{R_{1,2}} $$\n如何改变 Membrane 最节能?\n$$ \\begin{aligned} G_{\\text{stretch}} = \\frac{K_{a}}{2}\\frac{\\Delta a^{2}}{a_{0}},\\quad K_{a}\\sim 60kT/\\text{nm}^{2}\\\\ G_{\\text{thick}} = \\frac{K_{t}}{2}(\\frac{\\Delta w}{w_{0}})^{2}a_{0},\\quad K_{t}\\sim 60kT/\\text{nm}^{2}\\\\ G_{\\text{bend}} = \\frac{K_{b}}{2}\\frac{a_{0}}{R^{2}},\\quad K_{b}\\sim 15kT \\end{aligned} $$\nVesicle $\\kappa_{1} = \\kappa_{2} = \\frac{1}{R}$\n$$ G_{\\text{bend}} = \\frac{K_{b}}{2}\\int(2\\kappa)^{2}\\mathrm{d}a = \\frac{K_{b}}{2}\\frac{4}{R^{2}}4\\pi R^{2} = 8\\pi K_{b} $$\nCylinder $\\kappa_{1} = 0$, $\\kappa_{2} = \\frac{1}{R}$\n$$ G_{\\text{bend}} = \\frac{K_{b}}{2}\\int\\frac{1}{R^{2}}\\mathrm{d}a = K_{b}\\pi\\frac{L}{R} $$\nPatch clamp(膜片钳技术) 大囊泡+运输管+小球冠:\n$$ \\begin{aligned} G_{\\text{bend}} \u0026= 8\\pi K_{b} + \\pi K_{b}\\frac{L}{r} + 4\\pi K_{b} = 12\\pi K_{b} + \\pi K_{b}\\frac{L}{r}\\\\ G_{\\text{stretch}} \u0026= \\frac{K_{a}}{2}\\frac{(a-a_{0})^{2}}{a_{0}}\\\\ G_{pV} \u0026= -\\Delta p\\left( \\frac{4}{3}\\pi R^{3} + r^{2}\\pi L \\right)\\\\ G_{\\text{load}} \u0026= -fL \\end{aligned} $$\n总能量 $G_{\\text{tot}}$ 对各参数偏导均为 0:\n$$ \\begin{aligned} \\frac{\\partial G_{\\text{tot}}}{\\partial R} \u0026= 0\\Rightarrow 8\\pi\\tau R - 4\\pi\\Delta p R^{2} = 0\\\\ \\frac{\\partial G_{\\text{tot}}}{\\partial r} \u0026= 0\\Rightarrow -\\pi K_{b}\\frac{L}{r^{2}} + 2\\pi\\tau L - 2\\pi\\Delta p r L = 0\\\\ \\frac{\\partial G_{\\text{tot}}}{\\partial L} \u0026= 0\\Rightarrow \\pi K_{b}\\frac{1}{r} + 2\\pi\\tau r - \\pi\\Delta p r^{2} - f = 0 \\end{aligned} $$\n其中 $\\tau = K_{a}(a-a_{0})/a_{0}$, 解得 $f = 2\\pi\\sqrt{2K_{b}\\tau}$.\nMolecular interactions Covalent bond(共价键), Ionic Bond(离子键), Metallic Bond(金属键), Hydrogen bond(氢键), Dipole‐dipole interactions, Lennard‐Jones potential(范德华力)\n",
+  "wordCount" : "1580",
+  "inLanguage": "zh",
+  "datePublished": "2025-10-14T00:18:06+08:00",
+  "dateModified": "2025-10-14T00:18:06+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/phy/scmp/review-soft-matter-physics/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/">🧱 PHY</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/phy/scmp/">🔧 (Soft) Condensed Matter Physics</a></div>
+            <h1 class="post-title">
+                软物质导论 复习提纲
+            </h1>
+            <div class="post-description">
+                整理自Jakob的软物质导论课件与作业, 可能未必完整覆盖博资考范围
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-10-14
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1580字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>4分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">Read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#polydiversity" aria-label="Polydiversity">Polydiversity</a></li>
+                <li>
+                    <a href="#mixing-entropy" aria-label="Mixing entropy">Mixing entropy</a></li>
+                <li>
+                    <a href="#condensation-polynomials" aria-label="Condensation polynomials">Condensation polynomials</a></li>
+                <li>
+                    <a href="#1d-random-walk-polymer" aria-label="1D random walk polymer">1D random walk polymer</a></li>
+                <li>
+                    <a href="#freely-jointed-chain" aria-label="Freely-jointed chain">Freely-jointed chain</a></li>
+                <li>
+                    <a href="#radius-of-gyration%e5%9d%87%e6%96%b9%e6%a0%b9%e5%8d%8a%e5%be%84" aria-label="Radius of gyration(均方根半径)">Radius of gyration(均方根半径)</a></li>
+                <li>
+                    <a href="#entropic-force" aria-label="Entropic Force">Entropic Force</a></li>
+                <li>
+                    <a href="#membrane-curvature" aria-label="Membrane curvature">Membrane curvature</a></li>
+                <li>
+                    <a href="#vesicle" aria-label="Vesicle">Vesicle</a></li>
+                <li>
+                    <a href="#patch-clamp%e8%86%9c%e7%89%87%e9%92%b3%e6%8a%80%e6%9c%af" aria-label="Patch clamp(膜片钳技术)">Patch clamp(膜片钳技术)</a></li>
+                <li>
+                    <a href="#molecular-interactions" aria-label="Molecular interactions">Molecular interactions</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="polydiversity">Polydiversity<a hidden class="anchor" aria-hidden="true" href="#polydiversity">#</a></h1>
+<p>$N$:聚合度(degree of polymerization), 即 polymer 的长度</p>
+<p>$M_{N}$: 分子质量, 若每个单元的质量为 $M_{MON}$, 则 $M_{N} = NM_{MON}$</p>
+<p>$n_{N}$: 数量分数. 即随机抽选一个 polymer, 聚合度为 $N$ 的概率</p>
+<p>$w_{N}$: 权重分数,</p>
+<p>$$
+w_{N} = \frac{n_{N}M_{N}}{\sum_{N}n_{N}M_{N}} = \frac{n_{N}N}{\sum_{N}n_{N}N}
+$$</p>
+<p>K 阶矩(moment):</p>
+<p>$$
+m_{k} = \sum_{N}n_{N}M_{N}^{k},\quad m_{0} = \sum_{N}n_{N} = 1
+$$</p>
+<p>数平均质量</p>
+<p>$$
+M_{n} \equiv \frac{m_{1}}{m_{0}} = \frac{\sum_{N}n_{N}M_{N}}{\sum_{N}n_{N}} = \sum_{M}n_{N}M_{N}
+$$</p>
+<p>加权平均质量</p>
+<p>$$
+M_{w} \equiv \frac{m_{2}}{m_{1}} = \frac{\sum_{N}n_{N}M_{N}^{2}}{\sum_{N}n_{N}M_{N}}
+$$</p>
+<p>多分散度(Polydiversity Index)</p>
+<p>$$
+\text{PI} = \frac{M_{w}}{M_{n}} \geq 1
+$$</p>
+<blockquote>
+<p>使用 Cauchy-Schwarz 不等式可证明.</p>
+<p>$$
+\left(\sum_{i=1}^{n}u_{i}^{2}\right)\left(\sum_{i=1}^{n}v_{i}^{2}\right)\geq \left(\sum_{i=1}^{n}u_{i}v_{i}\right)
+$$</p>
+<p>令 $u_{i}=\sqrt{n_{N}}M_{N}$, $v_{i}=\sqrt{n_{N}}$.</p>
+</blockquote>
+<h1 id="mixing-entropy">Mixing entropy<a hidden class="anchor" aria-hidden="true" href="#mixing-entropy">#</a></h1>
+<p>总数 $A$ 和 $B$ 的物质, 处于态 $|1\rangle, |2\rangle, \cdots$ 的数目各自为 $a_{1},b_{1}$; $a_{2}, b_{2}\cdots$.</p>
+<p>混合和分离的状态数依次为</p>
+<p>$$
+\Omega_{\text{Mix}} = \frac{(A+B)!}{a_{1}!b_{1}!a_{2}!b_{2}!\cdots},\quad \Omega_{\text{Sep}} = \frac{A!}{a_{1}!a_{2}!\cdots}\frac{B!}{b_{1}!b_{2}!\cdots}
+$$</p>
+<p>混合熵</p>
+<p>$$
+\Delta S_{\text{mix}} = -k_{B}\left(
+A\ln{\frac{A}{A+B}} + B\ln{\frac{B}{A+B}}
+\right)
+$$</p>
+<p>令体积分数 $\phi_{A} = \frac{V_{A}}{V_{A}+V_{B}}$, $\phi_{B} = \frac{V_{B}}{V_{A}+V_{B}} = 1 - \phi_{A}$. 若两种物质的基本组成单位体积都是 $v_{0}$, 那么可以约定</p>
+<p>$$
+n = \frac{V_{A}+V_{B}}{v_{0}}
+$$</p>
+<p>混合熵写作</p>
+<p>$$
+\Delta S_{\text{mix}} = - k_{B}(n_{A}\ln{\phi_{A}} + n_{B}\ln{\phi_{B}})
+$$</p>
+<p>每个基本组成单位的混合熵(Entropy of mixing per lattice site)</p>
+<p>$$
+\Delta \bar{S}_{\text{mix}} = -k_{B}\left[
+\frac{\phi_{A}}{N_{A}}\ln{\phi_{A}} + \frac{\phi_{B}}{N_{B}}\ln{\phi_{B}}
+\right]
+$$</p>
+<blockquote>
+<p>其中 $N_{A}, N_{B}$ 分别是 $A, B$ 的聚合度(分子长度).</p>
+</blockquote>
+<h1 id="condensation-polynomials">Condensation polynomials<a hidden class="anchor" aria-hidden="true" href="#condensation-polynomials">#</a></h1>
+<h1 id="1d-random-walk-polymer">1D random walk polymer<a hidden class="anchor" aria-hidden="true" href="#1d-random-walk-polymer">#</a></h1>
+<p>步长 $a$, 步数 $N = n_{l} + n_{r}$, 末端位置 $R = (n_{r} - n_{l})a$.</p>
+<p>$$
+\begin{aligned}
+p(R,N) &amp;= \frac{N!}{(\frac{Na+R}{2a})!(\frac{Na-R}{2a})!}\left(\frac{1}{2}\right)^{N}\\
+\ln{p} &amp;\approx \ln{\sqrt{\frac{2}{\pi N}}} - \frac{R^{2}}{2Na^{2}}\\
+p(R,N) &amp;\approx \sqrt{\frac{2}{\pi N}}\exp{\left(-\frac{R^{2}}{2Na^{2}}\right)}
+\end{aligned}
+$$</p>
+<p>通过 $\int_{-Na}^{Na}p\mathrm{d}R$ 计算归一化系数为 $2a$. 所以最后的概率密度为</p>
+<p>$$
+p(R;N) = \sqrt{\frac{1}{2\pi Na^{2}}} \exp{\left(-\frac{R^{2}}{2Na^{2}}\right)}
+$$</p>
+<p>这是一个高斯分布, 均值为 $\bar{R} = 0$, 方差为 $\sigma_{R}^{2} = Na^{2}$.</p>
+<h1 id="freely-jointed-chain">Freely-jointed chain<a hidden class="anchor" aria-hidden="true" href="#freely-jointed-chain">#</a></h1>
+<p>Ideal chain. 单元长度 $l$, 段间成角 $\theta$, 则围线长度(contour length) $R_{\text{max}} = nl\cos{\frac{\theta}{2}}$.</p>
+<p>Freely jointed chain. 3D random walk.</p>
+<p>$$
+\langle R^{2} \rangle = \sum_{i,j}\langle \vec{r}_{i}\cdot \vec{r}_{j} \rangle = \sum_{i,j}\langle \cos{\theta_{ij}} \rangle = nl^{2}
+$$</p>
+<p>对于每个单元 $i$, 定义参数 characteristic ratio(特征比)</p>
+<p>$$
+C_{i}^{\prime} \equiv \sum_{j=1}^{n}\langle \cos{\theta_{ij}}\rangle,\quad C_{n} = \frac{1}{n}\sum_{i=1}^{n}C_{i}^{\prime}
+$$</p>
+<p>这样方均位移为</p>
+<p>$$
+\langle R^{2}\rangle = l^{2}\sum_{i=1}^{n}\sum_{j=1}^{n}\langle \cos{\theta_{ij}}\rangle = l^{2}\sum_{i=1}^{n}C_{i}^{\prime} = C_{n}nl^{2}
+$$</p>
+<p>长链极限</p>
+<p>$$
+\langle R^{2}\rangle \approx C_{\infty}nl^{2}
+$$</p>
+<p>定义 Kuhn length $b$, 从而将 Ideal chain 等效为 freely-jointed chain:</p>
+<p>$$
+Nb = R_{\text{max}},\quad \langle R^{2}\rangle = Nb^{2} = bR_{\text{max}} = C_{\infty}nl^{2}
+$$</p>
+<p>于是反解</p>
+<p>$$
+N = \frac{R_{\text{max}}^{2}}{C_{\infty}nl^{2}},\quad b = \frac{\langle R^{2}\rangle}{R_{\text{max}}} = \frac{C_{\infty}nl^{2}}{R_{\text{max}}}
+$$</p>
+<p>Freely rotating chain. 固定 $\theta$, 随机 $\phi$.</p>
+<p>$$
+\langle R^{2}\rangle = nl^{2} + l^{2}\sum_{i=1}^{n}\left(
+\sum_{k=1}^{i-1}\cos^{k}{\theta} + \sum_{k=1}^{n-i}\cos^{k}{\theta}
+\right)\simeq nl^{2}\frac{1+\cos{\theta}}{1-\cos{\theta}}
+$$</p>
+<p>persistence segment 长度定义为</p>
+<p>$$
+s_{p} = -\frac{1}{\ln{\cos{\theta}}}
+$$</p>
+<p>更严谨的定义是</p>
+<p>$$
+\langle \cos{\theta(s)}\rangle = e^{-s/L_{p}}
+$$</p>
+<p>worm-like chain 是 freely-rotating chain 连接角 $\theta \to 0$ 的极限.</p>
+<p>$$
+s_{p} = -\frac{1}{\ln{\cos{\theta}}} \simeq \frac{2}{\theta^{2}},\quad l_{p} \equiv s_{p}l = l\frac{2}{\theta^{2}},\quad C_{\infty} = \frac{1+\cos{\theta}}{1-\cos{\theta}} \simeq \frac{2-\theta^{2}/2}{\theta^{2}/2} \simeq \frac{4}{\theta^{2}},\quad b = l\frac{C_{\infty}}{\cos{(\theta/2)}} \simeq l\frac{4}{\theta^{2}} = 2l_{p}
+$$</p>
+<h1 id="radius-of-gyration均方根半径">Radius of gyration(均方根半径)<a hidden class="anchor" aria-hidden="true" href="#radius-of-gyration均方根半径">#</a></h1>
+<p>$$
+\langle R_{g}^{2}\rangle = \frac{1}{N}\sum_{i=1}^{N}\langle (\vec{R}_{i} - \vec{R}_{\text{CM}})^{2}\rangle,\quad \vec{R}_{\text{CM}} = \frac{\sum_{i=1}^{N}M_{i}\vec{R}_{i}}{\sum_{i=1}^{N}M_{i}}
+$$</p>
+<p>另一种计算方式为</p>
+<p>$$
+R_{g}^{2} = \frac{1}{N^{2}}\sum_{i=1}^{N}\sum_{j=i}^{N}\left(\vec{R}_{i}-\vec{R}_{j}\right)^{2} = \frac{1}{N^{2}}\int_{0}^{N}\mathrm{d}u\int_{u}^{N}\mathrm{d}v\left(\vec{R}(u)-\vec{R}(v)\right)^{2}
+$$</p>
+<p>ideal linear chain:</p>
+<p>$$
+\langle R_{g}^{2}\rangle = \frac{1}{6}\langle R^{2}\rangle = \frac{1}{6}Nb^{2} = \frac{l_{bp}\xi_{p}}{3}
+$$</p>
+<h1 id="entropic-force">Entropic Force<a hidden class="anchor" aria-hidden="true" href="#entropic-force">#</a></h1>
+<p>$$
+p(N,x) = \frac{1}{\sqrt{2\pi Na^{2}}}\exp{\left(-\frac{x^{2}}{2Na^{2}}\right)}
+$$</p>
+<p>熵变</p>
+<p>$$
+\Delta S = k_{B}\ln{\frac{\Omega(N,x)}{\Omega(N,0)}} = k_{B}\ln{\frac{p(N,x)}{p(N,0)}} = -\frac{k_{B}}{2Na^{2}}x^{2}
+$$</p>
+<p>自由能变</p>
+<p>$$
+\Delta G = \Delta U - T\Delta S = \frac{k_{B}T}{2Na^{2}}x^{2}
+$$</p>
+<p>熵弹性力</p>
+<p>$$
+f = \frac{\partial G(N,x)}{\partial x} = \frac{k_{B}T}{Na^{2}}x
+$$</p>
+<p>限定该力在 $x\ll Na$ 范围内.</p>
+<blockquote>
+<p>热力学回顾:</p>
+<p>$$
+H\equiv U+PV,\quad F\equiv U-TS, \quad G\equiv H-TS = U-TS+PV,
+$$</p>
+</blockquote>
+<p>$$
+F = -\frac{\partial G}{\partial L}
+$$</p>
+<p>对于 freely-jointed chain 有 $U,T,P$ 不变, 即</p>
+<p>$$
+F_{\text{FJC}} = -T\frac{\partial S}{\partial L}
+$$</p>
+<h1 id="membrane-curvature">Membrane curvature<a hidden class="anchor" aria-hidden="true" href="#membrane-curvature">#</a></h1>
+<p>表面张力: $$\gamma = \frac{F}{L} = \frac{\mathrm{d}W}{\mathrm{d}A}$$</p>
+<p>Laplace-Young law: $$\Delta P = \frac{2\gamma}{R}$$</p>
+<p>表面方程 $$
+\vec{r} = (u,v,h(u,v)) = (x,y,h(x,y))
+$$</p>
+<p>切向矢量 $$
+\vec{r}_{u} = \frac{\partial\vec{r}}{\partial u},\quad \vec{r}_{v} = \frac{\partial\vec{r}}{\partial v}
+$$</p>
+<p>法向矢量 $$
+\hat{n} = \frac{\vec{r}_{u}\times \vec{r}_{v}}{|\vec{r}_{u}\times \vec{r}_{v}|}
+$$</p>
+<p>在 Monge gauge 下, 有</p>
+<p>$$
+\vec{r}_{u} = \vec{r}_{x} = (1,0,h_{x}),\quad \vec{r}_{v} = \vec{r}_{y} = (0,1,h_{y})\\
+\mathrm{d}A = \mathrm{d}x\mathrm{d}y\sqrt{1+h^{2}_{x}+h_{y}^{2}}
+$$</p>
+<p>更一般性地,</p>
+<p>$$
+(\mathrm{d}s)^{2} = (\mathrm{d}\vec{r})^{2} = (\vec{r}_{u}\mathrm{d}u + \vec{r}_{v}\mathrm{d}v)^{2} = E\mathrm{d}u^{2} + 2F\mathrm{d}u\mathrm{d}v + G\mathrm{d}v^{2}\\
+E = \left(\frac{\partial\vec{r}}{\partial u}\right)^{2},\quad F = \frac{\partial\vec{r}}{\partial u}\cdot \frac{\partial\vec{r}}{\partial v},\quad G = \left(\frac{\partial\vec{r}}{\partial v}\right)^{2}
+$$</p>
+<p>定义参数 metric(度规) $g$:</p>
+<p>$$
+g = EG-F^{2} = (\vec{r}_{u}\times \vec{r}_{v})^{2} &gt; 0
+$$</p>
+<p>那么</p>
+<p>$$
+\mathrm{d}A = |\vec{r}_{u}\times \vec{r}_{v}|\mathrm{d}u\mathrm{d}v = \sqrt{g}\mathrm{d}u\mathrm{d}v
+$$</p>
+<p>法向矢量</p>
+<p>$$
+\hat{n} = \frac{\hat{z} - h_{x}\hat{x} - h_{y}\hat{y}}{\sqrt{1+h_{x}^{2}+h_{y}^{2}}}
+$$</p>
+<p>二阶导</p>
+<p>$$
+\vec{r}^{\prime\prime} = u^{\prime\prime}\vec{r}_{u} + v^{\prime\prime}\vec{r}_{v} + (u^{\prime})^{2}\vec{r}_{uu} + (v^{\prime})^{2}\vec{r}_{vv} + 2(u^{\prime}v^{\prime})\vec{r}_{uv}
+$$</p>
+<p>曲率被定义为 $$
+\kappa = \vec{r}^{\prime\prime}\cdot \hat{n} = \frac{L(\mathrm{d}u)^{2}+2M\mathrm{d}u\mathrm{d}v + N(\mathrm{d}v)^{2}}{E(\mathrm{d}u)^{2} + 2F\mathrm{d}u\mathrm{d}v + G(\mathrm{d}v)^{2}}\\
+L = -\hat{n}_{u}\cdot \vec{r}_{u},\quad M = -\hat{n}_{u}\cdot \vec{r}_{v},\quad N = -\hat{n}_{v}\cdot \vec{r}_{v}
+$$</p>
+<p>因此曲率也可写作</p>
+<p>$$
+\kappa = -\frac{\mathrm{d}\vec{r}\cdot\mathrm{d}\hat{n}}{\mathrm{d}\vec{r}\cdot\mathrm{d}\vec{r}}
+$$</p>
+<p>设任意位置矢量 $\hat{a} = l\vec{r}_{u} + m\vec{r}_{v}$. 则该位置的曲率为</p>
+<p>$$
+\kappa = Ll^{2} + 2Mlm + Nm^{2}
+$$</p>
+<p>因为 $a^{2} = El^{2} + 2Flm + Gm^{2} = 1$, 以此为约束求解 Lagrange 极值:</p>
+<p>$$
+\widetilde{\kappa} = Ll^{2} + 2Mlm + Nm^{2} - \lambda(El^{2} + 2Flm + Gm^{2})
+$$</p>
+<p>令 $\partial\widetilde{\kappa}/\partial l = \partial\widetilde{\kappa}/\partial m = 0$ 求得 $l,m$. 于是得到 $\kappa$ 的两个根:</p>
+<p>$$
+\text{Mean curvature:}\quad H = \frac{EN+GL-2FM}{2(EG-F^{2})}\\
+\text{Gaussian curvature:}\quad K = \frac{LN-M^{2}}{EG-F^{2}}
+$$</p>
+<p>若</p>
+<p>$$
+E = 1+ h_{x}^{2},\quad F = h_{x}h_{y},\quad G = 1+h_{y}^{2}\\
+L = \frac{h_{xx}}{\sqrt{1+h_{x}^{2}+h_{y}^{2}}},\quad M = \frac{h_{xy}}{\sqrt{1+h_{x}^{2}+h_{y}^{2}}},\quad N = \frac{h_{yy}}{\sqrt{1+h_{x}^{2}+h_{y}^{2}}}
+$$</p>
+<p>则</p>
+<p>$$
+H = \frac{(1+h_{x}^{2})h_{yy} + (1+h_{y}^{2})h_{xx} - 2h_{x}h_{y}h_{xy}}{2(1+h_{x}^{2}+h_{y}^{2})^{3/2}},\quad
+K = \frac{h_{xx}h_{yy} - h_{xy}^{2}}{(1+h_{x}^{2}+h_{y}^{2})^{2}}
+$$</p>
+<p>若 $h_{x}, h_{y} \ll 1$, 则</p>
+<p>$$
+H\approx \frac{1}{2}(h_{xx} + h_{yy}),\quad K \approx h_{xx}h_{yy} - h_{xy}^{2}
+$$</p>
+<p>表面能</p>
+<p>$$
+\mathrm{d}E_{\text{surface}} = \left[
+\frac{\kappa}{2}\left(
+\frac{1}{R_{1}} + \frac{1}{R_{2}} - \frac{2}{R_{0}}\right)^{2} + \frac{\kappa_{G}}{R_{1}R_{2}}
+\right]\mathrm{d}A
+$$</p>
+<p>通过 Hessian 矩阵来处理曲率问题:</p>
+<p>2D 曲面</p>
+<p>$$
+\mathbf{H}(\mathbf{x}) = \begin{pmatrix}
+\frac{\partial^{2}h}{\partial x^{2}} &amp; \frac{\partial^{2}h}{\partial x\partial y}\\
+\frac{\partial^{2}h}{\partial y\partial x} &amp; \frac{\partial^{2}h}{\partial y^{2}}
+\end{pmatrix}
+$$</p>
+<p>通过求 $\text{det}(\mathbf{H}-\lambda\mathbf{I}) = 0$ 的本征值得到曲率:</p>
+<p>$$
+\mathbf{H}_{D}(\mathbf{x}) = \begin{pmatrix}
+\frac{\partial^{2}h}{\partial^{2}a} &amp; 0\\
+0 &amp; \frac{\partial^{2}h}{\partial^{2}b}
+\end{pmatrix} = \begin{pmatrix}
+\kappa_{1} &amp; 0\\
+0 &amp; \kappa_{2}
+\end{pmatrix},\quad \kappa_{1,2} = \frac{1}{R_{1,2}}
+$$</p>
+<p>如何改变 Membrane 最节能?</p>
+<p>$$
+\begin{aligned}
+G_{\text{stretch}} = \frac{K_{a}}{2}\frac{\Delta a^{2}}{a_{0}},\quad K_{a}\sim 60kT/\text{nm}^{2}\\
+G_{\text{thick}} = \frac{K_{t}}{2}(\frac{\Delta w}{w_{0}})^{2}a_{0},\quad K_{t}\sim 60kT/\text{nm}^{2}\\
+G_{\text{bend}} = \frac{K_{b}}{2}\frac{a_{0}}{R^{2}},\quad K_{b}\sim 15kT
+\end{aligned}
+$$</p>
+<h1 id="vesicle">Vesicle<a hidden class="anchor" aria-hidden="true" href="#vesicle">#</a></h1>
+<p>$\kappa_{1} = \kappa_{2} = \frac{1}{R}$</p>
+<p>$$
+G_{\text{bend}} = \frac{K_{b}}{2}\int(2\kappa)^{2}\mathrm{d}a = \frac{K_{b}}{2}\frac{4}{R^{2}}4\pi R^{2} = 8\pi K_{b}
+$$</p>
+<blockquote>
+<p>Cylinder $\kappa_{1} = 0$, $\kappa_{2} = \frac{1}{R}$</p>
+<p>$$
+G_{\text{bend}} = \frac{K_{b}}{2}\int\frac{1}{R^{2}}\mathrm{d}a = K_{b}\pi\frac{L}{R}
+$$</p>
+</blockquote>
+<h1 id="patch-clamp膜片钳技术">Patch clamp(膜片钳技术)<a hidden class="anchor" aria-hidden="true" href="#patch-clamp膜片钳技术">#</a></h1>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/10/15/sKxgNtu61dLipj3.png" alt=""  />
+</p>
+</blockquote>
+<p>大囊泡+运输管+小球冠:</p>
+<p>$$
+\begin{aligned}
+G_{\text{bend}} &amp;= 8\pi K_{b} + \pi K_{b}\frac{L}{r} + 4\pi K_{b} = 12\pi K_{b} + \pi K_{b}\frac{L}{r}\\
+G_{\text{stretch}} &amp;= \frac{K_{a}}{2}\frac{(a-a_{0})^{2}}{a_{0}}\\
+G_{pV} &amp;= -\Delta p\left(
+\frac{4}{3}\pi R^{3} + r^{2}\pi L
+\right)\\
+G_{\text{load}} &amp;= -fL
+\end{aligned}
+$$</p>
+<p>总能量 $G_{\text{tot}}$ 对各参数偏导均为 0:</p>
+<p>$$
+\begin{aligned}
+\frac{\partial G_{\text{tot}}}{\partial R} &amp;= 0\Rightarrow 8\pi\tau R - 4\pi\Delta p R^{2} = 0\\
+\frac{\partial G_{\text{tot}}}{\partial r} &amp;= 0\Rightarrow -\pi K_{b}\frac{L}{r^{2}} + 2\pi\tau L - 2\pi\Delta p r L = 0\\
+\frac{\partial G_{\text{tot}}}{\partial L} &amp;= 0\Rightarrow \pi K_{b}\frac{1}{r} + 2\pi\tau r - \pi\Delta p r^{2} - f = 0
+\end{aligned}
+$$</p>
+<p>其中 $\tau = K_{a}(a-a_{0})/a_{0}$, 解得 $f = 2\pi\sqrt{2K_{b}\tau}$.</p>
+<h1 id="molecular-interactions">Molecular interactions<a hidden class="anchor" aria-hidden="true" href="#molecular-interactions">#</a></h1>
+<p>Covalent bond(共价键), Ionic Bond(离子键), Metallic Bond(金属键), Hydrogen bond(氢键), Dipole‐dipole interactions, Lennard‐Jones potential(范德华力)</p>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/cs/skills/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>博客使用技巧</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Neurons with graded response have collective computational properties like those of two-state neurons</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
