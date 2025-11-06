@@ -144,7 +144,7 @@ var _hmt = _hmt || [];
     ""
   ],
   "articleBody": "Introduction 1.1 Inspiration from Neuroscience Neurons McCulloch-Pitts Neuron Model\n$$ n_{i}(t+1) = \\Theta\\left[\\sum_{j}w_{ij}n_{j}(t)-\\mu_{i}\\right],\\quad \\Theta(x) = \\begin{cases} 1, \u0026 x \\geq 0 \\\\ 0, \u0026 \\text{otherwise} \\end{cases} $$\n$w_{ij}$: the strength of the synapse connecting neuron $j$ to neuron $i$.\ngraded response: respond to their input in a continuous way\nasynchronous updating(异步更新)\n$$ n_{i}:= g\\left( \\sum_{j}w_{ij}n_{j}-\\mu_{i} \\right) $$\n$n_{i}$: the state or activation of unit $i$.\n$g(x)$: (nonlinear) activation function, gain function, transfer function, or squashing function\nneuron $\\rightarrow$ unit(processing element, neurodes), synapse(突触) $\\rightarrow$ weight(权重).\nParallel Processing 数量的巨大以允许错误与噪声.\n1.2 History associative content-addressable memory(联想内容寻址记忆), CAM\nThe Hopfield Model 2.1 The Associative Memory Problem Store a set of $p$ patterns $\\xi_{i}^{\\mu}$? in such a way that when presented with a new pattern $\\zeta_{i}$, the network responds by producing whichever one o f the stored patterns most closely resembles $\\zeta_{i}$.\n存储 $p$ 个图案 $\\xi_{i}^{\\mu}$ 为一组，这样当出现一个新图案 $\\zeta_{i}$ 时，网络就会做出反应，生成存储图案中与 $\\zeta_{i}$ 最相似的图案。其中 $\\mu=1,2,\\cdots,p$ 是图案的索引，$i=1,2,\\cdots N$ 是神经元的索引.\nHamming distance:\n$$ \\sum_{i}[\\xi_{i}^{\\mu}(1-\\zeta_{i}) + (1-\\xi_{i}^{\\mu})\\zeta_{i}] $$\n如何构建 $w_{ij}$, 使得输入测试图案 $n_{i}=\\zeta_{i}$ 时, 输出记忆图案 $n_{i}=\\xi_{i}^{\\mu_{0}}$, 其中 $\\mu_{0}$ 使得 Hamming distance($\\zeta_{i},\\xi_{i}^{\\mu}$) 最小.\n记忆图案是相空间中 $\\mu$ 个吸引子(attractor).\n2.2 The Model $n_{i}=0,1$ 记录单元的状态, 引入 $S_{i} = 2n_{i}-1 = \\pm 1$ 表示是否激活.\n令激活函数为符号函数:\n$$ S_{i} := \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}-\\theta_{i}\\right),\\quad \\text{sgn}(x) = \\begin{cases} 1, \u0026 x \\geq 0 \\\\ -1, \u0026 x \u003c 0 \\end{cases} $$\n$\\theta_{i}$: threshold(阈值), 其中 $\\theta_{i} = 2\\mu_{i}-\\sum_{j}w_{ij}$. 为简化可令 $\\theta_{i}=0$, 那么\n$$ S_{i} := \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}\\right) $$\n异步更新(asynchronous)/同步更新(synchronous).\n随机选取一个节点 $i$, 令其更新 令各节点以某概率判定是否更新. 两种方法是等价的.\n异步更新的终点是没有任何 $S_{i}$ 可变化. 这要求 $w_{ij}$: 1. 图案可被记忆为稳定点; 2. 抗微扰.\nOne Pattern 只记忆一个图案 $\\{\\xi_{i}\\}$, 则收敛条件为\n$$ \\text{sgn}\\left(\\sum_{j}^{N}w_{ij}\\xi_{j}\\right) = \\xi_{i},\\quad \\forall i $$\n取\n$$ w_{ij} = \\frac{1}{N}\\xi_{i}\\xi_{j} $$\n因为 $\\xi_{j}^{2} = 1$, 可以轻松验证该记忆方法成立.\n因为是符号函数, 因此即使初始态 $h_{i}=\\sum_{j}w_{ij}S_{j}$ 偏差于 $\\xi_{i}$, 只要符号不变, 仍然会收敛到 $\\xi_{i}$. 这就是 attractor(吸引子).\n在这种激活函数下, 吸引子成对存在.\nMany Patterns Hebb’s rule: 对于存储总共 $p$ 个图案, 使用 $\\mu$ 标记其中一种, 延拓定义\n$$ w_{ij} = \\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu} $$\n对第 $\\nu$ 个图案的稳定性条件: $\\text{sgn}(h_{i}^{\\nu}) = \\xi_{i}^{\\nu}$\n令输入\n$$ h_{i}^{\\nu} \\equiv \\sum_{j}w_{ij}\\xi_{j}^{\\nu} = \\frac{1}{N}\\sum_{j}\\sum_{\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} = \\xi_{i}^{\\nu} + \\frac{1}{N}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} $$\n第二项(被称为 crosstalk)足够小(\u003c1)甚至为 $0$ 时, 稳定性条件满足.\nStorage Capacity 令第二项乘上 $-\\xi_{i}^{\\nu}$, 从而引入\n$$ C_{i}^{\\nu} \\equiv -\\xi_{i}^{\\nu}\\frac{1}{N}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} $$\n那么\n$$ h_{i}^{\\nu} = \\xi_{i}^{\\nu} - \\frac{C_{i}^{\\nu}}{\\xi_{i}^{\\nu}} = \\xi_{i}^{\\nu}(1 - C_{i}^{\\nu}) $$\n因为 $(\\xi_{i}^{\\nu})^{2}=1$. 那么当 $C_{i}^{\\nu}\u003e1$ 时, $h_{i}^{\\nu}$ 将与 $\\xi_{i}^{\\nu}$ 异号.\n令存储图案中 $\\xi_{j}^{\\mu} = \\pm 1$ 等概率独立分布. 那么引入 $X_{j\\mu}=(\\xi_{i}^{\\nu}\\xi_{i}^{\\mu})\\xi_{j}^{\\nu}\\xi_{j}^{\\mu}$, 且有 $E[X_{j\\mu}]=0$, $\\text{Var}(X_{j\\mu})=1$.\n因此\n$$ \\begin{aligned} E[C_{i}^{\\nu}] \u0026=0 \\\\ \\text{Var}(C_{i}^{\\nu}) \u0026= \\frac{1}{N^{2}}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\text{Var}[X_{j\\mu}] = \\frac{1}{N^{2}}\\sum_{j}\\sum_{\\mu \\neq \\nu}1 = \\frac{1}{N^{2}}N(p-1) \\end{aligned} $$\n那么近似 $C_{i}^{\\nu}\\approx \\mathcal{N}\\left(0,\\frac{p}{N}\\right)$.\n规定 $P_{\\text{error}} = \\text{Prob}(C_{i}^{\\nu}\u003e1)$ 为出错概率, 那么 $P_{\\text{error}} \u003c\\epsilon$ 时的 $p = p_{\\text{max}}$ 被称作 storage capacity(存储容量).\n$$ P_{\\text{error}} = \\frac{1}{\\sqrt{2\\pi}\\sigma}\\int_{1}^{\\infty}e^{-x^{2}}/2\\sigma^{2}\\mathrm{d}x = \\frac{1}{2}[1-\\text{erf}(1/\\sqrt{2\\sigma^{2}})] = \\frac{1}{2}[1-\\text{erf}(\\sqrt{N/2p})] $$\nerror function: $$ \\text{erf}(x) = \\frac{2}{\\sqrt{\\pi}}\\int_{0}^{x}e^{-u^{2}}\\mathrm{d}u $$\n利用极限\n$$ \\lim_{x\\rightarrow\\infty}1-\\text{erf}(x) \\rightarrow e^{-x^{2}}/\\sqrt{\\pi}x $$\n近似\n$$ \\log{P_{\\text{error}}} \\approx -\\log{2} - N/2p - \\frac{1}{2}\\log{\\pi} - \\frac{1}{2}\\log{(N/2p)} $$\n错误率条件 $P_{\\text{error}}\u003c0.01/N$ 转化为 $N/2p\u003elog{N}$, 得到 $p_{\\text{max}} = N/2\\log{N}$.\nThe Energy Function 定义能量函数为\n$$ H = -\\frac{1}{2}\\sum_{i}\\sum_{j}w_{ij}S_{i}S_{j} $$\nLyapunov function.\n对称阵($w_{ij}=w_{ji}$) 时能量函数存在. 此时不妨写作\n$$ H = C - \\sum_{(ij)}w_{ij}S_{i}S_{j} $$\n尝试更新一次节点 $i$:\n$$ S_{i}^{\\prime} = \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}\\right) $$\n$S_{i}^{\\prime} = S_{i}$ 能量不变; $S_{i}^{\\prime} = -S_{i}$, 能量变换为\n$$ H^{\\prime} - H = -\\sum_{j\\neq i}w_{ij}S_{i}^{\\prime}S_{j} + \\sum_{j\\neq i}w_{ij}S_{i}S_{j} = 2S_{i}\\sum_{j\\neq i}w_{ij}S_{j} = 2S_{i}\\sum_{j}w_{ij}S_{j} - 2w_{ii} $$\n其中 $w_{ii} = p/N$, 所以 $\\Delta H\u003c0$.\n通过设定 $w_{ii}=0$, 使得 $S_{i}=\\pm 1$ 不会同时为稳定态.\nStarting from an Energy Function 单图案.\n$$ H = -\\frac{1}{2N}\\left(\\sum_{i}S_{i}\\xi_{i}\\right)^{2} $$\n多图案.\n$$ \\begin{aligned} H \u0026= - \\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} \\\\ \u0026= -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)\\left(\\sum_{i}S_{j}\\xi_{j}^{\\mu}\\right) = -\\frac{1}{2}\\sum_{ij}\\left(\\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\right)S_{i}S_{j} \\end{aligned} $$\n采用 Hebb’s rule 时即为能量函数的定义. 这就是通过最小能量观点寻找 $w_{ij}$ 的思路.\nSpurious States(杂散态) Hebb’s rule 适用的是 retrieval states(记忆态).\nSpurious States 被定义为奇数个 retrieval states 的线性组合. 如\n$$ \\xi_{i}^{\\text{mix}} = \\text{sgn}\\left(\\pm \\xi_{i}^{\\mu_{1}} \\pm \\xi_{i}^{\\mu_{2}} \\pm \\xi_{i}^{\\mu_{3}}\\right) $$\n以 $(+,+,+)$ 为例, 输入\n$$ h_{i}^{\\text{mix}} = \\frac{1}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\text{mix}} = \\frac{1}{2}\\xi_{i}^{\\mu_{1}} + \\frac{1}{2}\\xi_{i}^{\\mu_{2}} + \\frac{1}{2}\\xi_{i}^{\\mu_{3}} + \\text{cross-terms} $$\n大 $p$ 时出现 spin glass states. 这些同样是能量函数的局部极小值点, 需要后续通过各类方法判别并排除.\n2.3 Statistical Mechanics of Magnetic Systems 磁场\n$$ h_{i} = \\sum_{j}w_{ij}S_{j} + h^{\\text{ext}},\\quad w_{ij} = w_{ji} $$\n能量\n$$ H = -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}S_{j} - h^{\\text{ext}}\\sum_{i}S_{i} $$\n外部磁场 $\\leftrightarrow$ 阈值.\nFinite Temperature Dynamics 温度 热涨落 使得自旋翻转.\nGlauber dynamics:\n$$ S_{i} := \\begin{cases} +1 \u0026 \\text{with probability } g(h_{i}) \\\\ -1 \u0026 \\text{with probability } 1 - g(h_{i}) \\end{cases},\\quad g(h) = f_{\\beta}(h)\\equiv \\frac{1}{1+e^{-2\\beta h}},\\quad \\beta = \\frac{1}{k_{B}T} $$\n注意到性质 $1-f_{\\beta}(h) = f_{\\beta}(-h)$.\n则写作对称形式\n$$ \\text{Prob}(S_{i}=\\pm 1) = f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+e^{\\mp 2\\beta h_{i}}} $$\n$T\\rightarrow 0$($\\beta\\rightarrow\\infty$) 时, $f_{\\beta}(h)$ 退化为阶跃函数 $\\Theta(h)$, 则 $S_{i}:=\\text{sgn}(h_{i})$;\n$T\\rightarrow \\infty$($\\beta\\rightarrow 0$) 时, $f_{\\beta}(h)\\rightarrow 1/2$, 则 $S_{i}$ 以 $1/2$ 概率取 $\\pm 1$, 即完全随机.\nA Single Spin in Equilibrium $$ \\langle S\\rangle = \\text{Prob}(+1)\\cdot (+1) + \\text{Prob}(-1)\\cdot (-1) = \\frac{1}{1+e^{-2\\beta h}} - \\frac{1}{1+e^{2\\beta h}} = \\tanh(\\beta h) $$\nhyperbolic tangent function: $$ \\tanh(x) = \\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}} $$\nMean Field Theory 磁场平均值和自旋平均值:\n$$ \\begin{aligned} \\langle h_{i}\\rangle \u0026= \\sum_{j}w_{ij}\\langle S_{j}\\rangle + h^{\\text{ext}}\\\\ \\langle S_{i}\\rangle \u0026= \\tanh\\left(\\beta\\langle h_{i}\\rangle\\right) = \\tanh\\left(\\beta\\sum_{j}w_{ij}\\langle S_{j}\\rangle + \\beta h^{\\text{ext}}\\right) \\end{aligned} $$\nThe Ferromagnet(铁磁体) 铁磁态下 $w_{ij}\u003e0$, $\\langle S_{i}\\rangle = \\langle S\\rangle$.\n$$ w_{ij} = \\frac{J}{N} $$\n$$ \\langle S\\rangle = \\tanh(\\beta J\\langle S\\rangle) $$\n高温一个顺磁解, 低温多两个铁磁解(自发磁化 spontaneous magnetization).\n2.4 Stochastic Networks 令神经元的激活/静息概率为\n$$ \\text{Prob}(S_{i} = \\pm 1) = f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+e^{\\mp 2\\beta h_{i}}} $$\n$f_{\\beta}(h)$: logistic function(逻辑函数).\n引入等效温度 pseudo-temperature $T$, 即 $\\beta\\equiv \\frac{1}{T}$.\n低温极限下 sigmoid 函数退化为阶跃函数, 概率函数退化为 McCulloch-Pitts rule.\n对称阵 $w_{ij}$ 使得系综平均可以达到且与时间无关.\nMean Field Theory $p\\ll N$\n平均场方程:\n$$ \\langle S_{i}\\rangle = \\tanh{\\left(\\frac{\\beta}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\langle S_{j}\\rangle\\right)}. $$\n假定 $\\langle S_{i}\\rangle = m\\xi_{i}^{\\nu}$:\n$$ m\\xi_{i}^{\\nu} = \\tanh{\\left(\\frac{\\beta}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}m\\xi_{j}^{\\nu}\\right)}\\Rightarrow m\\xi_{i}^{\\nu} = \\tanh{(\\beta m\\xi_{i}^{\\nu})}\\Rightarrow m = \\tanh{(\\beta m)} $$\n记忆态在 $T",
-  "wordCount" : "3907",
+  "wordCount" : "5151",
   "inLanguage": "zh",
   "image":"https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png","datePublished": "2025-10-12T00:18:23+08:00",
   "dateModified": "2025-10-12T00:18:23+08:00",
@@ -351,13 +351,13 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>3907字
+        <span>5151字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>8分钟
+        <span>11分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -515,10 +515,21 @@ MathJax.Hub.Queue(function() {
                     <a href="#54-linear-units" aria-label="5.4 Linear Units">5.4 Linear Units</a><ul>
                         
                 <li>
-                    <a href="#explicit-solution%e6%98%be%e5%bc%8f%e8%a7%a3" aria-label="Explicit Solution(显式解)">Explicit Solution(显式解)</a>
+                    <a href="#explicit-solution%e6%98%be%e5%bc%8f%e8%a7%a3" aria-label="Explicit Solution(显式解)">Explicit Solution(显式解)</a></li>
+                <li>
+                    <a href="#gradient-descent-learning%e6%a2%af%e5%ba%a6%e4%b8%8b%e9%99%8d%e5%ad%a6%e4%b9%a0" aria-label="Gradient Descent Learning(梯度下降学习)">Gradient Descent Learning(梯度下降学习)</a></li>
+                <li>
+                    <a href="#convergence-of-gradient-descent" aria-label="Convergence of Gradient Descent">Convergence of Gradient Descent</a></li></ul>
                 </li>
-            </ul>
-            </li>
+                <li>
+                    <a href="#55-nonlinear-units" aria-label="5.5 Nonlinear Units">5.5 Nonlinear Units</a><ul>
+                        
+                <li>
+                    <a href="#other-cost-functions" aria-label="Other Cost Functions">Other Cost Functions</a></li></ul>
+                </li>
+                <li>
+                    <a href="#56-stochastic-units" aria-label="5.6 Stochastic Units">5.6 Stochastic Units</a>
+                </li>
             </ul>
             </li>
             </ul>
@@ -1228,7 +1239,209 @@ O_{i}^{\lambda} \equiv \sum_{k}w_{ik}\xi_{k}^{\lambda} &amp;= \frac{1}{N}\sum_{k
 \end{aligned}
 $$</p>
 </blockquote>
-<p>$\mathbf{Q}$ 的逆存在条件为满秩/${\xi_{k}^{\mu}}$ 线性无关(linearly independent). 由于 input units</p>
+<p>$\mathbf{Q}$ 的逆存在条件为满秩/${\xi_{k}^{\mu}}$ 线性无关(linearly independent). 由于 input units 数为 $N$, 因此能存储 $p\leq N$ 个线性无关的模式.</p>
+<p>即使 $p&lt;N$, 也不能保证其线性无关. 若存在关系 $\sum_{\mu=1}^{p}a_{k}\xi_{k}^{\mu} = 0$, 则 ${\xi_{k}^{p}}$ 只能张成模式子空间(pattern subspace). 可以找到 $\xi_{k}^{*}$ 与该子空间正交:</p>
+<p>$$
+\sum_{k}\xi_{k}^{\mu}\xi_{k}^{*} = 0,\quad \forall \mu = 1,2,\cdots,p
+$$</p>
+<p>若 $w_{ik}$ 为一个解, 则 $w_{ik}^{\prime} = w_{ik} + a_{i}\xi_{k}^{*}$ 形成一个解系.</p>
+<blockquote>
+<p>线性独立问题具有线性可分性, 反之则不同. 大多数阈值网络 $p&gt;N$, 如 AND 和 XOR.</p>
+</blockquote>
+<h3 id="gradient-descent-learning梯度下降学习">Gradient Descent Learning(梯度下降学习)<a hidden class="anchor" aria-hidden="true" href="#gradient-descent-learning梯度下降学习">#</a></h3>
+<p>显式解允许我们直接求 $w_{ik}$, 但大多数情况下需要通过 learning rule 找到 $w_{ik}$.</p>
+<p>评估误差的 Cost function:</p>
+<p>$$
+E[\vec{w}] = \frac{1}{2}\sum_{i\mu}(\zeta_{i}^{\mu} - O_{i}^{\mu})^{2} = \frac{1}{2}\sum_{i\mu}\left(
+\zeta_{i}^{\mu} - \sum_{k}w_{ik}\xi_{k}^{\mu}
+\right)^{2}
+$$</p>
+<blockquote>
+<p>当 $E[\vec{w}] = 0$ 时找到解. 和依赖于节点激活的能量函数不同, 这里的函数依赖于权重/连接.</p>
+</blockquote>
+<p><strong>Gradient descent algorithm</strong>: 令 $w_{ik}$ 偏移 $\Delta w_{ik}$, 且幅度与梯度成正比:</p>
+<p>$$
+\begin{aligned}
+\Delta w_{ik} &amp;= -\eta\frac{\partial E}{\partial w_{ik}} = \eta\sum_{\mu}(\zeta_{i}^{\mu}-O_{i}^{\mu})\xi_{k}^{\mu}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>$$
+\begin{aligned}
+\frac{\partial E}{\partial w_{ik}} &amp;= \frac{1}{2}\sum_{\mu}2\left(
+\zeta_{i}^{\mu} - \sum_{k}w_{ik}\xi_{k}^{\mu}
+\right)\cdot\frac{\partial}{\partial w_{ik}}\left(
+\zeta_{i}^{\mu} - \sum_{l}w_{il}\xi_{l}^{\mu}
+\right)\\
+&amp;= \sum_{\mu}\left(
+\zeta_{i}^{\mu} - \sum_{k}w_{ik}\xi_{k}^{\mu}
+\right)\cdot \left(
+-\sum_{l}\xi_{l}^{\mu}\delta_{lk}
+\right)\\
+&amp;= -\sum_{\mu}(\zeta_{i}^{\mu} - O_{i}^{\mu})\xi_{k}^{\mu}
+\end{aligned}
+$$</p>
+</blockquote>
+<p>若固定模式 $\mu$, 则有 <strong>delta rule/adaline rule/Widrow-Hoff rule/Least Mean Squares (LMS) rule</strong></p>
+<p>$$
+\Delta w_{ik} = \eta(\zeta_{i}^{\mu}-O_{i}^{\mu})\xi_{k}^{\mu} = \eta\delta_{i}^{\mu}\xi_{k}^{\mu}
+$$</p>
+<p>Cost function 是一个二次型(quadratic form), 因此在 pattern subspace 形成抛物线面, 最小值即 $E=0$; 在正交于 subspace 的方向上 cost function 为常值.</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/06/zu6rkjYxOhyeF18.png" alt=""  />
+</p>
+<p>${\xi_{k}^{\mu}}$ 线性相关时.</p>
+</blockquote>
+<p>在对 $\vec{\xi}^{\mu}$ 学习后, 权重 $\vec{w}_{i} = (w_{i1},w_{i2},\cdots, w_{ik},\cdots,w_{iN})$ 只会在 $\vec{\xi}^{\mu}$ 的方向上变化, 而正交方向上不变.</p>
+<h3 id="convergence-of-gradient-descent">Convergence of Gradient Descent<a hidden class="anchor" aria-hidden="true" href="#convergence-of-gradient-descent">#</a></h3>
+<p>若 pattern vectors 线性无关, 则 cost function 写作</p>
+<p>$$
+E = \sum_{\lambda = 1}^{M}a_{\lambda}(w_{\lambda} - w_{\lambda}^{0})^{2}
+$$</p>
+<blockquote>
+<p>$M$: 权重总数, 为输入节点数 $N$ 与输出节点数的乘积;</p>
+<p>$w_{\lambda}$: $w_{ik}$ 的线性组合;</p>
+<p>$a_{\lambda}$, $w_{\lambda}^{0}$: 依赖于模式矢量的常数. $a_{\lambda}$ 半正定(positive semi-definite); 当 $a_{\lambda} = 0$, $E$ 相当于对该 $\lambda$ 独立.</p>
+</blockquote>
+<p>$$
+\Delta w_{\lambda} = -\eta\frac{\partial E}{\partial w_{\lambda}} = -2\eta a_{\lambda}(w_{\lambda} - w_{\lambda}^{0}) = -2\eta a_{\lambda}\delta w_{\lambda}
+$$</p>
+<p>那么定义辅助变量 $\delta w_{\lambda} = w_{\lambda} - w_{\lambda}^{0}$, 它表明到最优解的距离. 则原梯度下降规则的等式两边同减 $w_{\lambda}^{0}$ 得</p>
+<p>$$
+\delta w_{\lambda}^{\text{new}} = \delta w_{\lambda}^{\text{old}} + \Delta w_{\lambda} = (1-2\eta a_{\lambda})\delta w_{\lambda}^{\text{old}}
+$$</p>
+<p>若 $|1-2\eta a_{\lambda}|&lt;1$, 则可趋近最优点.</p>
+<ul>
+<li>$\eta&lt;1/a_{\lambda}^{\text{max}}$</li>
+<li>$a_{\lambda}^{\text{min}}$ 决定收敛速度.</li>
+</ul>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/06/mWqxl17JvHjNYnb.png" alt=""  />
+</p>
+<p>$E = x^{2} + 20 y^{2}$, $\eta = 0.02, 0.0476, 0.049, 0.0505$</p>
+</blockquote>
+<p>在 patterns 存在线性相关组时, 则 cost function 改写为</p>
+<p>$$
+E = E_{0} + \sum_{\lambda=1}^{M}a_{\lambda}(w_{\lambda}-w_{\lambda}^{0})^{2},\quad E_{0}&gt; 0
+$$</p>
+<h2 id="55-nonlinear-units">5.5 Nonlinear Units<a hidden class="anchor" aria-hidden="true" href="#55-nonlinear-units">#</a></h2>
+<p>由线性 $g(h) = h$ 推广至任意可导 $g(h)$. Cost function:</p>
+<p>$$
+E[\vec{w}] = \frac{1}{2}\sum_{i\mu}(\zeta_{i}^{\mu} - O_{i}^{\mu})^{2} = \frac{1}{2}\sum_{i\mu}\left[
+\zeta_{i}^{\mu} - g\left(
+\sum_{k}w_{ik}\xi_{k}^{\mu}
+\right)
+\right]^{2}
+$$</p>
+<p>梯度</p>
+<p>$$
+\frac{\partial E}{\partial w_{ik}} = -\sum_{\mu}[\zeta_{i}^{\mu}-g(h_{i}^{\mu})]g^{\prime}(h_{i}^{\mu})\xi_{k}^{\mu}
+$$</p>
+<p>权重修正</p>
+<p>$$
+\Delta w_{ik} = -\eta\frac{\partial E}{\partial w_{ik}} = \eta [\zeta_{i}^{\mu}-O_{i}^{\mu}]g^{\prime}(h_{i}^{\mu})\xi_{k}^{\mu} = \eta\delta_{i}^{\mu}\xi_{k}^{\mu}
+$$</p>
+<p>对于 $g(h)=\tanh{(h)}$ 这类 sigmoid function, 在 $|h_{i}^{\mu}|$ 较小时梯度较大.</p>
+<blockquote>
+<p>常用激活函数及其梯度:
+$$
+\begin{aligned}
+\tanh{(h)} &amp;= \frac{e^{h}-e^{-h}}{e^{h}+e^{-h}}\\
+g(h)^{\prime} &amp;= [\tanh{(\beta h)}]^{\prime} = \beta(1-g^{2});\\
+f_{\beta}(h) &amp;= \frac{1}{1+\exp{(-2\beta h)}}\\
+g(h)^{\prime} &amp;= f_{\beta}^{\prime}(h) = 2\beta g(1-g)
+\end{aligned}
+$$</p>
+</blockquote>
+<p>解存在: patterns 线性无关.</p>
+<p>梯度下降可能找到局部最优解(local minima) 而非全局最优解(global minima).</p>
+<blockquote>
+<p>e.g. $g(h) = \tanh{(h)}$ 无法取到目标值 $\pm 1$.</p>
+</blockquote>
+<p>Nonlinear units 在 patterns 线性相关时有可能辅助找到 partial solutions.</p>
+<blockquote>
+<p>XOR problem.</p>
+<blockquote>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">$\xi_{1}$</th>
+          <th style="text-align: left">$\xi_{2}$</th>
+          <th style="text-align: left">$\zeta$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">+1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">+1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<p>若取 $\tanh{(\beta h)}$ 作为激活函数:</p>
+<ul>
+<li>最平凡的情况 $\vec{w} = \vec{0}$, 即 $O = 0$ 恒成立, 此时 $E = \frac{1}{2}[2\cdot (1-0)^{2}+2\cdot (-1-0)^{2}] = 2$.</li>
+<li>$|w_{0}|=|w_{1}|=|w_{2}|\rightarrow \infty$. 若取符号为 $\{-,-,-\}$, 则 输出分别为
+$\tanh{(0+0-\infty)} = -1$,
+$\tanh{(0-\infty-\infty)} = -1$,
+$\tanh{(-\infty+0-\infty)} = -1$,
+$\tanh{(-\infty-\infty-\infty)} = -1$.
+此时 $E = \frac{1}{2}[0^{2}+2^{2}+2^{2}+0^{2}] = 4$??</li>
+</ul>
+</blockquote>
+<h3 id="other-cost-functions">Other Cost Functions<a hidden class="anchor" aria-hidden="true" href="#other-cost-functions">#</a></h3>
+<ol>
+<li>对 $\zeta_{i}^{\mu}, O_{i}^{\mu}$ 可导; 2. 在 $O_{i}^{\mu} = \zeta_{i}^{\mu}$ 取最小值.</li>
+</ol>
+<p>满足上述两要求均可成为 cost function.</p>
+<p>$$
+E = \sum_{i\mu}\left[
+\frac{1}{2}(1+\zeta_{i}^{\mu})\log{\frac{1+\zeta_{i}^{\mu}}{1+O_{i}^{\mu}}}
++ \frac{1}{2}(1-\zeta_{i}^{\mu})\log{\frac{1-\zeta_{i}^{\mu}}{1-O_{i}^{\mu}}}
+\right]
+$$</p>
+<blockquote>
+<p>在信息学中, 若有两个概率分布 $P(x)$ 和 $Q(x)$, 则 Relative entropy 被定义为
+$$
+D_{KL}(P||Q) = \sum_{x}P(x)\log{\frac{P(x)}{Q(x)}}
+$$</p>
+</blockquote>
+<p>那么可以将 $\frac{1\pm O_{i}^{\mu}}{2}$ 理解为输出 $\pm 1$ 的概率, $\frac{1\pm \zeta_{i}^{\mu}}{2}$ 理解为实际目标为 $\pm 1$ 的概率.</p>
+<p>当 $O_{i}^{\mu} = \zeta_{i}^{\mu}$ 时, $E=0$, 否则 $E&gt;0$.</p>
+<ul>
+<li>相比于二次型, 当 $|O_{i}^{\mu}|\rightarrow 1$ 时, 该 cost function 会发散, 从而推动网络修改权重. 二次型则是在 $|O_{i}^{\mu}|\rightarrow 1$ 时梯度趋近于 0, 导致学习停滞.</li>
+<li>当训练集本身也是模糊的(如医药行业), 出身于概率论的 relative entropy cost function 更合适.</li>
+</ul>
+<p>取 $g(h)=\tanh{\beta h}$ 作为激活函数, 则权重更新仍然为</p>
+<p>$$
+\Delta w_{ik} = \eta\delta_{i}^{\mu}\xi_{k}^{\mu},\quad \delta_{i}^{\mu} = {\color{red}{\beta}}(\zeta_{i}^{\mu}-O_{i}^{\mu})
+$$</p>
+<blockquote>
+<p>注意其中已经没有 $g^{\prime}(h_{i}^{\mu})$.</p>
+</blockquote>
+<p>梯度下降:</p>
+<ul>
+<li>用于二分决策问题(binary decision problems). $O_{i}&gt;0$ 对应肯定, $O_{i}&lt;0$ 对应否定;</li>
+<li>适用于线性可分但 patterns 线性相关的问题;</li>
+<li>使用 well-formed cost function, 如 relative entropy form, 其梯度幅值大于某定值, 从而总能找到解(如果解存在).</li>
+</ul>
+<h2 id="56-stochastic-units">5.6 Stochastic Units<a hidden class="anchor" aria-hidden="true" href="#56-stochastic-units">#</a></h2>
 
 
         </div>
