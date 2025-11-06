@@ -144,7 +144,7 @@ var _hmt = _hmt || [];
     ""
   ],
   "articleBody": "Introduction 1.1 Inspiration from Neuroscience Neurons McCulloch-Pitts Neuron Model\n$$ n_{i}(t+1) = \\Theta\\left[\\sum_{j}w_{ij}n_{j}(t)-\\mu_{i}\\right],\\quad \\Theta(x) = \\begin{cases} 1, \u0026 x \\geq 0 \\\\ 0, \u0026 \\text{otherwise} \\end{cases} $$\n$w_{ij}$: the strength of the synapse connecting neuron $j$ to neuron $i$.\ngraded response: respond to their input in a continuous way\nasynchronous updating(异步更新)\n$$ n_{i}:= g\\left( \\sum_{j}w_{ij}n_{j}-\\mu_{i} \\right) $$\n$n_{i}$: the state or activation of unit $i$.\n$g(x)$: (nonlinear) activation function, gain function, transfer function, or squashing function\nneuron $\\rightarrow$ unit(processing element, neurodes), synapse(突触) $\\rightarrow$ weight(权重).\nParallel Processing 数量的巨大以允许错误与噪声.\n1.2 History associative content-addressable memory(联想内容寻址记忆), CAM\nThe Hopfield Model 2.1 The Associative Memory Problem Store a set of $p$ patterns $\\xi_{i}^{\\mu}$? in such a way that when presented with a new pattern $\\zeta_{i}$, the network responds by producing whichever one o f the stored patterns most closely resembles $\\zeta_{i}$.\n存储 $p$ 个图案 $\\xi_{i}^{\\mu}$ 为一组，这样当出现一个新图案 $\\zeta_{i}$ 时，网络就会做出反应，生成存储图案中与 $\\zeta_{i}$ 最相似的图案。其中 $\\mu=1,2,\\cdots,p$ 是图案的索引，$i=1,2,\\cdots N$ 是神经元的索引.\nHamming distance:\n$$ \\sum_{i}[\\xi_{i}^{\\mu}(1-\\zeta_{i}) + (1-\\xi_{i}^{\\mu})\\zeta_{i}] $$\n如何构建 $w_{ij}$, 使得输入测试图案 $n_{i}=\\zeta_{i}$ 时, 输出记忆图案 $n_{i}=\\xi_{i}^{\\mu_{0}}$, 其中 $\\mu_{0}$ 使得 Hamming distance($\\zeta_{i},\\xi_{i}^{\\mu}$) 最小.\n记忆图案是相空间中 $\\mu$ 个吸引子(attractor).\n2.2 The Model $n_{i}=0,1$ 记录单元的状态, 引入 $S_{i} = 2n_{i}-1 = \\pm 1$ 表示是否激活.\n令激活函数为符号函数:\n$$ S_{i} := \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}-\\theta_{i}\\right),\\quad \\text{sgn}(x) = \\begin{cases} 1, \u0026 x \\geq 0 \\\\ -1, \u0026 x \u003c 0 \\end{cases} $$\n$\\theta_{i}$: threshold(阈值), 其中 $\\theta_{i} = 2\\mu_{i}-\\sum_{j}w_{ij}$. 为简化可令 $\\theta_{i}=0$, 那么\n$$ S_{i} := \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}\\right) $$\n异步更新(asynchronous)/同步更新(synchronous).\n随机选取一个节点 $i$, 令其更新 令各节点以某概率判定是否更新. 两种方法是等价的.\n异步更新的终点是没有任何 $S_{i}$ 可变化. 这要求 $w_{ij}$: 1. 图案可被记忆为稳定点; 2. 抗微扰.\nOne Pattern 只记忆一个图案 $\\{\\xi_{i}\\}$, 则收敛条件为\n$$ \\text{sgn}\\left(\\sum_{j}^{N}w_{ij}\\xi_{j}\\right) = \\xi_{i},\\quad \\forall i $$\n取\n$$ w_{ij} = \\frac{1}{N}\\xi_{i}\\xi_{j} $$\n因为 $\\xi_{j}^{2} = 1$, 可以轻松验证该记忆方法成立.\n因为是符号函数, 因此即使初始态 $h_{i}=\\sum_{j}w_{ij}S_{j}$ 偏差于 $\\xi_{i}$, 只要符号不变, 仍然会收敛到 $\\xi_{i}$. 这就是 attractor(吸引子).\n在这种激活函数下, 吸引子成对存在.\nMany Patterns Hebb’s rule: 对于存储总共 $p$ 个图案, 使用 $\\mu$ 标记其中一种, 延拓定义\n$$ w_{ij} = \\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu} $$\n对第 $\\nu$ 个图案的稳定性条件: $\\text{sgn}(h_{i}^{\\nu}) = \\xi_{i}^{\\nu}$\n令输入\n$$ h_{i}^{\\nu} \\equiv \\sum_{j}w_{ij}\\xi_{j}^{\\nu} = \\frac{1}{N}\\sum_{j}\\sum_{\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} = \\xi_{i}^{\\nu} + \\frac{1}{N}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} $$\n第二项(被称为 crosstalk)足够小(\u003c1)甚至为 $0$ 时, 稳定性条件满足.\nStorage Capacity 令第二项乘上 $-\\xi_{i}^{\\nu}$, 从而引入\n$$ C_{i}^{\\nu} \\equiv -\\xi_{i}^{\\nu}\\frac{1}{N}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} $$\n那么\n$$ h_{i}^{\\nu} = \\xi_{i}^{\\nu} - \\frac{C_{i}^{\\nu}}{\\xi_{i}^{\\nu}} = \\xi_{i}^{\\nu}(1 - C_{i}^{\\nu}) $$\n因为 $(\\xi_{i}^{\\nu})^{2}=1$. 那么当 $C_{i}^{\\nu}\u003e1$ 时, $h_{i}^{\\nu}$ 将与 $\\xi_{i}^{\\nu}$ 异号.\n令存储图案中 $\\xi_{j}^{\\mu} = \\pm 1$ 等概率独立分布. 那么引入 $X_{j\\mu}=(\\xi_{i}^{\\nu}\\xi_{i}^{\\mu})\\xi_{j}^{\\nu}\\xi_{j}^{\\mu}$, 且有 $E[X_{j\\mu}]=0$, $\\text{Var}(X_{j\\mu})=1$.\n因此\n$$ \\begin{aligned} E[C_{i}^{\\nu}] \u0026=0 \\\\ \\text{Var}(C_{i}^{\\nu}) \u0026= \\frac{1}{N^{2}}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\text{Var}[X_{j\\mu}] = \\frac{1}{N^{2}}\\sum_{j}\\sum_{\\mu \\neq \\nu}1 = \\frac{1}{N^{2}}N(p-1) \\end{aligned} $$\n那么近似 $C_{i}^{\\nu}\\approx \\mathcal{N}\\left(0,\\frac{p}{N}\\right)$.\n规定 $P_{\\text{error}} = \\text{Prob}(C_{i}^{\\nu}\u003e1)$ 为出错概率, 那么 $P_{\\text{error}} \u003c\\epsilon$ 时的 $p = p_{\\text{max}}$ 被称作 storage capacity(存储容量).\n$$ P_{\\text{error}} = \\frac{1}{\\sqrt{2\\pi}\\sigma}\\int_{1}^{\\infty}e^{-x^{2}}/2\\sigma^{2}\\mathrm{d}x = \\frac{1}{2}[1-\\text{erf}(1/\\sqrt{2\\sigma^{2}})] = \\frac{1}{2}[1-\\text{erf}(\\sqrt{N/2p})] $$\nerror function: $$ \\text{erf}(x) = \\frac{2}{\\sqrt{\\pi}}\\int_{0}^{x}e^{-u^{2}}\\mathrm{d}u $$\n利用极限\n$$ \\lim_{x\\rightarrow\\infty}1-\\text{erf}(x) \\rightarrow e^{-x^{2}}/\\sqrt{\\pi}x $$\n近似\n$$ \\log{P_{\\text{error}}} \\approx -\\log{2} - N/2p - \\frac{1}{2}\\log{\\pi} - \\frac{1}{2}\\log{(N/2p)} $$\n错误率条件 $P_{\\text{error}}\u003c0.01/N$ 转化为 $N/2p\u003elog{N}$, 得到 $p_{\\text{max}} = N/2\\log{N}$.\nThe Energy Function 定义能量函数为\n$$ H = -\\frac{1}{2}\\sum_{i}\\sum_{j}w_{ij}S_{i}S_{j} $$\nLyapunov function.\n对称阵($w_{ij}=w_{ji}$) 时能量函数存在. 此时不妨写作\n$$ H = C - \\sum_{(ij)}w_{ij}S_{i}S_{j} $$\n尝试更新一次节点 $i$:\n$$ S_{i}^{\\prime} = \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}\\right) $$\n$S_{i}^{\\prime} = S_{i}$ 能量不变; $S_{i}^{\\prime} = -S_{i}$, 能量变换为\n$$ H^{\\prime} - H = -\\sum_{j\\neq i}w_{ij}S_{i}^{\\prime}S_{j} + \\sum_{j\\neq i}w_{ij}S_{i}S_{j} = 2S_{i}\\sum_{j\\neq i}w_{ij}S_{j} = 2S_{i}\\sum_{j}w_{ij}S_{j} - 2w_{ii} $$\n其中 $w_{ii} = p/N$, 所以 $\\Delta H\u003c0$.\n通过设定 $w_{ii}=0$, 使得 $S_{i}=\\pm 1$ 不会同时为稳定态.\nStarting from an Energy Function 单图案.\n$$ H = -\\frac{1}{2N}\\left(\\sum_{i}S_{i}\\xi_{i}\\right)^{2} $$\n多图案.\n$$ \\begin{aligned} H \u0026= - \\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} \\\\ \u0026= -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)\\left(\\sum_{i}S_{j}\\xi_{j}^{\\mu}\\right) = -\\frac{1}{2}\\sum_{ij}\\left(\\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\right)S_{i}S_{j} \\end{aligned} $$\n采用 Hebb’s rule 时即为能量函数的定义. 这就是通过最小能量观点寻找 $w_{ij}$ 的思路.\nSpurious States(杂散态) Hebb’s rule 适用的是 retrieval states(记忆态).\nSpurious States 被定义为奇数个 retrieval states 的线性组合. 如\n$$ \\xi_{i}^{\\text{mix}} = \\text{sgn}\\left(\\pm \\xi_{i}^{\\mu_{1}} \\pm \\xi_{i}^{\\mu_{2}} \\pm \\xi_{i}^{\\mu_{3}}\\right) $$\n以 $(+,+,+)$ 为例, 输入\n$$ h_{i}^{\\text{mix}} = \\frac{1}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\text{mix}} = \\frac{1}{2}\\xi_{i}^{\\mu_{1}} + \\frac{1}{2}\\xi_{i}^{\\mu_{2}} + \\frac{1}{2}\\xi_{i}^{\\mu_{3}} + \\text{cross-terms} $$\n大 $p$ 时出现 spin glass states. 这些同样是能量函数的局部极小值点, 需要后续通过各类方法判别并排除.\n2.3 Statistical Mechanics of Magnetic Systems 磁场\n$$ h_{i} = \\sum_{j}w_{ij}S_{j} + h^{\\text{ext}},\\quad w_{ij} = w_{ji} $$\n能量\n$$ H = -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}S_{j} - h^{\\text{ext}}\\sum_{i}S_{i} $$\n外部磁场 $\\leftrightarrow$ 阈值.\nFinite Temperature Dynamics 温度 热涨落 使得自旋翻转.\nGlauber dynamics:\n$$ S_{i} := \\begin{cases} +1 \u0026 \\text{with probability } g(h_{i}) \\\\ -1 \u0026 \\text{with probability } 1 - g(h_{i}) \\end{cases},\\quad g(h) = f_{\\beta}(h)\\equiv \\frac{1}{1+e^{-2\\beta h}},\\quad \\beta = \\frac{1}{k_{B}T} $$\n注意到性质 $1-f_{\\beta}(h) = f_{\\beta}(-h)$.\n则写作对称形式\n$$ \\text{Prob}(S_{i}=\\pm 1) = f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+e^{\\mp 2\\beta h_{i}}} $$\n$T\\rightarrow 0$($\\beta\\rightarrow\\infty$) 时, $f_{\\beta}(h)$ 退化为阶跃函数 $\\Theta(h)$, 则 $S_{i}:=\\text{sgn}(h_{i})$;\n$T\\rightarrow \\infty$($\\beta\\rightarrow 0$) 时, $f_{\\beta}(h)\\rightarrow 1/2$, 则 $S_{i}$ 以 $1/2$ 概率取 $\\pm 1$, 即完全随机.\nA Single Spin in Equilibrium $$ \\langle S\\rangle = \\text{Prob}(+1)\\cdot (+1) + \\text{Prob}(-1)\\cdot (-1) = \\frac{1}{1+e^{-2\\beta h}} - \\frac{1}{1+e^{2\\beta h}} = \\tanh(\\beta h) $$\nhyperbolic tangent function: $$ \\tanh(x) = \\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}} $$\nMean Field Theory 磁场平均值和自旋平均值:\n$$ \\begin{aligned} \\langle h_{i}\\rangle \u0026= \\sum_{j}w_{ij}\\langle S_{j}\\rangle + h^{\\text{ext}}\\\\ \\langle S_{i}\\rangle \u0026= \\tanh\\left(\\beta\\langle h_{i}\\rangle\\right) = \\tanh\\left(\\beta\\sum_{j}w_{ij}\\langle S_{j}\\rangle + \\beta h^{\\text{ext}}\\right) \\end{aligned} $$\nThe Ferromagnet(铁磁体) 铁磁态下 $w_{ij}\u003e0$, $\\langle S_{i}\\rangle = \\langle S\\rangle$.\n$$ w_{ij} = \\frac{J}{N} $$\n$$ \\langle S\\rangle = \\tanh(\\beta J\\langle S\\rangle) $$\n高温一个顺磁解, 低温多两个铁磁解(自发磁化 spontaneous magnetization).\n2.4 Stochastic Networks 令神经元的激活/静息概率为\n$$ \\text{Prob}(S_{i} = \\pm 1) = f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+e^{\\mp 2\\beta h_{i}}} $$\n$f_{\\beta}(h)$: logistic function(逻辑函数).\n引入等效温度 pseudo-temperature $T$, 即 $\\beta\\equiv \\frac{1}{T}$.\n低温极限下 sigmoid 函数退化为阶跃函数, 概率函数退化为 McCulloch-Pitts rule.\n对称阵 $w_{ij}$ 使得系综平均可以达到且与时间无关.\nMean Field Theory $p\\ll N$\n平均场方程:\n$$ \\langle S_{i}\\rangle = \\tanh{\\left(\\frac{\\beta}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\langle S_{j}\\rangle\\right)}. $$\n假定 $\\langle S_{i}\\rangle = m\\xi_{i}^{\\nu}$:\n$$ m\\xi_{i}^{\\nu} = \\tanh{\\left(\\frac{\\beta}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}m\\xi_{j}^{\\nu}\\right)}\\Rightarrow m\\xi_{i}^{\\nu} = \\tanh{(\\beta m\\xi_{i}^{\\nu})}\\Rightarrow m = \\tanh{(\\beta m)} $$\n记忆态在 $T",
-  "wordCount" : "1892",
+  "wordCount" : "3907",
   "inLanguage": "zh",
   "image":"https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png","datePublished": "2025-10-12T00:18:23+08:00",
   "dateModified": "2025-10-12T00:18:23+08:00",
@@ -351,13 +351,13 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1892字
+        <span>3907字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>4分钟
+        <span>8分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -493,7 +493,29 @@ MathJax.Hub.Queue(function() {
                     <a href="#25-capacity-of-the-stochastic-network" aria-label="2.5 Capacity of the Stochastic Network">2.5 Capacity of the Stochastic Network</a><ul>
                         
                 <li>
-                    <a href="#capacity-calculation" aria-label="Capacity Calculation">Capacity Calculation</a>
+                    <a href="#capacity-calculation" aria-label="Capacity Calculation">Capacity Calculation</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#simple-percptrons%e7%ae%80%e5%8d%95%e6%84%9f%e7%9f%a5%e6%9c%ba" aria-label="Simple Percptrons(简单感知机)">Simple Percptrons(简单感知机)</a><ul>
+                        
+                <li>
+                    <a href="#51-feed-forward-networks" aria-label="5.1 Feed-Forward Networks">5.1 Feed-Forward Networks</a></li>
+                <li>
+                    <a href="#52-threshould-units%e9%98%88%e5%80%bc%e5%8d%95%e5%85%83" aria-label="5.2 Threshould Units(阈值单元)">5.2 Threshould Units(阈值单元)</a><ul>
+                        
+                <li>
+                    <a href="#linear-separability%e7%ba%bf%e6%80%a7%e5%8f%af%e5%88%86%e6%80%a7" aria-label="Linear Separability(线性可分性)">Linear Separability(线性可分性)</a></li>
+                <li>
+                    <a href="#a-simple-learning-algorithm" aria-label="A Simple Learning Algorithm">A Simple Learning Algorithm</a></li></ul>
+                </li>
+                <li>
+                    <a href="#53-proof-of-convergence-of-the-perceptron-learning-rule" aria-label="5.3 Proof of Convergence of the Perceptron Learning Rule">5.3 Proof of Convergence of the Perceptron Learning Rule</a></li>
+                <li>
+                    <a href="#54-linear-units" aria-label="5.4 Linear Units">5.4 Linear Units</a><ul>
+                        
+                <li>
+                    <a href="#explicit-solution%e6%98%be%e5%bc%8f%e8%a7%a3" aria-label="Explicit Solution(显式解)">Explicit Solution(显式解)</a>
                 </li>
             </ul>
             </li>
@@ -881,6 +903,332 @@ $$
 $$</p>
 </blockquote>
 <p>中心极限定理: $N^{-1}\sum_{i}$ 视为 Gaussian 噪声 $\sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}$, 方差为 $\alpha r$.</p>
+<h1 id="simple-percptrons简单感知机">Simple Percptrons(简单感知机)<a hidden class="anchor" aria-hidden="true" href="#simple-percptrons简单感知机">#</a></h1>
+<p>supervised learning(learning with a teacher)监督学习</p>
+<h2 id="51-feed-forward-networks">5.1 Feed-Forward Networks<a hidden class="anchor" aria-hidden="true" href="#51-feed-forward-networks">#</a></h2>
+<p>Perceptrons: layered feed-forward networks(分层前馈网络).</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/04/yn3CIk9Q7qutsfB.png" alt=""  />
+
+one-layer and two-layer(hidden units) perceptrons. $N$-layer network has $N$ layers of connections and $N — 1$ hidden layers.</p>
+</blockquote>
+<p>asymmetric connection matrices $w_{ij}$(triangular matrix, 三角矩阵): no energy function exists. 只有对称阵存在能量函数</p>
+<p>$$
+H = -\frac{1}{2}\sum_{ij}w_{ij}S_{i}S_{j}
+$$</p>
+<p>Simple perceptron(no hidden units). Input: $\xi_{k}$; Output: $O_{i}$.</p>
+<p>$$
+O_{i} = g(h_{i}) = g\left(\sum_{k}w_{ik}\xi_{k}\right),\quad g(h): \text{activation function}
+$$</p>
+<blockquote>
+<p>Output is an explicit(显式) function of the input.</p>
+</blockquote>
+<p>阈值可以被处理为一个等效的输入节点 $\xi_{0} = - 1$, 且权重 $w_{i0} = \theta_{i}$.</p>
+<p>$$
+O_{i} = g\left(\sum_{k=0}^{N}w_{ik}\xi_{k}\right) = g\left(\sum_{k=1}^{N}w_{ik}\xi_{k}-\theta_{i}\right)
+$$</p>
+<p>目标: 若 input $\xi_{k}^{\mu}$ 所得的 output 为 $O_{i}^{\mu}$, 要求 the general association task: $O_{i}^{\mu} = \zeta_{i}^{\mu}$(target pattern).</p>
+<blockquote>
+<p>其中 $k$ 为 input 节点标记, $i$ 为 output 节点标记, $\mu=1,\cdots,p$ 为 pattern/pairs 标记.</p>
+</blockquote>
+<p>boolean($\pm 1$) / continuous-valued.</p>
+<ul>
+<li>
+<p>auto-association task(自关联任务): 输入 pattern $\xi_{k}^{\mu}$, 输出 pattern 也是 $\xi_{k}^{\mu}$.</p>
+</li>
+<li>
+<p><strong>hetero-association task</strong>(异关联任务): 输入 pattern $\xi_{k}^{\mu}$, 输出 pattern 为 $\zeta_{i}^{\mu}$. 通常输入与输出的 units 数不同.</p>
+</li>
+</ul>
+<blockquote>
+<p>classification problems: inputs 会被分到不同 categories.</p>
+</blockquote>
+<p>find the weights $w_{ik}$ in a finite number of steps.</p>
+<h2 id="52-threshould-units阈值单元">5.2 Threshould Units(阈值单元)<a hidden class="anchor" aria-hidden="true" href="#52-threshould-units阈值单元">#</a></h2>
+<p>设 $g(h) = \text{sgn}(h)$, target $\zeta_{i}^{\mu} = \pm 1$.</p>
+<p>由于 output unit 彼此独立, 不失一般性地, 省略 output 标记 $i$: $\vec{w} = (w_{1},w_{2},\cdots,w_{N})$.</p>
+<p>input pattern $\vec{\xi}^{\mu}\in\mathbb{R}^{N}$.</p>
+<p>那么求和形式可写作矢量内积形式:</p>
+<p>$$
+\sum_{k}w_{k}\xi_{k}^{\mu} = \vec{w}\cdot\vec{\xi}_{\mu},\quad \text{sgn}(\vec{w}\cdot\vec{\xi}_{\mu}) = \zeta^{\mu}
+$$</p>
+<p>通过选择 $\vec{w}$, 使得 $\vec{\xi}_{\mu}$ 在其投影(projection) 和 $\zeta^{\mu}$ 同号. 存在临界 $\vec{w}\cdot\vec{\xi}_{\mu} = 0$, 即两者正交.</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/04/F2NigAmo1lZJDdK.png" alt=""  />
+
+(a) 通过合适的 $\vec{w}$, 使得实心圆($\zeta^{\mu}=+1$)和空心圆($\zeta^{\mu}=-1$)被超平面分开.</p>
+<p>(b) 通过合适的 $\vec{w}$, 使得所有圆都在超平面(hyperplane)法向量 $\vec{w}$ 所指的一侧.</p>
+</blockquote>
+<p>定义辅助矢量 $\vec{x}^{\mu}\equiv \zeta^{\mu}\vec{\xi}$, 从而条件写作</p>
+<p>$$
+\vec{w}\cdot\vec{x}^{\mu} &gt; 0
+$$</p>
+<p>也可将求和项具体展开, 补上原先忽略的指标 $i$:</p>
+<p>$$
+\sum_{k}w_{ik}\zeta^{\mu}\xi_{k}^{\mu} = \zeta^{\mu}\left(\sum_{k}w_{ik}\xi_{k}^{\mu}\right) = \zeta^{\mu}h_{i}^{\mu} &gt; 0
+$$</p>
+<h3 id="linear-separability线性可分性">Linear Separability(线性可分性)<a hidden class="anchor" aria-hidden="true" href="#linear-separability线性可分性">#</a></h3>
+<p>超平面是否存在, 决定分类问题是否可通过 perceptron 解, 或线性可分(linearly separable).</p>
+<p>输出</p>
+<p>$$
+O_{i} = \text{sgn}\left(\sum_{k&gt;0}w_{ik}\xi_{k}-w_{i0}\right)
+\Leftarrow O = \text{sgn}\left(\vec{w}\cdot\vec{\xi}-w_{0}\right)
+$$</p>
+<p>那么 $N-1$ 维超平面是由</p>
+<p>$$
+\vec{w}\cdot\vec{\xi} = w_{0} \Leftrightarrow \hat{n}\cdot\vec{\xi} = \frac{w_{0}}{||\vec{w}||}
+$$</p>
+<p>决定的. 其中定义法向单位向量 $\hat{n} = \frac{\vec{w}}{||\vec{w}||}$, 可见阈值 $w_{0}$ 的作用是使得超平面沿着 $\vec{w}$ 方向从原点偏移 $\frac{w_{0}}{||\vec{w}||}$.</p>
+<blockquote>
+<p><strong>AND function/Truth table</strong></p>
+<p>$\xi$: on = 1; off = 0.</p>
+<p>$\zeta$: true = 1; false = -1.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">$\xi_{1}$</th>
+          <th style="text-align: left">$\xi_{2}$</th>
+          <th style="text-align: left">$\zeta$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">+1</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/04/QHg8sKpJcNDvEZV.png" alt=""  />
+
+&ldquo;且&rdquo; 问题是线性可分的. (b) 给出了一个可能的网络示例.</p>
+</blockquote>
+<p>定义阈值所用的等效节点 $\xi_{0} = -1$, 则 &ldquo;且&rdquo; 问题化为 3D 图示</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/04/FB6zERn9VxsYaLi.png" alt=""  />
+</p>
+<p>由于所有 input($\vec{\xi}_{\mu}$) 都偏移了一个矢量 $(0,0,\cdots,w_{0})$, 那么这个点成为事实上的新原点. 于是回归到无阈值情况, 超平面经过新原点.</p>
+</blockquote>
+<p>非线性可分问题: XOR function(异或问题, 同为假, 异为真)</p>
+<blockquote>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">$\xi_{1}$</th>
+          <th style="text-align: left">$\xi_{2}$</th>
+          <th style="text-align: left">$\zeta$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">+1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">+1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/04/PK9QaBvsgAXFdky.png" alt=""  />
+
+(a) XOR (b) 三点共线的概率为 0.</p>
+</blockquote>
+<p>对 general position 的解读:</p>
+<ul>
+<li>除开这类特殊情况, 点集处于 general position.</li>
+<li>$N$ 维空间中, 取任意 $d&lt;N$ 维超平面, 其所含点数不超过 $d+1$. 则点集处于 general position.</li>
+<li>无阈值问题时, 等价为任意 $d\leq N$ 个点彼此线性独立(不共面).</li>
+</ul>
+<h3 id="a-simple-learning-algorithm">A Simple Learning Algorithm<a hidden class="anchor" aria-hidden="true" href="#a-simple-learning-algorithm">#</a></h3>
+<p>$$
+\begin{aligned}
+w_{ik}^{\prime} = w_{ik} + \Delta w_{ik},\quad \Delta w_{ik} = \begin{cases}
+2\eta \zeta_{i}^{\mu}\xi_{k}^{\mu} &amp; \text{if }\zeta_{i}^{\mu}\neq O_{i}^{\mu};\\
+0 &amp; \text{otherwise}
+\end{cases}
+\end{aligned}
+$$</p>
+<p>其中</p>
+<p>$$
+\Delta w_{ik} = \eta(1-\zeta_{i}^{\mu}O_{i}^{\mu})\zeta_{i}^{\mu}\xi_{k}^{\mu} = \eta(\zeta_{i}^{\mu} - O_{i}^{\mu})\xi_{k}^{\mu}; \quad \text{since }\zeta_{i}^{\mu}, O_{i}^{\mu} = \pm 1
+$$</p>
+<p>两种表述是等价的, 只是后者去掉了条件判断.</p>
+<blockquote>
+<p>$\eta&gt;0$: learning rate(学习率).</p>
+</blockquote>
+<blockquote>
+<p><strong>Will it work?</strong></p>
+<ul>
+<li>若已经正确分类($O_{i}^{\mu} = \zeta_{i}^{\mu}$), 则权重无需更新. 此时 $\zeta_{i}^{\mu}O_{i}^{\mu} = +1$;</li>
+<li>若误分类($O_{i}^{\mu} = -\zeta_{i}^{\mu}$), 既然目标也可写作形式 $\vec{w}\cdot\vec{x}^{\mu}&gt;0$, 不难注意到学习算法也可以写作 $\Delta w_{ik} = 2\eta x_{ik}^{\mu}$, 这使得
+$$
+w^{\prime}_{i}\cdot\vec{x}^{\mu} = \sum_{k}(w_{ik} + \Delta w_{ik})x_{ik}^{\mu} = \sum_{k}(w_{ik} + 2\eta x_{ik}^{\mu})x_{ik}^{\mu} = \vec{w}_{i}\cdot \vec{x}_{i}^{\mu} + \Delta,\quad \Delta &gt; 0
+$$</li>
+</ul>
+<p>$\Delta$ 项使得 $w_{i}^{\prime}\cdot\vec{x}^{\mu}_{i}$ 必定递增, 从而达成 $w_{i}^{\prime}\cdot\vec{x}^{\mu}_{i}&gt;0$ 的目标.</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+\zeta_{i}^{\mu}h_{i}^{\mu} &amp;\equiv \zeta_{i}^{\mu}\sum_{k}w_{ik}\xi_{k}^{\mu} \\
+&amp;= \sum_{k}w_{ik} (\zeta_{i}^{\mu}\xi_{k}^{\mu}) = \vec{w}\cdot\vec{x}^{\mu}&gt; N\kappa
+\end{aligned}
+$$</p>
+<p>第二行是另一种目标的等价表达.</p>
+<blockquote>
+<p>其中 $\kappa$ 被称作 margin size, 这是为了防止某些 $\vec{\xi}^{\mu}$ 非常接近超平面, 导致噪声或误差使得误分类. 添加 $N$ 使得任意 input unit 数均可工作.</p>
+</blockquote>
+<p>将 $N\kappa$ 视为阈值, 那么学习算法改进为</p>
+<p>$$
+\Delta w_{ik} = \eta\Theta(N\kappa-\zeta_{i}^{\mu}h_{i}^{\mu})\zeta_{i}^{\mu}\xi_{k}^{\mu},\quad\Theta(x) = \begin{cases}
+1 &amp; \text{if } x &gt; 0;\\
+0 &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<blockquote>
+<p>若存在输出节点 $i$ 有 $N\kappa &gt; \zeta_{i}^{\mu}h_{i}^{\mu}$, 说明未达成目标, 需要通过 $\vec{x}^{\mu}_{i}$ 继续增大 $\Delta w_{ik}$, 从而产生演化 $w\rightarrow w^{\prime}\rightarrow w^{\prime\prime}\rightarrow \cdots$</p>
+</blockquote>
+<blockquote>
+<p>当 $\kappa=0$, 退化为原算法形式.</p>
+</blockquote>
+<p>写作矢量形式:</p>
+<p>$$
+\Delta \vec{w} = \eta\Theta(N\kappa-\vec{w}\cdot\vec{x}^{\mu})\vec{x}^{\mu}
+$$</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/05/6Yr3INjwWDpamCT.png" alt=""  />
+</p>
+<p>$\kappa = 0, \eta = 1$. 每次都会找到与超平面异侧的点, 那么优化 $\vec{w}$ 时令其加上对应点矢, 直至所有点均在超平面 $\vec{w}$ 所指一侧为止.</p>
+</blockquote>
+<p>$\vec{x}^{\mu}$ 到超平面的距离决定了分类问题的难易程度. 定义</p>
+<p>$$
+D(\vec{w}) = \frac{1}{||\vec{w}||}\underset{\mu}{\text{min }}\vec{w}\cdot\vec{x}^{\mu}
+$$</p>
+<p>是各点到超平面的最小距离.</p>
+<p>Optimal perceptron 致力于寻找使得 $D$ 最大化的 $\vec{w}$:</p>
+<p>$$
+D_{\text{max}} \equiv \underset{\vec{w}}{\text{max }}D(\vec{w})
+$$</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/05/o8S3TMF69PEWkgQ.png" alt=""  />
+</p>
+<p>一般性权重 $\vec{w}$ 和 optimal $\vec{w}^{\prime}$.</p>
+</blockquote>
+<p>$D_{\text{max}}$ 越大, 问题越简单. $D_{\text{max}}&lt;0$, 问题不可解.</p>
+<h2 id="53-proof-of-convergence-of-the-perceptron-learning-rule">5.3 Proof of Convergence of the Perceptron Learning Rule<a hidden class="anchor" aria-hidden="true" href="#53-proof-of-convergence-of-the-perceptron-learning-rule">#</a></h2>
+<p>Perceptron learning rule reaches a solution in a <em>finite</em> number of steps.</p>
+<p>设 $\vec{w}^{*}$ 为一已知解($D(\vec{w}^{*})&gt;0$).</p>
+<p>设初始权重 $\vec{w}_{0}=0$. 令 $M^{\mu}$ 为模式 $\mu$ 更新次数. 更新后权重为</p>
+<p>$$
+\vec{w} = \vec{w}_{0} + \sum\Delta\vec{w} = \eta\sum_{\mu}M^{\mu}\vec{x}^{\mu},\quad M = \sum_{\mu}M^{\mu}
+$$</p>
+<p>计算更新后权重 $\vec{w}$ 和已知权重解 $\vec{w}^{*}$ 内积:</p>
+<p>$$
+\begin{aligned}
+\vec{w}\cdot\vec{w}^{*} &amp;= \eta\sum_{\mu}M^{\mu}\vec{x}^{\mu}\cdot\vec{w}^{*}\geq \eta M\underset{\mu}{\text{min }}\vec{x}^{\mu}\cdot\vec{w}^{*} = \eta M D(\vec{w}^{*})||\vec{w}^{*}||\sim M\\
+&amp;\Rightarrow \vec{w^{*}}\cdot\frac{\vec{w}}{||\vec{w}||}\sim M
+\end{aligned}
+$$</p>
+<p>这表明, 如果 $M$ 不是有限值, $\vec{w}^{*}$ 在 $\vec{w}$ 方向上的投影将会发散, 这和 $\vec{w^{*}}\cdot\frac{\vec{w}}{||\vec{w}||}\leq ||\vec{w}^{*}||$ 显然是矛盾的.</p>
+<p>若模式 $\alpha$ 在误分类而需更新, 更新后模长平方变化为</p>
+<p>$$
+\begin{aligned}
+\Delta(||\vec{w}||^{2}) &amp;= (\vec{w}+\eta\vec{x}^{\alpha})^{2} - (\vec{w})^{2} = \eta^{2}(\vec{x}^{\alpha})^{2} + 2\eta\vec{w}\cdot\vec{x}^{\alpha}\\
+&amp;\leq \eta^{2} N + 2\eta N\kappa = N\eta(\eta + 2\kappa)
+\end{aligned}
+$$</p>
+<blockquote>
+<ul>
+<li>学习算法目标的判别式也可写作 $\vec{w}\cdot\vec{x}^{\mu}&gt;N\kappa$, 既然 $\mu = \alpha$ 时误分类, 则 $\vec{w}\cdot\vec{x}^{\alpha}\leq N\kappa$;</li>
+<li>$x_{k}^{\alpha} = \pm 1$, 所以 $(\vec{x}^{\alpha})^{2} = \sum_{k}^{N}(x_{k}^{\alpha})^{2} = N$.</li>
+</ul>
+</blockquote>
+<p>所以 $||\vec{w}||^{2}$ 存在上界</p>
+<p>$$
+||\vec{w}||^{2} \leq M [\Delta (||\vec{w}||^{2})] \leq M N\eta(\eta + 2\kappa)\\
+\Rightarrow ||\vec{w}|| \sim \sqrt{M}
+$$</p>
+<p>计算 $\vec{w}$ 与 $\vec{w}^{*}$ 夹角余弦平方:</p>
+<p>$$
+\phi = \frac{(\vec{w}\cdot\vec{w}^{*})^{2}}{||\vec{w}||^{2}||\vec{w}^{*}||^{2}}\leq 1
+$$</p>
+<p>前文讨论可得</p>
+<p>$$
+\begin{aligned}
+(\vec{w}\cdot\vec{w}^{*})^{2} &amp;\geq \eta^{2} M^{2}D(\vec{w}^{*})^{2}||\vec{w}^{*}||^{2}\\
+\frac{1}{||\vec{w}||^{2}} &amp;\geq \frac{1}{MN\eta(\eta+2\kappa)}
+\end{aligned}
+$$</p>
+<p>相乘可得</p>
+<p>$$
+1 \geq \phi \geq M\frac{D(\vec{w}^{*})^{2}\eta}{N(\eta+2\kappa)}
+$$</p>
+<p>所以 $M$ 存在上界</p>
+<p>$$
+M\leq N\frac{1 + 2\kappa/\eta}{D_{\text{max}}^{2}}
+$$</p>
+<blockquote>
+<p>不显含模式数 $p$, 但通常会因为 $p\uparrow$ 而  $D_{\text{max}}\downarrow$, 从而使 $M\uparrow$.</p>
+</blockquote>
+<h2 id="54-linear-units">5.4 Linear Units<a hidden class="anchor" aria-hidden="true" href="#54-linear-units">#</a></h2>
+<p>由 $g(h)=\text{sgn}(h)$ 拓展到 连续且可导函数 $g(h)$. Linear units: $g(h)=h$.</p>
+<p>目标写作</p>
+<p>$$
+\zeta_{i}^{\mu} = O_{i}^{\mu} = \sum_{k}w_{ik}\xi_{k}^{\mu}
+$$</p>
+<blockquote>
+<p>$O_{i}^{\mu}$ 为连续值, 而 $\zeta_{i}^{\mu}=\pm 1$ 仍然是被允许的.</p>
+</blockquote>
+<h3 id="explicit-solution显式解">Explicit Solution(显式解)<a hidden class="anchor" aria-hidden="true" href="#explicit-solution显式解">#</a></h3>
+<p>auto-association: $\zeta_{i}^{\mu} = \xi_{i}^{\mu}$. 推广至 hetero-association:</p>
+<p>$$
+\begin{aligned}
+w_{ik} &amp;= \frac{1}{N}\sum_{\mu\nu}\zeta_{i}^{\mu}(\mathbf{Q}^{-1})_{\mu\nu}\xi_{k}^{\nu}\\
+\mathbf{Q}_{\mu\nu} &amp;= \frac{1}{N}\sum_{k}\xi_{k}^{\mu}\xi_{k}^{\nu}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>Proof:</p>
+<p>$$
+\begin{aligned}
+O_{i}^{\lambda} \equiv \sum_{k}w_{ik}\xi_{k}^{\lambda} &amp;= \frac{1}{N}\sum_{k}\sum_{\mu\nu}\zeta_{i}^{\mu}(\mathbf{Q}^{-1})_{\mu\nu}\xi_{k}^{\nu}\xi_{k}^{\lambda}\\
+&amp;= \sum_{\mu\nu}\zeta_{i}^{\mu}(\mathbf{Q}^{-1})_{\mu\nu}\mathbf{Q}_{\nu\lambda}\\
+&amp;= \sum_{\mu}\zeta_{i}^{\mu}\delta_{\mu\lambda} = \zeta_{i}^{\lambda}
+\end{aligned}
+$$</p>
+</blockquote>
+<p>$\mathbf{Q}$ 的逆存在条件为满秩/${\xi_{k}^{\mu}}$ 线性无关(linearly independent). 由于 input units</p>
 
 
         </div>
