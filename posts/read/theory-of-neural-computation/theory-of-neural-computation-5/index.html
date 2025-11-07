@@ -139,7 +139,7 @@
     ""
   ],
   "articleBody": "supervised learning(learning with a teacher)监督学习\n5.1 Feed-Forward Networks Perceptrons: layered feed-forward networks(分层前馈网络).\none-layer and two-layer(hidden units) perceptrons. $N$-layer network has $N$ layers of connections and $N — 1$ hidden layers.\nasymmetric connection matrices $w_{ij}$(triangular matrix, 三角矩阵): no energy function exists. 只有对称阵存在能量函数\n$$ H = -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}S_{j} $$\nSimple perceptron(no hidden units). Input: $\\xi_{k}$; Output: $O_{i}$.\n$$ O_{i} = g(h_{i}) = g\\left(\\sum_{k}w_{ik}\\xi_{k}\\right),\\quad g(h): \\text{activation function} $$\nOutput is an explicit(显式) function of the input.\n阈值可以被处理为一个等效的输入节点 $\\xi_{0} = - 1$, 且权重 $w_{i0} = \\theta_{i}$.\n$$ O_{i} = g\\left(\\sum_{k=0}^{N}w_{ik}\\xi_{k}\\right) = g\\left(\\sum_{k=1}^{N}w_{ik}\\xi_{k}-\\theta_{i}\\right) $$\n目标: 若 input $\\xi_{k}^{\\mu}$ 所得的 output 为 $O_{i}^{\\mu}$, 要求 the general association task: $O_{i}^{\\mu} = \\zeta_{i}^{\\mu}$(target pattern).\n其中 $k$ 为 input 节点标记, $i$ 为 output 节点标记, $\\mu=1,\\cdots,p$ 为 pattern/pairs 标记.\nboolean($\\pm 1$) / continuous-valued.\nauto-association task(自关联任务): 输入 pattern $\\xi_{k}^{\\mu}$, 输出 pattern 也是 $\\xi_{k}^{\\mu}$.\nhetero-association task(异关联任务): 输入 pattern $\\xi_{k}^{\\mu}$, 输出 pattern 为 $\\zeta_{i}^{\\mu}$. 通常输入与输出的 units 数不同.\nclassification problems: inputs 会被分到不同 categories.\nfind the weights $w_{ik}$ in a finite number of steps.\n5.2 Threshould Units(阈值单元) 设 $g(h) = \\text{sgn}(h)$, target $\\zeta_{i}^{\\mu} = \\pm 1$.\n由于 output unit 彼此独立, 不失一般性地, 省略 output 标记 $i$: $\\vec{w} = (w_{1},w_{2},\\cdots,w_{N})$.\ninput pattern $\\vec{\\xi}^{\\mu}\\in\\mathbb{R}^{N}$.\n那么求和形式可写作矢量内积形式:\n$$ \\sum_{k}w_{k}\\xi_{k}^{\\mu} = \\vec{w}\\cdot\\vec{\\xi}_{\\mu},\\quad \\text{sgn}(\\vec{w}\\cdot\\vec{\\xi}_{\\mu}) = \\zeta^{\\mu} $$\n通过选择 $\\vec{w}$, 使得 $\\vec{\\xi}_{\\mu}$ 在其投影(projection) 和 $\\zeta^{\\mu}$ 同号. 存在临界 $\\vec{w}\\cdot\\vec{\\xi}_{\\mu} = 0$, 即两者正交.\n(a) 通过合适的 $\\vec{w}$, 使得实心圆($\\zeta^{\\mu}=+1$)和空心圆($\\zeta^{\\mu}=-1$)被超平面分开.\n(b) 通过合适的 $\\vec{w}$, 使得所有圆都在超平面(hyperplane)法向量 $\\vec{w}$ 所指的一侧.\n定义辅助矢量 $\\vec{x}^{\\mu}\\equiv \\zeta^{\\mu}\\vec{\\xi}$, 从而条件写作\n$$ \\vec{w}\\cdot\\vec{x}^{\\mu} \u003e 0 $$\n也可将求和项具体展开, 补上原先忽略的指标 $i$:\n$$ \\sum_{k}w_{ik}\\zeta^{\\mu}\\xi_{k}^{\\mu} = \\zeta^{\\mu}\\left(\\sum_{k}w_{ik}\\xi_{k}^{\\mu}\\right) = \\zeta^{\\mu}h_{i}^{\\mu} \u003e 0 $$\nLinear Separability(线性可分性) 超平面是否存在, 决定分类问题是否可通过 perceptron 解, 或线性可分(linearly separable).\n输出\n$$ O_{i} = \\text{sgn}\\left(\\sum_{k\u003e0}w_{ik}\\xi_{k}-w_{i0}\\right) \\Leftarrow O = \\text{sgn}\\left(\\vec{w}\\cdot\\vec{\\xi}-w_{0}\\right) $$\n那么 $N-1$ 维超平面是由\n$$ \\vec{w}\\cdot\\vec{\\xi} = w_{0} \\Leftrightarrow \\hat{n}\\cdot\\vec{\\xi} = \\frac{w_{0}}{||\\vec{w}||} $$\n决定的. 其中定义法向单位向量 $\\hat{n} = \\frac{\\vec{w}}{||\\vec{w}||}$, 可见阈值 $w_{0}$ 的作用是使得超平面沿着 $\\vec{w}$ 方向从原点偏移 $\\frac{w_{0}}{||\\vec{w}||}$.\nAND function/Truth table\n$\\xi$: on = 1; off = 0.\n$\\zeta$: true = 1; false = -1.\n$\\xi_{1}$ $\\xi_{2}$ $\\zeta$ 0 0 -1 0 1 -1 1 0 -1 1 1 +1 “且” 问题是线性可分的. (b) 给出了一个可能的网络示例.\n定义阈值所用的等效节点 $\\xi_{0} = -1$, 则 “且” 问题化为 3D 图示\n由于所有 input($\\vec{\\xi}_{\\mu}$) 都偏移了一个矢量 $(0,0,\\cdots,w_{0})$, 那么这个点成为事实上的新原点. 于是回归到无阈值情况, 超平面经过新原点.\n非线性可分问题: XOR function(异或问题, 同为假, 异为真)\n$\\xi_{1}$ $\\xi_{2}$ $\\zeta$ 0 0 -1 0 1 +1 1 0 +1 1 1 -1 (a) XOR (b) 三点共线的概率为 0.\n对 general position 的解读:\n除开这类特殊情况, 点集处于 general position. $N$ 维空间中, 取任意 $d",
-  "wordCount" : "4547",
+  "wordCount" : "4548",
   "inLanguage": "zh",
   "image":"https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png","datePublished": "2025-10-12T00:18:23+08:00",
   "dateModified": "2025-10-12T00:18:23+08:00",
@@ -346,7 +346,7 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>4547字
+        <span>4548字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -1057,7 +1057,7 @@ $$</p>
 </blockquote>
 <p>或者将其写作合并形式</p>
 <p>$$
-P(S_{i}^{\mu}=\pm 1) = \frac{1}{1+\exp{(-2\beta h_{i}^{\mu})}}
+P(S_{i}^{\mu}=\pm 1) = \frac{1}{1+\exp{(\mp 2\beta h_{i}^{\mu})}}
 $$</p>
 <p>于是得到</p>
 <p>$$
