@@ -139,7 +139,7 @@
     ""
   ],
   "articleBody": "supervised learning(learning with a teacher)监督学习\n5.1 Feed-Forward Networks Perceptrons: layered feed-forward networks(分层前馈网络).\none-layer and two-layer(hidden units) perceptrons. $N$-layer network has $N$ layers of connections and $N — 1$ hidden layers.\nasymmetric connection matrices $w_{ij}$(triangular matrix, 三角矩阵): no energy function exists. 只有对称阵存在能量函数\n$$ H = -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}S_{j} $$\nSimple perceptron(no hidden units). Input: $\\xi_{k}$; Output: $O_{i}$.\n$$ O_{i} = g(h_{i}) = g\\left(\\sum_{k}w_{ik}\\xi_{k}\\right),\\quad g(h): \\text{activation function} $$\nOutput is an explicit(显式) function of the input.\n阈值可以被处理为一个等效的输入节点 $\\xi_{0} = - 1$, 且权重 $w_{i0} = \\theta_{i}$.\n$$ O_{i} = g\\left(\\sum_{k=0}^{N}w_{ik}\\xi_{k}\\right) = g\\left(\\sum_{k=1}^{N}w_{ik}\\xi_{k}-\\theta_{i}\\right) $$\n目标: 若 input $\\xi_{k}^{\\mu}$ 所得的 output 为 $O_{i}^{\\mu}$, 要求 the general association task: $O_{i}^{\\mu} = \\zeta_{i}^{\\mu}$(target pattern).\n其中 $k$ 为 input 节点标记, $i$ 为 output 节点标记, $\\mu=1,\\cdots,p$ 为 pattern/pairs 标记.\nboolean($\\pm 1$) / continuous-valued.\nauto-association task(自关联任务): 输入 pattern $\\xi_{k}^{\\mu}$, 输出 pattern 也是 $\\xi_{k}^{\\mu}$.\nhetero-association task(异关联任务): 输入 pattern $\\xi_{k}^{\\mu}$, 输出 pattern 为 $\\zeta_{i}^{\\mu}$. 通常输入与输出的 units 数不同.\nclassification problems: inputs 会被分到不同 categories.\nfind the weights $w_{ik}$ in a finite number of steps.\n5.2 Threshould Units(阈值单元) 设 $g(h) = \\text{sgn}(h)$, target $\\zeta_{i}^{\\mu} = \\pm 1$.\n由于 output unit 彼此独立, 不失一般性地, 省略 output 标记 $i$: $\\vec{w} = (w_{1},w_{2},\\cdots,w_{N})$.\ninput pattern $\\vec{\\xi}^{\\mu}\\in\\mathbb{R}^{N}$.\n那么求和形式可写作矢量内积形式:\n$$ \\sum_{k}w_{k}\\xi_{k}^{\\mu} = \\vec{w}\\cdot\\vec{\\xi}_{\\mu},\\quad \\text{sgn}(\\vec{w}\\cdot\\vec{\\xi}_{\\mu}) = \\zeta^{\\mu} $$\n通过选择 $\\vec{w}$, 使得 $\\vec{\\xi}_{\\mu}$ 在其投影(projection) 和 $\\zeta^{\\mu}$ 同号. 存在临界 $\\vec{w}\\cdot\\vec{\\xi}_{\\mu} = 0$, 即两者正交.\n(a) 通过合适的 $\\vec{w}$, 使得实心圆($\\zeta^{\\mu}=+1$)和空心圆($\\zeta^{\\mu}=-1$)被超平面分开.\n(b) 通过合适的 $\\vec{w}$, 使得所有圆都在超平面(hyperplane)法向量 $\\vec{w}$ 所指的一侧.\n定义辅助矢量 $\\vec{x}^{\\mu}\\equiv \\zeta^{\\mu}\\vec{\\xi}$, 从而条件写作\n$$ \\vec{w}\\cdot\\vec{x}^{\\mu} \u003e 0 $$\n也可将求和项具体展开, 补上原先忽略的指标 $i$:\n$$ \\sum_{k}w_{ik}\\zeta^{\\mu}\\xi_{k}^{\\mu} = \\zeta^{\\mu}\\left(\\sum_{k}w_{ik}\\xi_{k}^{\\mu}\\right) = \\zeta^{\\mu}h_{i}^{\\mu} \u003e 0 $$\nLinear Separability(线性可分性) 超平面是否存在, 决定分类问题是否可通过 perceptron 解, 或线性可分(linearly separable).\n输出\n$$ O_{i} = \\text{sgn}\\left(\\sum_{k\u003e0}w_{ik}\\xi_{k}-w_{i0}\\right) \\Leftarrow O = \\text{sgn}\\left(\\vec{w}\\cdot\\vec{\\xi}-w_{0}\\right) $$\n那么 $N-1$ 维超平面是由\n$$ \\vec{w}\\cdot\\vec{\\xi} = w_{0} \\Leftrightarrow \\hat{n}\\cdot\\vec{\\xi} = \\frac{w_{0}}{||\\vec{w}||} $$\n决定的. 其中定义法向单位向量 $\\hat{n} = \\frac{\\vec{w}}{||\\vec{w}||}$, 可见阈值 $w_{0}$ 的作用是使得超平面沿着 $\\vec{w}$ 方向从原点偏移 $\\frac{w_{0}}{||\\vec{w}||}$.\nAND function/Truth table\n$\\xi$: on = 1; off = 0.\n$\\zeta$: true = 1; false = -1.\n$\\xi_{1}$ $\\xi_{2}$ $\\zeta$ 0 0 -1 0 1 -1 1 0 -1 1 1 +1 “且” 问题是线性可分的. (b) 给出了一个可能的网络示例.\n定义阈值所用的等效节点 $\\xi_{0} = -1$, 则 “且” 问题化为 3D 图示\n由于所有 input($\\vec{\\xi}_{\\mu}$) 都偏移了一个矢量 $(0,0,\\cdots,w_{0})$, 那么这个点成为事实上的新原点. 于是回归到无阈值情况, 超平面经过新原点.\n非线性可分问题: XOR function(异或问题, 同为假, 异为真)\n$\\xi_{1}$ $\\xi_{2}$ $\\zeta$ 0 0 -1 0 1 +1 1 0 +1 1 1 -1 (a) XOR (b) 三点共线的概率为 0.\n对 general position 的解读:\n除开这类特殊情况, 点集处于 general position. $N$ 维空间中, 取任意 $d",
-  "wordCount" : "3879",
+  "wordCount" : "4547",
   "inLanguage": "zh",
   "image":"https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png","datePublished": "2025-10-12T00:18:23+08:00",
   "dateModified": "2025-10-12T00:18:23+08:00",
@@ -346,13 +346,13 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>3879字
+        <span>4547字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>8分钟
+        <span>10分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -1132,7 +1132,117 @@ $$</p>
 <blockquote>
 <p>$N=2$, 即二维空间时, 线性无关要求两点连线不过原点.</p>
 </blockquote>
-<p>dichotomy: 可被 hyperplane 二分的染色方法.</p>
+<p>dichotomy: 可被 hyperplane 二分的染色方法数.</p>
+<p>在已有的 dichotomy 基础上添加第 $p+1$ 个点,</p>
+<ul>
+<li>该点恰好位于 hyperplane 上, 则产生两个新 dichotomy, 因为无论将该点标记为 $+1$ 还是 $-1$, 都可以通过无限小偏移原 hyperplane 来实现二分;</li>
+<li>只能标记为一种颜色, 否则将破坏线性可分性. 则新 dichotomy 对应于原旧 dichotomy.</li>
+</ul>
+<p>$$
+C(p+1,N) = C(p,N) + D
+$$</p>
+<blockquote>
+<p>$D$ 是原 dichotomies 中 hyperplane 可同时穿过原点 $O$ 和新点 $P$ 的数量.</p>
+</blockquote>
+<p>要求新点 $P$ 在原 hyperplane 上, 实际上就是多了一个约束条件 $\vec{w}\cdot\vec{\xi}^{P} = 0$, hyperplane 剩下的自由度只有 $N-1$, 而需要染色的点数仍然是 $p$ 个不变, 所以实际上 $D = C(p,N-1)$.</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/07/MebcuYRgBSvCrzO.png" alt=""  />
+所有经过 $OP$ 的超平面集合 $\Leftrightarrow$ 在 $N-1$ 维空间中的所有超平面.</p>
+<p>将原 $p$ 个点投影到正交于 $OP$ 的 $N-1$ 维子空间, 再考虑其线性分割.</p>
+</blockquote>
+<p>这就形成了递推关系</p>
+<p>$$
+C(p+1,N) = C(p,N) + C(p, N-1)
+$$</p>
+<p>迭代得到</p>
+<p>$$
+\begin{aligned}
+C(p,N) &amp;= \begin{pmatrix}
+p-1\\
+0\end{pmatrix}C(1,N) + \begin{pmatrix}
+p-1\\
+1\end{pmatrix}C(1,N-1)+\cdots+\begin{pmatrix}
+p-1\\
+p-1\end{pmatrix}C(1,N-p+1)\\
+&amp;= \sum_{j=0}^{p-1}\begin{pmatrix}
+p-1\\
+j\end{pmatrix}C(1,N-j) \\
+&amp;= \sum_{j=0}^{p-1}C_{p-1}^{j}C(1,N-j)
+\end{aligned}
+$$</p>
+<blockquote>
+<p>组合数
+$$
+\begin{pmatrix} m \\ n \end{pmatrix} = \frac{m!}{n!(m-n)!} = C_{m}^{n}
+$$</p>
+<p>即从 $m$ 个不同元素中取出 $n$ 个元素($m&gt;n$)的方法数.</p>
+</blockquote>
+<blockquote>
+<p>使用归纳法证明.</p>
+<ol>
+<li>对于 $p=1$, 由于 $j\leq p-1$, 有意义的只有 $j = 0$ 项. 则等号右边</li>
+</ol>
+<p>$$
+C_{0}^{0}C(1,N) = 1\cdot C(1,N)
+$$</p>
+<p>与等号左边 $C(1,N)$ 相等.</p>
+<ol start="2">
+<li>假定 $p\geq 1$ 时结论成立, 则 $p+1$ 时, 验证</li>
+</ol>
+<p>$$
+\begin{aligned}
+C(p+1,N) &amp;= C(p,N) + C(p,N-1)\\
+&amp;= \sum_{j=0}^{p-1}C_{p-1}^{j}C(1,N-j) + \sum_{j=0}^{p-1}C_{p-1}^{j}C(1,N-1-j)\\
+k:=j+1\rightarrow &amp;= \sum_{j=0}^{p-1}C_{p-1}^{j}C(1,N-j) + \sum_{k=1}^{p}C_{p-1}^{k-1}C(1,N-k)\\
+&amp;= C_{p-1}^{0}C(1,N) + \sum_{j=1}^{p-1}[C_{p-1}^{j}+C_{p-1}^{j-1}]C(1,N-j) + C_{p-1}^{p-1}C(1,N-p)\\
+&amp;= C_{p}^{0}C(1,N) + \sum_{j=1}^{p-1}C_{p}^{j}C(1,N-j) + C_{p}^{p}C(1,N-p)\\
+&amp;= \sum_{j=0}^{p}C_{p}^{j}C(1,N-j)
+\end{aligned}
+$$</p>
+<p>正是取 $p+1$ 时的公式.</p>
+<blockquote>
+<p>Pascal 恒等式</p>
+<p>$$
+C_{p}^{j} = C_{p-1}^{j} + C_{p-1}^{j-1}
+$$</p>
+<p>即从 $p$ 个元素中选取 $j$ 个元素, 等效于先确定某固定特殊元素 $x$, 那么</p>
+<ol>
+<li>不含该元素, 即在剩下 $p-1$ 个元素中选取 $j$ 个元素, 即 $C_{p-1}^{j}$;</li>
+<li>一定要选取元素 $x$, 还有 $j-1$ 个元素没有选取, 并且要在剩下的 $p-1$ 个元素中选, 即 $C_{p-1}^{j-1}$.</li>
+</ol>
+</blockquote>
+</blockquote>
+<ul>
+<li>$p\leq N$: $\forall N$, $C(1,N)=2$, 因为一个点可以任意染色 $\pm 1$.</li>
+<li>$p&gt;N$: 取 $N\leq 0$ 的 $C(p,N) = 0$.</li>
+</ul>
+<p>所以公式中的 $C(1,N-j) = 2$. 代入得到</p>
+<p>$$
+C(p,N) = 2\sum_{i=0}^{N-1}C_{p-1}^{i} = 2\sum_{i=0}^{N-1}\begin{pmatrix}
+p-1\\
+i
+\end{pmatrix}
+$$</p>
+<blockquote>
+<p>当 $p = 2N$ 时, 利用二项式系数的对称性 $C_{2n}^{n-m} = C_{2n}^{n+m}$, 得到 $C(2N,N) = 2^{p-1}$. 和图中 $p/N = 2$ 时 $C(p,N)/2^{p} = 1/2$ 一致</p>
+</blockquote>
+<p>在 $N$ 充分大时, 可将二项式系数处理为 Guassian 极限:</p>
+<p>$$
+\frac{C(p,N)}{2^{p}} \approx \frac{1}{2}\left[
+1 + \text{erf }\left(
+\sqrt{\frac{p}{2}}\left(
+\frac{2N}{p} - 1
+\right)
+\right)
+\right]
+$$</p>
+<p>证明:</p>
+<p>$$
+\frac{C(p,N)}{2^{p}} = \frac{2\sum_{i=0}^{N-1}C_{p-1}^{i}}{2^{p}} = \sum_{i=0}^{N-1}\frac{C_{p-1}^{i}}{2^{p-1}} = \text{Prob}(X\leq N-1)
+$$</p>
+<blockquote>
+<p>其中 $X\sim B(p-1,q = \frac{1}{2})$.</p>
+</blockquote>
 
 
         </div>
@@ -1418,20 +1528,12 @@ $$</p>
     });
   </script>
   
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
-
 </body>
 
 
 
 
 
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
-  </head>
 
 
 <body>
