@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://Muatyz.github.io/posts/read/theory-of-neural-computation/</loc>
+    <lastmod>2025-10-12T00:18:23+08:00</lastmod>
+  </url><url>
     <loc>https://Muatyz.github.io/posts/phy/calphy/</loc>
     <lastmod>2025-09-26T00:18:23+08:00</lastmod>
   </url><url>
@@ -44,10 +47,16 @@
     <loc>https://Muatyz.github.io/posts/phy/scmp/review-soft-matter-physics/</loc>
     <lastmod>2025-10-14T00:18:06+08:00</lastmod>
   </url><url>
+    <loc>https://Muatyz.github.io/posts/read/reference/</loc>
+    <lastmod>2025-10-12T00:18:23+08:00</lastmod>
+  </url><url>
     <loc>https://Muatyz.github.io/posts/read/</loc>
     <lastmod>2025-10-12T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/</loc>
+    <loc>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</loc>
+    <lastmod>2025-10-12T00:18:23+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/read/reference/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/</loc>
     <lastmod>2025-10-12T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/tags/numerical-calculation/</loc>
@@ -59,13 +68,16 @@
     <loc>https://Muatyz.github.io/categories/physics/</loc>
     <lastmod>2025-10-12T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/theory-of-neural-computation/</loc>
+    <loc>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</loc>
     <lastmod>2025-10-12T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/neural-networks-and-physical-systems-with-emergent-collective-computational-abilities/</loc>
+    <loc>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</loc>
+    <lastmod>2025-10-12T00:18:23+08:00</lastmod>
+  </url><url>
+    <loc>https://Muatyz.github.io/posts/read/reference/neural-networks-and-physical-systems-with-emergent-collective-computational-abilities/</loc>
     <lastmod>2025-10-11T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/theoretical-neuroscience-rising/</loc>
+    <loc>https://Muatyz.github.io/posts/read/reference/theoretical-neuroscience-rising/</loc>
     <lastmod>2025-10-08T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/calphy/variational-intergration-for-ideal-magnetohydrodynamics/</loc>
@@ -455,7 +467,7 @@
     <loc>https://Muatyz.github.io/posts/phy/hcmp/tbg-fig-python/</loc>
     <lastmod>2022-05-08T00:18:23+08:00</lastmod>
   </url><url>
-    <loc>https://Muatyz.github.io/posts/read/2024-nobel-prize-in-physics/</loc>
+    <loc>https://Muatyz.github.io/posts/read/reference/2024-nobel-prize-in-physics/</loc>
     <lastmod>2022-05-05T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://Muatyz.github.io/posts/phy/calphy/itensor-mannual/</loc>

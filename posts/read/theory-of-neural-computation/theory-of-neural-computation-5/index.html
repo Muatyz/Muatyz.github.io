@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Simple Percptrons(简单感知机) | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="每周阅读笔记">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Simple Percptrons(简单感知机)" />
+<meta property="og:description" content="每周阅读笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/" />
+<meta property="og:image" content="https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-10-12T00:18:23+08:00" />
+<meta property="article:modified_time" content="2025-10-12T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png" />
+<meta name="twitter:title" content="Simple Percptrons(简单感知机)"/>
+<meta name="twitter:description" content="每周阅读笔记"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "📕 计算神经科学",
+          "item": "https://Muatyz.github.io/posts/read/theory-of-neural-computation/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Simple Percptrons(简单感知机)",
+      "item": "https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Simple Percptrons(简单感知机)",
+  "name": "Simple Percptrons(简单感知机)",
+  "description": "每周阅读笔记",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "supervised learning(learning with a teacher)监督学习\n5.1 Feed-Forward Networks Perceptrons: layered feed-forward networks(分层前馈网络).\none-layer and two-layer(hidden units) perceptrons. $N$-layer network has $N$ layers of connections and $N — 1$ hidden layers.\nasymmetric connection matrices $w_{ij}$(triangular matrix, 三角矩阵): no energy function exists. 只有对称阵存在能量函数\n$$ H = -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}S_{j} $$\nSimple perceptron(no hidden units). Input: $\\xi_{k}$; Output: $O_{i}$.\n$$ O_{i} = g(h_{i}) = g\\left(\\sum_{k}w_{ik}\\xi_{k}\\right),\\quad g(h): \\text{activation function} $$\nOutput is an explicit(显式) function of the input.\n阈值可以被处理为一个等效的输入节点 $\\xi_{0} = - 1$, 且权重 $w_{i0} = \\theta_{i}$.\n$$ O_{i} = g\\left(\\sum_{k=0}^{N}w_{ik}\\xi_{k}\\right) = g\\left(\\sum_{k=1}^{N}w_{ik}\\xi_{k}-\\theta_{i}\\right) $$\n目标: 若 input $\\xi_{k}^{\\mu}$ 所得的 output 为 $O_{i}^{\\mu}$, 要求 the general association task: $O_{i}^{\\mu} = \\zeta_{i}^{\\mu}$(target pattern).\n其中 $k$ 为 input 节点标记, $i$ 为 output 节点标记, $\\mu=1,\\cdots,p$ 为 pattern/pairs 标记.\nboolean($\\pm 1$) / continuous-valued.\nauto-association task(自关联任务): 输入 pattern $\\xi_{k}^{\\mu}$, 输出 pattern 也是 $\\xi_{k}^{\\mu}$.\nhetero-association task(异关联任务): 输入 pattern $\\xi_{k}^{\\mu}$, 输出 pattern 为 $\\zeta_{i}^{\\mu}$. 通常输入与输出的 units 数不同.\nclassification problems: inputs 会被分到不同 categories.\nfind the weights $w_{ik}$ in a finite number of steps.\n5.2 Threshould Units(阈值单元) 设 $g(h) = \\text{sgn}(h)$, target $\\zeta_{i}^{\\mu} = \\pm 1$.\n由于 output unit 彼此独立, 不失一般性地, 省略 output 标记 $i$: $\\vec{w} = (w_{1},w_{2},\\cdots,w_{N})$.\ninput pattern $\\vec{\\xi}^{\\mu}\\in\\mathbb{R}^{N}$.\n那么求和形式可写作矢量内积形式:\n$$ \\sum_{k}w_{k}\\xi_{k}^{\\mu} = \\vec{w}\\cdot\\vec{\\xi}_{\\mu},\\quad \\text{sgn}(\\vec{w}\\cdot\\vec{\\xi}_{\\mu}) = \\zeta^{\\mu} $$\n通过选择 $\\vec{w}$, 使得 $\\vec{\\xi}_{\\mu}$ 在其投影(projection) 和 $\\zeta^{\\mu}$ 同号. 存在临界 $\\vec{w}\\cdot\\vec{\\xi}_{\\mu} = 0$, 即两者正交.\n(a) 通过合适的 $\\vec{w}$, 使得实心圆($\\zeta^{\\mu}=+1$)和空心圆($\\zeta^{\\mu}=-1$)被超平面分开.\n(b) 通过合适的 $\\vec{w}$, 使得所有圆都在超平面(hyperplane)法向量 $\\vec{w}$ 所指的一侧.\n定义辅助矢量 $\\vec{x}^{\\mu}\\equiv \\zeta^{\\mu}\\vec{\\xi}$, 从而条件写作\n$$ \\vec{w}\\cdot\\vec{x}^{\\mu} \u003e 0 $$\n也可将求和项具体展开, 补上原先忽略的指标 $i$:\n$$ \\sum_{k}w_{ik}\\zeta^{\\mu}\\xi_{k}^{\\mu} = \\zeta^{\\mu}\\left(\\sum_{k}w_{ik}\\xi_{k}^{\\mu}\\right) = \\zeta^{\\mu}h_{i}^{\\mu} \u003e 0 $$\nLinear Separability(线性可分性) 超平面是否存在, 决定分类问题是否可通过 perceptron 解, 或线性可分(linearly separable).\n输出\n$$ O_{i} = \\text{sgn}\\left(\\sum_{k\u003e0}w_{ik}\\xi_{k}-w_{i0}\\right) \\Leftarrow O = \\text{sgn}\\left(\\vec{w}\\cdot\\vec{\\xi}-w_{0}\\right) $$\n那么 $N-1$ 维超平面是由\n$$ \\vec{w}\\cdot\\vec{\\xi} = w_{0} \\Leftrightarrow \\hat{n}\\cdot\\vec{\\xi} = \\frac{w_{0}}{||\\vec{w}||} $$\n决定的. 其中定义法向单位向量 $\\hat{n} = \\frac{\\vec{w}}{||\\vec{w}||}$, 可见阈值 $w_{0}$ 的作用是使得超平面沿着 $\\vec{w}$ 方向从原点偏移 $\\frac{w_{0}}{||\\vec{w}||}$.\nAND function/Truth table\n$\\xi$: on = 1; off = 0.\n$\\zeta$: true = 1; false = -1.\n$\\xi_{1}$ $\\xi_{2}$ $\\zeta$ 0 0 -1 0 1 -1 1 0 -1 1 1 +1 “且” 问题是线性可分的. (b) 给出了一个可能的网络示例.\n定义阈值所用的等效节点 $\\xi_{0} = -1$, 则 “且” 问题化为 3D 图示\n由于所有 input($\\vec{\\xi}_{\\mu}$) 都偏移了一个矢量 $(0,0,\\cdots,w_{0})$, 那么这个点成为事实上的新原点. 于是回归到无阈值情况, 超平面经过新原点.\n非线性可分问题: XOR function(异或问题, 同为假, 异为真)\n$\\xi_{1}$ $\\xi_{2}$ $\\zeta$ 0 0 -1 0 1 +1 1 0 +1 1 1 -1 (a) XOR (b) 三点共线的概率为 0.\n对 general position 的解读:\n除开这类特殊情况, 点集处于 general position. $N$ 维空间中, 取任意 $d",
+  "wordCount" : "3879",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png","datePublished": "2025-10-12T00:18:23+08:00",
+  "dateModified": "2025-10-12T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/">📕 计算神经科学</a></div>
+            <h1 class="post-title">
+                Simple Percptrons(简单感知机)
+            </h1>
+            <div class="post-description">
+                每周阅读笔记
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-10-12
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3879字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>8分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#51-feed-forward-networks" aria-label="5.1 Feed-Forward Networks">5.1 Feed-Forward Networks</a></li>
+                <li>
+                    <a href="#52-threshould-units%e9%98%88%e5%80%bc%e5%8d%95%e5%85%83" aria-label="5.2 Threshould Units(阈值单元)">5.2 Threshould Units(阈值单元)</a><ul>
+                        
+                <li>
+                    <a href="#linear-separability%e7%ba%bf%e6%80%a7%e5%8f%af%e5%88%86%e6%80%a7" aria-label="Linear Separability(线性可分性)">Linear Separability(线性可分性)</a></li>
+                <li>
+                    <a href="#a-simple-learning-algorithm" aria-label="A Simple Learning Algorithm">A Simple Learning Algorithm</a></li></ul>
+                </li>
+                <li>
+                    <a href="#53-proof-of-convergence-of-the-perceptron-learning-rule" aria-label="5.3 Proof of Convergence of the Perceptron Learning Rule">5.3 Proof of Convergence of the Perceptron Learning Rule</a></li>
+                <li>
+                    <a href="#54-linear-units" aria-label="5.4 Linear Units">5.4 Linear Units</a><ul>
+                        
+                <li>
+                    <a href="#explicit-solution%e6%98%be%e5%bc%8f%e8%a7%a3" aria-label="Explicit Solution(显式解)">Explicit Solution(显式解)</a></li>
+                <li>
+                    <a href="#gradient-descent-learning%e6%a2%af%e5%ba%a6%e4%b8%8b%e9%99%8d%e5%ad%a6%e4%b9%a0" aria-label="Gradient Descent Learning(梯度下降学习)">Gradient Descent Learning(梯度下降学习)</a></li>
+                <li>
+                    <a href="#convergence-of-gradient-descent" aria-label="Convergence of Gradient Descent">Convergence of Gradient Descent</a></li></ul>
+                </li>
+                <li>
+                    <a href="#55-nonlinear-units" aria-label="5.5 Nonlinear Units">5.5 Nonlinear Units</a><ul>
+                        
+                <li>
+                    <a href="#other-cost-functions" aria-label="Other Cost Functions">Other Cost Functions</a></li></ul>
+                </li>
+                <li>
+                    <a href="#56-stochastic-units" aria-label="5.6 Stochastic Units">5.6 Stochastic Units</a></li>
+                <li>
+                    <a href="#57-capacity-of-the-simple-perceptron%e7%ae%80%e5%8d%95%e6%84%9f%e7%9f%a5%e6%9c%ba%e7%9a%84%e5%ae%b9%e9%87%8f" aria-label="5.7 Capacity of the Simple Perceptron(简单感知机的容量)">5.7 Capacity of the Simple Perceptron(简单感知机的容量)</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><p>supervised learning(learning with a teacher)监督学习</p>
+<h2 id="51-feed-forward-networks">5.1 Feed-Forward Networks<a hidden class="anchor" aria-hidden="true" href="#51-feed-forward-networks">#</a></h2>
+<p>Perceptrons: layered feed-forward networks(分层前馈网络).</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/04/yn3CIk9Q7qutsfB.png" alt=""  />
+one-layer and two-layer(hidden units) perceptrons. $N$-layer network has $N$ layers of connections and $N — 1$ hidden layers.</p>
+</blockquote>
+<p>asymmetric connection matrices $w_{ij}$(triangular matrix, 三角矩阵): no energy function exists. 只有对称阵存在能量函数</p>
+<p>$$
+H = -\frac{1}{2}\sum_{ij}w_{ij}S_{i}S_{j}
+$$</p>
+<p>Simple perceptron(no hidden units). Input: $\xi_{k}$; Output: $O_{i}$.</p>
+<p>$$
+O_{i} = g(h_{i}) = g\left(\sum_{k}w_{ik}\xi_{k}\right),\quad g(h): \text{activation function}
+$$</p>
+<blockquote>
+<p>Output is an explicit(显式) function of the input.</p>
+</blockquote>
+<p>阈值可以被处理为一个等效的输入节点 $\xi_{0} = - 1$, 且权重 $w_{i0} = \theta_{i}$.</p>
+<p>$$
+O_{i} = g\left(\sum_{k=0}^{N}w_{ik}\xi_{k}\right) = g\left(\sum_{k=1}^{N}w_{ik}\xi_{k}-\theta_{i}\right)
+$$</p>
+<p>目标: 若 input $\xi_{k}^{\mu}$ 所得的 output 为 $O_{i}^{\mu}$, 要求 the general association task: $O_{i}^{\mu} = \zeta_{i}^{\mu}$(target pattern).</p>
+<blockquote>
+<p>其中 $k$ 为 input 节点标记, $i$ 为 output 节点标记, $\mu=1,\cdots,p$ 为 pattern/pairs 标记.</p>
+</blockquote>
+<p>boolean($\pm 1$) / continuous-valued.</p>
+<ul>
+<li>
+<p>auto-association task(自关联任务): 输入 pattern $\xi_{k}^{\mu}$, 输出 pattern 也是 $\xi_{k}^{\mu}$.</p>
+</li>
+<li>
+<p><strong>hetero-association task</strong>(异关联任务): 输入 pattern $\xi_{k}^{\mu}$, 输出 pattern 为 $\zeta_{i}^{\mu}$. 通常输入与输出的 units 数不同.</p>
+</li>
+</ul>
+<blockquote>
+<p>classification problems: inputs 会被分到不同 categories.</p>
+</blockquote>
+<p>find the weights $w_{ik}$ in a finite number of steps.</p>
+<h2 id="52-threshould-units阈值单元">5.2 Threshould Units(阈值单元)<a hidden class="anchor" aria-hidden="true" href="#52-threshould-units阈值单元">#</a></h2>
+<p>设 $g(h) = \text{sgn}(h)$, target $\zeta_{i}^{\mu} = \pm 1$.</p>
+<p>由于 output unit 彼此独立, 不失一般性地, 省略 output 标记 $i$: $\vec{w} = (w_{1},w_{2},\cdots,w_{N})$.</p>
+<p>input pattern $\vec{\xi}^{\mu}\in\mathbb{R}^{N}$.</p>
+<p>那么求和形式可写作矢量内积形式:</p>
+<p>$$
+\sum_{k}w_{k}\xi_{k}^{\mu} = \vec{w}\cdot\vec{\xi}_{\mu},\quad \text{sgn}(\vec{w}\cdot\vec{\xi}_{\mu}) = \zeta^{\mu}
+$$</p>
+<p>通过选择 $\vec{w}$, 使得 $\vec{\xi}_{\mu}$ 在其投影(projection) 和 $\zeta^{\mu}$ 同号. 存在临界 $\vec{w}\cdot\vec{\xi}_{\mu} = 0$, 即两者正交.</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/04/F2NigAmo1lZJDdK.png" alt=""  />
+(a) 通过合适的 $\vec{w}$, 使得实心圆($\zeta^{\mu}=+1$)和空心圆($\zeta^{\mu}=-1$)被超平面分开.</p>
+<p>(b) 通过合适的 $\vec{w}$, 使得所有圆都在超平面(hyperplane)法向量 $\vec{w}$ 所指的一侧.</p>
+</blockquote>
+<p>定义辅助矢量 $\vec{x}^{\mu}\equiv \zeta^{\mu}\vec{\xi}$, 从而条件写作</p>
+<p>$$
+\vec{w}\cdot\vec{x}^{\mu} &gt; 0
+$$</p>
+<p>也可将求和项具体展开, 补上原先忽略的指标 $i$:</p>
+<p>$$
+\sum_{k}w_{ik}\zeta^{\mu}\xi_{k}^{\mu} = \zeta^{\mu}\left(\sum_{k}w_{ik}\xi_{k}^{\mu}\right) = \zeta^{\mu}h_{i}^{\mu} &gt; 0
+$$</p>
+<h3 id="linear-separability线性可分性">Linear Separability(线性可分性)<a hidden class="anchor" aria-hidden="true" href="#linear-separability线性可分性">#</a></h3>
+<p>超平面是否存在, 决定分类问题是否可通过 perceptron 解, 或线性可分(linearly separable).</p>
+<p>输出</p>
+<p>$$
+O_{i} = \text{sgn}\left(\sum_{k&gt;0}w_{ik}\xi_{k}-w_{i0}\right)
+\Leftarrow O = \text{sgn}\left(\vec{w}\cdot\vec{\xi}-w_{0}\right)
+$$</p>
+<p>那么 $N-1$ 维超平面是由</p>
+<p>$$
+\vec{w}\cdot\vec{\xi} = w_{0} \Leftrightarrow \hat{n}\cdot\vec{\xi} = \frac{w_{0}}{||\vec{w}||}
+$$</p>
+<p>决定的. 其中定义法向单位向量 $\hat{n} = \frac{\vec{w}}{||\vec{w}||}$, 可见阈值 $w_{0}$ 的作用是使得超平面沿着 $\vec{w}$ 方向从原点偏移 $\frac{w_{0}}{||\vec{w}||}$.</p>
+<blockquote>
+<p><strong>AND function/Truth table</strong></p>
+<p>$\xi$: on = 1; off = 0.</p>
+<p>$\zeta$: true = 1; false = -1.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">$\xi_{1}$</th>
+          <th style="text-align: left">$\xi_{2}$</th>
+          <th style="text-align: left">$\zeta$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">+1</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/04/QHg8sKpJcNDvEZV.png" alt=""  />
+&ldquo;且&rdquo; 问题是线性可分的. (b) 给出了一个可能的网络示例.</p>
+</blockquote>
+<p>定义阈值所用的等效节点 $\xi_{0} = -1$, 则 &ldquo;且&rdquo; 问题化为 3D 图示</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/04/FB6zERn9VxsYaLi.png" alt=""  /></p>
+<p>由于所有 input($\vec{\xi}_{\mu}$) 都偏移了一个矢量 $(0,0,\cdots,w_{0})$, 那么这个点成为事实上的新原点. 于是回归到无阈值情况, 超平面经过新原点.</p>
+</blockquote>
+<p>非线性可分问题: XOR function(异或问题, 同为假, 异为真)</p>
+<blockquote>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">$\xi_{1}$</th>
+          <th style="text-align: left">$\xi_{2}$</th>
+          <th style="text-align: left">$\zeta$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">+1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">+1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/04/PK9QaBvsgAXFdky.png" alt=""  />
+(a) XOR (b) 三点共线的概率为 0.</p>
+</blockquote>
+<p>对 general position 的解读:</p>
+<ul>
+<li>除开这类特殊情况, 点集处于 general position.</li>
+<li>$N$ 维空间中, 取任意 $d&lt;N$ 维超平面, 其所含点数不超过 $d+1$. 则点集处于 general position.</li>
+<li>无阈值问题时, 等价为任意 $d\leq N$ 个点彼此线性独立(不共面).</li>
+</ul>
+<h3 id="a-simple-learning-algorithm">A Simple Learning Algorithm<a hidden class="anchor" aria-hidden="true" href="#a-simple-learning-algorithm">#</a></h3>
+<p>$$
+\begin{aligned}
+w_{ik}^{\prime} = w_{ik} + \Delta w_{ik},\quad \Delta w_{ik} = \begin{cases}
+2\eta \zeta_{i}^{\mu}\xi_{k}^{\mu} &amp; \text{if }\zeta_{i}^{\mu}\neq O_{i}^{\mu};\\
+0 &amp; \text{otherwise}
+\end{cases}
+\end{aligned}
+$$</p>
+<p>其中</p>
+<p>$$
+\Delta w_{ik} = \eta(1-\zeta_{i}^{\mu}O_{i}^{\mu})\zeta_{i}^{\mu}\xi_{k}^{\mu} = \eta(\zeta_{i}^{\mu} - O_{i}^{\mu})\xi_{k}^{\mu}; \quad \text{since }\zeta_{i}^{\mu}, O_{i}^{\mu} = \pm 1
+$$</p>
+<p>两种表述是等价的, 只是后者去掉了条件判断.</p>
+<blockquote>
+<p>$\eta&gt;0$: learning rate(学习率).</p>
+</blockquote>
+<blockquote>
+<p><strong>Will it work?</strong></p>
+<ul>
+<li>若已经正确分类($O_{i}^{\mu} = \zeta_{i}^{\mu}$), 则权重无需更新. 此时 $\zeta_{i}^{\mu}O_{i}^{\mu} = +1$;</li>
+<li>若误分类($O_{i}^{\mu} = -\zeta_{i}^{\mu}$), 既然目标也可写作形式 $\vec{w}\cdot\vec{x}^{\mu}&gt;0$, 不难注意到学习算法也可以写作 $\Delta w_{ik} = 2\eta x_{ik}^{\mu}$, 这使得
+$$
+w^{\prime}_{i}\cdot\vec{x}^{\mu} = \sum_{k}(w_{ik} + \Delta w_{ik})x_{ik}^{\mu} = \sum_{k}(w_{ik} + 2\eta x_{ik}^{\mu})x_{ik}^{\mu} = \vec{w}_{i}\cdot \vec{x}_{i}^{\mu} + \Delta,\quad \Delta &gt; 0
+$$</li>
+</ul>
+<p>$\Delta$ 项使得 $w_{i}^{\prime}\cdot\vec{x}^{\mu}_{i}$ 必定递增, 从而达成 $w_{i}^{\prime}\cdot\vec{x}^{\mu}_{i}&gt;0$ 的目标.</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+\zeta_{i}^{\mu}h_{i}^{\mu} &amp;\equiv \zeta_{i}^{\mu}\sum_{k}w_{ik}\xi_{k}^{\mu} \\
+&amp;= \sum_{k}w_{ik} (\zeta_{i}^{\mu}\xi_{k}^{\mu}) = \vec{w}\cdot\vec{x}^{\mu}&gt; N\kappa
+\end{aligned}
+$$</p>
+<p>第二行是另一种目标的等价表达.</p>
+<blockquote>
+<p>其中 $\kappa$ 被称作 margin size, 这是为了防止某些 $\vec{\xi}^{\mu}$ 非常接近超平面, 导致噪声或误差使得误分类. 添加 $N$ 使得任意 input unit 数均可工作.</p>
+</blockquote>
+<p>将 $N\kappa$ 视为阈值, 那么学习算法改进为</p>
+<p>$$
+\Delta w_{ik} = \eta\Theta(N\kappa-\zeta_{i}^{\mu}h_{i}^{\mu})\zeta_{i}^{\mu}\xi_{k}^{\mu},\quad\Theta(x) = \begin{cases}
+1 &amp; \text{if } x &gt; 0;\\
+0 &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<blockquote>
+<p>若存在输出节点 $i$ 有 $N\kappa &gt; \zeta_{i}^{\mu}h_{i}^{\mu}$, 说明未达成目标, 需要通过 $\vec{x}^{\mu}_{i}$ 继续增大 $\Delta w_{ik}$, 从而产生演化 $w\rightarrow w^{\prime}\rightarrow w^{\prime\prime}\rightarrow \cdots$</p>
+</blockquote>
+<blockquote>
+<p>当 $\kappa=0$, 退化为原算法形式.</p>
+</blockquote>
+<p>写作矢量形式:</p>
+<p>$$
+\Delta \vec{w} = \eta\Theta(N\kappa-\vec{w}\cdot\vec{x}^{\mu})\vec{x}^{\mu}
+$$</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/05/6Yr3INjwWDpamCT.png" alt=""  /></p>
+<p>$\kappa = 0, \eta = 1$. 每次都会找到与超平面异侧的点, 那么优化 $\vec{w}$ 时令其加上对应点矢, 直至所有点均在超平面 $\vec{w}$ 所指一侧为止.</p>
+</blockquote>
+<p>$\vec{x}^{\mu}$ 到超平面的距离决定了分类问题的难易程度. 定义</p>
+<p>$$
+D(\vec{w}) = \frac{1}{||\vec{w}||}\underset{\mu}{\text{min }}\vec{w}\cdot\vec{x}^{\mu}
+$$</p>
+<p>是各点到超平面的最小距离.</p>
+<p>Optimal perceptron 致力于寻找使得 $D$ 最大化的 $\vec{w}$:</p>
+<p>$$
+D_{\text{max}} \equiv \underset{\vec{w}}{\text{max }}D(\vec{w})
+$$</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/05/o8S3TMF69PEWkgQ.png" alt=""  /></p>
+<p>一般性权重 $\vec{w}$ 和 optimal $\vec{w}^{\prime}$.</p>
+</blockquote>
+<p>$D_{\text{max}}$ 越大, 问题越简单. $D_{\text{max}}&lt;0$, 问题不可解.</p>
+<h2 id="53-proof-of-convergence-of-the-perceptron-learning-rule">5.3 Proof of Convergence of the Perceptron Learning Rule<a hidden class="anchor" aria-hidden="true" href="#53-proof-of-convergence-of-the-perceptron-learning-rule">#</a></h2>
+<p>Perceptron learning rule reaches a solution in a <em>finite</em> number of steps.</p>
+<p>设 $\vec{w}^{*}$ 为一已知解($D(\vec{w}^{*})&gt;0$).</p>
+<p>设初始权重 $\vec{w}_{0}=0$. 令 $M^{\mu}$ 为模式 $\mu$ 更新次数. 更新后权重为</p>
+<p>$$
+\vec{w} = \vec{w}_{0} + \sum\Delta\vec{w} = \eta\sum_{\mu}M^{\mu}\vec{x}^{\mu},\quad M = \sum_{\mu}M^{\mu}
+$$</p>
+<p>计算更新后权重 $\vec{w}$ 和已知权重解 $\vec{w}^{*}$ 内积:</p>
+<p>$$
+\begin{aligned}
+\vec{w}\cdot\vec{w}^{*} &amp;= \eta\sum_{\mu}M^{\mu}\vec{x}^{\mu}\cdot\vec{w}^{*}\geq \eta M\underset{\mu}{\text{min }}\vec{x}^{\mu}\cdot\vec{w}^{*} = \eta M D(\vec{w}^{*})||\vec{w}^{*}||\sim M\\
+&amp;\Rightarrow \vec{w^{*}}\cdot\frac{\vec{w}}{||\vec{w}||}\sim M
+\end{aligned}
+$$</p>
+<p>这表明, 如果 $M$ 不是有限值, $\vec{w}^{*}$ 在 $\vec{w}$ 方向上的投影将会发散, 这和 $\vec{w^{*}}\cdot\frac{\vec{w}}{||\vec{w}||}\leq ||\vec{w}^{*}||$ 显然是矛盾的.</p>
+<p>若模式 $\alpha$ 在误分类而需更新, 更新后模长平方变化为</p>
+<p>$$
+\begin{aligned}
+\Delta(||\vec{w}||^{2}) &amp;= (\vec{w}+\eta\vec{x}^{\alpha})^{2} - (\vec{w})^{2} = \eta^{2}(\vec{x}^{\alpha})^{2} + 2\eta\vec{w}\cdot\vec{x}^{\alpha}\\
+&amp;\leq \eta^{2} N + 2\eta N\kappa = N\eta(\eta + 2\kappa)
+\end{aligned}
+$$</p>
+<blockquote>
+<ul>
+<li>学习算法目标的判别式也可写作 $\vec{w}\cdot\vec{x}^{\mu}&gt;N\kappa$, 既然 $\mu = \alpha$ 时误分类, 则 $\vec{w}\cdot\vec{x}^{\alpha}\leq N\kappa$;</li>
+<li>$x_{k}^{\alpha} = \pm 1$, 所以 $(\vec{x}^{\alpha})^{2} = \sum_{k}^{N}(x_{k}^{\alpha})^{2} = N$.</li>
+</ul>
+</blockquote>
+<p>所以 $||\vec{w}||^{2}$ 存在上界</p>
+<p>$$
+||\vec{w}||^{2} \leq M [\Delta (||\vec{w}||^{2})] \leq M N\eta(\eta + 2\kappa)\\
+\Rightarrow ||\vec{w}|| \sim \sqrt{M}
+$$</p>
+<p>计算 $\vec{w}$ 与 $\vec{w}^{*}$ 夹角余弦平方:</p>
+<p>$$
+\phi = \frac{(\vec{w}\cdot\vec{w}^{*})^{2}}{||\vec{w}||^{2}||\vec{w}^{*}||^{2}}\leq 1
+$$</p>
+<p>前文讨论可得</p>
+<p>$$
+\begin{aligned}
+(\vec{w}\cdot\vec{w}^{*})^{2} &amp;\geq \eta^{2} M^{2}D(\vec{w}^{*})^{2}||\vec{w}^{*}||^{2}\\
+\frac{1}{||\vec{w}||^{2}} &amp;\geq \frac{1}{MN\eta(\eta+2\kappa)}
+\end{aligned}
+$$</p>
+<p>相乘可得</p>
+<p>$$
+1 \geq \phi \geq M\frac{D(\vec{w}^{*})^{2}\eta}{N(\eta+2\kappa)}
+$$</p>
+<p>所以 $M$ 存在上界</p>
+<p>$$
+M\leq N\frac{1 + 2\kappa/\eta}{D_{\text{max}}^{2}}
+$$</p>
+<blockquote>
+<p>不显含模式数 $p$, 但通常会因为 $p\uparrow$ 而  $D_{\text{max}}\downarrow$, 从而使 $M\uparrow$.</p>
+</blockquote>
+<h2 id="54-linear-units">5.4 Linear Units<a hidden class="anchor" aria-hidden="true" href="#54-linear-units">#</a></h2>
+<p>由 $g(h)=\text{sgn}(h)$ 拓展到 连续且可导函数 $g(h)$. Linear units: $g(h)=h$.</p>
+<p>目标写作</p>
+<p>$$
+\zeta_{i}^{\mu} = O_{i}^{\mu} = \sum_{k}w_{ik}\xi_{k}^{\mu}
+$$</p>
+<blockquote>
+<p>$O_{i}^{\mu}$ 为连续值, 而 $\zeta_{i}^{\mu}=\pm 1$ 仍然是被允许的.</p>
+</blockquote>
+<h3 id="explicit-solution显式解">Explicit Solution(显式解)<a hidden class="anchor" aria-hidden="true" href="#explicit-solution显式解">#</a></h3>
+<p>auto-association: $\zeta_{i}^{\mu} = \xi_{i}^{\mu}$. 推广至 hetero-association:</p>
+<p>$$
+\begin{aligned}
+w_{ik} &amp;= \frac{1}{N}\sum_{\mu\nu}\zeta_{i}^{\mu}(\mathbf{Q}^{-1})_{\mu\nu}\xi_{k}^{\nu}\\
+\mathbf{Q}_{\mu\nu} &amp;= \frac{1}{N}\sum_{k}\xi_{k}^{\mu}\xi_{k}^{\nu}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>Proof:</p>
+<p>$$
+\begin{aligned}
+O_{i}^{\lambda} \equiv \sum_{k}w_{ik}\xi_{k}^{\lambda} &amp;= \frac{1}{N}\sum_{k}\sum_{\mu\nu}\zeta_{i}^{\mu}(\mathbf{Q}^{-1})_{\mu\nu}\xi_{k}^{\nu}\xi_{k}^{\lambda}\\
+&amp;= \sum_{\mu\nu}\zeta_{i}^{\mu}(\mathbf{Q}^{-1})_{\mu\nu}\mathbf{Q}_{\nu\lambda}\\
+&amp;= \sum_{\mu}\zeta_{i}^{\mu}\delta_{\mu\lambda} = \zeta_{i}^{\lambda}
+\end{aligned}
+$$</p>
+</blockquote>
+<p>$\mathbf{Q}$ 的逆存在条件为满秩/${\xi_{k}^{\mu}}$ 线性无关(linearly independent). 由于 input units 数为 $N$, 因此能存储 $p\leq N$ 个线性无关的模式.</p>
+<p>即使 $p&lt;N$, 也不能保证其线性无关. 若存在关系 $\sum_{\mu=1}^{p}a_{k}\xi_{k}^{\mu} = 0$, 则 ${\xi_{k}^{p}}$ 只能张成模式子空间(pattern subspace). 可以找到 $\xi_{k}^{*}$ 与该子空间正交:</p>
+<p>$$
+\sum_{k}\xi_{k}^{\mu}\xi_{k}^{*} = 0,\quad \forall \mu = 1,2,\cdots,p
+$$</p>
+<p>若 $w_{ik}$ 为一个解, 则 $w_{ik}^{\prime} = w_{ik} + a_{i}\xi_{k}^{*}$ 形成一个解系.</p>
+<blockquote>
+<p>线性独立问题具有线性可分性, 反之则不同. 大多数阈值网络 $p&gt;N$, 如 AND 和 XOR.</p>
+</blockquote>
+<h3 id="gradient-descent-learning梯度下降学习">Gradient Descent Learning(梯度下降学习)<a hidden class="anchor" aria-hidden="true" href="#gradient-descent-learning梯度下降学习">#</a></h3>
+<p>显式解允许我们直接求 $w_{ik}$, 但大多数情况下需要通过 learning rule 找到 $w_{ik}$.</p>
+<p>评估误差的 Cost function:</p>
+<p>$$
+E[\vec{w}] = \frac{1}{2}\sum_{i\mu}(\zeta_{i}^{\mu} - O_{i}^{\mu})^{2} = \frac{1}{2}\sum_{i\mu}\left(
+\zeta_{i}^{\mu} - \sum_{k}w_{ik}\xi_{k}^{\mu}
+\right)^{2}
+$$</p>
+<blockquote>
+<p>当 $E[\vec{w}] = 0$ 时找到解. 和依赖于节点激活的能量函数不同, 这里的函数依赖于权重/连接.</p>
+</blockquote>
+<p><strong>Gradient descent algorithm</strong>: 令 $w_{ik}$ 偏移 $\Delta w_{ik}$, 且幅度与梯度成正比:</p>
+<p>$$
+\begin{aligned}
+\Delta w_{ik} &amp;= -\eta\frac{\partial E}{\partial w_{ik}} = \eta\sum_{\mu}(\zeta_{i}^{\mu}-O_{i}^{\mu})\xi_{k}^{\mu}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>$$
+\begin{aligned}
+\frac{\partial E}{\partial w_{ik}} &amp;= \frac{1}{2}\sum_{\mu}2\left(
+\zeta_{i}^{\mu} - \sum_{k}w_{ik}\xi_{k}^{\mu}
+\right)\cdot\frac{\partial}{\partial w_{ik}}\left(
+\zeta_{i}^{\mu} - \sum_{l}w_{il}\xi_{l}^{\mu}
+\right)\\
+&amp;= \sum_{\mu}\left(
+\zeta_{i}^{\mu} - \sum_{k}w_{ik}\xi_{k}^{\mu}
+\right)\cdot \left(
+-\sum_{l}\xi_{l}^{\mu}\delta_{lk}
+\right)\\
+&amp;= -\sum_{\mu}(\zeta_{i}^{\mu} - O_{i}^{\mu})\xi_{k}^{\mu}
+\end{aligned}
+$$</p>
+</blockquote>
+<p>若固定模式 $\mu$, 则有 <strong>delta rule/adaline rule/Widrow-Hoff rule/Least Mean Squares (LMS) rule</strong></p>
+<p>$$
+\Delta w_{ik} = \eta(\zeta_{i}^{\mu}-O_{i}^{\mu})\xi_{k}^{\mu} = \eta\delta_{i}^{\mu}\xi_{k}^{\mu}
+$$</p>
+<p>Cost function 是一个二次型(quadratic form), 因此在 pattern subspace 形成抛物线面, 最小值即 $E=0$; 在正交于 subspace 的方向上 cost function 为常值.</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/06/zu6rkjYxOhyeF18.png" alt=""  /></p>
+<p>${\xi_{k}^{\mu}}$ 线性相关时.</p>
+</blockquote>
+<p>在对 $\vec{\xi}^{\mu}$ 学习后, 权重 $\vec{w}_{i} = (w_{i1},w_{i2},\cdots, w_{ik},\cdots,w_{iN})$ 只会在 $\vec{\xi}^{\mu}$ 的方向上变化, 而正交方向上不变.</p>
+<h3 id="convergence-of-gradient-descent">Convergence of Gradient Descent<a hidden class="anchor" aria-hidden="true" href="#convergence-of-gradient-descent">#</a></h3>
+<p>若 pattern vectors 线性无关, 则 cost function 写作</p>
+<p>$$
+E = \sum_{\lambda = 1}^{M}a_{\lambda}(w_{\lambda} - w_{\lambda}^{0})^{2}
+$$</p>
+<blockquote>
+<p>$M$: 权重总数, 为输入节点数 $N$ 与输出节点数的乘积;</p>
+<p>$w_{\lambda}$: $w_{ik}$ 的线性组合;</p>
+<p>$a_{\lambda}$, $w_{\lambda}^{0}$: 依赖于模式矢量的常数. $a_{\lambda}$ 半正定(positive semi-definite); 当 $a_{\lambda} = 0$, $E$ 相当于对该 $\lambda$ 独立.</p>
+</blockquote>
+<p>$$
+\Delta w_{\lambda} = -\eta\frac{\partial E}{\partial w_{\lambda}} = -2\eta a_{\lambda}(w_{\lambda} - w_{\lambda}^{0}) = -2\eta a_{\lambda}\delta w_{\lambda}
+$$</p>
+<p>那么定义辅助变量 $\delta w_{\lambda} = w_{\lambda} - w_{\lambda}^{0}$, 它表明到最优解的距离. 则原梯度下降规则的等式两边同减 $w_{\lambda}^{0}$ 得</p>
+<p>$$
+\delta w_{\lambda}^{\text{new}} = \delta w_{\lambda}^{\text{old}} + \Delta w_{\lambda} = (1-2\eta a_{\lambda})\delta w_{\lambda}^{\text{old}}
+$$</p>
+<p>若 $|1-2\eta a_{\lambda}|&lt;1$, 则可趋近最优点.</p>
+<ul>
+<li>$\eta&lt;1/a_{\lambda}^{\text{max}}$</li>
+<li>$a_{\lambda}^{\text{min}}$ 决定收敛速度.</li>
+</ul>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/06/mWqxl17JvHjNYnb.png" alt=""  /></p>
+<p>$E = x^{2} + 20 y^{2}$, $\eta = 0.02, 0.0476, 0.049, 0.0505$</p>
+</blockquote>
+<p>在 patterns 存在线性相关组时, 则 cost function 改写为</p>
+<p>$$
+E = E_{0} + \sum_{\lambda=1}^{M}a_{\lambda}(w_{\lambda}-w_{\lambda}^{0})^{2},\quad E_{0}&gt; 0
+$$</p>
+<h2 id="55-nonlinear-units">5.5 Nonlinear Units<a hidden class="anchor" aria-hidden="true" href="#55-nonlinear-units">#</a></h2>
+<p>由线性 $g(h) = h$ 推广至任意可导 $g(h)$. Cost function:</p>
+<p>$$
+E[\vec{w}] = \frac{1}{2}\sum_{i\mu}(\zeta_{i}^{\mu} - O_{i}^{\mu})^{2} = \frac{1}{2}\sum_{i\mu}\left[
+\zeta_{i}^{\mu} - g\left(
+\sum_{k}w_{ik}\xi_{k}^{\mu}
+\right)
+\right]^{2}
+$$</p>
+<p>梯度</p>
+<p>$$
+\frac{\partial E}{\partial w_{ik}} = -\sum_{\mu}[\zeta_{i}^{\mu}-g(h_{i}^{\mu})]g^{\prime}(h_{i}^{\mu})\xi_{k}^{\mu}
+$$</p>
+<p>权重修正</p>
+<p>$$
+\Delta w_{ik} = -\eta\frac{\partial E}{\partial w_{ik}} = \eta [\zeta_{i}^{\mu}-O_{i}^{\mu}]g^{\prime}(h_{i}^{\mu})\xi_{k}^{\mu} = \eta\delta_{i}^{\mu}\xi_{k}^{\mu}
+$$</p>
+<p>对于 $g(h)=\tanh{(h)}$ 这类 sigmoid function, 在 $|h_{i}^{\mu}|$ 较小时梯度较大.</p>
+<blockquote>
+<p>常用激活函数及其梯度:
+$$
+\begin{aligned}
+\tanh{(h)} &amp;= \frac{e^{h}-e^{-h}}{e^{h}+e^{-h}}\\
+g(h)^{\prime} &amp;= [\tanh{(\beta h)}]^{\prime} = \beta(1-g^{2});\\
+f_{\beta}(h) &amp;= \frac{1}{1+\exp{(-2\beta h)}}\\
+g(h)^{\prime} &amp;= f_{\beta}^{\prime}(h) = 2\beta g(1-g)
+\end{aligned}
+$$</p>
+</blockquote>
+<p>解存在: patterns 线性无关.</p>
+<p>梯度下降可能找到局部最优解(local minima) 而非全局最优解(global minima).</p>
+<blockquote>
+<p>e.g. $g(h) = \tanh{(h)}$ 无法取到目标值 $\pm 1$.</p>
+</blockquote>
+<p>Nonlinear units 在 patterns 线性相关时有可能辅助找到 partial solutions.</p>
+<blockquote>
+<p>XOR problem.</p>
+<blockquote>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">$\xi_{1}$</th>
+          <th style="text-align: left">$\xi_{2}$</th>
+          <th style="text-align: left">$\zeta$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">+1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">+1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">-1</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<p>若取 $\tanh{(\beta h)}$ 作为激活函数:</p>
+<ul>
+<li>最平凡的情况 $\vec{w} = \vec{0}$, 即 $O = 0$ 恒成立, 此时 $E = \frac{1}{2}[2\cdot (1-0)^{2}+2\cdot (-1-0)^{2}] = 2$.</li>
+<li>$|w_{0}|=|w_{1}|=|w_{2}|\rightarrow \infty$. 若取符号为 $\{-,-,-\}$, 则 输出分别为
+$\tanh{(0+0-\infty)} = -1$,
+$\tanh{(0-\infty-\infty)} = -1$,
+$\tanh{(-\infty+0-\infty)} = -1$,
+$\tanh{(-\infty-\infty-\infty)} = -1$.
+此时 $E = \frac{1}{2}[0^{2}+2^{2}+2^{2}+0^{2}] = 4$??</li>
+</ul>
+</blockquote>
+<h3 id="other-cost-functions">Other Cost Functions<a hidden class="anchor" aria-hidden="true" href="#other-cost-functions">#</a></h3>
+<ol>
+<li>对 $\zeta_{i}^{\mu}, O_{i}^{\mu}$ 可导; 2. 在 $O_{i}^{\mu} = \zeta_{i}^{\mu}$ 取最小值.</li>
+</ol>
+<p>满足上述两要求均可成为 cost function.</p>
+<p>$$
+E = \sum_{i\mu}\left[
+\frac{1}{2}(1+\zeta_{i}^{\mu})\log{\frac{1+\zeta_{i}^{\mu}}{1+O_{i}^{\mu}}}
++ \frac{1}{2}(1-\zeta_{i}^{\mu})\log{\frac{1-\zeta_{i}^{\mu}}{1-O_{i}^{\mu}}}
+\right]
+$$</p>
+<blockquote>
+<p>在信息学中, 若有两个概率分布 $P(x)$ 和 $Q(x)$, 则 Relative entropy 被定义为
+$$
+D_{KL}(P||Q) = \sum_{x}P(x)\log{\frac{P(x)}{Q(x)}}
+$$</p>
+</blockquote>
+<p>那么可以将 $\frac{1\pm O_{i}^{\mu}}{2}$ 理解为输出 $\pm 1$ 的概率, $\frac{1\pm \zeta_{i}^{\mu}}{2}$ 理解为实际目标为 $\pm 1$ 的概率.</p>
+<p>当 $O_{i}^{\mu} = \zeta_{i}^{\mu}$ 时, $E=0$, 否则 $E&gt;0$.</p>
+<ul>
+<li>相比于二次型, 当 $|O_{i}^{\mu}|\rightarrow 1$ 时, 该 cost function 会发散, 从而推动网络修改权重. 二次型则是在 $|O_{i}^{\mu}|\rightarrow 1$ 时梯度趋近于 0, 导致学习停滞.</li>
+<li>当训练集本身也是模糊的(如医药行业), 出身于概率论的 relative entropy cost function 更合适.</li>
+</ul>
+<p>取 $g(h)=\tanh{\beta h}$ 作为激活函数, 则权重更新仍然为</p>
+<p>$$
+\Delta w_{ik} = \eta\delta_{i}^{\mu}\xi_{k}^{\mu},\quad \delta_{i}^{\mu} = {\color{red}{\beta}}(\zeta_{i}^{\mu}-O_{i}^{\mu})
+$$</p>
+<blockquote>
+<p>注意其中已经没有 $g^{\prime}(h_{i}^{\mu})$.</p>
+</blockquote>
+<p>梯度下降:</p>
+<ul>
+<li>用于二分决策问题(binary decision problems). $O_{i}&gt;0$ 对应肯定, $O_{i}&lt;0$ 对应否定;</li>
+<li>适用于线性可分但 patterns 线性相关的问题;</li>
+<li>使用 well-formed cost function, 如 relative entropy form, 其梯度幅值大于某定值, 从而总能找到解(如果解存在).</li>
+</ul>
+<h2 id="56-stochastic-units">5.6 Stochastic Units<a hidden class="anchor" aria-hidden="true" href="#56-stochastic-units">#</a></h2>
+<p>借助 Boltzmann 配分函数, 定义概率:</p>
+<p>$$
+P(S_{i}^{\mu}=+1) = \frac{e^{\beta h_{i}^{\mu}}}{e^{\beta h_{i}^{\mu}} + e^{-\beta h_{i}^{\mu}}},\quad
+P(S_{i}^{\mu}=-1) = \frac{e^{-\beta h_{i}^{\mu}}}{e^{\beta h_{i}^{\mu}} + e^{-\beta h_{i}^{\mu}}}
+$$</p>
+<blockquote>
+<p>$$
+h_{i}^{\mu} = \sum_{k}w_{ik}\xi_{k}^{\mu}
+$$</p>
+</blockquote>
+<p>或者将其写作合并形式</p>
+<p>$$
+P(S_{i}^{\mu}=\pm 1) = \frac{1}{1+\exp{(-2\beta h_{i}^{\mu})}}
+$$</p>
+<p>于是得到</p>
+<p>$$
+\begin{aligned}
+\langle S_{i}^{\mu}\rangle &amp;= (+1)\cdot \frac{e^{\beta h_{i}^{\mu}}}{e^{\beta h_{i}^{\mu}} + e^{-\beta h_{i}^{\mu}}} + (-1)\cdot \frac{e^{-\beta h_{i}^{\mu}}}{e^{\beta h_{i}^{\mu}} + e^{-\beta h_{i}^{\mu}}} \\
+&amp;= \tanh{(\beta h_{i}^{\mu})}\\
+&amp;= \tanh\left(
+\beta \sum_{k}w_{ik}\xi_{k}^{\mu}
+\right)
+\end{aligned}
+$$</p>
+<p>权重更新</p>
+<p>$$
+\Delta w_{ik} = \eta\delta_{i}^{\mu}\xi_{k}^{\mu},\quad \delta_{i}^{\mu} = \zeta_{i}^{\mu} - \langle S_{i}^{\mu}\rangle
+$$</p>
+<p>二次型 cost function:</p>
+<p>$$
+E = \frac{1}{2}\sum_{i\mu}(\zeta_{i}^{\mu} - S_{i}^{\mu})^{2} = \sum_{i\mu}(1-\zeta_{i}^{\mu}S_{i}^{\mu})
+$$</p>
+<blockquote>
+<p>$\zeta_{i}^{\mu},O_{i}^{\mu} = \pm 1$.</p>
+</blockquote>
+<p>平均误差(avarage error):</p>
+<p>$$
+\langle E\rangle
+= \sum_{i\mu}(1-\zeta_{i}^{\mu}\langle S_{i}^{\mu}\rangle)
+= \sum_{i\mu}\left[
+1-\zeta_{i}^{\mu}\tanh{\left(
+\beta \sum_{k}w_{ik}\xi_{k}^{\mu}
+\right)}
+\right]
+$$</p>
+<p>更新引起的 $\langle E\rangle$ 变化:</p>
+<p>$$
+\begin{aligned}
+\Delta\langle E\rangle &amp;= \sum_{ik}\Delta w_{ik}\frac{\partial \langle E\rangle}{\partial w_{ik}}\\
+&amp;= \sum_{i\mu k}\Delta w_{ik}(-\zeta_{i}^{\mu})\frac{\partial }{\partial w_{ik}}\tanh{(\beta h_{i}^{\mu})}\\
+&amp;= -\sum_{i\mu k}\eta[1-\zeta_{i}^{\mu}\tanh{(\beta h_{i}^{\mu})}]\beta \text{ sech}^{2}(\beta h_{i}^{\mu})&lt;0
+\end{aligned}
+$$</p>
+<p>所以更新总是改善平均表现.</p>
+<blockquote>
+<p>Hints:</p>
+<p>$$
+\frac{\mathrm{d}}{\mathrm{d}x}\tanh{(x)} = \text{sech}^{2}(x),\quad \text{sech}(x) = \frac{1}{\cosh(x)} = \frac{2}{e^{x}+e^{-x}}\\
+\frac{\partial}{\partial w_{ik}}\sum_{l}w_{il}\xi_{l}^{\mu} = \sum_{l}\xi_{l}^{\mu}\delta_{lk} = \xi_{k}^{\mu}
+$$</p>
+</blockquote>
+<h2 id="57-capacity-of-the-simple-perceptron简单感知机的容量">5.7 Capacity of the Simple Perceptron(简单感知机的容量)<a hidden class="anchor" aria-hidden="true" href="#57-capacity-of-the-simple-perceptron简单感知机的容量">#</a></h2>
+<blockquote>
+<ul>
+<li>可存储多少随机 input-output pairs?</li>
+<li>通过特定学习规则, 多少 input-output pairs 可被学习?</li>
+</ul>
+</blockquote>
+<p>continuous-valued units: 只要 $p$ 个 patterns 线性无关. 即 $p&lt;N$. 因此容量 $p_{\text{max}} = N$.</p>
+<p>threshold units: 要求线性可分性(是否存在超平面二分样本). 对于 random continous-valued inputs, $p_{\text{max}} = 2N$.</p>
+<blockquote>
+<p>$N$ 通常为很大的 input units 数; output units 数很小且固定(不依赖于 $N$).</p>
+<p>若给定 $p$ 个随机点于空间 $\mathbb{R}^{N}$ 中, 且其目标输出/标签随机分配为 $\pm 1$. 当 $p\leq 2N$ 时, 几乎总能找到一个超平面将其二分; 而当 $p&gt;2N$ 时, 线性可分的概率迅速下降至 0.</p>
+<p>每增加一个维度, 超平面都可以多分割两个点.</p>
+</blockquote>
+<hr>
+<p>考虑 $N$ continous-valued inputs 和单个 $\pm 1$ output, 且 threshold 为 $0$(即 $N-1$ 维 hyperplane 过原点).</p>
+<p>将 $p$ 个点随机放置于 $N$ 维空间, 且标签为 $\pm 1$. 令满足线性可分性的放置方法数为 $C(p,N)$.</p>
+<blockquote>
+<p>在 $p$ 很小时, $C(p,N)$ 可近似为 $2^{p}$, 即无论怎样染色都能找到一个超平面将其二分. $p$ 较大时, 开始出现线性不可分.</p>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/07/j8DHNkYvXsAiT3w.png" alt=""  /></p>
+<p>$N = \{\overset{\cdot}{5},\overset{\cdots}{20},\overset{-}{100}\}$. 在 $p/N = 2$ 时, $C(p,N)/2^{p}$ 急剧降低, 且 $N$ 越大, 跌落越快.</p>
+</blockquote>
+<p>随机放置点不是必须的, 需要的是令其处于 general position(满足 linearly independent).</p>
+<blockquote>
+<p>$N=2$, 即二维空间时, 线性无关要求两点连线不过原点.</p>
+</blockquote>
+<p>dichotomy: 可被 hyperplane 二分的染色方法.</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Neurons with graded response have collective computational properties like those of two-state neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>The Hopfield Model</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/custom/click.min.js"></script>
+
+</body>
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

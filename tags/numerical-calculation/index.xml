@@ -9,38 +9,56 @@
     <copyright>Muartz</copyright>
     <lastBuildDate>Sun, 12 Oct 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/numerical-calculation/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Neurons with graded response have collective computational properties like those of two-state neurons</title>
-      <link>https://Muatyz.github.io/posts/read/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/</link>
+      <title>Introduction</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</link>
       <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/</guid>
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
+      <title>Neurons with graded response have collective computational properties like those of two-state neurons</title>
+      <link>https://Muatyz.github.io/posts/read/reference/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/</guid>
       <description>Hopfield model</description>
     </item>
     
     <item>
-      <title>Theory of Neural Computation</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/</link>
+      <title>Simple Percptrons(简单感知机)</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</link>
       <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/</guid>
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
+      <title>The Hopfield Model</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</guid>
       <description>每周阅读笔记</description>
     </item>
     
     <item>
       <title>Neural networks and physical systems with emergent collective computational abilities</title>
-      <link>https://Muatyz.github.io/posts/read/neural-networks-and-physical-systems-with-emergent-collective-computational-abilities/</link>
+      <link>https://Muatyz.github.io/posts/read/reference/neural-networks-and-physical-systems-with-emergent-collective-computational-abilities/</link>
       <pubDate>Sat, 11 Oct 2025 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/neural-networks-and-physical-systems-with-emergent-collective-computational-abilities/</guid>
+      <guid>https://Muatyz.github.io/posts/read/reference/neural-networks-and-physical-systems-with-emergent-collective-computational-abilities/</guid>
       <description>Hopfield model</description>
     </item>
     
     <item>
       <title>Theoretical Neuroscience Rising</title>
-      <link>https://Muatyz.github.io/posts/read/theoretical-neuroscience-rising/</link>
+      <link>https://Muatyz.github.io/posts/read/reference/theoretical-neuroscience-rising/</link>
       <pubDate>Wed, 08 Oct 2025 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/theoretical-neuroscience-rising/</guid>
+      <guid>https://Muatyz.github.io/posts/read/reference/theoretical-neuroscience-rising/</guid>
       <description>Larry Abbott’s review on the field of theoretical neuroscience. It is not very new, but still worth reading.</description>
     </item>
     
@@ -109,10 +127,10 @@
     
     <item>
       <title>FOR FOUNDATIONAL DISCOVERIES AND INVENTIONS THAT ENABLE MACHINE LEARNING WITH ARTIFICIAL NEURAL NETWORKS</title>
-      <link>https://Muatyz.github.io/posts/read/2024-nobel-prize-in-physics/</link>
+      <link>https://Muatyz.github.io/posts/read/reference/2024-nobel-prize-in-physics/</link>
       <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/2024-nobel-prize-in-physics/</guid>
+      <guid>https://Muatyz.github.io/posts/read/reference/2024-nobel-prize-in-physics/</guid>
       <description>2024 年诺贝尔物理学奖</description>
     </item>
     

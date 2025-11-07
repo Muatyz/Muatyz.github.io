@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>📕 计算神经科学 on 无处惹尘埃</title>
+    <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/</link>
+    <description>Recent content in 📕 计算神经科学 on 无处惹尘埃</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Muartz</copyright>
+    <lastBuildDate>Sun, 12 Oct 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
+      <title>Simple Percptrons(简单感知机)</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
+      <title>The Hopfield Model</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -60,20 +60,8 @@
 <script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
 
 
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "www.muartz.com"; 
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 
 
 
@@ -1097,8 +1085,7 @@ $$</p>
 <blockquote>
 <p>具体来说, 就是把频率调为 $100\text{ Hz}$ 的时候, 就可以看到类正弦的接收信号在 $t =  0$ 处会有一个相对高峰, 当时还以为真的测到信号了. 然而, 无论是将信号发生器的输出关掉, 还是干脆直接把信号发生器上面的 BNC 接口直接拔下, 这个疑似相干弹道波反而还更清晰了(在没有任何信号被激发的情况下, 接收端竟然接收到了信号!)这无疑是非常荒谬的.</p>
 </blockquote>
-<p><img loading="lazy" src="https://s2.loli.net/2023/11/07/M1b8gEcH7r6RoTZ.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/07/M1b8gEcH7r6RoTZ.jpg" alt=""  /></p>
 <p>因为在参考的论文中设定的脉冲是 $2\mu\text{s}$, 我理解的是这个数值就是指的脉冲的宽度(Width), 所以频率就在 $10-1000\text{Hz}$ 里面选择, 这种思路和测水中声速是一脉相承的. 并且, 确实可以在紫色信号看到有意义的峰, 而非散乱的信号杂音. 但是, 并没有看到所谓的相干弹道波, 这一点对于我们的散射理论反而是更重要的.</p>
 <p>目前的话, 我认为应该重读一下当时参考的声学探测论文, 还有就是以周志刚的这篇博士论文为纲学习颗粒物质. 之前给的夏成杰师兄的文章固然好, 可惜并不是从声学角度给出的, 如果我要从声学入手颗粒物质检测, 那么跟着周的文章学自然是最轻松的.</p>
 <hr>
@@ -1183,8 +1170,7 @@ $$</p>
 <p>为了获得相干压缩波在颗粒介质中的脉冲响应，我们可以用源传感器发送的信号 S 对通过介质传输的信号进行<strong>解卷积</strong>(deconvolve). 这里的解卷积的原理和用途是什么?</p>
 <p>该文章中的发射信号并不是之前设定的方波脉冲, 而是自己设定的波形.</p>
 <p>飞行时间的定义方法涉及参考点的选取: 峰值*10%($t_{0}$), 峰值($t_{1}$), 首次过零($t_{2}$).</p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/10/10/lBeDymvzEqkGWO7.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/10/10/lBeDymvzEqkGWO7.png" alt=""  /></p>
 <p>参考信号是在参考介质中测定的. 实验发现, 用 $t_{1}$ 测得的速度几乎与探头间距无关. <em>在正式实验中, 显然这也是一个值得探究的点, 可以稍微做一点数据出来说明选取的合理性</em>.</p>
 <p>可以通过重标定(rescale)检查响应信号, 即 $A/A_{1}, t/t_{1}$.</p>
 <p><em>还有极其复杂的一维展宽推导和数值模拟</em></p>
@@ -1226,8 +1212,7 @@ $$</p>
 </li>
 </ul>
 <p><u>$E_{p}$ 幅值较小. </u></p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/10/05/PKw39qJ56TNajXW.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/10/05/PKw39qJ56TNajXW.png" alt=""  /></p>
 <p>需要考虑: 如何做到的去除噪声? 如何做到系综平均?</p>
 <p>传输的时域信号是相干分量(低频)+剧烈散射的非相干分量(高频), 能够在最新的示波器上观察到吗?</p>
 <p>注意: 相干波存在两种, 一种是压缩波($E_{P}$), 一种是剪切波($E_{S}$), 只有 $E_{p}$ 才是自平均的, 所以它对构型不敏感; 后者使用大尺度探头更容易探测到.</p>
@@ -1459,8 +1444,7 @@ $$</p>
 \lg{S(t)} = \lg{f(t)} - \frac{\lg{e}}{\tau_{\alpha}}t
 $$</p>
 <p>在经过足够长的时间后, $\lg{f(t)}\rightarrow 0$. 即可根据斜率 $k$ 得到特征时间 &gt; $\tau_{\alpha}$.</p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/12/13/8lBmLSfyuwvpATs.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/12/13/8lBmLSfyuwvpATs.png" alt=""  /></p>
 <blockquote>
 <p>需要注意的是, 实际求出来的斜率实际上是带有虚数项的, 这是因为经过了校正, 滤波后的信号本身是带有虚数项的, 并且奇怪的是相位无法通过 <code>abs()</code> 函数去除. 这是一个需要研究的问题.</p>
 </blockquote>
@@ -1787,8 +1771,7 @@ $$</p>
 <p>设计频域上高斯分布的波形并转换到时域上(记得使用响应函数预修正)</p>
 <blockquote>
 <p>高斯脉冲信号频率成分集中, 且主峰两边的小峰都可以得到极大抑制</p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/12/28/eYcZWMUu7Awdohv.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/12/28/eYcZWMUu7Awdohv.png" alt=""  /></p>
 </blockquote>
 <p>(X 光探测的弊端: 应用于真实的三维不透明颗粒材料比较困难)
 使用剪切波探测剪切模量在临近解堵塞(unjamming)的特定行为;</p>
@@ -1880,8 +1863,7 @@ $$</p>
 <p>振动诱发的低于雪崩角的雪崩</p>
 </li>
 </ul>
-<p><img loading="lazy" src="https://s2.loli.net/2023/12/19/dQpkuzyPfXiJLHC.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/12/19/dQpkuzyPfXiJLHC.png" alt=""  /></p>
 </div>
 
  </div>
@@ -2143,8 +2125,7 @@ $$</p>
 S(\omega) = G(\omega)\cdot(\delta(\omega - 2\pi f) + \delta(\omega + 2\pi f)) = G(\omega - 2\pi f) + G(\omega + 2\pi f)
 $$</p>
 <p>这就不难理解了: 在高斯分布上乘 $f$ 的单色波, 等效于将高斯分布在频域上移动至 $2\pi f$ 处.</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/01/05/3vVWtSgn59CJpBc.png" alt="modulated signal"  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/01/05/3vVWtSgn59CJpBc.png" alt="modulated signal"  /></p>
 <hr>
 <p>目前的两种方案:</p>
 <ol>
@@ -2206,7 +2187,6 @@ $$</p>
 </ul>
 <blockquote>
 <p><img loading="lazy" src="https://s2.loli.net/2024/01/05/jSlWgGCREHVbNBx.png" alt="averaged"  />
-
 只是看不太出来各个方法的优劣是什么. 只有一点是确定的: 力学传感器的力学精度只有 $0.1\text{ N}$, 如果更精细一些就好了.</p>
 </blockquote>
 <ul>
@@ -2231,8 +2211,7 @@ $$</p>
 <li>三母头的 BNC 信号转接头</li>
 </ul>
 <hr>
-<p><img loading="lazy" src="https://s2.loli.net/2024/01/06/spCFErglIkWOx1Z.png" alt="ss-strain-gamma-time"  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/01/06/spCFErglIkWOx1Z.png" alt="ss-strain-gamma-time"  /></p>
 <p>虽然现在 $\Gamma_{i,i+1}(t)$ 还没有办法做出来, 但是现在作图工具已经备齐. 虽然这个放大工具好用, 可惜对于双 $y$ 轴的放大效果还是不行, 需要后续手动调整. 目前把四个轴都占用上, 反而触发 bug 使其放大失败失败(没错, 失败两次!), 从而做出还不错的效果.</p>
 <p>后续把 $\Gamma_{i,i+1}(t)$ 做出来之后, 这种示意图可能就需要自己手动写代码控制了.</p>
 <hr>
@@ -2414,7 +2393,6 @@ wave front-to-wave front: 4.08 $\mu$ s</p>
 通过 TekScope 软件导出了示波器的数据, 目前得到的都是静态数据, 不知道后续会不会有什么多通道采集卡的替代方法.</p>
 <blockquote>
 <p><img loading="lazy" src="https://s2.loli.net/2024/03/21/S5upIZd1fiMnP29.png" alt=""  />
-
 受压的玻璃珠堆积对应的飞行时间法测声速图像.</p>
 </blockquote>
 <p>使用重物的质量: 5.4kg
@@ -2423,11 +2401,9 @@ wave front-to-wave front: 4.08 $\mu$ s</p>
 \frac{Mg}{\pi r^{2}} = \frac{(5.4+0.26)\times 9.8}{3.14\times (4.5\times 10^{-2})^{2}} = 8719\text{ Pa}
 $$</p>
 <p>通过呕心沥血写出来的波前和波峰搜索算法投入使用, 最后得到了不同参考点随距离变化的图像.</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/03/21/AUVpz4jRhKyYw2W.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/03/21/AUVpz4jRhKyYw2W.png" alt=""  /></p>
 <p>由此可知在较短约化长度的情况下, 声速测量误差较大, 排除一开始的误差后, 得到的图像和贾小平教授的结论基本相近.</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/03/21/ifXtM9qG3uNhjlJ.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/03/21/ifXtM9qG3uNhjlJ.png" alt=""  /></p>
 <p>更详细的数据可能需要换用更小更多的颗粒, 并且需要配备相应的前置放大器.</p>
 <hr>
 <p>3.24</p>
@@ -2467,52 +2443,43 @@ $$</p>
 <p>使用 到达时间-距离 进行拟合, 这种方法比较接近传统的声速测量方法.</p>
 <blockquote>
 <p><img loading="lazy" src="https://s2.loli.net/2024/03/27/iJWslfbHuvwVok3.png" alt=""  />
-
 Elastic wave propagation in confined granular systems
 PHYSICAL REVIEW E 72, 021301 (2005)</p>
 </blockquote>
 <p>模仿实验的数据:</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/03/27/5oIjQfK2bY4r6yw.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/03/27/5oIjQfK2bY4r6yw.png" alt=""  /></p>
 <p>可以看到虽然选取的参考点不同, 但是在距离上的传播是线性的, 归根到底是相干波中具有不同的频率成分, 不同的频率具有不同的波速. 为了更准确全面地描述这个 Sound Pulse Broadening in Granular Media 的过程, 最好的方法仍然是测量信号的相速度.</p>
 <p>$$
 \frac{400\text{ m/s}}{30\text{ kHz}} \approx 13.3\text{ mm} \sim 6d
 $$</p>
 <p>基本可以使用长波近似.</p>
 <p>这种速度和飞行时间速度(T.O.F. Velocity) 的比较:</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/03/27/glBwvALSzT9dQqj.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/03/27/glBwvALSzT9dQqj.png" alt=""  /></p>
 <p>可见在测量距离大于一定情况下可以使用飞行时间法进行近似</p>
 <p>模仿绘制声脉冲展宽的图像, 以及学习处理其归一化</p>
 <blockquote>
 <p>注意这些声波重叠处理的时候, 归一处理的类型不同:
 同一距离/厚度, 不同应力/压强(这里为了测相速度在两个距离 $x_{1}$ 和 $x_{2}$ 都测了, 但是施加的应力是相同的)
 <img loading="lazy" src="https://s2.loli.net/2024/03/27/YxqzvrtZV6b1dMS.png" alt=""  />
-
 同一距离/厚度, 不同应力/压强
 <img loading="lazy" src="https://s2.loli.net/2024/03/27/bofZmQHKBETlMUc.png" alt=""  />
-
-<img loading="lazy" src="https://s2.loli.net/2024/03/27/aJkQhGjPwvfRY8M.png" alt=""  />
-</p>
+<img loading="lazy" src="https://s2.loli.net/2024/03/27/aJkQhGjPwvfRY8M.png" alt=""  /></p>
 </blockquote>
 <p>模仿的 Rescale 图像</p>
 <ul>
 <li>时间和振幅均归一化</li>
 </ul>
-<p><img loading="lazy" src="https://s2.loli.net/2024/03/27/fJ3xV7c4qZzFLMj.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/03/27/fJ3xV7c4qZzFLMj.png" alt=""  /></p>
 <ul>
 <li>时间对齐于峰, 振幅归一化</li>
 </ul>
-<p><img loading="lazy" src="https://s2.loli.net/2024/03/27/169TYDhfUwCZIMW.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/03/27/169TYDhfUwCZIMW.png" alt=""  /></p>
 <p>使用归一化宽度来描述在逐渐变厚的介质中的扩散行为</p>
 <p>$$
 W\sim C_{W}\left(\frac{L}{d}\right)^{-\frac{1}{2}}
 $$</p>
 <p>进行的模仿实验表明出的指数非常接近($-0.47493\approx -0.5$)
-<img loading="lazy" src="https://s2.loli.net/2024/03/27/WZEYe8CMHK4GUh5.png" alt=""  />
-</p>
+<img loading="lazy" src="https://s2.loli.net/2024/03/27/WZEYe8CMHK4GUh5.png" alt=""  /></p>
 <p>需要写出一个适用于示波器的响应函数修正. 示波器的采样频率可以达到很高($\gg 2\text{ MHz}$), 按照 fft 得到的频域来一个一个试响应振幅显然是不现实的.</p>
 <p>有一点是可以明确的: 关心的频域一般都是在 $[0,1000]\text{ kHz}$. 有一定的原因是之前的采集频率是 $2\text{ MHz}$, 但是也要根据实际的探头性能来, 目前几乎没有什么探头能够在高于 1000 kHz 的频域还能有较好的响应的.</p>
 <p>L = []?
@@ -2836,7 +2803,6 @@ $$</p>
 <li>
 <p>基波和谐波的衰减测定方法: 需要用到多距离拟合
 <img loading="lazy" src="https://s2.loli.net/2024/04/15/ihD6TUOWEAGrKX1.png" alt=""  />
-
 $\alpha_{3f}\neq \alpha_{3*f}$</p>
 </li>
 </ol>
@@ -2917,13 +2883,11 @@ $$</p>
  <div class="admonition-content"><ol>
 <li>
 <p>通过绝对 $t=0$ 叠绘的声波图像.
-<img loading="lazy" src="https://s2.loli.net/2024/04/23/jTqGMiHP8LC1OyX.png" alt=""  />
-</p>
+<img loading="lazy" src="https://s2.loli.net/2024/04/23/jTqGMiHP8LC1OyX.png" alt=""  /></p>
 </li>
 <li>
 <p>声压 Protocol, 相似性参数, 声速波动.
-<img loading="lazy" src="https://s2.loli.net/2024/04/23/wFatHMn1bZAfhEc.png" alt=""  />
-</p>
+<img loading="lazy" src="https://s2.loli.net/2024/04/23/wFatHMn1bZAfhEc.png" alt=""  /></p>
 </li>
 </ol>
 </div>
