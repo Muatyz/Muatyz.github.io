@@ -59,7 +59,7 @@
 </noscript>
 <script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
 
 
 
@@ -139,7 +139,7 @@
     ""
   ],
   "articleBody": "2.1 The Associative Memory Problem Store a set of $p$ patterns $\\xi_{i}^{\\mu}$? in such a way that when presented with a new pattern $\\zeta_{i}$, the network responds by producing whichever one o f the stored patterns most closely resembles $\\zeta_{i}$.\n存储 $p$ 个图案 $\\xi_{i}^{\\mu}$ 为一组，这样当出现一个新图案 $\\zeta_{i}$ 时，网络就会做出反应，生成存储图案中与 $\\zeta_{i}$ 最相似的图案。其中 $\\mu=1,2,\\cdots,p$ 是图案的索引，$i=1,2,\\cdots N$ 是神经元的索引.\nHamming distance:\n$$ \\sum_{i}[\\xi_{i}^{\\mu}(1-\\zeta_{i}) + (1-\\xi_{i}^{\\mu})\\zeta_{i}] $$\n如何构建 $w_{ij}$, 使得输入测试图案 $n_{i}=\\zeta_{i}$ 时, 输出记忆图案 $n_{i}=\\xi_{i}^{\\mu_{0}}$, 其中 $\\mu_{0}$ 使得 Hamming distance($\\zeta_{i},\\xi_{i}^{\\mu}$) 最小.\n记忆图案是相空间中 $\\mu$ 个吸引子(attractor).\n2.2 The Model $n_{i}=0,1$ 记录单元的状态, 引入 $S_{i} = 2n_{i}-1 = \\pm 1$ 表示是否激活.\n令激活函数为符号函数:\n$$ S_{i} := \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}-\\theta_{i}\\right),\\quad \\text{sgn}(x) = \\begin{cases} 1, \u0026 x \\geq 0 \\\\ -1, \u0026 x \u003c 0 \\end{cases} $$\n$\\theta_{i}$: threshold(阈值), 其中 $\\theta_{i} = 2\\mu_{i}-\\sum_{j}w_{ij}$. 为简化可令 $\\theta_{i}=0$, 那么\n$$ S_{i} := \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}\\right) $$\n异步更新(asynchronous)/同步更新(synchronous).\n随机选取一个节点 $i$, 令其更新 令各节点以某概率判定是否更新. 两种方法是等价的.\n异步更新的终点是没有任何 $S_{i}$ 可变化. 这要求 $w_{ij}$: 1. 图案可被记忆为稳定点; 2. 抗微扰.\nOne Pattern 只记忆一个图案 $\\{\\xi_{i}\\}$, 则收敛条件为\n$$ \\text{sgn}\\left(\\sum_{j}^{N}w_{ij}\\xi_{j}\\right) = \\xi_{i},\\quad \\forall i $$\n取\n$$ w_{ij} = \\frac{1}{N}\\xi_{i}\\xi_{j} $$\n因为 $\\xi_{j}^{2} = 1$, 可以轻松验证该记忆方法成立.\n因为是符号函数, 因此即使初始态 $h_{i}=\\sum_{j}w_{ij}S_{j}$ 偏差于 $\\xi_{i}$, 只要符号不变, 仍然会收敛到 $\\xi_{i}$. 这就是 attractor(吸引子).\n在这种激活函数下, 吸引子成对存在.\nMany Patterns Hebb’s rule: 对于存储总共 $p$ 个图案, 使用 $\\mu$ 标记其中一种, 延拓定义\n$$ w_{ij} = \\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu} $$\n对第 $\\nu$ 个图案的稳定性条件: $\\text{sgn}(h_{i}^{\\nu}) = \\xi_{i}^{\\nu}$\n令输入\n$$ h_{i}^{\\nu} \\equiv \\sum_{j}w_{ij}\\xi_{j}^{\\nu} = \\frac{1}{N}\\sum_{j}\\sum_{\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} = \\xi_{i}^{\\nu} + \\frac{1}{N}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} $$\n第二项(被称为 crosstalk)足够小(\u003c1)甚至为 $0$ 时, 稳定性条件满足.\nStorage Capacity 令第二项乘上 $-\\xi_{i}^{\\nu}$, 从而引入\n$$ C_{i}^{\\nu} \\equiv -\\xi_{i}^{\\nu}\\frac{1}{N}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\nu} $$\n那么\n$$ h_{i}^{\\nu} = \\xi_{i}^{\\nu} - \\frac{C_{i}^{\\nu}}{\\xi_{i}^{\\nu}} = \\xi_{i}^{\\nu}(1 - C_{i}^{\\nu}) $$\n因为 $(\\xi_{i}^{\\nu})^{2}=1$. 那么当 $C_{i}^{\\nu}\u003e1$ 时, $h_{i}^{\\nu}$ 将与 $\\xi_{i}^{\\nu}$ 异号.\n令存储图案中 $\\xi_{j}^{\\mu} = \\pm 1$ 等概率独立分布. 那么引入 $X_{j\\mu}=(\\xi_{i}^{\\nu}\\xi_{i}^{\\mu})\\xi_{j}^{\\nu}\\xi_{j}^{\\mu}$, 且有 $E[X_{j\\mu}]=0$, $\\text{Var}(X_{j\\mu})=1$.\n因此\n$$ \\begin{aligned} E[C_{i}^{\\nu}] \u0026=0 \\\\ \\text{Var}(C_{i}^{\\nu}) \u0026= \\frac{1}{N^{2}}\\sum_{j}\\sum_{\\mu \\neq \\nu}\\text{Var}[X_{j\\mu}] = \\frac{1}{N^{2}}\\sum_{j}\\sum_{\\mu \\neq \\nu}1 = \\frac{1}{N^{2}}N(p-1) \\end{aligned} $$\n那么近似 $C_{i}^{\\nu}\\approx \\mathcal{N}\\left(0,\\frac{p}{N}\\right)$.\n规定 $P_{\\text{error}} = \\text{Prob}(C_{i}^{\\nu}\u003e1)$ 为出错概率, 那么 $P_{\\text{error}} \u003c\\epsilon$ 时的 $p = p_{\\text{max}}$ 被称作 storage capacity(存储容量).\n$$ P_{\\text{error}} = \\frac{1}{\\sqrt{2\\pi}\\sigma}\\int_{1}^{\\infty}e^{-x^{2}}/2\\sigma^{2}\\mathrm{d}x = \\frac{1}{2}[1-\\text{erf}(1/\\sqrt{2\\sigma^{2}})] = \\frac{1}{2}[1-\\text{erf}(\\sqrt{N/2p})] $$\nerror function: $$ \\text{erf}(x) = \\frac{2}{\\sqrt{\\pi}}\\int_{0}^{x}e^{-u^{2}}\\mathrm{d}u $$\n利用极限\n$$ \\lim_{x\\rightarrow\\infty}1-\\text{erf}(x) \\rightarrow e^{-x^{2}}/\\sqrt{\\pi}x $$\n近似\n$$ \\log{P_{\\text{error}}} \\approx -\\log{2} - N/2p - \\frac{1}{2}\\log{\\pi} - \\frac{1}{2}\\log{(N/2p)} $$\n错误率条件 $P_{\\text{error}}\u003c0.01/N$ 转化为 $N/2p\u003elog{N}$, 得到 $p_{\\text{max}} = N/2\\log{N}$.\nThe Energy Function 定义能量函数为\n$$ H = -\\frac{1}{2}\\sum_{i}\\sum_{j}w_{ij}S_{i}S_{j} $$\nLyapunov function.\n对称阵($w_{ij}=w_{ji}$) 时能量函数存在. 此时不妨写作\n$$ H = C - \\sum_{(ij)}w_{ij}S_{i}S_{j} $$\n尝试更新一次节点 $i$:\n$$ S_{i}^{\\prime} = \\text{sgn}\\left(\\sum_{j}w_{ij}S_{j}\\right) $$\n$S_{i}^{\\prime} = S_{i}$ 能量不变; $S_{i}^{\\prime} = -S_{i}$, 能量变换为\n$$ H^{\\prime} - H = -\\sum_{j\\neq i}w_{ij}S_{i}^{\\prime}S_{j} + \\sum_{j\\neq i}w_{ij}S_{i}S_{j} = 2S_{i}\\sum_{j\\neq i}w_{ij}S_{j} = 2S_{i}\\sum_{j}w_{ij}S_{j} - 2w_{ii} $$\n其中 $w_{ii} = p/N$, 所以 $\\Delta H\u003c0$.\n通过设定 $w_{ii}=0$, 使得 $S_{i}=\\pm 1$ 不会同时为稳定态.\nStarting from an Energy Function 单图案.\n$$ H = -\\frac{1}{2N}\\left(\\sum_{i}S_{i}\\xi_{i}\\right)^{2} $$\n多图案.\n$$ \\begin{aligned} H \u0026= - \\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} \\\\ \u0026= -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)\\left(\\sum_{i}S_{j}\\xi_{j}^{\\mu}\\right) = -\\frac{1}{2}\\sum_{ij}\\left(\\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\right)S_{i}S_{j} \\end{aligned} $$\n采用 Hebb’s rule 时即为能量函数的定义. 这就是通过最小能量观点寻找 $w_{ij}$ 的思路.\nSpurious States(杂散态) Hebb’s rule 适用的是 retrieval states(记忆态).\nSpurious States 被定义为奇数个 retrieval states 的线性组合. 如\n$$ \\xi_{i}^{\\text{mix}} = \\text{sgn}\\left(\\pm \\xi_{i}^{\\mu_{1}} \\pm \\xi_{i}^{\\mu_{2}} \\pm \\xi_{i}^{\\mu_{3}}\\right) $$\n以 $(+,+,+)$ 为例, 输入\n$$ h_{i}^{\\text{mix}} = \\frac{1}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\xi_{j}^{\\text{mix}} = \\frac{1}{2}\\xi_{i}^{\\mu_{1}} + \\frac{1}{2}\\xi_{i}^{\\mu_{2}} + \\frac{1}{2}\\xi_{i}^{\\mu_{3}} + \\text{cross-terms} $$\n大 $p$ 时出现 spin glass states. 这些同样是能量函数的局部极小值点, 需要后续通过各类方法判别并排除.\n2.3 Statistical Mechanics of Magnetic Systems 磁场\n$$ h_{i} = \\sum_{j}w_{ij}S_{j} + h^{\\text{ext}},\\quad w_{ij} = w_{ji} $$\n能量\n$$ H = -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}S_{j} - h^{\\text{ext}}\\sum_{i}S_{i} $$\n外部磁场 $\\leftrightarrow$ 阈值.\nFinite Temperature Dynamics 温度 热涨落 使得自旋翻转.\nGlauber dynamics:\n$$ S_{i} := \\begin{cases} +1 \u0026 \\text{with probability } g(h_{i}) \\\\ -1 \u0026 \\text{with probability } 1 - g(h_{i}) \\end{cases},\\quad g(h) = f_{\\beta}(h)\\equiv \\frac{1}{1+e^{-2\\beta h}},\\quad \\beta = \\frac{1}{k_{B}T} $$\n注意到性质 $1-f_{\\beta}(h) = f_{\\beta}(-h)$.\n则写作对称形式\n$$ \\text{Prob}(S_{i}=\\pm 1) = f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+e^{\\mp 2\\beta h_{i}}} $$\n$T\\rightarrow 0$($\\beta\\rightarrow\\infty$) 时, $f_{\\beta}(h)$ 退化为阶跃函数 $\\Theta(h)$, 则 $S_{i}:=\\text{sgn}(h_{i})$;\n$T\\rightarrow \\infty$($\\beta\\rightarrow 0$) 时, $f_{\\beta}(h)\\rightarrow 1/2$, 则 $S_{i}$ 以 $1/2$ 概率取 $\\pm 1$, 即完全随机.\nA Single Spin in Equilibrium $$ \\langle S\\rangle = \\text{Prob}(+1)\\cdot (+1) + \\text{Prob}(-1)\\cdot (-1) = \\frac{1}{1+e^{-2\\beta h}} - \\frac{1}{1+e^{2\\beta h}} = \\tanh(\\beta h) $$\nhyperbolic tangent function: $$ \\tanh(x) = \\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}} $$\nMean Field Theory 磁场平均值和自旋平均值:\n$$ \\begin{aligned} \\langle h_{i}\\rangle \u0026= \\sum_{j}w_{ij}\\langle S_{j}\\rangle + h^{\\text{ext}}\\\\ \\langle S_{i}\\rangle \u0026= \\tanh\\left(\\beta\\langle h_{i}\\rangle\\right) = \\tanh\\left(\\beta\\sum_{j}w_{ij}\\langle S_{j}\\rangle + \\beta h^{\\text{ext}}\\right) \\end{aligned} $$\nThe Ferromagnet(铁磁体) 铁磁态下 $w_{ij}\u003e0$, $\\langle S_{i}\\rangle = \\langle S\\rangle$.\n$$ w_{ij} = \\frac{J}{N} $$\n$$ \\langle S\\rangle = \\tanh(\\beta J\\langle S\\rangle) $$\n高温一个顺磁解, 低温多两个铁磁解(自发磁化 spontaneous magnetization).\n2.4 Stochastic Networks 令神经元的激活/静息概率为\n$$ \\text{Prob}(S_{i} = \\pm 1) = f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+e^{\\mp 2\\beta h_{i}}} $$\n$f_{\\beta}(h)$: logistic function(逻辑函数).\n引入等效温度 pseudo-temperature $T$, 即 $\\beta\\equiv \\frac{1}{T}$.\n低温极限下 sigmoid 函数退化为阶跃函数, 概率函数退化为 McCulloch-Pitts rule.\n对称阵 $w_{ij}$ 使得系综平均可以达到且与时间无关.\nMean Field Theory $p\\ll N$\n平均场方程:\n$$ \\langle S_{i}\\rangle = \\tanh{\\left(\\frac{\\beta}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\langle S_{j}\\rangle\\right)}. $$\n假定 $\\langle S_{i}\\rangle = m\\xi_{i}^{\\nu}$:\n$$ m\\xi_{i}^{\\nu} = \\tanh{\\left(\\frac{\\beta}{N}\\sum_{j\\mu}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}m\\xi_{j}^{\\nu}\\right)}\\Rightarrow m\\xi_{i}^{\\nu} = \\tanh{(\\beta m\\xi_{i}^{\\nu})}\\Rightarrow m = \\tanh{(\\beta m)} $$\n记忆态在 $T",
-  "wordCount" : "1734",
+  "wordCount" : "1998",
   "inLanguage": "zh",
   "image":"https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png","datePublished": "2025-10-12T00:18:23+08:00",
   "dateModified": "2025-10-12T00:18:23+08:00",
@@ -346,7 +346,7 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1734字
+        <span>1998字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -471,7 +471,9 @@ MathJax.Hub.Queue(function() {
                     <a href="#25-capacity-of-the-stochastic-network" aria-label="2.5 Capacity of the Stochastic Network">2.5 Capacity of the Stochastic Network</a><ul>
                         
                 <li>
-                    <a href="#capacity-calculation" aria-label="Capacity Calculation">Capacity Calculation</a>
+                    <a href="#capacity-calculation" aria-label="Capacity Calculation">Capacity Calculation</a></li>
+                <li>
+                    <a href="#the-phase-diagram-of-the-hopfield-model" aria-label="The Phase Diagram of the Hopfield Model">The Phase Diagram of the Hopfield Model</a>
                 </li>
             </ul>
             </li>
@@ -791,31 +793,136 @@ $$</p>
 <p>平均场方程:</p>
 <p>$$
 \begin{aligned}
-m_{\nu} &amp;= \frac{1}{N}\sum_{i}\xi_{i}^{\nu}\tanh{\left(\beta\sum_{\mu}\xi_{i}^{\mu}m_{\mu}\right)} = \frac{1}{N}\sum_{i}\xi_{i}^{\nu}\xi_{i}^{1}\tanh{\left[
+m_{\nu}
+= &amp;\frac{1}{N}\sum_{i}\xi_{i}^{\nu}\tanh{\left(\beta\sum_{\mu}\xi_{i}^{\mu}m_{\mu}\right)}\\
+= &amp;\frac{1}{N}\sum_{i}\xi_{i}^{\nu}\xi_{i}^{1}\tanh{\left[
 \beta\left(
-m_{1} + \xi_{i}^{\nu}\xi_{i}^{1}m_{\nu} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
+m_{1} + {\color{red}{\xi_{i}^{\nu}\xi_{i}^{1}m_{\nu}}} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
 \right)
 \right]}\\
-&amp;= \frac{1}{N}\sum_{i}\xi_{i}^{\nu}\xi_{i}^{1}\tanh{\left[
+=&amp; \frac{1}{N}\sum_{i}\xi_{i}^{\nu}\xi_{i}^{1}\tanh{\left[
 \beta\left(
 m_{1} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
 \right)
-\right]} + \frac{\beta}{N}\sum_{i}\left\{
+\right]} {\color{red}{+ \frac{\beta}{N}\sum_{i}\left\{
 1-\tanh^{2}\left[
 \beta\left(
 m_{1} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
 \right)
 \right]
-\right\}m_{\nu}
+\right\}m_{\nu}}}
 \end{aligned}
 $$</p>
 <blockquote>
 <p>因为第二项极小:
 $$
-\frac{\mathrm{d}}{\mathrm{d}x}\tanh(x) = 1-\tanh^{2}(x)
+\frac{\mathrm{d}}{\mathrm{d}x}\tanh(\beta x) = \beta[1-\tanh^{2}(\beta x)]
 $$</p>
 </blockquote>
-<p>中心极限定理: $N^{-1}\sum_{i}$ 视为 Gaussian 噪声 $\sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}$, 方差为 $\alpha r$.</p>
+<blockquote>
+<p><strong>中心极限定理</strong></p>
+<p>节点均值 $\begin{aligned}N^{-1}\sum_{i}\end{aligned}$ 视为 Gaussian 噪声 $\begin{aligned}\sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}\end{aligned}$, 方差为 $\alpha r$.</p>
+<p>$$
+\begin{aligned}
+q &amp;= \frac{1}{N}\sum_{i}\tanh^{2}\left[\beta\left(
+m_{1} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
+\right)\right]\\  &amp;= \int\frac{\mathrm{d}z}{\sqrt{2\pi}} e^{-\frac{1}{2}z^{2}}\tanh^{2}{[\beta(m_{1} + \sqrt{\alpha r}z)]}
+\end{aligned}
+$$</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+m_{\nu} =&amp; \frac{1}{N}\sum_{i}\xi_{i}^{\nu}\xi_{i}^{1}\tanh{\left[\beta\left(
+m_{1} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
+\right)\right]} + \beta m_{\nu} - \beta qm_{\nu}\\
+\Leftrightarrow m_{\nu} =&amp; \frac{1}{1-\beta(1-q)}\frac{1}{N}\sum_{i}\xi_{i}^{\nu}\xi_{i}^{1}\tanh{\left[\beta\left(
+m_{1} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
+\right)\right]}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>其中
+$$
+q = \int\frac{\mathrm{d}z}{\sqrt{2\pi}} e^{-\frac{1}{2}z^{2}}\tanh^{2}{[\beta(m_{1} + \sqrt{\alpha r}z)]}.
+$$</p>
+</blockquote>
+<p>将其平方, 再对模式取平均 $\begin{aligned}\frac{1}{\alpha}\sum_{\nu\neq 1}\end{aligned}$:</p>
+<p>$$
+\begin{aligned}
+\frac{1}{\alpha}\sum_{\nu\neq 1}m_{\nu}^{2}
+= &amp;{\color{red}{\frac{1}{\alpha}\sum_{\nu\neq 1}}}\left[
+\frac{1}{1-\beta(1-q)}
+\right]^{2}\frac{1}{N^{2}}\sum_{ij}{\color{red}{\xi_{i}^{\nu}}}\xi_{i}^{1}{\color{red}{\xi_{j}^{\nu}}}\xi_{j}^{1}\times \tanh{\left[\beta\left(
+m_{1} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
+\right)\right]}\\
+&amp;\times \tanh{\left[\beta\left(
+m_{1} + \sum_{\mu\neq 1,\nu}\xi_{j}^{\mu}\xi_{j}^{1}m_{\mu}
+\right)\right]}\\
+=&amp; \left[
+\frac{1}{1-\beta(1-q)}
+\right]^{2}\frac{1}{N^{2}}\sum_{ij}{\color{red}{N\delta_{ij}}}\xi_{i}^{1}\xi_{j}^{1}\tanh{\left[\beta\left(
+m_{1} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
+\right)\right]}\\
+&amp;\times \tanh{\left[\beta\left(
+m_{1} + \sum_{\mu\neq 1,\nu}\xi_{j}^{\mu}\xi_{j}^{1}m_{\mu}
+\right)\right]}\\
+=&amp; \left[
+\frac{1}{1-\beta(1-q)}
+\right]^{2}\frac{1}{N}\sum_{i}\cancel{(\xi_{i}^{1})^{2}}\tanh^{2}{\left[\beta\left(
+m_{1} + \sum_{\mu\neq 1,\nu}\xi_{i}^{\mu}\xi_{i}^{1}m_{\mu}
+\right)\right]}\\
+=&amp; \frac{q}{[1-\beta(1-q)]^{2}} = r
+\end{aligned}
+$$</p>
+<p>接下来是 $m_{1}$, 取平均场方程中 $\nu = 1$:</p>
+<p>$$
+m_{1} = \int\frac{\mathrm{d}z}{\sqrt{2\pi}} e^{-\frac{1}{2}z^{2}}\tanh{[\beta(m_{1}+\sqrt{\alpha r}z)]}
+$$</p>
+<p>接下来尝试在 $T\rightarrow 0$ (即 $\beta\rightarrow \infty$) 求解该积分. $C\equiv \beta(1-q)$ 为有限值.</p>
+<p>$\begin{aligned}\lim_{\beta\to\infty}q = 1\end{aligned}$</p>
+<ol>
+<li></li>
+</ol>
+<p>$$
+\begin{aligned}
+\int\frac{\mathrm{d}z}{\sqrt{2\pi}} e^{-z^{2}/2} [1-\tanh^{2}\beta(az+b)] &amp;\simeq \frac{1}{\sqrt{2\pi}}e^{-\frac{z^{2}}{2}}|_{\tanh^{2}\beta(az+b)=0}\times \int\mathrm{d}z [1-\tanh^{2}\beta(az+b)]\\
+&amp;= \frac{1}{\sqrt{2\pi}}e^{-\frac{b^{2}}{2a^{2}}}\frac{1}{\alpha\beta}\int\mathrm{d}z\frac{\partial }{\partial z}\tanh{\beta(az+b)}\\
+&amp;= \sqrt{\frac{2}{\pi}}\frac{1}{\alpha\beta}e^{-\frac{b^{2}}{2a^{2}}}
+\end{aligned}
+$$</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>$$
+\begin{aligned}
+\int\frac{\mathrm{d}z}{\sqrt{2\pi}}e^{-\frac{z^{2}}{2}}\tanh^{2}\beta(az+b)\overset{T\to 0}{\longrightarrow} &amp;\int\frac{\mathrm{d}z}{\sqrt{2\pi}}e^{-\frac{z^{2}}{2}}\text{sgn}(az+b)\\
+=&amp; 2\int_{-\frac{b}{a}}^{\infty}\frac{\mathrm{d}z}{\sqrt{2\pi}}e^{-\frac{z^{2}}{2}} - 1\\
+=&amp; \text{erf}\left(\frac{b}{\sqrt{2}a}\right)
+\end{aligned}
+$$</p>
+<p>于是分别解得</p>
+<p>$$
+\begin{aligned}
+C\equiv \beta(1-q) &amp;= \sqrt{\frac{2}{\pi\alpha r}}e^{-\frac{m^{2}}{2\alpha r}}\\
+r &amp;= \frac{1}{(1-C)^{2}}\\
+m&amp;= \text{erf}\left(\frac{m}{\sqrt{2\alpha r}}\right)
+\end{aligned}
+$$</p>
+<p>定义 $y = \frac{m}{\sqrt{2\alpha r}}$, 求解</p>
+<p>$$
+y\left(
+\sqrt{2\alpha} + \frac{2}{\sqrt{\pi}e^{-y^{2}}}
+\right) = \text{erf}(y)
+$$</p>
+<blockquote>
+<p>Graphical solution:
+<img loading="lazy" src="https://s2.loli.net/2025/11/09/mFebPXwcps5IaMh.png" alt=""  /></p>
+</blockquote>
+<h3 id="the-phase-diagram-of-the-hopfield-model">The Phase Diagram of the Hopfield Model<a hidden class="anchor" aria-hidden="true" href="#the-phase-diagram-of-the-hopfield-model">#</a></h3>
+<p>$\alpha$ 存在临界值 $\alpha_{c}\approx 0.138$.</p>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/09/BZr5aXMPi8Gzwsd.png" alt=""  /></p>
+</blockquote>
 
 
         </div>
