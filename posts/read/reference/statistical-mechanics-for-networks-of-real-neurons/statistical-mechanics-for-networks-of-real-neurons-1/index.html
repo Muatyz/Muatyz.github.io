@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Introduction | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="真实神经元网络的统计力学">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Introduction" />
+<meta property="og:description" content="真实神经元网络的统计力学" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/" />
+<meta property="og:image" content="https://s2.loli.net/2025/11/12/Z4gTrHP3WlFIA7v.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-11-12T00:18:23+08:00" />
+<meta property="article:modified_time" content="2025-11-12T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2025/11/12/Z4gTrHP3WlFIA7v.png" />
+<meta name="twitter:title" content="Introduction"/>
+<meta name="twitter:description" content="真实神经元网络的统计力学"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "📕 文献",
+          "item": "https://Muatyz.github.io/posts/read/reference/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  4 ,
+          "name": "📕 Statistical mechanics for networks of real neurons",
+          "item": "https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Introduction",
+      "item": "https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introduction",
+  "name": "Introduction",
+  "description": "真实神经元网络的统计力学",
+  "keywords": [
+    ""
+  ],
+  "articleBody": " Neural networks have been an inspiring source of physics problems for generations. The current revolution in artificial intelligence (LeCun et al., 2015; Minaee et al., 2024) has roots in classical work that appeared a bit over sixty years ago in Reviews of Modern Physics (Block, 1962; Block et al., 1962; Rosenblatt, 1961). The explicit effort to build network models grounded in statistical mechanics began in the 1970s (Cooper, 1973; Little, 1974; Little and Shaw, 1975, 1978) and received important stimuli in the early 1980s (Hopfield, 1982, 1984), making connections to then new ideas about spin glasses (Amit, 1989; Me ́zard et al., 1987). In the context of these models one could use statistical mechanics to address not just the dynamics of a network, but the way in which it learns from experience (Levin et al., 1990; Watkin et al., 1993). There is a path from this early work to current efforts of the theoretical physics community to understand the recent successes of machine learning (Carleo et al., 2019; Mehta et al., 2019; Roberts, 2021; Roberts and Yaida, 2022). In §II we provide a brief guide to this rich history, emphasizing points which seem especially relevant for recent developments connecting theory and experiment.\n神经网络长期以来一直是物理学问题的一个重要来源。当前的人工智能革命（LeCun等人，2015；Minaee等人，2024）可以追溯到六十多年前发表在《评论现代物理学》上的经典工作（Block，1962；Block等人，1962；Rosenblatt，1961）。在统计力学基础上建立网络模型的明确努力始于1970年代（Cooper，1973；Little，1974；Little和Shaw，1975，1978），并在1980年代初期得到了重要的推动（Hopfield，1982，1984），与当时关于自旋玻璃的新思想建立了联系（Amit，1989；Me ́zard等人，1987）。在这些模型的背景下，可以使用统计力学来解决网络的动态问题，以及它如何从经验中学习的问题（Levin等人，1990；Watkin等人，1993）。从这项早期工作可以看到通向当前理论物理界努力理解机器学习近期成功的路径（Carleo等人，2019；Mehta等人，2019；Roberts，2021；Roberts和Yaida，2022）。在第二节中，我们简要介绍了这一丰富的历史，并强调了与理论和实验之间最近发展特别相关的观点。\nIn the long history of physicists’ engagement with neural networks, it must be admitted that the search for tractable models often loosened the connection of theory to experiments on real brains. This problem became more urgent as methods became available to monitor, simultaneously, the electrical activity of tens, hundreds, and even thousands of neurons while animals engage in reasonably natural behaviors (§III). If we imagine a statistical mechanics for neural networks, these tools give us access to something like a Monte Carlo simulation of the microscopic degrees of freedom. This explosion of data calls out for new methods of analysis, and creates new opportunities for theory/experiment interaction.\n在物理学家与神经网络长期互动的历史中，必须承认，为了寻找可处理的模型，理论与真实大脑实验之间的联系往往变得松散。随着方法的发展，可以同时监测数十、数百甚至数千个神经元的电活动，同时动物参与相当自然的行为，这一问题变得更加紧迫（第三节）。如果我们想象一个神经网络的统计力学，这些工具使我们能够访问类似于微观自由度的蒙特卡罗模拟。这种数据的爆炸式增长呼唤新的分析方法，并为理论/实验互动创造了新的机会。\nRoughly twenty years ago it was suggested that maximum entropy methods could provide a very direct bridge from the new data on large numbers of neurons to explicit statistical physics models for these networks (§IV). In the simplest version of this approach, measurements on the mean activity and pairwise correlations among neurons result in an Ising spin glass model for patterns of activity in the network. Importantly, all the couplings in the Ising model are determined by the measured correlations, and one can proceed to make parameter free predictions for higher order properties of the network. The surprise was that these predictions, at least in some cases, are extraordinarily successful (§§IV.C and V).\n大约二十年前，有人建议最大熵方法可以为大量神经元的新数据与这些网络的明确统计物理模型之间提供一个非常直接的桥梁（第四节）。在这种方法的最简单版本中，对神经元的平均活动和成对相关性的测量导致了网络中活动模式的 Ising 自旋玻璃模型。重要的是，Ising 模型中的所有耦合都是由测量的相关性决定的，并且可以继续对网络的更高阶属性进行无参数预测。令人惊讶的是，这些预测，至少在某些情况下，非常成功（第四节C和第五节）。\nThe phenomenological success of the maximum entropy approach raised several questions. Should we expect this success to generalize or was there something special about the first examples? Does success tell us something about the underlying network? If the models are so accurate, perhaps we should take them seriously as statistical physics problems: where are real networks in the phase diagram of possible networks (§VI)? Can these models be given different interpretations, e.g. in terms of a smaller number of “latent variables” that are encoded by the network?\n最大熵方法的现象学成功引发了几个问题。我们是否应该期望这种成功具有普遍性，还是最初的例子中有一些特殊之处？成功是否告诉我们一些关于基础网络的信息？如果模型如此准确，也许我们应该认真对待它们作为统计物理问题：真实网络在可能网络的相图中的位置在哪里（第六节）？这些模型能否有不同的解释，例如以网络编码的较少数量的“潜变量”为例？\nThe relatively simple statistical physics models constructed via maximum entropy are in some cases are more successful than complex models motivated by biological details. Why should simple models work? In condensed matter physics we often describe macroscopic, emergent phenomena using models that are much simpler than the underlying microscopic mechanisms. This works not because we are lucky but because the renormalization group (RG) tells us that in many cases there is only a small number of relevant operators, so that models simplify as we restrict our attention to longer length scales. Inspired by these ideas, there have been efforts to explicitly coarse–grain the patterns of activity in very large networks (§VII). The very first such efforts revealed surprisingly precise scaling behaviors, in some cases with exponents that are reproducible in the second decimal place. These initial results now have been confirmed in other systems.\n通过最大熵构建的相对简单的统计物理模型在某些情况下比由生物细节驱动的复杂模型更成功。为什么简单模型会有效？在凝聚态物理中，我们经常使用比基础微观机制简单得多的模型来描述宏观的、涌现的现象。这并不是因为我们幸运，而是因为重整化群（RG）告诉我们，在许多情况下，只有少数相关算符，因此当我们将注意力限制在更长的长度尺度时，模型会简化。受这些思想的启发，人们已经努力明确地对非常大网络中的活动模式进行粗粒化（第七节）。这些最初的努力揭示了令人惊讶的精确缩放行为，在某些情况下，指数可以在小数点后第二位重复出现。这些初步结果现在已经在其他系统中得到证实。\nAs with maximum entropy methods, the success of coarse–graining in uncovering interesting collective behaviors of real neurons raises several questions. The observation of scaling suggests that the dynamics of these networks is controlled by some nontrivial fixed point of the RG. But are these phenomenological analyses sufficient to identify fixed point behaviors in cases that we understand? Could the observed scaling behaviors emerge in some other way? Are these behaviors universal?\n与最大熵方法一样，粗粒化在揭示真实神经元有趣的集体行为方面的成功引发了几个问题。缩放的观察表明，这些网络的动态受 RG 的某个非平凡不动点控制。但是，这些现象学分析是否足以在我们理解的情况下识别不动点行为？观察到的缩放行为是否可能以其他方式出现？这些行为是普遍存在的吗？\nWhen physicists first wrote down statistical mechanics models for neural networks, it was not clear if these models should be taken as metaphors or if they should be taken seriously as theories of real brains.1 If forced to choose, most people would have voted for metaphors, since real brains surely are too complicated to be captured in the physicists’ drive for simplification. While it emphatically is too soon to claim that we have a theory of the brain, progress that we review here makes clear that we can have the precise quantitative connections between theory and experiment that we have in the rest of physics. As experiments on the physics of living systems improve, we should ask more of our theories.\n当物理学家第一次写下神经网络的统计力学模型时，还不清楚这些模型是否应该被视为隐喻，还是应该被认真对待作为真实大脑的理论。如果被迫选择，大多数人会投票给隐喻，因为真实的大脑肯定太复杂，无法捕捉到物理学家对简化的追求。虽然现在断言我们有了大脑的理论还为时过早，但我们在这里回顾的进展清楚地表明，我们可以在理论和实验之间建立精确的定量联系，就像我们在物理学的其他领域一样。随着对生命系统物理学实验的改进，我们应该对我们的理论提出更多要求。\nFinally, in case thinking about the brain is not sufficient motivation, networks of neurons provide a prototype of living systems with many degrees of freedom (Appendix A). Even a single protein molecule typically is composed of more than one hundred amino acids, and the structures and functions of these molecules emerge from interactions among these many more microscopic elements. At the next scale up, membrane patches and protein droplets self–organize in ways that most likely reflect phase separation. The identities and internal states of cells are determined by the expression levels of large numbers of genes that form an interacting regulatory network. In developing embryos and tissues more generally the movements of individual cells organize into macroscopic flows. In populations of bacteria, swarms of insects, schools of fish, and flocks of birds we see collective movements and decision making. In all these examples—and, of course, in networks of neuronswhat we recognize as the functional behavior of living systems is a macroscopic behavior that emerges from interactions of many components on a smaller scale.\n最后，以防思考大脑还不足以激发动力，神经元网络提供了一个具有许多自由度的生命系统的原型（附录A）。即使是单个蛋白质分子通常也由一百多个氨基酸组成，这些分子的结构和功能是由这些更多微观元素之间的相互作用产生的。在下一个尺度上，膜片和蛋白质液滴以很可能反映相分离的方式自组织。细胞的身份和内部状态由大量基因的表达水平决定，这些基因形成了一个相互作用的调控网络。在发育中的胚胎和组织中，个体细胞的运动组织成宏观流动。在细菌群体、昆虫群、鱼群和鸟群中，我们看到了集体运动和决策。在所有这些例子中——当然也包括神经元网络——我们所认识到的作为生命系统功能行为的是一种宏观行为，它是由较小尺度上许多组件的相互作用产生的。\nIn the inanimate world, statistical mechanics provides a powerful and predictive framework within which to understand emergent phenomena. It is an old dream of the physics community that we could have a statistical mechanics of emergent phenomena in the living world as well. We encourage the reader to think of what we review here as progress toward realizing this dream.\n在无生命的世界中，统计力学提供了一个强大且具有预测性的框架，用于理解涌现现象。物理学界有一个古老的梦想，即我们也可以拥有一个关于生命世界中涌现现象的统计力学。我们鼓励读者将我们在这里回顾的内容视为实现这一梦想的进展。\n",
+  "wordCount" : "3294",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2025/11/12/Z4gTrHP3WlFIA7v.png","datePublished": "2025-11-12T00:18:23+08:00",
+  "dateModified": "2025-11-12T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/reference/">📕 文献</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/">📕 Statistical mechanics for networks of real neurons</a></div>
+            <h1 class="post-title">
+                Introduction
+            </h1>
+            <div class="post-description">
+                真实神经元网络的统计力学
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-11-12
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3294字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>7分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2025/11/12/Z4gTrHP3WlFIA7v.png" alt="">
+    
+</figure>
+        <div class="post-content"><blockquote>
+<p>Neural networks have been an inspiring source of physics problems for generations. The current revolution in artificial intelligence (LeCun et al., 2015; Minaee et al., 2024) has roots in classical work that appeared a bit over sixty years ago in Reviews of Modern Physics (Block, 1962; Block et al., 1962; Rosenblatt, 1961). The explicit effort to build network models grounded in statistical mechanics began in the 1970s (Cooper, 1973; Little, 1974; Little and Shaw, 1975, 1978) and received important stimuli in the early 1980s (Hopfield, 1982, 1984), making connections to then new ideas about spin glasses (Amit, 1989; Me ́zard et al., 1987). In the context of these models one could use statistical mechanics to address not just the dynamics of a network, but the way in which it learns from experience (Levin et al., 1990; Watkin et al., 1993). There is a path from this early work to current efforts of the theoretical physics community to understand the recent successes of machine learning (Carleo et al., 2019; Mehta et al., 2019; Roberts, 2021; Roberts and Yaida, 2022). In §II we provide a brief guide to this rich history, emphasizing points which seem especially relevant for recent developments connecting theory and experiment.</p>
+</blockquote>
+<p>神经网络长期以来一直是物理学问题的一个重要来源。当前的人工智能革命（LeCun等人，2015；Minaee等人，2024）可以追溯到六十多年前发表在《评论现代物理学》上的经典工作（Block，1962；Block等人，1962；Rosenblatt，1961）。在统计力学基础上建立网络模型的明确努力始于1970年代（Cooper，1973；Little，1974；Little和Shaw，1975，1978），并在1980年代初期得到了重要的推动（Hopfield，1982，1984），与当时关于自旋玻璃的新思想建立了联系（Amit，1989；Me ́zard等人，1987）。在这些模型的背景下，可以使用统计力学来解决网络的动态问题，以及它如何从经验中学习的问题（Levin等人，1990；Watkin等人，1993）。从这项早期工作可以看到通向当前理论物理界努力理解机器学习近期成功的路径（Carleo等人，2019；Mehta等人，2019；Roberts，2021；Roberts和Yaida，2022）。在第二节中，我们简要介绍了这一丰富的历史，并强调了与理论和实验之间最近发展特别相关的观点。</p>
+<blockquote>
+<p>In the long history of physicists’ engagement with neural networks, it must be admitted that the search for tractable models often loosened the connection of theory to experiments on real brains. This problem became more urgent as methods became available to monitor, simultaneously, the electrical activity of tens, hundreds, and even thousands of neurons while animals engage in reasonably natural behaviors (§III). If we imagine a statistical mechanics for neural networks, these tools give us access to something like a Monte Carlo simulation of the microscopic degrees of freedom. This explosion of data calls out for new methods of analysis, and creates new opportunities for theory/experiment interaction.</p>
+</blockquote>
+<p>在物理学家与神经网络长期互动的历史中，必须承认，为了寻找可处理的模型，理论与真实大脑实验之间的联系往往变得松散。随着方法的发展，可以同时监测数十、数百甚至数千个神经元的电活动，同时动物参与相当自然的行为，这一问题变得更加紧迫（第三节）。如果我们想象一个神经网络的统计力学，这些工具使我们能够访问类似于微观自由度的蒙特卡罗模拟。这种数据的爆炸式增长呼唤新的分析方法，并为理论/实验互动创造了新的机会。</p>
+<blockquote>
+<p>Roughly twenty years ago it was suggested that maximum entropy methods could provide a very direct bridge from the new data on large numbers of neurons to explicit statistical physics models for these networks (§IV). In the simplest version of this approach, measurements on the mean activity and pairwise correlations among neurons result in an Ising spin glass model for patterns of activity in the network. Importantly, all the couplings in the Ising model are determined by the measured correlations, and one can proceed to make parameter free predictions for higher order properties of the network. The surprise was that these predictions, at least in some cases, are extraordinarily successful (§§IV.C and V).</p>
+</blockquote>
+<p>大约二十年前，有人建议最大熵方法可以为大量神经元的新数据与这些网络的明确统计物理模型之间提供一个非常直接的桥梁（第四节）。在这种方法的最简单版本中，对神经元的平均活动和成对相关性的测量导致了网络中活动模式的 Ising 自旋玻璃模型。重要的是，Ising 模型中的所有耦合都是由测量的相关性决定的，并且可以继续对网络的更高阶属性进行无参数预测。令人惊讶的是，这些预测，至少在某些情况下，非常成功（第四节C和第五节）。</p>
+<blockquote>
+<p>The phenomenological success of the maximum entropy approach raised several questions. Should we expect this success to generalize or was there something special about the first examples? Does success tell us something about the underlying network? If the models are so accurate, perhaps we should take them seriously as statistical physics problems: where are real networks in the phase diagram of possible networks (§VI)? Can these models be given different interpretations, e.g. in terms of a smaller number of “latent variables” that are encoded by the network?</p>
+</blockquote>
+<p>最大熵方法的现象学成功引发了几个问题。我们是否应该期望这种成功具有普遍性，还是最初的例子中有一些特殊之处？成功是否告诉我们一些关于基础网络的信息？如果模型如此准确，也许我们应该认真对待它们作为统计物理问题：真实网络在可能网络的相图中的位置在哪里（第六节）？这些模型能否有不同的解释，例如以网络编码的较少数量的“潜变量”为例？</p>
+<blockquote>
+<p>The relatively simple statistical physics models constructed via maximum entropy are in some cases are more successful than complex models motivated by biological details. Why should simple models work? In condensed matter physics we often describe macroscopic, emergent phenomena using models that are much simpler than the underlying microscopic mechanisms. This works not because we are lucky but because the renormalization group (RG) tells us that in many cases there is only a small number of relevant operators, so that models simplify as we restrict our attention to longer length scales. Inspired by these ideas, there have been efforts to explicitly coarse–grain the patterns of activity in very large networks (§VII). The very first such efforts revealed surprisingly precise scaling behaviors, in some cases with exponents that are reproducible in the second decimal place. These initial results now have been confirmed in other systems.</p>
+</blockquote>
+<p>通过最大熵构建的相对简单的统计物理模型在某些情况下比由生物细节驱动的复杂模型更成功。为什么简单模型会有效？在凝聚态物理中，我们经常使用比基础微观机制简单得多的模型来描述宏观的、涌现的现象。这并不是因为我们幸运，而是因为重整化群（RG）告诉我们，在许多情况下，只有少数相关算符，因此当我们将注意力限制在更长的长度尺度时，模型会简化。受这些思想的启发，人们已经努力明确地对非常大网络中的活动模式进行粗粒化（第七节）。这些最初的努力揭示了令人惊讶的精确缩放行为，在某些情况下，指数可以在小数点后第二位重复出现。这些初步结果现在已经在其他系统中得到证实。</p>
+<blockquote>
+<p>As with maximum entropy methods, the success of coarse–graining in uncovering interesting collective behaviors of real neurons raises several questions. The observation of scaling suggests that the dynamics of these networks is controlled by some nontrivial fixed point of the RG. But are these phenomenological analyses sufficient to identify fixed point behaviors in cases that we understand? Could the observed scaling behaviors emerge in some other way? Are these behaviors universal?</p>
+</blockquote>
+<p>与最大熵方法一样，粗粒化在揭示真实神经元有趣的集体行为方面的成功引发了几个问题。缩放的观察表明，这些网络的动态受 RG 的某个非平凡不动点控制。但是，这些现象学分析是否足以在我们理解的情况下识别不动点行为？观察到的缩放行为是否可能以其他方式出现？这些行为是普遍存在的吗？</p>
+<blockquote>
+<p>When physicists first wrote down statistical mechanics models for neural networks, it was not clear if these models should be taken as metaphors or if they should be taken seriously as theories of real brains.1 If forced to choose, most people would have voted for metaphors, since real brains surely are too complicated to be captured in the physicists’ drive for simplification. While it emphatically is too soon to claim that we have a theory of the brain, progress that we review here makes clear that we can have the precise quantitative connections between theory and experiment that we have in the rest of physics. As experiments on the physics of living systems improve, we should ask more of our theories.</p>
+</blockquote>
+<p>当物理学家第一次写下神经网络的统计力学模型时，还不清楚这些模型是否应该被视为隐喻，还是应该被认真对待作为真实大脑的理论。如果被迫选择，大多数人会投票给隐喻，因为真实的大脑肯定太复杂，无法捕捉到物理学家对简化的追求。虽然现在断言我们有了大脑的理论还为时过早，但我们在这里回顾的进展清楚地表明，我们可以在理论和实验之间建立精确的定量联系，就像我们在物理学的其他领域一样。随着对生命系统物理学实验的改进，我们应该对我们的理论提出更多要求。</p>
+<blockquote>
+<p>Finally, in case thinking about the brain is not sufficient motivation, networks of neurons provide a prototype of living systems with many degrees of freedom (Appendix A). Even a single protein molecule typically is composed of more than one hundred amino acids, and the structures and functions of these molecules emerge from interactions among these many more microscopic elements. At the next scale up, membrane patches and protein droplets self–organize in ways that most likely reflect phase separation. The identities and internal states of cells are determined by the expression levels of large numbers of genes that form an interacting regulatory network. In developing embryos and tissues more generally the movements of individual cells organize into macroscopic flows. In populations of bacteria, swarms of insects, schools of fish, and flocks of birds we see collective movements and decision making. In all these examples—and, of course, in networks of neuronswhat we recognize as the functional behavior of living systems is a macroscopic behavior that emerges from interactions of many components on a smaller scale.</p>
+</blockquote>
+<p>最后，以防思考大脑还不足以激发动力，神经元网络提供了一个具有许多自由度的生命系统的原型（附录A）。即使是单个蛋白质分子通常也由一百多个氨基酸组成，这些分子的结构和功能是由这些更多微观元素之间的相互作用产生的。在下一个尺度上，膜片和蛋白质液滴以很可能反映相分离的方式自组织。细胞的身份和内部状态由大量基因的表达水平决定，这些基因形成了一个相互作用的调控网络。在发育中的胚胎和组织中，个体细胞的运动组织成宏观流动。在细菌群体、昆虫群、鱼群和鸟群中，我们看到了集体运动和决策。在所有这些例子中——当然也包括神经元网络——我们所认识到的作为生命系统功能行为的是一种宏观行为，它是由较小尺度上许多组件的相互作用产生的。</p>
+<blockquote>
+<p>In the inanimate world, statistical mechanics provides a powerful and predictive framework within which to understand emergent phenomena. It is an old dream of the physics community that we could have a statistical mechanics of emergent phenomena in the living world as well. We encourage the reader to think of what we review here as progress toward realizing this dream.</p>
+</blockquote>
+<p>在无生命的世界中，统计力学提供了一个强大且具有预测性的框架，用于理解涌现现象。物理学界有一个古老的梦想，即我们也可以拥有一个关于生命世界中涌现现象的统计力学。我们鼓励读者将我们在这里回顾的内容视为实现这一梦想的进展。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="next" href="https://Muatyz.github.io/posts/cs/solidworks/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Solidworks 安装方法</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+</body>
+
+
+
+
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

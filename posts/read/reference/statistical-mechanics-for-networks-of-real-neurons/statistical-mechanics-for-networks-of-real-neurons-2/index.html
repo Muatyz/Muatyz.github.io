@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Some History | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="真实神经元网络的统计力学">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Some History" />
+<meta property="og:description" content="真实神经元网络的统计力学" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-2/" />
+<meta property="og:image" content="https://s2.loli.net/2025/11/12/Z4gTrHP3WlFIA7v.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-11-12T00:18:23+08:00" />
+<meta property="article:modified_time" content="2025-11-12T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2025/11/12/Z4gTrHP3WlFIA7v.png" />
+<meta name="twitter:title" content="Some History"/>
+<meta name="twitter:description" content="真实神经元网络的统计力学"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "📕 文献",
+          "item": "https://Muatyz.github.io/posts/read/reference/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  4 ,
+          "name": "📕 Statistical mechanics for networks of real neurons",
+          "item": "https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Some History",
+      "item": "https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Some History",
+  "name": "Some History",
+  "description": "真实神经元网络的统计力学",
+  "keywords": [
+    ""
+  ],
+  "articleBody": " Today, neural network models are known to many different communities: physicists and applied mathematicians, computer scientists and engineers, neurobiologists and cognitive scientists. Neural networks are at the heart of an ongoing revolution in artificial intelligence, and are making their way into many aspects of scientific data analysis, from cell biology to CERN. Here we provide a brief (and perhaps idiosyncratic) reminder of how some of these ideas developed.\n今天，神经网络模型为许多不同的群体所知：物理学家和应用数学家、计算机科学家和工程师、神经生物学家和认知科学家。神经网络是人工智能正在进行的革命的核心，并正在进入从细胞生物学到 CERN 的许多科学数据分析方面。在这里，我们简要（也许是特立独行地）回顾了一些这些想法是如何发展的。\nPrehistoric times The engagement of physicists with neurons and the brain has a long and fascinating history. Our modern understanding of electricity has its roots in the 1700s with observations on nerves and muscles. The understanding of optics and acoustics that emerged in the 1800s was continuous with the exploration of vision and hearing. This involved thinking not just about the optics of the eye or the mechanics of the inner ear, but about the inferences that our brains can derive from the data collected by these physical instruments.\n物理学家与神经元和大脑的接触有着悠久而迷人的历史。我们对电的现代理解起源于 1700 年代对神经和肌肉的观察。19 世纪出现的光学和声学的理解与对视觉和听觉的探索是连续的。这不仅涉及眼睛的光学或内耳的力学，还涉及我们的大脑可以从这些物理仪器收集的数据中推断出的推论。\nThe idea that the brain is made out of discrete cells, connected by synapses, dates from late 1800s (Ram ́on y Cajal, 1894). The electrical signals from individual nerve cells (neurons) were first recorded in the 1920s, starting with the cells in sense organs that provide the input to the brain (Adrian, 1928). Observing these small signals required instruments no less sensitive than those in contemporary physics laboratories. The crucial observation is that neurons communicate by generating discrete, identical pulses of voltage across their membranes; these pulses are called action potentials or, more colloquially, spikes.\n大脑由离散的细胞通过突触连接而成的想法可以追溯到 19 世纪末（Ram ́on y Cajal，1894 年）。个别神经细胞（神经元）的电信号最早在 1920 年代被记录下来，首先是提供大脑输入的感觉器官中的细胞（Adrian，1928 年）。观察这些微小信号需要与当代物理实验室中的仪器同样敏感。关键的观察是，神经元通过在其膜上产生离散的、相同的电压脉冲来进行通信；这些脉冲称为动作电位，或者更通俗地说，称为尖峰。\nBy the 1950s there was a clear mathematical description of the dynamics underlying the generation and propagation of spikes (Hodgkin and Huxley, 1952). Perhaps surprisingly, the terms in these equations could be taken literally as representing the action of real physical components—ion channel proteins that allow the flow of specific ions across the cell membrane, and which open and close (or “gate”) in response to the transmembrane voltage. The progress from macroscopic phenomenology to the dynamics of individual channels is a beautiful chapter in the interaction of physics and biology. The classic textbook account is Aidley (1998); Dayan and Abbott (2001) discuss phenomenological models for spiking activity; and a broader biological context is provided by Kandel et al. (2012). Rieke et al. (1997) describe the way in which sequences of spikes represent information about the sensory world, and Bialek (2012) connects channels and spikes to other problems in the physics of biological systems.\n到了 1950 年代，人们已经对产生和传播尖峰的动力学有了清晰的数学描述（Hodgkin 和 Huxley，1952 年）。也许令人惊讶的是，这些方程中的术语可以被字面理解为代表真实物理组件的作用——允许特定离子穿过细胞膜流动的离子通道蛋白，这些蛋白会根据跨膜电压的变化而打开和关闭（或“门控”）。从宏观现象学到单个通道动力学的进展是物理学与生物学相互作用中的一个美丽篇章。经典的教科书是 Aidley（1998）；Dayan 和 Abbott（2001）讨论了尖峰活动的现象学模型；Kandel 等人（2012）提供了更广泛的生物学背景。Rieke 等人（1997）描述了尖峰序列如何表示有关感官世界的信息，Bialek（2012）将通道和尖峰与生物系统物理学中的其他问题联系起来。\nEven before the mechanisms were clear, people began to think about how the quasi–digital character of spiking could be harnessed to do computations (McCulloch and Pitts, 1943). This work comes after the foundational work of Turing (1937) on universal computation, but before any practical modern computers. The goal of this work was to show that the basic facts known about neurons were sufficient to support computing essentially anything. On the one hand this is a very positive theoretical development: the brain could be a computer, in a deep sense. On the other hand it is disappointing, since if the brain is a universal computer there is not much more that one can say about the dynamics..\n即使在机制尚不清楚之前，人们就开始思考如何利用尖峰的准数字特性来进行计算（McCulloch 和 Pitts，1943 年）。这项工作是在 Turing（1937 年）关于通用计算的基础性工作之后，但在任何实用的现代计算机之前。这项工作的目标是表明，已知的关于神经元的基本事实足以支持计算本质上的任何东西。一方面，这是一个非常积极的理论发展：大脑可以在深层意义上成为一台计算机。另一方面，这令人失望，因为如果大脑是一台通用计算机，那么关于动力学就没有太多可说的了。\nThe way in which computation emerges from neurons in this early work clearly involves interactions among large numbers of cells in a network. Although single neurons can have remarkably precise dynamics in relation to sensory inputs and motor outputs (Hires et al., 2015; Nemenman et al., 2008; Rieke et al., 1997; Srivastava et al., 2017), there are many indications that our perceptions and actions, thoughts and memories typically are connected to the activity in many hundreds, perhaps even hundreds of thousands of neurons. Relevant activity in these large networks must be coordinated or collective.\n在这项早期工作中，计算是如何从神经元中涌现出来的，显然涉及网络中大量细胞之间的相互作用。尽管单个神经元在感官输入和运动输出方面可以具有非常精确的动力学（Hires 等人，2015 年；Nemenman 等人，2008 年；Rieke 等人，1997 年；Srivastava 等人，2017 年），但有许多迹象表明，我们的感知和行动、思想和记忆通常与数百甚至数十万个神经元的活动有关。这些大型网络中的相关活动必须是协调或集体的。\nThe idea that collective neural activity in the brain might be described with statistical mechanics was very much influenced by observations on the electroencephalogram or EEG (Wiener, 1958). The EEG is a macroscopic measure of activity, traditionally done simply by placing electrodes on the scalp, and the existence of the EEG is prima facie evidence that the electrical activity of many, many neurons must be correlated. There is also the remarkable story of a demonstration by Adrian, in which he sat quietly with his eyes closed with electrodes attached to his head. The signals, sent to an oscilloscope, showed the characteristic “alpha rhythm” that occurs in resting states, roughly an oscillation at ∼ 10 Hz. When asked to add two numbers in his head, the rhythm disappeared, replaced by less easily described patterns of activity (Adrian and Matthews, 1934). This should dispel any lingering doubts that your mental life is related to the electrical activity of your brain.\n大脑中集体神经活动可能用统计力学来描述的想法，深受对脑电图或 EEG 观察的影响（Wiener，1958 年）。EEG 是一种宏观的活动测量，传统上只是通过在头皮上放置电极来完成，EEG 的存在是第一手证据，表明许多神经元的电活动必须是相关的。还有一个令人惊讶的故事，讲述了 Adrian 的一个演示，他安静地坐着，闭着眼睛，头上连接着电极。信号被发送到示波器上，显示出在静息状态下发生的特征性“α节律”，大约是 ∼ 10 Hz 的振荡。当被要求在脑海中加两个数字时，这种节律消失了，取而代之的是不那么容易描述的活动模式（Adrian 和 Matthews，1934 年）。这应该消除任何关于你对心智与大脑电活动相关的质疑。\nIn the simplest models for neural dynamics, we describe the state of each neuron i at time t by a binary or Ising variable $\\sigma_{i}(t)$; $\\sigma_{i}(t) = +1$ means that the neuron is active, and $\\sigma_{i}(t) = 0$ means that the neuron is silent.2 We imagine the dynamics proceeding in discrete time steps $\\Delta\\tau$ . Each neuron sums inputs from other neurons, weighted by the strength $J_{ij}$ of the synapse or connection from cell $j\\rightarrow i$, and neurons switch into the active state if the total input is above a threshold:\n$$ \\sigma_{i}(t+\\Delta\\tau) = \\Theta\\left[\\sum_{j}J_{ij}\\sigma_{j}(t)-\\theta_{i}\\right] $$\nThe nature of the dynamics is encoded in the matrix $J_{ij}$ of synaptic strengths. If we think about arbitrary matrices, then the dynamics can be arbitrarily complex; progress depends on simplifying assumptions. It is useful to organize our discussion around two extreme simplifications. But keep in mind as we follow these threads that many of the developments occurred in parallel, and that there was considerable crosstalk.\n在神经动力学的最简单模型中，我们通过二进制或 Ising 变量 $\\sigma_{i}(t)$ 来描述每个神经元 i 在时间 t 的状态；$\\sigma_{i}(t) = +1$ 意味着神经元处于活跃状态，$\\sigma_{i}(t) = 0$ 意味着神经元处于静默状态。我们想象动力学以离散时间步长 $\\Delta\\tau$ 进行。每个神经元对来自其他神经元的输入进行求和，这些输入由从细胞 $j\\rightarrow i$ 的突触或连接的强度 $J_{ij}$ 加权，如果总输入超过阈值，神经元就会切换到活跃状态：\n$$ \\sigma_{i}(t+\\Delta\\tau) = \\Theta\\left[\\sum_{j}J_{ij}\\sigma_{j}(t)-\\theta_{i}\\right] $$\n动力学的性质编码在突触强度矩阵 $J_{ij}$ 中。如果我们考虑任意矩阵，那么动力学可以是任意复杂的；进展取决于简化假设。围绕两个极端简化来组织我们的讨论是有用的。但请记住，在我们跟随这些线索时，许多发展是并行发生的，并且存在相当大的串扰。\nFrom perceptrons to deep networks One popular simplification is to assume that $J_{ij}$ has a feed–forward, layered structure. This is the “perceptron” architecture (Block, 1962; Block et al., 1962; Rosenblatt, 1961), illustrated in Fig 1A, which is simpler to analyze precisely because there are no feedback loops. It is convenient to label the neurons also by the layer $l$ in which they reside, and to generalize from binary variables to continuous ones, so that\n$$ x_{i}^{(l+1)} = g\\left[\\sum_{j}W_{ij}^{(l+1)}x_{j}^{(l)} - \\theta_{i}^{(l+1)}\\right] $$\nwhere the propagation through layers replaces propagation through time and $g[\\cdot]$ is a monotonic nonlinear function. Thus each neuron computes a single projection of its possible inputs from the previous layer, and then outputs a nonlinear function of this projection.\n一种流行的简化是假设 $J_{ij}$ 具有前馈的分层结构。这是“感知器”架构（Block，1962 年；Block 等人，1962 年；Rosenblatt，1961 年），如图 1A 所示，正因为没有反馈回路，所以更容易分析。方便的是，还可以按它们所在的层 $l$ 来标记神经元，并将二进制变量推广为连续变量，因此\n$$ x_{i}^{(l+1)} = g\\left[\\sum_{j}W_{ij}^{(l+1)}x_{j}^{(l)} - \\theta_{i}^{(l+1)}\\right] $$\n其中通过层的传播取代了通过时间的传播，$g[\\cdot]$ 是一个单调非线性函数。因此，每个神经元计算来自前一层的可能输入的单个投影，然后输出该投影的非线性函数。\nIn the limit that $g[\\cdot]$ becomes a step function we recover binary variables and neuron $i$ in layer $l + 1$, can be thought of a dividing the space of its inputs in half, with a hyperplane perpendicular to the vector\n$$ \\vec{V} = \\{V_{j}\\} = \\{W_{ij}^{(l+1)}\\} $$\nThus the elementary computation is a binary classification of inputs,\n$$ x\\rightarrow y = \\Theta(\\vec{V}\\cdot\\vec{x}-\\theta) $$\nWe could imagine having access to many examples of the input vector $\\vec{x}$ labelled by the correct classification $y$, and thereby learning the optimal vector $\\vec{V}$ . This picture of learning to classify was present already ∼1960, although it would take the full power of modern statistical physics to say that we really understand it. Crucially, if we think of the the $\\{x_{i}\\}$ or $\\{\\sigma_{i}\\}$ as being the microscopic variables in the system and the $J_{ij}$ as being the interactions among these variables, then learning is statistical mechanics in the space of interactions (Gardner, 1988; Gardner and Derrida, 1988; Levin et al., 1990; Watkin et al., 1993).\n在 $g[\\cdot]$ 变成阶跃函数的极限下，我们恢复了二进制变量，层 $l + 1$ 中的神经元 $i$ 可以被认为是将其输入空间分成两半，具有垂直于向量的超平面\n$$ \\vec{V} = \\{V_{j}\\} = \\{W_{ij}^{(l+1)}\\} $$\n因此，基本的计算是对输入的二元分类，\n$$ x\\rightarrow y = \\Theta(\\vec{V}\\cdot\\vec{x}-\\theta) $$\n我们可以想象获得许多输入向量 $\\vec{x}$ 的示例，这些示例由正确的分类 $y$ 标记，从而学习最佳向量 $\\vec{V}$。这种学习分类的图景已经出现在大约 1960 年，尽管需要现代统计物理学的全部力量才能说我们真正理解了它。关键是，如果我们将 $\\{x_{i}\\}$ 或 $\\{\\sigma_{i}\\}$ 视为系统中的微观变量，而将 $J_{ij}$ 视为这些变量之间的相互作用，那么学习就是在相互作用空间中的统计力学（Gardner，1988 年；Gardner 和 Derrida，1988 年；Levin 等人，1990 年；Watkin 等人，1993 年）。\nAlthough many of the computations done by the brain can be framed as classification problems, such as attaching names or words to images, very few can be solved by a single step of linear separation. Again this was clear at the start, but development of these ideas took decades. Enthusiasm was dampened by an emphasis on what two layer networks could not do (Minsky and Papert, 1969), but eventually it became clear that multilayer perceptrons are much more powerful (Lapedes and Farber, 1988; LeCun, 1987), and theorems were proven to show that these systems can approximate any function (Hornik et al., 1989). As with the simple perceptron, optimal weights $W$ can be learned by fitting to many examples of input/output pairs. Importantly this doesn’t require access to the “correct” answers at every layer; instead if we work with continuous variables then the goodness of fit across many layers can be differentiated using the chain rule, and errors propagated back through the network to adjust the weights (Rumelhart et al., 1986).\n虽然大脑执行的许多计算都可以被框定为分类问题，例如将名称或单词附加到图像上，但很少有计算可以通过单一步骤的线性分离来解决。这一事实从一开始就很清楚，但这些想法的发展花费了几十年时间。由于强调两层网络无法完成的任务（Minsky 和 Papert，1969 年），热情有所减弱，但最终人们意识到多层感知器更加强大（Lapedes 和 Farber，1988 年；LeCun，1987 年），并且已经证明了这些系统可以近似任何函数的定理（Hornik 等人，1989 年）。与简单感知器一样，可以通过拟合许多输入/输出对的示例来学习最佳权重 $W$。重要的是，这不需要访问每一层的“正确”答案；相反，如果我们使用连续变量，那么通过链式法则可以区分多层之间的拟合优度，并将误差反向传播通过网络以调整权重（Rumelhart 等人，1986 年）。\nFast forward from the late 1980s to the mid 2010s. The few layers of early perceptrons became the many layers of “deep networks,” in the spirit of Fig 1B; comparing the two panels of Fig 1 emphasizes the continuity of ideas across the decades. Advances in computing power and storage made it possible not just to simulate these models efficiently, but to solve the problem of finding optimal synaptic weights by comparing against millions or even billions of examples. These explorations led to networks so large that the number of weights needed to specify the network vastly exceeded the number of examples. Contrary to well established intuitions these “over parameterized” models worked, generalizing to new examples rather than over–fitting to the training data. Although we don’t fully understand them, these developments have fueled a revolution in artificial intelligence (AI).\n从 1980 年代后期快进到 2010 年代中期。早期感知器的几层变成了“深度网络”的多层，如图 1B 所示；比较图 1 的两个面板强调了几十年来思想的连续性。计算能力和存储的进步不仅使得高效地模拟这些模型成为可能，而且通过与数百万甚至数十亿个示例进行比较，解决了寻找最佳突触权重的问题。这些探索导致了如此庞大的网络，以至于指定网络所需的权重数量远远超过了示例的数量。与既定的直觉相反，这些“过参数化”模型有效，对新示例进行了泛化，而不是对训练数据进行了过拟合。尽管我们并不完全理解它们，但这些发展推动了人工智能（AI）的革命。\nFIG. 1 Neural networks with a feed-forward architecture, or “perceptrons.” (A) An early version of the idea, from Block (1962). (B) A modern version, with additional hidden layers. The first steps in the modern AI revolution involved similar networks, with many hidden layers, that achieved human-level performance on image classification and other tasks (LeCun et al., 2015).\n图一. 神经网络具有前馈架构，或“感知器”。（A）该想法的早期版本，来自 Block（1962 年）。（B）现代版本，具有额外的隐藏层。现代 AI 革命的第一步涉及类似的网络，具有许多隐藏层，在图像分类和其他任务上实现了人类水平的性能（LeCun 等人，2015 年）。\nSymmetric networks Feed–forward networks have the property that if $J_{ij}$ is nonzero, then $J_{ji} = 0$. Hopfield (1982, 1984) considered the opposite simplification: if neuron $i$ is connected to neuron $j$, then neuron $j$ is connected to neuron $i$, and the strength of the connection is the same, so that $J_{ij} = J_{ji}$. In this case the dynamics in Eq (1) have a Lyapunov function: at each time step the “energy”\n$$ E = -\\frac{1}{2}\\sum_{ij}\\sigma_{i}J_{ij}\\sigma_{j} + \\sum_{i}\\theta_{i}\\sigma_{i} $$\neither decreases or stays constant. The evolution of the network state stops at local minima of the energy $E$, and only at these local minima. We recognize this energy function as an Ising model with pairwise interactions among the spins (neurons). This very explicit connection of neural dynamics to statistical physics triggered an avalanche of work, and textbook accounts of these ideas appeared quickly (Amit, 1989; Hertz et al., 1991).\n前馈网络具有这样的属性：如果 $J_{ij}$ 非零，则 $J_{ji} = 0$。Hopfield（1982 年，1984 年）考虑了相反的简化：如果神经元 $i$ 与神经元 $j$ 相连，那么神经元 $j$ 也与神经元 $i$ 相连，并且连接的强度相同，因此 $J_{ij} = J_{ji}$。在这种情况下，方程（1）中的动力学具有 Lyapunov 函数：在每个时间步长中，“能量”\n$$ E = -\\frac{1}{2}\\sum_{ij}\\sigma_{i}J_{ij}\\sigma_{j} + \\sum_{i}\\theta_{i}\\sigma_{i} $$\n要么减少，要么保持不变。网络状态的演变在能量 $E$ 的局部极小值处停止，并且仅在这些局部极小值处停止。我们将这个能量函数识别为具有自旋（神经元）之间成对相互作用的 Ising 模型。神经动力学与统计物理学的这种非常明确的联系引发了一系列工作，并且这些思想的教科书描述很快就出现了（Amit，1989 年；Hertz 等人，1991 年）。\nIt was useful in visualizing the dynamics of symmetric networks that they can be realized by simple circuit components, using amplifiers with saturating outputs in place of neurons, as in Fig 2. As with perceptrons one generalize to soft spins, now in continuous time; one version of these dynamics is\n$$ \\tau\\frac{\\mathrm{d}x_{i}}{\\mathrm{d}t} = -x_{i} + \\sum_{j}J_{ij}g(x_{j}) $$\nThese models have the same collective behaviors as Ising spins (Hopfield, 1984).\n在可视化对称网络的动力学时，它们可以通过简单的电路组件实现，这很有用，使用具有饱和输出的放大器代替神经元，如图 2 所示。与感知器一样，可以推广到软自旋，现在是在连续时间中；这些动力学的一个版本是\n$$ \\tau\\frac{\\mathrm{d}x_{i}}{\\mathrm{d}t} = -x_{i} + \\sum_{j}J_{ij}g(x_{j}) $$\n这些模型具有与 Ising 自旋相同的集体行为（Hopfield，1984 年）。\nFIG. 2 Equivalent circuit and dynamics in a symmetric network (Hopfield and Tank, 1986). (A) … (B) Schematic energy function for the circuit in (A); solid contours are above a mean level and dashed contours below, with X marking fixed points at the bottoms of energy valleys. (C) Corresponding dynamics, shown as a flow field. \\\n图二. 对称网络中的等效电路和动力学（Hopfield 和 Tank，1986 年）。（A）…（B）（A）中电路的示意能量函数；实线轮廓高于平均水平，虚线轮廓低于平均水平，X 标记能量谷底的固定点。（C）相应的动力学，显示为流场。\nA crucial point is that one can “program” symmetric networks to place local minima at desired states. Since the dynamics will flow spontaneously toward these minima and stop, we can think of this programming as storing memories in the network, which then can be recovered by initializing the state anywhere in the relevant basin of attraction. Taking the mapping of the Lyapunov function to an energy more seriously, this memory storage represents a sculpting of the energy landscape, which is a more general idea. As an example, we can think about the evolution of amino acid sequences in proteins sculpting the energy landscape for folding.\n一个关键点是，可以“编程”对称网络以在所需状态下放置局部极小值。由于动力学将自发地流向这些极小值并停止，我们可以将这种编程视为在网络中存储记忆，然后可以通过在相关吸引盆地中的任何位置初始化状态来恢复这些记忆。更认真地考虑 Lyapunov 函数到能量的映射，这种记忆存储代表了能量景观的雕刻，这是一个更一般的想法。作为一个例子，我们可以考虑蛋白质中氨基酸序列的演化，雕刻折叠的能量景观。\nTo illustrate the idea of memory storage, consider the case where the thresholds $\\theta_{i} = 0$. Suppose we can construct a matrix of synaptic weights such that\n$$ J_{ij} = J\\xi_{i}\\xi_{j} $$\nwhere the $\\xi_{i} = +1$ are again a set of (now fixed) binary or Ising variables. Then the energy function becomes\n$$ E = -\\frac{J}{2}\\sum_{ij}\\sigma_{i}\\xi_{i}\\xi_{j}\\sigma_{j} = -\\frac{J}2{}\\left(\\sum_{i}\\sigma_{i}\\xi_{i}\\right)^{2} = -\\frac{J}{2}\\left(\\vec{\\sigma}\\cdot\\vec{\\xi}\\right)^{2} $$\nBecause both $\\vec{\\sigma}$ and $\\vec{\\xi}$ are binary vectors the energy is minimized when these vectors are equal. If want to be a bit fancier we can transform $\\sigma_{i}\\rightarrow \\widetilde{\\sigma}_{i} = \\sigma_{i}\\xi_{i}$, and we then realize that Eq (8) is gauge equivalent to the mean-field ferromagnet.\n为了说明记忆存储的想法，考虑阈值 $\\theta_{i} = 0$ 的情况。假设我们可以构建一个突触权重矩阵，使得\n$$ J_{ij} = J\\xi_{i}\\xi_{j} $$\n其中 $\\xi_{i} = +1$ 再次是一组（现在固定的）二进制或 Ising 变量。那么能量函数变为\n$$ E = -\\frac{J}{2}\\sum_{ij}\\sigma_{i}\\xi_{i}\\xi_{j}\\sigma_{j} = -\\frac{J}2{}\\left(\\sum_{i}\\sigma_{i}\\xi_{i}\\right)^{2} = -\\frac{J}{2}\\left(\\vec{\\sigma}\\cdot\\vec{\\xi}\\right)^{2} $$\n由于 $\\vec{\\sigma}$ 和 $\\vec{\\xi}$ 都是二进制向量，当这些向量相等时能量最小化。如果想要更花哨一点，我们可以进行变换 $\\sigma_{i}\\rightarrow \\widetilde{\\sigma}_{i} = \\sigma_{i}\\xi_{i}$，然后我们意识到方程（8）在规范上等价于平均场铁磁体。\nCrucially, we can generalize this construction,\n$$ J_{ij} = J \\left(\\xi_{i}^{(1)}\\xi_{j}^{(1)} + \\xi_{i}^{(2)}\\xi_{j}^{(2)} + \\cdots + \\xi_{i}^{(K)}\\xi_{j}^{(K)}\\right). $$\nIf network has $N$ neurons, and the number of these terms $K\\ll N$ , then typically the vectors $\\vec{\\xi}^{(\\mu)}$ are orthogonal, and the energy function will have multiple minima at $\\vec{\\sigma} = \\vec{\\xi}^{(\\mu)}$: we have a model that stores $K$ memories.\n关键是，我们可以推广这种构造，\n$$ J_{ij} = J \\left(\\xi_{i}^{(1)}\\xi_{j}^{(1)} + \\xi_{i}^{(2)}\\xi_{j}^{(2)} + \\cdots + \\xi_{i}^{(K)}\\xi_{j}^{(K)}\\right). $$\n如果网络有 $N$ 个神经元，并且这些项的数量 $K\\ll N$，那么通常向量 $\\vec{\\xi}^{(\\mu)}$ 是正交的，并且能量函数将在 $\\vec{\\sigma} = \\vec{\\xi}^{(\\mu)}$ 处具有多个极小值：我们有一个存储 $K$ 个记忆的模型。\nTo make this more rigorous let’s imagine that the states of the network are not just the minima of the energy function, but are drawn from a Boltzmann distribution at some inverse temperature $\\beta$; it is plausible that this emerges from a noisy version of the dynamics in Eq (1). Then we have\n$$ \\begin{aligned} P(\\vec{\\sigma}) \u0026= \\frac{1}{Z}\\exp{{-\\beta E(\\vec{\\sigma})}} \\\\ E(\\vec{\\sigma}) \u0026= -\\frac{J_{0}}{N}\\sum_{ij=1}^{N}\\sum_{\\mu=1}^{K}\\sigma_{i}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\sigma_{j} \\end{aligned} $$\nwhere we use the usual normalization of interactions by a factor $N$ to insure a thermodynamic limit. Because the stored patterns are fixed, this is a statistical mechanics problem with quenched disorder, a special kind of meanfield spin glass. As a first try we can take the stored patterns to be random vectors, which might make sense if we are describing a region of the brain where the mapping between the features of what we remember and the identities of neurons is very abstract. We can measure the success of recalling memories by measuring the order parameters\n$$ m_{\\mu} = \\overline{\\langle\\vec{\\xi}^{\\mu}\\cdot\\vec{\\sigma}\\rangle} $$\nwhere $\\langle\\cdots\\rangle$ denotes an average over the “thermal” fluctuations in the neural state $\\vec{\\sigma}$ and $\\overline{\\cdots}$ denotes an average over the random choice of the patterns $\\vec{\\xi}^{\\mu}$.\n为了使这一点更加严格，让我们想象网络的状态不仅仅是能量函数的极小值，而是从某个逆温度 $\\beta$ 的 Boltzmann 分布中抽取的；这可能是从方程（1）中的动力学的噪声版本中出现的。然后我们有\n$$ \\begin{aligned} P(\\vec{\\sigma}) \u0026= \\frac{1}{Z}\\exp{{-\\beta E(\\vec{\\sigma})}} \\\\ E(\\vec{\\sigma}) \u0026= -\\frac{J_{0}}{N}\\sum_{ij=1}^{N}\\sum_{\\mu=1}^{K}\\sigma_{i}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\sigma_{j} \\end{aligned} $$\n其中我们使用通过因子 $N$ 的相互作用的通常归一化来确保热力学极限。由于存储的模式是固定的，这是一个具有淬火无序的统计力学问题，一种特殊类型的平均场自旋玻璃。作为第一次尝试，我们可以将存储的模式视为随机向量，如果我们正在描述大脑的一个区域，在那里我们记忆的特征与神经元的身份之间的映射非常抽象，这可能是有意义的。我们可以通过测量序参量来衡量回忆记忆的成功\n$$ m_{\\mu} = \\overline{\\langle\\vec{\\xi}^{\\mu}\\cdot\\vec{\\sigma}\\rangle} $$\n其中 $\\langle\\cdots\\rangle$ 表示对神经状态 $\\vec{\\sigma}$ 中的“热”波动的平均，$\\overline{\\cdots}$ 表示对模式 $\\vec{\\xi}^{\\mu}$ 的随机选择的平均。\nShortly before the introduction of these models, there had been dramatic developments in the statistical mechanics of disordered systems, including the solution of the fully mean–field Sherrington–Kirkpatrick spin glass model (Mezard et al., 1987). These tools could be applied to neural networks, resulting in a phase diagram mapping the order parameters $\\{m_{\\mu}\\}$ as function of the fictitious temperature and the storage density $\\alpha = K/N$ , all in the thermodynamic limit $N\\to\\infty$ (Amit et al., 1985, 1987). In the limit of zero temperature, below a critical $\\alpha_{c} = 0.138$ only one of the $m_{\\mu}$ will be nonzero, and it takes values close to one; this survives to finite temperatures. Thus there is a whole phase in which this model provides effective even if not quite perfect recall. By now we think of neural network models not as an application of statistical mechanics, but as a source of problems.\n在引入这些模型之前，关于无序系统的统计力学已经有了戏剧性的进展，包括完全平均场 Sherrington–Kirkpatrick 自旋玻璃模型的解决方案（Mezard 等人，1987 年）。这些工具可以应用于神经网络，导致了一个相图，将序参量 $\\{m_{\\mu}\\}$ 映射为虚拟温度和存储密度 $\\alpha = K/N$ 的函数，所有这些都在热力学极限 $N\\to\\infty$ 中（Amit 等人，1985 年，1987 年）。在零温度的极限下，低于临界值 $\\alpha_{c} = 0.138$ 时，只有一个 $m_{\\mu}$ 将是非零的，并且它的值接近于一；这在有限温度下仍然存在。因此，在这个模型提供有效但不完全完美回忆的整个阶段中。到现在为止，我们认为神经网络模型不仅仅是统计力学的一个应用，而是问题的来源。\nAn important feature of the dynamics is that it is “associative.” Many initial states will relax to the same local minimum of the energy, which is equivalent to saying the same memory can be recalled from many different cues. In particular, we can imagine that the many bits represented by the state $\\{\\sigma_{i}\\}$ can be grouped into features, e.g. parts of the image of a face, the sound of the person’s voice, $\\dots$ . Under many conditions if one set of features is given and the others randomized, the nearest local minimum will have all the features correctly aligned (Hopfield, 1982). The fact that our mind conjures an image in response to a sound or a fragrance had once seemed mysterious, and this provides a path to demystification, built on the idea that stored and recalled memories are collective states of the network.\n动力学的一个重要特征是它是“联想的”。许多初始状态将弛豫到能量的同一局部极小值，这相当于说同一记忆可以从许多不同的线索中回忆起来。特别是，我们可以想象由状态 $\\{\\sigma_{i}\\}$ 表示的许多位可以分组为特征，例如面部图像的部分、该人的声音等。在许多条件下，如果给出一组特征并将其他特征随机化，则最近的局部极小值将使所有特征正确对齐（Hopfield，1982 年）。我们的心灵对声音或香味产生图像的事实曾经显得神秘，而这为去神秘化提供了一条途径，建立在存储和回忆的记忆是网络的集体状态的想法之上。\nThe synaptic matrix in Eq (9) has an important feature. Suppose that the network is currently in some state $\\vec{\\sigma}$ and we would like to add this state to the list of stored memories—i.e. we would like the network to learn the current state. Following Eq (9) we should change the synaptic weights\n$$ J_{ij}\\rightarrow J_{ij} + J\\sigma_{i}\\sigma_{j} $$\nFirst we note that the connection between neurons $i$ and $j$ changes in a way that depends only on these two neurons. This locality of the learning rule is in a way remarkable, since we might have thought that sculpting the energy landscape would require more global manipulations. Second, the change in synaptic strength depends on the correlation between the pre–synaptic neuron $j$ and the post–synaptic neuron $i$: if the cells are active together, the synapse should be strengthened. This simple rule sometimes is summarized by saying that neurons that “fire together wire together,” and there is considerable evidence that real synapses change in this way. Indeed, although this idea has its origins in classical discussions (Hebb, 1949; James, 1904), more direct measurements demonstrating that correlated activity leads to long lasting increases of synaptic strength came only in the decade before Hopfield’s work (Bliss and Lømo, 1973).\n方程（9）中的突触矩阵具有一个重要特征。假设网络当前处于某个状态 $\\vec{\\sigma}$，我们想将该状态添加到存储的记忆列表中——即我们希望网络学习当前状态。根据方程（9），我们应该改变突触权重\n$$ J_{ij}\\rightarrow J_{ij} + J\\sigma_{i}\\sigma_{j} $$\n首先我们注意到，神经元 $i$ 和 $j$ 之间的连接以仅取决于这两个神经元的方式发生变化。这种学习规则的局部性在某种程度上是显著的，因为我们可能认为雕刻能量景观需要更全局的操作。其次，突触强度的变化取决于突触前神经元 $j$ 和突触后神经元 $i$ 之间的相关性：如果细胞一起活跃，突触应该被加强。这条简单的规则有时被总结为“共同发射的神经元共同连接”，并且有相当多的证据表明真实的突触以这种方式发生变化。事实上，尽管这个想法起源于经典讨论（Hebb，1949 年；James，1904 年），但在 Hopfield 的工作之前的十年中，才有更直接的测量表明相关活动会导致突触强度的长期增加（Bliss 和 Lømo，1973 年）。\nIn the first examples, the goal of computation was to recover a stored pattern from partial information (associative memory). Beyond memory, Hopfield and Tank (1985) soon showed that one could construct networks that solve classical optimization problems, and that many biologically relevant problems could be cast in this form (Hopfield and Tank, 1986). At the same time, the idea of simulated annealing (Kirkpatrick et al., 1983) led people to take much more seriously the mapping between “computational” problems of optimization and the “physical” problems of finding minimum energy states of many–body systems. This led, for example, to connections between statistical mechanics and computational complexity (Kirkpatrick and Selman, 1994; Monasson et al., 1999). From an engineering point of view, models for neural networks connected immediately to the possibility of using modern chip design methods to build analog, rather than digital circuits (Mead, 1989). Taken together, these simple symmetric models of neural networks formed a nexus among statistical physics, computer science, neurobiology, and engineering.\n在最初的例子中，计算的目标是从部分信息中恢复存储的模式（联想记忆）。超越记忆，Hopfield 和 Tank（1985 年）很快表明，可以构建解决经典优化问题的网络，并且许多生物学相关的问题可以以这种形式进行投射（Hopfield 和 Tank，1986 年）。与此同时，模拟退火的想法（Kirkpatrick 等人，1983 年）使人们更加认真地对待“计算”优化问题与寻找多体系统最低能量状态的“物理”问题之间的映射。这导致了统计力学与计算复杂性之间的联系（Kirkpatrick 和 Selman，1994 年；Monasson 等人，1999 年）。从工程的角度来看，神经网络模型立即与使用现代芯片设计方法构建模拟而非数字电路的可能性相关联（Mead，1989 年）。总的来说，这些简单的对称神经网络模型形成了统计物理学、计算机科学、神经生物学和工程学之间的纽带。\nPerspectives Our emphasis in this review is on networks of real neurons. But it would be foolish to ignore what is happening in the world of engineered, artificial networks, which proceeds at a terrifying pace, realizing many of the old dreams for artificial intelligence (AI). Not so long ago we would have emphasized the tremendous progress being made on problems such as image recognition or game playing, where deep networks achieved something that approximates human level performance. Today, popular discussion is focused on generative AI, with networks that produces text and images that have a striking realism. Our theoretical understanding of why these things work remains quite weak. There are engineering questions about what practical problems can be solved with confidence by such systems, and ethical questions about how humanity will interact with these machines. The successes of AI even have led to some to suggest that the physicists’ notions of understanding might themselves be superseded. In opposition to this, many physicists are hopeful that ideas from statistical mechanics will help us build a better understanding of modern AI (Carleo et al., 2019; Mehta et al., 2019; Roberts and Yaida, 2022).\n本文综述的重点是现实神经元网络。但忽视工程化的人工网络领域正在发生的事情是愚蠢的，这一领域以惊人的速度发展，实现了对人工智能（AI）的许多旧梦想。不久前，我们会强调在图像识别或游戏等问题上取得的巨大进展，在这些问题上，深度网络实现了接近人类水平的性能。今天，流行的讨论集中在生成式 AI 上，网络生成的文本和图像具有惊人的真实感。我们对这些事物为何有效的理论理解仍然相当薄弱。关于这些系统可以自信地解决哪些实际问题存在工程问题，以及关于人类将如何与这些机器互动的伦理问题。AI 的成功甚至导致一些人建议物理学家的理解概念本身可能会被取代。与此相反，许多物理学家希望统计力学的思想将帮助我们更好地理解现代 AI（Carleo 等人，2019 年；Mehta 等人，2019 年；Roberts 和 Yaida，2022 年）。\nIn a different direction, many physicists have been interested in more explicitly dynamical models of neural networks (Vogels et al., 2005), as in Eq (6). Guided by the statistical physics of disordered systems, one can study networks in which the matrix of synaptic connections is drawn at random, perhaps from an ensemble that captures some established features of real connectivity patterns. These same ideas can be used for probabilistic models of binary neurons; notable developments include the development of a dynamical mean–field theory for these systems (van Vreeswijk and Sompolinsky, 1998).\n在另一个方向上，许多物理学家对神经网络的更明确的动态模型感兴趣（Vogels 等人，2005 年），如方程（6）所示。在无序系统的统计物理学的指导下，可以研究突触连接矩阵是随机抽取的网络，可能来自捕捉真实连接模式的一些已建立特征的集合。这些相同的思想可以用于二进制神经元的概率模型；值得注意的发展包括为这些系统开发动态平均场理论（van Vreeswijk 和 Sompolinsky，1998 年）。\nAgainst the background of these theoretical developments, there has been a revolution in the experimental exploration of the brain, driven by techniques that combine methods from physics, chemistry and biology. We believe that this provides an unprecedented opportunity to connect statistical physics ideas to quantitative measurements on network dynamics in real brains. We turn first to an overview of the experimental state of the art.\n在这些理论发展的背景下，大脑的实验探索发生了革命，这得益于结合了物理学、化学和生物学方法的技术。我们相信，这为将统计物理学思想与对真实大脑中网络动力学的定量测量联系起来提供了前所未有的机会。我们首先来概述一下实验的最新状态。\n",
+  "wordCount" : "10055",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2025/11/12/Z4gTrHP3WlFIA7v.png","datePublished": "2025-11-12T00:18:23+08:00",
+  "dateModified": "2025-11-12T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/reference/">📕 文献</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/">📕 Statistical mechanics for networks of real neurons</a></div>
+            <h1 class="post-title">
+                Some History
+            </h1>
+            <div class="post-description">
+                真实神经元网络的统计力学
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-11-12
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>10055字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>21分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2025/11/12/Z4gTrHP3WlFIA7v.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#prehistoric-times" aria-label="Prehistoric times">Prehistoric times</a></li>
+                <li>
+                    <a href="#from-perceptrons-to-deep-networks" aria-label="From perceptrons to deep networks">From perceptrons to deep networks</a></li>
+                <li>
+                    <a href="#symmetric-networks" aria-label="Symmetric networks">Symmetric networks</a></li>
+                <li>
+                    <a href="#perspectives" aria-label="Perspectives">Perspectives</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><blockquote>
+<p>Today, neural network models are known to many different communities: physicists and applied mathematicians, computer scientists and engineers, neurobiologists and cognitive scientists. Neural networks are at the heart of an ongoing revolution in artificial intelligence, and are making their way into many aspects of scientific data analysis, from cell biology to CERN. Here we provide a brief (and perhaps idiosyncratic) reminder of how some of these ideas developed.</p>
+</blockquote>
+<p>今天，神经网络模型为许多不同的群体所知：物理学家和应用数学家、计算机科学家和工程师、神经生物学家和认知科学家。神经网络是人工智能正在进行的革命的核心，并正在进入从细胞生物学到 CERN 的许多科学数据分析方面。在这里，我们简要（也许是特立独行地）回顾了一些这些想法是如何发展的。</p>
+<h1 id="prehistoric-times">Prehistoric times<a hidden class="anchor" aria-hidden="true" href="#prehistoric-times">#</a></h1>
+<blockquote>
+<p>The engagement of physicists with neurons and the brain has a long and fascinating history. Our modern understanding of electricity has its roots in the 1700s with observations on nerves and muscles. The understanding of optics and acoustics that emerged in the 1800s was continuous with the exploration of vision and hearing. This involved thinking not just about the optics of the eye or the mechanics of the inner ear, but about the inferences that our brains can derive from the data collected by these physical instruments.</p>
+</blockquote>
+<p>物理学家与神经元和大脑的接触有着悠久而迷人的历史。我们对电的现代理解起源于 1700 年代对神经和肌肉的观察。19 世纪出现的光学和声学的理解与对视觉和听觉的探索是连续的。这不仅涉及眼睛的光学或内耳的力学，还涉及我们的大脑可以从这些物理仪器收集的数据中推断出的推论。</p>
+<blockquote>
+<p>The idea that the brain is made out of discrete cells, connected by synapses, dates from late 1800s (Ram ́on y Cajal, 1894). The electrical signals from individual nerve cells (neurons) were first recorded in the 1920s, starting with the cells in sense organs that provide the input to the brain (Adrian, 1928). Observing these small signals required instruments no less sensitive than those in contemporary physics laboratories. The crucial observation is that neurons communicate by generating discrete, identical pulses of voltage across their membranes; these pulses are called action potentials or, more colloquially, spikes.</p>
+</blockquote>
+<p>大脑由离散的细胞通过突触连接而成的想法可以追溯到 19 世纪末（Ram ́on y Cajal，1894 年）。个别神经细胞（神经元）的电信号最早在 1920 年代被记录下来，首先是提供大脑输入的感觉器官中的细胞（Adrian，1928 年）。观察这些微小信号需要与当代物理实验室中的仪器同样敏感。关键的观察是，神经元通过在其膜上产生离散的、相同的电压脉冲来进行通信；这些脉冲称为动作电位，或者更通俗地说，称为尖峰。</p>
+<blockquote>
+<p>By the 1950s there was a clear mathematical description of the dynamics underlying the generation and propagation of spikes (Hodgkin and Huxley, 1952). Perhaps surprisingly, the terms in these equations could be taken literally as representing the action of real physical components—ion channel proteins that allow the flow of specific ions across the cell membrane, and which open and close (or “gate”) in response to the transmembrane voltage. The progress from macroscopic phenomenology to the dynamics of individual channels is a beautiful chapter in the interaction of physics and biology. The classic textbook account is Aidley (1998); Dayan and Abbott (2001) discuss phenomenological models for spiking activity; and a broader biological context is provided by Kandel et al. (2012). Rieke et al. (1997) describe the way in which sequences of spikes represent information about the sensory world, and Bialek (2012) connects channels and spikes to other problems in the physics of biological systems.</p>
+</blockquote>
+<p>到了 1950 年代，人们已经对产生和传播尖峰的动力学有了清晰的数学描述（Hodgkin 和 Huxley，1952 年）。也许令人惊讶的是，这些方程中的术语可以被字面理解为代表真实物理组件的作用——允许特定离子穿过细胞膜流动的离子通道蛋白，这些蛋白会根据跨膜电压的变化而打开和关闭（或“门控”）。从宏观现象学到单个通道动力学的进展是物理学与生物学相互作用中的一个美丽篇章。经典的教科书是 Aidley（1998）；Dayan 和 Abbott（2001）讨论了尖峰活动的现象学模型；Kandel 等人（2012）提供了更广泛的生物学背景。Rieke 等人（1997）描述了尖峰序列如何表示有关感官世界的信息，Bialek（2012）将通道和尖峰与生物系统物理学中的其他问题联系起来。</p>
+<blockquote>
+<p>Even before the mechanisms were clear, people began to think about how the quasi–digital character of spiking could be harnessed to do computations (McCulloch and Pitts, 1943). This work comes after the foundational work of Turing (1937) on universal computation, but before any practical modern computers. The goal of this work was to show that the basic facts known about neurons were sufficient to support computing essentially anything. On the one hand this is a very positive theoretical development: the brain could be a computer, in a deep sense. On the other hand it is disappointing, since if the brain is a universal computer there is not much more that one can say about the dynamics..</p>
+</blockquote>
+<p>即使在机制尚不清楚之前，人们就开始思考如何利用尖峰的准数字特性来进行计算（McCulloch 和 Pitts，1943 年）。这项工作是在 Turing（1937 年）关于通用计算的基础性工作之后，但在任何实用的现代计算机之前。这项工作的目标是表明，已知的关于神经元的基本事实足以支持计算本质上的任何东西。一方面，这是一个非常积极的理论发展：大脑可以在深层意义上成为一台计算机。另一方面，这令人失望，因为如果大脑是一台通用计算机，那么关于动力学就没有太多可说的了。</p>
+<blockquote>
+<p>The way in which computation emerges from neurons in this early work clearly involves interactions among large numbers of cells in a network. Although single neurons can have remarkably precise dynamics in relation to sensory inputs and motor outputs (Hires et al., 2015; Nemenman et al., 2008; Rieke et al., 1997; Srivastava et al., 2017), there are many indications that our perceptions and actions, thoughts and memories typically are connected to the activity in many hundreds, perhaps even hundreds of thousands of neurons. Relevant activity in these large networks must be coordinated or collective.</p>
+</blockquote>
+<p>在这项早期工作中，计算是如何从神经元中涌现出来的，显然涉及网络中大量细胞之间的相互作用。尽管单个神经元在感官输入和运动输出方面可以具有非常精确的动力学（Hires 等人，2015 年；Nemenman 等人，2008 年；Rieke 等人，1997 年；Srivastava 等人，2017 年），但有许多迹象表明，我们的感知和行动、思想和记忆通常与数百甚至数十万个神经元的活动有关。这些大型网络中的相关活动必须是协调或集体的。</p>
+<blockquote>
+<p>The idea that collective neural activity in the brain might be described with statistical mechanics was very much influenced by observations on the electroencephalogram or EEG (Wiener, 1958). The EEG is a macroscopic measure of activity, traditionally done simply by placing electrodes on the scalp, and the existence of the EEG is prima facie evidence that the electrical activity of many, many neurons must be correlated. There is also the remarkable story of a demonstration by Adrian, in which he sat quietly with his eyes closed with electrodes attached to his head. The signals, sent to an oscilloscope, showed the characteristic “alpha rhythm” that occurs in resting states, roughly an oscillation at ∼ 10 Hz. When asked to add two numbers in his head, the rhythm disappeared, replaced by less easily described patterns of activity (Adrian and Matthews, 1934). This should dispel any lingering doubts that your mental life is related to the electrical activity of your brain.</p>
+</blockquote>
+<p>大脑中集体神经活动可能用统计力学来描述的想法，深受对脑电图或 EEG 观察的影响（Wiener，1958 年）。EEG 是一种宏观的活动测量，传统上只是通过在头皮上放置电极来完成，EEG 的存在是第一手证据，表明许多神经元的电活动必须是相关的。还有一个令人惊讶的故事，讲述了 Adrian 的一个演示，他安静地坐着，闭着眼睛，头上连接着电极。信号被发送到示波器上，显示出在静息状态下发生的特征性“α节律”，大约是 ∼ 10 Hz 的振荡。当被要求在脑海中加两个数字时，这种节律消失了，取而代之的是不那么容易描述的活动模式（Adrian 和 Matthews，1934 年）。这应该消除任何关于你对心智与大脑电活动相关的质疑。</p>
+<blockquote>
+<p>In the simplest models for neural dynamics, we describe the state of each neuron i at time t by a binary or Ising variable $\sigma_{i}(t)$; $\sigma_{i}(t) = +1$ means that the neuron is active, and $\sigma_{i}(t) = 0$ means that the neuron is silent.2 We imagine the dynamics proceeding in discrete time steps $\Delta\tau$ . Each neuron sums inputs from other neurons, weighted by the strength $J_{ij}$ of the synapse or connection from cell $j\rightarrow i$, and neurons switch into the active state if the total input is above a threshold:</p>
+<p>$$
+\sigma_{i}(t+\Delta\tau) = \Theta\left[\sum_{j}J_{ij}\sigma_{j}(t)-\theta_{i}\right]
+$$</p>
+<p>The nature of the dynamics is encoded in the matrix $J_{ij}$ of synaptic strengths. If we think about arbitrary matrices, then the dynamics can be arbitrarily complex; progress depends on simplifying assumptions. It is useful to organize our discussion around two extreme simplifications. But keep in mind as we follow these threads that many of the developments occurred in parallel, and that there was considerable crosstalk.</p>
+</blockquote>
+<p>在神经动力学的最简单模型中，我们通过二进制或 Ising 变量 $\sigma_{i}(t)$ 来描述每个神经元 i 在时间 t 的状态；$\sigma_{i}(t) = +1$ 意味着神经元处于活跃状态，$\sigma_{i}(t) = 0$ 意味着神经元处于静默状态。我们想象动力学以离散时间步长 $\Delta\tau$ 进行。每个神经元对来自其他神经元的输入进行求和，这些输入由从细胞 $j\rightarrow i$ 的突触或连接的强度 $J_{ij}$ 加权，如果总输入超过阈值，神经元就会切换到活跃状态：</p>
+<p>$$
+\sigma_{i}(t+\Delta\tau) = \Theta\left[\sum_{j}J_{ij}\sigma_{j}(t)-\theta_{i}\right]
+$$</p>
+<p>动力学的性质编码在突触强度矩阵 $J_{ij}$ 中。如果我们考虑任意矩阵，那么动力学可以是任意复杂的；进展取决于简化假设。围绕两个极端简化来组织我们的讨论是有用的。但请记住，在我们跟随这些线索时，许多发展是并行发生的，并且存在相当大的串扰。</p>
+<h1 id="from-perceptrons-to-deep-networks">From perceptrons to deep networks<a hidden class="anchor" aria-hidden="true" href="#from-perceptrons-to-deep-networks">#</a></h1>
+<blockquote>
+<p>One popular simplification is to assume that $J_{ij}$ has a feed–forward, layered structure. This is the “perceptron” architecture (Block, 1962; Block et al., 1962; Rosenblatt, 1961), illustrated in Fig 1A, which is simpler to analyze precisely because there are no feedback loops. It is convenient to label the neurons also by the layer $l$ in which they reside, and to generalize from binary variables to continuous ones, so that</p>
+<p>$$
+x_{i}^{(l+1)} = g\left[\sum_{j}W_{ij}^{(l+1)}x_{j}^{(l)} - \theta_{i}^{(l+1)}\right]
+$$</p>
+<p>where the propagation through layers replaces propagation through time and $g[\cdot]$ is a monotonic nonlinear function. Thus each neuron computes a single projection of its possible inputs from the previous layer, and then outputs a nonlinear function of this projection.</p>
+</blockquote>
+<p>一种流行的简化是假设 $J_{ij}$ 具有前馈的分层结构。这是“感知器”架构（Block，1962 年；Block 等人，1962 年；Rosenblatt，1961 年），如图 1A 所示，正因为没有反馈回路，所以更容易分析。方便的是，还可以按它们所在的层 $l$ 来标记神经元，并将二进制变量推广为连续变量，因此</p>
+<p>$$
+x_{i}^{(l+1)} = g\left[\sum_{j}W_{ij}^{(l+1)}x_{j}^{(l)} - \theta_{i}^{(l+1)}\right]
+$$</p>
+<p>其中通过层的传播取代了通过时间的传播，$g[\cdot]$ 是一个单调非线性函数。因此，每个神经元计算来自前一层的可能输入的单个投影，然后输出该投影的非线性函数。</p>
+<blockquote>
+<p>In the limit that $g[\cdot]$ becomes a step function we recover binary variables and neuron $i$ in layer $l + 1$, can be thought of a dividing the space of its inputs in half, with a hyperplane perpendicular to the vector</p>
+<p>$$
+\vec{V} = \{V_{j}\} = \{W_{ij}^{(l+1)}\}
+$$</p>
+<p>Thus the elementary computation is a binary classification of inputs,</p>
+<p>$$
+x\rightarrow y = \Theta(\vec{V}\cdot\vec{x}-\theta)
+$$</p>
+<p>We could imagine having access to many examples of the input vector $\vec{x}$ labelled by the correct classification $y$, and thereby learning the optimal vector $\vec{V}$ . This picture of learning to classify was present already ∼1960, although it would take the full power of modern statistical physics to say that we really understand it. Crucially, if we think of the the $\{x_{i}\}$ or $\{\sigma_{i}\}$ as being the microscopic variables in the system and the $J_{ij}$ as being the interactions among these variables, then learning is statistical mechanics in the space of interactions (Gardner, 1988; Gardner and Derrida, 1988; Levin et al., 1990; Watkin et al., 1993).</p>
+</blockquote>
+<p>在 $g[\cdot]$ 变成阶跃函数的极限下，我们恢复了二进制变量，层 $l + 1$ 中的神经元 $i$ 可以被认为是将其输入空间分成两半，具有垂直于向量的超平面</p>
+<p>$$
+\vec{V} = \{V_{j}\} = \{W_{ij}^{(l+1)}\}
+$$</p>
+<p>因此，基本的计算是对输入的二元分类，</p>
+<p>$$
+x\rightarrow y = \Theta(\vec{V}\cdot\vec{x}-\theta)
+$$</p>
+<p>我们可以想象获得许多输入向量 $\vec{x}$ 的示例，这些示例由正确的分类 $y$ 标记，从而学习最佳向量 $\vec{V}$。这种学习分类的图景已经出现在大约 1960 年，尽管需要现代统计物理学的全部力量才能说我们真正理解了它。关键是，如果我们将 $\{x_{i}\}$ 或 $\{\sigma_{i}\}$ 视为系统中的微观变量，而将 $J_{ij}$ 视为这些变量之间的相互作用，那么学习就是在相互作用空间中的统计力学（Gardner，1988 年；Gardner 和 Derrida，1988 年；Levin 等人，1990 年；Watkin 等人，1993 年）。</p>
+<blockquote>
+<p>Although many of the computations done by the brain can be framed as classification problems, such as attaching names or words to images, very few can be solved by a single step of linear separation. Again this was clear at the start, but development of these ideas took decades. Enthusiasm was dampened by an emphasis on what two layer networks could not do (Minsky and Papert, 1969), but eventually it became clear that multilayer perceptrons are much more powerful (Lapedes and Farber, 1988; LeCun, 1987), and theorems were proven to show that these systems can approximate any function (Hornik et al., 1989). As with the simple perceptron, optimal weights $W$ can be learned by fitting to many examples of input/output pairs. Importantly this doesn’t require access to the “correct” answers at every layer; instead if we work with continuous variables then the goodness of fit across many layers can be differentiated using the chain rule, and errors propagated back through the network to adjust the weights (Rumelhart et al., 1986).</p>
+</blockquote>
+<p>虽然大脑执行的许多计算都可以被框定为分类问题，例如将名称或单词附加到图像上，但很少有计算可以通过单一步骤的线性分离来解决。这一事实从一开始就很清楚，但这些想法的发展花费了几十年时间。由于强调两层网络无法完成的任务（Minsky 和 Papert，1969 年），热情有所减弱，但最终人们意识到多层感知器更加强大（Lapedes 和 Farber，1988 年；LeCun，1987 年），并且已经证明了这些系统可以近似任何函数的定理（Hornik 等人，1989 年）。与简单感知器一样，可以通过拟合许多输入/输出对的示例来学习最佳权重 $W$。重要的是，这不需要访问每一层的“正确”答案；相反，如果我们使用连续变量，那么通过链式法则可以区分多层之间的拟合优度，并将误差反向传播通过网络以调整权重（Rumelhart 等人，1986 年）。</p>
+<blockquote>
+<p>Fast forward from the late 1980s to the mid 2010s. The few layers of early perceptrons became the many layers of “deep networks,” in the spirit of Fig 1B; comparing the two panels of Fig 1 emphasizes the continuity of ideas across the decades. Advances in computing power and storage made it possible not just to simulate these models efficiently, but to solve the problem of finding optimal synaptic weights by comparing against millions or even billions of examples. These explorations led to networks so large that the number of weights needed to specify the network vastly exceeded the number of examples. Contrary to well established intuitions these “over parameterized” models worked, generalizing to new examples rather than over–fitting to the training data. Although we don’t fully understand them, these developments have fueled a revolution in artificial intelligence (AI).</p>
+</blockquote>
+<p>从 1980 年代后期快进到 2010 年代中期。早期感知器的几层变成了“深度网络”的多层，如图 1B 所示；比较图 1 的两个面板强调了几十年来思想的连续性。计算能力和存储的进步不仅使得高效地模拟这些模型成为可能，而且通过与数百万甚至数十亿个示例进行比较，解决了寻找最佳突触权重的问题。这些探索导致了如此庞大的网络，以至于指定网络所需的权重数量远远超过了示例的数量。与既定的直觉相反，这些“过参数化”模型有效，对新示例进行了泛化，而不是对训练数据进行了过拟合。尽管我们并不完全理解它们，但这些发展推动了人工智能（AI）的革命。</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/13/ixK2Tu3bsUPZ9mf.png" alt=""  /></p>
+<p>FIG. 1 Neural networks with a feed-forward architecture, or “perceptrons.” (A) An early version of the idea, from Block (1962). (B) A modern version, with additional hidden layers. The first steps in the modern AI revolution involved similar networks, with many hidden layers, that achieved human-level performance on image classification and other tasks (LeCun et al., 2015).</p>
+</blockquote>
+<p>图一. 神经网络具有前馈架构，或“感知器”。（A）该想法的早期版本，来自 Block（1962 年）。（B）现代版本，具有额外的隐藏层。现代 AI 革命的第一步涉及类似的网络，具有许多隐藏层，在图像分类和其他任务上实现了人类水平的性能（LeCun 等人，2015 年）。</p>
+</blockquote>
+<h1 id="symmetric-networks">Symmetric networks<a hidden class="anchor" aria-hidden="true" href="#symmetric-networks">#</a></h1>
+<blockquote>
+<p>Feed–forward networks have the property that if $J_{ij}$ is nonzero, then $J_{ji} = 0$. Hopfield (1982, 1984) considered the opposite simplification: if neuron $i$ is connected to neuron $j$, then neuron $j$ is connected to neuron $i$, and the strength of the connection is the same, so that $J_{ij} = J_{ji}$. In this case the dynamics in Eq (1) have a Lyapunov function: at each time step the “energy”</p>
+<p>$$
+E = -\frac{1}{2}\sum_{ij}\sigma_{i}J_{ij}\sigma_{j} + \sum_{i}\theta_{i}\sigma_{i}
+$$</p>
+<p>either decreases or stays constant. The evolution of the network state stops at local minima of the energy $E$, and only at these local minima. We recognize this energy function as an Ising model with pairwise interactions among the spins (neurons). This very explicit connection of neural dynamics to statistical physics triggered an avalanche of work, and textbook accounts of these ideas appeared quickly (Amit, 1989; Hertz et al., 1991).</p>
+</blockquote>
+<p>前馈网络具有这样的属性：如果 $J_{ij}$ 非零，则 $J_{ji} = 0$。Hopfield（1982 年，1984 年）考虑了相反的简化：如果神经元 $i$ 与神经元 $j$ 相连，那么神经元 $j$ 也与神经元 $i$ 相连，并且连接的强度相同，因此 $J_{ij} = J_{ji}$。在这种情况下，方程（1）中的动力学具有 Lyapunov 函数：在每个时间步长中，“能量”</p>
+<p>$$
+E = -\frac{1}{2}\sum_{ij}\sigma_{i}J_{ij}\sigma_{j} + \sum_{i}\theta_{i}\sigma_{i}
+$$</p>
+<p>要么减少，要么保持不变。网络状态的演变在能量 $E$ 的局部极小值处停止，并且仅在这些局部极小值处停止。我们将这个能量函数识别为具有自旋（神经元）之间成对相互作用的 Ising 模型。神经动力学与统计物理学的这种非常明确的联系引发了一系列工作，并且这些思想的教科书描述很快就出现了（Amit，1989 年；Hertz 等人，1991 年）。</p>
+<blockquote>
+<p>It was useful in visualizing the dynamics of symmetric networks that they can be realized by simple circuit components, using amplifiers with saturating outputs in place of neurons, as in Fig 2. As with perceptrons one generalize to soft spins, now in continuous time; one version of these dynamics is</p>
+<p>$$
+\tau\frac{\mathrm{d}x_{i}}{\mathrm{d}t} = -x_{i} + \sum_{j}J_{ij}g(x_{j})
+$$</p>
+<p>These models have the same collective behaviors as Ising spins (Hopfield, 1984).</p>
+</blockquote>
+<p>在可视化对称网络的动力学时，它们可以通过简单的电路组件实现，这很有用，使用具有饱和输出的放大器代替神经元，如图 2 所示。与感知器一样，可以推广到软自旋，现在是在连续时间中；这些动力学的一个版本是</p>
+<p>$$
+\tau\frac{\mathrm{d}x_{i}}{\mathrm{d}t} = -x_{i} + \sum_{j}J_{ij}g(x_{j})
+$$</p>
+<p>这些模型具有与 Ising 自旋相同的集体行为（Hopfield，1984 年）。</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/13/bgHcuQy596BdxX3.png" alt=""  /></p>
+<p>FIG. 2 Equivalent circuit and dynamics in a symmetric network (Hopfield and Tank, 1986). (A) &hellip; (B) Schematic energy function for the circuit in (A); solid contours are above a mean level and dashed contours below, with X marking fixed points at the bottoms of energy valleys. (C) Corresponding dynamics, shown as a flow field. \</p>
+</blockquote>
+<p>图二. 对称网络中的等效电路和动力学（Hopfield 和 Tank，1986 年）。（A）&hellip;（B）（A）中电路的示意能量函数；实线轮廓高于平均水平，虚线轮廓低于平均水平，X 标记能量谷底的固定点。（C）相应的动力学，显示为流场。</p>
+</blockquote>
+<blockquote>
+<p>A crucial point is that one can “program” symmetric networks to place local minima at desired states. Since the dynamics will flow spontaneously toward these minima and stop, we can think of this programming as storing memories in the network, which then can be recovered by initializing the state anywhere in the relevant basin of attraction. Taking the mapping of the Lyapunov function to an energy more seriously, this memory storage represents a sculpting of the energy landscape, which is a more general idea. As an example, we can think about the evolution of amino acid sequences in proteins sculpting the energy landscape for folding.</p>
+</blockquote>
+<p>一个关键点是，可以“编程”对称网络以在所需状态下放置局部极小值。由于动力学将自发地流向这些极小值并停止，我们可以将这种编程视为在网络中存储记忆，然后可以通过在相关吸引盆地中的任何位置初始化状态来恢复这些记忆。更认真地考虑 Lyapunov 函数到能量的映射，这种记忆存储代表了能量景观的雕刻，这是一个更一般的想法。作为一个例子，我们可以考虑蛋白质中氨基酸序列的演化，雕刻折叠的能量景观。</p>
+<blockquote>
+<p>To illustrate the idea of memory storage, consider the case where the thresholds $\theta_{i} = 0$. Suppose we can construct a matrix of synaptic weights such that</p>
+<p>$$
+J_{ij} = J\xi_{i}\xi_{j}
+$$</p>
+<p>where the $\xi_{i} = +1$ are again a set of (now fixed) binary or Ising variables. Then the energy function becomes</p>
+<p>$$
+E = -\frac{J}{2}\sum_{ij}\sigma_{i}\xi_{i}\xi_{j}\sigma_{j} = -\frac{J}2{}\left(\sum_{i}\sigma_{i}\xi_{i}\right)^{2} = -\frac{J}{2}\left(\vec{\sigma}\cdot\vec{\xi}\right)^{2}
+$$</p>
+<p>Because both $\vec{\sigma}$ and $\vec{\xi}$ are binary vectors the energy is minimized when these vectors are equal. If want to be a bit fancier we can transform $\sigma_{i}\rightarrow \widetilde{\sigma}_{i} = \sigma_{i}\xi_{i}$, and we then realize that Eq (8) is gauge equivalent to the mean-field ferromagnet.</p>
+</blockquote>
+<p>为了说明记忆存储的想法，考虑阈值 $\theta_{i} = 0$ 的情况。假设我们可以构建一个突触权重矩阵，使得</p>
+<p>$$
+J_{ij} = J\xi_{i}\xi_{j}
+$$</p>
+<p>其中 $\xi_{i} = +1$ 再次是一组（现在固定的）二进制或 Ising 变量。那么能量函数变为</p>
+<p>$$
+E = -\frac{J}{2}\sum_{ij}\sigma_{i}\xi_{i}\xi_{j}\sigma_{j} = -\frac{J}2{}\left(\sum_{i}\sigma_{i}\xi_{i}\right)^{2} = -\frac{J}{2}\left(\vec{\sigma}\cdot\vec{\xi}\right)^{2}
+$$</p>
+<p>由于 $\vec{\sigma}$ 和 $\vec{\xi}$ 都是二进制向量，当这些向量相等时能量最小化。如果想要更花哨一点，我们可以进行变换 $\sigma_{i}\rightarrow \widetilde{\sigma}_{i} = \sigma_{i}\xi_{i}$，然后我们意识到方程（8）在规范上等价于平均场铁磁体。</p>
+<blockquote>
+<p>Crucially, we can generalize this construction,</p>
+<p>$$
+J_{ij} = J \left(\xi_{i}^{(1)}\xi_{j}^{(1)} + \xi_{i}^{(2)}\xi_{j}^{(2)} + \cdots + \xi_{i}^{(K)}\xi_{j}^{(K)}\right).
+$$</p>
+<p>If network has $N$ neurons, and the number of these terms $K\ll N$ , then typically the vectors $\vec{\xi}^{(\mu)}$ are orthogonal, and the energy function will have multiple minima at $\vec{\sigma} = \vec{\xi}^{(\mu)}$: we have a model that stores $K$ memories.</p>
+</blockquote>
+<p>关键是，我们可以推广这种构造，</p>
+<p>$$
+J_{ij} = J \left(\xi_{i}^{(1)}\xi_{j}^{(1)} + \xi_{i}^{(2)}\xi_{j}^{(2)} + \cdots + \xi_{i}^{(K)}\xi_{j}^{(K)}\right).
+$$</p>
+<p>如果网络有 $N$ 个神经元，并且这些项的数量 $K\ll N$，那么通常向量 $\vec{\xi}^{(\mu)}$ 是正交的，并且能量函数将在 $\vec{\sigma} = \vec{\xi}^{(\mu)}$ 处具有多个极小值：我们有一个存储 $K$ 个记忆的模型。</p>
+<blockquote>
+<p>To make this more rigorous let’s imagine that the states of the network are not just the minima of the energy function, but are drawn from a Boltzmann distribution at some inverse temperature $\beta$; it is plausible that this emerges from a noisy version of the dynamics in Eq (1). Then we have</p>
+<p>$$
+\begin{aligned}
+P(\vec{\sigma}) &amp;= \frac{1}{Z}\exp{{-\beta E(\vec{\sigma})}} \\
+E(\vec{\sigma}) &amp;= -\frac{J_{0}}{N}\sum_{ij=1}^{N}\sum_{\mu=1}^{K}\sigma_{i}\xi_{i}^{\mu}\xi_{j}^{\mu}\sigma_{j}
+\end{aligned}
+$$</p>
+<p>where we use the usual normalization of interactions by a factor $N$ to insure a thermodynamic limit. Because the stored patterns are fixed, this is a statistical mechanics problem with quenched disorder, a special kind of meanfield spin glass. As a first try we can take the stored patterns to be random vectors, which might make sense if we are describing a region of the brain where the mapping between the features of what we remember and the identities of neurons is very abstract. We can measure the success of recalling memories by measuring the order parameters</p>
+<p>$$
+m_{\mu} = \overline{\langle\vec{\xi}^{\mu}\cdot\vec{\sigma}\rangle}
+$$</p>
+<p>where $\langle\cdots\rangle$ denotes an average over the “thermal” fluctuations in the neural state $\vec{\sigma}$ and $\overline{\cdots}$ denotes an average over the random choice of the patterns $\vec{\xi}^{\mu}$.</p>
+</blockquote>
+<p>为了使这一点更加严格，让我们想象网络的状态不仅仅是能量函数的极小值，而是从某个逆温度 $\beta$ 的 Boltzmann 分布中抽取的；这可能是从方程（1）中的动力学的噪声版本中出现的。然后我们有</p>
+<p>$$
+\begin{aligned}
+P(\vec{\sigma}) &amp;= \frac{1}{Z}\exp{{-\beta E(\vec{\sigma})}} \\
+E(\vec{\sigma}) &amp;= -\frac{J_{0}}{N}\sum_{ij=1}^{N}\sum_{\mu=1}^{K}\sigma_{i}\xi_{i}^{\mu}\xi_{j}^{\mu}\sigma_{j}
+\end{aligned}
+$$</p>
+<p>其中我们使用通过因子 $N$ 的相互作用的通常归一化来确保热力学极限。由于存储的模式是固定的，这是一个具有淬火无序的统计力学问题，一种特殊类型的平均场自旋玻璃。作为第一次尝试，我们可以将存储的模式视为随机向量，如果我们正在描述大脑的一个区域，在那里我们记忆的特征与神经元的身份之间的映射非常抽象，这可能是有意义的。我们可以通过测量序参量来衡量回忆记忆的成功</p>
+<p>$$
+m_{\mu} = \overline{\langle\vec{\xi}^{\mu}\cdot\vec{\sigma}\rangle}
+$$</p>
+<p>其中 $\langle\cdots\rangle$ 表示对神经状态 $\vec{\sigma}$ 中的“热”波动的平均，$\overline{\cdots}$ 表示对模式 $\vec{\xi}^{\mu}$ 的随机选择的平均。</p>
+<blockquote>
+<p>Shortly before the introduction of these models, there had been dramatic developments in the statistical mechanics of disordered systems, including the solution of the fully mean–field Sherrington–Kirkpatrick spin glass model (Mezard et al., 1987). These tools could be applied to neural networks, resulting in a phase diagram mapping the order parameters $\{m_{\mu}\}$ as function of the fictitious temperature and the storage density $\alpha = K/N$ , all in the thermodynamic limit $N\to\infty$ (Amit et al., 1985, 1987). In the limit of zero temperature, below a critical $\alpha_{c} = 0.138$ only one of the $m_{\mu}$ will be nonzero, and it takes values close to one; this survives to finite temperatures. Thus there is a whole phase in which this model provides effective even if not quite perfect recall. By now we think of neural network models not as an application of statistical mechanics, but as a source of problems.</p>
+</blockquote>
+<p>在引入这些模型之前，关于无序系统的统计力学已经有了戏剧性的进展，包括完全平均场 Sherrington–Kirkpatrick 自旋玻璃模型的解决方案（Mezard 等人，1987 年）。这些工具可以应用于神经网络，导致了一个相图，将序参量 $\{m_{\mu}\}$ 映射为虚拟温度和存储密度 $\alpha = K/N$ 的函数，所有这些都在热力学极限 $N\to\infty$ 中（Amit 等人，1985 年，1987 年）。在零温度的极限下，低于临界值 $\alpha_{c} = 0.138$ 时，只有一个 $m_{\mu}$ 将是非零的，并且它的值接近于一；这在有限温度下仍然存在。因此，在这个模型提供有效但不完全完美回忆的整个阶段中。到现在为止，我们认为神经网络模型不仅仅是统计力学的一个应用，而是问题的来源。</p>
+<blockquote>
+<p>An important feature of the dynamics is that it is “associative.” Many initial states will relax to the same local minimum of the energy, which is equivalent to saying the same memory can be recalled from many different cues. In particular, we can imagine that the many bits represented by the state $\{\sigma_{i}\}$ can be grouped into features, e.g. parts of the image of a face, the sound of the person’s voice, $\dots$ . Under many conditions if one set of features is given and the others randomized, the nearest local minimum will have all the features correctly aligned (Hopfield, 1982). The fact that our mind conjures an image in response to a sound or a fragrance had once seemed mysterious, and this provides a path to demystification, built on the idea that stored and recalled memories are collective states of the network.</p>
+</blockquote>
+<p>动力学的一个重要特征是它是“联想的”。许多初始状态将弛豫到能量的同一局部极小值，这相当于说同一记忆可以从许多不同的线索中回忆起来。特别是，我们可以想象由状态 $\{\sigma_{i}\}$ 表示的许多位可以分组为特征，例如面部图像的部分、该人的声音等。在许多条件下，如果给出一组特征并将其他特征随机化，则最近的局部极小值将使所有特征正确对齐（Hopfield，1982 年）。我们的心灵对声音或香味产生图像的事实曾经显得神秘，而这为去神秘化提供了一条途径，建立在存储和回忆的记忆是网络的集体状态的想法之上。</p>
+<blockquote>
+<p>The synaptic matrix in Eq (9) has an important feature. Suppose that the network is currently in some state $\vec{\sigma}$ and we would like to add this state to the list of stored memories—i.e. we would like the network to learn the current state. Following Eq (9) we should change the synaptic weights</p>
+<p>$$
+J_{ij}\rightarrow J_{ij} + J\sigma_{i}\sigma_{j}
+$$</p>
+<p>First we note that the connection between neurons $i$ and $j$ changes in a way that depends only on these two neurons. This locality of the learning rule is in a way remarkable, since we might have thought that sculpting the energy landscape would require more global manipulations. Second, the change in synaptic strength depends on the correlation between the pre–synaptic neuron $j$ and the post–synaptic neuron $i$: if the cells are active together, the synapse should be strengthened. This simple rule sometimes is summarized by saying that neurons that “fire together wire together,” and there is considerable evidence that real synapses change in this way. Indeed, although this idea has its origins in classical discussions (Hebb, 1949; James, 1904), more direct measurements demonstrating that correlated activity leads to long lasting increases of synaptic strength came only in the decade before Hopfield’s work (Bliss and Lømo, 1973).</p>
+</blockquote>
+<p>方程（9）中的突触矩阵具有一个重要特征。假设网络当前处于某个状态 $\vec{\sigma}$，我们想将该状态添加到存储的记忆列表中——即我们希望网络学习当前状态。根据方程（9），我们应该改变突触权重</p>
+<p>$$
+J_{ij}\rightarrow J_{ij} + J\sigma_{i}\sigma_{j}
+$$</p>
+<p>首先我们注意到，神经元 $i$ 和 $j$ 之间的连接以仅取决于这两个神经元的方式发生变化。这种学习规则的局部性在某种程度上是显著的，因为我们可能认为雕刻能量景观需要更全局的操作。其次，突触强度的变化取决于突触前神经元 $j$ 和突触后神经元 $i$ 之间的相关性：如果细胞一起活跃，突触应该被加强。这条简单的规则有时被总结为“共同发射的神经元共同连接”，并且有相当多的证据表明真实的突触以这种方式发生变化。事实上，尽管这个想法起源于经典讨论（Hebb，1949 年；James，1904 年），但在 Hopfield 的工作之前的十年中，才有更直接的测量表明相关活动会导致突触强度的长期增加（Bliss 和 Lømo，1973 年）。</p>
+<blockquote>
+<p>In the first examples, the goal of computation was to recover a stored pattern from partial information (associative memory). Beyond memory, Hopfield and Tank (1985) soon showed that one could construct networks that solve classical optimization problems, and that many biologically relevant problems could be cast in this form (Hopfield and Tank, 1986). At the same time, the idea of simulated annealing (Kirkpatrick et al., 1983) led people to take much more seriously the mapping between “computational” problems of optimization and the “physical” problems of finding minimum energy states of many–body systems. This led, for example, to connections between statistical mechanics and computational complexity (Kirkpatrick and Selman, 1994; Monasson et al., 1999). From an engineering point of view, models for neural networks connected immediately to the possibility of using modern chip design methods to build analog, rather than digital circuits (Mead, 1989). Taken together, these simple symmetric models of neural networks formed a nexus among statistical physics, computer science, neurobiology, and engineering.</p>
+</blockquote>
+<p>在最初的例子中，计算的目标是从部分信息中恢复存储的模式（联想记忆）。超越记忆，Hopfield 和 Tank（1985 年）很快表明，可以构建解决经典优化问题的网络，并且许多生物学相关的问题可以以这种形式进行投射（Hopfield 和 Tank，1986 年）。与此同时，模拟退火的想法（Kirkpatrick 等人，1983 年）使人们更加认真地对待“计算”优化问题与寻找多体系统最低能量状态的“物理”问题之间的映射。这导致了统计力学与计算复杂性之间的联系（Kirkpatrick 和 Selman，1994 年；Monasson 等人，1999 年）。从工程的角度来看，神经网络模型立即与使用现代芯片设计方法构建模拟而非数字电路的可能性相关联（Mead，1989 年）。总的来说，这些简单的对称神经网络模型形成了统计物理学、计算机科学、神经生物学和工程学之间的纽带。</p>
+<h1 id="perspectives">Perspectives<a hidden class="anchor" aria-hidden="true" href="#perspectives">#</a></h1>
+<blockquote>
+<p>Our emphasis in this review is on networks of real neurons. But it would be foolish to ignore what is happening in the world of engineered, artificial networks, which proceeds at a terrifying pace, realizing many of the old dreams for artificial intelligence (AI). Not so long ago we would have emphasized the tremendous progress being made on problems such as image recognition or game playing, where deep networks achieved something that approximates human level performance. Today, popular discussion is focused on generative AI, with networks that produces text and images that have a striking realism. Our theoretical understanding of why these things work remains quite weak. There are engineering questions about what practical problems can be solved with confidence by such systems, and ethical questions about how humanity will interact with these machines. The successes of AI even have led to some to suggest that the physicists’ notions of understanding might themselves be superseded. In opposition to this, many physicists are hopeful that ideas from statistical mechanics will help us build a better understanding of modern AI (Carleo et al., 2019; Mehta et al., 2019; Roberts and Yaida, 2022).</p>
+</blockquote>
+<p>本文综述的重点是现实神经元网络。但忽视工程化的人工网络领域正在发生的事情是愚蠢的，这一领域以惊人的速度发展，实现了对人工智能（AI）的许多旧梦想。不久前，我们会强调在图像识别或游戏等问题上取得的巨大进展，在这些问题上，深度网络实现了接近人类水平的性能。今天，流行的讨论集中在生成式 AI 上，网络生成的文本和图像具有惊人的真实感。我们对这些事物为何有效的理论理解仍然相当薄弱。关于这些系统可以自信地解决哪些实际问题存在工程问题，以及关于人类将如何与这些机器互动的伦理问题。AI 的成功甚至导致一些人建议物理学家的理解概念本身可能会被取代。与此相反，许多物理学家希望统计力学的思想将帮助我们更好地理解现代 AI（Carleo 等人，2019 年；Mehta 等人，2019 年；Roberts 和 Yaida，2022 年）。</p>
+<blockquote>
+<p>In a different direction, many physicists have been interested in more explicitly dynamical models of neural networks (Vogels et al., 2005), as in Eq (6). Guided by the statistical physics of disordered systems, one can study networks in which the matrix of synaptic connections is drawn at random, perhaps from an ensemble that captures some established features of real connectivity patterns. These same ideas can be used for probabilistic models of binary neurons; notable developments include the development of a dynamical mean–field theory for these systems (van Vreeswijk and Sompolinsky, 1998).</p>
+</blockquote>
+<p>在另一个方向上，许多物理学家对神经网络的更明确的动态模型感兴趣（Vogels 等人，2005 年），如方程（6）所示。在无序系统的统计物理学的指导下，可以研究突触连接矩阵是随机抽取的网络，可能来自捕捉真实连接模式的一些已建立特征的集合。这些相同的思想可以用于二进制神经元的概率模型；值得注意的发展包括为这些系统开发动态平均场理论（van Vreeswijk 和 Sompolinsky，1998 年）。</p>
+<blockquote>
+<p>Against the background of these theoretical developments, there has been a revolution in the experimental exploration of the brain, driven by techniques that combine methods from physics, chemistry and biology. We believe that this provides an unprecedented opportunity to connect statistical physics ideas to quantitative measurements on network dynamics in real brains. We turn first to an overview of the experimental state of the art.</p>
+</blockquote>
+<p>在这些理论发展的背景下，大脑的实验探索发生了革命，这得益于结合了物理学、化学和生物学方法的技术。我们相信，这为将统计物理学思想与对真实大脑中网络动力学的定量测量联系起来提供了前所未有的机会。我们首先来概述一下实验的最新状态。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/cs/skills/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>博客使用技巧</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-3/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>New experimental methods</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+</body>
+
+
+
+
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
