@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Wed, 12 Nov 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/reference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Nov 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/reference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Brain, neural networks, and computation</title>
+      <link>https://Muatyz.github.io/posts/read/reference/brain-neural-networks-and-computation/</link>
+      <pubDate>Wed, 19 Nov 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/brain-neural-networks-and-computation/</guid>
+      <description>Computation through dynamics</description>
+    </item>
+    
     <item>
       <title>Benchmarking of hardware-efficient real-time neural decoding in brain–computer interfaces</title>
       <link>https://Muatyz.github.io/posts/read/reference/benchmarking-of-hardware-efficient-real-time-neural-decoding-in-brain-computer-interfaces/</link>
