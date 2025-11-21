@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Wed, 19 Nov 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Nov 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
       <link>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/</link>
@@ -18,12 +18,30 @@
     </item>
     
     <item>
+      <title>Introduction</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
       <title>Some History</title>
       <link>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-2/</link>
       <pubDate>Wed, 12 Nov 2025 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-2/</guid>
       <description>真实神经元网络的统计力学</description>
+    </item>
+    
+    <item>
+      <title>The Hopfield Model</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</guid>
+      <description>每周阅读笔记</description>
     </item>
     
     <item>
@@ -54,12 +72,39 @@
     </item>
     
     <item>
+      <title>Simple Percptrons(简单感知机)</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
       <title>Criticality</title>
       <link>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-6/</link>
       <pubDate>Wed, 12 Nov 2025 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-6/</guid>
       <description>真实神经元网络的统计力学</description>
+    </item>
+    
+    <item>
+      <title>Multi-Layer Networks</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</link>
+      <pubDate>Sun, 09 Nov 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
+      <title>Recurrent Networks</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-7/</link>
+      <pubDate>Thu, 20 Nov 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-7/</guid>
+      <description>每周阅读笔记</description>
     </item>
     
     <item>
@@ -108,48 +153,12 @@
     </item>
     
     <item>
-      <title>Multi-Layer Networks</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</link>
-      <pubDate>Sun, 09 Nov 2025 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</guid>
-      <description>每周阅读笔记</description>
-    </item>
-    
-    <item>
-      <title>Introduction</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</link>
-      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</guid>
-      <description>每周阅读笔记</description>
-    </item>
-    
-    <item>
       <title>Neurons with graded response have collective computational properties like those of two-state neurons</title>
       <link>https://Muatyz.github.io/posts/read/reference/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/</link>
       <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/reference/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/</guid>
       <description>Hopfield model</description>
-    </item>
-    
-    <item>
-      <title>Simple Percptrons(简单感知机)</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</link>
-      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</guid>
-      <description>每周阅读笔记</description>
-    </item>
-    
-    <item>
-      <title>The Hopfield Model</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</link>
-      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</guid>
-      <description>每周阅读笔记</description>
     </item>
     
     <item>

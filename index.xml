@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Wed, 19 Nov 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Nov 2025 12:20:21 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
       <link>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/</link>
@@ -15,6 +15,15 @@
       
       <guid>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/</guid>
       <description>真实神经元网络的统计力学</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</guid>
+      <description>每周阅读笔记</description>
     </item>
     
     <item>
@@ -45,6 +54,15 @@
     </item>
     
     <item>
+      <title>The Hopfield Model</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
       <title>New experimental methods</title>
       <link>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-3/</link>
       <pubDate>Wed, 12 Nov 2025 00:18:23 +0800</pubDate>
@@ -72,6 +90,15 @@
     </item>
     
     <item>
+      <title>Simple Percptrons(简单感知机)</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
       <title>Criticality</title>
       <link>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-6/</link>
       <pubDate>Wed, 12 Nov 2025 00:18:23 +0800</pubDate>
@@ -81,12 +108,39 @@
     </item>
     
     <item>
+      <title>Multi-Layer Networks</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</link>
+      <pubDate>Sun, 09 Nov 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
+      <title>Recurrent Networks</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-7/</link>
+      <pubDate>Thu, 20 Nov 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-7/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
       <title>Renormalization group for neurons</title>
       <link>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/</link>
       <pubDate>Wed, 12 Nov 2025 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/</guid>
       <description>真实神经元网络的统计力学</description>
+    </item>
+    
+    <item>
+      <title>普惠算力平台培训</title>
+      <link>https://Muatyz.github.io/posts/cs/mannual/</link>
+      <pubDate>Thu, 20 Nov 2025 12:20:21 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/cs/mannual/</guid>
+      <description>普惠算力平台使用手册</description>
     </item>
     
     <item>
@@ -126,15 +180,6 @@
     </item>
     
     <item>
-      <title>Multi-Layer Networks</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</link>
-      <pubDate>Sun, 09 Nov 2025 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</guid>
-      <description>每周阅读笔记</description>
-    </item>
-    
-    <item>
       <title>2025.10.17 博资考回忆</title>
       <link>https://Muatyz.github.io/posts/life/th-research/</link>
       <pubDate>Sat, 18 Oct 2025 00:18:06 +0800</pubDate>
@@ -153,39 +198,12 @@
     </item>
     
     <item>
-      <title>Introduction</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</link>
-      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</guid>
-      <description>每周阅读笔记</description>
-    </item>
-    
-    <item>
       <title>Neurons with graded response have collective computational properties like those of two-state neurons</title>
       <link>https://Muatyz.github.io/posts/read/reference/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/</link>
       <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/reference/neurons-with-graded-response-have-collective-computational-properties-like-those-of-two-state-neurons/</guid>
       <description>Hopfield model</description>
-    </item>
-    
-    <item>
-      <title>Simple Percptrons(简单感知机)</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</link>
-      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-5/</guid>
-      <description>每周阅读笔记</description>
-    </item>
-    
-    <item>
-      <title>The Hopfield Model</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</link>
-      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</guid>
-      <description>每周阅读笔记</description>
     </item>
     
     <item>
@@ -267,6 +285,19 @@
       
       <guid>https://Muatyz.github.io/posts/phy/qp/wkb-method/</guid>
       <description>用于完成渐进分析的阅读笔记作业</description>
+    </item>
+    
+    <item>
+      <title>2025 年度随笔</title>
+      <link>https://Muatyz.github.io/posts/life/2025-document/</link>
+      <pubDate>Wed, 01 Jan 2025 00:18:15 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/life/2025-document/</guid>
+      <description>&lt;h1 id=&#34;11-月&#34;&gt;11 月&lt;/h1&gt;
+&lt;h2 id=&#34;21&#34;&gt;21&lt;/h2&gt;
+&lt;p&gt;听了一下普惠算力平台的培训, 但是讲得太省略了, 事后没有明确回复, 要求的 PPT 也没有发在大群里.&lt;/p&gt;
+&lt;p&gt;但是另一件事情让我感受颇深&amp;hellip;&lt;/p&gt;
+&lt;!-- 感觉自己舔着脸去加这个杜梅的微信, 看到这个验证中都感觉自己像一个小丑. 只是感叹人生的参差.  --&gt;</description>
     </item>
     
     <item>

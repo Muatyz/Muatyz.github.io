@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Wed, 18 Oct 2023 12:20:21 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Nov 2025 12:20:21 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Solidworks 安装方法</title>
       <link>https://Muatyz.github.io/posts/cs/solidworks/</link>
@@ -24,6 +24,15 @@
       
       <guid>https://Muatyz.github.io/posts/cs/skills/</guid>
       <description>记录一些经常用得到但是又很难记住的 Web 技巧</description>
+    </item>
+    
+    <item>
+      <title>普惠算力平台培训</title>
+      <link>https://Muatyz.github.io/posts/cs/mannual/</link>
+      <pubDate>Thu, 20 Nov 2025 12:20:21 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/cs/mannual/</guid>
+      <description>普惠算力平台使用手册</description>
     </item>
     
     <item>

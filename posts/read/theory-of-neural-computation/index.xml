@@ -7,22 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Sun, 09 Nov 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Multi-Layer Networks</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</link>
-      <pubDate>Sun, 09 Nov 2025 00:18:23 +0800</pubDate>
-      
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</guid>
-      <description>每周阅读笔记</description>
-    </item>
-    
+    <lastBuildDate>Thu, 20 Nov 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
       <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</link>
       <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-1/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
+      <title>The Hopfield Model</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</link>
+      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</guid>
       <description>每周阅读笔记</description>
     </item>
     
@@ -36,11 +36,20 @@
     </item>
     
     <item>
-      <title>The Hopfield Model</title>
-      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</link>
-      <pubDate>Sun, 12 Oct 2025 00:18:23 +0800</pubDate>
+      <title>Multi-Layer Networks</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</link>
+      <pubDate>Sun, 09 Nov 2025 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-2/</guid>
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-6/</guid>
+      <description>每周阅读笔记</description>
+    </item>
+    
+    <item>
+      <title>Recurrent Networks</title>
+      <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-7/</link>
+      <pubDate>Thu, 20 Nov 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-7/</guid>
       <description>每周阅读笔记</description>
     </item>
     
