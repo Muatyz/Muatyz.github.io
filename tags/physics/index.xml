@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Thu, 20 Nov 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Nov 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/physics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
       <link>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/</link>
@@ -117,6 +117,33 @@
     </item>
     
     <item>
+      <title>Integration as a self-organizing process</title>
+      <link>https://Muatyz.github.io/posts/read/reference/integration-as-a-self-organizing-process/</link>
+      <pubDate>Mon, 24 Nov 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/integration-as-a-self-organizing-process/</guid>
+      <description>计算神经科学中的积分概念</description>
+    </item>
+    
+    <item>
+      <title>Theory of Orientation Tuning in Visual Cortex</title>
+      <link>https://Muatyz.github.io/posts/read/reference/theory-of-orientation-tuning-in-visual-cortex/</link>
+      <pubDate>Mon, 24 Nov 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/theory-of-orientation-tuning-in-visual-cortex/</guid>
+      <description>视觉皮层中方向调制的理论</description>
+    </item>
+    
+    <item>
+      <title>Attractor and integrator networks in the brain</title>
+      <link>https://Muatyz.github.io/posts/read/reference/attractor-and-integrator-networks-in-the-brain/</link>
+      <pubDate>Sun, 23 Nov 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/attractor-and-integrator-networks-in-the-brain/</guid>
+      <description>大脑中的吸引子与整化网络</description>
+    </item>
+    
+    <item>
       <title>Brain, neural networks, and computation</title>
       <link>https://Muatyz.github.io/posts/read/reference/brain-neural-networks-and-computation/</link>
       <pubDate>Wed, 19 Nov 2025 00:18:23 +0800</pubDate>
@@ -168,6 +195,15 @@
       
       <guid>https://Muatyz.github.io/posts/read/reference/neural-networks-and-physical-systems-with-emergent-collective-computational-abilities/</guid>
       <description>Hopfield model</description>
+    </item>
+    
+    <item>
+      <title>Symmetries and Continuous Attractors in Disordered Neural Circuits</title>
+      <link>https://Muatyz.github.io/posts/read/reference/symmetries-and-continuous-attractors-in-disordered-neural-circuits/</link>
+      <pubDate>Wed, 08 Oct 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/symmetries-and-continuous-attractors-in-disordered-neural-circuits/</guid>
+      <description>无序神经回路中的对称性和连续吸引子</description>
     </item>
     
     <item>

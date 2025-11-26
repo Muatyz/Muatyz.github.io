@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Integration as a self-organizing process | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="计算神经科学中的积分概念">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/reference/integration-as-a-self-organizing-process/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/reference/integration-as-a-self-organizing-process/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Integration as a self-organizing process" />
+<meta property="og:description" content="计算神经科学中的积分概念" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/reference/integration-as-a-self-organizing-process/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-11-24T00:18:23+08:00" />
+<meta property="article:modified_time" content="2025-11-24T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Integration as a self-organizing process"/>
+<meta name="twitter:description" content="计算神经科学中的积分概念"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "📕 文献",
+          "item": "https://Muatyz.github.io/posts/read/reference/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Integration as a self-organizing process",
+      "item": "https://Muatyz.github.io/posts/read/reference/integration-as-a-self-organizing-process/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Integration as a self-organizing process",
+  "name": "Integration as a self-organizing process",
+  "description": "计算神经科学中的积分概念",
+  "keywords": [
+    ""
+  ],
+  "articleBody": " Integration—the accumulation of information over time—is a fundamental computation in navigation, decisionmaking, and memory. The dominant circuit model, the continuous attractor neural network (CANN), explains integration through finely tuned connectivity that supports marginally stable states. However, data from systems such as Drosophila central complex suggest that real connectivity is heterogeneous, implying that symmetry may only exist in a coarse-grained sense, if at all. One class of models explains this heterogenous connectivity by evoking supervised learning which can enforce coarse-grained symmetry at the expense of extensive trial and error learning or by employing biologically unrealistic learning rules. Another class employs only local learning rules, but this approach typically fails when circuit connectivity or tutoring inputs become sufficiently heterogeneous. Here, we attempt to bridge this gap by taking a machine learning approach (meta-learning) to identify local learning rules that can organize integration dynamics in heterogeneous networks. The learned rule is parameterized as the Taylor expansion of an arbitrary function that depends on synapse size as well as eligibility traces of preand postsynaptic activity and input from other cell types. We discover rules that form bump attractors given only weak spatial priors and integration inputs. In a simpler two-neuron system, we find rules that generate line attractor dynamics. Shared features across both learned rules include anti-Hebbian spike-timing-dependent plasticity, in which synapses supporting sequential activity are depressed, and input-dependent potentiation. We find these common components underlie two different forms of plasticity rule: the first, learned when the period of integration is short, causes weights to converge and drives the dynamics toward marginal stability. Under the second, weights never converge, but are adjusted to move around a fixed point, maintaining memory. We recapitulate the latter rule in a simple system and show that it integrates effectively.\n积分——随时间积累信息——是导航、决策和记忆中的基本计算。 主导的回路模型，连续吸引子神经网络（CANN），通过支持边际稳定状态的精细调制连接来解释积分。 然而，来自果蝇中央复合体等系统的数据表明，真实的连接是异质的，这意味着对称性可能仅以粗粒化的意义存在（如果存在的话）。 一类模型通过唤起监督学习来解释这种异质连接，这可以以广泛的反复试验学习为代价来强制执行粗粒化对称性，或者通过采用生物学上不现实的学习规则来实现。 另一类仅使用局部学习规则，但当回路连接或辅导输入变得足够异质时，这种方法通常会失败。 在这里，我们试图通过采用机器学习方法（元学习）来识别可以在异质网络中组织积分动态的局部学习规则来弥合这一差距。 学习规则被参数化为依赖于突触大小以及前突触和后突触活动的资格迹和其他细胞类型输入的任意函数的 Taylor 展开。 我们发现了仅在弱空间先验和积分输入下形成突起吸引子的规则。 在一个更简单的双神经元系统中，我们找到了产生线性吸引子动力学的规则。 两个学习规则之间的共同特征包括反 Hebbian 尖峰时序依赖性可塑性，其中支持顺序活动的突触被抑制，以及输入依赖性增强。 我们发现这些共同组成部分构成了两种不同形式的可塑性规则：第一种，在积分期较短时学习到，导致权重收敛并推动动力学朝向边际稳定。在第二种情况下，权重从不收敛，但被调整以围绕一个固定点移动，从而保持记忆。我们在一个简单系统中重新演绎了后者规则，并展示了它有效地进行积分。\nIntegration is an essential part of many natural behaviors: for example, organisms might recall the amount of food they discover while foraging in a particular location or sum self-motion inputs to keep track of their heading. While integration has previously been modeled as learned through feedback or tutoring inputs, here, we ask: can unsupervised local plasticity rules self-organize integration dynamics? Integration has traditionally been thought to be difficult to learn without these supervised signals, since heterogeneity in attractor network properties, e.g. the strength of recurrent inhibition (Fig 1b-d), can cause a manifold of marginally stable states to bifurcate into a set of fixed points (Fig 1e). We use a machine learning approach (meta-learning) to openendedly learn a set of local plasticity rules that facilitate integration. We form a polynomial basis of terms dependent on factors like synapse size, pre- and postsynaptic activity, input current from a distinct cell types, as well as bounds on incoming and outgoing summed synaptic strength (Fig 1f). We search for rules capable of integrating transient input cues. Networks are simulated for 400 epochs in which they receive right and left input cues, with the aim of outputting the integrated difference of these signals (Fig 1a; Fig 2a). In the last 120 epochs, we assume plasticity has driven weights to converge upon a solution, and we construct a decoder that reads out an integrated value from network activity. The efficacy with which this decoder can read out integrated cues on future trials is then used to define the loss of the plasticity rule within the meta-learning procedure. We then iteratively tune the plasticity rules to minimize this supervised loss (Fig 1g).\n积分是许多自然行为的重要组成部分：例如，有机体可能会回忆起它们在特定位置觅食时发现的食物量，或者汇总自我运动输入以跟踪它们的朝向。 虽然积分以前被建模为通过反馈或辅导输入学习，但在这里，我们问：无监督的局部可塑性规则能否自组织积分动力学？ 传统上认为，没有这些监督信号，积分很难学习，因为吸引子网络属性中的异质性（例如递归抑制的强度（图 1b-d））可能导致边际稳定状态的流形分叉成一组固定点（图 1e）。 我们使用 机器学习方法（元学习） 来开放式地学习一组促进积分的局部可塑性规则。 我们形成了一个依赖于突触大小、前突触和后突触活动、来自不同细胞类型的输入电流以及传入和传出总突触强度边界等因素的多项式基（图 1f）。我们寻找能够整合瞬时输入线索的规则。网络在 400 个时期内进行模拟，在此期间它们接收左右输入线索，目标是输出这些信号的集成差异（图 1a；图 2a）。在最后 120 个时期中，我们假设可塑性已将权重驱动到收敛于一个解决方案，并且我们构建了一个解码器，从网络活动中读出一个集成值。该解码器在未来试验中读取集成线索的效率然后用于在元学习过程中定义可塑性规则的损失。然后我们迭代调整可塑性规则以最小化这种监督损失（图 1g）。\nWe learn rules in two different settings: the first reflects connectivity in the central complex of Drosophila (Fig 1a), the second is a 3-neuron system (2 excitatory, 1 inhibitory; Fig 2g). Our closed-loop search uncovers sets of plasticity rules that robustly organize both types of network into integrators. Rules perform well at integration tasks extending up to 1 second, even when recurrent inhibitory connections are made heterogeneous (Fig 2d). In central complex-like networks, one cell type learns to maintain a bump of activity that is steered around by incoming inputs from the other cell type (Fig 1b). Sampled tuning curves from the evolved system reflect a continuum of encoding states (Fig 2c). We investigated the learned rules by probing them with delta function inputs of varying amplitudes. Learned rules in both systems contained core common features: a timingdependent anti-Hebbian rule, predicted by Xie and Seung [1999] and Hahnloser [2003], which converts into a symmetric, potentiating kernel when integration input from cell type 2 is present (Fig 2e). We find that the nature of the learned rules changes in character as the length of the integration period grows. For short integration periods, rules organize approximate line attracting dynamics in which the weights largely converge and the network achieves marginal stability (Fig 2f). When the integration period is long, weights do not converge, and networks do not possess marginal stability. However, plasticity in this regime still facilitates integration by rapidly and continuously moving a fixed point about a manifold of possible fixed point locations (Fig 1h), implementing memory that is partially synaptic. We reproduce this idea in a model of two neurons (similar to Fig 1g). We find that with the addition of a bound on summed strength of synapses exiting a neuron, the fixed point can be constrained to a predictable manifold (Fig 2i), and the plasticity rules can facilitate integration (Fig 2j).\n我们在两种不同的设置中学习规则：第一种反映了果蝇中央复合体中的连接性（图 1a），第二种是一个 3 神经元系统（2 个兴奋性，1 个抑制性；图 2g）。我们的闭环搜索发现了一组可塑性规则，可以将这两种类型的网络稳健地组织成积分器。即使递归抑制连接变得异质，规则在扩展到 1 秒的积分任务中表现良好（图 2d）。在类似中央复合体的网络中，一种细胞类型学会维持一个活动突起，该突起由来自另一种细胞类型的输入引导（图 1b）。从进化系统中采样的调谐曲线反映了一系列编码状态（图 2c）。我们通过用不同幅度的 delta 函数输入探测它们来研究学习到的规则。两个系统中学习到的规则都包含核心共同特征：一种时序依赖的反 Hebbian 规则，由 Xie 和 Seung [1999] 以及 Hahnloser [2003] 预测，当来自细胞类型 2 的积分输入存在时，该规则转换为对称的增强内核（图 2e）。我们发现，随着积分期长度的增长，学习规则的性质发生了变化。对于较短的积分期，规则组织了近似线性吸引动力学，其中权重大部分收敛，网络实现了边际稳定性（图 2f）。当积分期较长时，权重不会收敛，网络也不具备边际稳定性。然而，这一机制中的可塑性仍然通过快速且持续地在可能的固定点位置流形上移动固定点来促进积分（图 1h），实现部分突触记忆。我们在一个双神经元模型中重现了这个想法（类似于图 1g）。我们发现，通过添加对离开神经元的突触总强度的约束，可以将固定点限制在一个可预测的流形上（图 2i），并且可塑性规则可以促进积分（图 2j）。\nFigure 1: Learning plasticity rules that antagonistically integrate inputs using meta-learning (a) A central complex-like network receives right and left inputs, the integrated difference of which is the target output of cell type 2. (b) Typically integration is explained by continuous attractor networks, which use local excitation and global inhibition to maintain a manifold of marginally stable states (c). (d) Mistuning causes integration behavior to deteriorate (e). (f) We meta-learn a set of unsupervised plasticity rules that act on synapses within the circuit using only local information: preand postsynaptic activity $(x_j , x_i)$, eligibility traces of these activities, regulated by time constants ($\\tau$), synapse size ($w_{ij}$), and input current from other cell types. (g) Coefficients and time constants are iteratively tuned.\n图 1：使用元学习学习对抗性积分输入的可塑性规则 (a) 类似中央复合体的网络接收左右输入，其集成差异是细胞类型 2 的目标输出。 (b) 通常，积分通过连续吸引子网络来解释，该网络使用局部兴奋和全局抑制来维持边际稳定状态的流形 (c)。 (d) 调整错误会导致积分行为恶化 (e)。 (f) 我们元学习一组无监督的可塑性规则，这些规则仅使用局部信息作用于电路内的突触：前突触和后突触活动 $(x_j , x_i)$、这些活动的资格迹，由时间常数 ($\\tau$)、突触大小 ($w_{ij}$) 和来自其他细胞类型的输入电流调节。 (g) 迭代调整系数和时间常数。\nFigure 2: Discovered rules faithfully organize integrators in a central complex-like circuit and simplified 3-neuron system (a) Example right and left inputs, which are delivered to distinct populations in cell type 2 (see Fig 1a). (b) Learned rules cause cell type 1 to track integrated inputs with a bump of activity. (c) Tuning curves of neurons in cell type 1 reflect a continuum of states. (d) Tracking the peak of the activity bump over many trials in the Drosophila network (top). Traces from the 3-neuron network integrating and holding inputs (bottom). (e) Synaptic weight change as a function of synapse size and timing between pre- and postsynaptic neurons for synapses between cell type 1 neurons. Recent input from cell type 2 converts anti-Hebbian kernel into symmetric potentiation. (f) Rules learned on long integration periods tend not to cause weights to converge when compared with weights learned on short integration periods. (g) The 3-neuron model. Two excitatory neurons receive right and left inputs and are inhibited by mutual, global inhibition. (h) Illustrative flow field for rules that continually change weights. A fixed point can be moved about a manifold of possible locations to maintain memory. (i) A simplified model containing anti-Hebbian plasticity, input potentiation, and a presynaptic bound can integrate and its activity states are constrained to a manifold. (j) Integrated traces over time for model in (i).\n图 2：发现的规则忠实地组织了类似中央复合体电路和简化的 3 神经元系统中的积分器 (a) 示例右输入和左输入，分别传递给细胞类型 2 中的不同群体（见图 1a）。 (b) 学习到的规则使细胞类型 1 通过活动突起跟踪集成输入。 (c) 细胞类型 1 中神经元的调谐曲线反映了一系列状态。 (d) 在果蝇网络中跟踪许多试验中活动突起的峰值（顶部）。3 神经元网络集成和保持输入的轨迹（底部）。 (e) 细胞类型 1 神经元之间突触的突触大小和前后突触神经元之间时序作为函数的突触权重变化。来自细胞类型 2 的近期输入将反 Hebbian 核转换为对称增强。 (f) 与在短积分期上学习到的权重相比，在长积分期上学习到的规则往往不会导致权重收敛。 (g) 3 神经元模型。两个兴奋性神经元接收左右输入，并通过相互全局抑制受到抑制。 (h) 持续改变权重的规则的说明性流场。可以在可能位置的流形上移动固定点以保持记忆。 (i) 包含反 Hebbian 可塑性、输入增强和突触前界限的简化模型可以进行积分，其活动状态被限制在一个流形上。 (j) (i) 中模型随时间集成的轨迹。\n",
+  "wordCount" : "3600",
+  "inLanguage": "zh",
+  "datePublished": "2025-11-24T00:18:23+08:00",
+  "dateModified": "2025-11-24T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/reference/integration-as-a-self-organizing-process/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/reference/">📕 文献</a></div>
+            <h1 class="post-title">
+                Integration as a self-organizing process
+            </h1>
+            <div class="post-description">
+                计算神经科学中的积分概念
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-11-24
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3600字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>8分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+        <div class="post-content"><blockquote>
+<p>Integration—the accumulation of information over time—is a fundamental computation in navigation, decisionmaking, and memory.
+The dominant circuit model, the <strong>continuous attractor neural network (CANN)</strong>, explains integration through finely tuned connectivity that supports marginally stable states.
+However, data from systems such as <strong>Drosophila</strong> central complex suggest that real connectivity is heterogeneous, implying that symmetry may only exist in a <strong>coarse-grained</strong> sense, if at all.
+One class of models explains this heterogenous connectivity by evoking <strong>supervised learning</strong> which can enforce coarse-grained symmetry at the expense of extensive trial and error learning or by employing biologically unrealistic learning rules.
+Another class employs only <strong>local learning rules</strong>, but this approach typically fails when circuit connectivity or tutoring inputs become sufficiently heterogeneous.
+Here, we attempt to bridge this gap by taking a machine learning approach (meta-learning) to identify local learning rules that can organize integration dynamics in heterogeneous networks.
+The learned rule is parameterized as the Taylor expansion of an arbitrary function that depends on <strong>synapse</strong> size as well as <strong>eligibility traces</strong> of preand postsynaptic activity and input from other cell types.
+We discover rules that form bump attractors given only weak spatial priors and integration inputs.
+In a simpler two-neuron system, we find rules that generate line attractor dynamics.
+Shared features across both learned rules include anti-Hebbian spike-timing-dependent plasticity, in which synapses supporting sequential activity are depressed, and input-dependent potentiation.
+We find these common components underlie two different forms of plasticity rule: the first, learned when the period of integration is short, causes weights to converge and drives the dynamics toward marginal stability. Under the second, weights never converge, but are adjusted to move around a fixed point, maintaining memory. We recapitulate the latter rule in a simple system and show that it integrates effectively.</p>
+</blockquote>
+<p>积分——随时间积累信息——是导航、决策和记忆中的基本计算。
+主导的回路模型，<strong>连续吸引子神经网络（CANN）</strong>，通过支持边际稳定状态的精细调制连接来解释积分。
+然而，来自<strong>果蝇</strong>中央复合体等系统的数据表明，真实的连接是异质的，这意味着对称性可能仅以<strong>粗粒化</strong>的意义存在（如果存在的话）。
+一类模型通过唤起<strong>监督学习</strong>来解释这种异质连接，这可以以广泛的反复试验学习为代价来强制执行粗粒化对称性，或者通过采用生物学上不现实的学习规则来实现。
+另一类仅使用<strong>局部学习规则</strong>，但当回路连接或辅导输入变得足够异质时，这种方法通常会失败。
+在这里，我们试图通过采用机器学习方法（元学习）来识别可以在异质网络中组织积分动态的局部学习规则来弥合这一差距。
+学习规则被参数化为依赖于<strong>突触</strong>大小以及前突触和后突触活动的<strong>资格迹</strong>和其他细胞类型输入的任意函数的 Taylor 展开。
+我们发现了仅在弱空间先验和积分输入下形成突起吸引子的规则。
+在一个更简单的双神经元系统中，我们找到了产生线性吸引子动力学的规则。
+两个学习规则之间的共同特征包括反 Hebbian 尖峰时序依赖性可塑性，其中支持顺序活动的突触被抑制，以及输入依赖性增强。
+我们发现这些共同组成部分构成了两种不同形式的可塑性规则：第一种，在积分期较短时学习到，导致权重收敛并推动动力学朝向边际稳定。在第二种情况下，权重从不收敛，但被调整以围绕一个固定点移动，从而保持记忆。我们在一个简单系统中重新演绎了后者规则，并展示了它有效地进行积分。</p>
+<blockquote>
+<p>Integration is an essential part of many natural behaviors: for example, organisms might recall the amount of food they discover while foraging in a particular location or sum self-motion inputs to keep track of their heading.
+While integration has previously been modeled as learned through feedback or tutoring inputs, here, we ask: can unsupervised local plasticity rules self-organize integration dynamics?
+Integration has traditionally been thought to be difficult to learn without these supervised signals, since heterogeneity in attractor network properties, e.g. the strength of recurrent inhibition (Fig 1b-d), can cause a manifold of marginally stable states to bifurcate into a set of fixed points (Fig 1e).
+We use a <strong>machine learning approach</strong> (meta-learning) to openendedly learn a set of local plasticity rules that facilitate integration.
+We form a polynomial basis of terms dependent on factors like synapse size, pre- and postsynaptic activity, input current from a distinct cell types, as well as bounds on incoming and outgoing summed synaptic strength (Fig 1f). We search for rules capable of integrating transient input cues. Networks are simulated for 400 epochs in which they receive right and left input cues, with the aim of outputting the integrated difference of these signals (Fig 1a; Fig 2a). In the last 120 epochs, we assume plasticity has driven weights to converge upon a solution, and we construct a decoder that reads out an integrated value from network activity. The efficacy with which this decoder can read out integrated cues on future trials is then used to define the loss of the plasticity rule within the meta-learning procedure. We then iteratively tune the plasticity rules to minimize this supervised loss (Fig 1g).</p>
+</blockquote>
+<p>积分是许多自然行为的重要组成部分：例如，有机体可能会回忆起它们在特定位置觅食时发现的食物量，或者汇总自我运动输入以跟踪它们的朝向。
+虽然积分以前被建模为通过反馈或辅导输入学习，但在这里，我们问：无监督的局部可塑性规则能否自组织积分动力学？
+传统上认为，没有这些监督信号，积分很难学习，因为吸引子网络属性中的异质性（例如递归抑制的强度（图 1b-d））可能导致边际稳定状态的流形分叉成一组固定点（图 1e）。
+我们使用 <strong>机器学习方法（元学习）</strong> 来开放式地学习一组促进积分的局部可塑性规则。
+我们形成了一个依赖于突触大小、前突触和后突触活动、来自不同细胞类型的输入电流以及传入和传出总突触强度边界等因素的多项式基（图 1f）。我们寻找能够整合瞬时输入线索的规则。网络在 400 个时期内进行模拟，在此期间它们接收左右输入线索，目标是输出这些信号的集成差异（图 1a；图 2a）。在最后 120 个时期中，我们假设可塑性已将权重驱动到收敛于一个解决方案，并且我们构建了一个解码器，从网络活动中读出一个集成值。该解码器在未来试验中读取集成线索的效率然后用于在元学习过程中定义可塑性规则的损失。然后我们迭代调整可塑性规则以最小化这种监督损失（图 1g）。</p>
+<blockquote>
+<p>We learn rules in two different settings: the first reflects connectivity in the central complex of Drosophila (Fig 1a), the second is a 3-neuron system (2 excitatory, 1 inhibitory; Fig 2g). Our closed-loop search uncovers sets of plasticity rules that robustly organize both types of network into integrators. Rules perform well at integration tasks extending up to 1 second, even when recurrent inhibitory connections are made heterogeneous (Fig 2d). In central complex-like networks, one cell type learns to maintain a bump of activity that is steered around by incoming inputs from the other cell type (Fig 1b). Sampled tuning curves from the evolved system reflect a continuum of encoding states (Fig 2c). We investigated the learned rules by probing them with delta function inputs of varying amplitudes. Learned rules in both systems contained core common features: a timingdependent anti-Hebbian rule, predicted by Xie and Seung [1999] and Hahnloser [2003], which converts into a symmetric, potentiating kernel when integration input from cell type 2 is present (Fig 2e). We find that the nature of the learned rules changes in character as the length of the integration period grows. For short integration periods, rules organize approximate line attracting dynamics in which the weights largely converge and the network achieves marginal stability (Fig 2f). When the integration period is long, weights do not converge, and networks do not possess marginal stability. However, plasticity in this regime still facilitates integration by rapidly and continuously moving a fixed point about a manifold of possible fixed point locations (Fig 1h), implementing memory that is partially synaptic. We reproduce this idea in a model of two neurons (similar to Fig 1g). We find that with the addition of a bound on summed strength of synapses exiting a neuron, the fixed point can be constrained to a predictable manifold (Fig 2i), and the plasticity rules can facilitate integration (Fig 2j).</p>
+</blockquote>
+<p>我们在两种不同的设置中学习规则：第一种反映了果蝇中央复合体中的连接性（图 1a），第二种是一个 3 神经元系统（2 个兴奋性，1 个抑制性；图 2g）。我们的闭环搜索发现了一组可塑性规则，可以将这两种类型的网络稳健地组织成积分器。即使递归抑制连接变得异质，规则在扩展到 1 秒的积分任务中表现良好（图 2d）。在类似中央复合体的网络中，一种细胞类型学会维持一个活动突起，该突起由来自另一种细胞类型的输入引导（图 1b）。从进化系统中采样的调谐曲线反映了一系列编码状态（图 2c）。我们通过用不同幅度的 delta 函数输入探测它们来研究学习到的规则。两个系统中学习到的规则都包含核心共同特征：一种时序依赖的反 Hebbian 规则，由 Xie 和 Seung [1999] 以及 Hahnloser [2003] 预测，当来自细胞类型 2 的积分输入存在时，该规则转换为对称的增强内核（图 2e）。我们发现，随着积分期长度的增长，学习规则的性质发生了变化。对于较短的积分期，规则组织了近似线性吸引动力学，其中权重大部分收敛，网络实现了边际稳定性（图 2f）。当积分期较长时，权重不会收敛，网络也不具备边际稳定性。然而，这一机制中的可塑性仍然通过快速且持续地在可能的固定点位置流形上移动固定点来促进积分（图 1h），实现部分突触记忆。我们在一个双神经元模型中重现了这个想法（类似于图 1g）。我们发现，通过添加对离开神经元的突触总强度的约束，可以将固定点限制在一个可预测的流形上（图 2i），并且可塑性规则可以促进积分（图 2j）。</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/24/Ged9Z8sV5f4Joa6.png" alt=""  /></p>
+<p>Figure 1: Learning plasticity rules that antagonistically integrate inputs using meta-learning (a) A central complex-like network receives right and left inputs, the integrated difference of which is the target output of cell type 2. (b) Typically integration is explained by continuous attractor networks, which use local excitation and global inhibition to maintain a manifold of marginally stable states (c). (d) Mistuning causes integration behavior to deteriorate (e). (f) We meta-learn a set of unsupervised plasticity rules that act on synapses within the circuit using only local information: preand postsynaptic activity $(x_j , x_i)$, eligibility traces of these activities, regulated by time constants ($\tau$), synapse size ($w_{ij}$), and input current from other cell types. (g) Coefficients and time constants are iteratively tuned.</p>
+</blockquote>
+<blockquote>
+<p>图 1：使用元学习学习对抗性积分输入的可塑性规则 (a) 类似中央复合体的网络接收左右输入，其集成差异是细胞类型 2 的目标输出。 (b) 通常，积分通过连续吸引子网络来解释，该网络使用局部兴奋和全局抑制来维持边际稳定状态的流形 (c)。 (d) 调整错误会导致积分行为恶化 (e)。 (f) 我们元学习一组无监督的可塑性规则，这些规则仅使用局部信息作用于电路内的突触：前突触和后突触活动 $(x_j , x_i)$、这些活动的资格迹，由时间常数 ($\tau$)、突触大小 ($w_{ij}$) 和来自其他细胞类型的输入电流调节。 (g) 迭代调整系数和时间常数。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/24/P5RCcS4nqAGkMmt.png" alt=""  /></p>
+<p>Figure 2: Discovered rules faithfully organize integrators in a central complex-like circuit and simplified 3-neuron system (a) Example right and left inputs, which are delivered to distinct populations in cell type 2 (see Fig 1a). (b) Learned rules cause cell type 1 to track integrated inputs with a bump of activity. (c) Tuning curves of neurons in cell type 1 reflect a continuum of states. (d) Tracking the peak of the activity bump over many trials in the Drosophila network (top). Traces from the 3-neuron network integrating and holding inputs (bottom). (e) Synaptic weight change as a function of synapse size and timing between pre- and postsynaptic neurons for synapses between cell type 1 neurons. Recent input from cell type 2 converts anti-Hebbian kernel into symmetric potentiation. (f) Rules learned on long integration periods tend not to cause weights to converge when compared with weights learned on short integration periods. (g) The 3-neuron model. Two excitatory neurons receive right and left inputs and are inhibited by mutual, global inhibition. (h) Illustrative flow field for rules that continually change weights. A fixed point can be moved about a manifold of possible locations to maintain memory. (i) A simplified model containing anti-Hebbian plasticity, input potentiation, and a presynaptic bound can integrate and its activity states are constrained to a manifold. (j) Integrated traces over time for model in (i).</p>
+</blockquote>
+<blockquote>
+<p>图 2：发现的规则忠实地组织了类似中央复合体电路和简化的 3 神经元系统中的积分器 (a) 示例右输入和左输入，分别传递给细胞类型 2 中的不同群体（见图 1a）。 (b) 学习到的规则使细胞类型 1 通过活动突起跟踪集成输入。 (c) 细胞类型 1 中神经元的调谐曲线反映了一系列状态。 (d) 在果蝇网络中跟踪许多试验中活动突起的峰值（顶部）。3 神经元网络集成和保持输入的轨迹（底部）。 (e) 细胞类型 1 神经元之间突触的突触大小和前后突触神经元之间时序作为函数的突触权重变化。来自细胞类型 2 的近期输入将反 Hebbian 核转换为对称增强。 (f) 与在短积分期上学习到的权重相比，在长积分期上学习到的规则往往不会导致权重收敛。 (g) 3 神经元模型。两个兴奋性神经元接收左右输入，并通过相互全局抑制受到抑制。 (h) 持续改变权重的规则的说明性流场。可以在可能位置的流形上移动固定点以保持记忆。 (i) 包含反 Hebbian 可塑性、输入增强和突触前界限的简化模型可以进行积分，其活动状态被限制在一个流形上。 (j) (i) 中模型随时间集成的轨迹。</p>
+</blockquote>
+</blockquote>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Renormalization group for neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/reference/theory-of-orientation-tuning-in-visual-cortex/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Theory of Orientation Tuning in Visual Cortex</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+</body>
+
+
+
+
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

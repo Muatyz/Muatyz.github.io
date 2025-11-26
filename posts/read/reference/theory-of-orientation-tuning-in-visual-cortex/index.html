@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Theory of Orientation Tuning in Visual Cortex | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="视觉皮层中方向调制的理论">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/reference/theory-of-orientation-tuning-in-visual-cortex/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/reference/theory-of-orientation-tuning-in-visual-cortex/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Theory of Orientation Tuning in Visual Cortex" />
+<meta property="og:description" content="视觉皮层中方向调制的理论" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/reference/theory-of-orientation-tuning-in-visual-cortex/" />
+<meta property="og:image" content="https://s2.loli.net/2025/11/24/BWUica1QGNP6rLH.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-11-24T00:18:23+08:00" />
+<meta property="article:modified_time" content="2025-11-24T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2025/11/24/BWUica1QGNP6rLH.png" />
+<meta name="twitter:title" content="Theory of Orientation Tuning in Visual Cortex"/>
+<meta name="twitter:description" content="视觉皮层中方向调制的理论"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "📕 文献",
+          "item": "https://Muatyz.github.io/posts/read/reference/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Theory of Orientation Tuning in Visual Cortex",
+      "item": "https://Muatyz.github.io/posts/read/reference/theory-of-orientation-tuning-in-visual-cortex/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Theory of Orientation Tuning in Visual Cortex",
+  "name": "Theory of Orientation Tuning in Visual Cortex",
+  "description": "视觉皮层中方向调制的理论",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Abstract The role of intrinsic cortical connections in processing sensory input and in generating behavioral output is poorly understood. We have examined this issue in the context of the tuning of neuronal responses in cortex to the orientation of a visual stimulus. We analytically study a simple network model that incorporates both orientationselective input from the lateral geniculate nucleus and orientation-specific cortical interactions. Depending on the model parameters, the network exhibits orientation selectivity that originates from within the cortex, by a symmetrybreaking mechanism. In this case, the width of the orientation tuning can be sharp even if the lateral geniculate nucleus inputs are only weakly anisotropic. By using our model, several experimental consequences of this cortical mechanism of orientation tuning are derived. The tuning width is relatively independent of the contrast and angular anisotropy of the visual stimulus. The transient population response to changing of the stimulus orientation exhibits a slow “virtual rotation.” Neuronal cross-correlations exhibit long time tails, the sign of which depends on the preferred orientations of the cells and the stimulus orientation.\n皮层内在连接在处理感觉输入和生成行为输出中的作用尚不清楚。我们在视觉刺激方向对皮层中神经元反应调制的背景下研究了这个问题。我们分析性地研究了一个简单的网络模型，该模型结合了来自外侧膝状体核的方向选择性输入和方向特异性皮层相互作用。 根据模型参数，网络表现出源自皮层内部的方向选择性(通过一种对称性破缺机制)。在这种情况下，即使外侧膝状体核输入仅具有弱各向异性，方向调制的宽度也可以很窄。 通过使用我们的模型，推导出了这种皮层方向调制机制的几个实验结果。调制宽度相对独立于视觉刺激的对比度和角向各向异性。对刺激方向变化的瞬态群体反应表现出缓慢的“虚拟旋转”。神经元交叉相关表现出长时间尾巴，其符号取决于细胞的优选方向和刺激方向。\nIntroduction Neurons in the primary visual cortex respond preferentially to edges with a particular orientation. The input to the cortex is provided by neurons in the lateral geniculate nucleus (LGN), which respond independently of the stimulus orientation. The mechanism for the generation of orientation selectivity in the cortex is not fully known. According to the classical model of Hubel and Wiesel, the preferred orientation (PO) of a cortical cell originates from the geometrical alignment of the circular receptive fields of the LGN neurons that are afferent to it. The experimental evidence of this model is ambiguous. The alignment of the receptive fields of the LGN inputs to a cortical cell apparently parallels the cell’s PO . However, suppression of cortical inhibition tends to considerably degrade orientation tuning, suggesting that cortical circuitry plays an important role in shaping the relatively sharp orientation tuning in the cortex. Furthermore, estimates based on intracellular measurements indicate that most of the orientation-selective excitatory input to cortical cells comes from cortical feedback. Several models implicating cortical inhibition have been proposed (for reviews, see refs. 7 and 8). Their analysis, however, is hindered by the need to resort to massive numerical simulations of the different models. Computational complexity also precluded a detailed study of the role of the cortical excitatory connections. An important constraint on modeling orientation selectivity, which has not yet been fully addressed, is the experimental finding that the tuning width is relatively insensitive to the contrast of the stimulus. Most experimental and theoretical studies of orientation selectivity focus on the response properties of single neurons. However, valuable insight into the cooperativity among cortical neurons can be gained from measurements of the correlations between the responses of different neurons. Theoretical predictions regarding the magnitude and form of correlation functions in neuronal networks have been lacking.\n初级视觉皮层中的神经元对具有特定方向的边缘有优先反应。皮层的输入由外侧膝状体核(LGN)中的神经元提供，这些神经元对刺激方向独立响应。皮层中方向选择性产生的机制尚不完全清楚。根据 Hubel 和 Wiesel 的经典模型，皮层细胞的 优选方向(PO) 源自传入该细胞的 LGN 神经元的圆形感受野的几何排列。该模型的实验证据是模糊的。传入皮层细胞的 LGN 输入的感受野排列显然与细胞的 PO 平行。然而，抑制皮层抑制倾向于显著降低方向调制，表明皮层电路在塑造皮层中相对尖锐的方向调制中起着重要作用。此外，基于细胞内测量的估计表明，大多数对皮层细胞具有方向选择性的兴奋性输入来自皮层反馈。已经提出了几种涉及皮层抑制的模型(综述见参考文献7和8)。然而，它们的分析受到需要诉诸于不同模型的大规模数值模拟的阻碍。计算复杂性也阻止了对皮层兴奋性连接作用的详细研究。对建模方向选择性的一个重要限制是实验发现调制宽度对刺激对比度相对不敏感，这一点尚未得到充分解决。大多数关于方向选择性的实验和理论研究都集中在单个神经元的响应特性上。然而，通过测量不同神经元响应之间的相关性，可以获得有关皮层神经元之间协作的重要见解。关于神经网络中相关函数的大小和形式的理论预测一直缺乏。\nHere we study mechanisms for orientation selectivity by using a simple neural network model that captures the gross architecture of primary visual cortex. By assuming simplified neuronal stochastic dynamics, the network properties have been solved analytically, thereby providing a useful framework for the study of the roles of the input and the intrinsic connections in the formation of orientation tuning in the cortex. Furthermore, by using a recently developed theory of neuronal correlation functions in large stochastic networks, we have calculated the cross-correlations (CCs) between the neurons in the network. We show that different models of orientation selectivity may give rise to qualitatively different spatiotemporal patterns of neuronal correlations. These predictions can be tested experimentally.\n在这里，我们使用一个简单的神经网络模型来研究方向选择性的机制，该模型捕捉了初级视觉皮层的总体结构。通过假设简化的神经元随机动力学，网络属性已经被解析地解决，从而为研究输入和内在连接在皮层中形成方向调制中的作用提供了有用的框架。此外，通过使用最近开发的大型随机网络中神经元相关函数的理论，我们计算了网络中神经元之间的交叉相关(CCs)。我们表明，不同的方向选择性模型可能会产生定性上不同的神经元相关性的时空模式。这些预测可以通过实验进行测试。\nModel We consider a network model with an architecture of a cortical hypercolumn. It consists of $N_{E}$ excitatory neurons and $N_{I}$ inhibitory neurons that respond selectively to a small oriented visual stimulus in a common receptive field. The neurons are parameterized by an angle $\\theta$, ranging from $-\\pi/2$ to $+\\pi/2$, that denotes their POs. The interaction between a presynaptic excitatory neuron $\\theta^{\\prime}$ and a postsynaptic excitatory or inhibitory neuron $\\theta$ is equal to $N_{E}^{-1}E(\\theta-\\theta^{\\prime})$. Similarly, the interaction between a presynaptic inhibitory neuron and a postsynaptic neuron is $N_{I}^{-1}(\\theta-\\theta^{\\prime})$. The functions $E(\\theta-\\theta^{\\prime})$ and $I(\\theta-\\theta^{\\prime})$ represent the fact that the strength of the interactions between two orientation columns depends on the difference between their POs. The synaptic input from the LGN to a neuron $\\theta$ is denoted as $h^{\\text{ext}}(\\theta-\\theta_{0})$, where $\\theta_{0}$ is the orientation of the external stimulus. Neurons switch stochastically between a quiescent state [denoted as $S(\\theta) = 0$], representing a state with background firing rate ($\\approx 5$ spikes per sec), and an active state [$S(\\theta) = 1$], representing a state with saturated firing rate (~500 spikes per sec). The transition rates between these states are governed by a sigmoidal gain function, $g[h(\\theta, t)]$, where $h(\\theta, t)$ is the total synaptic input to the neuron $\\theta$ at time $t$. By assuming that the number of neurons is large and that they cover uniformly all the angles, the activity profile in the network at time $t$ can be represented by a continuous function $m(\\theta,t)$, $0\\leq m\\leq 1$. This function denotes the mean activity level, relative to the saturation activity level, of the neurons with POs in the neighborhood of $\\theta$, at time $t$. Note that since the synaptic inputs to the excitatory and the inhibitory neurons in our model are the same, $m(\\theta, t)$ describes the mean activity levels of both types of neurons.\n我们考虑一个具有皮层超柱结构的网络模型。它由 $N_{E}$ 个兴奋性神经元和 $N_{I}$ 个抑制性神经元组成，这些神经元选择性地响应共同感受野中的小定向视觉刺激。神经元由一个角度 $\\theta$ 参数化，范围从 $-\\pi/2$ 到 $+\\pi/2$，表示它们的 PO。一个突触前兴奋性神经元 $\\theta^{\\prime}$ 和一个突触后兴奋性或抑制性神经元 $\\theta$ 之间的相互作用等于 $N_{E}^{-1}E(\\theta-\\theta^{\\prime})$。类似地，一个突触前抑制性神经元和一个突触后神经元之间的相互作用是 $N_{I}^{-1}(\\theta-\\theta^{\\prime})$。函数 $E(\\theta-\\theta^{\\prime})$ 和 $I(\\theta-\\theta^{\\prime})$ 表示两个方向柱之间相互作用的强度取决于它们 PO 之间的差异。从 LGN 到神经元 $\\theta$ 的突触输入表示为 $h^{\\text{ext}}(\\theta-\\theta_{0})$，其中 $\\theta_{0}$ 是外部刺激的方向。神经元在静止状态[表示为 $S(\\theta) = 0$]和活跃状态[$S(\\theta) = 1$]之间随机切换，分别表示具有背景发射率(约每秒5个峰值)和饱和发射率(约每秒500个峰值)的状态。这些状态之间的转换速率由一个 S 型增益函数 $g[h(\\theta, t)]$ 控制，其中 $h(\\theta, t)$ 是时间 $t$ 时神经元 $\\theta$ 的总突触输入。通过假设神经元数量很大并且它们均匀覆盖所有角度，网络中时间 $t$ 的活动轮廓可以表示为连续函数 $m(\\theta,t)$，其中 $0\\leq m\\leq 1$。该函数表示在时间 $t$ 时，PO 在 $\\theta$ 附近的神经元的平均活动水平，相对于饱和活动水平。请注意，由于我们模型中兴奋性和抑制性神经元的突触输入相同，$m(\\theta, t)$ 描述了两种类型神经元的平均活动水平。\nIn the limit of a large network, $m(\\theta,t)$ obeys the following deterministic mean-field equations:\n$$ \\tau_{0}\\frac{\\mathrm{d}}{\\mathrm{d}t}m(\\theta, t) = -m(\\theta, t) + g[h(\\theta, t)] $$\nwhere $\\tau_{0}$ is a microscopic characteristic time(a few milliseconds), and the total synaptic input $h(\\theta, t)$ is\n$$ h(\\theta, t) = \\int^{+\\pi/2}_{-\\pi/2}\\frac{\\mathrm{d}\\theta^{\\prime}}{\\pi}J(\\theta-\\theta^{\\prime})m(\\theta^{\\prime},t) + h^{\\text{ext}}(\\theta-\\theta_{0}) $$\nHere $J(\\theta-\\theta^{\\prime})$ represents the net interaction between neurons $\\theta$ and $\\theta^{\\prime}$, ie., $J(\\theta-\\theta^{\\prime}) = E(\\theta-\\theta^{\\prime}) + I(\\theta-\\theta^{\\prime})$. We choose $E(\\theta) = E_{0} + E_{2}\\cos{(2\\theta)}$ and $I(\\theta) = -I_{0}-I_{2}\\cos{(2\\theta)}$ with $E_{0}\\geq E_{2}\\geq 0$, $I_{0}\\geq I_{2}\\geq 0$. This choice implies that both the excitatory interactions and the inhibitory interactions are maximal for orientation columns with similar POs. This is in accord with the observation that the excitatory and inhibitory postsynaptic potentials to a cell have similar tuning. The net interaction is\n$$ J(\\theta) = -J_{0} + J_{2}\\cos{(2\\theta)} $$\nwith $J_{0} = I_{0} - E_{0}$ and $J_{2} = E_{2} - I_{2}$, both assumed to be positive. The constant $J_{0}$ represents a uniform all-to-all inhibition; $J_{2}$ measures the amplitude of the orientation-specific part of the interaction. Neurons with similar POs are more strongly coupled excitatorily than neurons with dissimilar ones. The external input is taken as\n$$ h^{\\text{ext}}(\\theta) = c[1-\\epsilon+\\epsilon\\cos{(2\\theta)}] $$\nwith $0\\leq \\epsilon \\leq 1/2$. The parameter $\\epsilon$ denotes the magnitude of the angular anisotropy of the input. The case $\\epsilon=0$ denotes the limit where the input to the cortex is fully isotropic. The coefficient $c$ measures the average amplitude of the input and will be referred to as the stimulus contrast. Finally, we use a semilinear gain function, i.e., $g(h) = 0$ for $h\\leq T$, $g(h) = \\beta(h - T)$ for $h\\geq T$, and $g(h) = 1$ for $h\\geq T+\\beta^{-1}$. The parameter $T$ is the threshold, which will be taken as 1, and $\\beta$ is the gain factor. This reflects the experimental finding that neuronal responses exhibit a sharp threshold contrast below which they vanish. Above threshold the mean firing rate of the neuron increases roughly linearly with the contrast. The slope of this rise is represented in our model by the constant $\\beta$. Finally, the response saturates at high contrasts. The particular func- tional forms of the interactions, the LGN input and the gain function were chosen for the sake of simplicity. More general forms yield a behavior that is qualitatively similar to the present model.\n在大型网络的极限下，$m(\\theta,t)$ 遵循以下确定性平均场方程：\n$$ \\tau_{0}\\frac{\\mathrm{d}}{\\mathrm{d}t}m(\\theta, t) = -m(\\theta, t) + g[h(\\theta, t)] $$\n其中 $\\tau_{0}$ 是一个微观特征时间(几毫秒)，总突触输入 $h(\\theta, t)$ 为\n$$ h(\\theta, t) = \\int^{+\\pi/2}_{-\\pi/2}\\frac{\\mathrm{d}\\theta^{\\prime}}{\\pi}J(\\theta-\\theta^{\\prime})m(\\theta^{\\prime},t) + h^{\\text{ext}}(\\theta-\\theta_{0}) $$\n这里 $J(\\theta-\\theta^{\\prime})$ 表示神经元 $\\theta$ 和 $\\theta^{\\prime}$ 之间的净相互作用，即 $J(\\theta-\\theta^{\\prime}) = E(\\theta-\\theta^{\\prime}) + I(\\theta-\\theta^{\\prime})$。我们选择 $E(\\theta) = E_{0} + E_{2}\\cos{(2\\theta)}$ 和 $I(\\theta) = -I_{0}-I_{2}\\cos{(2\\theta)}$，其中 $E_{0}\\geq E_{2}\\geq 0$，$I_{0}\\geq I_{2}\\geq 0$。这种选择意味着对于具有相似 PO 的方向柱，兴奋性相互作用和抑制性相互作用都是最大的。这与对细胞的兴奋性和抑制性突触后电位具有类似调制的观察结果是一致的。净相互作用为\n$$ J(\\theta) = -J_{0} + J_{2}\\cos{(2\\theta)} $$\n其中 $J_{0} = I_{0} - E_{0}$ 和 $J_{2} = E_{2} - I_{2}$，两者均假定为正。常数 $J_{0}$ 表示均匀的全连接抑制；$J_{2}$ 测量了相互作用的方向特异性部分的幅度。具有相似 PO 的神经元之间的兴奋性耦合比具有不同 PO 的神经元更强。外部输入取为\n$$ h^{\\text{ext}}(\\theta) = c[1-\\epsilon+\\epsilon\\cos{(2\\theta)}] $$\n其中 $0\\leq \\epsilon \\leq 1/2$。参数 $\\epsilon$ 表示输入的角向各向异性的大小。$\\epsilon=0$ 的情况表示皮层输入完全各向同性的极限。系数 $c$ 测量输入的平均幅度，将被称为刺激对比度。最后，我们使用半线性增益函数，即对于 $h\\leq T$，$g(h) = 0$，对于 $h\\geq T$，$g(h) = \\beta(h - T)$，对于 $h\\geq T+\\beta^{-1}$，$g(h) = 1$。参数 $T$ 是阈值，将取为 1，$\\beta$ 是增益因子。这反映了实验发现神经元响应表现出一个尖锐的阈值对比度，低于该对比度响应消失。在阈值以上，神经元的平均发射率大致与对比度线性增加。我们模型中这种上升的斜率由常数 $\\beta$ 表示。最后，响应在高对比度下饱和。为了简化起见，选择了相互作用、LGN 输入和增益函数的特定函数形式。更一般的形式会产生与当前模型在定性上类似的行为。\nMechanisms for Orientation Selectivity Mean-Field Solution In the steady state, $m(\\theta)$ is of the form $m(\\theta) = M(\\theta - \\theta_{0})$, where $M(\\theta)$ peaks at $\\theta = 0$. It represents the activity profile of the network relative to the orientation of the stimulus. Thus, $M(\\theta)$ also represents the tuning curve of a neuron, centered at its PO. This function is given by the solution of the mean-field equation $M(\\theta) = g[H(\\theta)]$ with $H(\\theta)$ being the local field, Eq. 2, centered at 6p. Its value is $H(\\theta) = (\\epsilon c + J_{2}m_{2})\\cos{(2\\theta)} + c(1 - \\epsilon) - J_{0}m_{0}$, where $m_{0}$ and $m_{2}$ are the zeroth and the second Fourier coefficients of $M(\\theta)$. The order parameter mo measures the neuronal activity averaged over the whole network, whereas m2 measures the variation of this activity across the different columns. Self-consistent equa- tions for mo and mz are derived by evaluating the Fourier transform of $M(\\theta)$. The resultant form of $M(\\theta)$ is $M(\\theta) = \\beta(\\epsilon c + J_{2}m_{2})[\\cos{(2\\theta)} - \\cos{(2\\theta_{c})}]$ for $|\\theta| \u003c \\theta_{C}$ and zero otherwise (see examples in Fig. 2). The cutoff angle $\\theta_{C}$, which is determined by the condition $H(\\pm\\theta_{C}) = 1$, is half of the full width of the tuning curve and will be denoted as the tuning width. The above solution holds for suprathreshold contrast, $c \u003e 1$. Otherwise, $M(\\theta)$ is zero. In the following, we study the orientation tuning properties of the steady-state solution. In particular, we examine the dependence of the tuning width on the stimulus contrast, $c$, and anisotropy, $\\epsilon$, for different ranges of values of the connectivity parameters.\n在稳态下，$m(\\theta)$ 的形式为 $m(\\theta) = M(\\theta - \\theta_{0})$，其中 $M(\\theta)$ 在 $\\theta = 0$ 处达到峰值。它表示相对于刺激方向的网络活动轮廓。因此，$M(\\theta)$ 也表示以其 PO 为中心的神经元的调制曲线。该函数由平均场方程 $M(\\theta) = g[H(\\theta)]$ 的解给出，其中 $H(\\theta)$ 是以 6p 为中心的局部场，见方程2。其值为 $H(\\theta) = (\\epsilon c + J_{2}m_{2})\\cos{(2\\theta)} + c(1 - \\epsilon) - J_{0}m_{0}$，其中 $m_{0}$ 和 $m_{2}$ 分别是 $M(\\theta)$ 的零阶和二阶傅里叶系数。序参量 mo 测量整个网络中神经元活动的平均值，而 m2 测量不同柱之间这种活动的变化。通过评估 $M(\\theta)$ 的傅里叶变换，导出了 mo 和 mz 的自洽方程。$M(\\theta)$ 的结果形式为 $M(\\theta) = \\beta(\\epsilon c + J_{2}m_{2})[\\cos{(2\\theta)} - \\cos{(2\\theta_{c})}]$，当 $|\\theta| \u003c \\theta_{C}$ 时为零，否则为零(见图2中的示例)。截止角 $\\theta_{C}$ 由条件 $H(\\pm\\theta_{C}) = 1$ 确定，是调制曲线全宽度的一半，将被称为调制宽度。上述解适用于超阈值对比度，即 $c \u003e 1$。否则，$M(\\theta)$ 为零。在下文中，我们研究稳态解的方向调制特性。特别地，我们检查在不同连接参数值范围内，调制宽度对刺激对比度 $c$ 和各向异性 $\\epsilon$ 的依赖性。\nHubel and Wiesel Scenario The simplest scenario for orientation tuning is based on the Hubel-Wiesel mechanism. In the context of our model, this scenario corresponds to the case where the only synaptic input is coming from the LGN and this input is strongly anisotropic. Hence, the cortical local interaction $J(\\theta)$ is zero and « is substantially bigger than zero. The dependence of the tuning width $\\theta_{C}$ on $c$ in this case is shown in Fig. 1A for different values of e. Near threshold (i.e., for $c\\to 1$), $\\theta_{C}$ vanishes, signaling the sharpening of the tuning width, relative to the input, by the thresholding operation of the cortical neurons. This, however, results in a strong depen- dence of the width on the contrast. As $c$ increases, $\\theta_{C}$ grows and beyond a certain value saturates at its maximum value $\\pi/2$, which corresponds to the situation where all the neurons are activated by all stimuli.\n方向调制的最简单情景基于 Hubel-Wiesel 机制。在我们模型的背景下，这种情景对应于唯一的突触输入来自 LGN 并且该输入具有强各向异性。因此，皮层局部相互作用 $J(\\theta)$ 为零，并且 « 显著大于零。图1A 显示了在这种情况下，不同 e 值下调制宽度 $\\theta_{C}$ 对 $c$ 的依赖性。在阈值附近(即对于 $c\\to 1$)，$\\theta_{C}$ 消失，表明通过皮层神经元的阈值操作，相对于输入，调制宽度变窄。然而，这导致宽度对对比度的强依赖性。随着 $c$ 的增加，$\\theta_{C}$ 增长，并且超过某个值后饱和在其最大值 $\\pi/2$，这对应于所有神经元都被所有刺激激活的情况。\nUniform Inhibition A simple cortical mechanism for sharpening the orientation tuning is based on isotropic cortical inhibition. This scenario corresponds in our model to $J_{0} \u003e 0$ and $J_{2} = 0$. In this case, the external input of each neuron has to overcome an effective enhanced threshold that increases with $c$ because of the increase of the inhibitory feedback. Thus, even for $c\\gg 1$, the inhibition may provide a sufficiently potent threshold to sharpen the tuning width. This is clearly seen in Fig. 1B (dashed line). Nevertheless, there is a strong dependence of the width on the contrast $c$. In addition, the width depends strongly on the anisotropy of the input, $\\epsilon$. In particular, when $\\epsilon$ is small, $\\theta_{C} = \\pi/2$ for large $c$. This is shown in Fig. 1C (dashed line).\n基于各向同性皮层抑制的方向调制锐化的简单皮层机制。在我们的模型中，这种情景对应于 $J_{0} \u003e 0$ 和 $J_{2} = 0$。在这种情况下，由于抑制反馈的增加，每个神经元的外部输入必须克服一个随 $c$ 增加的有效增强阈值。因此，即使对于 $c\\gg 1$，抑制也可能提供足够强大的阈值来锐化调制宽度。这在图1B(虚线)中清晰可见。然而，宽度对对比度 $c$ 有强烈依赖性。此外，宽度还强烈依赖于输入的各向异性 $\\epsilon$。特别是，当 $\\epsilon$ 很小时，对于大 $c$，$\\theta_{C} = \\pi/2$。这在图1C(虚线)中显示。\nMarginal Phase In the cases studied above, the anisotropy of the input to the cortex is the only source of orientation specificity. Can orientation specificity be generated by cortical interactions alone-even in the absence of significant anisotropy in the external input? To answer this question, we have studied the case of $\\epsilon = 0$ with $J_{0}$ and $J_{2} \u003e 0$. The assumed rotational symmetry of the cortex implies that when $\\epsilon = 0$, there is always a homogeneous solution, $M(\\theta) = m_{0}$, which agrees with the naive expectation that the orientation tuning disappears when the external stimulus is isotropic. However, the equations yield also an inhomogeneous solution, provided that the angular modulation of the cortical interactions, $J_{2}$, is big enough, $J_{2} \u003e 2/\\beta$. This solution represents a spontaneous generation of orientation tuning. It can be written as $m(\\theta) = M(\\theta - \\phi)$, where the angle $\\phi$, which determines the location of the peak in $m(\\theta)$, is arbitrary. This means that there is a continuum of stable states: they all have identical orientation tuned activity profiles, but they differ in the location of their peaks. The overall magnitude of $m(\\theta)$ is determined by $c$ but the shape of the activity profile is determined only by the cortical interactions. In particular, the width of $m(\\theta)$ is inde- pendent of $c$ but strongly depends on the magnitude of $J_{2}$. The bigger $J_{2}$, the smaller the width. We denote this solution a marginal phase because there are no barriers between the different attractors. This implies that the motion from one attractor to another is easier than motions in other directions of phase space. When the marginal solution exists, the naive homogeneous solution is unstable.\n在上述研究的情况下，皮层输入的各向异性是方向特异性的唯一来源。即使在外部输入没有显著各向异性的情况下，方向特异性也能仅由皮层相互作用产生吗？为了回答这个问题，我们研究了 $\\epsilon = 0$ 且 $J_{0}$ 和 $J_{2} \u003e 0$ 的情况。假设的皮层旋转对称性意味着当 $\\epsilon = 0$ 时，总是存在一个均匀解 $M(\\theta) = m_{0}$，这与外部刺激各向同性时方向调制消失的朴素预期是一致的。然而，只要皮层相互作用的角向调制 $J_{2}$ 足够大，即 $J_{2} \u003e 2/\\beta$，方程还会产生一个非均匀解。该解表示方向调制的自发生成。它可以写成 $m(\\theta) = M(\\theta - \\phi)$，其中角度 $\\phi$ 决定了 $m(\\theta)$ 峰值的位置，是任意的。这意味着存在一系列连续的稳定状态：它们都有相同的方向调制活动轮廓，但峰值位置不同。$m(\\theta)$ 的整体幅度由 $c$ 决定，但活动轮廓的形状仅由皮层相互作用决定。特别是，$m(\\theta)$ 的宽度独立于 $c$，但强烈依赖于 $J_{2}$ 的大小。$J_{2}$ 越大，宽度越小。我们将这种解称为边际相，因为不同吸引子之间没有障碍。这意味着从一个吸引子到另一个吸引子的运动比在相空间的其他方向上的运动更容易。当边际解存在时，朴素的均匀解是不稳定的。\nIn reality, the location of the peak of the activity is not arbitrary but is determined by the orientation of the external input. Therefore, in a realistic implementation of the last scenario $\\epsilon$ should be assumed to be small but nonzero. Since $\\epsilon$ is small, the main effect of the anisotropy of the input is to select among the continuum of possible states that state in which the location of the peak in the activity matches theorientation of the stimulus, but it will not affect the shape of the tuning curve very much. This is indeed borne out by a solution of the mean-field equations with a small nonzero $\\epsilon$ and large $J_{0}$ and $J_{2}$. There is a unique stable state, $m(\\theta) = M(\\theta - \\theta_{0})$, where $M(\\theta)$ is approximately the same as for $\\epsilon = 0$. Whereas when $\\epsilon = 0$, $\\theta_{C}$ was independent of $c$, and when $\\epsilon$ is nonzero, $\\theta_{C}$ vanishes as $c\\to 1$. However, this decrease in $\\theta_{C}$ occurs in a very narrow range of $c$ near threshold, $c - 1 = O(\\epsilon)$, as shown in Fig. 1B (solid line). The value of $\\theta_{C}$ for larger $c$ is independent of $c$. It is also insensitive to changes in the value of $\\epsilon$, as shown in Fig. 1C (solid line).\n在现实中，活动峰值的位置不是任意的，而是由外部输入的方向决定的。因此，在最后一种情景的现实实现中，$\\epsilon$ 应假设为小但非零。由于 $\\epsilon$ 很小，输入各向异性的主要作用是在可能状态的连续体中选择一个状态，即活动峰值的位置与刺激方向匹配，但它不会太影响调制曲线的形状。通过对具有小非零 $\\epsilon$ 和大 $J_{0}$ 及 $J_{2}$ 的平均场方程求解，确实验证了这一点。存在一个唯一稳定状态 $m(\\theta) = M(\\theta - \\theta_{0})$，其中 $M(\\theta)$ 大致与 $\\epsilon = 0$ 时相同。当 $\\epsilon = 0$ 时，$\\theta_{C}$ 独立于 $c$，而当 $\\epsilon$ 非零时，$\\theta_{C}$ 在 $c\\to 1$ 时消失。然而，如图1B(实线)所示，这种 $\\theta_{C}$ 的减小发生在阈值附近的非常狭窄的 $c$ 范围内，即 $c - 1 = O(\\epsilon)$。较大 $c$ 时的 $\\theta_{C}$ 值独立于 $c$。如图1C(实线)所示，它对 $\\epsilon$ 值的变化也不敏感。\nFic. 1. Dependence of the orientation tuning with $\\theta_{C}$ on the stimulus contrast and input anisotropy, for different mechanisms of tuning. The angle $\\theta_{C}$ is the half-width of the tuning curve: neurons with POs of $\u003e\\theta_{C}$ away from the stimulus orientation are not activated. (A) The Hubel-Wiesel model, where the cortical interaction parameters $J_{0}$ and $J_{2}$ are zero. The tuning width is plotted against the contrast of the visual stimulus, $c$, for different values of the input anisotropy param- eter, $\\epsilon:\\epsilon = 0.1, 0.3$, and $0.5$ (dot-dashed, dashed, and solid lines, respectively). For $\\epsilon \u003c 0.5$, there is a critical value of $c$ above which $\\theta_{C} = \\pi/2$, meaning that all neurons are activated by all stimuli. In the range where $\\theta_{C}$ is small, it strongly depends on the level of contrast. Note that $\\epsilon = 0.5$ is the maximal value of anisotropy in our model. Here and in Figs. 2 and 3, $\\beta = 0.1$. (B) Effect of cortical interactions on the tuning width. Dashed curve is for uniform cortical inhibition, with $\\epsilon = 0.5$, $J_{0} = 155$, and $J_{2} = 0$. The solid line is for parameters close to the marginal phase, where the tuning is dominated by the cortical interactions. In this case, 6c saturates quickly to $\\approx 30°$, while the level of maximal activity is still far from saturation (data not shown). Parameters are $\\epsilon = 0.01$, $J_{0} = 86$, and $J_{2} = 112$. They were chosen so that the value of 8c agrees with the average value of the half-width for simple cells in the cat visual cortex. (C) The tuning width as a function of the input anisotropy in the limit $c\\gg 1$. The solid line is for the marginal phase; the dashed curve is for the Hubel-Wiesel mechanism with uniform cortical inhibition. Parameters are as in B.\n图1. 不同调制机制下，调制宽度 $\\theta_{C}$ 对刺激对比度和输入各向异性的依赖性。角度 $\\theta_{C}$ 是调制曲线的半宽度：PO 与刺激方向相差 $\u003e\\theta_{C}$ 的神经元不会被激活。(A) Hubel-Wiesel 模型，其中皮层相互作用参数 $J_{0}$ 和 $J_{2}$ 为零。调制宽度与视觉刺激对比度 $c$ 的关系绘制在不同输入各向异性参数 $\\epsilon$ 下：$\\epsilon = 0.1, 0.3$ 和 $0.5$（分别为点划线、虚线和实线）。对于 $\\epsilon \u003c 0.5$，存在一个临界值的 $c$，超过该值时 $\\theta_{C} = \\pi/2$，意味着所有神经元都被所有刺激激活。在 $\\theta_{C}$ 较小的范围内，它强烈依赖于对比度水平。请注意，$\\epsilon = 0.5$ 是我们模型中各向异性的最大值。在此图和图2及图3中，$\\beta = 0.1$。(B) 皮层相互作用对调制宽度的影响。虚线曲线表示均匀皮层抑制，参数为 $\\epsilon = 0.5$，$J_{0} = 155$ 和 $J_{2} = 0$。实线表示接近边际相的参数，其中调制由皮层相互作用主导。在这种情况下，6c 快速饱和至约30°，而最大活动水平仍远未饱和(数据未显示)。参数为 $\\epsilon = 0.01$，$J_{0} = 86$ 和 $J_{2} = 112$。它们被选择使得 8c 的值与猫视觉皮层中简单细胞的半宽度平均值一致。(C) 在 $c\\gg 1$ 极限下，调制宽度作为输入各向异性的函数。实线表示边际相；虚线曲线表示具有均匀皮层抑制的 Hubel-Wiesel 机制。参数如 B 所示。\nVirtual Rotation An interesting difference between the scenarios described above appears in the time-dependent response of the system to a change in the orientation of the external stimulus. Consider the case where the orientation of the external stimulus is changed at time 0 from $\\theta_{0}=\\theta_{1}$ to $\\theta_{0} = \\theta_{2}$. We assume that initially the stimulus was present long enough so that the system reached a steady-state $m(\\theta)$ with a peak at $\\theta = \\theta_{1}$. How will the population activity respond to the change in orientation? In the case of isotropic cortical interactions ($J_{2} = 0$), the initial activity profile that peaked at $\\theta_{1}$, decays in magnitude while another profile peaked at $\\theta_{2}$ grows, as shown in Fig. 2A. In the marginal phase, the response is drastically different. The population activity is $m(\\theta, t)\\approx M[\\theta - \\phi(t)]$, where $M(\\theta)$ is the activity profile at steady state. We denote this solution as virtual rotation. The activity at time $t$ is similar to that that would occur if there was an external stimulus with an orien- tation $\\theta_{0} = \\phi(t)$. Substituting this form for $m(\\theta, t)$ in the dynamic equations (Eqs. 1 and 2), we find that the variable $\\phi(t)$ obeys $\\dot{\\phi}(t) \\approx - \\omega_{0}\\sin{[2\\phi(t) - 2\\theta_{2}]}$, with $\\phi(t = 0) = \\theta_{1}$. The angular frequency $\\omega_{0}$ is given by\n$$ \\omega_{0}\\tau_{0} = \\epsilon c/(2J_{2}m_{2}) $$\nwhere $m_{2}$ is the second Fourier coefficient of $M(\\theta)$. Note that in the marginal phase $m_{2}$ remains finite even for small $\\epsilon$. Thus, $\\omega_{0}$, the angular velocity of the activity profile, is determined by the ratio of the modulation amplitudes of the external input and of the cortical synaptic input. This result is valid provided $\\omega_{0}\\tau_{0} = O(\\epsilon)\\ll 1$. An example is shown in Fig. 2B, which corresponds to a marginal phase with $\\epsilon = 0.01$. The activity profile moves with an (initial) angular velocity $0.2°/\\tau_{0}$, without significant change in its shape. Fig. 2C shows the case of $\\epsilon = 0.1$. Here, the angular velocity is faster by an order of magnitude, as predicted by Eq. 5. In this case, the propagation of the activity is accompanied by significant transient changes in the amplitude of the activity profile.\n在上述情景之间，一个有趣的区别出现在系统对外部刺激方向变化的时间依赖响应中。考虑在时间 0 时外部刺激的方向从 $\\theta_{0}=\\theta_{1}$ 变为 $\\theta_{0} = \\theta_{2}$ 的情况。我们假设最初刺激存在的时间足够长，以使系统达到峰值在 $\\theta = \\theta_{1}$ 处的稳态 $m(\\theta)$。群体活动将如何响应方向的变化？在各向同性皮层相互作用($J_{2} = 0$)的情况下，最初在 $\\theta_{1}$ 处达到峰值的活动轮廓，其幅度衰减，而在 $\\theta_{2}$ 处达到峰值的另一个轮廓增长，如图2A所示。在边际相中，响应截然不同。群体活动为 $m(\\theta, t)\\approx M[\\theta - \\phi(t)]$，其中 $M(\\theta)$ 是稳态下的活动轮廓。我们将这种解称为虚拟旋转。时间 $t$ 时的活动类似于如果存在一个方向为 $\\theta_{0} = \\phi(t)$ 的外部刺激时会发生的情况。将这种形式的 $m(\\theta, t)$ 代入动态方程(方程1和2)，我们发现变量 $\\phi(t)$ 遵循 $\\dot{\\phi}(t) \\approx - \\omega_{0}\\sin{[2\\phi(t) - 2\\theta_{2}]}$，其中 $\\phi(t = 0) = \\theta_{1}$。角频率 $\\omega_{0}$ 由下式给出\n$$ \\omega_{0}\\tau_{0} = \\epsilon c/(2J_{2}m_{2}) $$\n其中 $m_{2}$ 是 $M(\\theta)$ 的第二傅里叶系数。请注意，在边际相中，即使对于小 $\\epsilon$，$m_{2}$ 仍然是有限的。因此，活动轮廓的角速度 $\\omega_{0}$ 由外部输入和皮层突触输入的调制幅度之比决定。该结果在 $\\omega_{0}\\tau_{0} = O(\\epsilon)\\ll 1$ 时有效。图 2B 显示了一个例子，对应于 $\\epsilon = 0.01$ 的边际相。活动轮廓以初始角速度 $0.2°/\\tau_{0}$ 移动，而其形状没有显著变化。图2C显示了 $\\epsilon = 0.1$ 的情况。在这种情况下，角速度比方程5预测的快一个数量级。在这种情况下，活动的传播伴随着活动轮廓幅度的显著瞬态变化。\nFıc.2. Evolution ofneuronal activity in response to a change in the stimulus orientation from an initial value $\\theta_{1} = 0°$ to $\\theta_{2} = 60°$. The change occurs at $t = 0$. (A) Hubel-Wiesel model with uniform inhibition. The activity profile centered at $0°$ decays while a new one, centered around $60°$, grows. Neurons in intermediate columns (e.g., with $0 = 30°$) stay in the quiescent state during the whole process. The time constant of the decay and growth is $\\tau_{0}$. Times are 0, 0.5, 1, 2, and 6 $\\tau_{0}$ (lines 1-5, respectively). Parameters are as in Fig. 1B (dashed line) and $c = 5$. For this value of contrast, the maximal activity level relative to saturation is 0.1, which corresponds to a rate of $\\approx 50$ spikes per sec. (B) Virtual rotation in the marginal phase. The activity profile moves toward $\\theta_{2}$, activating successively the intermediate columns, and undergoing only very small changes during the process. $c = 1.678$; other parameters are as in Fig. 1B (solid line). Times are (left to right) 0, 90, 210, and 600 $\\tau_{0}$. (C) Virtual rotation accompanied by deformations in the activity profile. The magnitude of the deformations depends on the magnitude of $\\epsilon$. Here $\\epsilon = 0.1$, $J_{0} = 73$, $J_{2} = 110$, and $c = 1.45$. Times are (left to right) 0, 2, 10, 20, and 60 $\\tau_{0}$. By assuming $\\tau_{0} = 5\\text{ msec}$, the predicted rotation velocity is 200 to 400°/sec.\n图2. 神经元活动对刺激方向从初始值 $\\theta_{1} = 0°$ 变为 $\\theta_{2} = 60°$ 的响应演化。变化发生在 $t = 0$。(A) 具有均匀抑制的 Hubel-Wiesel 模型。以 $0°$ 为中心的活动轮廓衰减，而以 $60°$ 为中心的新轮廓增长。在整个过程中，中间柱(例如，$0 = 30°$)的神经元保持静止状态。衰减和增长的时间常数为 $\\tau_{0}$。时间分别为 0、0.5、1、2 和 6 $\\tau_{0}$（分别为线1-5）。参数如图1B(虚线)所示，且 $c = 5$。对于该对比度值，相对于饱和的最大活动水平为0.1，对应于约每秒50次尖峰率。(B) 边际相中的虚拟旋转。活动轮廓向 $\\theta_{2}$ 移动，依次激活中间柱，并在过程中仅经历非常小的变化。$c = 1.678$；其他参数如图1B(实线)所示。时间分别为（从左到右）0、90、210 和 600 $\\tau_{0}$。(C) 活动轮廓伴随变形的虚拟旋转。变形幅度取决于 $\\epsilon$ 的大小。这里 $\\epsilon = 0.1$，$J_{0} = 73$，$J_{2} = 110$，且 $c = 1.45$。时间分别为（从左到右）0、2、10、20 和 60 $\\tau_{0}$。假设 $\\tau_{0} = 5\\text{ msec}$，预测的旋转速度为 200 至 400°/秒。\nCCs The CC function $C(\\theta,\\theta^{\\prime};\\tau)$ measures the correlation between the temporal fluctuations in the rate of activity of a neuron $\\theta$ at time $t$ and that of another neuron, $\\theta^{\\prime}$, at $t + \\tau$. In our model, these fluctuations arise from the underlying stochasticity of the neuronal dynamics. The deterministic mean-field equations, Eq. 1, neglect these small fluctuations. To study the CCs induced by these fluctuations, we have applied a recently developed theory of correlations in stochastic neural networks and calculated analytically the CCs in our model for various parameter regimes. We consider here the CCs between excitatory neurons in the case of uniform inhibition and in the marginal phase. In the uniform inhibition case, the CCs are independent of $\\theta$, $\\theta^{\\prime}$, and $\\theta_{0}$, as long as the two neurons are activated by the stimulus, and the CCs decay on a fast time scale, of the order of the microscopic time constant $\\tau_{0}$. This is shown in Fig. 3A. The results for the marginal phase are drastically different. Here, in addition to fast-decaying com- ponents, the CCs possess also a slow component that has the following unique dependence on $\\theta$, $\\theta^{\\prime}$, and $\\theta_{0}$,\n$$ C(\\theta,\\theta^{\\prime};\\tau) \\propto \\frac{1}{\\epsilon}\\sin{(2\\theta-2\\theta_{0})}\\sin{(2\\theta^{\\prime}-2\\theta_{0})}\\exp{(-\\epsilon|\\tau|/\\tau_{0})} $$\nThus, the longest decay time of the CCs is $\\tau_{0}/\\epsilon$, where $\\epsilon$ is the amplitude of the angular modulation of the input, which is assumed to be small in this phase. The magnitude of the slow component is big, on the order of $\\epsilon^{-1}$. This slow component results from the fact that in the marginal phase, the noise induces random slow wandering of the system between neighboring attractors, thus generating small random virtual rotations.\nCC 函数 $C(\\theta,\\theta^{\\prime};\\tau)$ 测量时间 $t$ 时神经元 $\\theta$ 的活动率波动与另一神经元 $\\theta^{\\prime}$ 在 $t + \\tau$ 时的活动率波动之间的相关性。在我们的模型中，这些波动源自神经元动力学的潜在随机性。确定性的平均场方程，见方程1，忽略了这些小波动。为了研究这些波动引起的 CCs，我们应用了最近开发的随机神经网络相关性理论，并在各种参数范围内分析计算了我们模型中的 CCs。我们在这里考虑均匀抑制和边际相情况下兴奋性神经元之间的 CCs。在均匀抑制情况下，只要两个神经元被刺激激活，CCs 独立于 $\\theta$、$\\theta^{\\prime}$ 和 $\\theta_{0}$，并且 CCs 在快速时间尺度上衰减，其数量级为微观时间常数 $\\tau_{0}$。如图3A所示。边际相的结果截然不同。在这里，除了快速衰减的分量外，CCs 还具有一个缓慢分量，其对 $\\theta$、$\\theta^{\\prime}$ 和 $\\theta_{0}$ 具有以下独特依赖性，\n$$ C(\\theta,\\theta^{\\prime};\\tau) \\propto \\frac{1}{\\epsilon}\\sin{(2\\theta-2\\theta_{0})}\\sin{(2\\theta^{\\prime}-2\\theta_{0})}\\exp{(-\\epsilon|\\tau|/\\tau_{0})} $$\n因此，CCs 的最长衰减时间为 $\\tau_{0}/\\epsilon$，其中 $\\epsilon$ 是输入角向调制的幅度，在该相中假设其较小。缓慢分量的幅度很大，数量级为 $\\epsilon^{-1}$。这种缓慢分量源于这样一个事实：在边际相中，噪声引起系统在邻近吸引子之间的随机缓慢游荡，从而产生小的随机虚拟旋转。\nThe result (Eq. 6) implies that not only the magnitude but also the sign of the CC between a pair of neurons may depend on the stimulus orientation. If the stimulus orientation is larger or smaller than both $\\theta$ and $\\theta^{\\prime}$, the CC is positive. On the other hand, if $\\theta_{0}$ is intermediate between the two POs, the CC is negative, despite the fact that the direct interaction between the two neurons is positive. These results are shown in Fig. 3 B-D, where we present the full CCs in the marginal phase. Comparing these results with Eq. 6, it is seen that the prop- erties of the CCs at short $\\tau$ are affected by the contributions from the fast-decaying noncritical modes of fluctuations, which generate a narrow positive peak near the center. The long-time component is dominated by the critical mode.\n该结果(方程6)意味着不仅幅度，而且一对神经元之间的 CC 的符号可能取决于刺激方向。如果刺激方向大于或小于 $\\theta$ 和 $\\theta^{\\prime}$，则 CC 为正。另一方面，如果 $\\theta_{0}$ 位于两个 PO 之间，则 CC 为负，尽管两神经元之间的直接相互作用为正。这些结果显示在图3 B-D中，我们展示了边际相中的完整 CCs。将这些结果与方程6进行比较，可以看出，在短 $\\tau$ 下，CCs 的属性受到快速衰减的非临界波动模式贡献的影响，这些模式在中心附近产生一个狭窄的正峰。长期分量由临界模式主导。\nFic. 3. Time-dependent CC between the fluctuations in the activity of two excitatory neurons, $\\theta = -10°$ and $\\theta^{\\prime} = 10°$, responding to a common oriented stimulus. (A) Uniform inhibition. The CC decay has a time constant on the order of $\\tau_{0}$. The CCs are independent of the stimulus orientation $\\theta_{0}$ (data not shown), as long as both neurons are activated by it. Parameters are as in Fig. 2A. The vertical scale displays the CCs multiplied by the number of excitatory neurons in the network, $N_{E}$. (B-D) CCs in the marginal phase for different stimulus orientations. Parameters are as in Fig. 2B. The CCs exhibit a slow- decaying component, with a time constant, $\\tau_{0}/\\epsilon$, and a magnitude that scales as $\\epsilon^{-1}$. (B) $\\theta_{0} = 0°$, i.e., between 6 and 6’, which results in a negative slow component, as predicted by Eq. 6. (C) $\\theta_{0} = 10°$, for which the slow component vanishes. (D) $\\theta_{0} = 16°$, for which the slow component becomes positive.\n图3. 两个兴奋性神经元 $\\theta = -10°$ 和 $\\theta^{\\prime} = 10°$ 对共同定向刺激的活动波动之间的时间依赖 CC。(A) 均匀抑制。CC 衰减的时间常数约为 $\\tau_{0}$。只要两个神经元都被激活，CCs 独立于刺激方向 $\\theta_{0}$（数据未显示）。参数如图2A所示。垂直刻度显示 CCs 乘以网络中兴奋性神经元的数量 $N_{E}$。(B-D) 边际相中的 CCs，针对不同的刺激方向。参数如图2B所示。CCs 展现出一个缓慢衰减的分量，其时间常数为 $\\tau_{0}/\\epsilon$，幅度按 $\\epsilon^{-1}$ 进行缩放。(B) $\\theta_{0} = 0°$，即在 6 和 6’ 之间，导致负的缓慢分量，如方程6所预测。(C) $\\theta_{0} = 10°$，此时缓慢分量消失。(D) $\\theta_{0} = 16°$，此时缓慢分量变为正值。\nDiscussion By using a simple neural network model, we have studied theoretically the consequences of different mechanisms for orientation selectivity in visual cortex. The network architecture is consistent with the known anatomy and physiology of visual cortex. In particular, the assumed angular modulation of the intracortical interactions, Eq. 3, is supported by the spatial distributions of the dendritic and axonal arborizations in primary visual cortex. We find that if the amplitude of the cortical angular modulation, $J_{2}$, is sufficiently strong, the network can be in a state where the orientation tuning is dominated by the cortical circuitry. This state has several characteristic properties that can be verified experimentally. First, the tuning width is largely independent of stimulus properties such as its contrast and its degree of anisotropy. Indeed, invariance of the tuning width to contrast has been well documented. Measuring the effect of decreasing the angular anisotropy of a stimulus on the orientation selectivity would be an additional important test.\n通过使用一个简单的神经网络模型，我们理论上研究了视觉皮层中不同方向选择机制的后果。网络架构与视觉皮层的已知解剖学和生理学一致。特别是，假设的皮层内相互作用的角向调制(见方程 3)得到了初级视觉皮层中树突和轴突树枝分布的支持。我们发现，如果皮层角向调制的幅度 $J_{2}$ 足够强，网络可以处于一个状态，在该状态下方向调制由皮层回路主导。该状态具有几个特征属性，可以通过实验验证。首先，调制宽度在很大程度上独立于刺激属性，如其对比度及其各向异性程度。实际上，调制宽度对比度的不变性已被充分记录。测量减少刺激角向各向异性对方向选择性的影响将是另一个重要的测试。\nThe second characteristic, the virtual rotation, can be verified by measuring the transient response of primary visual cortex to an abrupt change in the orientation of a visual stimulus. Our model may suggest a neural mechanism for the psychophysical mental rotation that has been observed in object recognition. The initial velocities displayed in Fig. 2 B and C, assuming that $\\tau_{0}$ is in the range of 5-10 msec, are consistent with the observed angular velocity of mental rotation in psychophysical experiments, ranging between 60°/sec and 400°/sec. Of course, other neuronal mechanisms for mental rotation are possible.\n第二个特征，虚拟旋转，可以通过测量初级视觉皮层对视觉刺激方向突然变化的瞬态响应来验证。我们的模型可能为在物体识别中观察到的心理旋转提供了一种神经机制。假设 $\\tau_{0}$ 在 5-10 毫秒范围内，图2 B 和 C 中显示的初始速度与心理物理实验中观察到的心理旋转角速度一致，范围在 60°/秒至 400°/秒之间。当然，心理旋转还可能存在其他神经机制。\nWe have shown here that neuronal CCs are potentially important indicators of neuronal cooperativity. In our case, we predict that if cortical circuitry plays a dominant role in the orientation-selective response, CCs should exhibit a slow component, the sign of which depends on the orientation of the stimulus relative to the POs of the correlated neurons. If one averages over all stimuli, then the resultant average CCs should exhibit slow components that are positive for pairs of neurons with similar POs, and negative for largely dissimilar ones. Long time tails in CCs, which extend to several hundred milliseconds, are frequently observed in cortical areas, including primary visual cortex. Testing our theory requires systematic measurements of the slow components of CCs of pairs of neurons in different orientation columns that are coactivated by the same stimulus. Negative CCs, although relatively rare, have been observed in several cortical areas. Some of these correlations may be due to cooperative effects similar to those predicted here.\n我们在这里展示了神经元 CCs 可能是神经元合作的重要指标。在我们的情况下，我们预测如果皮层回路在方向选择性响应中起主导作用，CCs 应该表现出一个缓慢分量，其符号取决于刺激方向相对于相关神经元的 PO。如果对所有刺激进行平均，则结果平均 CCs 应该表现出缓慢分量，对于具有相似 PO 的神经元对为正，而对于大致不同的神经元对为负。在包括初级视觉皮层在内的皮层区域中，经常观察到 CCs 中的长时间尾巴，延伸至数百毫秒。测试我们的理论需要系统地测量由同一刺激共同激活的不同方向柱中神经元对的 CCs 的缓慢分量。尽管相对罕见，但在几个皮层区域中已经观察到负 CCs。其中一些相关性可能是由于类似于这里预测的合作效应引起的。\nWe have focused in this work on visual cortex. However, our approach can be applied also to the study of the role of local cortical interactions in other areas, primarily in motor areas, although the nature of the synaptic inputs to these areas is less clear. This is supported by the virtual rotation exhibited by the activity profiles of populations of neurons that are tuned to the direction of limb movement. Indeed, a network model that is similar to ours in some aspects was recently proposed for that system. It should be noted that the virtual rotation exhibited by our model is a direct outcome of the marginality of the network state and does not involve an active modulation of synapses, as in ref. 21. Also, the study of the neuronal correlations requires a more complex dynamics than the smooth deterministic model of ref. 21. As shown by our work, the correlations between a pair of neurons are not directly related to the value of the interactions between them. Instead, they are a consequence of the cooperative dynamical fluctuations in the network to which they belong.\n我们在这项工作中专注于视觉皮层。然而，我们的方法也可以应用于研究局部皮层相互作用在其他区域中的作用，主要是在运动区域，尽管这些区域的突触输入性质不太清楚。这得到了对调节肢体运动方向的神经元群体活动轮廓所表现出的虚拟旋转的支持。实际上，最近为该系统提出了一个在某些方面类似于我们的网络模型。需要注意的是，我们模型所表现出的虚拟旋转是网络状态边际性的直接结果，并不涉及突触的主动调制，如参考文献21所述。此外，神经元相关性的研究需要比参考文献21中的平滑确定性模型更复杂的动力学。正如我们的工作所示，一对神经元之间的相关性并不直接与它们之间相互作用的值相关。相反，它们是它们所属网络中合作动态波动的结果。\nFinally, we note that the marginal phase in the present theory is a result of the underlying angular symmetry of our model. It is thus similar to marginal phases that appear in physical systems at thermal equilibrium whenever a continuous symmetry is spontaneously broken. In particular, these systems exhibit “critical transverse correlations” that are similar to the slowly decaying CCs predicted here.\n最后，我们注意到当前理论中的边际相是我们模型的潜在角向对称性的结果。因此，它类似于在热平衡的物理系统中出现的边际相，每当连续对称性被自发打破时。特别是，这些系统表现出“临界横向相关性”，类似于这里预测的缓慢衰减的 CCs。\n",
+  "wordCount" : "12509",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2025/11/24/BWUica1QGNP6rLH.png","datePublished": "2025-11-24T00:18:23+08:00",
+  "dateModified": "2025-11-24T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/reference/theory-of-orientation-tuning-in-visual-cortex/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/reference/">📕 文献</a></div>
+            <h1 class="post-title">
+                Theory of Orientation Tuning in Visual Cortex
+            </h1>
+            <div class="post-description">
+                视觉皮层中方向调制的理论
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2025-11-24
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>12509字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>25分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2025/11/24/BWUica1QGNP6rLH.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#model" aria-label="Model">Model</a></li>
+                <li>
+                    <a href="#mechanisms-for-orientation-selectivity" aria-label="Mechanisms for Orientation Selectivity">Mechanisms for Orientation Selectivity</a><ul>
+                        
+                <li>
+                    <a href="#mean-field-solution" aria-label="Mean-Field Solution">Mean-Field Solution</a></li>
+                <li>
+                    <a href="#hubel-and-wiesel-scenario" aria-label="Hubel and Wiesel Scenario">Hubel and Wiesel Scenario</a></li>
+                <li>
+                    <a href="#uniform-inhibition" aria-label="Uniform Inhibition">Uniform Inhibition</a></li>
+                <li>
+                    <a href="#marginal-phase" aria-label="Marginal Phase">Marginal Phase</a></li></ul>
+                </li>
+                <li>
+                    <a href="#virtual-rotation" aria-label="Virtual Rotation">Virtual Rotation</a></li>
+                <li>
+                    <a href="#ccs" aria-label="CCs">CCs</a></li>
+                <li>
+                    <a href="#discussion" aria-label="Discussion">Discussion</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>The role of intrinsic cortical connections in processing sensory input and in generating behavioral output is poorly understood. We have examined this issue in the context of the tuning of neuronal responses in cortex to the orientation of a visual stimulus. We analytically study a simple network model that incorporates both orientationselective input from the lateral geniculate nucleus and orientation-specific cortical interactions.
+Depending on the model parameters, the network exhibits orientation selectivity that originates from within the cortex, by a <strong>symmetrybreaking mechanism</strong>. In this case, the width of the orientation tuning can be sharp even if the lateral geniculate nucleus inputs are only weakly <strong>anisotropic</strong>.
+By using our model, several experimental consequences of this cortical mechanism of orientation tuning are derived. The tuning width is relatively independent of the contrast and angular anisotropy of the visual stimulus. The transient population response to changing of the stimulus orientation exhibits a slow &ldquo;virtual rotation.&rdquo; Neuronal cross-correlations exhibit long time tails, the sign of which depends on the preferred orientations of the cells and the stimulus orientation.</p>
+</blockquote>
+<p>皮层内在连接在处理感觉输入和生成行为输出中的作用尚不清楚。我们在视觉刺激方向对皮层中神经元反应调制的背景下研究了这个问题。我们分析性地研究了一个简单的网络模型，该模型结合了来自外侧膝状体核的方向选择性输入和方向特异性皮层相互作用。
+根据模型参数，网络表现出源自皮层内部的方向选择性(通过一种<strong>对称性破缺机制</strong>)。在这种情况下，即使外侧膝状体核输入仅具有弱<strong>各向异性</strong>，方向调制的宽度也可以很窄。
+通过使用我们的模型，推导出了这种皮层方向调制机制的几个实验结果。调制宽度相对独立于视觉刺激的对比度和角向各向异性。对刺激方向变化的瞬态群体反应表现出缓慢的“虚拟旋转”。神经元交叉相关表现出长时间尾巴，其符号取决于细胞的优选方向和刺激方向。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>Neurons in the primary visual cortex respond preferentially to edges with a particular orientation. The input to the cortex is provided by neurons in the lateral geniculate nucleus (LGN), which respond independently of the stimulus orientation. The mechanism for the generation of orientation selectivity in the cortex is not fully known. According to the classical model of Hubel and Wiesel, the <strong>preferred orientation (PO)</strong> of a cortical cell originates from the geometrical alignment of the circular receptive fields of the LGN neurons that are afferent to it. The experimental evidence of this model is ambiguous. The alignment of the receptive fields of the LGN inputs to a cortical cell apparently parallels the cell&rsquo;s PO . However, suppression of cortical inhibition tends to considerably degrade orientation tuning, suggesting that cortical circuitry plays an important role in shaping the relatively sharp orientation tuning in the cortex. Furthermore, estimates based on intracellular measurements indicate that most of the orientation-selective excitatory input to cortical cells comes from cortical feedback. Several models implicating cortical inhibition have been proposed (for reviews, see refs. 7 and 8). Their analysis, however, is hindered by the need to resort to massive numerical simulations of the different models. Computational complexity also precluded a detailed study of the role of the cortical excitatory connections. An important constraint on modeling orientation selectivity, which has not yet been fully addressed, is the experimental finding that the tuning width is relatively insensitive to the contrast of the stimulus. Most experimental and theoretical studies of orientation selectivity focus on the response properties of single neurons. However, valuable insight into the cooperativity among cortical neurons can be gained from measurements of the correlations between the responses of different neurons. Theoretical predictions regarding the magnitude and form of correlation functions in neuronal networks have been lacking.</p>
+</blockquote>
+<p>初级视觉皮层中的神经元对具有特定方向的边缘有优先反应。皮层的输入由外侧膝状体核(LGN)中的神经元提供，这些神经元对刺激方向独立响应。皮层中方向选择性产生的机制尚不完全清楚。根据 Hubel 和 Wiesel 的经典模型，皮层细胞的 <strong>优选方向(PO)</strong> 源自传入该细胞的 LGN 神经元的圆形感受野的几何排列。该模型的实验证据是模糊的。传入皮层细胞的 LGN 输入的感受野排列显然与细胞的 PO 平行。然而，抑制皮层抑制倾向于显著降低方向调制，表明皮层电路在塑造皮层中相对尖锐的方向调制中起着重要作用。此外，基于细胞内测量的估计表明，大多数对皮层细胞具有方向选择性的兴奋性输入来自皮层反馈。已经提出了几种涉及皮层抑制的模型(综述见参考文献7和8)。然而，它们的分析受到需要诉诸于不同模型的大规模数值模拟的阻碍。计算复杂性也阻止了对皮层兴奋性连接作用的详细研究。对建模方向选择性的一个重要限制是实验发现调制宽度对刺激对比度相对不敏感，这一点尚未得到充分解决。大多数关于方向选择性的实验和理论研究都集中在单个神经元的响应特性上。然而，通过测量不同神经元响应之间的相关性，可以获得有关皮层神经元之间协作的重要见解。关于神经网络中相关函数的大小和形式的理论预测一直缺乏。</p>
+<blockquote>
+<p>Here we study mechanisms for orientation selectivity by using a simple neural network model that captures the gross architecture of primary visual cortex. By assuming simplified neuronal stochastic dynamics, the network properties have been solved analytically, thereby providing a useful framework for the study of the roles of the input and the intrinsic connections in the formation of orientation tuning in the cortex. Furthermore, by using a recently developed theory of neuronal correlation functions in large stochastic networks, we have calculated the cross-correlations (CCs) between the neurons in the network. We show that different models of orientation selectivity may give rise to qualitatively different spatiotemporal patterns of neuronal correlations. These predictions can be tested experimentally.</p>
+</blockquote>
+<p>在这里，我们使用一个简单的神经网络模型来研究方向选择性的机制，该模型捕捉了初级视觉皮层的总体结构。通过假设简化的神经元随机动力学，网络属性已经被解析地解决，从而为研究输入和内在连接在皮层中形成方向调制中的作用提供了有用的框架。此外，通过使用最近开发的大型随机网络中神经元相关函数的理论，我们计算了网络中神经元之间的交叉相关(CCs)。我们表明，不同的方向选择性模型可能会产生定性上不同的神经元相关性的时空模式。这些预测可以通过实验进行测试。</p>
+<h1 id="model">Model<a hidden class="anchor" aria-hidden="true" href="#model">#</a></h1>
+<blockquote>
+<p>We consider a network model with an architecture of a cortical hypercolumn. It consists of $N_{E}$ excitatory neurons and $N_{I}$ inhibitory neurons that respond selectively to a small oriented visual stimulus in a common receptive field. The neurons are parameterized by an angle $\theta$, ranging from $-\pi/2$ to $+\pi/2$, that denotes their POs. The interaction between a presynaptic excitatory neuron $\theta^{\prime}$ and a postsynaptic excitatory or inhibitory neuron $\theta$ is equal to $N_{E}^{-1}E(\theta-\theta^{\prime})$. Similarly, the interaction between a presynaptic inhibitory neuron and a postsynaptic neuron is $N_{I}^{-1}(\theta-\theta^{\prime})$. The functions $E(\theta-\theta^{\prime})$ and $I(\theta-\theta^{\prime})$ represent the fact that the strength of the interactions between two orientation columns depends on the difference between their POs. The synaptic input from the LGN to a neuron $\theta$ is denoted as $h^{\text{ext}}(\theta-\theta_{0})$, where $\theta_{0}$ is the orientation of the external stimulus. Neurons switch stochastically between a quiescent state [denoted as $S(\theta) = 0$], representing a state with background firing rate ($\approx 5$ spikes per sec), and an active state [$S(\theta) = 1$], representing a state with saturated firing rate (~500 spikes per sec). The transition rates between these states are governed by a sigmoidal gain function, $g[h(\theta, t)]$, where $h(\theta, t)$ is the total synaptic input to the neuron $\theta$ at time $t$. By assuming that the number of neurons is large and that they cover uniformly all the angles, the activity profile in the network at time $t$ can be represented by a continuous function $m(\theta,t)$, $0\leq m\leq 1$. This function denotes the mean activity level, relative to the saturation activity level, of the neurons with POs in the neighborhood of $\theta$, at time $t$. Note that since the synaptic inputs to the excitatory and the inhibitory neurons in our model are the same, $m(\theta, t)$ describes the mean activity levels of both types of neurons.</p>
+</blockquote>
+<p>我们考虑一个具有皮层超柱结构的网络模型。它由 $N_{E}$ 个兴奋性神经元和 $N_{I}$ 个抑制性神经元组成，这些神经元选择性地响应共同感受野中的小定向视觉刺激。神经元由一个角度 $\theta$ 参数化，范围从 $-\pi/2$ 到 $+\pi/2$，表示它们的 PO。一个突触前兴奋性神经元 $\theta^{\prime}$ 和一个突触后兴奋性或抑制性神经元 $\theta$ 之间的相互作用等于 $N_{E}^{-1}E(\theta-\theta^{\prime})$。类似地，一个突触前抑制性神经元和一个突触后神经元之间的相互作用是 $N_{I}^{-1}(\theta-\theta^{\prime})$。函数 $E(\theta-\theta^{\prime})$ 和 $I(\theta-\theta^{\prime})$ 表示两个方向柱之间相互作用的强度取决于它们 PO 之间的差异。从 LGN 到神经元 $\theta$ 的突触输入表示为 $h^{\text{ext}}(\theta-\theta_{0})$，其中 $\theta_{0}$ 是外部刺激的方向。神经元在静止状态[表示为 $S(\theta) = 0$]和活跃状态[$S(\theta) = 1$]之间随机切换，分别表示具有背景发射率(约每秒5个峰值)和饱和发射率(约每秒500个峰值)的状态。这些状态之间的转换速率由一个 S 型增益函数 $g[h(\theta, t)]$ 控制，其中 $h(\theta, t)$ 是时间 $t$ 时神经元 $\theta$ 的总突触输入。通过假设神经元数量很大并且它们均匀覆盖所有角度，网络中时间 $t$ 的活动轮廓可以表示为连续函数 $m(\theta,t)$，其中 $0\leq m\leq 1$。该函数表示在时间 $t$ 时，PO 在 $\theta$ 附近的神经元的平均活动水平，相对于饱和活动水平。请注意，由于我们模型中兴奋性和抑制性神经元的突触输入相同，$m(\theta, t)$ 描述了两种类型神经元的平均活动水平。</p>
+<blockquote>
+<p>In the limit of a large network, $m(\theta,t)$ obeys the following deterministic mean-field equations:</p>
+<p>$$
+\tau_{0}\frac{\mathrm{d}}{\mathrm{d}t}m(\theta, t) = -m(\theta, t) + g[h(\theta, t)]
+$$</p>
+<p>where $\tau_{0}$ is a microscopic characteristic time(a few milliseconds), and the total synaptic input $h(\theta, t)$ is</p>
+<p>$$
+h(\theta, t) = \int^{+\pi/2}_{-\pi/2}\frac{\mathrm{d}\theta^{\prime}}{\pi}J(\theta-\theta^{\prime})m(\theta^{\prime},t) + h^{\text{ext}}(\theta-\theta_{0})
+$$</p>
+<p>Here $J(\theta-\theta^{\prime})$ represents the net interaction between neurons $\theta$ and $\theta^{\prime}$, ie., $J(\theta-\theta^{\prime}) = E(\theta-\theta^{\prime}) + I(\theta-\theta^{\prime})$. We choose $E(\theta) = E_{0} + E_{2}\cos{(2\theta)}$ and $I(\theta) = -I_{0}-I_{2}\cos{(2\theta)}$ with $E_{0}\geq E_{2}\geq 0$, $I_{0}\geq I_{2}\geq 0$. This choice implies that both the excitatory interactions and the inhibitory interactions are maximal for orientation columns with similar POs. This is in accord with the observation that the excitatory and inhibitory postsynaptic potentials to a cell have similar tuning. The net  interaction is</p>
+<p>$$
+J(\theta) = -J_{0} + J_{2}\cos{(2\theta)}
+$$</p>
+<p>with $J_{0} = I_{0} - E_{0}$ and $J_{2} = E_{2} - I_{2}$, both assumed to be positive. The constant $J_{0}$ represents a uniform all-to-all inhibition; $J_{2}$ measures the amplitude of the orientation-specific part of the interaction. Neurons with similar POs are more strongly coupled excitatorily than neurons with dissimilar ones. The external input is taken as</p>
+<p>$$
+h^{\text{ext}}(\theta) = c[1-\epsilon+\epsilon\cos{(2\theta)}]
+$$</p>
+<p>with $0\leq \epsilon \leq 1/2$. The parameter $\epsilon$ denotes the magnitude of the angular anisotropy of the input. The case $\epsilon=0$ denotes the limit where the input to the cortex is fully isotropic. The coefficient $c$ measures the average amplitude of the input and will be referred to as the stimulus contrast. Finally, we use a semilinear gain function, i.e., $g(h) = 0$ for $h\leq T$, $g(h) = \beta(h - T)$ for $h\geq T$, and $g(h) = 1$ for $h\geq T+\beta^{-1}$. The parameter $T$ is the threshold, which will be taken as 1, and $\beta$ is the gain factor. This reflects the experimental finding that neuronal responses exhibit a sharp threshold contrast below which they vanish. Above threshold the mean firing rate of the neuron increases roughly linearly with the contrast. The slope of this rise is represented in our model by the constant $\beta$. Finally, the response saturates at high contrasts. The particular func- tional forms of the interactions, the LGN input and the gain function were chosen for the sake of simplicity. More general forms yield a behavior that is qualitatively similar to the present model.</p>
+</blockquote>
+<p>在大型网络的极限下，$m(\theta,t)$ 遵循以下确定性平均场方程：</p>
+<p>$$
+\tau_{0}\frac{\mathrm{d}}{\mathrm{d}t}m(\theta, t) = -m(\theta, t) + g[h(\theta, t)]
+$$</p>
+<p>其中 $\tau_{0}$ 是一个微观特征时间(几毫秒)，总突触输入 $h(\theta, t)$ 为</p>
+<p>$$
+h(\theta, t) = \int^{+\pi/2}_{-\pi/2}\frac{\mathrm{d}\theta^{\prime}}{\pi}J(\theta-\theta^{\prime})m(\theta^{\prime},t) + h^{\text{ext}}(\theta-\theta_{0})
+$$</p>
+<p>这里 $J(\theta-\theta^{\prime})$ 表示神经元 $\theta$ 和 $\theta^{\prime}$ 之间的净相互作用，即 $J(\theta-\theta^{\prime}) = E(\theta-\theta^{\prime}) + I(\theta-\theta^{\prime})$。我们选择 $E(\theta) = E_{0} + E_{2}\cos{(2\theta)}$ 和 $I(\theta) = -I_{0}-I_{2}\cos{(2\theta)}$，其中 $E_{0}\geq E_{2}\geq 0$，$I_{0}\geq I_{2}\geq 0$。这种选择意味着对于具有相似 PO 的方向柱，兴奋性相互作用和抑制性相互作用都是最大的。这与对细胞的兴奋性和抑制性突触后电位具有类似调制的观察结果是一致的。净相互作用为</p>
+<p>$$
+J(\theta) = -J_{0} + J_{2}\cos{(2\theta)}
+$$</p>
+<p>其中 $J_{0} = I_{0} - E_{0}$ 和 $J_{2} = E_{2} - I_{2}$，两者均假定为正。常数 $J_{0}$ 表示均匀的全连接抑制；$J_{2}$ 测量了相互作用的方向特异性部分的幅度。具有相似 PO 的神经元之间的兴奋性耦合比具有不同 PO 的神经元更强。外部输入取为</p>
+<p>$$
+h^{\text{ext}}(\theta) = c[1-\epsilon+\epsilon\cos{(2\theta)}]
+$$</p>
+<p>其中 $0\leq \epsilon \leq 1/2$。参数 $\epsilon$ 表示输入的角向各向异性的大小。$\epsilon=0$ 的情况表示皮层输入完全各向同性的极限。系数 $c$ 测量输入的平均幅度，将被称为刺激对比度。最后，我们使用半线性增益函数，即对于 $h\leq T$，$g(h) = 0$，对于 $h\geq T$，$g(h) = \beta(h - T)$，对于 $h\geq T+\beta^{-1}$，$g(h) = 1$。参数 $T$ 是阈值，将取为 1，$\beta$ 是增益因子。这反映了实验发现神经元响应表现出一个尖锐的阈值对比度，低于该对比度响应消失。在阈值以上，神经元的平均发射率大致与对比度线性增加。我们模型中这种上升的斜率由常数 $\beta$ 表示。最后，响应在高对比度下饱和。为了简化起见，选择了相互作用、LGN 输入和增益函数的特定函数形式。更一般的形式会产生与当前模型在定性上类似的行为。</p>
+<h1 id="mechanisms-for-orientation-selectivity">Mechanisms for Orientation Selectivity<a hidden class="anchor" aria-hidden="true" href="#mechanisms-for-orientation-selectivity">#</a></h1>
+<h2 id="mean-field-solution">Mean-Field Solution<a hidden class="anchor" aria-hidden="true" href="#mean-field-solution">#</a></h2>
+<blockquote>
+<p>In the steady state, $m(\theta)$ is of the form $m(\theta) = M(\theta - \theta_{0})$, where $M(\theta)$ peaks at $\theta = 0$. It represents the activity profile of the network relative to the orientation of the stimulus. Thus, $M(\theta)$ also represents the tuning curve of a neuron, centered at its PO. This function is given by the solution of the mean-field equation $M(\theta) = g[H(\theta)]$ with $H(\theta)$ being the local field, Eq. 2, centered at 6p. Its value is $H(\theta) = (\epsilon c + J_{2}m_{2})\cos{(2\theta)} + c(1 - \epsilon) - J_{0}m_{0}$, where $m_{0}$ and $m_{2}$ are the zeroth and the second Fourier coefficients of $M(\theta)$. The order parameter mo measures the neuronal activity averaged over the whole network, whereas m2 measures the variation of this activity across the different columns. Self-consistent equa- tions for mo and mz are derived by evaluating the Fourier transform of $M(\theta)$. The resultant form of $M(\theta)$ is $M(\theta) = \beta(\epsilon c + J_{2}m_{2})[\cos{(2\theta)} - \cos{(2\theta_{c})}]$ for $|\theta| &lt; \theta_{C}$ and zero otherwise (see examples in Fig. 2). The cutoff angle $\theta_{C}$, which is determined by the condition $H(\pm\theta_{C}) = 1$, is half of the full width of the tuning curve and will be denoted as the tuning width. The above solution holds for suprathreshold contrast, $c &gt; 1$. Otherwise, $M(\theta)$ is zero. In the following, we study the orientation tuning properties of the steady-state solution. In particular, we examine the dependence of the tuning width on the stimulus contrast, $c$, and anisotropy, $\epsilon$, for different ranges of values of the connectivity parameters.</p>
+</blockquote>
+<p>在稳态下，$m(\theta)$ 的形式为 $m(\theta) = M(\theta - \theta_{0})$，其中 $M(\theta)$ 在 $\theta = 0$ 处达到峰值。它表示相对于刺激方向的网络活动轮廓。因此，$M(\theta)$ 也表示以其 PO 为中心的神经元的调制曲线。该函数由平均场方程 $M(\theta) = g[H(\theta)]$ 的解给出，其中 $H(\theta)$ 是以 6p 为中心的局部场，见方程2。其值为 $H(\theta) = (\epsilon c + J_{2}m_{2})\cos{(2\theta)} + c(1 - \epsilon) - J_{0}m_{0}$，其中 $m_{0}$ 和 $m_{2}$ 分别是 $M(\theta)$ 的零阶和二阶傅里叶系数。序参量 mo 测量整个网络中神经元活动的平均值，而 m2 测量不同柱之间这种活动的变化。通过评估 $M(\theta)$ 的傅里叶变换，导出了 mo 和 mz 的自洽方程。$M(\theta)$ 的结果形式为 $M(\theta) = \beta(\epsilon c + J_{2}m_{2})[\cos{(2\theta)} - \cos{(2\theta_{c})}]$，当 $|\theta| &lt; \theta_{C}$ 时为零，否则为零(见图2中的示例)。截止角 $\theta_{C}$ 由条件 $H(\pm\theta_{C}) = 1$ 确定，是调制曲线全宽度的一半，将被称为调制宽度。上述解适用于超阈值对比度，即 $c &gt; 1$。否则，$M(\theta)$ 为零。在下文中，我们研究稳态解的方向调制特性。特别地，我们检查在不同连接参数值范围内，调制宽度对刺激对比度 $c$ 和各向异性 $\epsilon$ 的依赖性。</p>
+<h2 id="hubel-and-wiesel-scenario">Hubel and Wiesel Scenario<a hidden class="anchor" aria-hidden="true" href="#hubel-and-wiesel-scenario">#</a></h2>
+<blockquote>
+<p>The simplest scenario for orientation tuning is based on the Hubel-Wiesel mechanism. In the context of our model, this scenario corresponds to the case where the only synaptic input is coming from the LGN and this input is strongly anisotropic. Hence, the cortical local interaction $J(\theta)$ is zero and « is substantially bigger than zero. The dependence of the tuning width $\theta_{C}$ on $c$ in this case is shown in Fig. 1A for different values of e. Near threshold (i.e., for $c\to 1$), $\theta_{C}$ vanishes, signaling the sharpening of the tuning width, relative to the input, by the thresholding operation of the cortical neurons. This, however, results in a strong depen- dence of the width on the contrast. As $c$ increases, $\theta_{C}$ grows and beyond a certain value saturates at its maximum value $\pi/2$, which corresponds to the situation where all the neurons are activated by all stimuli.</p>
+</blockquote>
+<p>方向调制的最简单情景基于 Hubel-Wiesel 机制。在我们模型的背景下，这种情景对应于唯一的突触输入来自 LGN 并且该输入具有强各向异性。因此，皮层局部相互作用 $J(\theta)$ 为零，并且 « 显著大于零。图1A 显示了在这种情况下，不同 e 值下调制宽度 $\theta_{C}$ 对 $c$ 的依赖性。在阈值附近(即对于 $c\to 1$)，$\theta_{C}$ 消失，表明通过皮层神经元的阈值操作，相对于输入，调制宽度变窄。然而，这导致宽度对对比度的强依赖性。随着 $c$ 的增加，$\theta_{C}$ 增长，并且超过某个值后饱和在其最大值 $\pi/2$，这对应于所有神经元都被所有刺激激活的情况。</p>
+<h2 id="uniform-inhibition">Uniform Inhibition<a hidden class="anchor" aria-hidden="true" href="#uniform-inhibition">#</a></h2>
+<blockquote>
+<p>A simple cortical mechanism for sharpening the orientation tuning is based on isotropic cortical inhibition. This scenario corresponds in our model to $J_{0} &gt; 0$ and $J_{2} = 0$. In this case, the external input of each neuron has to overcome an effective enhanced threshold that increases with $c$ because of the increase of the inhibitory feedback. Thus, even for $c\gg 1$, the inhibition may provide a sufficiently potent threshold to sharpen the tuning width. This is clearly seen in Fig. 1B (dashed line). Nevertheless, there is a strong dependence of the width on the contrast $c$. In addition, the width depends strongly on the anisotropy of the input, $\epsilon$. In particular, when $\epsilon$ is small, $\theta_{C} = \pi/2$ for large $c$. This is shown in Fig. 1C (dashed line).</p>
+</blockquote>
+<p>基于各向同性皮层抑制的方向调制锐化的简单皮层机制。在我们的模型中，这种情景对应于 $J_{0} &gt; 0$ 和 $J_{2} = 0$。在这种情况下，由于抑制反馈的增加，每个神经元的外部输入必须克服一个随 $c$ 增加的有效增强阈值。因此，即使对于 $c\gg 1$，抑制也可能提供足够强大的阈值来锐化调制宽度。这在图1B(虚线)中清晰可见。然而，宽度对对比度 $c$ 有强烈依赖性。此外，宽度还强烈依赖于输入的各向异性 $\epsilon$。特别是，当 $\epsilon$ 很小时，对于大 $c$，$\theta_{C} = \pi/2$。这在图1C(虚线)中显示。</p>
+<h2 id="marginal-phase">Marginal Phase<a hidden class="anchor" aria-hidden="true" href="#marginal-phase">#</a></h2>
+<blockquote>
+<p>In the cases studied above, the anisotropy of the input to the cortex is the only source of orientation specificity. Can orientation specificity be generated by cortical interactions alone-even in the absence of significant anisotropy in the external input? To answer this question, we have studied the case of $\epsilon = 0$ with $J_{0}$ and $J_{2} &gt; 0$. The assumed rotational symmetry of the cortex implies that when $\epsilon = 0$, there is always a homogeneous solution, $M(\theta) = m_{0}$, which agrees with the naive expectation that the orientation tuning disappears when the external stimulus is isotropic. However, the equations yield also an inhomogeneous solution, provided that the angular modulation of the cortical interactions, $J_{2}$, is big enough, $J_{2} &gt; 2/\beta$. This solution represents a spontaneous generation of orientation tuning. It can be written as $m(\theta) = M(\theta - \phi)$, where the angle $\phi$, which determines the location of the peak in $m(\theta)$, is arbitrary. This means that there is a continuum of stable states: they all have identical orientation tuned activity profiles, but they differ in the location of their peaks. The overall magnitude of $m(\theta)$ is determined by $c$ but the shape of the activity profile is determined only by the cortical interactions. In particular, the width of $m(\theta)$ is inde- pendent of $c$ but strongly depends on the magnitude of $J_{2}$. The bigger $J_{2}$, the smaller the width. We denote this solution a marginal phase because there are no barriers between the different attractors. This implies that the motion from one attractor to another is easier than motions in other directions of phase space. When the marginal solution exists, the naive homogeneous solution is unstable.</p>
+</blockquote>
+<p>在上述研究的情况下，皮层输入的各向异性是方向特异性的唯一来源。即使在外部输入没有显著各向异性的情况下，方向特异性也能仅由皮层相互作用产生吗？为了回答这个问题，我们研究了 $\epsilon = 0$ 且 $J_{0}$ 和 $J_{2} &gt; 0$ 的情况。假设的皮层旋转对称性意味着当 $\epsilon = 0$ 时，总是存在一个均匀解 $M(\theta) = m_{0}$，这与外部刺激各向同性时方向调制消失的朴素预期是一致的。然而，只要皮层相互作用的角向调制 $J_{2}$ 足够大，即 $J_{2} &gt; 2/\beta$，方程还会产生一个非均匀解。该解表示方向调制的自发生成。它可以写成 $m(\theta) = M(\theta - \phi)$，其中角度 $\phi$ 决定了 $m(\theta)$ 峰值的位置，是任意的。这意味着存在一系列连续的稳定状态：它们都有相同的方向调制活动轮廓，但峰值位置不同。$m(\theta)$ 的整体幅度由 $c$ 决定，但活动轮廓的形状仅由皮层相互作用决定。特别是，$m(\theta)$ 的宽度独立于 $c$，但强烈依赖于 $J_{2}$ 的大小。$J_{2}$ 越大，宽度越小。我们将这种解称为边际相，因为不同吸引子之间没有障碍。这意味着从一个吸引子到另一个吸引子的运动比在相空间的其他方向上的运动更容易。当边际解存在时，朴素的均匀解是不稳定的。</p>
+<blockquote>
+<p>In reality, the location of the peak of the activity is not arbitrary but is determined by the orientation of the external input. Therefore, in a realistic implementation of the last scenario $\epsilon$ should be assumed to be small but nonzero. Since $\epsilon$ is small, the main effect of the anisotropy of the input is to select among the continuum of possible states that state in which the location of the peak in the activity matches theorientation of the stimulus, but it will not affect the shape of the tuning curve very much. This is indeed borne out by a solution of the mean-field equations with a small nonzero $\epsilon$ and large $J_{0}$ and $J_{2}$. There is a unique stable state, $m(\theta) = M(\theta - \theta_{0})$, where $M(\theta)$ is approximately the same as for $\epsilon = 0$. Whereas when $\epsilon = 0$, $\theta_{C}$ was independent of $c$, and when $\epsilon$ is nonzero, $\theta_{C}$ vanishes as $c\to 1$. However, this decrease in $\theta_{C}$ occurs in a very narrow range of $c$ near threshold, $c - 1 = O(\epsilon)$, as shown in Fig. 1B (solid line). The value of $\theta_{C}$ for larger $c$ is independent of $c$. It is also insensitive to changes in the value of $\epsilon$, as shown in Fig. 1C (solid line).</p>
+</blockquote>
+<p>在现实中，活动峰值的位置不是任意的，而是由外部输入的方向决定的。因此，在最后一种情景的现实实现中，$\epsilon$ 应假设为小但非零。由于 $\epsilon$ 很小，输入各向异性的主要作用是在可能状态的连续体中选择一个状态，即活动峰值的位置与刺激方向匹配，但它不会太影响调制曲线的形状。通过对具有小非零 $\epsilon$ 和大 $J_{0}$ 及 $J_{2}$ 的平均场方程求解，确实验证了这一点。存在一个唯一稳定状态 $m(\theta) = M(\theta - \theta_{0})$，其中 $M(\theta)$ 大致与 $\epsilon = 0$ 时相同。当 $\epsilon = 0$ 时，$\theta_{C}$ 独立于 $c$，而当 $\epsilon$ 非零时，$\theta_{C}$ 在 $c\to 1$ 时消失。然而，如图1B(实线)所示，这种 $\theta_{C}$ 的减小发生在阈值附近的非常狭窄的 $c$ 范围内，即 $c - 1 = O(\epsilon)$。较大 $c$ 时的 $\theta_{C}$ 值独立于 $c$。如图1C(实线)所示，它对 $\epsilon$ 值的变化也不敏感。</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/25/JRbF5n19ujwcW2o.png" alt=""  /></p>
+<p>Fic. 1. Dependence of the orientation tuning with $\theta_{C}$ on the stimulus contrast and input anisotropy, for different mechanisms of tuning. The angle $\theta_{C}$ is the half-width of the tuning curve: neurons with POs of $&gt;\theta_{C}$ away from the stimulus orientation are not activated. (A) The Hubel-Wiesel model, where the cortical interaction parameters $J_{0}$ and $J_{2}$ are zero. The tuning width is plotted against the contrast of the visual stimulus, $c$, for different values of the input anisotropy param- eter, $\epsilon:\epsilon = 0.1, 0.3$, and $0.5$ (dot-dashed, dashed, and solid lines, respectively). For $\epsilon &lt; 0.5$, there is a critical value of $c$ above which $\theta_{C} = \pi/2$, meaning that all neurons are activated by all stimuli. In the range where $\theta_{C}$ is small, it strongly depends on the level of contrast. Note that $\epsilon = 0.5$ is the maximal value of anisotropy in our model. Here and in Figs. 2 and 3, $\beta = 0.1$. (B) Effect of cortical interactions on the tuning width. Dashed curve is for uniform cortical inhibition, with $\epsilon = 0.5$, $J_{0} = 155$, and $J_{2} = 0$. The solid line is for parameters close to the marginal phase, where the tuning is dominated by the cortical interactions. In this case, 6c saturates quickly to $\approx 30°$, while the level of maximal activity is still far from saturation (data not shown). Parameters are $\epsilon = 0.01$, $J_{0} = 86$, and $J_{2} = 112$. They were chosen so that the value of 8c agrees with the average value of the half-width for simple cells in the cat visual cortex. (C) The tuning width as a function of the input anisotropy in the limit $c\gg 1$. The solid line is for the marginal phase; the dashed curve is for the Hubel-Wiesel mechanism with uniform cortical inhibition. Parameters are as in B.</p>
+</blockquote>
+<p>图1. 不同调制机制下，调制宽度 $\theta_{C}$ 对刺激对比度和输入各向异性的依赖性。角度 $\theta_{C}$ 是调制曲线的半宽度：PO 与刺激方向相差 $&gt;\theta_{C}$ 的神经元不会被激活。(A) Hubel-Wiesel 模型，其中皮层相互作用参数 $J_{0}$ 和 $J_{2}$ 为零。调制宽度与视觉刺激对比度 $c$ 的关系绘制在不同输入各向异性参数 $\epsilon$ 下：$\epsilon = 0.1, 0.3$ 和 $0.5$（分别为点划线、虚线和实线）。对于 $\epsilon &lt; 0.5$，存在一个临界值的 $c$，超过该值时 $\theta_{C} = \pi/2$，意味着所有神经元都被所有刺激激活。在 $\theta_{C}$ 较小的范围内，它强烈依赖于对比度水平。请注意，$\epsilon = 0.5$ 是我们模型中各向异性的最大值。在此图和图2及图3中，$\beta = 0.1$。(B) 皮层相互作用对调制宽度的影响。虚线曲线表示均匀皮层抑制，参数为 $\epsilon = 0.5$，$J_{0} = 155$ 和 $J_{2} = 0$。实线表示接近边际相的参数，其中调制由皮层相互作用主导。在这种情况下，6c 快速饱和至约30°，而最大活动水平仍远未饱和(数据未显示)。参数为 $\epsilon = 0.01$，$J_{0} = 86$ 和 $J_{2} = 112$。它们被选择使得 8c 的值与猫视觉皮层中简单细胞的半宽度平均值一致。(C) 在 $c\gg 1$ 极限下，调制宽度作为输入各向异性的函数。实线表示边际相；虚线曲线表示具有均匀皮层抑制的 Hubel-Wiesel 机制。参数如 B 所示。</p>
+</blockquote>
+<h1 id="virtual-rotation">Virtual Rotation<a hidden class="anchor" aria-hidden="true" href="#virtual-rotation">#</a></h1>
+<blockquote>
+<p>An interesting difference between the scenarios described above appears in the time-dependent response of the system to a change in the orientation of the external stimulus. Consider the case where the orientation of the external stimulus is changed at time 0 from $\theta_{0}=\theta_{1}$ to $\theta_{0} = \theta_{2}$. We assume that initially the stimulus was present long enough so that the system reached a steady-state $m(\theta)$ with a peak at $\theta = \theta_{1}$. How will the population activity respond to the change in orientation? In the case of isotropic cortical interactions ($J_{2} = 0$), the initial activity profile that peaked at $\theta_{1}$, decays in magnitude while another profile peaked at $\theta_{2}$ grows, as shown in Fig. 2A. In the marginal phase, the response is drastically different. The population activity is $m(\theta, t)\approx M[\theta - \phi(t)]$, where $M(\theta)$ is the activity profile at steady state. We denote this solution as virtual rotation. The activity at time $t$ is similar to that that would occur if there was an external stimulus with an orien- tation $\theta_{0} = \phi(t)$. Substituting this form for $m(\theta, t)$ in the dynamic equations (Eqs. 1 and 2), we find that the variable $\phi(t)$ obeys $\dot{\phi}(t) \approx - \omega_{0}\sin{[2\phi(t) - 2\theta_{2}]}$, with $\phi(t = 0) = \theta_{1}$. The angular frequency $\omega_{0}$ is given by</p>
+<p>$$
+\omega_{0}\tau_{0} = \epsilon c/(2J_{2}m_{2})
+$$</p>
+<p>where $m_{2}$ is the second Fourier coefficient of $M(\theta)$. Note that in the marginal phase $m_{2}$ remains finite even for small $\epsilon$. Thus, $\omega_{0}$, the angular velocity of the activity profile, is determined by the ratio of the modulation amplitudes of the external input and of the cortical synaptic input. This result is valid provided $\omega_{0}\tau_{0} = O(\epsilon)\ll 1$. An example is shown in Fig. 2B, which corresponds to a marginal phase with $\epsilon = 0.01$. The activity profile moves with an (initial) angular velocity $0.2°/\tau_{0}$, without significant change in its shape. Fig. 2C shows the case of $\epsilon = 0.1$. Here, the angular velocity is faster by an order of magnitude, as predicted by Eq. 5. In this case, the propagation of the activity is accompanied by significant transient changes in the amplitude of the activity profile.</p>
+</blockquote>
+<p>在上述情景之间，一个有趣的区别出现在系统对外部刺激方向变化的时间依赖响应中。考虑在时间 0 时外部刺激的方向从 $\theta_{0}=\theta_{1}$ 变为 $\theta_{0} = \theta_{2}$ 的情况。我们假设最初刺激存在的时间足够长，以使系统达到峰值在 $\theta = \theta_{1}$ 处的稳态 $m(\theta)$。群体活动将如何响应方向的变化？在各向同性皮层相互作用($J_{2} = 0$)的情况下，最初在 $\theta_{1}$ 处达到峰值的活动轮廓，其幅度衰减，而在 $\theta_{2}$ 处达到峰值的另一个轮廓增长，如图2A所示。在边际相中，响应截然不同。群体活动为 $m(\theta, t)\approx M[\theta - \phi(t)]$，其中 $M(\theta)$ 是稳态下的活动轮廓。我们将这种解称为虚拟旋转。时间 $t$ 时的活动类似于如果存在一个方向为 $\theta_{0} = \phi(t)$ 的外部刺激时会发生的情况。将这种形式的 $m(\theta, t)$ 代入动态方程(方程1和2)，我们发现变量 $\phi(t)$ 遵循 $\dot{\phi}(t) \approx - \omega_{0}\sin{[2\phi(t) - 2\theta_{2}]}$，其中 $\phi(t = 0) = \theta_{1}$。角频率 $\omega_{0}$ 由下式给出</p>
+<p>$$
+\omega_{0}\tau_{0} = \epsilon c/(2J_{2}m_{2})
+$$</p>
+<p>其中 $m_{2}$ 是 $M(\theta)$ 的第二傅里叶系数。请注意，在边际相中，即使对于小 $\epsilon$，$m_{2}$ 仍然是有限的。因此，活动轮廓的角速度 $\omega_{0}$ 由外部输入和皮层突触输入的调制幅度之比决定。该结果在 $\omega_{0}\tau_{0} = O(\epsilon)\ll 1$ 时有效。图 2B 显示了一个例子，对应于 $\epsilon = 0.01$ 的边际相。活动轮廓以初始角速度 $0.2°/\tau_{0}$ 移动，而其形状没有显著变化。图2C显示了 $\epsilon = 0.1$ 的情况。在这种情况下，角速度比方程5预测的快一个数量级。在这种情况下，活动的传播伴随着活动轮廓幅度的显著瞬态变化。</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/25/vijCTRmb8BlrLPH.png" alt=""  /></p>
+<p>Fıc.2. Evolution ofneuronal activity in response to a change in the stimulus orientation from an initial value $\theta_{1} = 0°$ to $\theta_{2} = 60°$. The change occurs at $t = 0$. (A) Hubel-Wiesel model with uniform inhibition. The activity profile centered at $0°$ decays while a new one, centered around $60°$, grows. Neurons in intermediate columns (e.g., with $0 = 30°$) stay in the quiescent state during the whole process. The time constant of the decay and growth is $\tau_{0}$. Times are 0, 0.5, 1, 2, and 6 $\tau_{0}$ (lines 1-5, respectively). Parameters are as in Fig. 1B (dashed line) and $c = 5$. For this value of contrast, the maximal activity level relative to saturation is 0.1, which corresponds to a rate of $\approx 50$ spikes per sec. (B) Virtual rotation in the marginal phase. The activity profile moves toward $\theta_{2}$, activating successively the intermediate columns, and undergoing only very small changes during the process. $c = 1.678$; other parameters are as in Fig. 1B (solid line). Times are (left to right) 0, 90, 210, and 600 $\tau_{0}$. (C) Virtual rotation accompanied by deformations in the activity profile. The magnitude of the deformations depends on the magnitude of $\epsilon$. Here $\epsilon = 0.1$, $J_{0} = 73$, $J_{2} = 110$, and $c = 1.45$. Times are (left to right) 0, 2, 10, 20, and 60 $\tau_{0}$. By assuming $\tau_{0} = 5\text{ msec}$, the predicted rotation velocity is 200 to 400°/sec.</p>
+</blockquote>
+<p>图2. 神经元活动对刺激方向从初始值 $\theta_{1} = 0°$ 变为 $\theta_{2} = 60°$ 的响应演化。变化发生在 $t = 0$。(A) 具有均匀抑制的 Hubel-Wiesel 模型。以 $0°$ 为中心的活动轮廓衰减，而以 $60°$ 为中心的新轮廓增长。在整个过程中，中间柱(例如，$0 = 30°$)的神经元保持静止状态。衰减和增长的时间常数为 $\tau_{0}$。时间分别为 0、0.5、1、2 和 6 $\tau_{0}$（分别为线1-5）。参数如图1B(虚线)所示，且 $c = 5$。对于该对比度值，相对于饱和的最大活动水平为0.1，对应于约每秒50次尖峰率。(B) 边际相中的虚拟旋转。活动轮廓向 $\theta_{2}$ 移动，依次激活中间柱，并在过程中仅经历非常小的变化。$c = 1.678$；其他参数如图1B(实线)所示。时间分别为（从左到右）0、90、210 和 600 $\tau_{0}$。(C) 活动轮廓伴随变形的虚拟旋转。变形幅度取决于 $\epsilon$ 的大小。这里 $\epsilon = 0.1$，$J_{0} = 73$，$J_{2} = 110$，且 $c = 1.45$。时间分别为（从左到右）0、2、10、20 和 60 $\tau_{0}$。假设 $\tau_{0} = 5\text{ msec}$，预测的旋转速度为 200 至 400°/秒。</p>
+</blockquote>
+<h1 id="ccs">CCs<a hidden class="anchor" aria-hidden="true" href="#ccs">#</a></h1>
+<blockquote>
+<p>The CC function $C(\theta,\theta^{\prime};\tau)$ measures the correlation between the temporal fluctuations in the rate of activity of a neuron $\theta$ at time $t$ and that of another neuron, $\theta^{\prime}$, at $t + \tau$. In our model, these fluctuations arise from the underlying stochasticity of the neuronal dynamics. The deterministic mean-field equations, Eq. 1, neglect these small fluctuations. To study the CCs induced by these fluctuations, we have applied a recently developed theory of correlations in stochastic neural networks and calculated analytically the CCs in our model for various parameter regimes. We consider here the CCs between excitatory neurons in the case of uniform inhibition and in the marginal phase. In the uniform inhibition case, the CCs are independent of $\theta$, $\theta^{\prime}$, and $\theta_{0}$, as long as the two neurons are activated by the stimulus, and the CCs decay on a fast time scale, of the order of the microscopic time constant $\tau_{0}$. This is shown in Fig. 3A. The results for the marginal phase are drastically different. Here, in addition to fast-decaying com- ponents, the CCs possess also a slow component that has the following unique dependence on $\theta$, $\theta^{\prime}$, and $\theta_{0}$,</p>
+<p>$$
+C(\theta,\theta^{\prime};\tau) \propto \frac{1}{\epsilon}\sin{(2\theta-2\theta_{0})}\sin{(2\theta^{\prime}-2\theta_{0})}\exp{(-\epsilon|\tau|/\tau_{0})}
+$$</p>
+<p>Thus, the longest decay time of the CCs is $\tau_{0}/\epsilon$, where $\epsilon$ is the amplitude of the angular modulation of the input, which is assumed to be small in this phase. The magnitude of the slow component is big, on the order of $\epsilon^{-1}$. This slow component results from the fact that in the marginal phase, the noise induces random slow wandering of the system between neighboring attractors, thus generating small random virtual rotations.</p>
+</blockquote>
+<p>CC 函数 $C(\theta,\theta^{\prime};\tau)$ 测量时间 $t$ 时神经元 $\theta$ 的活动率波动与另一神经元 $\theta^{\prime}$ 在 $t + \tau$ 时的活动率波动之间的相关性。在我们的模型中，这些波动源自神经元动力学的潜在随机性。确定性的平均场方程，见方程1，忽略了这些小波动。为了研究这些波动引起的 CCs，我们应用了最近开发的随机神经网络相关性理论，并在各种参数范围内分析计算了我们模型中的 CCs。我们在这里考虑均匀抑制和边际相情况下兴奋性神经元之间的 CCs。在均匀抑制情况下，只要两个神经元被刺激激活，CCs 独立于 $\theta$、$\theta^{\prime}$ 和 $\theta_{0}$，并且 CCs 在快速时间尺度上衰减，其数量级为微观时间常数 $\tau_{0}$。如图3A所示。边际相的结果截然不同。在这里，除了快速衰减的分量外，CCs 还具有一个缓慢分量，其对 $\theta$、$\theta^{\prime}$ 和 $\theta_{0}$ 具有以下独特依赖性，</p>
+<p>$$
+C(\theta,\theta^{\prime};\tau) \propto \frac{1}{\epsilon}\sin{(2\theta-2\theta_{0})}\sin{(2\theta^{\prime}-2\theta_{0})}\exp{(-\epsilon|\tau|/\tau_{0})}
+$$</p>
+<p>因此，CCs 的最长衰减时间为 $\tau_{0}/\epsilon$，其中 $\epsilon$ 是输入角向调制的幅度，在该相中假设其较小。缓慢分量的幅度很大，数量级为 $\epsilon^{-1}$。这种缓慢分量源于这样一个事实：在边际相中，噪声引起系统在邻近吸引子之间的随机缓慢游荡，从而产生小的随机虚拟旋转。</p>
+<blockquote>
+<p>The result (Eq. 6) implies that not only the magnitude but also the sign of the CC between a pair of neurons may depend on the stimulus orientation. If the stimulus orientation is larger or smaller than both $\theta$ and $\theta^{\prime}$, the CC is positive. On the other hand, if $\theta_{0}$ is intermediate between the two POs, the CC is negative, despite the fact that the direct interaction between the two neurons is positive. These results are shown in Fig. 3 B-D, where we present the full CCs in the marginal phase. Comparing these results with Eq. 6, it is seen that the prop- erties of the CCs at short $\tau$ are affected by the contributions from the fast-decaying noncritical modes of fluctuations, which generate a narrow positive peak near the center. The long-time component is dominated by the critical mode.</p>
+</blockquote>
+<p>该结果(方程6)意味着不仅幅度，而且一对神经元之间的 CC 的符号可能取决于刺激方向。如果刺激方向大于或小于 $\theta$ 和 $\theta^{\prime}$，则 CC 为正。另一方面，如果 $\theta_{0}$ 位于两个 PO 之间，则 CC 为负，尽管两神经元之间的直接相互作用为正。这些结果显示在图3 B-D中，我们展示了边际相中的完整 CCs。将这些结果与方程6进行比较，可以看出，在短 $\tau$ 下，CCs 的属性受到快速衰减的非临界波动模式贡献的影响，这些模式在中心附近产生一个狭窄的正峰。长期分量由临界模式主导。</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://s2.loli.net/2025/11/25/1qbvl6kPoKwmNAh.png" alt=""  /></p>
+<p>Fic. 3. Time-dependent CC between the fluctuations in the activity of two excitatory neurons, $\theta = -10°$ and $\theta^{\prime} = 10°$, responding to a common oriented stimulus. (A) Uniform inhibition. The CC decay has a time constant on the order of $\tau_{0}$. The CCs are independent of the stimulus orientation $\theta_{0}$ (data not shown), as long as both neurons are activated by it. Parameters are as in Fig. 2A. The vertical scale displays the CCs multiplied by the number of excitatory neurons in the network, $N_{E}$. (B-D) CCs in the marginal phase for different stimulus orientations. Parameters are as in Fig. 2B. The CCs exhibit a slow- decaying component, with a time constant, $\tau_{0}/\epsilon$, and a magnitude that scales as $\epsilon^{-1}$. (B) $\theta_{0} = 0°$, i.e., between 6 and 6’, which results in a negative slow component, as predicted by Eq. 6. (C) $\theta_{0} = 10°$, for which the slow component vanishes. (D) $\theta_{0} = 16°$, for which the slow component becomes positive.</p>
+</blockquote>
+<p>图3. 两个兴奋性神经元 $\theta = -10°$ 和 $\theta^{\prime} = 10°$ 对共同定向刺激的活动波动之间的时间依赖 CC。(A) 均匀抑制。CC 衰减的时间常数约为 $\tau_{0}$。只要两个神经元都被激活，CCs 独立于刺激方向 $\theta_{0}$（数据未显示）。参数如图2A所示。垂直刻度显示 CCs 乘以网络中兴奋性神经元的数量 $N_{E}$。(B-D) 边际相中的 CCs，针对不同的刺激方向。参数如图2B所示。CCs 展现出一个缓慢衰减的分量，其时间常数为 $\tau_{0}/\epsilon$，幅度按 $\epsilon^{-1}$ 进行缩放。(B) $\theta_{0} = 0°$，即在 6 和 6&rsquo; 之间，导致负的缓慢分量，如方程6所预测。(C) $\theta_{0} = 10°$，此时缓慢分量消失。(D) $\theta_{0} = 16°$，此时缓慢分量变为正值。</p>
+</blockquote>
+<h1 id="discussion">Discussion<a hidden class="anchor" aria-hidden="true" href="#discussion">#</a></h1>
+<blockquote>
+<p>By using a simple neural network model, we have studied theoretically the consequences of different mechanisms for orientation selectivity in visual cortex. The network architecture is consistent with the known anatomy and physiology of visual cortex. In particular, the assumed angular modulation of the intracortical interactions, Eq. 3, is supported by the spatial distributions of the dendritic and axonal arborizations in primary visual cortex. We find that if the amplitude of the cortical angular modulation, $J_{2}$, is sufficiently strong, the network can be in a state where the orientation tuning is dominated by the cortical circuitry. This state has several characteristic properties that can be verified experimentally. First, the tuning width is largely independent of stimulus properties such as its contrast and its degree of anisotropy. Indeed, invariance of the tuning width to contrast has been well documented. Measuring the effect of decreasing the angular anisotropy of a stimulus on the orientation selectivity would be an additional important test.</p>
+</blockquote>
+<p>通过使用一个简单的神经网络模型，我们理论上研究了视觉皮层中不同方向选择机制的后果。网络架构与视觉皮层的已知解剖学和生理学一致。特别是，假设的皮层内相互作用的角向调制(见方程 3)得到了初级视觉皮层中树突和轴突树枝分布的支持。我们发现，如果皮层角向调制的幅度 $J_{2}$ 足够强，网络可以处于一个状态，在该状态下方向调制由皮层回路主导。该状态具有几个特征属性，可以通过实验验证。首先，调制宽度在很大程度上独立于刺激属性，如其对比度及其各向异性程度。实际上，调制宽度对比度的不变性已被充分记录。测量减少刺激角向各向异性对方向选择性的影响将是另一个重要的测试。</p>
+<blockquote>
+<p>The second characteristic, the virtual rotation, can be verified by measuring the transient response of primary visual cortex to an abrupt change in the orientation of a visual stimulus. Our model may suggest a neural mechanism for the psychophysical mental rotation that has been observed in object recognition. The initial velocities displayed in Fig. 2 B and C, assuming that $\tau_{0}$ is in the range of 5-10 msec, are consistent with the observed angular velocity of mental rotation in psychophysical experiments, ranging between 60°/sec and 400°/sec. Of course, other neuronal mechanisms for mental rotation are possible.</p>
+</blockquote>
+<p>第二个特征，虚拟旋转，可以通过测量初级视觉皮层对视觉刺激方向突然变化的瞬态响应来验证。我们的模型可能为在物体识别中观察到的心理旋转提供了一种神经机制。假设 $\tau_{0}$ 在 5-10 毫秒范围内，图2 B 和 C 中显示的初始速度与心理物理实验中观察到的心理旋转角速度一致，范围在 60°/秒至 400°/秒之间。当然，心理旋转还可能存在其他神经机制。</p>
+<blockquote>
+<p>We have shown here that neuronal CCs are potentially important indicators of neuronal cooperativity. In our case, we predict that if cortical circuitry plays a dominant role in the orientation-selective response, CCs should exhibit a slow component, the sign of which depends on the orientation of the stimulus relative to the POs of the correlated neurons. If one averages over all stimuli, then the resultant average CCs should exhibit slow components that are positive for pairs of neurons with similar POs, and negative for largely dissimilar ones. Long time tails in CCs, which extend to several hundred milliseconds, are frequently observed in cortical areas, including primary visual cortex. Testing our theory requires systematic measurements of the slow components of CCs of pairs of neurons in different orientation columns that are coactivated by the same stimulus. Negative CCs, although relatively rare, have been observed in several cortical areas. Some of these correlations may be due to cooperative effects similar to those predicted here.</p>
+</blockquote>
+<p>我们在这里展示了神经元 CCs 可能是神经元合作的重要指标。在我们的情况下，我们预测如果皮层回路在方向选择性响应中起主导作用，CCs 应该表现出一个缓慢分量，其符号取决于刺激方向相对于相关神经元的 PO。如果对所有刺激进行平均，则结果平均 CCs 应该表现出缓慢分量，对于具有相似 PO 的神经元对为正，而对于大致不同的神经元对为负。在包括初级视觉皮层在内的皮层区域中，经常观察到 CCs 中的长时间尾巴，延伸至数百毫秒。测试我们的理论需要系统地测量由同一刺激共同激活的不同方向柱中神经元对的 CCs 的缓慢分量。尽管相对罕见，但在几个皮层区域中已经观察到负 CCs。其中一些相关性可能是由于类似于这里预测的合作效应引起的。</p>
+<blockquote>
+<p>We have focused in this work on visual cortex. However, our approach can be applied also to the study of the role of local cortical interactions in other areas, primarily in motor areas, although the nature of the synaptic inputs to these areas is less clear. This is supported by the virtual rotation exhibited by the activity profiles of populations of neurons that are tuned to the direction of limb movement. Indeed, a network model that is similar to ours in some aspects was recently proposed for that system. It should be noted that the virtual rotation exhibited by our model is a direct outcome of the marginality of the network state and does not involve an active modulation of synapses, as in ref. 21. Also, the study of the neuronal correlations requires a more complex dynamics than the smooth deterministic model of ref. 21. As shown by our work, the correlations between a pair of neurons are not directly related to the value of the interactions between them. Instead, they are a consequence of the cooperative dynamical fluctuations in the network to which they belong.</p>
+</blockquote>
+<p>我们在这项工作中专注于视觉皮层。然而，我们的方法也可以应用于研究局部皮层相互作用在其他区域中的作用，主要是在运动区域，尽管这些区域的突触输入性质不太清楚。这得到了对调节肢体运动方向的神经元群体活动轮廓所表现出的虚拟旋转的支持。实际上，最近为该系统提出了一个在某些方面类似于我们的网络模型。需要注意的是，我们模型所表现出的虚拟旋转是网络状态边际性的直接结果，并不涉及突触的主动调制，如参考文献21所述。此外，神经元相关性的研究需要比参考文献21中的平滑确定性模型更复杂的动力学。正如我们的工作所示，一对神经元之间的相关性并不直接与它们之间相互作用的值相关。相反，它们是它们所属网络中合作动态波动的结果。</p>
+<blockquote>
+<p>Finally, we note that the marginal phase in the present theory is a result of the underlying angular symmetry of our model. It is thus similar to marginal phases that appear in physical systems at thermal equilibrium whenever a continuous symmetry is spontaneously broken. In particular, these systems exhibit “critical transverse correlations” that are similar to the slowly decaying CCs predicted here.</p>
+</blockquote>
+<p>最后，我们注意到当前理论中的边际相是我们模型的潜在角向对称性的结果。因此，它类似于在热平衡的物理系统中出现的边际相，每当连续对称性被自发打破时。特别是，这些系统表现出“临界横向相关性”，类似于这里预测的缓慢衰减的 CCs。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/integration-as-a-self-organizing-process/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Integration as a self-organizing process</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/reference/attractor-and-integrator-networks-in-the-brain/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Attractor and integrator networks in the brain</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"无处惹尘埃"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+</body>
+
+
+
+
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
