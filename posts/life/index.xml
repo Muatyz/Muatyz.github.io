@@ -23,44 +23,21 @@
       <pubDate>Wed, 01 Jan 2025 00:18:15 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/life/2025-document/</guid>
-      <description>&lt;h1 id=&#34;11-月&#34;&gt;11 月&lt;/h1&gt;
-&lt;h2 id=&#34;21&#34;&gt;21&lt;/h2&gt;
-&lt;!-- 听了一下普惠算力平台的培训, 但是讲得太省略了, 事后没有明确回复, 要求的 PPT 也没有发在大群里.
+      <description>&lt;!-- 听了一下普惠算力平台的培训, 但是讲得太省略了, 事后没有明确回复, 要求的 PPT 也没有发在大群里.
 
 但是另一件事情让我感受颇深... --&gt;
-&lt;p&gt;对 2D spin lattice 进行标度变换: $\begin{aligned}
-\begin{bmatrix}
-x &amp;amp; o &amp;amp; x\\
-o &amp;amp; o &amp;amp; x\\
-x &amp;amp; x &amp;amp; x
-\end{bmatrix}\stackrel{N_{x}&amp;gt;N_{o}}{\longrightarrow} X
-\end{aligned}$. 观察发现, 对于 Critical state$\begin{aligned}
-(\xi\rightarrow \infty)
-\end{aligned}$, 会保持 Scale invariance.&lt;/p&gt;
+&lt;p&gt;连续神经场方程&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Block-spin transformation: $\begin{aligned}
-\begin{bmatrix}
-{\color{red}{o}} &amp;amp; {\color{red}{o}} &amp;amp; o &amp;amp; o  \\
-{\color{red}{o}} &amp;amp; {\color{red}{o}} &amp;amp; o &amp;amp; o  \\
-o &amp;amp; o &amp;amp; o &amp;amp; o  \\
-o &amp;amp; o &amp;amp; o &amp;amp; o
-\end{bmatrix}\stackrel{l=2}{\longrightarrow} \begin{bmatrix}
-{\color{red}{\bullet}} &amp;amp; \bullet \\
-\bullet &amp;amp; \bullet
-\end{bmatrix}
-\end{aligned}$, 晶格常数 $\begin{aligned}
-a\rightarrow a^{\prime} = la(l=2)
-\end{aligned}$; 自旋个数 $\begin{aligned}
-N\rightarrow N^{\prime} = l^{-d}N(d = 2)
-\end{aligned}$;&lt;/li&gt;
+&lt;li&gt;基础神经场方程&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;尺度 $\begin{aligned}
-r\rightarrow r^{\prime} = l^{-1}r
-\end{aligned}$. Number density invariant: $\begin{aligned}
-\frac{N}{a^{d}} = \frac{N^{\prime}}{\left(a^{\prime}\right)^{d}}
-\end{aligned}$. $\begin{aligned}
-\sigma = \pm 1\rightarrow \sigma^{\prime} = \pm 1
-\end{aligned}$.&lt;/p&gt;</description>
+&lt;p&gt;考虑一维环形神经场. 膜电位/激活变量 $u(x,t)$. 根据 Wilson-Cowan / Amari 动力学写出&lt;/p&gt;
+&lt;p&gt;$$
+\tau\frac{\partial}{\partial t}u(x,t) = -u(x,t) + \int_{-\infty}^{+\infty} w(x-x^{\prime})f[u(x^{\prime},t)]\mathrm{d}x^{\prime} + I(x,t)
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$\tau$: 时间常数&lt;/p&gt;
+&lt;p&gt;$w(\cdot)$: 连结核, 如 Mexican-hat.&lt;/p&gt;
+&lt;p&gt;$f(\cdot)$: 激活函数, 如 半线性/sigmoid 函数.&lt;/p&gt;</description>
     </item>
     
     <item>
