@@ -138,8 +138,8 @@
   "keywords": [
     ""
   ],
-  "articleBody": "Recurrent Networks: with connections allowed both ways between units, and even from a unit to itself.\n7.1 Boltzmann Machines stochastic networks with symmetric connections($w_{ij}=w_{ji}$).\noriginal form: slow for averaging over stochastic variables. mean field version: speeded up and more applications. Stochastic Units visible \u0026 hidden units.\nhidden units: no connection to outside world.\n$$ \\begin{aligned} P(S_{i} = +1) \u0026= g(h_{i}) = \\frac{1}{1+\\exp{(-2\\beta h_{i})}}\\\\ P(S_{i} = -1) \u0026= 1 - g(h_{i}) \\end{aligned} $$\n$h_{i} = \\sum_{j}w_{ij}S_{j},\\quad\\beta = 1/T$.\nenergy function:\n$$ H(\\{S_{i}\\}) = -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}S_{j},\\quad S_{i} = \\text{sgn}{(h_{i})} $$\nBoltzmann-Gibbs distribution:\n$$ P(\\{S_{i}\\}) = \\frac{e^{-\\beta H(\\{S_{i}\\})}}{Z} $$\npartition function: $$Z = \\sum_{\\{S_{i}\\}} e^{-\\beta H(\\{S_{i}\\})}$$\naverage $\\langle X\\rangle$:\n$$ \\langle X\\rangle = \\sum_{\\{S_{i}\\}}P(\\{S_{i}\\}) X(\\{S_{i}\\}) $$\npattern completion: at low $T$, only a few possible states have high and equal prob.\n$w_{ij}\\propto \\xi_{i}\\xi_{j}$: no information about links with hidden units.\n$\\alpha$: state of visible units; $\\beta$: state of hidden units.\n$N$ visible units, $K$ hidden units. $2^{N+K}$ possibilities.\nProbability $P_{\\alpha}$ of $\\alpha$ state:\n$$ \\begin{aligned} P_{\\alpha} \u0026= \\sum_{\\beta}P_{\\alpha\\beta} = \\frac{1}{Z}\\sum_{\\beta}e^{-\\beta H_{\\alpha\\beta}}\\\\ Z \u0026= \\sum_{\\alpha\\beta}e^{-\\beta H_{\\alpha\\beta}}\\\\ H_{\\alpha\\beta} \u0026= -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta} \\end{aligned} $$\nDesired probability: $R_{\\alpha}$\nrelative entropy(to measure the difference):\n$$ E = \\sum_{\\alpha}R_{\\alpha}\\log{\\frac{R_{\\alpha}}{P_{\\alpha}}} = E_{0} - \\sum_{\\alpha}R_{\\alpha}\\log{P_{\\alpha}}\\geq 0 $$\n$E = 0$ only if $P_{\\alpha} = R_{\\alpha}$, $\\forall \\alpha$.\nGradient descent:\n$$ \\begin{aligned} {\\color{blue}{\\Delta w_{ij}}} \u0026= -\\eta \\frac{\\partial E}{\\partial w_{ij}} = \\eta\\sum_{\\alpha}\\frac{R_{\\alpha}}{P_{\\alpha}}{\\color{red}{\\frac{\\partial P_{\\alpha}}{\\partial w_{ij}}}}\\\\ {\\color{red}{\\frac{\\partial P_{\\alpha}}{\\partial w_{ij}}}} \u0026= \\frac{1}{Z}\\sum_{\\beta}e^{-\\beta H_{\\alpha\\beta}}S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta} - \\frac{1}{Z^{2}}\\left(\\sum_{\\beta}e^{-\\beta H_{\\alpha\\beta}}\\right)\\sum_{\\lambda\\mu}e^{-\\beta H_{\\lambda\\mu}}S_{i}^{\\lambda\\mu}S_{j}^{\\lambda\\mu}\\\\ \u0026= \\beta\\left[ \\sum_{\\beta}S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta}P_{\\alpha\\beta} - P_{\\alpha}\\langle S_{i}S_{j}\\rangle \\right]\\\\ {\\color{blue}{\\Delta w_{ij}}} \u0026= \\eta\\beta\\left[ \\sum_{\\alpha}\\frac{R_{\\alpha}}{P_{\\alpha}}\\sum_{\\beta}S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta}P_{\\alpha\\beta} - \\sum_{\\alpha}R_{\\alpha}\\langle S_{i}S_{j}\\rangle \\right]\\\\ \u0026= \\eta\\beta\\left[ \\sum_{\\alpha\\beta}R_{\\alpha}P_{\\beta|\\alpha}S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta} - \\langle S_{i}S_{j}\\rangle \\right]\\\\ \u0026= \\eta\\beta\\left[ \\overset{\\text{Hebb term}}{\\overline{\\langle S_{i}S_{j}\\rangle}_{\\text{clamped}}} - \\overset{\\text{unlearning term}}{\\langle S_{i}S_{j}\\rangle_{\\text{free}}} \\right],\\quad\\text{Boltzmann learning rule} \\end{aligned} $$\nconditional probability: $P_{\\beta|\\alpha} = P_{\\alpha\\beta}/P_{\\alpha}$.\n$\\overline{\\langle S_{i}S_{j}\\rangle}_{\\text{clamped}}$: 在给定 $\\alpha$ 概率为 $R_{\\alpha}$ 的条件下, $S_{i}S_{j}$ 的平均值\nBring the system to equilibrium before taking an average.\nMonte Carlo simulation:\nselect a unit at random, update its state according to $P(S_{i} = \\pm 1)$. flip a unit with prob $$P(S_{i}\\rightarrow -S_{i}) = \\frac{1}{1+\\exp{(\\beta\\Delta H_{i})}}.$$ slow at low $T$ (tends to get trapped in local minima) faster solution: simulated annealing procedure(渐进模拟)\nadjust weights for convergence; calculate $\\langle S_{i}S_{j}\\rangle$ in clamped and freestates; annealing schedule $T(t)$; sample and update units. fast simulated annealing(Cauchy machine): multiple flips.\nslow but effective.\nVariations on Boltzmann Machines weight decay terms $w_{ij}^{\\text{new}} = (1-\\varepsilon)w_{ij}^{\\text{old}}$: automatically become symmetric; incremental rule(增量规则): if $S_{i}$ \u0026 $S_{j}$ on together, step size $\\varepsilon$, clamped: $w_{ij}\\uparrow$; free: $w_{ij}\\downarrow$ avoid oscillations in valley when relying on local gradient $\\exist \\alpha$, $R_{\\alpha}=0$. increase it to $\\epsilon\u003e0$ to avoid infinite weights. input($\\gamma$), output($\\alpha$), hidden($\\beta$). learn $\\gamma\\rightarrow \\alpha$ ($P_{\\alpha|\\gamma}=R_{\\alpha|\\gamma}$)\nerror measure:\n$$ E = \\sum_{\\gamma}p_{\\gamma}\\sum_{\\alpha}R_{\\alpha|\\gamma}\\log{\\frac{R_{\\alpha|\\gamma}}{P_{\\alpha|\\gamma}}} $$\nlearning rule:\n$$ \\Delta w_{ij} = \\eta\\beta\\left[ \\overline{\\langle S_{i}S_{j}\\rangle}_{\\text{I,O clamped}} - \\overline{\\langle S_{i}S_{j}\\rangle}_{\\text{I clamped}} \\right] $$\nHarmonium: two-layer Boltzmann machine. connections between layers only.\nHopfield: without hidden units. average $\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}$ over patterns $\\mu$. start from random cfg and relax at $T=0$. faster than incremental one.\nStatistical Mechanics Reformulation(统计力学重构) $P_{\\alpha}$: prob of visible units in state $\\alpha$\n$\\begin{aligned}Z_{\\text{clamped}}^{\\alpha} = \\sum_{\\beta}e^{-\\beta H_{\\alpha\\beta}}\\end{aligned}$: partition function (visible units clamped in state $\\alpha$)\n$$ Z = e^{-\\beta F} $$\n$$ P_{\\alpha} = \\frac{Z_{\\text{clamped}^{\\alpha}}}{Z} = \\frac{e^{-\\beta F_{\\text{clamped}}^{\\alpha}}}{e^{-\\beta F}} = e^{-\\beta (F_{\\text{clamped}}^{\\alpha} - F)} $$\ncost function:\n$$ \\begin{aligned} E = E_{0} - \\sum_{\\alpha}R_{\\alpha}\\log{P_{\\alpha}} \u0026= E_{0} + \\beta\\sum_{\\alpha}R_{\\alpha}(F_{\\text{clamped}}^{\\alpha} - F)\\\\ \u0026= E_{0} + \\beta\\left[ \\overline{F_{\\text{clamped}}^{\\alpha}} - F \\right] \\end{aligned} $$\n$$ \\begin{aligned} \\langle S_{i}S_{j}\\rangle \u0026= -\\frac{\\partial F}{\\partial w_{ij}} \\\\ \u0026= T\\frac{\\partial \\log{Z}}{\\partial w_{ij}} = \\frac{T}{Z}\\frac{\\partial Z}{\\partial w_{ij}} = \\frac{1}{Z}\\sum_{\\alpha\\beta} S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta}e^{-\\beta H_{\\alpha\\beta}} \\end{aligned} $$\nDeterministic Boltzmann Machines(确定性玻尔兹曼机) mean field annealing: $\\begin{aligned}m_{i}\\equiv\\langle S_{i}\\rangle = \\tanh{\\left(\\beta\\sum_{j}w_{ij}m_{j}\\right)},\\quad \\langle S_{i}S_{j}\\rangle\\approx m_{i}m_{j}\\end{aligned}$\niteration\n$$ m_{i}^{\\text{new}} = \\tanh{\\left(\\beta\\sum_{j}w_{ij}m_{j}^{\\text{old}}\\right)} $$\nentropy:\n$$ S = - \\sum_{i}\\left( p_{i}^{+}\\log{p_{i}^{+}} + p_{i}^{-}\\log{p_{i}^{-}} \\right), \\quad p_{i}^{\\pm} = P(S_{i} = \\pm 1) $$\n$p_{i}^{+} + p_{i}^{-} = 1$, $m_{i} = p_{i}^{+} - p_{i}^{-}$\n$$ p_{i}^{\\pm} = \\frac{1\\pm m_{i}}{2} $$\nmean field free energy:\n$$ \\begin{aligned} F_{\\text{MF}} \u0026= H - TS \\\\ \u0026= -\\frac{1}{2}\\sum_{ij}w_{ij}m_{i}m_{j} + T\\sum_{i}\\left( \\frac{1+m_{i}}{2}\\log{\\frac{1+m_{i}}{2}} + \\frac{1-m_{i}}{2}\\log{\\frac{1-m_{i}}{2}} \\right) \\end{aligned} $$\n$$ E = E_{0} + \\beta\\left[ \\overline{F_{\\text{clamped}}^{\\alpha}} - F \\right]\\overset{\\text{MF}}{\\longrightarrow}E_{\\text{MF}} = E_{0} + \\beta\\left[ \\overline{F_{\\text{MF}}^{\\alpha}} - F_{\\text{MF}} \\right] $$\ngradient descent for $w_{ij}$:\n$$ \\Delta w_{ij} = -\\eta\\frac{\\partial E_{\\text{MF}}}{\\partial w_{ij}} = \\eta\\beta \\bigg[\\overline{m_{i}^{\\alpha}m_{i}^{\\alpha}} - m_{i}m_{j}\\bigg] $$\nprototype: $$ \\Delta w_{ij} = \\eta\\beta \\bigg[\\overline{\\langle S_{i}S_{j}\\rangle}_{\\text{clamped}} - \\langle S_{i}S_{j}\\rangle_{\\text{free}}\\bigg] $$\n7.2 Recurrent Back-Propagation(递归反向传播) $V_{i}$: $N$ continuous-valued units\n$w_{ij}$: connections\n$g(h)$: activation function\n$\\zeta_{i}^{\\mu}$: desired training values.\ndynamic evolution rules:\n$$ \\tau\\frac{\\mathrm{d}V_{i}}{\\mathrm{d}t} = -V_{i} + g\\left( \\sum_{j}w_{ij}V_{j} + \\xi_{i} \\right) $$\nfixed point($\\begin{aligned}\\frac{\\mathrm{d}V_{i}}{\\mathrm{d}t} = 0\\end{aligned}$):\n$$ V_{i} = g(h_{i}) = g\\left( \\sum_{j}w_{ij}V_{j} + \\xi_{i} \\right) $$\nAssumption: at least 1 fixed point exists and is a stable attractor.\nerror measure:\n$$ E = \\frac{1}{2}\\sum_{k}E_{k}^{2},\\quad E_{k} = \\begin{cases} \\zeta_{k} - V_{k} \u0026 \\text{if }k\\text{ is output unit}\\\\ 0 \u0026 \\text{otherwise} \\end{cases} $$\ngradient descent:\n$$ \\Delta w_{pq} = -\\eta\\frac{\\partial E}{\\partial w_{pq}} = \\eta\\sum_{k}E_{k}\\frac{\\partial V_{k}}{\\partial w_{pq}} $$\ndifferentiating fixed point equation:\n$$ \\begin{aligned} \\frac{\\partial V_{i}}{\\partial w_{pq}} \u0026= g^{\\prime}(h_{i}){\\color{red}{\\frac{\\partial h_{i}}{\\partial w_{pq}}}}\\\\ {\\color{red}{\\frac{\\partial h_{i}}{\\partial w_{pq}}}} \u0026= \\frac{\\partial }{\\partial w_{pq}}\\left(\\sum_{j}{\\color{blue}{w_{ij}V_{j}}} + \\xi_{i}\\right)\\\\ \\frac{\\partial ({\\color{blue}{w_{ij}V_{j}}})}{\\partial w_{pq}} \u0026= \\frac{\\partial w_{ij}}{\\partial w_{pq}}V_{j} + w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}} = \\delta_{ip}\\delta_{jq}V_{j} + w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}}\\\\ \\Rightarrow {\\color{red}{\\frac{\\partial h_{i}}{\\partial w_{pq}}}} \u0026= \\sum_{{\\color{green}{j}}}\\left( \\delta_{ip}\\delta_{{\\color{green}{j}}q}V_{{\\color{green}{j}}} + w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}} \\right) = \\delta_{ip}V_{q} + \\sum_{j}w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}}\\\\ \\Rightarrow \\frac{\\partial V_{i}}{\\partial w_{pq}} \u0026= g^{\\prime}(h_{i})\\left( \\delta_{ip}V_{q} + \\sum_{j}w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}} \\right)\\\\ \u0026= \\delta_{ip}g^{\\prime}(h_{i})V_{q} + \\sum_{j}g^{\\prime}(h_{i})w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}} \\end{aligned} $$\n将单项写作 delta-求和 形式 $\\begin{aligned}\\frac{\\partial V_{i}}{\\partial w_{pq}} = \\sum_{j}\\delta_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}}\\end{aligned}$, 再将等式右边第二项移到左边\n$$ \\sum_{j}{\\color{red}{\\bigg[\\delta_{ij}-g^{\\prime}(h_{i})w_{ij}\\bigg]}}\\frac{\\partial V_{j}}{\\partial w_{pq}} = \\delta_{ip}g^{\\prime}(h_{i})V_{q}\\\\ \\sum_{j}{\\color{red}{\\mathbf{L}_{ij}}}\\frac{\\partial V_{j}}{\\partial w_{pq}} = \\delta_{ip}g^{\\prime}(h_{i})V_{q} $$\n实际可以理解为 $\\mathbf{L}_{i\\times j}\\times \\frac{\\partial \\mathbf{V}}{\\partial w_{pq}}_{j\\times 1}$ 的矩阵乘法. 左右同时左乘 $\\mathbf{L}^{-1}$:\n$$ \\frac{\\partial V_{k}}{\\partial w_{pq}} = (\\mathbf{L}^{-1})_{kp}g^{\\prime}(h_{p})V_{q} $$\ndelta-rule:\n$$ \\begin{aligned} \\Delta w_{pq} \u0026= \\eta{\\color{red}{\\sum_{k} E_{k}(\\mathbf{L}^{-1})_{kp}g^{\\prime}(h_{p})}}V_{q}\\\\ \u0026= \\eta{\\color{red}{\\delta_{p}}}V_{q} \\end{aligned} $$\n需要进行求逆\n$$ \\delta_{p} = {\\color{red}{\\sum_{k} E_{k}(\\mathbf{L}^{-1})_{kp}}}g^{\\prime}(h_{p}) = g^{\\prime}(h_{p}){\\color{red}{Y_{p}}} $$\n$$ \\begin{aligned} \\sum_{p}\\mathbf{L}_{ip}Y_{p} \u0026= \\sum_{p}\\mathbf{L}_{ip}\\left[ \\sum_{k}E_{k}(\\mathbf{L}^{-1})_{kp} \\right] \\\\ \u0026= \\sum_{k}E_{k}\\left[ \\sum_{p}\\mathbf{L}_{ip}(\\mathbf{L}^{-1})_{kp} \\right]\\\\ \u0026= \\sum_{k}E_{k}\\delta_{ik} = E_{i} \\end{aligned} $$\nRecall: $$ \\mathbf{L}_{ij} = \\delta_{ij} - g^{\\prime}(h_{i})w_{ij} $$\n$$ Y_{i} - \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} = E_{i} $$\n那么\n$$ \\begin{aligned} \\sum_{p}\\mathbf{L}_{pi}Y_{p} \u0026= \\sum_{p}\\bigg[ \\delta_{pi}-g^{\\prime}(h_{p})w_{pi} \\bigg]Y_{p} \\\\ \u0026= \\sum_{p}\\delta_{pi}Y_{p} - \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} \\\\ \u0026= \\boxed{Y_{i} - \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} = E_{i}} \\end{aligned} $$\nerror-propagation network:\n$$ \\tau\\frac{\\mathrm{d}Y_{i}}{\\mathrm{d}t} = - Y_{i} + \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} + E_{i} $$\n$w_{ij}\\rightarrow g^{\\prime}(h_{i})w_{ij}$\n$g(x)\\rightarrow x$\nnetwork transposition(网络转置): 通过转置避免显式求逆\nProcedure:\n$\\begin{aligned}\\tau\\frac{\\mathrm{d}V_{i}}{\\mathrm{d}t} = -V_{i} + g\\left(\\sum_{j}w_{ij}V_{j} + \\xi_{i}\\right)\\end{aligned}$ 以找到 $V_{i}$;\n$\\begin{aligned}E_{k} = \\begin{cases}\\zeta_{k}-V_{k} \u0026 k\\text{ is output}\\\\0\u0026\\text{ others}\\end{cases}\\end{aligned}$ 以确定 $E_{i}$;\n$\\begin{aligned}\\tau\\frac{\\mathrm{d}Y_{i}}{\\mathrm{d}t} = - Y_{i} + \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} + E_{i}\\end{aligned}$ 以找到 $Y_{i}$;\n$\\Delta w_{pq}=\\eta\\delta_{p}V_{q}$, $\\delta_{p} = g^{\\prime}(h_{p})Y_{p}$ 更新权重.\nwithout requiring any non-local operations(matrix inversion)\noriginal network: supply error signals $E_{i}$;\nerror-propagation network: adjust weights in the original network.\n$\\begin{aligned}Y_{i} - \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} = E_{i}\\end{aligned}$ is a stable attractor if $\\begin{aligned}V_{i} = g\\left(\\sum_{j}w_{ij}V_{j} + \\xi_{i}\\right)\\end{aligned}$ is a stable attractor.\n设 $V_{i}^{*}$ 和 $Y_{i}^{*}$ 各为两个动力学方程的不动点. 研究其邻域 $V_{i} = V_{i}^{*} + \\epsilon_{i}$ 和 $Y_{i} = Y_{i}^{*} + \\eta_{i}$. 代入微分方程且保留一阶项:\n$$ \\begin{aligned} \\tau\\frac{\\mathrm{d}\\epsilon_{i}}{\\mathrm{d}t} \u0026= -\\epsilon_{i} + g^{\\prime}(h_{i})\\sum_{j}w_{ij}\\epsilon_{j} = -\\sum_{j}\\mathbf{L}_{ij}\\epsilon_{j}\\\\ \\tau\\frac{\\mathrm{d}\\eta_{i}}{\\mathrm{d}t} \u0026= -\\eta_{i} + \\sum_{p}g^{\\prime}(h_{p})w_{pi}\\eta_{p} = -\\sum_{p}\\mathbf{L}_{ip}^{T}\\eta_{p} \\end{aligned} $$\n$\\mathbf{L}$ 和 $\\mathbf{L}^{T}$ 特征值相同, 所以局部稳定性一致.\n全连接网络($\\mathbf{L}_{N\\times N}$)求逆时间复杂度 为 $\\mathcal{O}(N^3)$. 而网络转置法的时间复杂度为 $\\mathcal{O}(N^2)$.\n7.3 Learning Time Sequences(时间序列学习) Sequence Recognition(序列识别): specific input sequence $\\to$ particular output pattern\nSequence Reproduction(序列再现): generate the rest of a sequence given part of it.\nTemporal Association(时间关联): particular output sequence in response to a specific input sequence.\nTapped Delay Lines(抽头延迟线) time-delay neural networks:\n从信号 $x[t]$ 中采集的 $x[\\tau], x[\\tau-\\Delta], \\cdots, x[\\tau-(m-1)\\Delta]$ 同时作为网络输入.\nnot for arbitrary-length sequences; large training examples, slow computation; precise clock Tank \u0026 Hopfield:\nraw signal $\\vec{x}(t)$.\nusual delay line: $\\vec{x}(t), \\vec{x}(t-\\tau_{1}),\\vec{x}(t-\\tau_{2}),\\cdots, \\vec{x}(t-\\tau_{m})$;\nTank \u0026 Hopfield: $\\begin{aligned} y(t;\\tau_{i}) = \\int_{-\\infty}^{t}G(t-t^{\\prime};\\tau_{i})\\vec{x}(t^{\\prime})\\mathrm{d}t^{\\prime}\\end{aligned}$\n$$ G(t;\\tau_{i}) = \\left(\\frac{t}{\\tau_{i}}\\right)^{\\alpha}e^{\\alpha(1-t/\\tau_{i})} $$\n$t=\\tau_{i}$ 取极值 1. $\\alpha$ 越大 $G$ 越尖锐.\nno need for precise synchronization by a central clock.\nContext Units(上下文单元) Partially recurrent networks(sequential networks):\nmainly feed-forward; chosen set of feed-back connections context units $C_{i}$: receive clocked feedback signals.\n$t$ 时刻, context unit 接收 $t-1$ 的网络信号\n单箭头: 第 $i$ 单元只连接下一层的第 $i$ 单元\n阴影箭头: 每一个神经元都和上一层的所有神经元连接\n(a) context units hold a copy of the activations of the hidden units from the previous time step.\n(b) updating rule:\n$$ C_{i}(t+1) = \\alpha C_{i}(t) + O_{i}(t) $$\n$O_{i}$: output units;\n$\\alpha \u003c 1$: strength of the self-connections.\n$O_{i}$ fixed $\\to$ $C_{i}\\to O_{i}/(1-\\alpha)$\ndecay/integrating/capacitive units.\nIterating:\n$$ \\begin{aligned} C_{i}(t+1) \u0026= O_{i}(t) + \\alpha O_{i}(t-1) + \\alpha^{2}O_{i}(t-2)+\\cdots\\\\ \u0026= \\sum_{t^{\\prime}=0}^{t}\\alpha^{t-t^{\\prime}}O_{i}(t^{\\prime})\\\\ \u0026\\Rightarrow \\int_{0}^{t}e^{-\\gamma (t-t^{\\prime})}O_{i}(t^{\\prime})\\mathrm{d}t^{\\prime},\\quad \\gamma = |\\log{\\alpha}| \\end{aligned} $$\n$\\alpha$ 应当和输入序列的时间尺度相匹配. 可以使用多个 context 单元组, 每组有不同的 $\\alpha$ 值.\n(c) feedback: context units themselves only.\n(d)\ninput 和 context 之间的连接为全连接而非逐一连接. self-connections can be trained. back-propagation: no modifiable recurrent connections.\nMozer:\n$$ C_{i}(t+1) = \\alpha_{i}C_{i}(t) + g\\left( \\sum_{j}w_{ij}\\xi_{j} \\right) $$\n$\\xi_{j}$: input pattern\nWilliams \u0026 Zipser:\n$$ C_{i}(t+1) = g\\left[ \\alpha_{i}C_{i}(t) + \\sum_{j}w_{ij}\\xi_{j} \\right] $$\nBack-Propagation Through Time(时间反向传播) fully recurrent networks: any unit $V_{i}$ may be connected to any other.\nupdate rule:\n$$ V_{i}(t+1) = g[h_{i}(t)] = g\\left[ \\sum_{j}w_{ij}V_{j}(t) + \\xi_{i}(t) \\right] $$\n$\\xi_{i}(t)$: input at node $i$, at time $t$. 不存在时为 $0$.\nproduce $\\zeta_{i}(t)$ in response to input sequence $\\xi_{i}(t)$\ntrick: arbitrary recurrent network $\\to$ equivalent feed-forward network.\n2-unit, $T=4$. $w_{ij}$ independent of $t$.\nno clock needed;\nneed large computer resources:\nstorage; computer time for simulation; number of training examples. once trained (in unfolded form), it works for temporal association task.\nReal-Time Recurrent Learning(实时递归学习) learning rule without duplicating the units.\ndeal with sequence of arbitrary length.\ndynamics:\n$$ V_{i}(t) = g[h_{i}(t-1)] = g\\left[ \\sum_{j}w_{ij}V_{j}(t-1) + \\xi_{i}(t-1) \\right] $$\n$\\zeta_{k}(t)$: target output\nerror measure:\n$$ E_{k}(t) = \\begin{cases} \\zeta_{k}(t) - V_{k}(t) \u0026 \\text{if }\\zeta_{k}(t)\\text{ is defined at time }t\\\\ 0 \u0026 \\text{otherwise} \\end{cases} $$\ncost function:\n$$ E = \\sum_{t=0}^{T} E(t) $$\n$$ E(t) = \\frac{1}{2}\\sum_{k}[E_{k}(t)]^{2},\\quad t = 0,1,2,\\cdots,T $$\ngradient descent:\n$$ \\Delta w_{pq}(t) = -\\eta\\frac{\\partial E(t)}{\\partial w_{pq}} = \\eta\\sum_{k}E_{k}(t)\\frac{\\partial V_{k}(t)}{\\partial w_{pq}} $$\ndifferentiating dynamics:\n$$ \\frac{\\partial V_{i}(t)}{\\partial w_{pq}} = g^{\\prime}[h_{i}(t-1)]\\left[ \\delta_{ip}V_{q}(t-1) + \\sum_{j}w_{ij}\\frac{\\partial V_{j}(t-1)}{\\partial w_{pq}} \\right] $$\nRecall: $$ \\frac{\\partial V_{i}}{\\partial w_{pq}} = g^{\\prime}(h_{i})\\left( \\delta_{ip}V_{q} + \\sum_{j}w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}} \\right) $$\nif only a stable attractor interested, let $\\partial_{w_{pq}}V_{i}(t)=\\partial_{w_{pq}}V_{i}(t-1)$, or $\\partial_{w_{pq}}V_{i}(0)=0$\n$N$ units, $N^{3}$ derivatives($N$ neurons $\\times N^{2}$ weights), $\\mathcal{O}(N^{4})$ time complexity($N^{3}$ derivatives $\\times N$ nodes).\nreal-time recurrent learning: weight update in real time\navoid array storage.\nteacher forcing: always replace $V_{k}(t)$ by $\\zeta_{k}(t)$ after $E_{k}(t)$ \u0026 derivatives computed.\n加速训练收敛, 避免早期预测错误的积累.\nattractor under teacher forcing may be removed when the network runs freely, even turn into a repellor(排斥子)\nflip-flop(触发器): if “A $\\to$ (arbitrary interval) $\\to$ B”: output a signal.\ntapped delay line could never do this.\nTime-Dependent Recurrent Back-Propagation(含时递归反向传播) dynamics:\n$$ \\tau_{i}\\frac{\\mathrm{d}V_{i}}{\\mathrm{d}t} = -V_{i} + g\\left( \\sum_{j}w_{ij}V_{j} \\right) + \\xi_{i}(t)\\tag{*} $$\nRecall: Recurrent Back-Propagation $$ \\tau\\frac{\\mathrm{d}V_{i}}{\\mathrm{d}t} = -V_{i} + g\\left(\\sum_{j}w_{ij}V_{j} + \\xi_{i}\\right) $$\nerror function:\n$$ E = \\frac{1}{2}\\int_{0}^{T}\\sum_{k\\in O}[V_{k}(t)-\\zeta_{k}(t)]^{2}\\mathrm{d}t $$\n$O$: output units\n$\\zeta_{k}(t)$: target output\ngradient descent:\nfunctional derivative(泛函导数): $$ E_{k}(t) = \\frac{\\delta E}{\\delta V_{k}(t)} = [V_{k}(t) - \\zeta_{k}(t)] $$\ngradient: $$ \\frac{\\partial E}{\\partial w_{ij}} = \\frac{1}{\\tau_{i}}\\int_{0}^{T}Y_{i}g^{\\prime}(h_{i})V_{j}\\mathrm{d}t $$\n可以通过 $\\frac{\\partial E}{\\partial \\tau_{i}}$ 从而通过调整 $\\tau_{i}$ 进行优化.\n$h_{i}(t) = \\sum_{j}w_{ij}V_{j}(t)$\n$Y_{i}(t)$: solution of\n$$ \\frac{\\mathrm{d}Y_{i}}{\\mathrm{d}t} = \\frac{1}{\\tau_{i}}Y_{i} - \\sum_{j}\\frac{1}{\\tau_{j}}w_{ji}g^{\\prime}(h_{j})Y_{j} - E_{i}(t),\\quad Y_{i}(T) = 0, \\forall i\\tag{**} $$\nrecall:\n$$ \\mathbf{L}_{ij} = \\delta_{ij} - g^{\\prime}(h_{i})w_{ij}\\\\ Y_{p} = \\sum_{k}E_{k}(\\mathbf{L}^{-1})_{kp} $$ error propagation network dynamics: $$ \\tau\\frac{\\mathrm{d}Y_{i}}{\\mathrm{d}t} = -Y_{i} + \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} + E_{i} $$\n$\\int_{0}^{T}(*)\\Rightarrow V_{i}(t)$;\n$\\int_{T}^{0}(**)\\Rightarrow Y_{i}(t)$.\nso that we get $\\begin{aligned}\\Delta w_{ij} = -\\eta\\frac{\\partial E}{\\partial w_{ij}}\\end{aligned}$\nlarge time \u0026 storage requirements: $N$ fully recurrent units \u0026 $K$ time steps ($0\\to T$)\ntime per forward-backward pass $\\sim N^{2}K$ (Real-Time Recurrent Learning: $\\sim N^{4}K$) memory $\\sim aNK+bN^{2}$ (RTRL: $\\sim N^{3}$) 7.4 Reinforcement Learning(强化学习) no detailed target values. only “right” or “wrong”. learn with a critic, not a teacher.\nintroduce randomness to explore a correct value(by using stochastic units).\nreinforcement learning problems:\nI. same signal for a given i-o pair. (IO mapping) no reference to previous outputs.\nII. stochastic environment. given same io-pair, fixed probability distribution of reinforcement. independent of history.\ntwo-armed bandit problem(双臂赌博): 两个未知概率的老虎机. 找到平均收益最高的一个. method: stochastic learning automata(随机学习自动机)\nIII. reinforcement \u0026 input patterns depend on the output history arbitrarily. game theory(博弈论): “environment” = other players. [Example] Chess. win/lose after a long sequence of moves. credit assignment problem: how to judge each move’s contribution to victory/defeat?\nAssociative Reward-Penalty(联想奖惩) $A_{\\text{RP}}$ $S_{i}=\\pm 1$: output units\ndynamical rule:\n$$ P(S_{i} = \\pm 1) = g(\\pm h_{i}) = f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+\\exp{(\\mp 2\\beta h_{i})}} $$\n$$ h_{i} = \\sum_{j}w_{ij}V_{j} $$\n$V_{j}$: activations of hidden/input units.\nreinforcement signal $r=\\pm 1$ (reward/penalty).\ntarget patterns:\n$$ \\zeta_{i}^{\\mu} = \\begin{cases} +S_{i}^{\\mu} \u0026 \\text{if }r^{\\mu} = +1\\\\ -S_{i}^{\\mu} \u0026 \\text{if }r^{\\mu} = -1 \\end{cases} $$\nRecall: Stochastic Units\n$$ \\begin{aligned} P(S_{i}=\\pm 1) \u0026= f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+\\exp{(\\mp 2\\beta h_{i})}},\\quad h_{i}^{\\mu} = \\sum_{k}w_{ik}\\xi_{k}^{\\mu}\\\\ \\langle S_{i}^{\\mu}\\rangle \u0026= (+1)g(h_{i}^{\\mu}) + (-1)[1-g(h_{i}^{\\mu})] = \\tanh{\\left(\\beta h_{i}^{\\mu}\\right)}\\\\ \\Delta w_{ik} \u0026= \\eta\\delta_{i}^{\\mu}\\xi_{k}^{\\mu}, \\quad \\delta_{i}^{\\mu} = \\zeta_{i}^{\\mu} - \\langle S_{i}^{\\mu}\\rangle \\end{aligned} $$\nweight update rule\n$$ \\Delta w_{ij} = \\eta(r^{\\mu})\\delta_{i}^{\\mu}V_{j}^{\\mu} $$\n$\\times g^{\\prime}(h_{i}^{\\mu})$ to minimize $\\sum_{i}(\\delta_{i}^{\\mu})^{2}$ (not for entropic cost function).\n$\\eta(+1)$ is 10-100 times larger than $\\eta(-1)$\nSo the learning rule\n$$ \\Delta w_{ij} = \\begin{cases} \\eta^{+}[+S_{i}^{\\mu}-\\langle S_{i}^{\\mu}\\rangle]V_{j}^{\\mu} \u0026 \\text{if }r^{\\mu} = +1\\\\ \\eta^{-}[-S_{i}^{\\mu}-\\langle S_{i}^{\\mu}\\rangle]V_{j}^{\\mu} \u0026 \\text{if }r^{\\mu} = -1 \\end{cases} $$\n$\\eta^{\\pm 1} = \\eta(\\pm 1)$.\nslow compared to supervised learning. speed depends on the size of the output space and correct fraction of it.\n[Example] only 1 correct answer for each input, the search can be very long.\nvariations on $A_{\\text{RP}}$:\n0/1 units. $-S_{i}^{\\mu}\\to 1-S_{i}^{\\mu}$, $\\langle S_{i}^{\\mu}\\rangle\\to p_{i}^{\\mu}$. continuous-valued reward $r\\in [0,1]$ for $[\\text{terrible}, \\text{excellent}]$. simplify the formula: $$ \\Delta w_{ij} = \\eta(r^{\\mu})\\{ r^{\\mu}[S_{i}^{\\mu} - \\langle S_{i}^{\\mu}\\rangle] + (1-r^{\\mu})[-S_{i}^{\\mu} - \\langle S_{i}^{\\mu}\\rangle] \\}V_{j}^{\\mu} $$\nfor penalty case, use $\\langle S_{i}^{\\mu}\\rangle - S_{i}^{\\mu}$ instead of $-S_{i}^{\\mu} - \\langle S_{i}^{\\mu}\\rangle$: $$ \\Delta w_{ij} = \\eta r^{\\mu}[S_{i}^{\\mu}-\\langle S_{i}^{\\mu}\\rangle]V_{j}^{\\mu} $$\nignore dependence of $\\eta$ on $r$.\n$r=-1$. 标准形式: 和目前所做相反; 此形式: 不要做目前所做.\nstandard form works better for larger weight changes.\nthis variation is more amenable to theoretical analysis.\nspeed $\\uparrow$: present $\\mu$ several times before moving to the next pattern. batch mode: accumulating all $\\Delta w$ Theory of Associative Reward-Penalty(联想奖惩理论) convergence: proved only in special cases.\nusual approach: cost function $\\to \\epsilon$\nnot so satisfactory for the stochastic process.\ncost function: $-\\langle r\\rangle$\n$E\\downarrow \\Rightarrow \\langle r\\rangle\\uparrow$\n$V_{j}\\to \\xi_{j}$. deterministic environment(class I). so $r = r(\\mathbf{S},\\mathbf{\\xi})$\n$\\mathbf{S}$: output pattern; $\\mathbf{\\xi}$: input pattern.\n$$ \\langle r^{\\mu}\\rangle = \\sum_{\\mathbf{S}}P(\\mathbf{S}|\\mathbf{w},\\xi^{\\mu})r(\\mathbf{S},\\xi^{\\mu}) $$\n$P(\\mathbf{S}|\\mathbf{w},\\mathbf{\\xi}^{\\mu})$: prob of $\\mathbf{S}$ if $\\mathbf{w}$ and $\\mathbf{\\xi}^{\\mu}$.\n$$ P(\\mathbf{S}|\\mathbf{w},\\mathbf{\\xi}^{\\mu}) = \\prod_{k}\\begin{cases} g(h_{k}^{\\mu}) \u0026 \\text{if }S_{k} = +1\\\\ 1-g(h_{k}^{\\mu}) \u0026 \\text{if }S_{k} = -1 \\end{cases},\\quad h_{k}^{\\mu} = \\sum_{j}w_{kj}\\xi_{j}^{\\mu} $$\ngradient:\ndifferentiating $P$: $$ \\frac{\\partial P(\\mathbf{S}|\\mathbf{w},\\mathbf{\\xi}^{\\mu})}{\\partial w_{ij}} = \\left(\\prod_{k\\neq i}\\begin{cases} g(h_{k}^{\\mu}) \u0026 \\text{if }S_{k} = +1\\\\ 1-g(h_{k}^{\\mu}) \u0026 \\text{if }S_{k} = -1 \\end{cases}\\right)\\begin{cases} g^{\\prime}(h_{i}^{\\mu})V_{j}^{\\mu} \u0026 \\text{if }S_{i} = +1\\\\ -g^{\\prime}(h_{i}^{\\mu})V_{j}^{\\mu} \u0026 \\text{if }S_{i} = -1 \\end{cases}\\\\ = P(\\mathbf{S}|\\mathbf{w},\\mathbf{\\xi}^{\\mu})\\left(\\begin{cases} g^{\\prime}(h_{i}^{\\mu})/g(h_{i}^{\\mu}) \u0026 \\text{if }S_{i} = +1\\\\ -g^{\\prime}(h_{i}^{\\mu})/[1-g(h_{i}^{\\mu})] \u0026 \\text{if }S_{i} = -1 \\end{cases}\\right)V_{j}^{\\mu} $$\n$g(h) = \\frac{1}{1+e^{-2\\beta h}}$, $g^{\\prime}(h) = 2\\beta g(h)[1-g(h)]$\n$\\langle S\\rangle = \\tanh{(\\beta h)} = \\frac{e^{\\beta h} - e^{-\\beta h}}{e^{\\beta h} + e^{-\\beta h}}$\n$\\Rightarrow g(h) = \\frac{1}{2}(\\langle S\\rangle + 1)$\nSimplify:\n$$ \\begin{cases} g^{\\prime}(h_{i}^{\\mu})/g(h_{i}^{\\mu}) \u0026 \\text{if }S_{i} = +1\\\\ -g^{\\prime}(h_{i}^{\\mu})/[1-g(h_{i}^{\\mu})] \u0026 \\text{if }S_{i} = -1 \\end{cases} = \\beta[S_{i}^{\\mu} - \\langle S_{i}^{\\mu}\\rangle] $$\ndifferentiating $\\langle r^{\\mu}\\rangle$: $$ \\begin{aligned} \\frac{\\partial\\langle r\\rangle^{\\mu}}{\\partial w_{ij}} \u0026= \\beta\\sum_{\\mathbf{S}}P(\\mathbf{S}|\\mathbf{w},\\mathbf{\\xi}^{\\mu})r(\\mathbf{S},\\mathbf{\\xi}^{\\mu})[S_{i}^{\\mu}-\\langle S_{i}^{\\mu}\\rangle]V_{j}^{\\mu}\\\\ \u0026= \\beta\\bigg\\langle r(\\mathbf{S},\\mathbf{\\xi}^{\\mu})[S_{i}^{\\mu}-\\langle S_{i}^{\\mu}\\rangle]\\bigg\\rangle V_{j}^{\\mu} \\end{aligned} $$\n$\\bigg\\langle\\cdots\\bigg\\rangle$: over all output patterns $\\mathbf{S}$.\nwhen $\\partial_{\\mathbf{S}}r(\\mathbf{S},\\mathbf{\\xi}^{\\mu})=0$, $\\partial_{w_{ij}}\\langle r\\rangle^{\\mu} = 0$, which reaches a correct solution and almost always get $r^{\\mu} = +1$.\nupdate rule:\n$$ \\begin{aligned} \\langle \\Delta w_{ij}\\rangle^{\\mu} = \\frac{\\eta}{\\beta}\\frac{\\partial \\langle r\\rangle^{\\mu}}{\\partial w_{ij}}\\\\ \\overset{\\text{average over all }\\mu}{\\Rightarrow} \\langle \\Delta w_{ij}\\rangle = \\frac{\\eta}{\\beta}\\frac{\\partial \\langle r\\rangle}{\\partial w_{ij}} \\end{aligned} $$\n仅 reinforcement signal 最大值时权重停止更新.\n$A_{\\text{RP}}\\overset{\\eta^{-}\\to 0}{\\rightarrow} A_{\\text{RI}}$ (associative reward-inaction rule)\nModels \u0026 Critics environment: an auxiliary network(辅助网络). provide a target for each output (insted of global $r$).\nmodel. evaluation unit(评估单元): continuous-valued output unit $R$. $R\\approx r$: good model.\n先训练 model, 再训练主网络, 使得 $R$ 最大.\n通过 back-propagation 实现: 通过 $\\delta = -R$ 传回主网络各单元独立的误差信号. 此时可使用常规的监督学习.\n最小化 $(R-r)^{2}$ 的同时最大化 $r$. 最佳策略是优先训练 model network.\nII:\naverage fluctuations from environment. chase meaningless $r$ fluctuation easy to maximize $R$. III:\nshould exstimate a weighted average of the future reinforcement, for cumulative, not instantaneous value. (sacrifice shot-term reward for long-term gain) critic: raw $r\\overset{\\text{critic}}{\\to}$ processed signal $\\rho$\nreinforcement comparison: critic generate a prediction $R$ of $r$, could use $\\rho = r-R$. ($\\rho\u003e0$: reward; $\\rho\u003c0$: penalty)\n",
-  "wordCount" : "3392",
+  "articleBody": "Recurrent Networks: With connections allowed both ways between units, and even from a unit to itself.\n7.1 Boltzmann Machines(玻尔兹曼机) Stochastic networks with symmetric connections($w_{ij}=w_{ji}$).\nOriginal form: slow for averaging over stochastic variables. Mean field version: speeded up and more applications. Stochastic Units(随机单元) Visible \u0026 hidden units.\nHidden units: No connection to outside world.\n$$ \\begin{aligned} P(S_{i} = +1) \u0026= g(h_{i}) = \\frac{1}{1+\\exp{(-2\\beta h_{i})}}\\\\ P(S_{i} = -1) \u0026= 1 - g(h_{i}) \\end{aligned} $$\n$\\begin{aligned}h_{i} = \\sum_{j}w_{ij}S_{j},\\quad\\beta = 1/T\\end{aligned}$.\nEnergy function:\n$$ H(\\{S_{i}\\}) = -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}S_{j},\\quad S_{i} = \\text{sgn}{(h_{i})} $$\nBoltzmann-Gibbs distribution:\n$$ P(\\{S_{i}\\}) = \\frac{e^{-\\beta H(\\{S_{i}\\})}}{Z} $$\nPartition function: $$Z = \\sum_{\\{S_{i}\\}} e^{-\\beta H(\\{S_{i}\\})}$$\naverage $\\langle X\\rangle$:\n$$ \\langle X\\rangle = \\sum_{\\{S_{i}\\}}P(\\{S_{i}\\}) X(\\{S_{i}\\}) $$\nPattern completion: At low $T$, only a few possible states have high and equal prob.\n$w_{ij}\\propto \\xi_{i}\\xi_{j}$: no information about links with hidden units.\n$\\alpha$: state of visible units;\n$\\beta$: state of hidden units.\n$N$ visible units, $K$ hidden units $\\Rightarrow 2^{N+K}$ possibilities.\nProbability $P_{\\alpha}$ of chosen state $\\alpha$:\n$$ \\begin{aligned} P_{\\alpha} \u0026= \\sum_{\\beta}P_{\\alpha\\beta} = \\sum_{\\beta}\\frac{1}{Z}e^{-\\beta H_{\\alpha\\beta}}\\\\ Z \u0026= \\sum_{\\alpha\\beta}e^{-\\beta H_{\\alpha\\beta}}\\\\ H_{\\alpha\\beta} \u0026= -\\frac{1}{2}\\sum_{ij}w_{ij}S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta} \\end{aligned} $$\nDesired probability: $R_{\\alpha}$\nCost function: relative entropy(to measure the difference):\n$$ E = \\sum_{\\alpha}R_{\\alpha}\\log{\\frac{R_{\\alpha}}{P_{\\alpha}}} = E_{0} {\\color{green}{- \\sum_{\\alpha}R_{\\alpha}\\log{P_{\\alpha}}}}\\geq 0 $$\n$E = 0$ only if $P_{\\alpha} = R_{\\alpha}$, $\\forall \\alpha$.\nGradient descent:\n$$ \\begin{aligned} {\\color{blue}{\\Delta w_{ij}}} \u0026= -\\eta \\frac{\\partial E}{\\partial w_{ij}} = \\eta\\sum_{\\alpha}\\frac{R_{\\alpha}}{P_{\\alpha}}{\\color{red}{\\frac{\\partial P_{\\alpha}}{\\partial w_{ij}}}}\\\\ {\\color{red}{\\frac{\\partial P_{\\alpha}}{\\partial w_{ij}}}} \u0026= \\sum_{\\beta}\\frac{1}{Z}e^{-\\beta H_{\\alpha\\beta}}S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta} - \\frac{1}{Z^{2}}\\left(\\sum_{\\beta}e^{-\\beta H_{\\alpha\\beta}}\\right)\\sum_{\\lambda\\mu}e^{-\\beta H_{\\lambda\\mu}}S_{i}^{\\lambda\\mu}S_{j}^{\\lambda\\mu}\\\\ \u0026= \\beta\\left[ \\sum_{\\beta}S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta}P_{\\alpha\\beta} - P_{\\alpha}\\langle S_{i}S_{j}\\rangle \\right]\\\\ {\\color{blue}{\\Delta w_{ij}}} \u0026= \\eta\\beta\\left[ \\sum_{\\alpha}\\frac{R_{\\alpha}}{P_{\\alpha}}\\sum_{\\beta}S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta}P_{\\alpha\\beta} - \\sum_{\\alpha}R_{\\alpha}\\langle S_{i}S_{j}\\rangle \\right]\\\\ \u0026= \\eta\\beta\\left[ \\sum_{\\alpha\\beta}R_{\\alpha}P_{\\beta|\\alpha}S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta} - \\langle S_{i}S_{j}\\rangle \\right]\\\\ \u0026= \\eta\\beta\\left[ \\overset{\\text{Hebb term}}{\\overline{\\langle S_{i}S_{j}\\rangle}_{\\text{clamped}}} - \\overset{\\text{unlearning term}}{\\langle S_{i}S_{j}\\rangle_{\\text{free}}} \\right],\\quad\\text{Boltzmann learning rule} \\end{aligned} $$\nconditional probability: $P_{\\beta|\\alpha} = P_{\\alpha\\beta}/P_{\\alpha}$.\n$\\overline{\\langle S_{i}S_{j}\\rangle}_{\\text{clamped}}$: 在给定 $\\alpha$ 概率为 $R_{\\alpha}$ 的条件下, $S_{i}S_{j}$ 的平均值\nBring the system to equilibrium before taking an average.\nMonte Carlo simulation:\nTwo kinds of methods:\nSelect a unit at random, update its state according to $P(S_{i} = \\pm 1)$. Flip a unit with prob $$P(S_{i}\\rightarrow -S_{i}) = \\frac{1}{1+\\exp{(\\beta\\Delta H_{i})}}.$$ Slow at low $T$ (tends to get trapped in local minima) Faster solution: simulated annealing procedure(渐进模拟)\nAdjust weights for convergence; Calculate $\\langle S_{i}S_{j}\\rangle$ in clamped and freestates; Annealing schedule $T(t)$; Sample and update units. Fast simulated annealing(Cauchy machine): multiple flips.\nSlow but effective.\nVariations on Boltzmann Machines(玻尔兹曼机的变种) Weight decay terms $w_{ij}^{\\text{new}} = (1-\\varepsilon)w_{ij}^{\\text{old}}$: automatically become symmetric; Incremental rule(增量规则) If $S_{i}$ \u0026 $S_{j}$ on together, step size $\\varepsilon$, clamped: $w_{ij}\\uparrow$; free: $w_{ij}\\downarrow$\nAvoid oscillations in valley when relying on local gradient $\\exist \\alpha$, $R_{\\alpha}=0$. increase it to $\\epsilon\u003e0$ to avoid infinite weights. Input($\\gamma$), output($\\alpha$), hidden($\\beta$). Learn $\\gamma\\rightarrow \\alpha$ (即目标是 令 $P_{\\alpha|\\gamma}=R_{\\alpha|\\gamma}$)\nError measure(entropic cost function):\n$$ E = \\sum_{\\gamma}p_{\\gamma}\\sum_{\\alpha}R_{\\alpha|\\gamma}\\log{\\frac{R_{\\alpha|\\gamma}}{P_{\\alpha|\\gamma}}} $$\nLearning rule:\n$$ \\Delta w_{ij} = \\eta\\beta\\left[ \\overline{\\langle S_{i}S_{j}\\rangle}_{\\text{I,O clamped}} - \\overline{\\langle S_{i}S_{j}\\rangle}_{\\text{I clamped}} \\right] $$\nHarmonium: two-layer Boltzmann machine. Connections between layers only.\nHopfield: without hidden units. Average $\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}$ over patterns $\\mu$. Start from random cfg and relax at $T=0$. Faster than incremental one.\nStatistical Mechanics Reformulation(统计力学重构) $P_{\\alpha}$: Prob of visible units in state $\\alpha$\n$\\begin{aligned}Z_{\\text{clamped}}^{\\alpha} = \\sum_{\\beta}e^{-\\beta H_{\\alpha\\beta}}\\end{aligned}$: Partition function (visible units clamped in state $\\alpha$)\n$$ Z = e^{-\\beta F} $$\n$$ P_{\\alpha} = \\frac{Z_{\\text{clamped}}^{\\alpha}}{Z} = \\frac{e^{-\\beta F_{\\text{clamped}}^{\\alpha}}}{e^{-\\beta F}} = e^{-\\beta (F_{\\text{clamped}}^{\\alpha} - F)} $$\nCost function:\n$$ \\begin{aligned} E = E_{0} - \\sum_{\\alpha}R_{\\alpha}\\log{P_{\\alpha}} \u0026= E_{0} + \\beta\\sum_{\\alpha}R_{\\alpha}(F_{\\text{clamped}}^{\\alpha} - F)\\\\ \u0026= E_{0} + \\beta\\left[ \\overline{F_{\\text{clamped}}^{\\alpha}} - F \\right] \\end{aligned} $$\n$$ \\begin{aligned} \\langle S_{i}S_{j}\\rangle \u0026= -\\frac{\\partial F}{\\partial w_{ij}} \\\\ \u0026= T\\frac{\\partial \\log{Z}}{\\partial w_{ij}} = \\frac{T}{Z}\\frac{\\partial Z}{\\partial w_{ij}} = \\frac{1}{Z}\\sum_{\\alpha\\beta} S_{i}^{\\alpha\\beta}S_{j}^{\\alpha\\beta}e^{-\\beta H_{\\alpha\\beta}} \\end{aligned} $$\nDeterministic Boltzmann Machines(确定性玻尔兹曼机) Mean field annealing: $\\begin{aligned}m_{i}\\equiv\\langle S_{i}\\rangle = \\tanh{\\left(\\beta\\sum_{j}w_{ij}m_{j}\\right)},\\quad \\langle S_{i}S_{j}\\rangle\\approx m_{i}m_{j}\\end{aligned}$\nIteration\n$$ m_{i}^{\\text{new}} = \\tanh{\\left(\\beta\\sum_{j}w_{ij}m_{j}^{\\text{old}}\\right)} $$\nEntropy:\n$$ S = - \\sum_{i}\\left( p_{i}^{+}\\log{p_{i}^{+}} + p_{i}^{-}\\log{p_{i}^{-}} \\right), \\quad p_{i}^{\\pm} = P(S_{i} = \\pm 1) $$\n$p_{i}^{+} + p_{i}^{-} = 1$, $m_{i} = p_{i}^{+} - p_{i}^{-}$\n$$ p_{i}^{\\pm} = \\frac{1\\pm m_{i}}{2} $$\nMean field free energy:\n$$ \\begin{aligned} F_{\\text{MF}} \u0026= H - TS \\\\ \u0026= -\\frac{1}{2}\\sum_{ij}w_{ij}m_{i}m_{j} + T\\sum_{i}\\left( \\frac{1+m_{i}}{2}\\log{\\frac{1+m_{i}}{2}} + \\frac{1-m_{i}}{2}\\log{\\frac{1-m_{i}}{2}} \\right) \\end{aligned} $$\n$$ E = E_{0} + \\beta\\left[ \\overline{F_{\\text{clamped}}^{\\alpha}} - F \\right]\\overset{\\text{MF}}{\\longrightarrow}E_{\\text{MF}} = E_{0} + \\beta\\left[ \\overline{F_{\\text{MF}}^{\\alpha}} - F_{\\text{MF}} \\right] $$\nGradient descent for $w_{ij}$:\n$$ \\Delta w_{ij} = -\\eta\\frac{\\partial E_{\\text{MF}}}{\\partial w_{ij}} = \\eta\\beta \\bigg[\\overline{m_{i}^{\\alpha}m_{i}^{\\alpha}} - m_{i}m_{j}\\bigg] $$\n原型: $$ \\Delta w_{ij} = \\eta\\beta \\bigg[\\overline{\\langle S_{i}S_{j}\\rangle}_{\\text{clamped}} - \\langle S_{i}S_{j}\\rangle_{\\text{free}}\\bigg] $$\n7.2 Recurrent Back-Propagation(递归反向传播) $V_{i}$: $N$ continuous-valued units\n$w_{ij}$: connections\n$g(h)$: activation function\n$\\zeta_{i}^{\\mu}$: desired training values.\nDynamic evolution rules:\n$$ \\tau\\frac{\\mathrm{d}V_{i}}{\\mathrm{d}t} = -V_{i} + g\\left( \\sum_{j}w_{ij}V_{j} + \\xi_{i} \\right) $$\nfixed point equation $\\begin{aligned}\\left(\\frac{\\mathrm{d}V_{i}}{\\mathrm{d}t} = 0\\right)\\end{aligned}$:\n$$ V_{i} = g(h_{i}) = g\\left( \\sum_{j}w_{ij}V_{j} + \\xi_{i} \\right) $$\nAssumption: At least 1 fixed point exists and is a stable attractor.\nError measure(Cost function):\n$$ E = \\frac{1}{2}\\sum_{k}E_{k}^{2},\\quad E_{k} = \\begin{cases} \\zeta_{k} - V_{k} \u0026 \\text{if }k\\text{ is output unit}\\\\ 0 \u0026 \\text{otherwise} \\end{cases} $$\nGradient descent:\n$$ \\Delta w_{pq} = -\\eta\\frac{\\partial E}{\\partial w_{pq}} = \\eta\\sum_{k}E_{k}\\frac{\\partial V_{k}}{\\partial w_{pq}} $$\nDifferentiating fixed point equation:\n$$ \\begin{aligned} \\frac{\\partial V_{i}}{\\partial w_{pq}} \u0026= g^{\\prime}(h_{i}){\\color{red}{\\frac{\\partial h_{i}}{\\partial w_{pq}}}}\\\\ {\\color{red}{\\frac{\\partial h_{i}}{\\partial w_{pq}}}} \u0026= \\frac{\\partial }{\\partial w_{pq}}\\left(\\sum_{j}{\\color{blue}{w_{ij}V_{j}}} + \\xi_{i}\\right)\\\\ \\frac{\\partial ({\\color{blue}{w_{ij}V_{j}}})}{\\partial w_{pq}} \u0026= {\\color{green}{\\frac{\\partial w_{ij}}{\\partial w_{pq}}}}V_{j} + w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}} = {\\color{green}{\\delta_{ip}\\delta_{jq}}}V_{j} + w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}}\\\\ \\Rightarrow {\\color{red}{\\frac{\\partial h_{i}}{\\partial w_{pq}}}} \u0026= \\sum_{{\\color{green}{j}}}\\left( \\delta_{ip}\\delta_{{\\color{green}{j}}q}V_{{\\color{green}{j}}} + w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}} \\right) = \\delta_{ip}V_{q} + \\sum_{j}w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}}\\\\ \\Rightarrow \\frac{\\partial V_{i}}{\\partial w_{pq}} \u0026= g^{\\prime}(h_{i})\\left( \\delta_{ip}V_{q} + \\sum_{j}w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}} \\right)\\\\ \u0026= \\delta_{ip}g^{\\prime}(h_{i})V_{q} + \\sum_{j}g^{\\prime}(h_{i})w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}} \\end{aligned} $$\n将单项写作 delta-求和 形式 $\\begin{aligned}\\frac{\\partial V_{i}}{\\partial w_{pq}} = \\sum_{j}\\delta_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}}\\end{aligned}$, 再将等式右边第二项移到左边\n$$ \\sum_{j}{\\color{red}{\\bigg[\\delta_{ij}-g^{\\prime}(h_{i})w_{ij}\\bigg]}}\\frac{\\partial V_{j}}{\\partial w_{pq}} = \\delta_{ip}g^{\\prime}(h_{i})V_{q}\\\\ \\sum_{j}{\\color{red}{\\mathbf{L}_{ij}}}\\frac{\\partial V_{j}}{\\partial w_{pq}} = \\delta_{ip}g^{\\prime}(h_{i})V_{q} $$\n实际可以理解为 $\\mathbf{L}_{i\\times j}\\times \\frac{\\partial \\mathbf{V}}{\\partial w_{pq}}_{j\\times 1}$ 的矩阵乘法. 左右同时左乘 $\\mathbf{L}^{-1}$:\n$$ \\frac{\\partial V_{k}}{\\partial w_{pq}} = (\\mathbf{L}^{-1})_{kp}g^{\\prime}(h_{p})V_{q} $$\ndelta-rule:\n$$ \\begin{aligned} \\Delta w_{pq} \u0026= \\eta{\\color{red}{\\sum_{k} E_{k}(\\mathbf{L}^{-1})_{kp}g^{\\prime}(h_{p})}}V_{q}\\\\ \u0026= \\eta{\\color{red}{\\delta_{p}}}V_{q} \\end{aligned} $$\nRecall: delta rule 是源自梯度下降的概念, 但是可以被推广为更普适的形式.\nCost function:\n$$ E[\\vec{w}] = \\frac{1}{2}\\sum_{i\\mu}(\\zeta_{i}^{\\mu} - O_{i}^{\\mu})^{2} = \\frac{1}{2}\\sum_{i\\mu}\\left(\\zeta_{i}^{\\mu}-\\sum_{k}w_{ik}\\xi_{k}^{\\mu}\\right)^{2} $$\n$$ \\Delta w_{ik} = -\\eta\\frac{\\partial E}{\\partial w_{ik}} = \\eta\\sum_{\\mu}(\\zeta_{i}^{\\mu} - O_{i}^{\\mu})\\xi_{k}^{\\mu} $$\n对于某固定 $\\mu$:\n$$ \\Delta w_{ik} = \\eta(\\zeta_{i}^{\\mu}-O_{i}^{\\mu})\\xi_{k}^{\\mu} = {\\color{red}{\\eta\\delta_{i}\\xi_{k}^{\\mu}}} $$\n需要求逆而耗费时间.\n改进:\n$$ \\delta_{p} = {\\color{red}{\\sum_{k} E_{k}(\\mathbf{L}^{-1})_{kp}}}g^{\\prime}(h_{p}) = g^{\\prime}(h_{p}){\\color{red}{Y_{p}}} $$\n$$ \\begin{aligned} \\sum_{p}\\mathbf{L}_{pi}Y_{p} \u0026= \\sum_{p}\\mathbf{L}_{pi}\\left[ \\sum_{k}E_{k}(\\mathbf{L}^{-1})_{kp} \\right] \\\\ \u0026= \\sum_{k}E_{k}\\left[ \\sum_{p}\\mathbf{L}_{pi}(\\mathbf{L}^{-1})_{kp} \\right]\\\\ \u0026= \\sum_{k}E_{k}\\delta_{ik} = E_{i} \\end{aligned} $$\nRecall: $$ \\mathbf{L}_{ij} = \\delta_{ij} - g^{\\prime}(h_{i})w_{ij} $$\n那么\n$$ \\begin{aligned} \\sum_{p}\\mathbf{L}_{pi}Y_{p} \u0026= \\sum_{p}\\bigg[ \\delta_{pi}-g^{\\prime}(h_{p})w_{pi} \\bigg]Y_{p} \\\\ \u0026= \\sum_{p}\\delta_{pi}Y_{p} - \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} \\\\ \u0026= \\boxed{Y_{i} - \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} = E_{i}} \\end{aligned} $$\nError-propagation network:\n$$ \\tau\\frac{\\mathrm{d}Y_{i}}{\\mathrm{d}t} = - Y_{i} + \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} + E_{i} $$\n$w_{ij}\\rightarrow g^{\\prime}(h_{i})w_{ij}$\n$g(x)\\rightarrow x$\nnetwork transposition(网络转置): 通过转置避免显式求逆\nProcedure:\n$\\begin{aligned}\\tau\\frac{\\mathrm{d}V_{i}}{\\mathrm{d}t} = -V_{i} + g\\left(\\sum_{j}w_{ij}V_{j} + \\xi_{i}\\right)\\end{aligned}$ 以找到 $V_{i}$;\n$\\begin{aligned}E_{k} = \\begin{cases}\\zeta_{k}-V_{k} \u0026 k\\text{ is output}\\\\0\u0026\\text{ others}\\end{cases}\\end{aligned}$ 以确定 $E_{i}$;\n$\\begin{aligned}\\tau\\frac{\\mathrm{d}Y_{i}}{\\mathrm{d}t} = - Y_{i} + \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} + E_{i}\\end{aligned}$ 以找到 $Y_{i}$;\n$\\Delta w_{pq}=\\eta\\delta_{p}V_{q}$, $\\delta_{p} = g^{\\prime}(h_{p})Y_{p}$ 更新权重.\nwithout requiring any non-local operations(matrix inversion)\noriginal network: supply error signals $E_{i}$;\nerror-propagation network: adjust weights in the original network.\n$\\begin{aligned}Y_{i} - \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} = E_{i}\\end{aligned}$ is a stable attractor if $\\begin{aligned}V_{i} = g\\left(\\sum_{j}w_{ij}V_{j} + \\xi_{i}\\right)\\end{aligned}$ is a stable attractor.\n设 $V_{i}^{*}$ 和 $Y_{i}^{*}$ 各为两个动力学方程的不动点. 研究其邻域 $V_{i} = V_{i}^{*} + \\epsilon_{i}$ 和 $Y_{i} = Y_{i}^{*} + \\eta_{i}$. 代入微分方程且保留一阶项:\n$$ \\begin{aligned} \\tau\\frac{\\mathrm{d}\\epsilon_{i}}{\\mathrm{d}t} \u0026= -\\epsilon_{i} + g^{\\prime}(h_{i})\\sum_{j}w_{ij}\\epsilon_{j} = -\\sum_{j}\\mathbf{L}_{ij}\\epsilon_{j}\\\\ \\tau\\frac{\\mathrm{d}\\eta_{i}}{\\mathrm{d}t} \u0026= -\\eta_{i} + \\sum_{p}g^{\\prime}(h_{p})w_{pi}\\eta_{p} = -\\sum_{p}\\mathbf{L}_{ip}^{T}\\eta_{p} \\end{aligned} $$\n$\\mathbf{L}$ 和 $\\mathbf{L}^{T}$ 特征值相同, 所以局部稳定性一致.\n全连接网络($\\mathbf{L}_{N\\times N}$)求逆时间复杂度 为 $\\mathcal{O}(N^3)$. 而网络转置法的时间复杂度为 $\\mathcal{O}(N^2)$.\n7.3 Learning Time Sequences(时间序列学习) Sequence Recognition(序列识别): specific input sequence $\\to$ particular output pattern\nSequence Reproduction(序列再现): generate the rest of a sequence given part of it.\nTemporal Association(时间关联): particular output sequence in response to a specific input sequence.\nTapped Delay Lines(抽头延迟线) time-delay neural networks:\n从信号 $x[t]$ 中采集的 $x[\\tau], x[\\tau-\\Delta], \\cdots, x[\\tau-(m-1)\\Delta]$ 同时作为网络输入.\nnot for arbitrary-length sequences, 不灵活; large training examples, slow computation, 耗算力; precise clock, 同步要求高. Tank \u0026 Hopfield:\n设 raw signal $\\vec{x}(t)$.\nUsual delay line: $\\vec{x}(t), \\vec{x}(t-\\tau_{1}),\\vec{x}(t-\\tau_{2}),\\cdots, \\vec{x}(t-\\tau_{m})$;\nTank \u0026 Hopfield: $\\begin{aligned} y(t;\\tau_{i}) = \\int_{-\\infty}^{t}G(t-t^{\\prime};\\tau_{i})\\vec{x}(t^{\\prime})\\mathrm{d}t^{\\prime}\\end{aligned}$\n$$ G(t;\\tau_{i}) = \\left(\\frac{t}{\\tau_{i}}\\right)^{\\alpha}e^{\\alpha(1-t/\\tau_{i})} $$\n$t=\\tau_{i}$ 取极值 1. $\\alpha$ 越大 $G$ 越尖锐.\nno need for precise synchronization by a central clock.\n类似于卷积+滑动窗口(window) 的思路.\nContext Units(上下文/记忆单元) Partially recurrent networks(sequential networks):\nmainly feed-forward; chosen set of feed-back connections context units $C_{i}$: receive clocked feedback signals.\n$t$ 时刻, context unit 接收 $t-1$ 的网络信号\n单箭头: 第 $i$ 单元只连接下一层的第 $i$ 单元\n阴影箭头: 每一个神经元都和上一层的所有神经元连接\n(a) context units hold a copy of the activations of the hidden units from the previous time step.\n(b) updating rule:\n$$ C_{i}(t+1) = \\alpha C_{i}(t) + O_{i}(t) $$\n$O_{i}$: output units;\n$\\alpha \u003c 1$: strength of the self-connections.\nIf $O_{i}$ fixed: $C_{i}\\to O_{i}/(1-\\alpha)$\n因此, 也被称作 decay/integrating/capacitive units.\nIterating:\n$$ \\begin{aligned} C_{i}(t+1) \u0026= O_{i}(t) + \\alpha O_{i}(t-1) + \\alpha^{2}O_{i}(t-2)+\\cdots\\\\ \u0026= \\sum_{t^{\\prime}=0}^{t}\\alpha^{t-t^{\\prime}}O_{i}(t^{\\prime})\\\\ \u0026\\Rightarrow \\int_{0}^{t}e^{-\\gamma (t-t^{\\prime})}O_{i}(t^{\\prime})\\mathrm{d}t^{\\prime},\\quad \\gamma = |\\log{\\alpha}| \\end{aligned} $$\n这表明 $\\alpha$ 应当和输入序列的时间尺度相匹配. 可以使用多个 context 单元组, 每组有不同的 $\\alpha$ 值.\n(c) Feedback: context units themselves only.\n(d)\nInput 和 context 之间的连接为全连接而非逐一连接. Self-connections can be trained. Back-propagation: No modifiable recurrent connections.\nMozer:\n$$ C_{i}(t+1) = \\alpha_{i}C_{i}(t) + g\\left( \\sum_{j}w_{ij}\\xi_{j} \\right) $$\n$\\xi_{j}$: input pattern\nWilliams \u0026 Zipser:\n$$ C_{i}(t+1) = g\\left[ \\alpha_{i}C_{i}(t) + \\sum_{j}w_{ij}\\xi_{j} \\right] $$\nBack-Propagation Through Time(时间反向传播) fully recurrent networks: Any unit $V_{i}$ may be connected to any other.\nUpdate rule:\n$$ V_{i}(t+1) = g[h_{i}(t)] = g\\left[ \\sum_{j}w_{ij}V_{j}(t) + \\xi_{i}(t) \\right] $$\n$\\xi_{i}(t)$: input at node $i$, at time $t$. 不存在时为 $0$.\nProduce $\\zeta_{i}(t)$ in response to input sequence $\\xi_{i}(t)$\nTrick: 任意 recurrent network 可展开为 等效 feed-forward network.\n2-unit, $T=4$. $w_{ij}$ independent of $t$.\nNo clock needed;\nNeed large computer resources:\nStorage; Computer time for simulation; Number of training examples. Once trained (in unfolded form), it works for temporal association task.\nReal-Time Recurrent Learning(实时递归学习) Learning rule without duplicating the units.\nDeal with sequence of arbitrary length.\nDynamics:\n$$ V_{i}(t) = g[h_{i}(t-1)] = g\\left[ \\sum_{j}w_{ij}V_{j}(t-1) + \\xi_{i}(t-1) \\right] $$\n$\\zeta_{k}(t)$: target output\nError measure:\n$$ E_{k}(t) = \\begin{cases} \\zeta_{k}(t) - V_{k}(t) \u0026 \\text{if }\\zeta_{k}(t)\\text{ is defined at time }t\\\\ 0 \u0026 \\text{otherwise} \\end{cases} $$\nCost function:\n$$ E = \\sum_{t=0}^{T} E(t) $$\n$$ E(t) = \\frac{1}{2}\\sum_{k}[E_{k}(t)]^{2},\\quad t = 0,1,2,\\cdots,T $$\nGradient descent:\n$$ \\Delta w_{pq}(t) = -\\eta\\frac{\\partial E(t)}{\\partial w_{pq}} = \\eta\\sum_{k}E_{k}(t)\\frac{\\partial V_{k}(t)}{\\partial w_{pq}} $$\ndifferentiating dynamics:\n$$ \\frac{\\partial V_{i}(t)}{\\partial w_{pq}} = g^{\\prime}[h_{i}(t-1)]\\left[ \\delta_{ip}V_{q}(t-1) + \\sum_{j}w_{ij}\\frac{\\partial V_{j}(t-1)}{\\partial w_{pq}} \\right] $$\nRecall: $$ \\frac{\\partial V_{i}}{\\partial w_{pq}} = g^{\\prime}(h_{i})\\left( \\delta_{ip}V_{q} + \\sum_{j}w_{ij}\\frac{\\partial V_{j}}{\\partial w_{pq}} \\right) $$\nIf only a stable attractor interested, let $\\partial_{w_{pq}}V_{i}(t)=\\partial_{w_{pq}}V_{i}(t-1)$, or $\\partial_{w_{pq}}V_{i}(0)=0$\n$N$ units, $N^{3}$ derivatives($N$ neurons $\\times N^{2}$ weights), $\\mathcal{O}(N^{4})$ time complexity($N^{3}$ derivatives $\\times N$ nodes).\nReal-time recurrent learning: Weight update in real time\nAvoid array storage.\nteacher forcing: always replace $V_{k}(t)$ by $\\zeta_{k}(t)$ after $E_{k}(t)$ \u0026 derivatives computed.\n加速训练收敛, 避免早期预测错误的积累.\nAttractor under teacher forcing may be removed when the network runs freely, even turn into a repellor(排斥子)\nflip-flop(触发器): if “A $\\to$ (arbitrary interval) $\\to$ B”: output a signal.\nTapped delay line could never do this.\nTime-Dependent Recurrent Back-Propagation(含时递归反向传播) dynamics:\n$$ \\tau_{i}\\frac{\\mathrm{d}V_{i}}{\\mathrm{d}t} = -V_{i} + g\\left( \\sum_{j}w_{ij}V_{j} \\right) + \\xi_{i}(t)\\tag{*} $$\nRecall: Recurrent Back-Propagation $$ \\tau\\frac{\\mathrm{d}V_{i}}{\\mathrm{d}t} = -V_{i} + g\\left(\\sum_{j}w_{ij}V_{j} + \\xi_{i}\\right) $$\nError function:\n$$ E = \\frac{1}{2}\\int_{0}^{T}\\sum_{k\\in O}[V_{k}(t)-\\zeta_{k}(t)]^{2}\\mathrm{d}t $$\n$O$: output units\n$\\zeta_{k}(t)$: target output\nGradient descent:\nfunctional derivative(泛函导数): $$ E_{k}(t) = \\frac{\\delta E}{\\delta V_{k}(t)} = [V_{k}(t) - \\zeta_{k}(t)] $$\ngradient: $$ \\frac{\\partial E}{\\partial w_{ij}} = \\frac{1}{\\tau_{i}}\\int_{0}^{T}Y_{i}g^{\\prime}(h_{i})V_{j}\\mathrm{d}t $$\n可以通过 $\\begin{aligned}\\frac{\\partial E}{\\partial \\tau_{i}}\\end{aligned}$ 从而通过调整 $\\tau_{i}$ 进行优化.\n$\\begin{aligned}h_{i}(t) = \\sum_{j}w_{ij}V_{j}(t)\\end{aligned}$\n$Y_{i}(t)$: solution of\n$$ \\frac{\\mathrm{d}Y_{i}}{\\mathrm{d}t} = \\frac{1}{\\tau_{i}}Y_{i} - \\sum_{j}\\frac{1}{\\tau_{j}}w_{ji}g^{\\prime}(h_{j})Y_{j} - E_{i}(t),\\quad Y_{i}(T) = 0, \\forall i\\tag{**} $$\nrecall:\n$$ \\mathbf{L}_{ij} = \\delta_{ij} - g^{\\prime}(h_{i})w_{ij}\\\\ Y_{p} = \\sum_{k}E_{k}(\\mathbf{L}^{-1})_{kp} $$ error propagation network dynamics: $$ \\tau\\frac{\\mathrm{d}Y_{i}}{\\mathrm{d}t} = -Y_{i} + \\sum_{p}g^{\\prime}(h_{p})w_{pi}Y_{p} + E_{i} $$\n$\\int_{0}^{T}(*)\\Rightarrow V_{i}(t)$;\n$\\int_{T}^{0}(**)\\Rightarrow Y_{i}(t)$.\nso that we get $\\begin{aligned}\\Delta w_{ij} = -\\eta\\frac{\\partial E}{\\partial w_{ij}}\\end{aligned}$\nlarge time \u0026 storage requirements: $N$ fully recurrent units \u0026 $K$ time steps ($0\\to T$)\ntime per forward-backward pass $\\sim N^{2}K$ (Real-Time Recurrent Learning: $\\sim N^{4}K$) memory $\\sim aNK+bN^{2}$ (RTRL: $\\sim N^{3}$) 7.4 Reinforcement Learning(强化学习) No detailed target values. Only “right” or “wrong”. Learn with a critic, not a teacher.\nIntroduce randomness to explore a correct value(by using stochastic units).\nReinforcement learning problems:\nI. Same signal for a given i-o pair. (IO mapping) No reference to previous outputs.\nII. Stochastic environment. Given same io-pair, fixed probability distribution of reinforcement. Independent of history.\nTwo-armed bandit problem(双臂赌博): 两个未知概率的老虎机. 找到平均收益最高的一个. Method: stochastic learning automata(随机学习自动机)\nIII. Reinforcement \u0026 input patterns depend on the output history arbitrarily. Game theory(博弈论): “environment” = other players. [Example] Chess. Win/lose after a long sequence of moves. Credit assignment problem: how to judge each move’s contribution to victory/defeat?\nAssociative Reward-Penalty(联想奖惩) $A_{\\text{RP}}$ $S_{i}=\\pm 1$: output units\nDynamical rule:\n$$ P(S_{i} = \\pm 1) = g(\\pm h_{i}) = f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+\\exp{(\\mp 2\\beta h_{i})}} $$\n$$ h_{i} = \\sum_{j}w_{ij}V_{j} $$\n$V_{j}$: activations of hidden/input units.\nReinforcement signal $r=\\pm 1$ (reward/penalty).\nTarget patterns:\n$$ \\zeta_{i}^{\\mu} = \\begin{cases} +S_{i}^{\\mu} \u0026 \\text{if }r^{\\mu} = +1\\\\ -S_{i}^{\\mu} \u0026 \\text{if }r^{\\mu} = -1 \\end{cases} $$\nRecall: Stochastic Units\n$$ \\begin{aligned} P(S_{i}=\\pm 1) \u0026= f_{\\beta}(\\pm h_{i}) = \\frac{1}{1+\\exp{(\\mp 2\\beta h_{i})}},\\quad h_{i}^{\\mu} = \\sum_{k}w_{ik}\\xi_{k}^{\\mu}\\\\ \\langle S_{i}^{\\mu}\\rangle \u0026= (+1)g(h_{i}^{\\mu}) + (-1)[1-g(h_{i}^{\\mu})] = \\tanh{\\left(\\beta h_{i}^{\\mu}\\right)}\\\\ \\Delta w_{ik} \u0026= \\eta\\delta_{i}^{\\mu}\\xi_{k}^{\\mu}, \\quad \\delta_{i}^{\\mu} = \\zeta_{i}^{\\mu} - \\langle S_{i}^{\\mu}\\rangle \\end{aligned} $$\nWeight update rule\n$$ \\Delta w_{ij} = \\eta(r^{\\mu})\\delta_{i}^{\\mu}V_{j}^{\\mu} $$\n$\\times g^{\\prime}(h_{i}^{\\mu})$ to minimize $\\begin{aligned}\\sum_{i}(\\delta_{i}^{\\mu})^{2}\\end{aligned}$ (not for entropic cost function).\n$\\eta(+1)$ is 10-100 times larger than $\\eta(-1)$\nSo the learning rule\n$$ \\Delta w_{ij} = \\begin{cases} \\eta^{+}[+S_{i}^{\\mu}-\\langle S_{i}^{\\mu}\\rangle]V_{j}^{\\mu} \u0026 \\text{if }r^{\\mu} = +1\\\\ \\eta^{-}[-S_{i}^{\\mu}-\\langle S_{i}^{\\mu}\\rangle]V_{j}^{\\mu} \u0026 \\text{if }r^{\\mu} = -1 \\end{cases} $$\n$\\eta^{\\pm 1} = \\eta(\\pm 1)$.\nSlow compared to supervised learning. Speed depends on the size of the output space and correct fraction of it.\n[Example] Only 1 correct answer for each input, the search can be very long.\nVariations on $A_{\\text{RP}}$:\n0/1 units. $-S_{i}^{\\mu}\\to 1-S_{i}^{\\mu}$, $\\langle S_{i}^{\\mu}\\rangle\\to p_{i}^{\\mu}$. continuous-valued reward $r\\in [0,1]$ for $[\\text{terrible}, \\text{excellent}]$. simplify the formula: $$ \\Delta w_{ij} = \\eta(r^{\\mu})\\{ r^{\\mu}[S_{i}^{\\mu} - \\langle S_{i}^{\\mu}\\rangle] + (1-r^{\\mu})[-S_{i}^{\\mu} - \\langle S_{i}^{\\mu}\\rangle] \\}V_{j}^{\\mu} $$\nfor penalty case, use $\\langle S_{i}^{\\mu}\\rangle - S_{i}^{\\mu}$ instead of $-S_{i}^{\\mu} - \\langle S_{i}^{\\mu}\\rangle$: $$ \\Delta w_{ij} = \\eta r^{\\mu}[S_{i}^{\\mu}-\\langle S_{i}^{\\mu}\\rangle]V_{j}^{\\mu} $$\nignore dependence of $\\eta$ on $r$.\n$r=-1$. 标准形式: 和目前所做相反; 此形式: 不要做目前所做.\nstandard form works better for larger weight changes.\nthis variation is more amenable to theoretical analysis.\nspeed $\\uparrow$: present $\\mu$ several times before moving to the next pattern. batch mode: accumulating all $\\Delta w$ Theory of Associative Reward-Penalty(联想奖惩理论) Convergence: proved only in special cases.\nUsual approach: Cost function $\\to \\epsilon$\nNot so satisfactory for the stochastic process.\nCost function: $-\\langle r\\rangle$\n$E\\downarrow \\Rightarrow \\langle r\\rangle\\uparrow$\n$V_{j}\\to \\xi_{j}$. Deterministic environment(class I). So $r = r(\\mathbf{S},\\mathbf{\\xi})$\n$\\mathbf{S}$: output pattern; $\\mathbf{\\xi}$: input pattern.\n$$ \\langle r^{\\mu}\\rangle = \\sum_{\\mathbf{S}}P(\\mathbf{S}|\\mathbf{w},\\xi^{\\mu})r(\\mathbf{S},\\xi^{\\mu}) $$\n$P(\\mathbf{S}|\\mathbf{w},\\mathbf{\\xi}^{\\mu})$: prob of $\\mathbf{S}$ if $\\mathbf{w}$ and $\\mathbf{\\xi}^{\\mu}$.\n$$ P(\\mathbf{S}|\\mathbf{w},\\mathbf{\\xi}^{\\mu}) = \\prod_{k}\\begin{cases} g(h_{k}^{\\mu}) \u0026 \\text{if }S_{k} = +1\\\\ 1-g(h_{k}^{\\mu}) \u0026 \\text{if }S_{k} = -1 \\end{cases},\\quad h_{k}^{\\mu} = \\sum_{j}w_{kj}\\xi_{j}^{\\mu} $$\nGradient:\ndifferentiating $P$: $$ \\frac{\\partial P(\\mathbf{S}|\\mathbf{w},\\mathbf{\\xi}^{\\mu})}{\\partial w_{ij}} = \\left(\\prod_{k\\neq i}\\begin{cases} g(h_{k}^{\\mu}) \u0026 \\text{if }S_{k} = +1\\\\ 1-g(h_{k}^{\\mu}) \u0026 \\text{if }S_{k} = -1 \\end{cases}\\right)\\begin{cases} g^{\\prime}(h_{i}^{\\mu})V_{j}^{\\mu} \u0026 \\text{if }S_{i} = +1\\\\ -g^{\\prime}(h_{i}^{\\mu})V_{j}^{\\mu} \u0026 \\text{if }S_{i} = -1 \\end{cases}\\\\ = P(\\mathbf{S}|\\mathbf{w},\\mathbf{\\xi}^{\\mu})\\left(\\begin{cases} g^{\\prime}(h_{i}^{\\mu})/g(h_{i}^{\\mu}) \u0026 \\text{if }S_{i} = +1\\\\ -g^{\\prime}(h_{i}^{\\mu})/[1-g(h_{i}^{\\mu})] \u0026 \\text{if }S_{i} = -1 \\end{cases}\\right)V_{j}^{\\mu} $$\n$g(h) = \\frac{1}{1+e^{-2\\beta h}}$, $g^{\\prime}(h) = 2\\beta g(h)[1-g(h)]$\n$\\langle S\\rangle = \\tanh{(\\beta h)} = \\frac{e^{\\beta h} - e^{-\\beta h}}{e^{\\beta h} + e^{-\\beta h}}$\n$\\Rightarrow g(h) = \\frac{1}{2}(\\langle S\\rangle + 1)$\nSimplify:\n$$ \\begin{cases} g^{\\prime}(h_{i}^{\\mu})/g(h_{i}^{\\mu}) \u0026 \\text{if }S_{i} = +1\\\\ -g^{\\prime}(h_{i}^{\\mu})/[1-g(h_{i}^{\\mu})] \u0026 \\text{if }S_{i} = -1 \\end{cases} = \\beta[S_{i}^{\\mu} - \\langle S_{i}^{\\mu}\\rangle] $$\ndifferentiating $\\langle r^{\\mu}\\rangle$: $$ \\begin{aligned} \\frac{\\partial\\langle r\\rangle^{\\mu}}{\\partial w_{ij}} \u0026= \\beta\\sum_{\\mathbf{S}}P(\\mathbf{S}|\\mathbf{w},\\mathbf{\\xi}^{\\mu})r(\\mathbf{S},\\mathbf{\\xi}^{\\mu})[S_{i}^{\\mu}-\\langle S_{i}^{\\mu}\\rangle]V_{j}^{\\mu}\\\\ \u0026= \\beta\\bigg\\langle r(\\mathbf{S},\\mathbf{\\xi}^{\\mu})[S_{i}^{\\mu}-\\langle S_{i}^{\\mu}\\rangle]\\bigg\\rangle V_{j}^{\\mu} \\end{aligned} $$\n$\\bigg\\langle\\cdots\\bigg\\rangle$: over all output patterns $\\mathbf{S}$.\nwhen $\\partial_{\\mathbf{S}}r(\\mathbf{S},\\mathbf{\\xi}^{\\mu})=0$, $\\partial_{w_{ij}}\\langle r\\rangle^{\\mu} = 0$, which reaches a correct solution and almost always get $r^{\\mu} = +1$.\nUpdate rule:\n$$ \\begin{aligned} \\langle \\Delta w_{ij}\\rangle^{\\mu} = \\frac{\\eta}{\\beta}\\frac{\\partial \\langle r\\rangle^{\\mu}}{\\partial w_{ij}}\\\\ \\overset{\\text{average over all }\\mu}{\\Rightarrow} \\langle \\Delta w_{ij}\\rangle = \\frac{\\eta}{\\beta}\\frac{\\partial \\langle r\\rangle}{\\partial w_{ij}} \\end{aligned} $$\n仅 reinforcement signal 最大值时权重停止更新.\n$A_{\\text{RP}}\\overset{\\eta^{-}\\to 0}{\\rightarrow} A_{\\text{RI}}$ (associative reward-inaction rule)\nModels \u0026 Critics Environment: an auxiliary network(辅助网络). Provide a target for each output (instead of global $r$).\nmodel. evaluation unit(评估单元): continuous-valued output unit $R$. $R\\approx r$: good model.\n先训练 model, 再训练主网络, 使得 $R$ 最大.\n通过 back-propagation 实现: 通过 $\\delta = -R$ 传回主网络各单元独立的误差信号. 此时可使用常规的监督学习.\n最小化 $(R-r)^{2}$ 的同时最大化 $r$. 最佳策略是优先训练 model network.\nII:\naverage fluctuations from environment. chase meaningless $r$ fluctuation easy to maximize $R$. III:\nshould exstimate a weighted average of the future reinforcement, for cumulative, not instantaneous value. (sacrifice shot-term reward for long-term gain) critic: raw $r\\overset{\\text{critic}}{\\to}$ processed signal $\\rho$\nreinforcement comparison: critic generate a prediction $R$ of $r$, could use $\\rho = r-R$. ($\\rho\u003e0$: reward; $\\rho\u003c0$: penalty)\n",
+  "wordCount" : "3574",
   "inLanguage": "zh",
   "image":"https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png","datePublished": "2025-11-20T00:18:23+08:00",
   "dateModified": "2025-11-20T00:18:23+08:00",
@@ -346,13 +346,13 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>3392字
+        <span>3574字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>7分钟
+        <span>8分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -432,12 +432,12 @@ MathJax.Hub.Queue(function() {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#71-boltzmann-machines" aria-label="7.1 Boltzmann Machines">7.1 Boltzmann Machines</a><ul>
+                    <a href="#71-boltzmann-machines%e7%8e%bb%e5%b0%94%e5%85%b9%e6%9b%bc%e6%9c%ba" aria-label="7.1 Boltzmann Machines(玻尔兹曼机)">7.1 Boltzmann Machines(玻尔兹曼机)</a><ul>
                         
                 <li>
-                    <a href="#stochastic-units" aria-label="Stochastic Units">Stochastic Units</a></li>
+                    <a href="#stochastic-units%e9%9a%8f%e6%9c%ba%e5%8d%95%e5%85%83" aria-label="Stochastic Units(随机单元)">Stochastic Units(随机单元)</a></li>
                 <li>
-                    <a href="#variations-on-boltzmann-machines" aria-label="Variations on Boltzmann Machines">Variations on Boltzmann Machines</a></li>
+                    <a href="#variations-on-boltzmann-machines%e7%8e%bb%e5%b0%94%e5%85%b9%e6%9b%bc%e6%9c%ba%e7%9a%84%e5%8f%98%e7%a7%8d" aria-label="Variations on Boltzmann Machines(玻尔兹曼机的变种)">Variations on Boltzmann Machines(玻尔兹曼机的变种)</a></li>
                 <li>
                     <a href="#statistical-mechanics-reformulation%e7%bb%9f%e8%ae%a1%e5%8a%9b%e5%ad%a6%e9%87%8d%e6%9e%84" aria-label="Statistical Mechanics Reformulation(统计力学重构)">Statistical Mechanics Reformulation(统计力学重构)</a></li>
                 <li>
@@ -451,7 +451,7 @@ MathJax.Hub.Queue(function() {
                 <li>
                     <a href="#tapped-delay-lines%e6%8a%bd%e5%a4%b4%e5%bb%b6%e8%bf%9f%e7%ba%bf" aria-label="Tapped Delay Lines(抽头延迟线)">Tapped Delay Lines(抽头延迟线)</a></li>
                 <li>
-                    <a href="#context-units%e4%b8%8a%e4%b8%8b%e6%96%87%e5%8d%95%e5%85%83" aria-label="Context Units(上下文单元)">Context Units(上下文单元)</a></li>
+                    <a href="#context-units%e4%b8%8a%e4%b8%8b%e6%96%87%e8%ae%b0%e5%bf%86%e5%8d%95%e5%85%83" aria-label="Context Units(上下文/记忆单元)">Context Units(上下文/记忆单元)</a></li>
                 <li>
                     <a href="#back-propagation-through-time%e6%97%b6%e9%97%b4%e5%8f%8d%e5%90%91%e4%bc%a0%e6%92%ad" aria-label="Back-Propagation Through Time(时间反向传播)">Back-Propagation Through Time(时间反向传播)</a></li>
                 <li>
@@ -534,20 +534,20 @@ MathJax.Hub.Queue(function() {
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><p><strong>Recurrent Networks</strong>: with connections allowed both ways between units, and even from a unit to itself.</p>
-<h2 id="71-boltzmann-machines">7.1 Boltzmann Machines<a hidden class="anchor" aria-hidden="true" href="#71-boltzmann-machines">#</a></h2>
-<p>stochastic networks with symmetric connections($w_{ij}=w_{ji}$).</p>
+        <div class="post-content"><p><strong>Recurrent Networks</strong>: With connections allowed both ways between units, and even from a unit to itself.</p>
+<h2 id="71-boltzmann-machines玻尔兹曼机">7.1 Boltzmann Machines(玻尔兹曼机)<a hidden class="anchor" aria-hidden="true" href="#71-boltzmann-machines玻尔兹曼机">#</a></h2>
+<p>Stochastic networks with <strong>symmetric</strong> connections($w_{ij}=w_{ji}$).</p>
 <ul>
-<li>original form: slow for averaging over stochastic variables.</li>
-<li>mean field version: speeded up and more applications.</li>
+<li>Original form: slow for averaging over stochastic variables.</li>
+<li>Mean field version: speeded up and more applications.</li>
 </ul>
-<h3 id="stochastic-units">Stochastic Units<a hidden class="anchor" aria-hidden="true" href="#stochastic-units">#</a></h3>
-<p>visible &amp; hidden units.</p>
+<h3 id="stochastic-units随机单元">Stochastic Units(随机单元)<a hidden class="anchor" aria-hidden="true" href="#stochastic-units随机单元">#</a></h3>
+<p>Visible &amp; hidden units.</p>
 <blockquote>
 <p><img loading="lazy" src="https://s2.loli.net/2025/12/03/F146LzfHP3Urakl.png" alt=""  /></p>
 </blockquote>
 <blockquote>
-<p>hidden units: no connection to outside world.</p>
+<p><strong>Hidden units</strong>: No connection to outside world.</p>
 </blockquote>
 <p>$$
 \begin{aligned}
@@ -556,9 +556,9 @@ P(S_{i} = -1) &amp;= 1 - g(h_{i})
 \end{aligned}
 $$</p>
 <blockquote>
-<p>$h_{i} = \sum_{j}w_{ij}S_{j},\quad\beta = 1/T$.</p>
+<p>$\begin{aligned}h_{i} = \sum_{j}w_{ij}S_{j},\quad\beta = 1/T\end{aligned}$.</p>
 </blockquote>
-<p>energy function:</p>
+<p>Energy function:</p>
 <p>$$
 H(\{S_{i}\}) = -\frac{1}{2}\sum_{ij}w_{ij}S_{i}S_{j},\quad S_{i} = \text{sgn}{(h_{i})}
 $$</p>
@@ -567,40 +567,41 @@ $$</p>
 P(\{S_{i}\}) = \frac{e^{-\beta H(\{S_{i}\})}}{Z}
 $$</p>
 <blockquote>
-<p>partition function: $$Z = \sum_{\{S_{i}\}} e^{-\beta H(\{S_{i}\})}$$</p>
+<p>Partition function: $$Z = \sum_{\{S_{i}\}} e^{-\beta H(\{S_{i}\})}$$</p>
 </blockquote>
 <p>average $\langle X\rangle$:</p>
 <p>$$
 \langle X\rangle = \sum_{\{S_{i}\}}P(\{S_{i}\}) X(\{S_{i}\})
 $$</p>
-<p><strong>pattern completion</strong>: at low $T$, only a few possible states have high and equal prob.</p>
+<p><strong>Pattern completion</strong>: At low $T$, only a few possible states have high and equal prob.</p>
 <p>$w_{ij}\propto \xi_{i}\xi_{j}$: no information about links with hidden units.</p>
 <hr>
 <blockquote>
-<p>$\alpha$: state of visible units; $\beta$: state of hidden units.</p>
-<p>$N$ visible units, $K$ hidden units. $2^{N+K}$ possibilities.</p>
+<p>$\alpha$: state of <em>visible</em> units;</p>
+<p>$\beta$: state of <em>hidden</em> units.</p>
+<p>$N$ visible units, $K$ hidden units $\Rightarrow 2^{N+K}$ possibilities.</p>
 </blockquote>
-<p>Probability $P_{\alpha}$ of $\alpha$ state:</p>
+<p>Probability $P_{\alpha}$ of chosen state $\alpha$:</p>
 <p>$$
 \begin{aligned}
-P_{\alpha} &amp;= \sum_{\beta}P_{\alpha\beta} = \frac{1}{Z}\sum_{\beta}e^{-\beta H_{\alpha\beta}}\\
+P_{\alpha} &amp;= \sum_{\beta}P_{\alpha\beta} = \sum_{\beta}\frac{1}{Z}e^{-\beta H_{\alpha\beta}}\\
 Z &amp;= \sum_{\alpha\beta}e^{-\beta H_{\alpha\beta}}\\
 H_{\alpha\beta} &amp;= -\frac{1}{2}\sum_{ij}w_{ij}S_{i}^{\alpha\beta}S_{j}^{\alpha\beta}
 \end{aligned}
 $$</p>
 <p><strong>Desired probability</strong>: $R_{\alpha}$</p>
-<p>relative entropy(to measure the difference):</p>
+<p><strong>Cost function</strong>: relative entropy(to measure the difference):</p>
 <p>$$
-E = \sum_{\alpha}R_{\alpha}\log{\frac{R_{\alpha}}{P_{\alpha}}} = E_{0} - \sum_{\alpha}R_{\alpha}\log{P_{\alpha}}\geq 0
+E = \sum_{\alpha}R_{\alpha}\log{\frac{R_{\alpha}}{P_{\alpha}}} = E_{0} {\color{green}{- \sum_{\alpha}R_{\alpha}\log{P_{\alpha}}}}\geq 0
 $$</p>
 <blockquote>
 <p>$E = 0$ only if $P_{\alpha} = R_{\alpha}$, $\forall \alpha$.</p>
 </blockquote>
-<p>Gradient descent:</p>
+<p><strong>Gradient descent</strong>:</p>
 <p>$$
 \begin{aligned}
 {\color{blue}{\Delta w_{ij}}} &amp;= -\eta \frac{\partial E}{\partial w_{ij}} = \eta\sum_{\alpha}\frac{R_{\alpha}}{P_{\alpha}}{\color{red}{\frac{\partial P_{\alpha}}{\partial w_{ij}}}}\\
-{\color{red}{\frac{\partial P_{\alpha}}{\partial w_{ij}}}} &amp;= \frac{1}{Z}\sum_{\beta}e^{-\beta H_{\alpha\beta}}S_{i}^{\alpha\beta}S_{j}^{\alpha\beta} - \frac{1}{Z^{2}}\left(\sum_{\beta}e^{-\beta H_{\alpha\beta}}\right)\sum_{\lambda\mu}e^{-\beta H_{\lambda\mu}}S_{i}^{\lambda\mu}S_{j}^{\lambda\mu}\\
+{\color{red}{\frac{\partial P_{\alpha}}{\partial w_{ij}}}} &amp;= \sum_{\beta}\frac{1}{Z}e^{-\beta H_{\alpha\beta}}S_{i}^{\alpha\beta}S_{j}^{\alpha\beta} - \frac{1}{Z^{2}}\left(\sum_{\beta}e^{-\beta H_{\alpha\beta}}\right)\sum_{\lambda\mu}e^{-\beta H_{\lambda\mu}}S_{i}^{\lambda\mu}S_{j}^{\lambda\mu}\\
 &amp;= \beta\left[
 \sum_{\beta}S_{i}^{\alpha\beta}S_{j}^{\alpha\beta}P_{\alpha\beta} - P_{\alpha}\langle S_{i}S_{j}\rangle
 \right]\\
@@ -621,59 +622,69 @@ $$</p>
 </blockquote>
 <p>Bring the system to equilibrium before taking an average.</p>
 <p><strong>Monte Carlo simulation</strong>:</p>
+<p>Two kinds of methods:</p>
 <ul>
-<li>select a unit at random, update its state according to $P(S_{i} = \pm 1)$.</li>
-<li>flip a unit with prob $$P(S_{i}\rightarrow -S_{i}) = \frac{1}{1+\exp{(\beta\Delta H_{i})}}.$$ slow at low $T$ (tends to get trapped in local minima)</li>
+<li>Select a unit at random, update its state according to $P(S_{i} = \pm 1)$.</li>
+<li>Flip a unit with prob $$P(S_{i}\rightarrow -S_{i}) = \frac{1}{1+\exp{(\beta\Delta H_{i})}}.$$ Slow at low $T$ (tends to get trapped in local minima)</li>
 </ul>
 <blockquote>
-<p>faster solution: simulated annealing procedure(渐进模拟)</p>
+<p>Faster solution: <strong>simulated annealing procedure(渐进模拟)</strong></p>
 </blockquote>
 <ol>
-<li>adjust weights for convergence;</li>
-<li>calculate $\langle S_{i}S_{j}\rangle$ in clamped and freestates;</li>
-<li>annealing schedule $T(t)$;</li>
-<li>sample and update units.</li>
+<li>Adjust weights for convergence;</li>
+<li>Calculate $\langle S_{i}S_{j}\rangle$ in clamped and freestates;</li>
+<li>Annealing schedule $T(t)$;</li>
+<li>Sample and update units.</li>
 </ol>
 <blockquote>
-<p>fast simulated annealing(Cauchy machine): multiple flips.</p>
+<p>Fast simulated annealing(Cauchy machine): multiple flips.</p>
 </blockquote>
-<p>slow but effective.</p>
-<h3 id="variations-on-boltzmann-machines">Variations on Boltzmann Machines<a hidden class="anchor" aria-hidden="true" href="#variations-on-boltzmann-machines">#</a></h3>
-<ul>
-<li>weight decay terms $w_{ij}^{\text{new}} = (1-\varepsilon)w_{ij}^{\text{old}}$: automatically become symmetric;</li>
-<li>incremental rule(增量规则): if $S_{i}$ &amp; $S_{j}$ on together, step size $\varepsilon$, clamped: $w_{ij}\uparrow$; free: $w_{ij}\downarrow$</li>
-</ul>
+<p>Slow but effective.</p>
+<h3 id="variations-on-boltzmann-machines玻尔兹曼机的变种">Variations on Boltzmann Machines(玻尔兹曼机的变种)<a hidden class="anchor" aria-hidden="true" href="#variations-on-boltzmann-machines玻尔兹曼机的变种">#</a></h3>
+<ol>
+<li>Weight decay terms $w_{ij}^{\text{new}} = (1-\varepsilon)w_{ij}^{\text{old}}$: automatically become symmetric;</li>
+<li>Incremental rule(增量规则)</li>
+</ol>
 <blockquote>
-<p>avoid oscillations in valley when relying on local gradient
+<p>If $S_{i}$ &amp; $S_{j}$ on together, step size $\varepsilon$, clamped: $w_{ij}\uparrow$; free: $w_{ij}\downarrow$</p>
+</blockquote>
+<blockquote>
+<p>Avoid oscillations in valley when relying on local gradient
 <img loading="lazy" src="https://s2.loli.net/2025/12/03/JGumwB1MrvRSNAf.png" alt=""  /></p>
 </blockquote>
 <ul>
 <li>$\exist \alpha$, $R_{\alpha}=0$. increase it to $\epsilon&gt;0$ to avoid infinite weights.</li>
 </ul>
 <hr>
-<p>input($\gamma$), output($\alpha$), hidden($\beta$). learn $\gamma\rightarrow \alpha$ ($P_{\alpha|\gamma}=R_{\alpha|\gamma}$)</p>
-<p>error measure:</p>
+<p>Input($\gamma$), output($\alpha$), hidden($\beta$). Learn $\gamma\rightarrow \alpha$ (即目标是 令 $P_{\alpha|\gamma}=R_{\alpha|\gamma}$)</p>
+<p><strong>Error measure</strong>(entropic cost function):</p>
 <p>$$
 E = \sum_{\gamma}p_{\gamma}\sum_{\alpha}R_{\alpha|\gamma}\log{\frac{R_{\alpha|\gamma}}{P_{\alpha|\gamma}}}
 $$</p>
-<p>learning rule:</p>
+<p><strong>Learning rule</strong>:</p>
 <p>$$
 \Delta w_{ij} = \eta\beta\left[
 \overline{\langle S_{i}S_{j}\rangle}_{\text{I,O clamped}} - \overline{\langle S_{i}S_{j}\rangle}_{\text{I clamped}}
 \right]
 $$</p>
-<p><strong>Harmonium</strong>: two-layer Boltzmann machine. connections between layers only.</p>
-<p><strong>Hopfield</strong>: without hidden units. average $\xi_{i}^{\mu}\xi_{j}^{\mu}$ over patterns $\mu$. start from random cfg and relax at $T=0$. faster than incremental one.</p>
+<ol start="3">
+<li>
+<p><strong>Harmonium</strong>: two-layer Boltzmann machine. Connections between layers only.</p>
+</li>
+<li>
+<p><strong>Hopfield</strong>: without hidden units. Average $\xi_{i}^{\mu}\xi_{j}^{\mu}$ over patterns $\mu$. Start from random cfg and relax at $T=0$. Faster than incremental one.</p>
+</li>
+</ol>
 <h3 id="statistical-mechanics-reformulation统计力学重构">Statistical Mechanics Reformulation(统计力学重构)<a hidden class="anchor" aria-hidden="true" href="#statistical-mechanics-reformulation统计力学重构">#</a></h3>
-<p>$P_{\alpha}$: prob of visible units in state $\alpha$</p>
-<p>$\begin{aligned}Z_{\text{clamped}}^{\alpha} = \sum_{\beta}e^{-\beta H_{\alpha\beta}}\end{aligned}$: partition function (visible units clamped in state $\alpha$)</p>
+<p>$P_{\alpha}$: Prob of visible units in state $\alpha$</p>
+<p>$\begin{aligned}Z_{\text{clamped}}^{\alpha} = \sum_{\beta}e^{-\beta H_{\alpha\beta}}\end{aligned}$: Partition function (visible units clamped in state $\alpha$)</p>
 <p>$$
 Z = e^{-\beta F}
 $$</p>
 <p>$$
-P_{\alpha} = \frac{Z_{\text{clamped}^{\alpha}}}{Z} = \frac{e^{-\beta F_{\text{clamped}}^{\alpha}}}{e^{-\beta F}} = e^{-\beta (F_{\text{clamped}}^{\alpha} - F)}
+P_{\alpha} = \frac{Z_{\text{clamped}}^{\alpha}}{Z} = \frac{e^{-\beta F_{\text{clamped}}^{\alpha}}}{e^{-\beta F}} = e^{-\beta (F_{\text{clamped}}^{\alpha} - F)}
 $$</p>
-<p>cost function:</p>
+<p>Cost function:</p>
 <p>$$
 \begin{aligned}
 E = E_{0} - \sum_{\alpha}R_{\alpha}\log{P_{\alpha}} &amp;= E_{0} + \beta\sum_{\alpha}R_{\alpha}(F_{\text{clamped}}^{\alpha} - F)\\
@@ -689,12 +700,12 @@ $$</p>
 \end{aligned}
 $$</p>
 <h3 id="deterministic-boltzmann-machines确定性玻尔兹曼机">Deterministic Boltzmann Machines(确定性玻尔兹曼机)<a hidden class="anchor" aria-hidden="true" href="#deterministic-boltzmann-machines确定性玻尔兹曼机">#</a></h3>
-<p><strong>mean field annealing</strong>: $\begin{aligned}m_{i}\equiv\langle S_{i}\rangle = \tanh{\left(\beta\sum_{j}w_{ij}m_{j}\right)},\quad \langle S_{i}S_{j}\rangle\approx m_{i}m_{j}\end{aligned}$</p>
-<p>iteration</p>
+<p><strong>Mean field annealing</strong>: $\begin{aligned}m_{i}\equiv\langle S_{i}\rangle = \tanh{\left(\beta\sum_{j}w_{ij}m_{j}\right)},\quad \langle S_{i}S_{j}\rangle\approx m_{i}m_{j}\end{aligned}$</p>
+<p>Iteration</p>
 <p>$$
 m_{i}^{\text{new}} = \tanh{\left(\beta\sum_{j}w_{ij}m_{j}^{\text{old}}\right)}
 $$</p>
-<p>entropy:</p>
+<p>Entropy:</p>
 <p>$$
 S = - \sum_{i}\left(
 p_{i}^{+}\log{p_{i}^{+}} + p_{i}^{-}\log{p_{i}^{-}}
@@ -706,7 +717,7 @@ $$</p>
 p_{i}^{\pm} = \frac{1\pm m_{i}}{2}
 $$</p>
 </blockquote>
-<p>mean field free energy:</p>
+<p>Mean field free energy:</p>
 <p>$$
 \begin{aligned}
 F_{\text{MF}} &amp;= H - TS \\
@@ -722,12 +733,12 @@ E = E_{0} + \beta\left[
 \overline{F_{\text{MF}}^{\alpha}} - F_{\text{MF}}
 \right]
 $$</p>
-<p>gradient descent for $w_{ij}$:</p>
+<p>Gradient descent for $w_{ij}$:</p>
 <p>$$
 \Delta w_{ij} = -\eta\frac{\partial E_{\text{MF}}}{\partial w_{ij}} = \eta\beta \bigg[\overline{m_{i}^{\alpha}m_{i}^{\alpha}} - m_{i}m_{j}\bigg]
 $$</p>
 <blockquote>
-<p>prototype:
+<p>原型:
 $$
 \Delta w_{ij} = \eta\beta \bigg[\overline{\langle S_{i}S_{j}\rangle}_{\text{clamped}} - \langle S_{i}S_{j}\rangle_{\text{free}}\bigg]
 $$</p>
@@ -739,38 +750,38 @@ $$</p>
 <p>$g(h)$: activation function</p>
 <p>$\zeta_{i}^{\mu}$: desired training values.</p>
 </blockquote>
-<p>dynamic evolution rules:</p>
+<p>Dynamic evolution rules:</p>
 <p>$$
 \tau\frac{\mathrm{d}V_{i}}{\mathrm{d}t} = -V_{i} + g\left(
 \sum_{j}w_{ij}V_{j} + \xi_{i}
 \right)
 $$</p>
-<p>fixed point($\begin{aligned}\frac{\mathrm{d}V_{i}}{\mathrm{d}t} = 0\end{aligned}$):</p>
+<p>fixed point equation $\begin{aligned}\left(\frac{\mathrm{d}V_{i}}{\mathrm{d}t} = 0\right)\end{aligned}$:</p>
 <p>$$
 V_{i} = g(h_{i}) = g\left(
 \sum_{j}w_{ij}V_{j} + \xi_{i}
 \right)
 $$</p>
 <blockquote>
-<p>Assumption: at least 1 fixed point exists and is a stable attractor.</p>
+<p>Assumption: At least 1 fixed point exists and is a stable attractor.</p>
 </blockquote>
-<p>error measure:</p>
+<p>Error measure(Cost function):</p>
 <p>$$
 E = \frac{1}{2}\sum_{k}E_{k}^{2},\quad E_{k} = \begin{cases}
 \zeta_{k} - V_{k} &amp; \text{if }k\text{ is output unit}\\
 0 &amp; \text{otherwise}
 \end{cases}
 $$</p>
-<p>gradient descent:</p>
+<p>Gradient descent:</p>
 <p>$$
 \Delta w_{pq} = -\eta\frac{\partial E}{\partial w_{pq}} = \eta\sum_{k}E_{k}\frac{\partial V_{k}}{\partial w_{pq}}
 $$</p>
-<p>differentiating fixed point equation:</p>
+<p>Differentiating <em>fixed point equation</em>:</p>
 <p>$$
 \begin{aligned}
 \frac{\partial V_{i}}{\partial w_{pq}} &amp;= g^{\prime}(h_{i}){\color{red}{\frac{\partial h_{i}}{\partial w_{pq}}}}\\
 {\color{red}{\frac{\partial h_{i}}{\partial w_{pq}}}} &amp;= \frac{\partial }{\partial w_{pq}}\left(\sum_{j}{\color{blue}{w_{ij}V_{j}}} + \xi_{i}\right)\\
-\frac{\partial ({\color{blue}{w_{ij}V_{j}}})}{\partial w_{pq}} &amp;= \frac{\partial w_{ij}}{\partial w_{pq}}V_{j} + w_{ij}\frac{\partial V_{j}}{\partial w_{pq}} = \delta_{ip}\delta_{jq}V_{j} + w_{ij}\frac{\partial V_{j}}{\partial w_{pq}}\\
+\frac{\partial ({\color{blue}{w_{ij}V_{j}}})}{\partial w_{pq}} &amp;= {\color{green}{\frac{\partial w_{ij}}{\partial w_{pq}}}}V_{j} + w_{ij}\frac{\partial V_{j}}{\partial w_{pq}} = {\color{green}{\delta_{ip}\delta_{jq}}}V_{j} + w_{ij}\frac{\partial V_{j}}{\partial w_{pq}}\\
 \Rightarrow {\color{red}{\frac{\partial h_{i}}{\partial w_{pq}}}} &amp;= \sum_{{\color{green}{j}}}\left(
 \delta_{ip}\delta_{{\color{green}{j}}q}V_{{\color{green}{j}}} + w_{ij}\frac{\partial V_{j}}{\partial w_{pq}}
 \right) = \delta_{ip}V_{q} + \sum_{j}w_{ij}\frac{\partial V_{j}}{\partial w_{pq}}\\
@@ -796,18 +807,33 @@ $$</p>
 &amp;= \eta{\color{red}{\delta_{p}}}V_{q}
 \end{aligned}
 $$</p>
-<p>需要进行求逆</p>
+<blockquote>
+<p>Recall: <strong>delta rule</strong> 是源自梯度下降的概念, 但是可以被推广为更普适的形式.</p>
+<p>Cost function:</p>
+<p>$$
+E[\vec{w}] = \frac{1}{2}\sum_{i\mu}(\zeta_{i}^{\mu} - O_{i}^{\mu})^{2} = \frac{1}{2}\sum_{i\mu}\left(\zeta_{i}^{\mu}-\sum_{k}w_{ik}\xi_{k}^{\mu}\right)^{2}
+$$</p>
+<p>$$
+\Delta w_{ik} = -\eta\frac{\partial E}{\partial w_{ik}} = \eta\sum_{\mu}(\zeta_{i}^{\mu} - O_{i}^{\mu})\xi_{k}^{\mu}
+$$</p>
+<p>对于某固定 $\mu$:</p>
+<p>$$
+\Delta w_{ik} = \eta(\zeta_{i}^{\mu}-O_{i}^{\mu})\xi_{k}^{\mu} = {\color{red}{\eta\delta_{i}\xi_{k}^{\mu}}}
+$$</p>
+</blockquote>
+<p>需要求逆而耗费时间.</p>
 <hr>
+<p>改进:</p>
 <p>$$
 \delta_{p} = {\color{red}{\sum_{k} E_{k}(\mathbf{L}^{-1})_{kp}}}g^{\prime}(h_{p}) = g^{\prime}(h_{p}){\color{red}{Y_{p}}}
 $$</p>
 <p>$$
 \begin{aligned}
-\sum_{p}\mathbf{L}_{ip}Y_{p} &amp;= \sum_{p}\mathbf{L}_{ip}\left[
+\sum_{p}\mathbf{L}_{pi}Y_{p} &amp;= \sum_{p}\mathbf{L}_{pi}\left[
 \sum_{k}E_{k}(\mathbf{L}^{-1})_{kp}
 \right] \\
 &amp;= \sum_{k}E_{k}\left[
-\sum_{p}\mathbf{L}_{ip}(\mathbf{L}^{-1})_{kp}
+\sum_{p}\mathbf{L}_{pi}(\mathbf{L}^{-1})_{kp}
 \right]\\
 &amp;= \sum_{k}E_{k}\delta_{ik} = E_{i}
 \end{aligned}
@@ -817,9 +843,6 @@ $$</p>
 \mathbf{L}_{ij} = \delta_{ij} - g^{\prime}(h_{i})w_{ij}
 $$</p>
 </blockquote>
-<p>$$
-Y_{i} - \sum_{p}g^{\prime}(h_{p})w_{pi}Y_{p} = E_{i}
-$$</p>
 <p>那么</p>
 <p>$$
 \begin{aligned}
@@ -830,7 +853,7 @@ $$</p>
 &amp;= \boxed{Y_{i} - \sum_{p}g^{\prime}(h_{p})w_{pi}Y_{p} = E_{i}}
 \end{aligned}
 $$</p>
-<p>error-propagation network:</p>
+<p>Error-propagation network:</p>
 <p>$$
 \tau\frac{\mathrm{d}Y_{i}}{\mathrm{d}t} = - Y_{i} + \sum_{p}g^{\prime}(h_{p})w_{pi}Y_{p} + E_{i}
 $$</p>
@@ -893,16 +916,16 @@ $$</p>
 <p><img loading="lazy" src="https://s2.loli.net/2025/12/04/fnbyBtlZjhLiSFd.png" alt=""  /></p>
 </blockquote>
 <ul>
-<li>not for arbitrary-length sequences;</li>
-<li>large training examples, slow computation;</li>
-<li>precise clock</li>
+<li>not for arbitrary-length sequences, 不灵活;</li>
+<li>large training examples, slow computation, 耗算力;</li>
+<li>precise clock, 同步要求高.</li>
 </ul>
 <hr>
 <p>Tank &amp; Hopfield:</p>
-<p>raw signal $\vec{x}(t)$.</p>
+<p>设 raw signal $\vec{x}(t)$.</p>
 <ul>
 <li>
-<p>usual delay line: $\vec{x}(t), \vec{x}(t-\tau_{1}),\vec{x}(t-\tau_{2}),\cdots, \vec{x}(t-\tau_{m})$;</p>
+<p>Usual delay line: $\vec{x}(t), \vec{x}(t-\tau_{1}),\vec{x}(t-\tau_{2}),\cdots, \vec{x}(t-\tau_{m})$;</p>
 </li>
 <li>
 <p>Tank &amp; Hopfield: $\begin{aligned} y(t;\tau_{i}) = \int_{-\infty}^{t}G(t-t^{\prime};\tau_{i})\vec{x}(t^{\prime})\mathrm{d}t^{\prime}\end{aligned}$</p>
@@ -914,9 +937,10 @@ G(t;\tau_{i}) = \left(\frac{t}{\tau_{i}}\right)^{\alpha}e^{\alpha(1-t/\tau_{i})}
 $$</p>
 <p>$t=\tau_{i}$ 取极值 1. $\alpha$ 越大 $G$ 越尖锐.</p>
 <p><img loading="lazy" src="https://s2.loli.net/2025/12/04/G6jBogLXN2pTqxD.png" alt=""  /></p>
-<p>no need for precise synchronization by a central clock.</p>
 </blockquote>
-<h3 id="context-units上下文单元">Context Units(上下文单元)<a hidden class="anchor" aria-hidden="true" href="#context-units上下文单元">#</a></h3>
+<p>no need for precise <strong>synchronization</strong> by a central clock.</p>
+<p>类似于卷积+滑动窗口(window) 的思路.</p>
+<h3 id="context-units上下文记忆单元">Context Units(上下文/记忆单元)<a hidden class="anchor" aria-hidden="true" href="#context-units上下文记忆单元">#</a></h3>
 <p>Partially recurrent networks(sequential networks):</p>
 <ul>
 <li>mainly feed-forward;</li>
@@ -931,8 +955,8 @@ $$</p>
 <p>阴影箭头: 每一个神经元都和上一层的所有神经元连接</p>
 </blockquote>
 </blockquote>
-<p>(a) context units hold a copy of the activations of the hidden units from the previous time step.</p>
-<p>(b) updating rule:</p>
+<p><strong>(a)</strong> context units hold a copy of the activations of the hidden units from the previous time step.</p>
+<p><strong>(b)</strong> updating rule:</p>
 <p>$$
 C_{i}(t+1) = \alpha C_{i}(t) + O_{i}(t)
 $$</p>
@@ -940,8 +964,8 @@ $$</p>
 <p>$O_{i}$: output units;</p>
 <p>$\alpha &lt; 1$: strength of the self-connections.</p>
 </blockquote>
-<p>$O_{i}$ fixed $\to$ $C_{i}\to O_{i}/(1-\alpha)$</p>
-<p>decay/integrating/capacitive units.</p>
+<p>If $O_{i}$ fixed: $C_{i}\to O_{i}/(1-\alpha)$</p>
+<p>因此, 也被称作 decay/integrating/capacitive units.</p>
 <p>Iterating:</p>
 <p>$$
 \begin{aligned}
@@ -951,16 +975,16 @@ C_{i}(t+1) &amp;= O_{i}(t) + \alpha O_{i}(t-1) + \alpha^{2}O_{i}(t-2)+\cdots\\
 \end{aligned}
 $$</p>
 <blockquote>
-<p>$\alpha$ 应当和输入序列的时间尺度相匹配. 可以使用多个 context 单元组, 每组有不同的 $\alpha$ 值.</p>
+<p>这表明 $\alpha$ 应当和输入序列的时间尺度相匹配. 可以使用多个 context 单元组, 每组有不同的 $\alpha$ 值.</p>
 </blockquote>
-<p>(c) feedback: context units themselves only.</p>
-<p>(d)</p>
+<p><strong>(c)</strong> Feedback: context units themselves only.</p>
+<p><strong>(d)</strong></p>
 <ul>
-<li>input 和 context 之间的连接为全连接而非逐一连接.</li>
-<li>self-connections can be trained.</li>
+<li>Input 和 context 之间的连接为全连接而非逐一连接.</li>
+<li>Self-connections can be trained.</li>
 </ul>
 <hr>
-<p>back-propagation: no modifiable recurrent connections.</p>
+<p>Back-propagation: No modifiable recurrent connections.</p>
 <p>Mozer:</p>
 <p>$$
 C_{i}(t+1) = \alpha_{i}C_{i}(t) + g\left(
@@ -977,8 +1001,8 @@ C_{i}(t+1) = g\left[
 \right]
 $$</p>
 <h3 id="back-propagation-through-time时间反向传播">Back-Propagation Through Time(时间反向传播)<a hidden class="anchor" aria-hidden="true" href="#back-propagation-through-time时间反向传播">#</a></h3>
-<p><strong>fully recurrent networks</strong>: any unit $V_{i}$ may be connected to any other.</p>
-<p>update rule:</p>
+<p><strong>fully recurrent networks</strong>: Any unit $V_{i}$ may be connected to any other.</p>
+<p>Update rule:</p>
 <p>$$
 V_{i}(t+1) = g[h_{i}(t)] = g\left[
 \sum_{j}w_{ij}V_{j}(t) + \xi_{i}(t)
@@ -987,25 +1011,25 @@ $$</p>
 <blockquote>
 <p>$\xi_{i}(t)$: input at node $i$, at time $t$. 不存在时为 $0$.</p>
 </blockquote>
-<p>produce $\zeta_{i}(t)$ in response to input sequence $\xi_{i}(t)$</p>
-<p>trick: arbitrary recurrent network $\to$ equivalent feed-forward network.</p>
+<p>Produce $\zeta_{i}(t)$ in response to input sequence $\xi_{i}(t)$</p>
+<p>Trick: 任意 recurrent network 可展开为 等效 feed-forward network.</p>
 <blockquote>
 <p><img loading="lazy" src="https://s2.loli.net/2025/12/04/NREu8YCDPXiTwsF.png" alt=""  /></p>
 <p>2-unit, $T=4$. $w_{ij}$ independent of $t$.</p>
 </blockquote>
-<p>no clock needed;</p>
-<p>need large computer resources:</p>
+<p>No clock needed;</p>
+<p>Need large computer resources:</p>
 <ul>
-<li>storage;</li>
-<li>computer time for simulation;</li>
-<li>number of training examples.</li>
+<li>Storage;</li>
+<li>Computer time for simulation;</li>
+<li>Number of training examples.</li>
 </ul>
-<p>once trained (in unfolded form), it works for temporal association task.</p>
+<p>Once trained (in unfolded form), it works for temporal association task.</p>
 <h3 id="real-time-recurrent-learning实时递归学习">Real-Time Recurrent Learning(实时递归学习)<a hidden class="anchor" aria-hidden="true" href="#real-time-recurrent-learning实时递归学习">#</a></h3>
-<p>learning rule without duplicating the units.</p>
-<p>deal with sequence of arbitrary length.</p>
+<p>Learning rule without duplicating the units.</p>
+<p>Deal with sequence of arbitrary length.</p>
 <hr>
-<p>dynamics:</p>
+<p><strong>Dynamics</strong>:</p>
 <p>$$
 V_{i}(t) = g[h_{i}(t-1)] = g\left[
 \sum_{j}w_{ij}V_{j}(t-1) + \xi_{i}(t-1)
@@ -1014,14 +1038,14 @@ $$</p>
 <blockquote>
 <p>$\zeta_{k}(t)$: target output</p>
 </blockquote>
-<p>error measure:</p>
+<p><strong>Error measure</strong>:</p>
 <p>$$
 E_{k}(t) = \begin{cases}
 \zeta_{k}(t) - V_{k}(t) &amp; \text{if }\zeta_{k}(t)\text{ is defined at time }t\\
 0 &amp; \text{otherwise}
 \end{cases}
 $$</p>
-<p>cost function:</p>
+<p><strong>Cost function</strong>:</p>
 <p>$$
 E = \sum_{t=0}^{T} E(t)
 $$</p>
@@ -1030,11 +1054,11 @@ $$</p>
 E(t) = \frac{1}{2}\sum_{k}[E_{k}(t)]^{2},\quad t = 0,1,2,\cdots,T
 $$</p>
 </blockquote>
-<p>gradient descent:</p>
+<p><strong>Gradient descent</strong>:</p>
 <p>$$
 \Delta w_{pq}(t) = -\eta\frac{\partial E(t)}{\partial w_{pq}} = \eta\sum_{k}E_{k}(t)\frac{\partial V_{k}(t)}{\partial w_{pq}}
 $$</p>
-<p>differentiating dynamics:</p>
+<p>differentiating <em>dynamics</em>:</p>
 <p>$$
 \frac{\partial V_{i}(t)}{\partial w_{pq}} = g^{\prime}[h_{i}(t-1)]\left[
 \delta_{ip}V_{q}(t-1) + \sum_{j}w_{ij}\frac{\partial V_{j}(t-1)}{\partial w_{pq}}
@@ -1048,25 +1072,25 @@ $$
 \right)
 $$</p>
 </blockquote>
-<p>if only a stable attractor interested, let $\partial_{w_{pq}}V_{i}(t)=\partial_{w_{pq}}V_{i}(t-1)$, or $\partial_{w_{pq}}V_{i}(0)=0$</p>
+<p>If only a stable attractor interested, let $\partial_{w_{pq}}V_{i}(t)=\partial_{w_{pq}}V_{i}(t-1)$, or $\partial_{w_{pq}}V_{i}(0)=0$</p>
 <blockquote>
 <p>$N$ units, $N^{3}$ derivatives($N$ neurons $\times N^{2}$ weights), $\mathcal{O}(N^{4})$ time complexity($N^{3}$ derivatives $\times N$ nodes).</p>
 </blockquote>
-<p>real-time recurrent learning: weight update in real time</p>
+<p>Real-time recurrent learning: Weight update in real time</p>
 <blockquote>
-<p>avoid array storage.</p>
+<p>Avoid array storage.</p>
 </blockquote>
 <p><strong>teacher forcing</strong>: always replace $V_{k}(t)$ by $\zeta_{k}(t)$ after $E_{k}(t)$ &amp; derivatives computed.</p>
 <blockquote>
 <p>加速训练收敛, 避免早期预测错误的积累.</p>
 </blockquote>
-<p>attractor under teacher forcing may be removed when the network runs freely, even turn into a repellor(排斥子)</p>
+<p>Attractor under teacher forcing may be removed when the network runs freely, even turn into a repellor(排斥子)</p>
 <p><strong>flip-flop(触发器)</strong>: if &ldquo;A $\to$ (arbitrary interval) $\to$ B&rdquo;: output a signal.</p>
 <blockquote>
-<p>tapped delay line could never do this.</p>
+<p>Tapped delay line could never do this.</p>
 </blockquote>
 <h3 id="time-dependent-recurrent-back-propagation含时递归反向传播">Time-Dependent Recurrent Back-Propagation(含时递归反向传播)<a hidden class="anchor" aria-hidden="true" href="#time-dependent-recurrent-back-propagation含时递归反向传播">#</a></h3>
-<p>dynamics:</p>
+<p><strong>dynamics</strong>:</p>
 <p>$$
 \tau_{i}\frac{\mathrm{d}V_{i}}{\mathrm{d}t} = -V_{i} + g\left(
 \sum_{j}w_{ij}V_{j}
@@ -1078,7 +1102,7 @@ $$
 \tau\frac{\mathrm{d}V_{i}}{\mathrm{d}t} = -V_{i} + g\left(\sum_{j}w_{ij}V_{j} + \xi_{i}\right)
 $$</p>
 </blockquote>
-<p>error function:</p>
+<p><strong>Error function</strong>:</p>
 <p>$$
 E = \frac{1}{2}\int_{0}^{T}\sum_{k\in O}[V_{k}(t)-\zeta_{k}(t)]^{2}\mathrm{d}t
 $$</p>
@@ -1086,7 +1110,7 @@ $$</p>
 <p>$O$: output units</p>
 <p>$\zeta_{k}(t)$: target output</p>
 </blockquote>
-<p>gradient descent:</p>
+<p><strong>Gradient descent</strong>:</p>
 <ol>
 <li>functional derivative(泛函导数):</li>
 </ol>
@@ -1099,9 +1123,9 @@ $$</p>
 <p>$$
 \frac{\partial E}{\partial w_{ij}} = \frac{1}{\tau_{i}}\int_{0}^{T}Y_{i}g^{\prime}(h_{i})V_{j}\mathrm{d}t
 $$</p>
-<p>可以通过 $\frac{\partial E}{\partial \tau_{i}}$ 从而通过调整 $\tau_{i}$ 进行优化.</p>
+<p>可以通过 $\begin{aligned}\frac{\partial E}{\partial \tau_{i}}\end{aligned}$ 从而通过调整 $\tau_{i}$ 进行优化.</p>
 <blockquote>
-<p>$h_{i}(t) = \sum_{j}w_{ij}V_{j}(t)$</p>
+<p>$\begin{aligned}h_{i}(t) = \sum_{j}w_{ij}V_{j}(t)\end{aligned}$</p>
 <p>$Y_{i}(t)$: solution of</p>
 <p>$$
 \frac{\mathrm{d}Y_{i}}{\mathrm{d}t} = \frac{1}{\tau_{i}}Y_{i} - \sum_{j}\frac{1}{\tau_{j}}w_{ji}g^{\prime}(h_{j})Y_{j} - E_{i}(t),\quad Y_{i}(T) = 0, \forall i\tag{**}
@@ -1128,28 +1152,28 @@ $$</p>
 <li>memory $\sim aNK+bN^{2}$ (RTRL: $\sim N^{3}$)</li>
 </ul>
 <h2 id="74-reinforcement-learning强化学习">7.4 Reinforcement Learning(强化学习)<a hidden class="anchor" aria-hidden="true" href="#74-reinforcement-learning强化学习">#</a></h2>
-<p>no detailed target values. only &ldquo;right&rdquo; or &ldquo;wrong&rdquo;. <strong>learn with a critic</strong>, not a teacher.</p>
-<p>introduce <strong>randomness</strong> to explore a correct value(by using stochastic units).</p>
+<p>No detailed target values. Only &ldquo;right&rdquo; or &ldquo;wrong&rdquo;. <strong>Learn with a critic</strong>, not a teacher.</p>
+<p>Introduce <strong>randomness</strong> to explore a correct value(by using stochastic units).</p>
 <blockquote>
 <p><img loading="lazy" src="https://s2.loli.net/2025/12/05/RyBEfAzWkI1j85N.png" alt=""  /></p>
 </blockquote>
-<p>reinforcement learning problems:</p>
+<p>Reinforcement learning problems:</p>
 <ul>
 <li>
-<p>I. same signal for a given i-o pair. (IO mapping) no reference to previous outputs.</p>
+<p><strong>I</strong>. <strong>Same signal</strong> for a given i-o pair. (IO mapping) No reference to previous outputs.</p>
 </li>
 <li>
-<p>II. stochastic environment. given same io-pair, <strong>fixed probability</strong> distribution of reinforcement. independent of history.</p>
+<p><strong>II</strong>. Stochastic environment. Given same io-pair, <strong>fixed probability</strong> distribution of reinforcement. Independent of history.</p>
 </li>
 </ul>
-<p><strong>two-armed bandit problem(双臂赌博)</strong>: 两个未知概率的老虎机. 找到平均收益最高的一个. method: stochastic learning automata(随机学习自动机)</p>
+<p><strong>Two-armed bandit problem(双臂赌博)</strong>: 两个未知概率的老虎机. 找到平均收益最高的一个. Method: stochastic learning automata(随机学习自动机)</p>
 <ul>
-<li>III. reinforcement &amp; input patterns depend on the output history <strong>arbitrarily</strong>. game theory(博弈论): &ldquo;environment&rdquo; = other players.</li>
+<li><strong>III</strong>. Reinforcement &amp; input patterns depend on the output history <strong>arbitrarily</strong>. Game theory(博弈论): <strong>&ldquo;environment&rdquo; = other players.</strong></li>
 </ul>
-<p>[Example] Chess. win/lose after a long sequence of moves. <strong>credit assignment problem</strong>: how to judge each move&rsquo;s contribution to victory/defeat?</p>
+<p>[Example] Chess. Win/lose after a long sequence of moves. <strong>Credit assignment problem</strong>: how to judge each move&rsquo;s contribution to victory/defeat?</p>
 <h3 id="associative-reward-penalty联想奖惩-a_textrp">Associative Reward-Penalty(联想奖惩) $A_{\text{RP}}$<a hidden class="anchor" aria-hidden="true" href="#associative-reward-penalty联想奖惩-a_textrp">#</a></h3>
 <p>$S_{i}=\pm 1$: output units</p>
-<p>dynamical rule:</p>
+<p><strong>Dynamical rule</strong>:</p>
 <p>$$
 P(S_{i} = \pm 1) = g(\pm h_{i}) = f_{\beta}(\pm h_{i}) = \frac{1}{1+\exp{(\mp 2\beta h_{i})}}
 $$</p>
@@ -1159,8 +1183,8 @@ h_{i} = \sum_{j}w_{ij}V_{j}
 $$</p>
 <p>$V_{j}$: activations of hidden/input units.</p>
 </blockquote>
-<p>reinforcement signal $r=\pm 1$ (reward/penalty).</p>
-<p>target patterns:</p>
+<p>Reinforcement signal $r=\pm 1$ (reward/penalty).</p>
+<p>Target patterns:</p>
 <p>$$
 \zeta_{i}^{\mu} = \begin{cases}
 +S_{i}^{\mu} &amp; \text{if }r^{\mu} = +1\\
@@ -1177,15 +1201,15 @@ P(S_{i}=\pm 1) &amp;= f_{\beta}(\pm h_{i}) = \frac{1}{1+\exp{(\mp 2\beta h_{i})}
 \end{aligned}
 $$</p>
 </blockquote>
-<p>weight update rule</p>
+<p><strong>Weight update rule</strong></p>
 <p>$$
 \Delta w_{ij} = \eta(r^{\mu})\delta_{i}^{\mu}V_{j}^{\mu}
 $$</p>
-<p>$\times g^{\prime}(h_{i}^{\mu})$ to minimize $\sum_{i}(\delta_{i}^{\mu})^{2}$ (not for entropic cost function).</p>
+<p>$\times g^{\prime}(h_{i}^{\mu})$ to minimize $\begin{aligned}\sum_{i}(\delta_{i}^{\mu})^{2}\end{aligned}$ (not for entropic cost function).</p>
 <blockquote>
 <p>$\eta(+1)$ is 10-100 times larger than $\eta(-1)$</p>
 </blockquote>
-<p>So the learning rule</p>
+<p>So the <strong>learning rule</strong></p>
 <p>$$
 \Delta w_{ij} = \begin{cases}
 \eta^{+}[+S_{i}^{\mu}-\langle S_{i}^{\mu}\rangle]V_{j}^{\mu} &amp; \text{if }r^{\mu} = +1\\
@@ -1195,9 +1219,9 @@ $$</p>
 <blockquote>
 <p>$\eta^{\pm 1} = \eta(\pm 1)$.</p>
 </blockquote>
-<p>slow compared to supervised learning. speed depends on the size of the output space and correct fraction of it.</p>
-<p>[Example] only 1 correct answer for each input, the search can be very long.</p>
-<p>variations on $A_{\text{RP}}$:</p>
+<p>Slow compared to supervised learning. Speed depends on the size of the output space and correct fraction of it.</p>
+<p>[Example] Only 1 correct answer for each input, the search can be very long.</p>
+<p>Variations on $A_{\text{RP}}$:</p>
 <ul>
 <li>0/1 units. $-S_{i}^{\mu}\to 1-S_{i}^{\mu}$, $\langle S_{i}^{\mu}\rangle\to p_{i}^{\mu}$.</li>
 <li>continuous-valued reward $r\in [0,1]$ for $[\text{terrible}, \text{excellent}]$. simplify the formula:</li>
@@ -1225,17 +1249,17 @@ $$</p>
 <li>speed $\uparrow$: present $\mu$ several times before moving to the next pattern. batch mode: accumulating all $\Delta w$</li>
 </ul>
 <h3 id="theory-of-associative-reward-penalty联想奖惩理论">Theory of Associative Reward-Penalty(联想奖惩理论)<a hidden class="anchor" aria-hidden="true" href="#theory-of-associative-reward-penalty联想奖惩理论">#</a></h3>
-<p>convergence: proved only in special cases.</p>
-<p>usual approach: cost function $\to \epsilon$</p>
+<p>Convergence: proved only in special cases.</p>
+<p>Usual approach: Cost function $\to \epsilon$</p>
 <blockquote>
-<p>not so satisfactory for the stochastic process.</p>
+<p>Not so satisfactory for the stochastic process.</p>
 </blockquote>
-<p>cost function: $-\langle r\rangle$</p>
+<p>Cost function: $-\langle r\rangle$</p>
 <blockquote>
 <p>$E\downarrow \Rightarrow \langle r\rangle\uparrow$</p>
 </blockquote>
 <hr>
-<p>$V_{j}\to \xi_{j}$. deterministic environment(class I). so $r = r(\mathbf{S},\mathbf{\xi})$</p>
+<p>$V_{j}\to \xi_{j}$. Deterministic environment(class I). So $r = r(\mathbf{S},\mathbf{\xi})$</p>
 <blockquote>
 <p>$\mathbf{S}$: output pattern; $\mathbf{\xi}$: input pattern.</p>
 </blockquote>
@@ -1251,7 +1275,7 @@ g(h_{k}^{\mu}) &amp; \text{if }S_{k} = +1\\
 \end{cases},\quad h_{k}^{\mu} = \sum_{j}w_{kj}\xi_{j}^{\mu}
 $$</p>
 </blockquote>
-<p>gradient:</p>
+<p>Gradient:</p>
 <ul>
 <li>differentiating $P$:</li>
 </ul>
@@ -1293,7 +1317,7 @@ $$</p>
 <p>$\bigg\langle\cdots\bigg\rangle$: over all output patterns $\mathbf{S}$.</p>
 </blockquote>
 <p>when $\partial_{\mathbf{S}}r(\mathbf{S},\mathbf{\xi}^{\mu})=0$, $\partial_{w_{ij}}\langle r\rangle^{\mu} = 0$, which reaches a correct solution and almost always get $r^{\mu} = +1$.</p>
-<p>update rule:</p>
+<p>Update rule:</p>
 <p>$$
 \begin{aligned}
 \langle \Delta w_{ij}\rangle^{\mu} = \frac{\eta}{\beta}\frac{\partial \langle r\rangle^{\mu}}{\partial w_{ij}}\\
@@ -1305,7 +1329,7 @@ $$</p>
 </blockquote>
 <p>$A_{\text{RP}}\overset{\eta^{-}\to 0}{\rightarrow} A_{\text{RI}}$ (associative reward-<strong>inaction</strong> rule)</p>
 <h3 id="models--critics">Models &amp; Critics<a hidden class="anchor" aria-hidden="true" href="#models--critics">#</a></h3>
-<p>environment: an auxiliary network(辅助网络). provide a target for each output (insted of global $r$).</p>
+<p>Environment: an auxiliary network(辅助网络). Provide a target for each output (instead of global $r$).</p>
 <blockquote>
 <p><img loading="lazy" src="https://s2.loli.net/2025/12/07/evLDoz6ZFV83HOW.png" alt=""  /></p>
 <p>model. <strong>evaluation unit(评估单元)</strong>: continuous-valued output unit $R$. $R\approx r$: good model.</p>
