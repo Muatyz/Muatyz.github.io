@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>2025 年度随笔 | 无处惹尘埃</title>
 <meta name="keywords" content="life">
-<meta name="description" content="
+<meta name="description" content="极限环吸引子的形成
 连续神经场方程
 
 基础神经场方程
@@ -19,7 +19,20 @@ $$
 
 $\tau$: 时间常数
 $w(\cdot)$: 连结核, 如 Mexican-hat.
-$f(\cdot)$: 激活函数, 如 半线性/sigmoid 函数.">
+$f(\cdot)$: 激活函数(放电率), 如 半线性/sigmoid 函数.
+$I(x,t)$: 外部输入
+
+当 $I\equiv 0$, $w$ 对称且平移不变性, 产生一组平移对称的稳态解
+$$
+u(x,t) = U(x-s)
+$$
+
+$U(\xi)$ ($\xi = x-s$) 是固定形状的峰解, 即静态 bump.
+
+
+$s(t)$ 的动力学
+
+将解写作随时间移动的形状 $u(x,t) = U(x - s(t)) &#43; \delta u$, 其中 $\delta u$ 是涨落项.">
 <meta name="author" content="Muartz">
 <link rel="canonical" href="https://Muatyz.github.io/posts/life/2025-document/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -92,7 +105,7 @@ $f(\cdot)$: 激活函数, 如 半线性/sigmoid 函数.">
     });
   });
 </script><meta property="og:title" content="2025 年度随笔" />
-<meta property="og:description" content="
+<meta property="og:description" content="极限环吸引子的形成
 连续神经场方程
 
 基础神经场方程
@@ -104,7 +117,20 @@ $$
 
 $\tau$: 时间常数
 $w(\cdot)$: 连结核, 如 Mexican-hat.
-$f(\cdot)$: 激活函数, 如 半线性/sigmoid 函数." />
+$f(\cdot)$: 激活函数(放电率), 如 半线性/sigmoid 函数.
+$I(x,t)$: 外部输入
+
+当 $I\equiv 0$, $w$ 对称且平移不变性, 产生一组平移对称的稳态解
+$$
+u(x,t) = U(x-s)
+$$
+
+$U(\xi)$ ($\xi = x-s$) 是固定形状的峰解, 即静态 bump.
+
+
+$s(t)$ 的动力学
+
+将解写作随时间移动的形状 $u(x,t) = U(x - s(t)) &#43; \delta u$, 其中 $\delta u$ 是涨落项." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Muatyz.github.io/posts/life/2025-document/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-01-01T00:18:15+08:00" />
@@ -112,7 +138,7 @@ $f(\cdot)$: 激活函数, 如 半线性/sigmoid 函数." />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="2025 年度随笔"/>
-<meta name="twitter:description" content="
+<meta name="twitter:description" content="极限环吸引子的形成
 连续神经场方程
 
 基础神经场方程
@@ -124,7 +150,20 @@ $$
 
 $\tau$: 时间常数
 $w(\cdot)$: 连结核, 如 Mexican-hat.
-$f(\cdot)$: 激活函数, 如 半线性/sigmoid 函数."/>
+$f(\cdot)$: 激活函数(放电率), 如 半线性/sigmoid 函数.
+$I(x,t)$: 外部输入
+
+当 $I\equiv 0$, $w$ 对称且平移不变性, 产生一组平移对称的稳态解
+$$
+u(x,t) = U(x-s)
+$$
+
+$U(\xi)$ ($\xi = x-s$) 是固定形状的峰解, 即静态 bump.
+
+
+$s(t)$ 的动力学
+
+将解写作随时间移动的形状 $u(x,t) = U(x - s(t)) &#43; \delta u$, 其中 $\delta u$ 是涨落项."/>
 
 
 <script type="application/ld+json">
@@ -161,12 +200,12 @@ $f(\cdot)$: 激活函数, 如 半线性/sigmoid 函数."/>
   "@type": "BlogPosting",
   "headline": "2025 年度随笔",
   "name": "2025 年度随笔",
-  "description": " 连续神经场方程\n基础神经场方程 考虑一维环形神经场. 膜电位/激活变量 $u(x,t)$. 根据 Wilson-Cowan / Amari 动力学写出\n$$ \\tau\\frac{\\partial}{\\partial t}u(x,t) = -u(x,t) + \\int_{-\\infty}^{+\\infty} w(x-x^{\\prime})f[u(x^{\\prime},t)]\\mathrm{d}x^{\\prime} + I(x,t) $$\n$\\tau$: 时间常数\n$w(\\cdot)$: 连结核, 如 Mexican-hat.\n$f(\\cdot)$: 激活函数, 如 半线性/sigmoid 函数.\n",
+  "description": "极限环吸引子的形成 连续神经场方程\n基础神经场方程 考虑一维环形神经场. 膜电位/激活变量 $u(x,t)$. 根据 Wilson-Cowan / Amari 动力学写出\n$$ \\tau\\frac{\\partial}{\\partial t}u(x,t) = -u(x,t) + \\int_{-\\infty}^{+\\infty} w(x-x^{\\prime})f[u(x^{\\prime},t)]\\mathrm{d}x^{\\prime} + I(x,t) $$\n$\\tau$: 时间常数\n$w(\\cdot)$: 连结核, 如 Mexican-hat.\n$f(\\cdot)$: 激活函数(放电率), 如 半线性/sigmoid 函数.\n$I(x,t)$: 外部输入\n当 $I\\equiv 0$, $w$ 对称且平移不变性, 产生一组平移对称的稳态解\n$$ u(x,t) = U(x-s) $$\n$U(\\xi)$ ($\\xi = x-s$) 是固定形状的峰解, 即静态 bump.\n$s(t)$ 的动力学 将解写作随时间移动的形状 $u(x,t) = U(x - s(t)) + \\delta u$, 其中 $\\delta u$ 是涨落项.\n",
   "keywords": [
     "life"
   ],
-  "articleBody": " 连续神经场方程\n基础神经场方程 考虑一维环形神经场. 膜电位/激活变量 $u(x,t)$. 根据 Wilson-Cowan / Amari 动力学写出\n$$ \\tau\\frac{\\partial}{\\partial t}u(x,t) = -u(x,t) + \\int_{-\\infty}^{+\\infty} w(x-x^{\\prime})f[u(x^{\\prime},t)]\\mathrm{d}x^{\\prime} + I(x,t) $$\n$\\tau$: 时间常数\n$w(\\cdot)$: 连结核, 如 Mexican-hat.\n$f(\\cdot)$: 激活函数, 如 半线性/sigmoid 函数.\n$I(x,t)$: 外部输入\n当 $I\\equiv 0$, $w$ 对称且平移不变性, 产生一组平移对称的稳态解\n$$ u(x,t) = U(x-s) $$\n$U(\\xi)$ ($\\xi = x-s$) 是固定形状的峰解, 即静态 bump.\n$s(t)$ 的动力学 将解写作随时间移动的形状 $u(x,t) = U(x - s(t)) + \\delta u$, 其中 $\\delta u$ 是涨落项.\n定义平移模 (Goldstone mode) 为\n$$ \\psi(\\xi) = \\frac{\\partial U(\\xi)}{\\partial \\xi} $$\n得到一般形式的 $s(t)$ 投影法解:\n$$ \\dot{s}(t) = \\frac{1}{\\langle \\phi,\\psi\\rangle}\\langle \\phi(\\cdot), I(\\cdot+s(t), t)\\rangle + \\cdots $$\n其中内积 $\\begin{aligned}\\langle a,b\\rangle = \\int a(\\xi)b(\\xi)\\mathrm{d}\\xi\\end{aligned}$.\n速度作为方向性外部输入 设速度为 $v(t)$, 则外部输入为\n$$ I(x, t) = v(t) H[x-s(t)] $$\n$H(\\xi)$ 代表速度回路如何将速度转为对不同神经元的增益差.\n代入至投影公式\n$$ \\dot{s}(t) = \\frac{v(t)}{\\langle\\phi,\\psi\\rangle}\\int\\phi(\\xi)H(\\xi)\\mathrm{d}\\xi = K v(t) $$\n这表明位移速度与外部输入速度成比例.\n连接核不对称 将速度映射为权重的不对称分量:\n$$ w(x-x^{\\prime};v) = w_{0}(x-x^{\\prime}) + v w_{1}(x-x^{\\prime}) $$\n$w_{0}$ 对称, $w_{1}$ 为奇函数.\n$v\\neq 0$ 时, $w$ 驱动 bump 漂移:\n$$ \\tau\\frac{\\partial u}{\\partial t} = -u + \\int w_{0}(x-x^{\\prime})f[u(x^{\\prime})]\\mathrm{d}x^{\\prime} + v\\int w_{1}(x - x^{\\prime})f[u(x^{\\prime})]\\mathrm{d}x^{\\prime} $$\n仍将解写作形式 $u(x,t) = U(x-s(t))$, 得到\n$$ \\dot{s}(t) = v\\frac{1}{\\langle\\phi,\\psi\\rangle}\\iint \\phi(\\xi)w_{1}(\\xi-\\eta)f[U(\\eta)]\\mathrm{d}\\eta\\mathrm{d}\\xi = K^{\\prime} v(t) $$\n仍然得到线性比例.\n环形式 设神经元在角度 $\\theta\\in[0, 2\\pi)$ 排列, 连接取\n$$ J(\\theta-\\theta^{\\prime}) = J_{0}\\cos{(\\theta-\\theta^{\\prime})} + J_{1}\\sin{(\\theta-\\theta^{\\prime})} $$\n$J_{1} = 0$ 时对称, 则存在静态 bump 解 $u(\\theta) = A\\cos{(\\theta - s)}$\n$J_{1} \\neq 0$ 时对称性破缺, 使 bump 有角速度.\n在弱不对称近似下, 有\n$$ \\dot{s}(t) = \\frac{J_{1}}{J_{0}}, \\quad\\text{if } J_{1}\\propto v, \\dot{s}\\propto v $$\n噪声 $$ \\tau\\frac{\\partial u}{\\partial t} = -u + W\\ast f(u) + vH - (\\text{decay}) + \\sqrt{2D}\\zeta(x,t) $$\n投影解为\n$$ \\dot{s}(t) = Kv + \\eta(t) + \\text{landmark correction} $$\n",
-  "wordCount" : "517",
+  "articleBody": "极限环吸引子的形成 连续神经场方程\n基础神经场方程 考虑一维环形神经场. 膜电位/激活变量 $u(x,t)$. 根据 Wilson-Cowan / Amari 动力学写出\n$$ \\tau\\frac{\\partial}{\\partial t}u(x,t) = -u(x,t) + \\int_{-\\infty}^{+\\infty} w(x-x^{\\prime})f[u(x^{\\prime},t)]\\mathrm{d}x^{\\prime} + I(x,t) $$\n$\\tau$: 时间常数\n$w(\\cdot)$: 连结核, 如 Mexican-hat.\n$f(\\cdot)$: 激活函数(放电率), 如 半线性/sigmoid 函数.\n$I(x,t)$: 外部输入\n当 $I\\equiv 0$, $w$ 对称且平移不变性, 产生一组平移对称的稳态解\n$$ u(x,t) = U(x-s) $$\n$U(\\xi)$ ($\\xi = x-s$) 是固定形状的峰解, 即静态 bump.\n$s(t)$ 的动力学 将解写作随时间移动的形状 $u(x,t) = U(x - s(t)) + \\delta u$, 其中 $\\delta u$ 是涨落项.\n定义平移模 (Goldstone mode) 为\n$$ \\psi(\\xi) = \\frac{\\partial U(\\xi)}{\\partial \\xi} $$\n得到一般形式的 $s(t)$ 投影法解:\n$$ \\dot{s}(t) = \\frac{1}{\\langle \\phi,\\psi\\rangle}\\langle \\phi(\\cdot), I(\\cdot+s(t), t)\\rangle + \\cdots $$\n其中内积 $\\begin{aligned}\\langle a,b\\rangle = \\int a(\\xi)b(\\xi)\\mathrm{d}\\xi\\end{aligned}$.\n速度作为方向性外部输入 设速度为 $v(t)$, 则外部输入为\n$$ I(x, t) = v(t) H[x-s(t)] $$\n$H(\\xi)$ 代表速度回路如何将速度转为对不同神经元的增益差.\n代入至投影公式\n$$ \\dot{s}(t) = \\frac{v(t)}{\\langle\\phi,\\psi\\rangle}\\int\\phi(\\xi)H(\\xi)\\mathrm{d}\\xi = K v(t) $$\n这表明位移速度与外部输入速度成比例.\n连接核不对称 将速度映射为权重的不对称分量:\n$$ w(x-x^{\\prime};v) = w_{0}(x-x^{\\prime}) + v w_{1}(x-x^{\\prime}) $$\n$w_{0}$ 对称, $w_{1}$ 为奇函数.\n$v\\neq 0$ 时, $w$ 驱动 bump 漂移:\n$$ \\tau\\frac{\\partial u}{\\partial t} = -u + \\int w_{0}(x-x^{\\prime})f[u(x^{\\prime})]\\mathrm{d}x^{\\prime} + v\\int w_{1}(x - x^{\\prime})f[u(x^{\\prime})]\\mathrm{d}x^{\\prime} $$\n仍将解写作形式 $u(x,t) = U(x-s(t))$, 得到\n$$ \\dot{s}(t) = v\\frac{1}{\\langle\\phi,\\psi\\rangle}\\iint \\phi(\\xi)w_{1}(\\xi-\\eta)f[U(\\eta)]\\mathrm{d}\\eta\\mathrm{d}\\xi = K^{\\prime} v(t) $$\n仍然得到线性比例.\n环形式 设神经元在角度 $\\theta\\in[0, 2\\pi)$ 排列, 连接取\n$$ J(\\theta-\\theta^{\\prime}) = J_{0}\\cos{(\\theta-\\theta^{\\prime})} + J_{1}\\sin{(\\theta-\\theta^{\\prime})} $$\n$J_{1} = 0$ 时对称, 则存在静态 bump 解 $u(\\theta) = A\\cos{(\\theta - s)}$\n$J_{1} \\neq 0$ 时对称性破缺, 使 bump 有角速度.\n在弱不对称近似下, 有\n$$ \\dot{s}(t) = \\frac{J_{1}}{J_{0}}, \\quad\\text{if } J_{1}\\propto v, \\dot{s}\\propto v $$\n噪声 $$ \\tau\\frac{\\partial u}{\\partial t} = -u + W\\ast f(u) + vH - (\\text{decay}) + \\sqrt{2D}\\zeta(x,t) $$\n投影解为\n$$ \\dot{s}(t) = Kv + \\eta(t) + \\text{landmark correction} $$\n线性吸引子的形成原理 准线性响应: $f(x) \\approx x$;\n网络动力学:\n$$ \\begin{aligned} \\tau\\frac{\\mathrm{d}A}{\\mathrm{d}t} \u0026= -A + WA - kB + I_{A}(t)\\\\ \\tau\\frac{\\mathrm{d}B}{\\mathrm{d}t} \u0026= -B + WA - kA + I_{B}(t) \\end{aligned} $$\n或者写作矩阵形式\n$$ \\frac{\\mathrm{d}}{\\mathrm{d}t}\\begin{pmatrix} A\\\\B \\end{pmatrix} = \\begin{pmatrix} W - 1 \u0026 -k\\\\ -k \u0026 W - 1 \\end{pmatrix}\\begin{pmatrix} A\\\\B \\end{pmatrix} + \\begin{pmatrix} I_{A}(t)\\\\I_{B}(t) \\end{pmatrix} $$\n",
+  "wordCount" : "610",
   "inLanguage": "zh",
   "datePublished": "2025-01-01T00:18:15+08:00",
   "dateModified": "2025-01-01T00:18:15+08:00",
@@ -370,7 +409,7 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>517字
+        <span>610字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -443,10 +482,83 @@ MathJax.Hub.Queue(function() {
                 </span>
 
 </div>
-        </header> 
-        <div class="post-content"><!-- 听了一下普惠算力平台的培训, 但是讲得太省略了, 事后没有明确回复, 要求的 PPT 也没有发在大群里.
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
 
-但是另一件事情让我感受颇深... -->
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e6%9e%81%e9%99%90%e7%8e%af%e5%90%b8%e5%bc%95%e5%ad%90%e7%9a%84%e5%bd%a2%e6%88%90" aria-label="极限环吸引子的形成">极限环吸引子的形成</a></li>
+                <li>
+                    <a href="#%e7%ba%bf%e6%80%a7%e5%90%b8%e5%bc%95%e5%ad%90%e7%9a%84%e5%bd%a2%e6%88%90%e5%8e%9f%e7%90%86" aria-label="线性吸引子的形成原理">线性吸引子的形成原理</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="极限环吸引子的形成">极限环吸引子的形成<a hidden class="anchor" aria-hidden="true" href="#极限环吸引子的形成">#</a></h1>
 <p>连续神经场方程</p>
 <ol>
 <li>基础神经场方程</li>
@@ -458,7 +570,7 @@ $$</p>
 <blockquote>
 <p>$\tau$: 时间常数</p>
 <p>$w(\cdot)$: 连结核, 如 Mexican-hat.</p>
-<p>$f(\cdot)$: 激活函数, 如 半线性/sigmoid 函数.</p>
+<p>$f(\cdot)$: 激活函数(放电率), 如 半线性/sigmoid 函数.</p>
 <p>$I(x,t)$: 外部输入</p>
 </blockquote>
 <p>当 $I\equiv 0$, $w$ 对称且平移不变性, 产生一组平移对称的稳态解</p>
@@ -541,6 +653,29 @@ $$</p>
 <p>投影解为</p>
 <p>$$
 \dot{s}(t) = Kv + \eta(t) + \text{landmark correction}
+$$</p>
+<hr>
+<h1 id="线性吸引子的形成原理">线性吸引子的形成原理<a hidden class="anchor" aria-hidden="true" href="#线性吸引子的形成原理">#</a></h1>
+<p>准线性响应: $f(x) \approx x$;</p>
+<p>网络动力学:</p>
+<p>$$
+\begin{aligned}
+\tau\frac{\mathrm{d}A}{\mathrm{d}t} &amp;= -A + WA - kB + I_{A}(t)\\
+\tau\frac{\mathrm{d}B}{\mathrm{d}t} &amp;= -B + WA - kA + I_{B}(t)
+\end{aligned}
+$$</p>
+<p>或者写作矩阵形式</p>
+<p>$$
+\frac{\mathrm{d}}{\mathrm{d}t}\begin{pmatrix}
+A\\B
+\end{pmatrix} = \begin{pmatrix}
+W - 1 &amp; -k\\
+-k &amp; W - 1
+\end{pmatrix}\begin{pmatrix}
+A\\B
+\end{pmatrix} + \begin{pmatrix}
+I_{A}(t)\\I_{B}(t)
+\end{pmatrix}
 $$</p>
 
 

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Mon, 24 Nov 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/numerical-calculation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Dec 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/numerical-calculation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
       <link>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/</link>
@@ -114,6 +114,24 @@
       
       <guid>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/</guid>
       <description>真实神经元网络的统计力学</description>
+    </item>
+    
+    <item>
+      <title>人是如何学习的 I&amp;II 节选</title>
+      <link>https://Muatyz.github.io/posts/read/reference/how-people-learn/</link>
+      <pubDate>Mon, 15 Dec 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/how-people-learn/</guid>
+      <description>教育基本理论 读书笔记</description>
+    </item>
+    
+    <item>
+      <title>Generalizable, real-time neural decoding with hybrid state-space models</title>
+      <link>https://Muatyz.github.io/posts/read/reference/generalizable-real-time-neural-decoding-with-hybrid-state-space-models/</link>
+      <pubDate>Thu, 11 Dec 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/generalizable-real-time-neural-decoding-with-hybrid-state-space-models/</guid>
+      <description>Computation through dynamics</description>
     </item>
     
     <item>
