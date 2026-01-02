@@ -7,7 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Tue, 10 May 2022 00:18:15 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/exp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Dec 2025 00:18:15 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/exp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Brain Computer Interface 学习记录</title>
+      <link>https://Muatyz.github.io/posts/exp/bci/</link>
+      <pubDate>Tue, 30 Dec 2025 00:18:15 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/exp/bci/</guid>
+      <description>&lt;h1 id=&#34;gru&#34;&gt;GRU&lt;/h1&gt;
+&lt;p&gt;gated recurrent unit.&lt;/p&gt;
+&lt;p&gt;重置门(reset gate) 更新门(update gate) $\in(0,1)$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;广播机制: 对于不同形状的张量, 通过复制扩展使得维度相同.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;输入 $\mathbf{X}_{t}\in\mathbb{R}^{n\times d}$, 即 batch size(批量维度) 为 $n$, feature dimension(特征维度) 为 $d$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;隐状态 $\mathbf{H}_{t-1}\in\mathbb{R}^{n\times h}$, 即 batch size 为 $n$, 隐藏单元数 为 $h$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;重置门 $\mathbf{R}_{t}\in\mathbb{R}^{n\times h}$ 和更新门 $\mathbf{Z}_{t}\in\mathbb{R}^{n\times h}$ 的计算公式:
+$$
+\begin{aligned}
+\overset{n\times h}{\mathbf{R}_{t}} &amp;amp;= \sigma(\overset{n\times d}{\mathbf{X}_{t}}\cdot\overset{d\times h}{\mathbf{W}_{xr}} + \overset{n\times h}{\mathbf{H}_{t-1}}\cdot\overset{h\times h}{\mathbf{W}_{hr}} + \overset{1\times h}{\mathbf{b}_{r}}),\\
+\overset{n\times h}{\mathbf{Z}_{t}} &amp;amp;= \sigma(\overset{n\times d}{\mathbf{X}_{t}}\cdot\overset{d\times h}{\mathbf{W}_{xz}} + \overset{n\times h}{\mathbf{H}_{t-1}}\cdot\overset{h\times h}{\mathbf{W}_{hz}} + \overset{1\times h}{\mathbf{b}_{z}})\\
+\sigma(x) &amp;amp;= \frac{1}{1+e^{-x}}, \quad \text{sigmoid function}
+\end{aligned}
+$$&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>[课设]DCI方案中快电子加热的软X射线诊断研究</title>
       <link>https://Muatyz.github.io/posts/exp/dci-soft-x-ray/</link>

@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Formal Statistical Mechanics of Neural Networks | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="每周阅读笔记">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-10/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-10/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Formal Statistical Mechanics of Neural Networks" />
+<meta property="og:description" content="每周阅读笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-10/" />
+<meta property="og:image" content="https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-01-02T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-01-02T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png" />
+<meta name="twitter:title" content="Formal Statistical Mechanics of Neural Networks"/>
+<meta name="twitter:description" content="每周阅读笔记"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "📕 计算神经科学",
+          "item": "https://Muatyz.github.io/posts/read/theory-of-neural-computation/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Formal Statistical Mechanics of Neural Networks",
+      "item": "https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-10/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Formal Statistical Mechanics of Neural Networks",
+  "name": "Formal Statistical Mechanics of Neural Networks",
+  "description": "每周阅读笔记",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "The Hopfield Model partition function:\n$$ Z = \\text{Tr}_{S}\\exp{(-\\beta H\\{S\\})} $$\nenergy function:\n$$ H_{0} = -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left( \\sum_{i}S_{i}\\xi_{i}^{\\mu} \\right)^{2} + \\frac{p}{2} $$\nRecall: energy function of Hopfield network Hopfield 网络的 energy function:\n$$ H = -\\frac{1}{2}\\sum_{i,j}J_{ij}S_{i}S_{j} $$\nHebb’s rule:\n$$ J_{ij} = \\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu} $$\n将 Hebb’s rule 代入 energy function:\n$$ H = -\\frac{1}{2}\\sum_{i,j}\\left(\\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\right)S_{i}S_{j} = -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} $$\n假设 $\\xi_{i}^{\\mu}$ 是独立同分布的随机变量, 取值为 $\\pm 1$ 且概率相等. 那么定义随机变量\n$$ X^{\\mu} \\equiv \\sum_{i=1}^{N}S_{i}\\xi_{i}^{\\mu} $$\n则\n$$ (X^{\\mu})^{2} = \\sum_{ij}S_{i}S_{j}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu} $$\n期望\n$$ \\langle (X^{\\mu})^{2}\\rangle = \\sum_{ij}S_{i}S_{j}\\langle\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\rangle $$\n当 $i\\neq j$ 时, $\\xi_{i}$ 和 $\\xi_{j}$ 互相独立, 则 $\\langle \\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\rangle = \\langle\\xi_{i}^{\\mu}\\rangle\\langle\\xi_{j}^{\\mu}\\rangle = 0$; 当 $i = j$ 时, $\\langle (\\xi_{i}^{\\mu})^{2}\\rangle = 1$ 因此合并得到 $\\langle\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\rangle = \\delta_{ij}$. 于是\n$$ \\langle (X^{\\mu})^{2}\\rangle = \\sum_{ij}S_{i}S_{j}\\delta_{ij} = N $$\n所以\n$$ \\langle H\\rangle = -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\langle (X^{\\mu})^{2}\\rangle = -\\frac{1}{2N}\\cdot p\\cdot N = -\\frac{p}{2} $$\n在后面加上相抵的常数项 $\\frac{p}{2}$ 使得 $\\langle H_{0}\\rangle = 0$.\n定义 $\\alpha = \\frac{p}{N}$.\nMean Field Theory for $\\alpha=0$ 设外场 $h^{\\mu}\\xi_{i}^{\\mu}$, 则\n$$ H = H_{0} - \\sum_{\\mu}h^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i} $$\npartition function:\n$$ Z = e^{-\\beta p/2}\\text{Tr}_{S}\\exp{\\left[ \\frac{\\beta}{2N}\\sum_{\\mu}{{\\color{red}{\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2}}}} + \\beta\\sum_{\\mu}h^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]} $$\n由于存在二次项, 所以无法拆分为 $N$ 个 exp 乘积.\n技巧:\n$$ \\int_{-\\infty}^{\\infty}e^{-ax^{2}\\pm bx}\\mathrm{d}x = \\sqrt{\\frac{\\pi}{a}}e^{\\frac{b^{2}}{4a}} $$\n反向使用该公式, 将 $e^{x^{2}}$ 化为积分式:\n$$ \\frac{\\beta}{2N}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} = \\frac{b^{2}}{4a} \\Rightarrow \\begin{cases} b \u0026= \\beta \\sum_{i}S_{i}\\xi_{i}^{\\mu}\\\\ a \u0026= \\frac{\\beta N}{2} \\end{cases} $$\n引入辅助积分变量 $m^{\\mu}$, 即有\n$$ \\exp{\\left[ \\frac{\\beta}{2N}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} \\right]} = \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{1}{2}}\\int\\mathrm{d}m^{\\mu}\\exp{\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta m^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]} $$\n原指数中的一次项即可合并入各 $\\mu$ 的指数积分中:\n$$ Z = e^{-\\beta p/2}\\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\times \\text{Tr}_{S}\\prod_{\\mu}\\int\\mathrm{d}m^{\\mu}\\exp{\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta (m^{\\mu} + h^{\\mu})\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]} $$\n将 $m^{\\mu}, h^{\\mu}, \\xi_{i}^{\\mu}$ 合并写作含 $p$ 个分量的矢量形式 $\\vec{m},\\vec{h},\\vec{\\xi}_{i}$.\n注意: 在这里 $\\xi_{i}^{\\mu}$ 是指模式 $\\mu$ 下, 在神经元/节点 $i$ 处的取值. 而 $\\vec{x}_{i}$ 是指在神经元/节点 $i$ 处的所有模式取值构成的向量. 因为认为这些模式彼此独立, 因此在 $\\mu$ 尺度上可以认为 $\\xi_{i}^{\\mu}$ 是 $\\{\\pm 1\\}$ 随机变量, 即 $\\vec{\\xi}$ 一共有 $2^{p}$ 种可能取值.\n由于恒等式\n$$ \\begin{aligned} \\prod_{\\mu}\\int\\mathrm{d}m^{\\mu} \u0026\\equiv \\int\\mathrm{d}m^{1}\\cdots\\mathrm{d}m^{p} \\equiv \\int\\mathrm{d}\\vec{m}\\\\ \\sum_{\\mu}(m^{\\mu})^{2} \u0026\\equiv \\vec{m}^{2}\\\\ \\sum_{\\mu}(m^{\\mu} + h^{\\mu})\\xi_{i}^{\\mu} \u0026\\equiv (\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}\\\\ \\text{Tr}_{S}(*) \u0026\\equiv \\sum_{S_{1}=\\pm 1}\\sum_{S_{2}=\\pm 1}\\cdots\\sum_{S_{N}=\\pm 1}(*) \\end{aligned} $$\n推导配分函数 具体推导过程:\n$$ \\begin{aligned} Z \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\prod_{\\mu}\\int\\mathrm{d}m^{\\mu}\\exp{\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta (m^{\\mu} + h^{\\mu})\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\int\\prod_{\\mu}\\mathrm{d}m^{\\mu}\\exp{\\left\\{\\sum_{\\mu}\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta (m^{\\mu} + h^{\\mu})\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]\\right\\}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\int\\mathrm{d}\\vec{m}\\exp{\\left[ -\\frac{1}{2}\\beta N \\sum_{\\mu}(m^{\\mu})^{2} + \\beta \\sum_{i\\mu}(m^{\\mu}+h^{\\mu})\\xi_{i}^{\\mu}S_{i} \\right]}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\int\\mathrm{d}\\vec{m}\\exp{\\left[ -\\frac{1}{2}\\beta N \\vec{m}^{2} + \\beta \\sum_{i}(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}S_{i} \\right]}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}}\\text{Tr}_{S}e^{\\beta \\sum_{i}(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}S_{i}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}}\\prod_{i}\\text{Tr}_{S_{i}}e^{\\beta (\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}S_{i}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}}\\prod_{i}\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]}\\}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}} \\prod_{i}e^{\\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]}\\}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}} e^{\\sum_{i}\\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]}\\}}\\\\ \u0026= e^{-\\beta N {\\color{red}{\\frac{p}{2N}}}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m} e^{-\\beta N {\\color{red}{\\frac{\\vec{m}^{2}}{2}}}} e^{-\\beta N {\\color{red}{\\left(-\\frac{1}{\\beta N}\\sum_{i}\\ln{(2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]})}\\right)}}}\\\\ \u0026= \\left(\\frac{\\beta N}{2\\pi}\\right)^{p/2}\\int\\mathrm{d}\\vec{m}e^{-\\beta N{\\color{red}{f(\\beta,\\vec{m})}}} \\end{aligned} $$\n其中 $$ f(\\beta,\\vec{m}) = \\frac{1}{2}\\alpha + \\frac{1}{2}\\vec{m}^{2} - \\frac{1}{\\beta N}\\sum_{i}\\ln{(2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]})} $$\n$$ Z = \\left(\\frac{\\beta N}{2\\pi}\\right)^{p/2}\\int\\mathrm{d}\\vec{m}e^{-\\beta Nf(\\beta,\\vec{m})} $$\n在热力学极限($N\\to\\infty$)下可对该积分进行估算. 提取其一维形式积分\n$$ \\begin{aligned} I \u0026= \\sqrt{N}\\int\\mathrm{d}x e^{-Ng(x)}\\\\ \u0026= \\sqrt{N}\\int\\mathrm{d}x \\exp\\left\\{-N\\left[ g(x_{0}) + \\frac{1}{2}g^{\\prime\\prime}(x_{0})(x - x_{0})^{2} + \\cdots \\right]\\right\\}, \\quad \\begin{cases}g^{\\prime}(x_{0}) \u0026= 0\\\\ g^{\\prime\\prime}(x_{0}) \u0026\u003e 0\\end{cases}\\\\ \u0026\\approx \\sqrt{N}e^{-Ng(x_{0})}\\int\\mathrm{d}x \\exp\\left\\{-\\frac{Ng^{\\prime\\prime}(x_{0})}{2}(x - x_{0})^{2}\\right\\}\\\\ \u0026= \\sqrt{N}e^{-Ng(x_{0})}\\sqrt{\\frac{2\\pi}{Ng^{\\prime\\prime}(x_{0})}}\\\\ \u0026= e^{-Ng(x_{0})}\\sqrt{\\frac{2\\pi}{g^{\\prime\\prime}(x_{0})}} \\end{aligned} $$\n可发现\n$$ \\begin{aligned} -\\frac{1}{N}\\ln{I} \u0026= g(x_{0}) + \\frac{1}{2N}\\left[\\ln{g^{\\prime\\prime}(x_{0})}-\\ln{2\\pi}\\right]\\\\ \u0026\\overset{N\\to\\infty}{\\longrightarrow} g(x_{0}) \\end{aligned} $$\n即知道了 $g(x)$ 最小值, 即可估算积分值 $I$. 回到原 $p$ 维积分, 同样的处理技巧, 即 $g(\\cdot) = \\beta f(\\beta, \\vec{m})$:\n$$ -\\frac{1}{N}\\ln{Z} = \\beta\\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m}) $$\n而自由能\n$$ F = -\\frac{1}{\\beta}\\ln{Z} = N\\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m})\\Rightarrow \\frac{F}{N} = \\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m}) $$\n接下来寻找 $f(\\beta,\\vec{m})$ 的最小值.\n$$ f(\\beta,\\vec{m}) = \\frac{1}{2}\\alpha + \\frac{1}{2}\\vec{m}^{2} - \\frac{1}{\\beta}{\\color{red}{\\frac{1}{N}\\sum_{i}}}\\ln{(2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]})} $$\n$$ \\begin{aligned} \\frac{\\partial f}{\\partial m^{\\mu}} \u0026= m^{\\mu} - \\frac{1}{N}\\sum_{i}\\xi_{i}^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]} = 0\\\\ \\Rightarrow m^{\\mu} \u0026= {\\color{red}{\\frac{1}{N}\\sum_{i}}}\\xi_{i}^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]} = {\\color{red}{\\langle}} \\xi^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]}{\\color{red}{\\rangle}} \\end{aligned} $$\n提示:\n$$ (\\vec{m} + \\vec{h})\\cdot\\vec{\\xi} = \\sum_{\\nu}(m^{\\nu} + h^{\\nu})\\xi^{\\nu} $$\n所以在取平均时, 求和符合内隐含固定某个 $\\mu$ 的假设, 但是 $\\tanh$ 函数里计算时的的确确是对所有 $\\mu$ 都进行了计算.\n也许更精准的写法是\n$$ m^{\\mu} = E_{\\{\\xi^{\\nu}\\}_{\\nu=1}^{p}}\\left\\{\\xi^{\\mu}\\tanh{\\left[\\beta\\sum_{\\nu}(m^{\\nu}+h^{\\nu})\\xi^{\\nu}\\right]}\\right\\} $$\n同理, 求和写作期望形式:\n$$ f \\overset{\\alpha\\rightarrow 0}{=} \\frac{1}{2}\\vec{m}^{2} -\\frac{1}{\\beta}\\bigg\\langle \\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]}\\}\\bigg\\rangle $$\n注意 $m^{\\mu}$ 是作为辅助变量引入的, 它实际上可具有实际的物理含义.\n$$ \\begin{aligned} \\frac{\\partial F}{\\partial h^{\\mu}} \u0026= \\frac{\\partial }{\\partial h^{\\mu}}\\left[-\\frac{1}{\\beta}\\ln{Z}\\right] = -\\frac{1}{\\beta}\\frac{1}{Z}\\frac{\\partial Z}{\\partial h^{\\mu}} = -\\frac{1}{\\beta Z}\\frac{\\partial}{\\partial h^{\\mu}} [\\text{Tr}_{S}e^{-\\beta H}]\\\\ \u0026= -\\frac{1}{\\beta Z} \\text{Tr}_{S}\\left(-\\beta \\frac{\\partial H}{\\partial h^{\\mu}}\\right) e^{-\\beta H}\\\\ \u0026= \\frac{e^{-\\beta H}}{Z} \\left(-\\sum_{i}\\xi_{i}^{\\mu}S_{i}\\right)\\\\ \u0026= -\\sum_{i} \\xi_{i}^{\\mu}\\langle S_{i}\\rangle \\end{aligned} $$\n而另一方面,\n$$ f \\overset{\\alpha\\rightarrow 0}{=} \\frac{1}{2}\\vec{m}^{2} -\\frac{1}{\\beta}\\bigg\\langle \\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]}\\}\\bigg\\rangle $$\n$$ \\begin{aligned} \\frac{\\partial f}{\\partial h^{\\mu}} = -\\frac{1}{\\beta} \\bigg\\langle \\beta \\xi^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]} \\bigg\\rangle = -\\bigg\\langle \\xi^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]} \\bigg\\rangle = -m^{\\mu} \\end{aligned} $$\n而我们又有 $F/N = \\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m})$, 因此\n$$ \\begin{aligned} \\frac{\\partial F}{\\partial h^{\\mu}} \u0026= -\\sum_{i}\\xi_{i}^{\\mu}\\langle S_{i}\\rangle\\\\ =N\\frac{\\partial f}{\\partial h^{\\mu}} \u0026= -Nm^{\\mu} \\end{aligned} $$\n即\n$$ m^{\\mu} = \\frac{1}{N}\\sum_{i}\\xi_{i}^{\\mu}\\langle S_{i}\\rangle $$\n所以使得自由能最小的 $m^{\\mu}$ 就是网络对于模式 $\\mu$ 的平均 overlap.\n在 $h^{\\mu} = 0$ 时, 自洽方程(self-consistency equation) 形式为\n$$ m^{\\mu} = \\bigg\\langle \\xi^{\\mu}\\tanh{\\left(\\beta \\vec{m} \\cdot \\vec{\\xi}\\right)} \\bigg\\rangle $$\nmemory state: 只和某个特定的 $\\mu$ 有 correlation 的 $\\vec{m}$ 解. 如 $\\vec{m} = (m,0,0,\\cdots)$, 则自洽方程进一步化为 $$ m^{\\mu} = \\bigg\\langle \\xi^{\\mu}\\tanh{(\\beta m \\xi^{1})}\\bigg\\rangle = \\langle \\xi^{\\mu}\\xi^{1}\\rangle \\tanh{(\\beta m)} = \\delta_{\\mu 1}\\tanh{(\\beta m)} $$\n当 $\\mu = 1$ 时, 有\n$$ m = \\tanh{(\\beta m)} $$\nspurious state.\n最简单的是 mixture state, 即 $$ \\vec{m} = (\\underbrace{m,m,\\cdots,m}_{n},\\underbrace{0,0,\\cdots,0}_{p-n}) $$\n一共有 $C_{p}^{n}$ 种方式. 那么自洽方程化为\n$$ \\begin{aligned} m^{\\mu} \u0026= \\bigg\\langle \\xi^{\\mu}\\tanh{\\left(\\beta m\\sum_{\\nu=1}^{n}\\xi^{\\nu}\\right)}\\bigg\\rangle\\\\ m \u0026= \\frac{1}{n}\\bigg\\langle z\\tanh{(\\beta mz)}\\bigg\\rangle, \\quad z = \\sum_{\\mu=1}^{n}\\xi^{\\mu} \\end{aligned} $$\n除了要求 self-consistency, 还需要该解使得自由能 $F$ 或者 $f$ 最小. 这要求\n$$ A_{\\mu\\nu} = \\frac{\\partial^{2}f}{\\partial m^{\\mu}\\partial m^{\\nu}} $$\n的特征值均为正.\n二阶导数矩阵 在驻点附近,\n$$ f(\\vec{m}^{*}+\\delta\\vec{m}) = f(\\vec{m}^{*}) + \\frac{1}{2}\\sum_{\\mu\\nu}\\delta m^{\\mu} A_{\\mu\\nu}\\delta m^{\\nu} + \\mathcal{O}(\\delta m^{3}),\\quad A_{\\mu\\nu} = \\frac{\\partial^{2}f}{\\partial m^{\\mu}\\partial m^{\\nu}}\\bigg|_{\\vec{m}=\\vec{m}^{*}} $$\n若 $A_{\\mu\\nu}$ 特征值均为正, 即为二次型正定, 驻点 $\\vec{m}^{*}$ 为极小值点; 若 $A_{\\mu\\nu}$ 存在负特征值, 则存在方向使得 $f\\downarrow$, 驻点 $\\vec{m}^{*}$ 不稳定; 结论: 只有 $n$ 为奇数时才有可能正定, 且温度 $T = \\frac{1}{\\beta}$ 需要低于临界温度(critical temperature) $T_{c}$.\nasymmetric mixture state: $$ m = \\left(\\frac{1}{2},\\frac{1}{2},\\frac{1}{4},\\frac{1}{4},\\frac{1}{4},0,0,0\\cdots\\right) $$\nMean Field Theory for $\\alpha\\neq 0$ 计算 $\\langle\\log{Z}\\rangle$. replica method:\n$$ \\ln{Z} = \\lim_{n\\to 0}\\frac{Z^{n}-1}{n} $$\n这样就可以通过计算 $\\langle Z^{n}\\rangle$ 来得到 $\\langle\\ln{Z}\\rangle$. 先取 $n$ 为整数, 最后再取 $n\\to 0$.\n",
+  "wordCount" : "1490",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png","datePublished": "2026-01-02T00:18:23+08:00",
+  "dateModified": "2026-01-02T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-10/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/theory-of-neural-computation/">📕 计算神经科学</a></div>
+            <h1 class="post-title">
+                Formal Statistical Mechanics of Neural Networks
+            </h1>
+            <div class="post-description">
+                每周阅读笔记
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-01-02
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1490字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>3分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-hopfield-model" aria-label="The Hopfield Model">The Hopfield Model</a><ul>
+                        
+                <li>
+                    <a href="#mean-field-theory-for-alpha0" aria-label="Mean Field Theory for $\alpha=0$">Mean Field Theory for $\alpha=0$</a></li>
+                <li>
+                    <a href="#mean-field-theory-for-alphaneq-0" aria-label="Mean Field Theory for $\alpha\neq 0$">Mean Field Theory for $\alpha\neq 0$</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h2 id="the-hopfield-model">The Hopfield Model<a hidden class="anchor" aria-hidden="true" href="#the-hopfield-model">#</a></h2>
+<p>partition function:</p>
+<p>$$
+Z = \text{Tr}_{S}\exp{(-\beta H\{S\})}
+$$</p>
+<p>energy function:</p>
+<p>$$
+H_{0} = -\frac{1}{2N}\sum_{\mu=1}^{p}\left(
+\sum_{i}S_{i}\xi_{i}^{\mu}
+\right)^{2} + \frac{p}{2}
+$$</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>Recall: energy function of Hopfield network<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><blockquote>
+<p>Hopfield 网络的 energy function:</p>
+<p>$$
+H = -\frac{1}{2}\sum_{i,j}J_{ij}S_{i}S_{j}
+$$</p>
+<p>Hebb&rsquo;s rule:</p>
+<p>$$
+J_{ij} = \frac{1}{N}\sum_{\mu=1}^{p}\xi_{i}^{\mu}\xi_{j}^{\mu}
+$$</p>
+<p>将 Hebb&rsquo;s rule 代入 energy function:</p>
+<p>$$
+H = -\frac{1}{2}\sum_{i,j}\left(\frac{1}{N}\sum_{\mu=1}^{p}\xi_{i}^{\mu}\xi_{j}^{\mu}\right)S_{i}S_{j}
+= -\frac{1}{2N}\sum_{\mu=1}^{p}\left(\sum_{i}S_{i}\xi_{i}^{\mu}\right)^{2}
+$$</p>
+<blockquote>
+<p>假设 $\xi_{i}^{\mu}$ 是独立同分布的随机变量, 取值为 $\pm 1$ 且概率相等. 那么定义随机变量</p>
+<p>$$
+X^{\mu} \equiv \sum_{i=1}^{N}S_{i}\xi_{i}^{\mu}
+$$</p>
+<p>则</p>
+<p>$$
+(X^{\mu})^{2} = \sum_{ij}S_{i}S_{j}\xi_{i}^{\mu}\xi_{j}^{\mu}
+$$</p>
+<p>期望</p>
+<p>$$
+\langle (X^{\mu})^{2}\rangle = \sum_{ij}S_{i}S_{j}\langle\xi_{i}^{\mu}\xi_{j}^{\mu}\rangle
+$$</p>
+<ul>
+<li>当 $i\neq j$ 时, $\xi_{i}$ 和 $\xi_{j}$ 互相独立, 则 $\langle \xi_{i}^{\mu}\xi_{j}^{\mu}\rangle = \langle\xi_{i}^{\mu}\rangle\langle\xi_{j}^{\mu}\rangle = 0$;</li>
+<li>当 $i = j$ 时, $\langle (\xi_{i}^{\mu})^{2}\rangle = 1$</li>
+</ul>
+<p>因此合并得到 $\langle\xi_{i}^{\mu}\xi_{j}^{\mu}\rangle = \delta_{ij}$. 于是</p>
+<p>$$
+\langle (X^{\mu})^{2}\rangle = \sum_{ij}S_{i}S_{j}\delta_{ij} = N
+$$</p>
+<p>所以</p>
+<p>$$
+\langle H\rangle = -\frac{1}{2N}\sum_{\mu=1}^{p}\langle (X^{\mu})^{2}\rangle = -\frac{1}{2N}\cdot p\cdot N = -\frac{p}{2}
+$$</p>
+<p>在后面加上相抵的常数项 $\frac{p}{2}$ 使得 $\langle H_{0}\rangle = 0$.</p>
+</blockquote>
+</blockquote>
+</div>
+
+ </div>
+
+ </div>
+<p>定义 $\alpha = \frac{p}{N}$.</p>
+<h3 id="mean-field-theory-for-alpha0">Mean Field Theory for $\alpha=0$<a hidden class="anchor" aria-hidden="true" href="#mean-field-theory-for-alpha0">#</a></h3>
+<p>设外场 $h^{\mu}\xi_{i}^{\mu}$, 则</p>
+<p>$$
+H = H_{0} - \sum_{\mu}h^{\mu}\sum_{i}\xi_{i}^{\mu}S_{i}
+$$</p>
+<p>partition function:</p>
+<p>$$
+Z = e^{-\beta p/2}\text{Tr}_{S}\exp{\left[
+\frac{\beta}{2N}\sum_{\mu}{{\color{red}{\left(\sum_{i}S_{i}\xi_{i}^{\mu}\right)^{2}}}} + \beta\sum_{\mu}h^{\mu}\sum_{i}\xi_{i}^{\mu}S_{i}
+\right]}
+$$</p>
+<p>由于存在二次项, 所以无法拆分为 $N$ 个 exp 乘积.</p>
+<blockquote>
+<p>技巧:</p>
+<p>$$
+\int_{-\infty}^{\infty}e^{-ax^{2}\pm bx}\mathrm{d}x = \sqrt{\frac{\pi}{a}}e^{\frac{b^{2}}{4a}}
+$$</p>
+</blockquote>
+<p>反向使用该公式, 将 $e^{x^{2}}$ 化为积分式:</p>
+<p>$$
+\frac{\beta}{2N}\left(\sum_{i}S_{i}\xi_{i}^{\mu}\right)^{2} = \frac{b^{2}}{4a} \Rightarrow
+\begin{cases}
+b &amp;= \beta \sum_{i}S_{i}\xi_{i}^{\mu}\\
+a &amp;= \frac{\beta N}{2}
+\end{cases}
+$$</p>
+<p>引入辅助积分变量 $m^{\mu}$, 即有</p>
+<p>$$
+\exp{\left[
+\frac{\beta}{2N}\left(\sum_{i}S_{i}\xi_{i}^{\mu}\right)^{2}
+\right]} =
+\left(\frac{\beta N}{2\pi}\right)^{\frac{1}{2}}\int\mathrm{d}m^{\mu}\exp{\left[
+-\frac{1}{2}\beta N(m^{\mu})^{2} + \beta m^{\mu}\sum_{i}\xi_{i}^{\mu}S_{i}
+\right]}
+$$</p>
+<p>原指数中的一次项即可合并入各 $\mu$ 的指数积分中:</p>
+<p>$$
+Z = e^{-\beta p/2}\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\times \text{Tr}_{S}\prod_{\mu}\int\mathrm{d}m^{\mu}\exp{\left[
+-\frac{1}{2}\beta N(m^{\mu})^{2} + \beta (m^{\mu} + h^{\mu})\sum_{i}\xi_{i}^{\mu}S_{i}
+\right]}
+$$</p>
+<p>将 $m^{\mu}, h^{\mu}, \xi_{i}^{\mu}$ 合并写作含 $p$ 个分量的矢量形式 $\vec{m},\vec{h},\vec{\xi}_{i}$.</p>
+<blockquote>
+<p>注意: 在这里 $\xi_{i}^{\mu}$ 是指模式 $\mu$ 下, 在神经元/节点 $i$ 处的取值. 而 $\vec{x}_{i}$ 是指在神经元/节点 $i$ 处的所有模式取值构成的向量. 因为认为这些模式彼此独立, 因此在 $\mu$ 尺度上可以认为 $\xi_{i}^{\mu}$ 是 $\{\pm 1\}$ 随机变量, 即 $\vec{\xi}$ 一共有 $2^{p}$ 种可能取值.</p>
+</blockquote>
+<p>由于恒等式</p>
+<p>$$
+\begin{aligned}
+\prod_{\mu}\int\mathrm{d}m^{\mu} &amp;\equiv \int\mathrm{d}m^{1}\cdots\mathrm{d}m^{p} \equiv \int\mathrm{d}\vec{m}\\
+\sum_{\mu}(m^{\mu})^{2} &amp;\equiv \vec{m}^{2}\\
+\sum_{\mu}(m^{\mu} + h^{\mu})\xi_{i}^{\mu} &amp;\equiv (\vec{m} + \vec{h})\cdot\vec{\xi}_{i}\\
+\text{Tr}_{S}(*) &amp;\equiv \sum_{S_{1}=\pm 1}\sum_{S_{2}=\pm 1}\cdots\sum_{S_{N}=\pm 1}(*)
+\end{aligned}
+$$</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>推导配分函数<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>具体推导过程:</p>
+<p>$$
+\begin{aligned}
+Z &amp;=
+e^{-\frac{\beta p}{2}}
+\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\text{Tr}_{S}\prod_{\mu}\int\mathrm{d}m^{\mu}\exp{\left[
+-\frac{1}{2}\beta N(m^{\mu})^{2} + \beta (m^{\mu} + h^{\mu})\sum_{i}\xi_{i}^{\mu}S_{i}
+\right]}\\
+&amp;= e^{-\frac{\beta p}{2}}
+\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\text{Tr}_{S}\int\prod_{\mu}\mathrm{d}m^{\mu}\exp{\left\{\sum_{\mu}\left[
+-\frac{1}{2}\beta N(m^{\mu})^{2} + \beta (m^{\mu} + h^{\mu})\sum_{i}\xi_{i}^{\mu}S_{i}
+\right]\right\}}\\
+&amp;= e^{-\frac{\beta p}{2}}
+\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\text{Tr}_{S}\int\mathrm{d}\vec{m}\exp{\left[
+-\frac{1}{2}\beta N \sum_{\mu}(m^{\mu})^{2} + \beta \sum_{i\mu}(m^{\mu}+h^{\mu})\xi_{i}^{\mu}S_{i}
+\right]}\\
+&amp;= e^{-\frac{\beta p}{2}}
+\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\text{Tr}_{S}\int\mathrm{d}\vec{m}\exp{\left[
+-\frac{1}{2}\beta N \vec{m}^{2} + \beta \sum_{i}(\vec{m} + \vec{h})\cdot\vec{\xi}_{i}S_{i}
+\right]}\\
+&amp;= e^{-\frac{\beta p}{2}}
+\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\int\mathrm{d}\vec{m}e^{-\frac{1}{2}\beta N \vec{m}^{2}}\text{Tr}_{S}e^{\beta \sum_{i}(\vec{m} + \vec{h})\cdot\vec{\xi}_{i}S_{i}}\\
+&amp;= e^{-\frac{\beta p}{2}}
+\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\int\mathrm{d}\vec{m}e^{-\frac{1}{2}\beta N \vec{m}^{2}}\prod_{i}\text{Tr}_{S_{i}}e^{\beta (\vec{m} + \vec{h})\cdot\vec{\xi}_{i}S_{i}}\\
+&amp;= e^{-\frac{\beta p}{2}}
+\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\int\mathrm{d}\vec{m}e^{-\frac{1}{2}\beta N \vec{m}^{2}}\prod_{i}\{2\cosh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}_{i}]}\}\\
+&amp;= e^{-\frac{\beta p}{2}}
+\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\int\mathrm{d}\vec{m}e^{-\frac{1}{2}\beta N \vec{m}^{2}} \prod_{i}e^{\ln\{2\cosh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}_{i}]}\}}\\
+&amp;= e^{-\frac{\beta p}{2}}
+\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\int\mathrm{d}\vec{m}e^{-\frac{1}{2}\beta N \vec{m}^{2}} e^{\sum_{i}\ln\{2\cosh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}_{i}]}\}}\\
+&amp;= e^{-\beta N {\color{red}{\frac{p}{2N}}}}
+\left(\frac{\beta N}{2\pi}\right)^{\frac{p}{2}}
+\int\mathrm{d}\vec{m} e^{-\beta N {\color{red}{\frac{\vec{m}^{2}}{2}}}}
+e^{-\beta N {\color{red}{\left(-\frac{1}{\beta N}\sum_{i}\ln{(2\cosh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}_{i}]})}\right)}}}\\
+&amp;= \left(\frac{\beta N}{2\pi}\right)^{p/2}\int\mathrm{d}\vec{m}e^{-\beta N{\color{red}{f(\beta,\vec{m})}}}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>其中
+$$
+f(\beta,\vec{m}) = \frac{1}{2}\alpha + \frac{1}{2}\vec{m}^{2} - \frac{1}{\beta N}\sum_{i}\ln{(2\cosh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}_{i}]})}
+$$</p>
+</blockquote>
+</div>
+
+ </div>
+
+ </div>
+<p>$$
+Z = \left(\frac{\beta N}{2\pi}\right)^{p/2}\int\mathrm{d}\vec{m}e^{-\beta Nf(\beta,\vec{m})}
+$$</p>
+<p>在热力学极限($N\to\infty$)下可对该积分进行估算. 提取其一维形式积分</p>
+<p>$$
+\begin{aligned}
+I &amp;= \sqrt{N}\int\mathrm{d}x e^{-Ng(x)}\\
+&amp;= \sqrt{N}\int\mathrm{d}x \exp\left\{-N\left[
+g(x_{0}) + \frac{1}{2}g^{\prime\prime}(x_{0})(x - x_{0})^{2} + \cdots
+\right]\right\}, \quad \begin{cases}g^{\prime}(x_{0}) &amp;= 0\\ g^{\prime\prime}(x_{0}) &amp;&gt; 0\end{cases}\\
+&amp;\approx \sqrt{N}e^{-Ng(x_{0})}\int\mathrm{d}x \exp\left\{-\frac{Ng^{\prime\prime}(x_{0})}{2}(x - x_{0})^{2}\right\}\\
+&amp;= \sqrt{N}e^{-Ng(x_{0})}\sqrt{\frac{2\pi}{Ng^{\prime\prime}(x_{0})}}\\
+&amp;= e^{-Ng(x_{0})}\sqrt{\frac{2\pi}{g^{\prime\prime}(x_{0})}}
+\end{aligned}
+$$</p>
+<p>可发现</p>
+<p>$$
+\begin{aligned}
+-\frac{1}{N}\ln{I} &amp;= g(x_{0}) + \frac{1}{2N}\left[\ln{g^{\prime\prime}(x_{0})}-\ln{2\pi}\right]\\
+&amp;\overset{N\to\infty}{\longrightarrow} g(x_{0})
+\end{aligned}
+$$</p>
+<p>即知道了 $g(x)$ 最小值, 即可估算积分值 $I$. 回到原 $p$ 维积分, 同样的处理技巧, 即 $g(\cdot) = \beta f(\beta, \vec{m})$:</p>
+<p>$$
+-\frac{1}{N}\ln{Z} = \beta\underset{\vec{m}}{\min}f(\beta,\vec{m})
+$$</p>
+<p>而自由能</p>
+<p>$$
+F = -\frac{1}{\beta}\ln{Z} = N\underset{\vec{m}}{\min}f(\beta,\vec{m})\Rightarrow \frac{F}{N} = \underset{\vec{m}}{\min}f(\beta,\vec{m})
+$$</p>
+<p>接下来寻找 $f(\beta,\vec{m})$ 的最小值.</p>
+<blockquote>
+<p>$$
+f(\beta,\vec{m}) = \frac{1}{2}\alpha + \frac{1}{2}\vec{m}^{2} - \frac{1}{\beta}{\color{red}{\frac{1}{N}\sum_{i}}}\ln{(2\cosh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}_{i}]})}
+$$</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+\frac{\partial f}{\partial m^{\mu}} &amp;= m^{\mu} - \frac{1}{N}\sum_{i}\xi_{i}^{\mu}\tanh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}_{i}]} = 0\\
+\Rightarrow m^{\mu} &amp;= {\color{red}{\frac{1}{N}\sum_{i}}}\xi_{i}^{\mu}\tanh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}_{i}]} = {\color{red}{\langle}} \xi^{\mu}\tanh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}]}{\color{red}{\rangle}}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>提示:</p>
+<p>$$
+(\vec{m} + \vec{h})\cdot\vec{\xi} = \sum_{\nu}(m^{\nu} + h^{\nu})\xi^{\nu}
+$$</p>
+<p>所以在取平均时, 求和符合内隐含固定某个 $\mu$ 的假设, 但是 $\tanh$ 函数里计算时的的确确是对所有 $\mu$ 都进行了计算.</p>
+<p>也许更精准的写法是</p>
+<p>$$
+m^{\mu} = E_{\{\xi^{\nu}\}_{\nu=1}^{p}}\left\{\xi^{\mu}\tanh{\left[\beta\sum_{\nu}(m^{\nu}+h^{\nu})\xi^{\nu}\right]}\right\}
+$$</p>
+</blockquote>
+<p>同理, 求和写作期望形式:</p>
+<p>$$
+f \overset{\alpha\rightarrow 0}{=} \frac{1}{2}\vec{m}^{2} -\frac{1}{\beta}\bigg\langle \ln\{2\cosh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}]}\}\bigg\rangle
+$$</p>
+<hr>
+<p>注意 $m^{\mu}$ 是作为辅助变量引入的, 它实际上可具有实际的物理含义.</p>
+<p>$$
+\begin{aligned}
+\frac{\partial F}{\partial h^{\mu}} &amp;= \frac{\partial }{\partial h^{\mu}}\left[-\frac{1}{\beta}\ln{Z}\right] = -\frac{1}{\beta}\frac{1}{Z}\frac{\partial Z}{\partial h^{\mu}} = -\frac{1}{\beta Z}\frac{\partial}{\partial h^{\mu}} [\text{Tr}_{S}e^{-\beta H}]\\
+&amp;= -\frac{1}{\beta Z} \text{Tr}_{S}\left(-\beta \frac{\partial H}{\partial h^{\mu}}\right) e^{-\beta H}\\
+&amp;= \frac{e^{-\beta H}}{Z} \left(-\sum_{i}\xi_{i}^{\mu}S_{i}\right)\\
+&amp;= -\sum_{i} \xi_{i}^{\mu}\langle S_{i}\rangle
+\end{aligned}
+$$</p>
+<p>而另一方面,</p>
+<blockquote>
+<p>$$
+f \overset{\alpha\rightarrow 0}{=} \frac{1}{2}\vec{m}^{2} -\frac{1}{\beta}\bigg\langle \ln\{2\cosh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}]}\}\bigg\rangle
+$$</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+\frac{\partial f}{\partial h^{\mu}} = -\frac{1}{\beta} \bigg\langle \beta \xi^{\mu}\tanh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}]} \bigg\rangle = -\bigg\langle \xi^{\mu}\tanh{[\beta(\vec{m} + \vec{h})\cdot\vec{\xi}]} \bigg\rangle = -m^{\mu}
+\end{aligned}
+$$</p>
+<p>而我们又有 $F/N = \underset{\vec{m}}{\min}f(\beta,\vec{m})$, 因此</p>
+<p>$$
+\begin{aligned}
+\frac{\partial F}{\partial h^{\mu}} &amp;= -\sum_{i}\xi_{i}^{\mu}\langle S_{i}\rangle\\
+=N\frac{\partial f}{\partial h^{\mu}} &amp;= -Nm^{\mu}
+\end{aligned}
+$$</p>
+<p>即</p>
+<p>$$
+m^{\mu} = \frac{1}{N}\sum_{i}\xi_{i}^{\mu}\langle S_{i}\rangle
+$$</p>
+<p>所以使得自由能最小的 $m^{\mu}$ 就是网络对于模式 $\mu$ 的平均 overlap.</p>
+<p>在 $h^{\mu} = 0$ 时, 自洽方程(self-consistency equation) 形式为</p>
+<p>$$
+m^{\mu} = \bigg\langle \xi^{\mu}\tanh{\left(\beta \vec{m} \cdot \vec{\xi}\right)} \bigg\rangle
+$$</p>
+<ul>
+<li>memory state: 只和某个特定的 $\mu$ 有 correlation 的 $\vec{m}$ 解. 如 $\vec{m} = (m,0,0,\cdots)$, 则自洽方程进一步化为</li>
+</ul>
+<p>$$
+m^{\mu} = \bigg\langle \xi^{\mu}\tanh{(\beta m \xi^{1})}\bigg\rangle = \langle \xi^{\mu}\xi^{1}\rangle \tanh{(\beta m)} = \delta_{\mu 1}\tanh{(\beta m)}
+$$</p>
+<p>当 $\mu = 1$ 时, 有</p>
+<p>$$
+m = \tanh{(\beta m)}
+$$</p>
+<ul>
+<li>
+<p>spurious state.</p>
+</li>
+<li>
+<ul>
+<li>最简单的是 mixture state, 即</li>
+</ul>
+</li>
+</ul>
+<p>$$
+\vec{m} = (\underbrace{m,m,\cdots,m}_{n},\underbrace{0,0,\cdots,0}_{p-n})
+$$</p>
+<p>一共有 $C_{p}^{n}$ 种方式. 那么自洽方程化为</p>
+<p>$$
+\begin{aligned}
+m^{\mu} &amp;= \bigg\langle \xi^{\mu}\tanh{\left(\beta m\sum_{\nu=1}^{n}\xi^{\nu}\right)}\bigg\rangle\\
+m &amp;= \frac{1}{n}\bigg\langle z\tanh{(\beta mz)}\bigg\rangle, \quad z = \sum_{\mu=1}^{n}\xi^{\mu}
+\end{aligned}
+$$</p>
+<p>除了要求 self-consistency, 还需要该解使得自由能 $F$ 或者 $f$ 最小. 这要求</p>
+<p>$$
+A_{\mu\nu} = \frac{\partial^{2}f}{\partial m^{\mu}\partial m^{\nu}}
+$$</p>
+<p>的特征值均为正.</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>二阶导数矩阵<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>在驻点附近,</p>
+<p>$$
+f(\vec{m}^{*}+\delta\vec{m}) = f(\vec{m}^{*}) + \frac{1}{2}\sum_{\mu\nu}\delta m^{\mu} A_{\mu\nu}\delta m^{\nu} + \mathcal{O}(\delta m^{3}),\quad A_{\mu\nu} = \frac{\partial^{2}f}{\partial m^{\mu}\partial m^{\nu}}\bigg|_{\vec{m}=\vec{m}^{*}}
+$$</p>
+<ul>
+<li>若 $A_{\mu\nu}$ 特征值均为正, 即为二次型正定, 驻点 $\vec{m}^{*}$ 为极小值点;</li>
+<li>若 $A_{\mu\nu}$ 存在负特征值, 则存在方向使得 $f\downarrow$, 驻点 $\vec{m}^{*}$ 不稳定;</li>
+</ul>
+</div>
+
+ </div>
+
+ </div>
+<p>结论: 只有 $n$ 为奇数时才有可能正定, 且温度 $T = \frac{1}{\beta}$ 需要低于临界温度(critical temperature) $T_{c}$.</p>
+<ul>
+<li>
+<ul>
+<li>asymmetric mixture state:</li>
+</ul>
+</li>
+</ul>
+<p>$$
+m = \left(\frac{1}{2},\frac{1}{2},\frac{1}{4},\frac{1}{4},\frac{1}{4},0,0,0\cdots\right)
+$$</p>
+<h3 id="mean-field-theory-for-alphaneq-0">Mean Field Theory for $\alpha\neq 0$<a hidden class="anchor" aria-hidden="true" href="#mean-field-theory-for-alphaneq-0">#</a></h3>
+<p>计算 $\langle\log{Z}\rangle$. replica method:</p>
+<p>$$
+\ln{Z} = \lim_{n\to 0}\frac{Z^{n}-1}{n}
+$$</p>
+<p>这样就可以通过计算 $\langle Z^{n}\rangle$ 来得到 $\langle\ln{Z}\rangle$. 先取 $n$ 为整数, 最后再取 $n\to 0$.</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="next" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-1/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Introduction</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+</body>
+
+
+
+
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
