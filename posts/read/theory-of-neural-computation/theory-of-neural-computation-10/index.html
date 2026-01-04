@@ -138,8 +138,8 @@
   "keywords": [
     ""
   ],
-  "articleBody": "The Hopfield Model partition function:\n$$ Z = \\text{Tr}_{S}\\exp{(-\\beta H\\{S\\})} $$\nenergy function:\n$$ H_{0} = -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left( \\sum_{i}S_{i}\\xi_{i}^{\\mu} \\right)^{2} + \\frac{p}{2} $$\nRecall: energy function of Hopfield network Hopfield 网络的 energy function:\n$$ H = -\\frac{1}{2}\\sum_{i,j}J_{ij}S_{i}S_{j} $$\nHebb’s rule:\n$$ J_{ij} = \\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu} $$\n将 Hebb’s rule 代入 energy function:\n$$ H = -\\frac{1}{2}\\sum_{i,j}\\left(\\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\right)S_{i}S_{j} = -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} $$\n假设 $\\xi_{i}^{\\mu}$ 是独立同分布的随机变量, 取值为 $\\pm 1$ 且概率相等. 那么定义随机变量\n$$ X^{\\mu} \\equiv \\sum_{i=1}^{N}S_{i}\\xi_{i}^{\\mu} $$\n则\n$$ (X^{\\mu})^{2} = \\sum_{ij}S_{i}S_{j}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu} $$\n期望\n$$ \\langle (X^{\\mu})^{2}\\rangle = \\sum_{ij}S_{i}S_{j}\\langle\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\rangle $$\n当 $i\\neq j$ 时, $\\xi_{i}$ 和 $\\xi_{j}$ 互相独立, 则 $\\langle \\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\rangle = \\langle\\xi_{i}^{\\mu}\\rangle\\langle\\xi_{j}^{\\mu}\\rangle = 0$; 当 $i = j$ 时, $\\langle (\\xi_{i}^{\\mu})^{2}\\rangle = 1$ 因此合并得到 $\\langle\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\rangle = \\delta_{ij}$. 于是\n$$ \\langle (X^{\\mu})^{2}\\rangle = \\sum_{ij}S_{i}S_{j}\\delta_{ij} = N $$\n所以\n$$ \\langle H\\rangle = -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\langle (X^{\\mu})^{2}\\rangle = -\\frac{1}{2N}\\cdot p\\cdot N = -\\frac{p}{2} $$\n在后面加上相抵的常数项 $\\frac{p}{2}$ 使得 $\\langle H_{0}\\rangle = 0$.\n定义 $\\alpha = \\frac{p}{N}$.\nMean Field Theory for $\\alpha=0$ 设外场 $h^{\\mu}\\xi_{i}^{\\mu}$, 则\n$$ H = H_{0} - \\sum_{\\mu}h^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i} $$\npartition function:\n$$ Z = e^{-\\beta p/2}\\text{Tr}_{S}\\exp{\\left[ \\frac{\\beta}{2N}\\sum_{\\mu}{{\\color{red}{\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2}}}} + \\beta\\sum_{\\mu}h^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]} $$\n由于存在二次项, 所以无法拆分为 $N$ 个 exp 乘积.\n技巧:\n$$ \\int_{-\\infty}^{\\infty}e^{-ax^{2}\\pm bx}\\mathrm{d}x = \\sqrt{\\frac{\\pi}{a}}e^{\\frac{b^{2}}{4a}} $$\n反向使用该公式, 将 $e^{x^{2}}$ 化为积分式:\n$$ \\frac{\\beta}{2N}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} = \\frac{b^{2}}{4a} \\Rightarrow \\begin{cases} b \u0026= \\beta \\sum_{i}S_{i}\\xi_{i}^{\\mu}\\\\ a \u0026= \\frac{\\beta N}{2} \\end{cases} $$\n引入辅助积分变量 $m^{\\mu}$, 即有\n$$ \\exp{\\left[ \\frac{\\beta}{2N}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} \\right]} = \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{1}{2}}\\int\\mathrm{d}m^{\\mu}\\exp{\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta m^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]} $$\n原指数中的一次项即可合并入各 $\\mu$ 的指数积分中:\n$$ Z = e^{-\\beta p/2}\\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\times \\text{Tr}_{S}\\prod_{\\mu}\\int\\mathrm{d}m^{\\mu}\\exp{\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta (m^{\\mu} + h^{\\mu})\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]} $$\n将 $m^{\\mu}, h^{\\mu}, \\xi_{i}^{\\mu}$ 合并写作含 $p$ 个分量的矢量形式 $\\vec{m},\\vec{h},\\vec{\\xi}_{i}$.\n注意: 在这里 $\\xi_{i}^{\\mu}$ 是指模式 $\\mu$ 下, 在神经元/节点 $i$ 处的取值. 而 $\\vec{x}_{i}$ 是指在神经元/节点 $i$ 处的所有模式取值构成的向量. 因为认为这些模式彼此独立, 因此在 $\\mu$ 尺度上可以认为 $\\xi_{i}^{\\mu}$ 是 $\\{\\pm 1\\}$ 随机变量, 即 $\\vec{\\xi}$ 一共有 $2^{p}$ 种可能取值.\n由于恒等式\n$$ \\begin{aligned} \\prod_{\\mu}\\int\\mathrm{d}m^{\\mu} \u0026\\equiv \\int\\mathrm{d}m^{1}\\cdots\\mathrm{d}m^{p} \\equiv \\int\\mathrm{d}\\vec{m}\\\\ \\sum_{\\mu}(m^{\\mu})^{2} \u0026\\equiv \\vec{m}^{2}\\\\ \\sum_{\\mu}(m^{\\mu} + h^{\\mu})\\xi_{i}^{\\mu} \u0026\\equiv (\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}\\\\ \\text{Tr}_{S}(*) \u0026\\equiv \\sum_{S_{1}=\\pm 1}\\sum_{S_{2}=\\pm 1}\\cdots\\sum_{S_{N}=\\pm 1}(*) \\end{aligned} $$\n推导配分函数 具体推导过程:\n$$ \\begin{aligned} Z \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\prod_{\\mu}\\int\\mathrm{d}m^{\\mu}\\exp{\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta (m^{\\mu} + h^{\\mu})\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\int\\prod_{\\mu}\\mathrm{d}m^{\\mu}\\exp{\\left\\{\\sum_{\\mu}\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta (m^{\\mu} + h^{\\mu})\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]\\right\\}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\int\\mathrm{d}\\vec{m}\\exp{\\left[ -\\frac{1}{2}\\beta N \\sum_{\\mu}(m^{\\mu})^{2} + \\beta \\sum_{i\\mu}(m^{\\mu}+h^{\\mu})\\xi_{i}^{\\mu}S_{i} \\right]}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\int\\mathrm{d}\\vec{m}\\exp{\\left[ -\\frac{1}{2}\\beta N \\vec{m}^{2} + \\beta \\sum_{i}(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}S_{i} \\right]}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}}\\text{Tr}_{S}e^{\\beta \\sum_{i}(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}S_{i}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}}\\prod_{i}\\text{Tr}_{S_{i}}e^{\\beta (\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}S_{i}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}}\\prod_{i}\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]}\\}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}} \\prod_{i}e^{\\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]}\\}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}} e^{\\sum_{i}\\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]}\\}}\\\\ \u0026= e^{-\\beta N {\\color{red}{\\frac{p}{2N}}}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m} e^{-\\beta N {\\color{red}{\\frac{\\vec{m}^{2}}{2}}}} e^{-\\beta N {\\color{red}{\\left(-\\frac{1}{\\beta N}\\sum_{i}\\ln{(2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]})}\\right)}}}\\\\ \u0026= \\left(\\frac{\\beta N}{2\\pi}\\right)^{p/2}\\int\\mathrm{d}\\vec{m}e^{-\\beta N{\\color{red}{f(\\beta,\\vec{m})}}} \\end{aligned} $$\n其中 $$ f(\\beta,\\vec{m}) = \\frac{1}{2}\\alpha + \\frac{1}{2}\\vec{m}^{2} - \\frac{1}{\\beta N}\\sum_{i}\\ln{(2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]})} $$\n$$ Z = \\left(\\frac{\\beta N}{2\\pi}\\right)^{p/2}\\int\\mathrm{d}\\vec{m}e^{-\\beta Nf(\\beta,\\vec{m})} $$\n在热力学极限($N\\to\\infty$)下可对该积分进行估算. 提取其一维形式积分\n$$ \\begin{aligned} I \u0026= \\sqrt{N}\\int\\mathrm{d}x e^{-Ng(x)}\\\\ \u0026= \\sqrt{N}\\int\\mathrm{d}x \\exp\\left\\{-N\\left[ g(x_{0}) + \\frac{1}{2}g^{\\prime\\prime}(x_{0})(x - x_{0})^{2} + \\cdots \\right]\\right\\}, \\quad \\begin{cases}g^{\\prime}(x_{0}) \u0026= 0\\\\ g^{\\prime\\prime}(x_{0}) \u0026\u003e 0\\end{cases}\\\\ \u0026\\approx \\sqrt{N}e^{-Ng(x_{0})}\\int\\mathrm{d}x \\exp\\left\\{-\\frac{Ng^{\\prime\\prime}(x_{0})}{2}(x - x_{0})^{2}\\right\\}\\\\ \u0026= \\sqrt{N}e^{-Ng(x_{0})}\\sqrt{\\frac{2\\pi}{Ng^{\\prime\\prime}(x_{0})}}\\\\ \u0026= e^{-Ng(x_{0})}\\sqrt{\\frac{2\\pi}{g^{\\prime\\prime}(x_{0})}} \\end{aligned} $$\n可发现\n$$ \\begin{aligned} -\\frac{1}{N}\\ln{I} \u0026= g(x_{0}) + \\frac{1}{2N}\\left[\\ln{g^{\\prime\\prime}(x_{0})}-\\ln{2\\pi}\\right]\\\\ \u0026\\overset{N\\to\\infty}{\\longrightarrow} g(x_{0}) \\end{aligned} $$\n即知道了 $g(x)$ 最小值, 即可估算积分值 $I$. 回到原 $p$ 维积分, 同样的处理技巧, 即 $g(\\cdot) = \\beta f(\\beta, \\vec{m})$:\n$$ -\\frac{1}{N}\\ln{Z} = \\beta\\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m}) $$\n而自由能\n$$ F = -\\frac{1}{\\beta}\\ln{Z} = N\\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m})\\Rightarrow \\frac{F}{N} = \\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m}) $$\n接下来寻找 $f(\\beta,\\vec{m})$ 的最小值.\n$$ f(\\beta,\\vec{m}) = \\frac{1}{2}\\alpha + \\frac{1}{2}\\vec{m}^{2} - \\frac{1}{\\beta}{\\color{red}{\\frac{1}{N}\\sum_{i}}}\\ln{(2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]})} $$\n$$ \\begin{aligned} \\frac{\\partial f}{\\partial m^{\\mu}} \u0026= m^{\\mu} - \\frac{1}{N}\\sum_{i}\\xi_{i}^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]} = 0\\\\ \\Rightarrow m^{\\mu} \u0026= {\\color{red}{\\frac{1}{N}\\sum_{i}}}\\xi_{i}^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]} = {\\color{red}{\\langle}} \\xi^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]}{\\color{red}{\\rangle}} \\end{aligned} $$\n提示:\n$$ (\\vec{m} + \\vec{h})\\cdot\\vec{\\xi} = \\sum_{\\nu}(m^{\\nu} + h^{\\nu})\\xi^{\\nu} $$\n所以在取平均时, 求和符合内隐含固定某个 $\\mu$ 的假设, 但是 $\\tanh$ 函数里计算时的的确确是对所有 $\\mu$ 都进行了计算.\n也许更精准的写法是\n$$ m^{\\mu} = E_{\\{\\xi^{\\nu}\\}_{\\nu=1}^{p}}\\left\\{\\xi^{\\mu}\\tanh{\\left[\\beta\\sum_{\\nu}(m^{\\nu}+h^{\\nu})\\xi^{\\nu}\\right]}\\right\\} $$\n同理, 求和写作期望形式:\n$$ f \\overset{\\alpha\\rightarrow 0}{=} \\frac{1}{2}\\vec{m}^{2} -\\frac{1}{\\beta}\\bigg\\langle \\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]}\\}\\bigg\\rangle $$\n注意 $m^{\\mu}$ 是作为辅助变量引入的, 它实际上可具有实际的物理含义.\n$$ \\begin{aligned} \\frac{\\partial F}{\\partial h^{\\mu}} \u0026= \\frac{\\partial }{\\partial h^{\\mu}}\\left[-\\frac{1}{\\beta}\\ln{Z}\\right] = -\\frac{1}{\\beta}\\frac{1}{Z}\\frac{\\partial Z}{\\partial h^{\\mu}} = -\\frac{1}{\\beta Z}\\frac{\\partial}{\\partial h^{\\mu}} [\\text{Tr}_{S}e^{-\\beta H}]\\\\ \u0026= -\\frac{1}{\\beta Z} \\text{Tr}_{S}\\left(-\\beta \\frac{\\partial H}{\\partial h^{\\mu}}\\right) e^{-\\beta H}\\\\ \u0026= \\frac{e^{-\\beta H}}{Z} \\left(-\\sum_{i}\\xi_{i}^{\\mu}S_{i}\\right)\\\\ \u0026= -\\sum_{i} \\xi_{i}^{\\mu}\\langle S_{i}\\rangle \\end{aligned} $$\n而另一方面,\n$$ f \\overset{\\alpha\\rightarrow 0}{=} \\frac{1}{2}\\vec{m}^{2} -\\frac{1}{\\beta}\\bigg\\langle \\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]}\\}\\bigg\\rangle $$\n$$ \\begin{aligned} \\frac{\\partial f}{\\partial h^{\\mu}} = -\\frac{1}{\\beta} \\bigg\\langle \\beta \\xi^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]} \\bigg\\rangle = -\\bigg\\langle \\xi^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]} \\bigg\\rangle = -m^{\\mu} \\end{aligned} $$\n而我们又有 $F/N = \\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m})$, 因此\n$$ \\begin{aligned} \\frac{\\partial F}{\\partial h^{\\mu}} \u0026= -\\sum_{i}\\xi_{i}^{\\mu}\\langle S_{i}\\rangle\\\\ =N\\frac{\\partial f}{\\partial h^{\\mu}} \u0026= -Nm^{\\mu} \\end{aligned} $$\n即\n$$ m^{\\mu} = \\frac{1}{N}\\sum_{i}\\xi_{i}^{\\mu}\\langle S_{i}\\rangle $$\n所以使得自由能最小的 $m^{\\mu}$ 就是网络对于模式 $\\mu$ 的平均 overlap.\n在 $h^{\\mu} = 0$ 时, 自洽方程(self-consistency equation) 形式为\n$$ m^{\\mu} = \\bigg\\langle \\xi^{\\mu}\\tanh{\\left(\\beta \\vec{m} \\cdot \\vec{\\xi}\\right)} \\bigg\\rangle $$\nmemory state: 只和某个特定的 $\\mu$ 有 correlation 的 $\\vec{m}$ 解. 如 $\\vec{m} = (m,0,0,\\cdots)$, 则自洽方程进一步化为 $$ m^{\\mu} = \\bigg\\langle \\xi^{\\mu}\\tanh{(\\beta m \\xi^{1})}\\bigg\\rangle = \\langle \\xi^{\\mu}\\xi^{1}\\rangle \\tanh{(\\beta m)} = \\delta_{\\mu 1}\\tanh{(\\beta m)} $$\n当 $\\mu = 1$ 时, 有\n$$ m = \\tanh{(\\beta m)} $$\nspurious state.\n最简单的是 mixture state, 即 $$ \\vec{m} = (\\underbrace{m,m,\\cdots,m}_{n},\\underbrace{0,0,\\cdots,0}_{p-n}) $$\n一共有 $C_{p}^{n}$ 种方式. 那么自洽方程化为\n$$ \\begin{aligned} m^{\\mu} \u0026= \\bigg\\langle \\xi^{\\mu}\\tanh{\\left(\\beta m\\sum_{\\nu=1}^{n}\\xi^{\\nu}\\right)}\\bigg\\rangle\\\\ m \u0026= \\frac{1}{n}\\bigg\\langle z\\tanh{(\\beta mz)}\\bigg\\rangle, \\quad z = \\sum_{\\mu=1}^{n}\\xi^{\\mu} \\end{aligned} $$\n除了要求 self-consistency, 还需要该解使得自由能 $F$ 或者 $f$ 最小. 这要求\n$$ A_{\\mu\\nu} = \\frac{\\partial^{2}f}{\\partial m^{\\mu}\\partial m^{\\nu}} $$\n的特征值均为正.\n二阶导数矩阵 在驻点附近,\n$$ f(\\vec{m}^{*}+\\delta\\vec{m}) = f(\\vec{m}^{*}) + \\frac{1}{2}\\sum_{\\mu\\nu}\\delta m^{\\mu} A_{\\mu\\nu}\\delta m^{\\nu} + \\mathcal{O}(\\delta m^{3}),\\quad A_{\\mu\\nu} = \\frac{\\partial^{2}f}{\\partial m^{\\mu}\\partial m^{\\nu}}\\bigg|_{\\vec{m}=\\vec{m}^{*}} $$\n若 $A_{\\mu\\nu}$ 特征值均为正, 即为二次型正定, 驻点 $\\vec{m}^{*}$ 为极小值点; 若 $A_{\\mu\\nu}$ 存在负特征值, 则存在方向使得 $f\\downarrow$, 驻点 $\\vec{m}^{*}$ 不稳定; 结论: 只有 $n$ 为奇数时才有可能正定, 且温度 $T = \\frac{1}{\\beta}$ 需要低于临界温度(critical temperature) $T_{c}$.\nasymmetric mixture state: $$ m = \\left(\\frac{1}{2},\\frac{1}{2},\\frac{1}{4},\\frac{1}{4},\\frac{1}{4},0,0,0\\cdots\\right) $$\nMean Field Theory for $\\alpha\\neq 0$ 计算 $\\langle\\log{Z}\\rangle$. replica method:\n$$ \\ln{Z} = \\lim_{n\\to 0}\\frac{Z^{n}-1}{n} $$\n这样就可以通过计算 $\\langle Z^{n}\\rangle$ 来得到 $\\langle\\ln{Z}\\rangle$. 先取 $n$ 为整数, 最后再取 $n\\to 0$.\n",
-  "wordCount" : "1490",
+  "articleBody": "The Hopfield Model partition function:\n$$ Z = \\text{Tr}_{S}\\exp{(-\\beta H\\{S\\})} $$\nenergy function:\n$$ H_{0} = -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left( \\sum_{i}S_{i}\\xi_{i}^{\\mu} \\right)^{2} + \\frac{p}{2} $$\nRecall: energy function of Hopfield network Hopfield 网络的 energy function:\n$$ H = -\\frac{1}{2}\\sum_{i,j}J_{ij}S_{i}S_{j} $$\nHebb’s rule:\n$$ J_{ij} = \\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu} $$\n将 Hebb’s rule 代入 energy function:\n$$ H = -\\frac{1}{2}\\sum_{i,j}\\left(\\frac{1}{N}\\sum_{\\mu=1}^{p}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\right)S_{i}S_{j} = -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} $$\n假设 $\\xi_{i}^{\\mu}$ 是独立同分布的随机变量, 取值为 $\\pm 1$ 且概率相等. 那么定义随机变量\n$$ X^{\\mu} \\equiv \\sum_{i=1}^{N}S_{i}\\xi_{i}^{\\mu} $$\n则\n$$ (X^{\\mu})^{2} = \\sum_{ij}S_{i}S_{j}\\xi_{i}^{\\mu}\\xi_{j}^{\\mu} $$\n期望\n$$ \\langle (X^{\\mu})^{2}\\rangle = \\sum_{ij}S_{i}S_{j}\\langle\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\rangle $$\n当 $i\\neq j$ 时, $\\xi_{i}$ 和 $\\xi_{j}$ 互相独立, 则 $\\langle \\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\rangle = \\langle\\xi_{i}^{\\mu}\\rangle\\langle\\xi_{j}^{\\mu}\\rangle = 0$; 当 $i = j$ 时, $\\langle (\\xi_{i}^{\\mu})^{2}\\rangle = 1$ 因此合并得到 $\\langle\\xi_{i}^{\\mu}\\xi_{j}^{\\mu}\\rangle = \\delta_{ij}$. 于是\n$$ \\langle (X^{\\mu})^{2}\\rangle = \\sum_{ij}S_{i}S_{j}\\delta_{ij} = N $$\n所以\n$$ \\langle H\\rangle = -\\frac{1}{2N}\\sum_{\\mu=1}^{p}\\langle (X^{\\mu})^{2}\\rangle = -\\frac{1}{2N}\\cdot p\\cdot N = -\\frac{p}{2} $$\n在后面加上相抵的常数项 $\\frac{p}{2}$ 使得 $\\langle H_{0}\\rangle = 0$.\n定义 $\\alpha = \\frac{p}{N}$.\nMean Field Theory for $\\alpha=0$ 设外场 $h^{\\mu}\\xi_{i}^{\\mu}$, 则\n$$ H = H_{0} - \\sum_{\\mu}h^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i} $$\npartition function:\n$$ Z = e^{-\\beta p/2}\\text{Tr}_{S}\\exp{\\left[ \\frac{\\beta}{2N}\\sum_{\\mu}{{\\color{red}{\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2}}}} + \\beta\\sum_{\\mu}h^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]} $$\n由于存在二次项, 所以无法拆分为 $N$ 个 exp 乘积.\n技巧:\n$$ \\int_{-\\infty}^{\\infty}e^{-ax^{2}\\pm bx}\\mathrm{d}x = \\sqrt{\\frac{\\pi}{a}}e^{\\frac{b^{2}}{4a}} $$\n反向使用该公式, 将 $e^{x^{2}}$ 化为积分式:\n$$ \\frac{\\beta}{2N}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} = \\frac{b^{2}}{4a} \\Rightarrow \\begin{cases} b \u0026= \\beta \\sum_{i}S_{i}\\xi_{i}^{\\mu}\\\\ a \u0026= \\frac{\\beta N}{2} \\end{cases} $$\n引入辅助积分变量 $m^{\\mu}$, 即有\n$$ \\exp{\\left[ \\frac{\\beta}{2N}\\left(\\sum_{i}S_{i}\\xi_{i}^{\\mu}\\right)^{2} \\right]} = \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{1}{2}}\\int\\mathrm{d}m^{\\mu}\\exp{\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta m^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]} $$\n原指数中的一次项即可合并入各 $\\mu$ 的指数积分中:\n$$ Z = e^{-\\beta p/2}\\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\times \\text{Tr}_{S}\\prod_{\\mu}\\int\\mathrm{d}m^{\\mu}\\exp{\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta (m^{\\mu} + h^{\\mu})\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]} $$\n将 $m^{\\mu}, h^{\\mu}, \\xi_{i}^{\\mu}$ 合并写作含 $p$ 个分量的矢量形式 $\\vec{m},\\vec{h},\\vec{\\xi}_{i}$.\n注意: 在这里 $\\xi_{i}^{\\mu}$ 是指模式 $\\mu$ 下, 在神经元/节点 $i$ 处的取值. 而 $\\vec{x}_{i}$ 是指在神经元/节点 $i$ 处的所有模式取值构成的向量. 因为认为这些模式彼此独立, 因此在 $\\mu$ 尺度上可以认为 $\\xi_{i}^{\\mu}$ 是 $\\{\\pm 1\\}$ 随机变量, 即 $\\vec{\\xi}$ 一共有 $2^{p}$ 种可能取值.\n由于恒等式\n$$ \\begin{aligned} \\prod_{\\mu}\\int\\mathrm{d}m^{\\mu} \u0026\\equiv \\int\\mathrm{d}m^{1}\\cdots\\mathrm{d}m^{p} \\equiv \\int\\mathrm{d}\\vec{m}\\\\ \\sum_{\\mu}(m^{\\mu})^{2} \u0026\\equiv \\vec{m}^{2}\\\\ \\sum_{\\mu}(m^{\\mu} + h^{\\mu})\\xi_{i}^{\\mu} \u0026\\equiv (\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}\\\\ \\text{Tr}_{S}(*) \u0026\\equiv \\sum_{S_{1}=\\pm 1}\\sum_{S_{2}=\\pm 1}\\cdots\\sum_{S_{N}=\\pm 1}(*) \\end{aligned} $$\n推导配分函数 具体推导过程:\n$$ \\begin{aligned} Z \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\prod_{\\mu}\\int\\mathrm{d}m^{\\mu}\\exp{\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta (m^{\\mu} + h^{\\mu})\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\int\\prod_{\\mu}\\mathrm{d}m^{\\mu}\\exp{\\left\\{\\sum_{\\mu}\\left[ -\\frac{1}{2}\\beta N(m^{\\mu})^{2} + \\beta (m^{\\mu} + h^{\\mu})\\sum_{i}\\xi_{i}^{\\mu}S_{i} \\right]\\right\\}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\int\\mathrm{d}\\vec{m}\\exp{\\left[ -\\frac{1}{2}\\beta N \\sum_{\\mu}(m^{\\mu})^{2} + \\beta \\sum_{i\\mu}(m^{\\mu}+h^{\\mu})\\xi_{i}^{\\mu}S_{i} \\right]}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\text{Tr}_{S}\\int\\mathrm{d}\\vec{m}\\exp{\\left[ -\\frac{1}{2}\\beta N \\vec{m}^{2} + \\beta \\sum_{i}(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}S_{i} \\right]}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}}\\text{Tr}_{S}e^{\\beta \\sum_{i}(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}S_{i}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}}\\prod_{i}\\text{Tr}_{S_{i}}e^{\\beta (\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}S_{i}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}}\\prod_{i}\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]}\\}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}} \\prod_{i}e^{\\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]}\\}}\\\\ \u0026= e^{-\\frac{\\beta p}{2}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m}e^{-\\frac{1}{2}\\beta N \\vec{m}^{2}} e^{\\sum_{i}\\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]}\\}}\\\\ \u0026= e^{-\\beta N {\\color{red}{\\frac{p}{2N}}}} \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{p}{2}} \\int\\mathrm{d}\\vec{m} e^{-\\beta N {\\color{red}{\\frac{\\vec{m}^{2}}{2}}}} e^{-\\beta N {\\color{red}{\\left(-\\frac{1}{\\beta N}\\sum_{i}\\ln{(2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]})}\\right)}}}\\\\ \u0026= \\left(\\frac{\\beta N}{2\\pi}\\right)^{p/2}\\int\\mathrm{d}\\vec{m}e^{-\\beta N{\\color{red}{f(\\beta,\\vec{m})}}} \\end{aligned} $$\n其中 $$ f(\\beta,\\vec{m}) = \\frac{1}{2}\\alpha + \\frac{1}{2}\\vec{m}^{2} - \\frac{1}{\\beta N}\\sum_{i}\\ln{(2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]})} $$\n$$ Z = \\left(\\frac{\\beta N}{2\\pi}\\right)^{p/2}\\int\\mathrm{d}\\vec{m}e^{-\\beta Nf(\\beta,\\vec{m})} $$\n在热力学极限($N\\to\\infty$)下可对该积分进行估算. 提取其一维形式积分\n$$ \\begin{aligned} I \u0026= \\sqrt{N}\\int\\mathrm{d}x e^{-Ng(x)}\\\\ \u0026= \\sqrt{N}\\int\\mathrm{d}x \\exp\\left\\{-N\\left[ g(x_{0}) + \\frac{1}{2}g^{\\prime\\prime}(x_{0})(x - x_{0})^{2} + \\cdots \\right]\\right\\}, \\quad \\begin{cases}g^{\\prime}(x_{0}) \u0026= 0\\\\ g^{\\prime\\prime}(x_{0}) \u0026\u003e 0\\end{cases}\\\\ \u0026\\approx \\sqrt{N}e^{-Ng(x_{0})}\\int\\mathrm{d}x \\exp\\left\\{-\\frac{Ng^{\\prime\\prime}(x_{0})}{2}(x - x_{0})^{2}\\right\\}\\\\ \u0026= \\sqrt{N}e^{-Ng(x_{0})}\\sqrt{\\frac{2\\pi}{Ng^{\\prime\\prime}(x_{0})}}\\\\ \u0026= e^{-Ng(x_{0})}\\sqrt{\\frac{2\\pi}{g^{\\prime\\prime}(x_{0})}} \\end{aligned} $$\n可发现\n$$ \\begin{aligned} -\\frac{1}{N}\\ln{I} \u0026= g(x_{0}) + \\frac{1}{2N}\\left[\\ln{g^{\\prime\\prime}(x_{0})}-\\ln{2\\pi}\\right]\\\\ \u0026\\overset{N\\to\\infty}{\\longrightarrow} g(x_{0}) \\end{aligned} $$\n即知道了 $g(x)$ 最小值, 即可估算积分值 $I$. 回到原 $p$ 维积分, 同样的处理技巧, 即 $g(\\cdot) = \\beta f(\\beta, \\vec{m})$:\n$$ -\\frac{1}{N}\\ln{Z} = \\beta\\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m}) $$\n而自由能\n$$ F = -\\frac{1}{\\beta}\\ln{Z} = N\\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m})\\Rightarrow \\frac{F}{N} = \\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m}) $$\n接下来寻找 $f(\\beta,\\vec{m})$ 的最小值.\n$$ f(\\beta,\\vec{m}) = \\frac{1}{2}\\alpha + \\frac{1}{2}\\vec{m}^{2} - \\frac{1}{\\beta}{\\color{red}{\\frac{1}{N}\\sum_{i}}}\\ln{(2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]})} $$\n$$ \\begin{aligned} \\frac{\\partial f}{\\partial m^{\\mu}} \u0026= m^{\\mu} - \\frac{1}{N}\\sum_{i}\\xi_{i}^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]} = 0\\\\ \\Rightarrow m^{\\mu} \u0026= {\\color{red}{\\frac{1}{N}\\sum_{i}}}\\xi_{i}^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}_{i}]} = {\\color{red}{\\langle}} \\xi^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]}{\\color{red}{\\rangle}} \\end{aligned} $$\n提示:\n$$ (\\vec{m} + \\vec{h})\\cdot\\vec{\\xi} = \\sum_{\\nu}(m^{\\nu} + h^{\\nu})\\xi^{\\nu} $$\n所以在取平均时, 求和符合内隐含固定某个 $\\mu$ 的假设, 但是 $\\tanh$ 函数里计算时的的确确是对所有 $\\mu$ 都进行了计算.\n也许更精准的写法是\n$$ m^{\\mu} = E_{\\{\\xi^{\\nu}\\}_{\\nu=1}^{p}}\\left\\{\\xi^{\\mu}\\tanh{\\left[\\beta\\sum_{\\nu}(m^{\\nu}+h^{\\nu})\\xi^{\\nu}\\right]}\\right\\} $$\n同理, 求和写作期望形式:\n$$ f \\overset{\\alpha\\rightarrow 0}{=} \\frac{1}{2}\\vec{m}^{2} -\\frac{1}{\\beta}\\bigg\\langle \\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]}\\}\\bigg\\rangle $$\n注意 $m^{\\mu}$ 是作为辅助变量引入的, 它实际上可具有实际的物理含义.\n$$ \\begin{aligned} \\frac{\\partial F}{\\partial h^{\\mu}} \u0026= \\frac{\\partial }{\\partial h^{\\mu}}\\left[-\\frac{1}{\\beta}\\ln{Z}\\right] = -\\frac{1}{\\beta}\\frac{1}{Z}\\frac{\\partial Z}{\\partial h^{\\mu}} = -\\frac{1}{\\beta Z}\\frac{\\partial}{\\partial h^{\\mu}} [\\text{Tr}_{S}e^{-\\beta H}]\\\\ \u0026= -\\frac{1}{\\beta Z} \\text{Tr}_{S}\\left(-\\beta \\frac{\\partial H}{\\partial h^{\\mu}}\\right) e^{-\\beta H}\\\\ \u0026= \\frac{e^{-\\beta H}}{Z} \\left(-\\sum_{i}\\xi_{i}^{\\mu}S_{i}\\right)\\\\ \u0026= -\\sum_{i} \\xi_{i}^{\\mu}\\langle S_{i}\\rangle \\end{aligned} $$\n而另一方面,\n$$ f \\overset{\\alpha\\rightarrow 0}{=} \\frac{1}{2}\\vec{m}^{2} -\\frac{1}{\\beta}\\bigg\\langle \\ln\\{2\\cosh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]}\\}\\bigg\\rangle $$\n$$ \\begin{aligned} \\frac{\\partial f}{\\partial h^{\\mu}} = -\\frac{1}{\\beta} \\bigg\\langle \\beta \\xi^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]} \\bigg\\rangle = -\\bigg\\langle \\xi^{\\mu}\\tanh{[\\beta(\\vec{m} + \\vec{h})\\cdot\\vec{\\xi}]} \\bigg\\rangle = -m^{\\mu} \\end{aligned} $$\n而我们又有 $F/N = \\underset{\\vec{m}}{\\min}f(\\beta,\\vec{m})$, 因此\n$$ \\begin{aligned} \\frac{\\partial F}{\\partial h^{\\mu}} \u0026= -\\sum_{i}\\xi_{i}^{\\mu}\\langle S_{i}\\rangle\\\\ =N\\frac{\\partial f}{\\partial h^{\\mu}} \u0026= -Nm^{\\mu} \\end{aligned} $$\n即\n$$ m^{\\mu} = \\frac{1}{N}\\sum_{i}\\xi_{i}^{\\mu}\\langle S_{i}\\rangle $$\n所以使得自由能最小的 $m^{\\mu}$ 就是网络对于模式 $\\mu$ 的平均 overlap.\n在 $h^{\\mu} = 0$ 时, 自洽方程(self-consistency equation) 形式为\n$$ m^{\\mu} = \\bigg\\langle \\xi^{\\mu}\\tanh{\\left(\\beta \\vec{m} \\cdot \\vec{\\xi}\\right)} \\bigg\\rangle $$\nmemory state: 只和某个特定的 $\\mu$ 有 correlation 的 $\\vec{m}$ 解. 如 $\\vec{m} = (m,0,0,\\cdots)$, 则自洽方程进一步化为 $$ m^{\\mu} = \\bigg\\langle \\xi^{\\mu}\\tanh{(\\beta m \\xi^{1})}\\bigg\\rangle = \\langle \\xi^{\\mu}\\xi^{1}\\rangle \\tanh{(\\beta m)} = \\delta_{\\mu 1}\\tanh{(\\beta m)} $$\n当 $\\mu = 1$ 时, 有\n$$ m = \\tanh{(\\beta m)} $$\nspurious state.\n最简单的是 mixture state, 即 $$ \\vec{m} = (\\underbrace{m,m,\\cdots,m}_{n},\\underbrace{0,0,\\cdots,0}_{p-n}) $$\n一共有 $C_{p}^{n}$ 种方式. 那么自洽方程化为\n$$ \\begin{aligned} m^{\\mu} \u0026= \\bigg\\langle \\xi^{\\mu}\\tanh{\\left(\\beta m\\sum_{\\nu=1}^{n}\\xi^{\\nu}\\right)}\\bigg\\rangle\\\\ m \u0026= \\frac{1}{n}\\bigg\\langle z\\tanh{(\\beta mz)}\\bigg\\rangle, \\quad z = \\sum_{\\mu=1}^{n}\\xi^{\\mu} \\end{aligned} $$\n除了要求 self-consistency, 还需要该解使得自由能 $F$ 或者 $f$ 最小. 这要求\n$$ A_{\\mu\\nu} = \\frac{\\partial^{2}f}{\\partial m^{\\mu}\\partial m^{\\nu}} $$\n的特征值均为正.\n二阶导数矩阵 在驻点附近,\n$$ f(\\vec{m}^{*}+\\delta\\vec{m}) = f(\\vec{m}^{*}) + \\frac{1}{2}\\sum_{\\mu\\nu}\\delta m^{\\mu} A_{\\mu\\nu}\\delta m^{\\nu} + \\mathcal{O}(\\delta m^{3}),\\quad A_{\\mu\\nu} = \\frac{\\partial^{2}f}{\\partial m^{\\mu}\\partial m^{\\nu}}\\bigg|_{\\vec{m}=\\vec{m}^{*}} $$\n若 $A_{\\mu\\nu}$ 特征值均为正, 即为二次型正定, 驻点 $\\vec{m}^{*}$ 为极小值点; 若 $A_{\\mu\\nu}$ 存在负特征值, 则存在方向使得 $f\\downarrow$, 驻点 $\\vec{m}^{*}$ 不稳定; 结论: 只有 $n$ 为奇数时才有可能正定, 且温度 $T = \\frac{1}{\\beta}$ 需要低于临界温度(critical temperature) $T_{c}$.\nasymmetric mixture state: $$ m = \\left(\\frac{1}{2},\\frac{1}{2},\\frac{1}{4},\\frac{1}{4},\\frac{1}{4},0,0,0\\cdots\\right) $$\nMean Field Theory for $\\alpha\\neq 0$ 计算 $\\langle\\log{Z}\\rangle$. replica method:\n$$ \\ln{Z} = \\lim_{n\\to 0}\\frac{Z^{n}-1}{n} $$\n这样就可以通过计算 $\\langle Z^{n}\\rangle$ 来得到 $\\langle\\ln{Z}\\rangle$. 先取 $n$ 为整数, 最后再取 $n\\to 0$.\n这样 $n$ 个 partition function 复制品即被称为 replicas, 通过 reolica index (下公式)\n$$ Z^{n} = \\prod_{\\rho=1}^{n}Z^{(\\rho)} = \\text{Tr}_{S^{1}}\\text{Tr}_{S^{2}}\\cdots\\text{Tr}_{S^{n}}\\exp{\\left[ -\\beta (E\\{S_{i}^{1}\\}+\\cdots+E\\{S_{i}^{n}\\}) \\right]} $$\n和前面 Gaussian integral trick 类似, 只不过多了 $n$ 次(取 $h^{\\mu}=0$.):\n$$ \\begin{aligned} \\langle Z^{n}\\rangle \u0026= e^{-\\beta pn/2}\\left\\langle \\text{Tr}_{S}\\prod_{\\mu=1}^{p}\\prod_{\\rho=1}^{n}\\left\\{\\int\\mathrm{d}m_{\\rho}^{\\mu}\\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{1}{2}}\\exp{\\left[ {\\color{green}{-\\frac{1}{2}\\beta N (m_{\\rho}^{\\mu})^{2}}} + \\beta m_{\\rho}^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i}^{\\rho} \\right]} \\right\\}\\right\\rangle\\\\ \\overset{\\prod (ab) = \\prod a\\cdot \\prod b}{=}\u0026 e^{-\\beta pn/2} \\text{Tr}_{S}\\prod_{\\mu=1}^{p}\\int\\left\\{\\left[\\prod_{\\rho=1}^{n}\\mathrm{d}m_{\\rho}^{\\mu}\\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{1}{2}}\\right]{\\color{green}{\\exp{\\left[ -\\frac{\\beta N}{2}\\sum_{\\rho=1}^{n}(m_{\\rho}^{\\mu})^{2} \\right]}}}{\\color{red}{\\left\\langle \\prod_{\\rho=1}^{n}\\exp{\\left( \\beta m_{\\rho}^{\\mu}\\sum_{i=1}^{N}\\xi_{i}^{\\mu}S_{i}^{\\rho} \\right)} \\right\\rangle}}\\right\\}\\\\ \\overset{\\mu\u003es}{\\Rightarrow}\u0026 e^{-\\beta pn/2}\\text{Tr}_{S}\\int\\left[\\prod_{\\rho=1}^{n}\\mathrm{d}m_{\\rho}^{\\mu}\\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{1}{2}}\\right]E \\end{aligned} $$\n每个 replica 有自己的自旋 $S_{i}^{\\rho}$, 但是所有 replica 使用的是同一组 patterns $\\xi_{i}^{\\mu}$.\ncondensed patterns: 在 $p$ 个存储的模式中, 只有 $s$ 个(且 $s$ 与 $N$ 无关) 会与网络有较大的 overlap.\nrecall:\n$$ m^{\\mu} = \\frac{1}{N}\\sum_{i}\\xi_{i}^{\\mu}\\langle S_{i}\\rangle $$\n对这些模式根据 overlap 大小排序, 也可得出上述定义的等效表述:\n对 $\\mu\\leq s$(少数), $m^{\\mu} = \\mathcal{O}(1)$; 对 $\\mu \u003e s$(绝大多数), $m^{\\mu}\\sim\\mathcal{O}(N^{-1/2})\\ll 1$. 先考虑 $\\mu \u003e s$ 部分, 对于 ${\\color{red}{\\langle\\cdots\\rangle}}$ 部分:\n${\\color{red}{\\langle\\cdots\\rangle}}$ 的计算 $$ \\begin{aligned} \u0026\\left\\langle\\prod_{\\rho}\\exp{\\left( \\beta m_{\\rho}^{\\mu}\\sum_{i}\\xi_{i}S_{i}^{\\rho} \\right)}\\right\\rangle \\\\ \\overset{\\prod e^{a}=e^{\\sum a}}{\\Longrightarrow} \u0026\\prod_{i}\\left\\langle\\exp{\\left( \\beta \\xi_{i}^{\\mu}\\sum_{\\rho}m_{\\rho}^{\\mu}S_{i}^{\\rho} \\right)}\\right\\rangle\\\\ \\overset{\\xi = \\pm 1}{\\Longrightarrow} \u0026\\prod_{i}\\cosh{\\left( \\beta \\sum_{\\rho}m_{\\rho}^{\\mu}S_{i}^{\\rho} \\right)}\\\\ \\overset{a = e^{\\ln{a}}}{\\Longrightarrow} \u0026\\exp{\\left\\{ \\sum_{i}\\ln{\\left[ \\cosh{\\left( \\beta \\sum_{\\rho}m_{\\rho}^{\\mu}S_{i}^{\\rho} \\right)} \\right]} \\right\\}}\\\\ \\overset{\\ln{[\\cosh{(x)}]}\\approx x^{2}/2}{\\Longrightarrow}\u0026 \\exp{\\left[ \\sum_{i} \\frac{1}{2} \\left(\\beta\\sum_{\\rho}m_{\\rho}^{\\mu}S_{i}^{\\rho}\\right)^{2} \\right]}\\\\ =\u0026 \\exp{\\left( \\frac{\\beta^{2}}{2}\\sum_{i\\rho\\sigma}S_{i}^{\\rho}S_{i}^{\\sigma}m_{\\rho}^{\\mu}m_{\\sigma}^{\\mu} \\right)} \\end{aligned} $$ 我们可以引入矩阵 $\\widetilde{\\Lambda}_{\\rho\\sigma}$, 使表达式简化:\n$$ E = \\exp{\\left( -\\frac{\\beta N}{2}\\sum_{\\rho\\sigma}\\widetilde{\\Lambda}_{\\rho\\sigma}m_{\\rho}^{\\mu}m_{\\sigma}^{\\mu} \\right)} $$\n其中\n$$ \\widetilde{\\Lambda}_{\\rho\\sigma} \\equiv \\delta_{\\rho\\sigma} - \\frac{\\beta}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} $$\n矩阵 $\\widetilde{\\Lambda}$ 的由来 注意\n$$ \\begin{aligned} \\frac{\\beta^{2}}{2}\\sum_{\\rho\\sigma}m_{\\rho}^{\\mu}m_{\\sigma}^{\\mu}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \u0026= -\\frac{\\beta N}{2}\\sum_{\\rho\\sigma}\\left(-\\frac{\\beta}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma}\\right)m_{\\rho}^{\\mu}m_{\\sigma}^{\\mu} \\end{aligned} $$\n在总表达式中还有 $\\begin{aligned}{\\color{green}{-\\frac{\\beta N}{2}(m_{\\rho}^{\\mu})^{2}}}\\end{aligned}$, 将其改写为\n$$ -\\frac{\\beta N}{2}\\sum_{\\rho}(m_{\\rho}^{\\mu})^{2} = -\\frac{\\beta N}{2}\\sum_{\\rho\\sigma}\\delta_{\\rho\\sigma}m_{\\rho}^{\\mu}m_{\\sigma}^{\\mu} $$\n于是合并得到\n$$ -\\frac{\\beta N}{2}\\sum_{\\rho\\sigma}\\left[ \\delta_{\\rho\\sigma} - \\frac{\\beta}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \\right]m_{\\rho}^{\\mu}m_{\\sigma}^{\\mu} $$\n那么\n$$ \\begin{aligned} \\int\\left[ \\prod_{\\rho=1}^{n}\\mathrm{d}m_{\\rho}^{\\mu}\\left( \\frac{\\beta N}{2\\pi} \\right)^{\\frac{1}{2}} \\right]\\exp{\\left( -\\frac{\\beta N}{2}\\sum_{\\rho\\sigma}\\widetilde{\\Lambda}_{\\rho\\sigma}m_{\\rho}^{\\mu}m_{\\sigma}^{\\mu} \\right)} = \\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{n}{2}}\\sqrt{\\frac{\\pi^{n}}{\\det{\\left(\\frac{1}{2}\\beta N\\widetilde{\\Lambda}\\right)}}} = \\left(\\det{\\widetilde{\\Lambda}}\\right)^{-\\frac{1}{2}} \\end{aligned} $$\n因为 condensed patterns 数量少, 不妨假定 $s\\ll p$, 那么 $\\mu\u003es$ 的个数为 $p-s\\sim p$, 即以上积分结果可近似为相乘 $p$ 次, 即\n$$ \\begin{aligned} \\left(\\det{\\widetilde{\\Lambda}}\\right)^{-\\frac{p}{2}} \u0026= \\exp{\\left[-\\frac{p}{2}\\ln{(\\det{\\widetilde{\\Lambda}})}\\right]} = \\exp{\\left[ -\\frac{p}{2}\\ln{\\left(\\prod_{\\rho=1}^{n}\\widetilde{\\lambda}_{\\rho}\\right)} \\right]} = \\exp{\\left[ -\\frac{\\alpha N}{2}\\sum_{\\rho=1}^{n}\\ln{\\widetilde{\\lambda}_{\\rho}} \\right]} \\end{aligned} $$\n接下来需要进行 $\\text{Tr}_{S}$ 的计算, 而 $S_{i}^{\\rho}$ 相关的信息被合并入 $\\widetilde{\\Lambda}$ 的特征值 $\\widetilde{\\lambda}_{\\rho}$ 中, 因此需要另寻方法.\n定义广义 $\\widetilde{\\Lambda}_{\\rho\\sigma}$:\n$$ \\Lambda_{\\rho\\sigma} \\equiv (1-\\beta)\\delta_{\\rho\\sigma} - \\beta q_{\\rho\\sigma} $$\n若 $\\begin{aligned}q_{\\rho\\sigma} = \\frac{1-\\delta_{\\rho\\sigma}}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma}\\end{aligned}$, 则 $\\Lambda_{\\rho\\sigma} = \\widetilde{\\Lambda}_{\\rho\\sigma}$.\n那么任意对 $\\widetilde{\\lambda}_{\\rho}$ 的函数 $G\\{\\widetilde{\\lambda}_{\\rho}\\}$ 都可转写为形式\n$$ G\\{\\widetilde{\\lambda}_{\\rho}\\} = \\int \\left[ \\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}{\\color{green}{\\delta\\left( q_{\\rho\\sigma} - \\frac{1}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \\right)}} \\right]G\\{\\lambda_{\\rho}\\} $$\n$(\\rho\\sigma)$ 代表对所有的 $\\rho-\\sigma$ 对, 总共有 $n(n-1)/2$ 个(因为 $q_{\\rho\\sigma}=q_{\\sigma\\rho}$ 且 $q_{\\rho\\rho} = 0$).\n使用该公式, 即可将原依赖于 $\\widetilde{\\lambda}_{\\rho}$ 的表达式 $\\begin{aligned}\\left(\\det{\\widetilde{\\Lambda}}\\right)^{-\\frac{p}{2}}\\end{aligned}$ 改写为依赖于 $\\lambda_{\\rho}$ 的形式.\n引理证明 $\\delta(x)$ 函数拥有性质\n$$ \\int \\mathrm{d}q \\delta[q - g(S)]F(q) = F[g(S)] $$\n特别地, 定义 $\\begin{aligned}g_{\\rho\\sigma}(S) = \\frac{1}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma}\\end{aligned}$, 则上式改写为多维形式\n$$ \\int \\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}\\delta[q_{\\rho\\sigma}-g_{\\rho\\sigma}(S)]F(\\{q_{\\rho\\sigma}\\}) = F(\\{g_{\\rho\\sigma}(S)\\}) $$\n$\\Lambda_{\\rho\\sigma} \\equiv (1-\\beta)\\delta_{\\rho\\sigma} - \\beta q_{\\rho\\sigma}$\n即存在函数关系 $\\widetilde{\\Lambda}_{\\rho\\sigma} = \\Lambda_{\\rho\\sigma}(q_{\\rho\\sigma})$. 那么\n$$ G\\{\\widetilde{\\lambda}_{\\rho}\\} = G\\{\\lambda_{\\rho}(q)\\} $$\n代回即有\n$$ G\\{\\widetilde{\\lambda}_{\\rho}\\} = G\\{\\lambda_{\\rho}(\\frac{1}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma})\\} = \\int\\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}\\delta\\left[ q_{\\rho\\sigma} - \\frac{1}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \\right]G\\{\\lambda_{\\rho}\\} $$\n对于 $\\delta(x)$, 存在其傅里叶变换\n$$ \\delta(x) = \\int_{-i\\infty}^{+i\\infty}\\frac{\\mathrm{d}\\widetilde{r}}{2\\pi i}e^{-\\widetilde{r}x} $$\n$\\delta(x)$ 代入 $$ {\\color{green}{\\delta\\left( q_{\\rho\\sigma} - \\frac{1}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \\right)}} = \\int \\frac{\\mathrm{d}\\widetilde{r}_{\\rho\\sigma}}{2\\pi i}\\exp{\\left[ -\\widetilde{r}_{\\rho\\sigma}\\left( q_{\\rho\\sigma} - \\frac{1}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \\right) \\right]} $$\n代回原 $G$ 表达式:\n$$ \\begin{aligned} G\\{\\widetilde{\\lambda}_{\\rho}\\} =\u0026 \\int \\left[ \\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}{\\color{green}{\\delta\\left( q_{\\rho\\sigma} - \\frac{1}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \\right)}} \\right]G\\{\\lambda_{\\rho}\\}\\\\ =\u0026 \\int\\left\\{ \\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}\\int\\frac{\\mathrm{d}\\widetilde{r}_{\\rho\\sigma}}{2\\pi i} \\exp{\\left[ -\\widetilde{r}_{\\rho\\sigma}\\left( q_{\\rho\\sigma} - \\frac{1}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \\right) \\right]} \\right\\}G\\{\\lambda_{\\rho}\\}\\\\ \\propto\u0026 \\int\\left\\{ \\prod_{\\rho\\sigma}\\mathrm{d}q_{\\rho\\sigma}\\mathrm{d}\\widetilde{r}_{\\rho\\sigma}\\exp{\\left[ -\\widetilde{r}_{\\rho\\sigma}q_{\\rho\\sigma} + \\frac{\\widetilde{r}_{\\rho\\sigma}}{N}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \\right]} \\right\\}G\\{\\lambda_{\\rho}\\}\\\\ \\overset{\\widetilde{r}_{\\rho\\sigma}\\equiv N\\alpha\\beta^{2}r_{\\rho\\sigma}}{\\propto}\u0026 \\int\\left[ \\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}\\mathrm{d}r_{\\rho\\sigma}\\exp{\\left( -N\\alpha\\beta^{2}r_{\\rho\\sigma}q_{\\rho\\sigma} + \\alpha\\beta^{2}r_{\\rho\\sigma}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \\right)} \\right]G\\{\\lambda_{\\rho}\\} \\end{aligned} $$\n$$ \\begin{aligned} G\\{\\widetilde{\\lambda}_{\\rho}\\} \\propto\u0026 \\int\\left[ \\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}\\mathrm{d}r_{\\rho\\sigma}\\exp{\\left( -N\\alpha\\beta^{2}r_{\\rho\\sigma}q_{\\rho\\sigma} + \\alpha\\beta^{2}r_{\\rho\\sigma}\\sum_{i}S_{i}^{\\rho}S_{i}^{\\sigma} \\right)} \\right]G\\{\\lambda_{\\rho}\\}\\\\ =\u0026 \\int\\left[ \\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}\\mathrm{d}r_{\\rho\\sigma} \\exp{\\left( -N\\alpha\\beta^{2}r_{\\rho\\sigma}q_{\\rho\\sigma} \\right)} \\exp{\\left( {\\color{orange}{\\alpha\\beta^{2}\\sum_{i}r_{\\rho\\sigma}S_{i}^{\\rho}S_{i}^{\\sigma}}} \\right)} \\right]G\\{\\lambda_{\\rho}\\}\\\\ =\u0026 \\int\\left\\{ \\left[\\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}\\mathrm{d}r_{\\rho\\sigma}\\right] \\exp{\\left( {\\color{blue}{-{\\boxed{\\frac{1}{2}}}N\\alpha\\beta^{2}\\sum_{\\rho\\sigma}r_{\\rho\\sigma}q_{\\rho\\sigma}}} \\right)} \\exp{\\left( {\\color{orange}{{\\boxed{\\frac{1}{2}}}\\alpha\\beta^{2}\\sum_{i\\rho\\sigma}r_{\\rho\\sigma}S_{i}^{\\rho}S_{i}^{\\sigma}}} \\right)} \\right\\}{\\color{purple}{G\\{\\lambda_{\\rho}\\}}} \\end{aligned} $$\n${\\color{orange}{\\frac{1}{2}\\cdots}}$ 中的 $\\frac{1}{2}$ 是因为 $\\rho\\sigma$ 对应矩阵元素重复计算了一次. 那么 $\\sum_{\\rho\u003c\\sigma} = \\frac{1}{2}\\sum_{\\rho\\neq\\sigma}$.\n令 $\\begin{aligned}G\\{\\widetilde{\\lambda}_{\\rho}\\} = \\exp{\\left[-\\frac{1}{2}\\alpha N\\sum_{\\rho=1}^{n}\\ln{\\widetilde{\\lambda}_{\\rho}}\\right]}\\end{aligned}$, 则 $\\langle Z^{n}\\rangle$ 可写作\n$$ \\begin{aligned} \\langle Z^{n}\\rangle \u0026= e^{-\\beta pn/2}\\left\\langle \\text{Tr}_{S}\\prod_{\\mu=1}^{p}\\prod_{\\rho=1}^{n}\\left\\{\\int\\mathrm{d}m_{\\rho}^{\\mu}\\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{1}{2}}\\exp{\\left[ {\\color{green}{-\\frac{1}{2}\\beta N (m_{\\rho}^{\\mu})^{2}}} + \\beta m_{\\rho}^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i}^{\\rho} \\right]} \\right\\}\\right\\rangle\\\\ \\overset{\\prod (ab) = \\prod a\\cdot \\prod b}{=}\u0026 e^{-\\beta pn/2} \\text{Tr}_{S}\\prod_{\\mu=1}^{p}\\int\\left\\{\\left[\\prod_{\\rho=1}^{n}\\mathrm{d}m_{\\rho}^{\\mu}\\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{1}{2}}\\right]{\\color{green}{\\exp{\\left[ -\\frac{\\beta N}{2}\\sum_{\\rho=1}^{n}(m_{\\rho}^{\\mu})^{2} \\right]}}}{\\color{red}{\\left\\langle \\prod_{\\rho=1}^{n}\\exp{\\left( \\beta m_{\\rho}^{\\mu}\\sum_{i=1}^{N}\\xi_{i}^{\\mu}S_{i}^{\\rho} \\right)} \\right\\rangle}}\\right\\}\\\\ \\propto\u0026 e^{-\\beta pn/2}\\int \\left[\\prod_{\\mu\\rho}\\mathrm{d}m_{\\rho}^{\\mu}\\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{1}{2}}\\right]\\\\ \\times\u0026 \\left[ \\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}\\mathrm{d}r_{\\rho\\sigma} \\right] \\exp{\\left[ {\\color{green}{-\\frac{\\beta N}{2}\\sum_{\\mu\\rho}(m_{\\rho}^{\\mu})^{2}}} {\\color{purple}{- \\frac{\\alpha N}{2}\\sum_{\\rho}\\ln{\\lambda_{\\rho}}}} {\\color{blue}{- \\frac{1}{2}N\\alpha\\beta^{2}\\sum_{\\rho\\sigma}r_{\\rho\\sigma}q_{\\rho\\sigma}}} \\right]}\\\\ \\times\u0026 \\left\\langle \\text{Tr}_{S}\\exp{\\left( \\beta\\sum_{\\mu\\rho}m_{\\rho}^{\\mu}\\sum_{i}\\xi_{i}^{\\mu}S_{i}^{\\rho} + {\\color{orange}{\\frac{1}{2}}\\alpha\\beta^{2}\\sum_{i\\rho\\sigma}r_{\\rho\\sigma}S_{i}^{\\rho}S_{i}^{\\sigma}} \\right)} \\right\\rangle \\end{aligned} $$\n其中 $\\mu = \\{1,2,\\cdots,s\\}$. 这也可以解释为什么某些标记颜色的部分在经过处理之后仍然会保留下来: 因为与 condensed patterns 相关.\n再次提示 $\\prod(ab) = \\prod a\\cdot \\prod b$, 这一点针对 $\\mathrm{d}x$ 和 $\\exp$ 都是成立的. 所以最外层的 $\\prod$ 向内移动时需要将其分配至各乘子.\n接下来需要去除 $i$ 指标.\n$$ \\begin{aligned} X \\equiv\u0026 \\text{Tr}_{S}\\exp{\\left( \\sum_{i}F\\{\\xi_{i},S_{i}\\} \\right)} \\overset{\\prod e^{A}=e^{\\sum A}}{=} \\prod_{i}\\text{Tr}_{S_{i}}\\exp{F\\{\\xi_{i},S_{i}\\}}\\\\ =\u0026 \\exp{\\left\\{ \\sum_{i}\\ln{\\left[ \\text{Tr}_{S_{i}}e^{F\\{\\xi_{i},S_{i}\\}} \\right]} \\right\\}},\\quad \\begin{cases}\\mu \u0026= 1,2,\\cdots,s; \\\\ \\rho \u0026= 1,2,\\cdots,n\\end{cases}\\\\ \\overset{N\\gg 2^{s}}{=}\u0026 \\exp{\\left\\{ N\\left\\langle \\ln{\\left[ \\text{Tr}_{S}e^{F\\{\\xi_{i},S_{i}\\}} \\right]}\\right\\rangle\\right\\}} \\end{aligned} $$\n那么要做的相当于在单个节点 $i$ 上进行 $\\rho$ 和 $\\mu$ 的平均. 那么 $\\langle\\cdots\\rangle$ 求期望操作已经在内部通过 $\\sum_{i}$ 自动完成了. 于是进一步化简:\n$$ \\begin{aligned} \\langle Z^{n}\\rangle \u0026\\propto e^{-\\beta pn/2}\\int\\left[ \\prod_{\\mu\\rho}\\mathrm{d}m_{\\rho}^{\\mu}\\left(\\frac{\\beta N}{2\\pi}\\right)^{\\frac{1}{2}} \\right]\\left[ \\prod_{(\\rho\\sigma)}\\mathrm{d}q_{\\rho\\sigma}\\mathrm{d}r_{\\rho\\sigma} \\right]e^{-N\\beta f\\{m,q,r\\}}\\\\ f\\{m,q,r\\} \u0026= {\\color{green}{\\frac{1}{2}\\sum_{\\mu\\rho}(m_{\\rho}^{\\mu})^{2}}} {\\color{purple}{+ \\frac{\\alpha}{2\\beta}\\sum_{\\rho}\\ln{\\lambda_{\\rho}}}} {\\color{blue}{+ \\frac{1}{2}\\alpha\\beta\\sum_{\\rho\\sigma}r_{\\rho\\sigma}q_{\\rho\\sigma}}}\\\\ \u0026- \\frac{1}{\\beta}\\left\\langle \\ln{\\text{Tr}_{S}\\exp{\\left( \\beta\\sum_{\\mu\\rho}m_{\\rho}^{\\mu}\\xi^{\\mu}S^{\\rho} {\\color{orange}{+ \\frac{1}{2}\\alpha\\beta^{2}\\sum_{\\rho\\sigma}r_{\\rho\\sigma}S^{\\rho}S^{\\sigma}}} \\right)}} \\right\\rangle \\end{aligned} $$\n那么每个节点的自由能\n$$ \\begin{aligned} \\frac{F}{N} \u0026= \\frac{1}{N}\\left(-\\frac{1}{\\beta}\\langle \\ln{Z}\\rangle\\right) = -\\frac{1}{\\beta N}\\lim_{n\\to 0}\\frac{\\langle Z^{n}\\rangle - 1}{n} \\\\ \\overset{\\lim_{x\\to 1}x-1\\approx \\ln{x}}{=}\u0026 -\\frac{1}{\\beta N}\\lim_{n\\to 0}\\frac{\\log{\\langle Z^{n}\\rangle}}{n} = \\frac{\\alpha}{2} + \\lim_{n\\to 0}\\frac{1}{n}\\min{f\\{m,q,r\\}} \\end{aligned} $$\n寻找 $f$ 的最小值, 即各变量的一阶导数为 $0$:\n$$ \\begin{aligned} \\frac{\\partial f}{\\partial m_{\\rho}^{\\mu}} = \\frac{\\partial f}{\\partial q_{\\rho\\sigma}} = \\frac{\\partial f}{\\partial r_{\\rho\\sigma}} = 0 \\end{aligned} $$\n解得\n$$ \\begin{aligned} m_{\\rho}^{\\mu} = \\frac{1}{N}\\sum_{i}\\xi_{i}^{\\mu}\\langle S_{i}^{\\rho}\\rangle,\\quad q_{\\rho\\sigma} = \\left\\langle\\frac{1}{N}\\sum_{i}\\langle S_{i}^{\\rho}\\rangle\\langle S_{i}^{\\sigma}\\rangle\\right\\rangle,\\quad r_{\\rho\\sigma} = \\frac{1}{\\alpha}\\sum_{\\mu\u003es}\\langle m_{\\rho}^{\\mu}m_{\\sigma}^{\\mu}\\rangle \\end{aligned} $$\n鞍点推导细节 待补充 replica symmetry ansatz(对称假设): 鞍点处的序参量和 replica index 无关.\n$$ \\begin{aligned} m_{\\rho}^{\\mu} = m^{\\mu},\\quad q_{\\rho\\sigma} = q,\\quad r_{\\rho\\sigma} = r \\end{aligned} $$\n它们也具有相应的物理意义: $m^{\\mu}$ 是网络对 pattern $\\mu$ 的 overlap(重合度); $q$ 是 mean squared magnetization(磁化强度的均方); $\\alpha r$ 是 uncondensed patterns 的 overlap 均方.\n利用该假设, 将序参量写作矢量形式\n$$ \\begin{aligned} f(\\vec{m},q,r) =\u0026 {\\color{green}{\\frac{1}{2}n\\vec{m}^{2}}} + {\\color{purple}{\\frac{\\alpha}{2\\beta}\\sum_{\\rho}\\ln{\\lambda_{\\rho}}}} + {\\color{blue}{\\frac{1}{2}\\alpha\\beta n(n-1)rq}} + {\\color{red}{\\frac{1}{2}n\\alpha\\beta r}}\\\\ \u0026- \\frac{1}{\\beta}\\left\\langle \\ln{\\text{Tr}_{S}\\exp{\\left[ \\beta\\vec{m}\\cdot\\vec{\\xi}\\sum_{\\rho}S^{\\rho} {\\color{orange}{+ \\frac{1}{2}\\alpha\\beta^{2}r\\left(\\sum_{\\rho}S^{\\rho}\\right)^{2}}} \\right]}} \\right\\rangle \\end{aligned} $$\n其中 ${\\color{red}{\\frac{1}{2}n\\alpha\\beta r}}$ 是为了消除 $\\langle {\\color{orange}{\\cdots}} \\rangle$ 中的 $\\rho=\\sigma$ 项.\n接下来需要计算本征值.\n$$ \\Lambda_{\\rho\\sigma} = \\begin{cases} 1-\\beta, \u0026 \\rho = \\sigma\\\\ -\\beta q, \u0026 \\rho \\neq \\sigma \\end{cases} $$\n这个矩阵的本征值为\n$$ \\begin{aligned} \\lambda_{1} \u0026= 1 - \\beta - (n-1)\\beta q\\\\ \\lambda_{2} \u0026= 1 - \\beta(1 - q) \\end{aligned} $$\n其中 $\\lambda_{1}$ 的简并度为 $1$, $\\lambda_{2}$ 的简并度为 $n-1$. 那么\n$$ \\begin{aligned} \\frac{1}{n}\\sum_{\\rho}\\ln{\\lambda_{\\rho}} =\u0026 \\frac{1}{n}\\left\\{1\\cdot \\ln{[1-\\beta - (n-1)\\beta q]} + (n-1)\\cdot\\ln{[1-\\beta(1-q)]}\\right\\}\\\\ \\overset{n\\to 0}{=} \u0026 \\ln{[1-\\beta(1-q)]} - \\frac{\\beta q}{1-\\beta(1-q)} \\end{aligned} $$\n",
+  "wordCount" : "2962",
   "inLanguage": "zh",
   "image":"https://s2.loli.net/2025/10/12/xl7ojGEO5neCiRM.png","datePublished": "2026-01-02T00:18:23+08:00",
   "dateModified": "2026-01-02T00:18:23+08:00",
@@ -346,13 +346,13 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1490字
+        <span>2962字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>3分钟
+        <span>6分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -864,6 +864,455 @@ $$</p>
 \ln{Z} = \lim_{n\to 0}\frac{Z^{n}-1}{n}
 $$</p>
 <p>这样就可以通过计算 $\langle Z^{n}\rangle$ 来得到 $\langle\ln{Z}\rangle$. 先取 $n$ 为整数, 最后再取 $n\to 0$.</p>
+<blockquote>
+<p>这样 $n$ 个 partition function 复制品即被称为 replicas, 通过 reolica index (下公式)</p>
+</blockquote>
+<p>$$
+Z^{n} = \prod_{\rho=1}^{n}Z^{(\rho)} = \text{Tr}_{S^{1}}\text{Tr}_{S^{2}}\cdots\text{Tr}_{S^{n}}\exp{\left[
+-\beta (E\{S_{i}^{1}\}+\cdots+E\{S_{i}^{n}\})
+\right]}
+$$</p>
+<p>和前面 Gaussian integral trick 类似, 只不过多了 $n$ 次(取 $h^{\mu}=0$.):</p>
+<p>$$
+\begin{aligned}
+\langle Z^{n}\rangle &amp;= e^{-\beta pn/2}\left\langle
+\text{Tr}_{S}\prod_{\mu=1}^{p}\prod_{\rho=1}^{n}\left\{\int\mathrm{d}m_{\rho}^{\mu}\left(\frac{\beta N}{2\pi}\right)^{\frac{1}{2}}\exp{\left[
+{\color{green}{-\frac{1}{2}\beta N (m_{\rho}^{\mu})^{2}}} + \beta m_{\rho}^{\mu}\sum_{i}\xi_{i}^{\mu}S_{i}^{\rho}
+\right]}
+\right\}\right\rangle\\
+\overset{\prod (ab) = \prod a\cdot \prod b}{=}&amp; e^{-\beta pn/2} \text{Tr}_{S}\prod_{\mu=1}^{p}\int\left\{\left[\prod_{\rho=1}^{n}\mathrm{d}m_{\rho}^{\mu}\left(\frac{\beta N}{2\pi}\right)^{\frac{1}{2}}\right]{\color{green}{\exp{\left[
+-\frac{\beta N}{2}\sum_{\rho=1}^{n}(m_{\rho}^{\mu})^{2}
+\right]}}}{\color{red}{\left\langle
+\prod_{\rho=1}^{n}\exp{\left(
+\beta m_{\rho}^{\mu}\sum_{i=1}^{N}\xi_{i}^{\mu}S_{i}^{\rho}
+\right)}
+\right\rangle}}\right\}\\
+\overset{\mu&gt;s}{\Rightarrow}&amp; e^{-\beta pn/2}\text{Tr}_{S}\int\left[\prod_{\rho=1}^{n}\mathrm{d}m_{\rho}^{\mu}\left(\frac{\beta N}{2\pi}\right)^{\frac{1}{2}}\right]E
+\end{aligned}
+$$</p>
+<p>每个 replica 有自己的自旋 $S_{i}^{\rho}$, 但是所有 replica 使用的是同一组 patterns $\xi_{i}^{\mu}$.</p>
+<p>condensed patterns: 在 $p$ 个存储的模式中, 只有 $s$ 个(且 $s$ 与 $N$ 无关) 会与网络有较大的 overlap.</p>
+<blockquote>
+<p>recall:</p>
+<p>$$
+m^{\mu} = \frac{1}{N}\sum_{i}\xi_{i}^{\mu}\langle S_{i}\rangle
+$$</p>
+</blockquote>
+<p>对这些模式根据 overlap 大小排序, 也可得出上述定义的等效表述:</p>
+<ul>
+<li>对 $\mu\leq s$(少数), $m^{\mu} = \mathcal{O}(1)$;</li>
+<li>对 $\mu &gt; s$(绝大多数), $m^{\mu}\sim\mathcal{O}(N^{-1/2})\ll 1$.</li>
+</ul>
+<p>先考虑 $\mu &gt; s$ 部分, 对于 ${\color{red}{\langle\cdots\rangle}}$ 部分:</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>${\color{red}{\langle\cdots\rangle}}$ 的计算<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content">$$
+\begin{aligned}
+&amp;\left\langle\prod_{\rho}\exp{\left(
+\beta m_{\rho}^{\mu}\sum_{i}\xi_{i}S_{i}^{\rho}
+\right)}\right\rangle \\
+\overset{\prod e^{a}=e^{\sum a}}{\Longrightarrow} &amp;\prod_{i}\left\langle\exp{\left(
+\beta \xi_{i}^{\mu}\sum_{\rho}m_{\rho}^{\mu}S_{i}^{\rho}
+\right)}\right\rangle\\
+\overset{\xi = \pm 1}{\Longrightarrow} &amp;\prod_{i}\cosh{\left(
+\beta \sum_{\rho}m_{\rho}^{\mu}S_{i}^{\rho}
+\right)}\\
+\overset{a = e^{\ln{a}}}{\Longrightarrow} &amp;\exp{\left\{
+\sum_{i}\ln{\left[
+\cosh{\left(
+\beta \sum_{\rho}m_{\rho}^{\mu}S_{i}^{\rho}
+\right)}
+\right]}
+\right\}}\\
+\overset{\ln{[\cosh{(x)}]}\approx x^{2}/2}{\Longrightarrow}&amp; \exp{\left[
+\sum_{i} \frac{1}{2} \left(\beta\sum_{\rho}m_{\rho}^{\mu}S_{i}^{\rho}\right)^{2}
+\right]}\\
+=&amp; \exp{\left(
+\frac{\beta^{2}}{2}\sum_{i\rho\sigma}S_{i}^{\rho}S_{i}^{\sigma}m_{\rho}^{\mu}m_{\sigma}^{\mu}
+\right)}
+\end{aligned}
+$$</div>
+
+ </div>
+
+ </div>
+<p>我们可以引入矩阵 $\widetilde{\Lambda}_{\rho\sigma}$, 使表达式简化:</p>
+<p>$$
+E = \exp{\left(
+-\frac{\beta N}{2}\sum_{\rho\sigma}\widetilde{\Lambda}_{\rho\sigma}m_{\rho}^{\mu}m_{\sigma}^{\mu}
+\right)}
+$$</p>
+<blockquote>
+<p>其中</p>
+<p>$$
+\widetilde{\Lambda}_{\rho\sigma} \equiv \delta_{\rho\sigma} - \frac{\beta}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+$$</p>
+</blockquote>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>矩阵 $\widetilde{\Lambda}$ 的由来<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>注意</p>
+<p>$$
+\begin{aligned}
+\frac{\beta^{2}}{2}\sum_{\rho\sigma}m_{\rho}^{\mu}m_{\sigma}^{\mu}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma} &amp;= -\frac{\beta N}{2}\sum_{\rho\sigma}\left(-\frac{\beta}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}\right)m_{\rho}^{\mu}m_{\sigma}^{\mu}
+\end{aligned}
+$$</p>
+<p>在总表达式中还有 $\begin{aligned}{\color{green}{-\frac{\beta N}{2}(m_{\rho}^{\mu})^{2}}}\end{aligned}$, 将其改写为</p>
+<p>$$
+-\frac{\beta N}{2}\sum_{\rho}(m_{\rho}^{\mu})^{2} = -\frac{\beta N}{2}\sum_{\rho\sigma}\delta_{\rho\sigma}m_{\rho}^{\mu}m_{\sigma}^{\mu}
+$$</p>
+<p>于是合并得到</p>
+<p>$$
+-\frac{\beta N}{2}\sum_{\rho\sigma}\left[
+\delta_{\rho\sigma} - \frac{\beta}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+\right]m_{\rho}^{\mu}m_{\sigma}^{\mu}
+$$</p>
+</div>
+
+ </div>
+
+ </div>
+<p>那么</p>
+<p>$$
+\begin{aligned}
+\int\left[
+\prod_{\rho=1}^{n}\mathrm{d}m_{\rho}^{\mu}\left(
+\frac{\beta N}{2\pi}
+\right)^{\frac{1}{2}}
+\right]\exp{\left(
+-\frac{\beta N}{2}\sum_{\rho\sigma}\widetilde{\Lambda}_{\rho\sigma}m_{\rho}^{\mu}m_{\sigma}^{\mu}
+\right)}
+= \left(\frac{\beta N}{2\pi}\right)^{\frac{n}{2}}\sqrt{\frac{\pi^{n}}{\det{\left(\frac{1}{2}\beta N\widetilde{\Lambda}\right)}}} = \left(\det{\widetilde{\Lambda}}\right)^{-\frac{1}{2}}
+\end{aligned}
+$$</p>
+<p>因为 condensed patterns 数量少, 不妨假定 $s\ll p$, 那么 $\mu&gt;s$ 的个数为 $p-s\sim p$, 即以上积分结果可近似为相乘 $p$ 次, 即</p>
+<p>$$
+\begin{aligned}
+\left(\det{\widetilde{\Lambda}}\right)^{-\frac{p}{2}} &amp;= \exp{\left[-\frac{p}{2}\ln{(\det{\widetilde{\Lambda}})}\right]} = \exp{\left[
+-\frac{p}{2}\ln{\left(\prod_{\rho=1}^{n}\widetilde{\lambda}_{\rho}\right)}
+\right]} = \exp{\left[
+-\frac{\alpha N}{2}\sum_{\rho=1}^{n}\ln{\widetilde{\lambda}_{\rho}}
+\right]}
+\end{aligned}
+$$</p>
+<p>接下来需要进行 $\text{Tr}_{S}$ 的计算, 而 $S_{i}^{\rho}$ 相关的信息被合并入 $\widetilde{\Lambda}$ 的特征值 $\widetilde{\lambda}_{\rho}$ 中, 因此需要另寻方法.</p>
+<p>定义广义 $\widetilde{\Lambda}_{\rho\sigma}$:</p>
+<p>$$
+\Lambda_{\rho\sigma} \equiv (1-\beta)\delta_{\rho\sigma} - \beta q_{\rho\sigma}
+$$</p>
+<blockquote>
+<p>若 $\begin{aligned}q_{\rho\sigma} = \frac{1-\delta_{\rho\sigma}}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}\end{aligned}$, 则 $\Lambda_{\rho\sigma} = \widetilde{\Lambda}_{\rho\sigma}$.</p>
+</blockquote>
+<p>那么任意对 $\widetilde{\lambda}_{\rho}$ 的函数 $G\{\widetilde{\lambda}_{\rho}\}$ 都可转写为形式</p>
+<p>$$
+G\{\widetilde{\lambda}_{\rho}\} = \int \left[
+\prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}{\color{green}{\delta\left(
+q_{\rho\sigma} - \frac{1}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+\right)}}
+\right]G\{\lambda_{\rho}\}
+$$</p>
+<blockquote>
+<p>$(\rho\sigma)$ 代表对所有的 $\rho-\sigma$ 对, 总共有 $n(n-1)/2$ 个(因为 $q_{\rho\sigma}=q_{\sigma\rho}$ 且 $q_{\rho\rho} = 0$).</p>
+</blockquote>
+<p>使用该公式, 即可将原依赖于 $\widetilde{\lambda}_{\rho}$ 的表达式 $\begin{aligned}\left(\det{\widetilde{\Lambda}}\right)^{-\frac{p}{2}}\end{aligned}$ 改写为依赖于 $\lambda_{\rho}$ 的形式.</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>引理证明<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>$\delta(x)$ 函数拥有性质</p>
+<p>$$
+\int \mathrm{d}q \delta[q - g(S)]F(q) = F[g(S)]
+$$</p>
+<p>特别地, 定义 $\begin{aligned}g_{\rho\sigma}(S) = \frac{1}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}\end{aligned}$, 则上式改写为多维形式</p>
+<p>$$
+\int \prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}\delta[q_{\rho\sigma}-g_{\rho\sigma}(S)]F(\{q_{\rho\sigma}\}) = F(\{g_{\rho\sigma}(S)\})
+$$</p>
+<blockquote>
+<p>$\Lambda_{\rho\sigma} \equiv (1-\beta)\delta_{\rho\sigma} - \beta q_{\rho\sigma}$</p>
+</blockquote>
+<p>即存在函数关系 $\widetilde{\Lambda}_{\rho\sigma} = \Lambda_{\rho\sigma}(q_{\rho\sigma})$. 那么</p>
+<p>$$
+G\{\widetilde{\lambda}_{\rho}\} = G\{\lambda_{\rho}(q)\}
+$$</p>
+<p>代回即有</p>
+<p>$$
+G\{\widetilde{\lambda}_{\rho}\} = G\{\lambda_{\rho}(\frac{1}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma})\} = \int\prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}\delta\left[
+q_{\rho\sigma} - \frac{1}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+\right]G\{\lambda_{\rho}\}
+$$</p>
+</div>
+
+ </div>
+
+ </div>
+<p>对于 $\delta(x)$, 存在其傅里叶变换</p>
+<p>$$
+\delta(x) = \int_{-i\infty}^{+i\infty}\frac{\mathrm{d}\widetilde{r}}{2\pi i}e^{-\widetilde{r}x}
+$$</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>$\delta(x)$ 代入<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>$$
+{\color{green}{\delta\left(
+q_{\rho\sigma} - \frac{1}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+\right)}}  = \int \frac{\mathrm{d}\widetilde{r}_{\rho\sigma}}{2\pi i}\exp{\left[
+-\widetilde{r}_{\rho\sigma}\left(
+q_{\rho\sigma} - \frac{1}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+\right)
+\right]}
+$$</p>
+<p>代回原 $G$ 表达式:</p>
+<p>$$
+\begin{aligned}
+G\{\widetilde{\lambda}_{\rho}\} =&amp; \int \left[
+\prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}{\color{green}{\delta\left(
+q_{\rho\sigma} - \frac{1}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+\right)}}
+\right]G\{\lambda_{\rho}\}\\
+=&amp; \int\left\{
+\prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}\int\frac{\mathrm{d}\widetilde{r}_{\rho\sigma}}{2\pi i}
+\exp{\left[
+-\widetilde{r}_{\rho\sigma}\left(
+q_{\rho\sigma} - \frac{1}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+\right)
+\right]}
+\right\}G\{\lambda_{\rho}\}\\
+\propto&amp; \int\left\{
+\prod_{\rho\sigma}\mathrm{d}q_{\rho\sigma}\mathrm{d}\widetilde{r}_{\rho\sigma}\exp{\left[
+-\widetilde{r}_{\rho\sigma}q_{\rho\sigma} + \frac{\widetilde{r}_{\rho\sigma}}{N}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+\right]}
+\right\}G\{\lambda_{\rho}\}\\
+\overset{\widetilde{r}_{\rho\sigma}\equiv N\alpha\beta^{2}r_{\rho\sigma}}{\propto}&amp; \int\left[
+\prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}\mathrm{d}r_{\rho\sigma}\exp{\left(
+-N\alpha\beta^{2}r_{\rho\sigma}q_{\rho\sigma} + \alpha\beta^{2}r_{\rho\sigma}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+\right)}
+\right]G\{\lambda_{\rho}\}
+\end{aligned}
+$$</p>
+</div>
+
+ </div>
+
+ </div>
+<p>$$
+\begin{aligned}
+G\{\widetilde{\lambda}_{\rho}\} \propto&amp; \int\left[
+\prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}\mathrm{d}r_{\rho\sigma}\exp{\left(
+-N\alpha\beta^{2}r_{\rho\sigma}q_{\rho\sigma} + \alpha\beta^{2}r_{\rho\sigma}\sum_{i}S_{i}^{\rho}S_{i}^{\sigma}
+\right)}
+\right]G\{\lambda_{\rho}\}\\
+=&amp; \int\left[
+\prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}\mathrm{d}r_{\rho\sigma}
+\exp{\left(
+-N\alpha\beta^{2}r_{\rho\sigma}q_{\rho\sigma}
+\right)}
+\exp{\left(
+{\color{orange}{\alpha\beta^{2}\sum_{i}r_{\rho\sigma}S_{i}^{\rho}S_{i}^{\sigma}}}
+\right)}
+\right]G\{\lambda_{\rho}\}\\
+=&amp; \int\left\{
+\left[\prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}\mathrm{d}r_{\rho\sigma}\right]
+\exp{\left(
+{\color{blue}{-{\boxed{\frac{1}{2}}}N\alpha\beta^{2}\sum_{\rho\sigma}r_{\rho\sigma}q_{\rho\sigma}}}
+\right)}
+\exp{\left(
+{\color{orange}{{\boxed{\frac{1}{2}}}\alpha\beta^{2}\sum_{i\rho\sigma}r_{\rho\sigma}S_{i}^{\rho}S_{i}^{\sigma}}}
+\right)}
+\right\}{\color{purple}{G\{\lambda_{\rho}\}}}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>${\color{orange}{\frac{1}{2}\cdots}}$ 中的 $\frac{1}{2}$ 是因为 $\rho\sigma$ 对应矩阵元素重复计算了一次. 那么 $\sum_{\rho&lt;\sigma} = \frac{1}{2}\sum_{\rho\neq\sigma}$.</p>
+</blockquote>
+<p>令 $\begin{aligned}G\{\widetilde{\lambda}_{\rho}\} = \exp{\left[-\frac{1}{2}\alpha N\sum_{\rho=1}^{n}\ln{\widetilde{\lambda}_{\rho}}\right]}\end{aligned}$, 则 $\langle Z^{n}\rangle$ 可写作</p>
+<p>$$
+\begin{aligned}
+\langle Z^{n}\rangle &amp;= e^{-\beta pn/2}\left\langle
+\text{Tr}_{S}\prod_{\mu=1}^{p}\prod_{\rho=1}^{n}\left\{\int\mathrm{d}m_{\rho}^{\mu}\left(\frac{\beta N}{2\pi}\right)^{\frac{1}{2}}\exp{\left[
+{\color{green}{-\frac{1}{2}\beta N (m_{\rho}^{\mu})^{2}}} + \beta m_{\rho}^{\mu}\sum_{i}\xi_{i}^{\mu}S_{i}^{\rho}
+\right]}
+\right\}\right\rangle\\
+\overset{\prod (ab) = \prod a\cdot \prod b}{=}&amp; e^{-\beta pn/2} \text{Tr}_{S}\prod_{\mu=1}^{p}\int\left\{\left[\prod_{\rho=1}^{n}\mathrm{d}m_{\rho}^{\mu}\left(\frac{\beta N}{2\pi}\right)^{\frac{1}{2}}\right]{\color{green}{\exp{\left[
+-\frac{\beta N}{2}\sum_{\rho=1}^{n}(m_{\rho}^{\mu})^{2}
+\right]}}}{\color{red}{\left\langle
+\prod_{\rho=1}^{n}\exp{\left(
+\beta m_{\rho}^{\mu}\sum_{i=1}^{N}\xi_{i}^{\mu}S_{i}^{\rho}
+\right)}
+\right\rangle}}\right\}\\
+\propto&amp; e^{-\beta pn/2}\int \left[\prod_{\mu\rho}\mathrm{d}m_{\rho}^{\mu}\left(\frac{\beta N}{2\pi}\right)^{\frac{1}{2}}\right]\\
+\times&amp; \left[
+\prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}\mathrm{d}r_{\rho\sigma}
+\right]
+\exp{\left[
+{\color{green}{-\frac{\beta N}{2}\sum_{\mu\rho}(m_{\rho}^{\mu})^{2}}}
+{\color{purple}{- \frac{\alpha N}{2}\sum_{\rho}\ln{\lambda_{\rho}}}}
+{\color{blue}{- \frac{1}{2}N\alpha\beta^{2}\sum_{\rho\sigma}r_{\rho\sigma}q_{\rho\sigma}}}
+\right]}\\
+\times&amp; \left\langle
+\text{Tr}_{S}\exp{\left(
+\beta\sum_{\mu\rho}m_{\rho}^{\mu}\sum_{i}\xi_{i}^{\mu}S_{i}^{\rho}
++ {\color{orange}{\frac{1}{2}}\alpha\beta^{2}\sum_{i\rho\sigma}r_{\rho\sigma}S_{i}^{\rho}S_{i}^{\sigma}}
+\right)}
+\right\rangle
+\end{aligned}
+$$</p>
+<blockquote>
+<p>其中 $\mu = \{1,2,\cdots,s\}$. 这也可以解释为什么某些标记颜色的部分在经过处理之后仍然会保留下来: 因为与 condensed patterns 相关.</p>
+</blockquote>
+<blockquote>
+<p>再次提示 $\prod(ab) = \prod a\cdot \prod b$, 这一点针对 $\mathrm{d}x$ 和 $\exp$ 都是成立的. 所以最外层的 $\prod$ 向内移动时需要将其分配至各乘子.</p>
+</blockquote>
+<p>接下来需要去除 $i$ 指标.</p>
+<p>$$
+\begin{aligned}
+X \equiv&amp; \text{Tr}_{S}\exp{\left(
+\sum_{i}F\{\xi_{i},S_{i}\}
+\right)} \overset{\prod e^{A}=e^{\sum A}}{=} \prod_{i}\text{Tr}_{S_{i}}\exp{F\{\xi_{i},S_{i}\}}\\
+=&amp; \exp{\left\{
+\sum_{i}\ln{\left[
+\text{Tr}_{S_{i}}e^{F\{\xi_{i},S_{i}\}}
+\right]}
+\right\}},\quad \begin{cases}\mu &amp;= 1,2,\cdots,s; \\ \rho &amp;= 1,2,\cdots,n\end{cases}\\
+\overset{N\gg 2^{s}}{=}&amp; \exp{\left\{
+N\left\langle
+\ln{\left[
+\text{Tr}_{S}e^{F\{\xi_{i},S_{i}\}}
+\right]}\right\rangle\right\}}
+\end{aligned}
+$$</p>
+<p>那么要做的相当于在单个节点 $i$ 上进行 $\rho$ 和 $\mu$ 的平均. 那么 $\langle\cdots\rangle$ 求期望操作已经在内部通过 $\sum_{i}$ 自动完成了. 于是进一步化简:</p>
+<p>$$
+\begin{aligned}
+\langle Z^{n}\rangle &amp;\propto e^{-\beta pn/2}\int\left[
+\prod_{\mu\rho}\mathrm{d}m_{\rho}^{\mu}\left(\frac{\beta N}{2\pi}\right)^{\frac{1}{2}}
+\right]\left[
+\prod_{(\rho\sigma)}\mathrm{d}q_{\rho\sigma}\mathrm{d}r_{\rho\sigma}
+\right]e^{-N\beta f\{m,q,r\}}\\
+f\{m,q,r\} &amp;= {\color{green}{\frac{1}{2}\sum_{\mu\rho}(m_{\rho}^{\mu})^{2}}}
+{\color{purple}{+ \frac{\alpha}{2\beta}\sum_{\rho}\ln{\lambda_{\rho}}}}
+{\color{blue}{+ \frac{1}{2}\alpha\beta\sum_{\rho\sigma}r_{\rho\sigma}q_{\rho\sigma}}}\\
+&amp;- \frac{1}{\beta}\left\langle
+\ln{\text{Tr}_{S}\exp{\left(
+\beta\sum_{\mu\rho}m_{\rho}^{\mu}\xi^{\mu}S^{\rho}
+{\color{orange}{+ \frac{1}{2}\alpha\beta^{2}\sum_{\rho\sigma}r_{\rho\sigma}S^{\rho}S^{\sigma}}}
+\right)}}
+\right\rangle
+\end{aligned}
+$$</p>
+<p>那么每个节点的自由能</p>
+<p>$$
+\begin{aligned}
+\frac{F}{N} &amp;= \frac{1}{N}\left(-\frac{1}{\beta}\langle \ln{Z}\rangle\right) = -\frac{1}{\beta N}\lim_{n\to 0}\frac{\langle Z^{n}\rangle - 1}{n} \\
+\overset{\lim_{x\to 1}x-1\approx \ln{x}}{=}&amp; -\frac{1}{\beta N}\lim_{n\to 0}\frac{\log{\langle Z^{n}\rangle}}{n} = \frac{\alpha}{2} + \lim_{n\to 0}\frac{1}{n}\min{f\{m,q,r\}}
+\end{aligned}
+$$</p>
+<p>寻找 $f$ 的最小值, 即各变量的一阶导数为 $0$:</p>
+<p>$$
+\begin{aligned}
+\frac{\partial f}{\partial m_{\rho}^{\mu}} = \frac{\partial f}{\partial q_{\rho\sigma}} = \frac{\partial f}{\partial r_{\rho\sigma}} = 0
+\end{aligned}
+$$</p>
+<p>解得</p>
+<p>$$
+\begin{aligned}
+m_{\rho}^{\mu} = \frac{1}{N}\sum_{i}\xi_{i}^{\mu}\langle S_{i}^{\rho}\rangle,\quad
+q_{\rho\sigma} = \left\langle\frac{1}{N}\sum_{i}\langle S_{i}^{\rho}\rangle\langle S_{i}^{\sigma}\rangle\right\rangle,\quad
+r_{\rho\sigma} = \frac{1}{\alpha}\sum_{\mu&gt;s}\langle m_{\rho}^{\mu}m_{\sigma}^{\mu}\rangle
+\end{aligned}
+$$</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>鞍点推导细节<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content">待补充</div>
+
+ </div>
+
+ </div>
+<p>replica symmetry ansatz(对称假设): 鞍点处的序参量和 replica index 无关.</p>
+<p>$$
+\begin{aligned}
+m_{\rho}^{\mu} = m^{\mu},\quad
+q_{\rho\sigma} = q,\quad
+r_{\rho\sigma} = r
+\end{aligned}
+$$</p>
+<blockquote>
+<p>它们也具有相应的物理意义: $m^{\mu}$ 是网络对 pattern $\mu$ 的 overlap(重合度); $q$ 是 mean squared magnetization(磁化强度的均方); $\alpha r$ 是 uncondensed patterns 的 overlap 均方.</p>
+</blockquote>
+<p>利用该假设, 将序参量写作矢量形式</p>
+<p>$$
+\begin{aligned}
+f(\vec{m},q,r) =&amp;   {\color{green}{\frac{1}{2}n\vec{m}^{2}}}
++ {\color{purple}{\frac{\alpha}{2\beta}\sum_{\rho}\ln{\lambda_{\rho}}}}
++ {\color{blue}{\frac{1}{2}\alpha\beta n(n-1)rq}}
++ {\color{red}{\frac{1}{2}n\alpha\beta r}}\\
+&amp;- \frac{1}{\beta}\left\langle
+\ln{\text{Tr}_{S}\exp{\left[
+\beta\vec{m}\cdot\vec{\xi}\sum_{\rho}S^{\rho}
+{\color{orange}{+ \frac{1}{2}\alpha\beta^{2}r\left(\sum_{\rho}S^{\rho}\right)^{2}}}
+\right]}}
+\right\rangle
+\end{aligned}
+$$</p>
+<blockquote>
+<p>其中 ${\color{red}{\frac{1}{2}n\alpha\beta r}}$ 是为了消除 $\langle {\color{orange}{\cdots}} \rangle$ 中的 $\rho=\sigma$ 项.</p>
+</blockquote>
+<p>接下来需要计算本征值.</p>
+<p>$$
+\Lambda_{\rho\sigma} = \begin{cases}
+1-\beta, &amp; \rho = \sigma\\
+-\beta q, &amp; \rho \neq \sigma
+\end{cases}
+$$</p>
+<p>这个矩阵的本征值为</p>
+<p>$$
+\begin{aligned}
+\lambda_{1} &amp;= 1 - \beta - (n-1)\beta q\\
+\lambda_{2} &amp;= 1 - \beta(1 - q)
+\end{aligned}
+$$</p>
+<p>其中 $\lambda_{1}$ 的简并度为 $1$, $\lambda_{2}$ 的简并度为 $n-1$. 那么</p>
+<p>$$
+\begin{aligned}
+\frac{1}{n}\sum_{\rho}\ln{\lambda_{\rho}} =&amp; \frac{1}{n}\left\{1\cdot \ln{[1-\beta - (n-1)\beta q]} + (n-1)\cdot\ln{[1-\beta(1-q)]}\right\}\\
+\overset{n\to 0}{=} &amp; \ln{[1-\beta(1-q)]} - \frac{\beta q}{1-\beta(1-q)}
+\end{aligned}
+$$</p>
 
 
         </div>
