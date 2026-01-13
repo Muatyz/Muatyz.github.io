@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Sequences with Structured State Spaces 注疏 | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="跟着网页教学复现 S4 论文">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/exp/annotated-s4/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/exp/annotated-s4/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Sequences with Structured State Spaces 注疏" />
+<meta property="og:description" content="跟着网页教学复现 S4 论文" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/exp/annotated-s4/" />
+<meta property="og:image" content="https://s2.loli.net/2026/01/12/E9rpMiGs1ldwCez.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-01-12T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-01-12T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2026/01/12/E9rpMiGs1ldwCez.png" />
+<meta name="twitter:title" content="Sequences with Structured State Spaces 注疏"/>
+<meta name="twitter:description" content="跟着网页教学复现 S4 论文"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "⛏️ 实验",
+          "item": "https://Muatyz.github.io/posts/exp/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Sequences with Structured State Spaces 注疏",
+      "item": "https://Muatyz.github.io/posts/exp/annotated-s4/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Sequences with Structured State Spaces 注疏",
+  "name": "Sequences with Structured State Spaces 注疏",
+  "description": "跟着网页教学复现 S4 论文",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "状态空间模型 Space State Model $u(t)$: 一维输入信号\n$x(t)$: $N$ 维隐状态\n$y(t)$: 一维输出信号\n$$ \\begin{aligned} x^{\\prime}(t) \u0026= \\mathbf{A}x(t) + \\mathbf{B}u(t)\\\\ y(t) \u0026= \\mathbf{C}x(t) + \\mathbf{D}u(t) \\end{aligned} $$\n注意这里的 $x^{\\prime}$ 是对时间求导数, 亦即 $\\begin{aligned}\\frac{\\mathrm{d}x(t)}{\\mathrm{d}t}\\end{aligned}$. 需要将其和后面离散化时的下标区分开来.\n$\\mathbf{A}, \\mathbf{B}, \\mathbf{C}, \\mathbf{D}$ 通过 gradient descent 学习. 下文中略去 $\\mathbf{D}$ 项(这种与因变量无关而输入-输出呈现直达关系, 被称作 skip connection).\n离散时间的状态空间模型(Discrete-time SSM) 将对时间连续的输入信号 $u(t)$ 离散/采样为 $(u_{0},u_{1},\\cdots)$. 若通过 $\\Delta$ (步长 step size) 表达采样的分辨率, 那么 $u_{k} = u(k\\Delta)$.\n现在将原本的微分方程转化为差分方程:\n$$ \\begin{aligned} x_{k} \u0026= \\mathbf{\\bar{A}}x_{k-1} + \\mathbf{\\bar{B}}u_{k}\\\\ y_{k} \u0026= \\mathbf{\\bar{C}}x_{k} \\end{aligned} $$\n这里 $x_{k}, u_{k}, y_{k}$ 都是离散变量.\n推导 $\\mathbf{\\bar{X}}$ 矩阵 我们通过 双线性变换(Bilinear Transform) 来完成这一步.\n朴素直觉的差分方法是\n$$ \\begin{aligned} \\frac{\\mathrm{d}x}{\\mathrm{d}t} \u0026= \\mathbf{A}x+\\mathbf{B}u\\\\ \\Rightarrow \\frac{x_{k+1}-x_{k}}{\\Delta} \u0026= \\mathbf{A}x_{k} + \\mathbf{B}u_{k}\\\\ \\Rightarrow x_{k+1} \u0026= (\\mathbf{I} + \\Delta \\mathbf{A})x_{k} + \\Delta \\mathbf{B}u_{k} \\end{aligned} $$\n这种思想即欧拉法.\nTustin 法是这样处理的:\n$$ \\begin{aligned} \\frac{x_{k+1}-x_{k}}{\\Delta} \u0026\\approx \\mathbf{A}\\frac{x_{k+1}+x_{k}}{2} + \\mathbf{B}u_{k}\\\\ \\Rightarrow (\\mathbf{I}-\\frac{\\Delta}{2}\\mathbf{A})x_{k+1} \u0026= (\\mathbf{I} + \\frac{\\Delta}{2}\\mathbf{A})x_{k} + \\Delta \\mathbf{B}u_{k}\\\\ \\Rightarrow x_{k+1} \u0026= {\\color{red}{(\\mathbf{I}-\\frac{\\Delta}{2}\\mathbf{A})^{-1}(\\mathbf{I}+\\frac{\\Delta}{2}\\mathbf{A})}}x_{k} + {\\color{blue}{(\\mathbf{I}-\\frac{\\Delta}{2}\\mathbf{A})^{-1}\\Delta \\mathbf{B}}}u_{k}\\\\ \u0026= {\\color{red}{\\mathbf{\\bar{A}}}}x_{k} + {\\color{blue}{\\mathbf{\\bar{B}}}}u_{k}\\\\ \\end{aligned} $$\n而对于方程组的第二个等式, 由于没有任何差分处理, 所以 $\\mathbf{\\bar{C}} = \\mathbf{C}$. 于是得到离散模型的矩阵:\n$$ \\begin{aligned} \\mathbf{\\bar{A}} \u0026= (\\mathbf{I}-\\frac{\\Delta}{2}\\mathbf{A})^{-1}(\\mathbf{I}+\\frac{\\Delta}{2}\\mathbf{A})\\\\ \\mathbf{\\bar{B}} \u0026= (\\mathbf{I}-\\frac{\\Delta}{2}\\mathbf{A})^{-1}\\Delta \\mathbf{B}\\\\ \\mathbf{\\bar{C}} \u0026= \\mathbf{C} \\end{aligned} $$\n这和 RNN 的数学形式 $h_{k} = f(W_{h}h_{k-1} + W_{x}u_{k})$ 非常相似[取 $f(x) = x$]. 将这样的一次计算称为 step.\n在 Python 中, slice 对数据类型的维数变化:\n原始数据类型 slice 后的数据类型 $(L,)$ ()(即标量) $(L,1)$ $(1,)$ $(L,N)$ $(N,)$ $(L,B,N)$ $(B,N)$ 力学算例 对于一维振子:\n$$ my^{\\prime\\prime}(t) = u(t) - by^{\\prime}(t) - ky(t) $$\n$y(t)$: 位置, $y^{\\prime}(t)$: 速度, $y^{\\prime\\prime}(t)$: 加速度\n$u(t)$: 外力, $m$: 质量, $b$: 阻尼系数, $k$: 弹性系数\n可以将其重写为 SSM 形式, 其中\n$$ \\mathbf{A} = \\begin{bmatrix} 0 \u0026 1\\\\ -\\frac{k}{m} \u0026 -\\frac{b}{m} \\end{bmatrix},\\quad \\mathbf{B} = \\begin{bmatrix} 0\\\\ \\frac{1}{m} \\end{bmatrix},\\quad \\mathbf{C} = \\begin{bmatrix} 1 \u0026 0 \\end{bmatrix} $$\n将二阶微分方程转为 SSM 形式 定义状态矢量\n$$ \\vec{x}(t) = \\begin{bmatrix} x_{1}(t)\\\\ x_{2}(t) \\end{bmatrix} = \\begin{bmatrix} y(t)\\\\ y^{\\prime}(t) \\end{bmatrix} $$\n在这里其实已经和传统物理学中使用的相空间概念 $\\{\\vec{p},\\vec{q}\\}$ 一致了. 因此我们可对原方程中的各变量进行替换:\n$$ y^{\\prime\\prime}(t) = x_{2}^{\\prime}(t), \\quad y^{\\prime}(t) = x_{2}(t),\\quad y(t) = x_{1}(t) $$\n整理振动方程, 与固有求导关系组成 SSM 方程组:\n$$ \\begin{aligned} \\begin{cases} x_{1}^{\\prime}(t) \u0026= x_{2}(t)\\\\ m x_{2}^{\\prime}(t) \u0026= u(t) - b x_{2}(t) - k x_{1}(t) \\end{cases}\\\\ \\Rightarrow \\begin{cases} x_{1}^{\\prime}(t) \u0026= 0\\cdot x_{1}(t) + 1 \\cdot x_{2}(t)\\\\ x_{2}^{\\prime}(t) \u0026= -\\frac{k}{m} x_{1}(t) - \\frac{b}{m} x_{2}(t) + \\frac{1}{m} u(t) \\end{cases}\\\\ \\Rightarrow \\begin{bmatrix} x_{1}^{\\prime}(t)\\\\ x_{2}^{\\prime}(t) \\end{bmatrix} = {\\color{red}{\\begin{bmatrix} 0 \u0026 1\\\\ -\\frac{k}{m} \u0026 -\\frac{b}{m} \\end{bmatrix}}} \\begin{bmatrix} x_{1}(t)\\\\ x_{2}(t) \\end{bmatrix} + {\\color{blue}{\\begin{bmatrix} 0\\\\ \\frac{1}{m} \\end{bmatrix}}} u(t) \\end{aligned}\\\\ \\Rightarrow \\vec{x}^{\\prime}(t) = {\\color{red}{\\mathbf{A}}}\\vec{x}(t) + {\\color{blue}{\\mathbf{B}}}u(t) $$\n因为关注的结果是位置, 因此有关系\n$$ y(t) = x_{1}(t) = 1\\cdot x_{1}(t) + 0 \\cdot x_{2}(t) $$\n我们可以通过求矢量内积的方式得到输出:\n$$ y(t) = {\\color{green}{\\begin{bmatrix} 1 \u0026 0 \\end{bmatrix}}} \\begin{bmatrix} x_{1}(t)\\\\ x_{2}(t) \\end{bmatrix} = {\\color{green}{\\mathbf{C}}}\\vec{x}(t) $$\n由此推得 $\\mathbf{A}$, $\\mathbf{B}$, $\\mathbf{C}$ 矩阵形式.\n",
+  "wordCount" : "819",
+  "inLanguage": "zh",
+  "image":"https://s2.loli.net/2026/01/12/E9rpMiGs1ldwCez.png","datePublished": "2026-01-12T00:18:23+08:00",
+  "dateModified": "2026-01-12T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/exp/annotated-s4/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/exp/">⛏️ 实验</a></div>
+            <h1 class="post-title">
+                Sequences with Structured State Spaces 注疏
+            </h1>
+            <div class="post-description">
+                跟着网页教学复现 S4 论文
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-01-12
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>819字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>2分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2026/01/12/E9rpMiGs1ldwCez.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%8a%b6%e6%80%81%e7%a9%ba%e9%97%b4%e6%a8%a1%e5%9e%8b-space-state-model" aria-label="状态空间模型 Space State Model">状态空间模型 Space State Model</a><ul>
+                        
+                <li>
+                    <a href="#%e7%a6%bb%e6%95%a3%e6%97%b6%e9%97%b4%e7%9a%84%e7%8a%b6%e6%80%81%e7%a9%ba%e9%97%b4%e6%a8%a1%e5%9e%8bdiscrete-time-ssm" aria-label="离散时间的状态空间模型(Discrete-time SSM)">离散时间的状态空间模型(Discrete-time SSM)</a></li>
+                <li>
+                    <a href="#%e5%8a%9b%e5%ad%a6%e7%ae%97%e4%be%8b" aria-label="力学算例">力学算例</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="状态空间模型-space-state-model">状态空间模型 Space State Model<a hidden class="anchor" aria-hidden="true" href="#状态空间模型-space-state-model">#</a></h1>
+<p>$u(t)$: 一维输入信号</p>
+<p>$x(t)$: $N$ 维隐状态</p>
+<p>$y(t)$: 一维输出信号</p>
+<p>$$
+\begin{aligned}
+x^{\prime}(t) &amp;= \mathbf{A}x(t) + \mathbf{B}u(t)\\
+y(t) &amp;= \mathbf{C}x(t) + \mathbf{D}u(t)
+\end{aligned}
+$$</p>
+<blockquote>
+<p>注意这里的 $x^{\prime}$ 是对时间求导数, 亦即 $\begin{aligned}\frac{\mathrm{d}x(t)}{\mathrm{d}t}\end{aligned}$. 需要将其和后面离散化时的下标区分开来.</p>
+</blockquote>
+<p>$\mathbf{A}, \mathbf{B}, \mathbf{C}, \mathbf{D}$ 通过 gradient descent 学习. 下文中略去 $\mathbf{D}$ 项(这种与因变量无关而输入-输出呈现直达关系, 被称作 skip connection).</p>
+<h2 id="离散时间的状态空间模型discrete-time-ssm">离散时间的状态空间模型(Discrete-time SSM)<a hidden class="anchor" aria-hidden="true" href="#离散时间的状态空间模型discrete-time-ssm">#</a></h2>
+<p>将对时间连续的输入信号 $u(t)$ 离散/采样为 $(u_{0},u_{1},\cdots)$. 若通过 $\Delta$ (步长 step size) 表达采样的分辨率, 那么 $u_{k} = u(k\Delta)$.</p>
+<p>现在将原本的微分方程转化为差分方程:</p>
+<p>$$
+\begin{aligned}
+x_{k} &amp;= \mathbf{\bar{A}}x_{k-1} + \mathbf{\bar{B}}u_{k}\\
+y_{k} &amp;= \mathbf{\bar{C}}x_{k}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>这里 $x_{k}, u_{k}, y_{k}$ 都是离散变量.</p>
+</blockquote>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>推导 $\mathbf{\bar{X}}$ 矩阵<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>我们通过 双线性变换(Bilinear Transform) 来完成这一步.</p>
+<p>朴素直觉的差分方法是</p>
+<p>$$
+\begin{aligned}
+\frac{\mathrm{d}x}{\mathrm{d}t} &amp;= \mathbf{A}x+\mathbf{B}u\\
+\Rightarrow \frac{x_{k+1}-x_{k}}{\Delta} &amp;= \mathbf{A}x_{k} + \mathbf{B}u_{k}\\
+\Rightarrow x_{k+1} &amp;= (\mathbf{I} + \Delta \mathbf{A})x_{k} + \Delta \mathbf{B}u_{k}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>这种思想即欧拉法.</p>
+</blockquote>
+<p>Tustin 法是这样处理的:</p>
+<p>$$
+\begin{aligned}
+\frac{x_{k+1}-x_{k}}{\Delta} &amp;\approx \mathbf{A}\frac{x_{k+1}+x_{k}}{2} + \mathbf{B}u_{k}\\
+\Rightarrow (\mathbf{I}-\frac{\Delta}{2}\mathbf{A})x_{k+1} &amp;= (\mathbf{I} + \frac{\Delta}{2}\mathbf{A})x_{k} + \Delta \mathbf{B}u_{k}\\
+\Rightarrow x_{k+1} &amp;= {\color{red}{(\mathbf{I}-\frac{\Delta}{2}\mathbf{A})^{-1}(\mathbf{I}+\frac{\Delta}{2}\mathbf{A})}}x_{k} + {\color{blue}{(\mathbf{I}-\frac{\Delta}{2}\mathbf{A})^{-1}\Delta \mathbf{B}}}u_{k}\\
+&amp;= {\color{red}{\mathbf{\bar{A}}}}x_{k} + {\color{blue}{\mathbf{\bar{B}}}}u_{k}\\
+\end{aligned}
+$$</p>
+<p>而对于方程组的第二个等式, 由于没有任何差分处理, 所以 $\mathbf{\bar{C}} = \mathbf{C}$. 于是得到离散模型的矩阵:</p>
+<p>$$
+\begin{aligned}
+\mathbf{\bar{A}} &amp;= (\mathbf{I}-\frac{\Delta}{2}\mathbf{A})^{-1}(\mathbf{I}+\frac{\Delta}{2}\mathbf{A})\\
+\mathbf{\bar{B}} &amp;= (\mathbf{I}-\frac{\Delta}{2}\mathbf{A})^{-1}\Delta \mathbf{B}\\
+\mathbf{\bar{C}} &amp;= \mathbf{C}
+\end{aligned}
+$$</p>
+</div>
+
+ </div>
+
+ </div>
+<p>这和 RNN 的数学形式 $h_{k} = f(W_{h}h_{k-1} + W_{x}u_{k})$ 非常相似[取 $f(x) = x$]. 将这样的一次计算称为 step.</p>
+<blockquote>
+<p>在 Python 中, slice 对数据类型的维数变化:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">原始数据类型</th>
+          <th style="text-align: left">slice 后的数据类型</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$(L,)$</td>
+          <td style="text-align: left">()(即标量)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$(L,1)$</td>
+          <td style="text-align: left">$(1,)$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$(L,N)$</td>
+          <td style="text-align: left">$(N,)$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$(L,B,N)$</td>
+          <td style="text-align: left">$(B,N)$</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<h2 id="力学算例">力学算例<a hidden class="anchor" aria-hidden="true" href="#力学算例">#</a></h2>
+<p>对于一维振子:</p>
+<p>$$
+my^{\prime\prime}(t) = u(t) - by^{\prime}(t) - ky(t)
+$$</p>
+<p>$y(t)$: 位置, $y^{\prime}(t)$: 速度, $y^{\prime\prime}(t)$: 加速度</p>
+<p>$u(t)$: 外力, $m$: 质量, $b$: 阻尼系数, $k$: 弹性系数</p>
+<p>可以将其重写为 SSM 形式, 其中</p>
+<p>$$
+\mathbf{A} = \begin{bmatrix}
+0 &amp; 1\\
+-\frac{k}{m} &amp; -\frac{b}{m}
+\end{bmatrix},\quad \mathbf{B} = \begin{bmatrix}
+0\\
+\frac{1}{m}
+\end{bmatrix},\quad \mathbf{C} = \begin{bmatrix}
+1 &amp; 0
+\end{bmatrix}
+$$</p>
+<div class="details admonition tip">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-lightbulb fa-fw"></i>将二阶微分方程转为 SSM 形式<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>定义状态矢量</p>
+<p>$$
+\vec{x}(t) = \begin{bmatrix}
+x_{1}(t)\\
+x_{2}(t)
+\end{bmatrix} = \begin{bmatrix}
+y(t)\\
+y^{\prime}(t)
+\end{bmatrix}
+$$</p>
+<p>在这里其实已经和传统物理学中使用的相空间概念 $\{\vec{p},\vec{q}\}$ 一致了. 因此我们可对原方程中的各变量进行替换:</p>
+<p>$$
+y^{\prime\prime}(t) = x_{2}^{\prime}(t), \quad y^{\prime}(t) = x_{2}(t),\quad y(t) = x_{1}(t)
+$$</p>
+<p>整理振动方程, 与固有求导关系组成 SSM 方程组:</p>
+<p>$$
+\begin{aligned}
+\begin{cases}
+x_{1}^{\prime}(t) &amp;= x_{2}(t)\\
+m x_{2}^{\prime}(t) &amp;= u(t) - b x_{2}(t) - k x_{1}(t)
+\end{cases}\\
+\Rightarrow \begin{cases}
+x_{1}^{\prime}(t) &amp;= 0\cdot x_{1}(t) + 1 \cdot x_{2}(t)\\
+x_{2}^{\prime}(t) &amp;= -\frac{k}{m} x_{1}(t) - \frac{b}{m} x_{2}(t) + \frac{1}{m} u(t)
+\end{cases}\\
+\Rightarrow \begin{bmatrix}
+x_{1}^{\prime}(t)\\
+x_{2}^{\prime}(t)
+\end{bmatrix} = {\color{red}{\begin{bmatrix}
+0 &amp; 1\\
+-\frac{k}{m} &amp; -\frac{b}{m}
+\end{bmatrix}}} \begin{bmatrix}
+x_{1}(t)\\
+x_{2}(t)
+\end{bmatrix} + {\color{blue}{\begin{bmatrix}
+0\\
+\frac{1}{m}
+\end{bmatrix}}} u(t)
+\end{aligned}\\
+\Rightarrow \vec{x}^{\prime}(t) = {\color{red}{\mathbf{A}}}\vec{x}(t) + {\color{blue}{\mathbf{B}}}u(t)
+$$</p>
+<p>因为关注的结果是位置, 因此有关系</p>
+<p>$$
+y(t) = x_{1}(t) = 1\cdot x_{1}(t) + 0 \cdot x_{2}(t)
+$$</p>
+<p>我们可以通过求矢量内积的方式得到输出:</p>
+<p>$$
+y(t) = {\color{green}{\begin{bmatrix}
+1 &amp; 0
+\end{bmatrix}}} \begin{bmatrix}
+x_{1}(t)\\
+x_{2}(t)
+\end{bmatrix} = {\color{green}{\mathbf{C}}}\vec{x}(t)
+$$</p>
+<p>由此推得 $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$ 矩阵形式.</p>
+</div>
+
+ </div>
+
+ </div>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Renormalization group for neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/exp/bci/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Brain Computer Interface 学习记录</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+</body>
+
+
+
+
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

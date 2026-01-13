@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Tue, 30 Dec 2025 00:18:15 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/exp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jan 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/exp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sequences with Structured State Spaces 注疏</title>
+      <link>https://Muatyz.github.io/posts/exp/annotated-s4/</link>
+      <pubDate>Mon, 12 Jan 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/exp/annotated-s4/</guid>
+      <description>跟着网页教学复现 S4 论文</description>
+    </item>
+    
     <item>
       <title>Brain Computer Interface 学习记录</title>
       <link>https://Muatyz.github.io/posts/exp/bci/</link>

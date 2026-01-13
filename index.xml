@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Fri, 02 Jan 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jan 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Formal Statistical Mechanics of Neural Networks</title>
       <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-10/</link>
@@ -141,6 +141,15 @@
       
       <guid>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/</guid>
       <description>真实神经元网络的统计力学</description>
+    </item>
+    
+    <item>
+      <title>Sequences with Structured State Spaces 注疏</title>
+      <link>https://Muatyz.github.io/posts/exp/annotated-s4/</link>
+      <pubDate>Mon, 12 Jan 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/exp/annotated-s4/</guid>
+      <description>跟着网页教学复现 S4 论文</description>
     </item>
     
     <item>
