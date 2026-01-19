@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Mon, 12 Jan 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/exp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jan 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/exp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第 15 届计算神经科学冬季学校参会笔记</title>
+      <link>https://Muatyz.github.io/posts/exp/15-computational-neuralscience-winter-school/</link>
+      <pubDate>Mon, 19 Jan 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/exp/15-computational-neuralscience-winter-school/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Sequences with Structured State Spaces 注疏</title>
       <link>https://Muatyz.github.io/posts/exp/annotated-s4/</link>
