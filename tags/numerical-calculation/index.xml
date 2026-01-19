@@ -131,7 +131,25 @@
       <pubDate>Mon, 19 Jan 2026 00:18:23 +0800</pubDate>
       
       <guid>https://Muatyz.github.io/posts/exp/15-computational-neuralscience-winter-school/</guid>
-      <description></description>
+      <description>&lt;h1 id=&#34;李国齐-spiking-neural-networks-from-small-networks-to-large-models&#34;&gt;李国齐: Spiking Neural Networks: from small networks to Large Models&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;mailto:guoqi.li@ia.ac.cn&#34;&gt;guoqi.li@ia.ac.cn&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;research-background&#34;&gt;Research background&lt;/h2&gt;
+&lt;p&gt;Transformer(Google). openai: GPT&lt;/p&gt;
+&lt;p&gt;scaling law: is endless model scalin the correct approach to achieving AGI?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如何找到 scaling lwa 之外可持续驱动当前 ai 系统到新阶段的 AGI 系统?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;power issue for today&amp;rsquo;s AI system: 功耗随着性能表现提升而指数增长.&lt;/p&gt;
+&lt;p&gt;human brain vs current large models: 人脑以远超大模型的参数量, 仅消耗 20W 的功率(大模型 300KW). 如何借鉴大脑的机制&lt;/p&gt;
+&lt;p&gt;overreliance on transformer architecture:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;advantages: 1. exceptional performance; 2. high parallelism&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;disadvantages: 1. quadratically with sequence length 2. linear growth in time and space complexity 3. challenges in handling ultra-long sequences&lt;/p&gt;</description>
     </item>
     
     <item>

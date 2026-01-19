@@ -171,8 +171,8 @@ ssm 只是 BCI 大课题里的很小的一个模型, 现在学得太慢了, 研�
   "keywords": [
     "life"
   ],
-  "articleBody": "1 月 目前的组会安排大致是每周二 10:00 pm(BCI) 和每周五 10:00 pm(121) 各一次.\n1.16\n整理了一下个人博客的笔记和 s4 的代码库. 但是在会上导师并没有对此有积极的反馈, 大致观点为:\n什么时候能学完这个博客页面 (我的回应是我也不太清楚, 因为我不能确定学习的速度)\nssm 只是 BCI 大课题里的很小的一个模型, 现在学得太慢了, 研究生会有很多没有学过的东西.\n不应该花太多时间学到能给别人讲解的程度\n在寻求了 ChatGPT 的帮助后, 大致的思路是:\n导师想看到的不是 “学到了什么”, 而是有具体的 “研究产出”\n因此, 给导师展示自己的笔记/代码库其实是一个错误的思路.\n诚然, 以近乎为零的基础搭建一个神经网络的代码库, 需要读懂/推导/实现, 是一个很辛苦的过程. 但是这并没有什么卵用.\nGPT 给我进行了这样的支招:\n停止展示私人笔记. 可以继续学习的过程, 但是不要再给导师展示了. 除非导师主动问起.\n工作重点回到 POSSM 的复现上. 由于时间比较紧张, 最好尽快学完教学博客页面, 理解其代码后回到 POSSM 的复现上.\n上次其实已经指出了目标是 POSSM 对于 Falcon 数据库的延展性(是否跟声称的那样具有较好的迁移性).\n那么主要的路径就是:\n以目前学习 s4 实现的代码基础, 重新看 my_POSSM 库的代码, 理解 forward 数据流在模块中的传递.\n在保持 POSSM 其余结构不变的前提下, 比较 GRU 和 S4 模型之间的差异(解码速度, 收敛速度, 推理延迟…)\n根据 Hueber(2024), 硬件的指标有\ndecoding performance.\n$R^{2}$ 和 RMSE(均方根误差)/MSE(均方误差) 等指标衡量解码性能.\n# y_true, y_pred: (T, 2) or (batch, T, 2) ss_res = ((y_true - y_pred) ** 2).sum() ss_tot = ((y_true - y_true.mean()) ** 2).sum() r2 = 1 - ss_res / ss_tot latency inference latency per time bin(单个时间步的推理延迟)\nimport time torch.cuda.synchronize() t0 = time.time() _ = model(spike, spike_lengths) torch.cuda.synchronize() latency_ms = (time.time() - t0) * 1000 real-time constraint (inference latency \u003c bin size)\ncomputational efficiency Parameter count\nsum(p.numel() for p in model.parameters()) stability 收敛 epoch 数; validation; training instability\n需要注意到的是, 虽然师兄写的 toy model(my_POSSM) 使用的是 torch 框架, s4 教学博客依赖于 jax 和 flax 库, 但是这并不代表着需要自己使用 torch 重新构造一遍 s4 的实现. 直接寻找现有的 torch 实现才是更安全可靠的方法.\n",
-  "wordCount" : "784",
+  "articleBody": "1 月 目前的组会安排大致是每周二 10:00 pm(BCI) 和每周五 10:00 pm(121) 各一次.\n1.16\n整理了一下个人博客的笔记和 s4 的代码库. 但是在会上导师并没有对此有积极的反馈, 大致观点为:\n什么时候能学完这个博客页面 (我的回应是我也不太清楚, 因为我不能确定学习的速度)\nssm 只是 BCI 大课题里的很小的一个模型, 现在学得太慢了, 研究生会有很多没有学过的东西.\n不应该花太多时间学到能给别人讲解的程度\n在寻求了 ChatGPT 的帮助后, 大致的思路是:\n导师想看到的不是 “学到了什么”, 而是有具体的 “研究产出”\n因此, 给导师展示自己的笔记/代码库其实是一个错误的思路.\n诚然, 以近乎为零的基础搭建一个神经网络的代码库, 需要读懂/推导/实现, 是一个很辛苦的过程. 但是这并没有什么卵用.\nGPT 给我进行了这样的支招:\n停止展示私人笔记. 可以继续学习的过程, 但是不要再给导师展示了. 除非导师主动问起.\n工作重点回到 POSSM 的复现上. 由于时间比较紧张, 最好尽快学完教学博客页面, 理解其代码后回到 POSSM 的复现上.\n上次其实已经指出了目标是 POSSM 对于 Falcon 数据库的延展性(是否跟声称的那样具有较好的迁移性).\n那么主要的路径就是:\n以目前学习 s4 实现的代码基础, 重新看 my_POSSM 库的代码, 理解 forward 数据流在模块中的传递.\n在保持 POSSM 其余结构不变的前提下, 比较 GRU 和 S4 模型之间的差异(解码速度, 收敛速度, 推理延迟…)\n根据 Hueber(2024), 硬件的指标有\ndecoding performance.\n$R^{2}$ 和 RMSE(均方根误差)/MSE(均方误差) 等指标衡量解码性能.\n# y_true, y_pred: (T, 2) or (batch, T, 2) ss_res = ((y_true - y_pred) ** 2).sum() ss_tot = ((y_true - y_true.mean()) ** 2).sum() r2 = 1 - ss_res / ss_tot latency inference latency per time bin(单个时间步的推理延迟)\nimport time torch.cuda.synchronize() t0 = time.time() _ = model(spike, spike_lengths) torch.cuda.synchronize() latency_ms = (time.time() - t0) * 1000 real-time constraint (inference latency \u003c bin size)\ncomputational efficiency Parameter count\nsum(p.numel() for p in model.parameters()) stability 收敛 epoch 数; validation; training instability\n需要注意到的是, 虽然师兄写的 toy model(my_POSSM) 使用的是 torch 框架, s4 教学博客依赖于 jax 和 flax 库, 但是这并不代表着需要自己使用 torch 重新构造一遍 s4 的实现. 直接寻找现有的 torch 实现才是更安全可靠的方法.\n1.19\nidea: 如何使用 snn 来对 possm 使用的数据库进行分析?\n观察 LIF neuron 的实现.\n如何评估一个算法的功耗?\n",
+  "wordCount" : "825",
   "inLanguage": "zh",
   "datePublished": "2026-01-17T00:18:15+08:00",
   "dateModified": "2026-01-17T00:18:15+08:00",
@@ -376,7 +376,7 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>784字
+        <span>825字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -608,6 +608,12 @@ MathJax.Hub.Queue(function() {
 </ul>
 <p>收敛 epoch 数; validation; training instability</p>
 <p>需要注意到的是, 虽然师兄写的 toy model(my_POSSM) 使用的是 torch 框架, s4 教学博客依赖于 jax 和 flax 库, 但是这并不代表着需要自己使用 torch 重新构造一遍 s4 的实现. 直接寻找现有的 torch 实现才是更安全可靠的方法.</p>
+<p>1.19</p>
+<p>idea: 如何使用 snn 来对 possm 使用的数据库进行分析?</p>
+<blockquote>
+<p>观察 LIF neuron 的实现.</p>
+</blockquote>
+<p>如何评估一个算法的功耗?</p>
 
 
         </div>
