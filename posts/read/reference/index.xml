@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Thu, 18 Dec 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/reference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jan 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/reference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Efficiently Modeling Long Sequences with Structured State Spaces</title>
+      <link>https://Muatyz.github.io/posts/read/reference/efficiently-modeling-long-sequences-with-structured-state-space/</link>
+      <pubDate>Thu, 22 Jan 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/efficiently-modeling-long-sequences-with-structured-state-space/</guid>
+      <description>s4 模型原始论文</description>
+    </item>
+    
     <item>
       <title>[科学技术史]</title>
       <link>https://Muatyz.github.io/posts/read/reference/how-ancients-observe-stars/</link>
