@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Thu, 22 Jan 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/reference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Mar 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/read/reference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Maintaining and updating accurate internal representations of continuous variables with a handful of neurons</title>
+      <link>https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/</link>
+      <pubDate>Sun, 08 Mar 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/</guid>
+      <description>仅用少量神经元维持并更新连续变量的精确内部表征</description>
+    </item>
+    
     <item>
       <title>Efficiently Modeling Long Sequences with Structured State Spaces</title>
       <link>https://Muatyz.github.io/posts/read/reference/efficiently-modeling-long-sequences-with-structured-state-space/</link>

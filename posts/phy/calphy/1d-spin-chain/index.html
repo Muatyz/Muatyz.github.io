@@ -136,7 +136,7 @@
   "keywords": [
     ""
   ],
-  "articleBody": "本页面总结自旋液体相关的知识.\n为什么需要伊辛模型、海森堡模型、t-J 模型等一系列模型？ - Physhan的回答 - 知乎\nIsing Model 在晶格中, 每个 site 的原子磁矩可以取 $\\pm 1$, 只考虑最近邻的原子相互作用.\n根据以上假设就有\n$$ \\hat{H} = \\sum_{\\langle ij\\rangle}J_{ij}\\sigma_{i}\\sigma_{j} $$\n这个模型被提出的时候, 人们还没有意识到 $\\sigma_{i}$ 的严格定义, 只知道是 site 上有着某种内禀的磁矩.\n数值模拟 Monte Carlo Method 计算 2D Ising Model 磁偶极矩和比热 $$ \\mathcal{H} = -J\\sum_{\\langle ij\\rangle}^{N}s_{i}s_{j},\\quad s_{i} = \\pm 1, \\forall i = 1,2,\\dots,N\\\\ \\langle m^{2}\\rangle = \\frac{1}{N^{2}}\\left\\langle\\left(\\sum_{i}s_{i}\\right)^{2}\\right\\rangle, C = \\frac{\\langle\\mathcal{H}^{2}\\rangle - \\langle\\mathcal{H}\\rangle^{2}}{Nk_{B}T^{2}} $$\n对于三种不同尺寸 $L = 8,12,16$ 的 2D 正方格子, 采用周期化边界条件, 计算 $m^{2}$ 和比热 $C$ 随着温度 $T$ 在 $(1,3)$ 内的变化曲线, 取步长 $\\Delta T = 0.05$. 为了方便计算, 取常数 $J = 1$.\nMetropolis Algorithm 该算法应用在蒙特卡洛算法中, 用来判断一次随机自旋翻转是否会被保留.\n我们随机选择一个位置 $(i,j)$, 令其自旋翻转, 从而使体系产生了能量差 $\\Delta E$. 那么我们需要使用 Metropolis 函数计算出判定数 $p$:\n$$ p = \\begin{cases} 1,\\quad\\Delta E \\leq 0\\\\ e^{-\\frac{\\Delta E}{k_{B}T}}, \\quad\\Delta E \u003e 0 \\end{cases} $$\n在计算中, 我们通常取 $k_{B} = 1$.\n然后令 $p$ 与 $[0,1]$ 中的随机数 $z$ 比较, 若 $z \u003c p$, 则保留该翻转, 否则不保留. 接下来我们要做的就是计算并且记录这一轮次的相关数据, 然后继续下一轮的随机翻转.\n将足够多轮次的数据进行平均, 我们就可以得到近似的期望值.\nReference clear;clc; Ls=[8,12,16]; dT=0.025; Tspan=1:dT:3; %生成随机初始条件的自旋矩阵 N=6e6;%计算次数 L_m2=zeros(3,length(Tspan));L_C=L_m2;%分配数据位置 for ii=1:3 %确认2D正方格子尺寸 L=Ls(ii); %生成随机磁矩矩阵 M=randi([0,1],L,L)*2-1; %分配数据记录位置 m2_T=zeros(1,length(Tspan));H2_T=m2_T;H1_T=m2_T; %以温度遍历计算 for Tn=1:length(Tspan) %当前轮次的温度 T=Tspan(Tn); %分配数据位置 m2_s=[];H2_s=[];H1_s=[]; % for nn=1:N %保留磁矩矩阵的原信息 M_1=M; %随机翻转自旋的坐标 loc=randi([1,L],1,2); x=loc(1);y=loc(2); %翻转后的磁矩矩阵 M_2=M;M_2(x,y)=-M_1(x,y); %计算能量差 %pud是指利用周期性边界条件,将矩阵边界进行扩展,便于计算边界时的能量差 pudM=pud(M); %计算能量差仅需比较最近邻格点 deltaE=2*M_1(x,y)*(pudM(x+2,y+1)+pudM(x,y+1)+pudM(x+1,y+2)+pudM(x+1,y)); %使用Metropolis算法判断状态是否保留 flag=Metro(deltaE,T); if flag==1 M=M_2; else M=M_1; end %计算当前时刻的各物理量，记录下来以进行时间平均 m2=(sum(M(:))^2)/(L^4); H1=H(M); H2=H1^2; m2_s(end+1)=m2; H2_s(end+1)=H2; H1_s(end+1)=H1; end %计算m^2,H^2,H在T=Tspan(Tn)下的期望值 l=length(m2_s); m2_s_avg_Tn=sum(m2_s)/l; H2_s_avg_Tn=sum(H2_s)/l; H1_s_avg_Tn=sum(H1_s)/l; %将上述数值记录在提前分配的内存中，以方便进行下一步计算 m2_T(Tn)=m2_s_avg_Tn; H2_T(Tn)=H2_s_avg_Tn; H1_T(Tn)=H1_s_avg_Tn; %显示当前计算进度 disp(\"任务数为\"+ii+\"/3,已完成第\"+Tn+\"轮计算，进度为\"+Tn/length(Tspan)*100+\"%\") end %将当前尺寸下的数据记录在提前分配的内存中，以方便进行下一步计算 L_m2(ii,:)=m2_T; L_C(ii,:)=(H2_T-H1_T.^2)./(L^2*Tspan.^2); end %绘制m^{2}随温度变化的图像 figure(1) plot(Tspan,L_m2(1,:),'r',Tspan,L_m2(2,:),'k',Tspan,L_m2(3,:),'b') xlabel('Temperature');ylabel(''); legend(\"L=8\",\"L=12\",\"L=16\"); %绘制C随温度变化的图像 figure(2) plot(Tspan,L_C(1,:),'r',Tspan,L_C(2,:),'k',Tspan,L_C(3,:),'b') xlabel('Temperature');ylabel('C'); legend(\"L=8\",\"L=12\",\"L=16\"); %% %Metropolis算法函数的定义 function flag=Metro(deltaE,T) beta=1/T; if deltaE\u003c=0 p=1; else p=exp(-beta*deltaE); end z=rand(); if z\u003cp flag=1; else flag=0; end end %% %Pud，辅助计算。输出(L+2)**2的矩阵 function pudM=pud(M) L=size(M,1); pudM=zeros(L+2,L+2);%分配储存空间 %pudding, 采用周期性边界条件 pudM(2:(L+1),2:(L+1))=M; %行的移动 pudM(1,2:(L+1))=M(L,:); pudM(L+2,2:(L+1))=M(1,:); %列的移动 pudM(2:(L+1),1)=M(:,L); pudM(2:(L+1),L+2)=M(:,1); end %能量计算. 利用哈密顿量的定义求和计算. function E=H(M) L=size(M,1); pudM=pud(M); H=0; for i=2:L for j=2:L H=H-pudM(i,j)*(pudM(i,j-1)+pudM(i,j+1)+pudM(i-1,j)+pudM(i+1,j)); end end E=H/2; end 对角化 1D 量子多体系统的哈密顿量 $$ \\begin{aligned} \\hat{H} \u0026= \\sum_{i = 1}^{L - 1}-\\hat{\\sigma}^{z}_{i}\\hat{\\sigma}_{i+1}^{z} - \\hat{\\sigma}^{z}_{L}\\hat{\\sigma}^{z}_{1} + h\\sum_{i = 1}^{L}\\hat{\\sigma}_{i}^{x}\\\\ \\hat{\\sigma}_{i}^{z}\\hat{\\sigma}_{j}^{z} \u0026= I \\otimes I \\dots \\sigma^{z}\\otimes \\dots \\sigma^{z} \\otimes\\dots I\\\\ \\hat{\\sigma}_{i}^{x} \u0026= I \\otimes I \\dots \\sigma^{x} \\otimes \\dots \\otimes I \\end{aligned} $$\n使用周期化边界条件, 并且引入了磁场 $h$ 的影响.\n$L = 10, h = 0.5, 1.0, 2.0$.\n对角化哈密顿量矩阵 $\\hat{H}$, 求解基态能量和第一激发态能量;\n计算基态下的 $\\langle \\sigma_{1}^{x}\\rangle$;\n设 $t = 0$ 时系统处于 $h = 0.5$ 的基态, $t\u003e0$ 使 $h$ 突变为 $h = 3$, 求在新哈密顿量 $\\hat{H}’$ 下 $\\langle \\sigma_{1}^{x}(t)\\rangle$ 在 $t\\in (0,10)$ 的时间演化.\nReference clear;clc; L=10; %不同磁场 h=[1/2,1,2]; %计算不同h下的基态能量和第一激发态 %分配内存空间储存不同磁场下的 he1e2=zeros(length(h),3); for n=1:length(h) %对磁场参数进行赋值 hn=h(n); %代入初始参数, 计算哈密顿量 H=G(hn,L); %使用matlab内置函数计算 H 本征值并且完成排序 En=unique(eig(H)); disp(\"h=\"+hn+\"时，基态能量为\"+En(1,1)+\",第一激发态为\"+En(2,1)) %将本轮次的数据填入预留的内存空间 he1e2(n,1)=hn;he1e2(n,2)=En(1,1);he1e2(n,3)=En(2,1); end %计算基态的sigma_{1}^x的期望值 %在指令行分割数据展示 disp(\"-------------------------------------------------\") %预留存储空间 sigma1x_s=zeros(1,length(h)); for n=1:length(h) hn=h(n); H=G(hn,L); %V是特征值的对角矩阵，D使得H=DVD^(-1) %易知D是特征向量(列向量)组成的矩阵 [V,D]=eig(H); %D的第一个列向量即为基态波函数 psi0=V(:,1); %计算sigma_{1}^x的期望值 sigma1x=psi0'*Sigmax(1,L)*psi0; %将本轮次的sigma_{1}^{x} 记录到预留的内存空间中 sigma1x_s(n)=sigma1x; disp(\"h=\"+hn+\"时, sigma_{1}^x的期望值是\"+ sigma1x) end %% %t=0时系统处在h=0.5的基态, t\u003e0时h=3, 求哈密顿量的时间演化. %分割命令行区数据展示 disp(\"-------------------------------------------------\") %时间范围 tspan=0:0.1:10; %计算h=0.5下的初态波函数 h=0.5;H=G(h,L);[~,D]=eig(H);psi0=V(:,1); %计算h=3.0下的哈密顿量 h=3;H=G(h,L); %分配记录含时 sigma_{1}^{x}(t) 的内存空间 sigma1x_t=zeros(1,length(tspan)); %遍历计算 sigma_{1}^{x}(t_{0}) for n=1:length(tspan) % 取 t 值 t=tspan(n); % 含时演化 psi=expm(-1i*H*t)*psi0; % 计算内积得到期望值 sigma1x=conj(psi.')*Sigmax(1,L)*psi; % 记录当前时刻 t_{0} 的 sigma_{1}^{x}(t_{0}) sigma1x_t(n)=sigma1x; % 清理命令行显示区 clc; disp(\"已完成计算进度\"+n/length(tspan)*100+\"%\") end plot(tspan,sigma1x_t,'k') xlabel(\"Time\") ylabel(\"\u003c\\sigma_{1}^x\u003e\") %% %定义H的生成函数 function H=G(h,L) H=0; for i=1:L-1 H=H-Sigmaz(i,i+1,L)+h*Sigmax(i,L); end H=H-Sigmaz(L,1,L)+h*Sigmax(L,L); end %生成单一的\\hat{sigma}_{i}^z\\hat{sigma}_{j}^z元素,未求和 function sigmaz=Sigmaz(i,j,L) %定义z泡利矩阵 sigmaZ=[1,0;0,-1]; %初始化内存空间 s=1; for n=1:L if n==i||n==j %kron(A,B)产生 A 和 B 的 Kronecker 张量积 s=kron(s,sigmaZ); else %eye(n)产生 n 阶单位矩阵 s=kron(s,eye(2)); end end %返回张量连乘积结果 sigmaz=s; end %生成单一的\\hat{sigma}_{i}^x元素, 未求和 function sigmax=Sigmax(i,L) %定义x泡利矩阵 sigmaX=[0,1;1,0]; % 初始化内存空间 s=1; for n=1:L if n==i s=kron(s,sigmaX); else s=kron(s,eye(2)); end end sigmax=s; end Heisenberg Model 只考虑最近邻的相互作用, 且呈现各向同性.\n$$ \\hat{H} = J\\sum_{\\langle i,j\\rangle}\\hat{S}_{i}\\cdot\\hat{S}_{j} = J\\sum_{\\langle i,j\\rangle}\\left(S_{i}^{x}S_{j}^{x} + S_{i}^{y}S_{j}^{y} + S_{i}^{z}S_{j}^{z}\\right) $$\n相比于之前的 Ising Model, 变化在于真正引入了电子自旋 $\\hat{S}_{i}$. 根据不同的情景有着不同的变种.\n各向异性 $$ \\hat{H} = J_{x}\\sum_{\\langle i,j\\rangle}S_{i}^{x}S_{j}^{x} + J_{y}\\sum_{\\langle i,j\\rangle}S_{i}^{y}S_{j}^{y} + J_{z}\\sum_{\\langle i,j\\rangle}S_{i}^{z}S_{j}^{z} $$\nXXZ Model. 即 $J_{x} = J_{y} \\neq J_{z}$. 一维下的半自旋 XXZ Model 可以使用 Bethe Ansatz 进行严格求解.\n单离子各向异性 磁矩(或者自旋)大于 $\\frac{1}{2}$, 此时哈密顿量形式变为\n$$ \\hat{H} = D(S^{z})^{2} + E[(S^{x})^{2} - (S^{y})^{2}] $$\n$D$ 和 $E$ 分别指的是单轴的单离子各向异性和菱形的单离子各向异性.\n强各向异性 考虑两个 site 之间原子的各向异性交换(Anisotropic exchange), 会出现另一种各向异性. 此时哈密顿量形式变为\n$$ \\hat{H} = \\sum_{\\alpha,\\beta}J^{\\alpha,\\beta}S^{\\alpha}S^{\\beta} $$\n所以在磁性材料中, 理想模型会写作 XXZ Model $\\oplus$ 单离子各向异性:\n$$ \\hat{H} = \\sum_{\\langle i,j\\rangle}(S_{i}^{x}S_{j}^{x} + S_{i}^{y}S_{j}^{y} + \\Delta S_{i}^{z}S_{j}^{z}) + D\\sum_{j}(S_{j}^{z})^{2} + E\\sum_{j}[(S_{j}^{x})^{2} - (S_{j}^{y})^{2}] $$\n$\\Delta = 1, D = E = 0$ 时模型即退化为各向同性的 Heisenberg Model.\n升降算符 引入升降算符\n$$ S^{\\pm} = S^{x} \\pm iS^{y} $$\n原哈密顿量就可以改写为\n$$ \\hat{H} = J\\sum_{i}\\left(\\frac{1}{2}\\left(S_{i}^{+}S_{i+1}^{-} + S_{i}^{-}S_{i + 1}^{+}\\right) + S_{i}^{z}S_{i+1}^{z}\\right) $$\n基态 如果模型处于铁磁性, 考虑系统处于基态, 不妨设所有原子的自旋方向都是 $\\uparrow$, 则基态波函数可以写作\n$$ \\psi_{g} = |\\uparrow\\uparrow\\uparrow\\dots\\rangle $$\n因为是基态, 所以我们可以得到\n$$ S_{i}^{+}S_{i+1}^{-}\\psi_{g} = 0\\\\ S_{i}^{-}S_{i+1}^{+}\\psi_{g} = 0 $$\n所以我们只需要关心剩余的\n$$ S_{i}^{z}S_{i+1}^{z}\\psi_{g} = \\frac{\\hbar^{2}}{4}\\psi_{g} $$\n因此就能得到\n$$ \\hat{H}\\psi_{g} = J\\hbar^{2}\\frac{L}{4}\\psi_{g}\\Rightarrow E_{g} = J\\hbar^{2}\\frac{L}{4} $$\n自旋倒向 设基态 $\\psi_{g}$ 第 $n$ 个自旋倒向, 那么形成的波函数为\n$$ \\psi_{n} = |\\uparrow\\uparrow\\uparrow\\dots\\overbrace{\\downarrow}^{n_{\\text{th}}}\\dots\\uparrow\\rangle $$\n即有\n$$ \\hat{H}\\psi_{n} = \\frac{J}{4}[(L - 4)\\psi_{n} + 2\\psi_{n - 1} + \\psi_{n + 1}] $$\n这并不满足特征方程所需要的 $\\hat{H}\\psi_{n} = E_{n}\\psi_{n}$ 的形式, 所以按照上述方式构造出来的 $\\psi_{n}$ 一定不是 $\\hat{H}$ 的本征态.\n我们可以引入 $\\psi_{f}$, 并且要求该波函数在 $\\{\\psi_{n}\\}$ 所张成的空间中:\n$$ \\psi_{f} = \\sum_{n}c_{n}\\psi_{n} $$\n若 $\\psi_{f}$ 是 $\\hat{H}$ 的本征态, 那么就有\n$$ \\hat{H}\\psi_{f} = \\frac{J}{4}\\sum_{n}[(L - 4)c_{n}\\psi_{n} + 2c_{n - 1}\\psi_{n - 1} + 2c_{n + 1}\\psi_{n + 1}] = E_{f}\\sum_{n}c_{n}\\psi_{n} $$\n两边都有求和符号, 为了简化方程, 可以令等式两边都对 $\\psi_{m}^{*}$ 作内积:\n$$ \\frac{L}{4}[(L - 4)c_{m} + 2c_{m - 1} + 2c_{m + 1}] = E_{f}c_{m} $$\n这是一个线性方程, 可以解得\n$$ c_{n} = \\frac{1}{\\sqrt{L}}e^{ikna} $$\n所以本征态为\n$$ \\psi_{f} = \\frac{1}{\\sqrt{L}}\\sum_{n}\\psi_{n}e^{ikna} $$\n对应的本征值为\n$$ E_{f} = J\\hbar^{2}\\frac{L}{4} - J\\hbar^{2}(1 - \\cos{ka}) $$\nHubbard Model 动能项: 描述粒子从一个 site 隧穿到最近邻的 site;\n势能项: 描述晶格中, 每个 site 上不同自旋粒子之间的相互作用.\n$$ \\hat{H} = -t\\sum_{i,\\sigma}\\left(\\hat{c}^{\\dagger}_{i,\\sigma}\\hat{c}_{i + 1,\\sigma} + \\hat{c}^{\\dagger}_{i+ 1,\\sigma}\\hat{c}_{i,\\sigma}\\right) + U\\sum_{i}\\hat{n}_{i,\\uparrow}\\hat{n}_{i,\\downarrow} $$\n这是最简单的强关联模型, 因为是最简单的相互作用电子体系. 同样地, 根据不同的背景可以产生众多的变式, 比如 Extended Hubbard Model(考虑相邻 site 之间电子的相互作用), Fermi-Hubbard Model 和 Bose-Hubbard Model 等.\nt-J Model 推广自 Hubbard Model.\n$$ \\hat{H} = -t\\sum_{\\langle ij\\rangle,\\sigma}\\hat{a}^{\\dagger}_{i\\sigma}\\hat{a}_{j\\sigma} + J\\sum_{\\langle ij\\rangle}\\left(\\hat{S}_{i}\\cdot\\hat{S}_{j} - \\frac{n_{i}n_{j}}{4}\\right) $$\n",
+  "articleBody": "本页面总结自旋液体相关的知识.\n为什么需要伊辛模型、海森堡模型、t-J 模型等一系列模型？ - Physhan的回答 - 知乎\nIsing Model 在晶格中, 每个 site 的原子磁矩可以取 $\\pm 1$, 只考虑最近邻的原子相互作用.\n根据以上假设就有\n$$ \\hat{H} = \\sum_{\\langle ij\\rangle}J_{ij}\\sigma_{i}\\sigma_{j} $$\n这个模型被提出的时候, 人们还没有意识到 $\\sigma_{i}$ 的严格定义, 只知道是 site 上有着某种内禀的磁矩.\n数值模拟 Monte Carlo Method 计算 2D Ising Model 磁偶极矩和比热 $$ \\mathcal{H} = -J\\sum_{\\langle ij\\rangle}^{N}s_{i}s_{j},\\quad s_{i} = \\pm 1, \\forall i = 1,2,\\dots,N\\\\ \\langle m^{2}\\rangle = \\frac{1}{N^{2}}\\left\\langle\\left(\\sum_{i}s_{i}\\right)^{2}\\right\\rangle, C = \\frac{\\langle\\mathcal{H}^{2}\\rangle - \\langle\\mathcal{H}\\rangle^{2}}{Nk_{B}T^{2}} $$\n对于三种不同尺寸 $L = 8,12,16$ 的 2D 正方格子, 采用周期化边界条件, 计算 $m^{2}$ 和比热 $C$ 随着温度 $T$ 在 $(1,3)$ 内的变化曲线, 取步长 $\\Delta T = 0.05$. 为了方便计算, 取常数 $J = 1$.\nMetropolis Algorithm 该算法应用在蒙特卡洛算法中, 用来判断一次随机自旋翻转是否会被保留.\n我们随机选择一个位置 $(i,j)$, 令其自旋翻转, 从而使体系产生了能量差 $\\Delta E$. 那么我们需要使用 Metropolis 函数计算出判定数 $p$:\n$$ p = \\begin{cases} 1,\\quad\\Delta E \\leq 0\\\\ e^{-\\frac{\\Delta E}{k_{B}T}}, \\quad\\Delta E \u003e 0 \\end{cases} $$\n在计算中, 我们通常取 $k_{B} = 1$.\n然后令 $p$ 与 $[0,1]$ 中的随机数 $z$ 比较, 若 $z \u003c p$, 则保留该翻转, 否则不保留. 接下来我们要做的就是计算并且记录这一轮次的相关数据, 然后继续下一轮的随机翻转.\n将足够多轮次的数据进行平均, 我们就可以得到近似的期望值.\nReference clear;clc; Ls=[8,12,16]; dT=0.025; Tspan=1:dT:3; %生成随机初始条件的自旋矩阵 N=6e6;%计算次数 L_m2=zeros(3,length(Tspan));L_C=L_m2;%分配数据位置 for ii=1:3 %确认2D正方格子尺寸 L=Ls(ii); %生成随机磁矩矩阵 M=randi([0,1],L,L)*2-1; %分配数据记录位置 m2_T=zeros(1,length(Tspan));H2_T=m2_T;H1_T=m2_T; %以温度遍历计算 for Tn=1:length(Tspan) %当前轮次的温度 T=Tspan(Tn); %分配数据位置 m2_s=[];H2_s=[];H1_s=[]; % for nn=1:N %保留磁矩矩阵的原信息 M_1=M; %随机翻转自旋的坐标 loc=randi([1,L],1,2); x=loc(1);y=loc(2); %翻转后的磁矩矩阵 M_2=M;M_2(x,y)=-M_1(x,y); %计算能量差 %pud是指利用周期性边界条件,将矩阵边界进行扩展,便于计算边界时的能量差 pudM=pud(M); %计算能量差仅需比较最近邻格点 deltaE=2*M_1(x,y)*(pudM(x+2,y+1)+pudM(x,y+1)+pudM(x+1,y+2)+pudM(x+1,y)); %使用Metropolis算法判断状态是否保留 flag=Metro(deltaE,T); if flag==1 M=M_2; else M=M_1; end %计算当前时刻的各物理量，记录下来以进行时间平均 m2=(sum(M(:))^2)/(L^4); H1=H(M); H2=H1^2; m2_s(end+1)=m2; H2_s(end+1)=H2; H1_s(end+1)=H1; end %计算m^2,H^2,H在T=Tspan(Tn)下的期望值 l=length(m2_s); m2_s_avg_Tn=sum(m2_s)/l; H2_s_avg_Tn=sum(H2_s)/l; H1_s_avg_Tn=sum(H1_s)/l; %将上述数值记录在提前分配的内存中，以方便进行下一步计算 m2_T(Tn)=m2_s_avg_Tn; H2_T(Tn)=H2_s_avg_Tn; H1_T(Tn)=H1_s_avg_Tn; %显示当前计算进度 disp(\"任务数为\"+ii+\"/3,已完成第\"+Tn+\"轮计算，进度为\"+Tn/length(Tspan)*100+\"%\") end %将当前尺寸下的数据记录在提前分配的内存中，以方便进行下一步计算 L_m2(ii,:)=m2_T; L_C(ii,:)=(H2_T-H1_T.^2)./(L^2*Tspan.^2); end %绘制m^{2}随温度变化的图像 figure(1) plot(Tspan,L_m2(1,:),'r',Tspan,L_m2(2,:),'k',Tspan,L_m2(3,:),'b') xlabel('Temperature');ylabel(''); legend(\"L=8\",\"L=12\",\"L=16\"); %绘制C随温度变化的图像 figure(2) plot(Tspan,L_C(1,:),'r',Tspan,L_C(2,:),'k',Tspan,L_C(3,:),'b') xlabel('Temperature');ylabel('C'); legend(\"L=8\",\"L=12\",\"L=16\"); %% %Metropolis算法函数的定义 function flag=Metro(deltaE,T) beta=1/T; if deltaE\u003c=0 p=1; else p=exp(-beta*deltaE); end z=rand(); if z\u003cp flag=1; else flag=0; end end %% %Pud，辅助计算。输出(L+2)**2的矩阵 function pudM=pud(M) L=size(M,1); pudM=zeros(L+2,L+2);%分配储存空间 %pudding, 采用周期性边界条件 pudM(2:(L+1),2:(L+1))=M; %行的移动 pudM(1,2:(L+1))=M(L,:); pudM(L+2,2:(L+1))=M(1,:); %列的移动 pudM(2:(L+1),1)=M(:,L); pudM(2:(L+1),L+2)=M(:,1); end %能量计算. 利用哈密顿量的定义求和计算. function E=H(M) L=size(M,1); pudM=pud(M); H=0; for i=2:L for j=2:L H=H-pudM(i,j)*(pudM(i,j-1)+pudM(i,j+1)+pudM(i-1,j)+pudM(i+1,j)); end end E=H/2; end 对角化 1D 量子多体系统的哈密顿量 $$ \\begin{aligned} \\hat{H} \u0026= \\sum_{i = 1}^{L - 1}-\\hat{\\sigma}^{z}_{i}\\hat{\\sigma}_{i+1}^{z} - \\hat{\\sigma}^{z}_{L}\\hat{\\sigma}^{z}_{1} + h\\sum_{i = 1}^{L}\\hat{\\sigma}_{i}^{x}\\\\ \\hat{\\sigma}_{i}^{z}\\hat{\\sigma}_{j}^{z} \u0026= I \\otimes I \\dots \\sigma^{z}\\otimes \\dots \\sigma^{z} \\otimes\\dots I\\\\ \\hat{\\sigma}_{i}^{x} \u0026= I \\otimes I \\dots \\sigma^{x} \\otimes \\dots \\otimes I \\end{aligned} $$\n使用周期化边界条件, 并且引入了磁场 $h$ 的影响.\n$L = 10, h = 0.5, 1.0, 2.0$.\n对角化哈密顿量矩阵 $\\hat{H}$, 求解基态能量和第一激发态能量;\n计算基态下的 $\\langle \\sigma_{1}^{x}\\rangle$;\n设 $t = 0$ 时系统处于 $h = 0.5$ 的基态, $t\u003e0$ 使 $h$ 突变为 $h = 3$, 求在新哈密顿量 $\\hat{H}'$ 下 $\\langle \\sigma_{1}^{x}(t)\\rangle$ 在 $t\\in (0,10)$ 的时间演化.\nReference clear;clc; L=10; %不同磁场 h=[1/2,1,2]; %计算不同h下的基态能量和第一激发态 %分配内存空间储存不同磁场下的 he1e2=zeros(length(h),3); for n=1:length(h) %对磁场参数进行赋值 hn=h(n); %代入初始参数, 计算哈密顿量 H=G(hn,L); %使用matlab内置函数计算 H 本征值并且完成排序 En=unique(eig(H)); disp(\"h=\"+hn+\"时，基态能量为\"+En(1,1)+\",第一激发态为\"+En(2,1)) %将本轮次的数据填入预留的内存空间 he1e2(n,1)=hn;he1e2(n,2)=En(1,1);he1e2(n,3)=En(2,1); end %计算基态的sigma_{1}^x的期望值 %在指令行分割数据展示 disp(\"-------------------------------------------------\") %预留存储空间 sigma1x_s=zeros(1,length(h)); for n=1:length(h) hn=h(n); H=G(hn,L); %V是特征值的对角矩阵，D使得H=DVD^(-1) %易知D是特征向量(列向量)组成的矩阵 [V,D]=eig(H); %D的第一个列向量即为基态波函数 psi0=V(:,1); %计算sigma_{1}^x的期望值 sigma1x=psi0'*Sigmax(1,L)*psi0; %将本轮次的sigma_{1}^{x} 记录到预留的内存空间中 sigma1x_s(n)=sigma1x; disp(\"h=\"+hn+\"时, sigma_{1}^x的期望值是\"+ sigma1x) end %% %t=0时系统处在h=0.5的基态, t\u003e0时h=3, 求哈密顿量的时间演化. %分割命令行区数据展示 disp(\"-------------------------------------------------\") %时间范围 tspan=0:0.1:10; %计算h=0.5下的初态波函数 h=0.5;H=G(h,L);[~,D]=eig(H);psi0=V(:,1); %计算h=3.0下的哈密顿量 h=3;H=G(h,L); %分配记录含时 sigma_{1}^{x}(t) 的内存空间 sigma1x_t=zeros(1,length(tspan)); %遍历计算 sigma_{1}^{x}(t_{0}) for n=1:length(tspan) % 取 t 值 t=tspan(n); % 含时演化 psi=expm(-1i*H*t)*psi0; % 计算内积得到期望值 sigma1x=conj(psi.')*Sigmax(1,L)*psi; % 记录当前时刻 t_{0} 的 sigma_{1}^{x}(t_{0}) sigma1x_t(n)=sigma1x; % 清理命令行显示区 clc; disp(\"已完成计算进度\"+n/length(tspan)*100+\"%\") end plot(tspan,sigma1x_t,'k') xlabel(\"Time\") ylabel(\"\u003c\\sigma_{1}^x\u003e\") %% %定义H的生成函数 function H=G(h,L) H=0; for i=1:L-1 H=H-Sigmaz(i,i+1,L)+h*Sigmax(i,L); end H=H-Sigmaz(L,1,L)+h*Sigmax(L,L); end %生成单一的\\hat{sigma}_{i}^z\\hat{sigma}_{j}^z元素,未求和 function sigmaz=Sigmaz(i,j,L) %定义z泡利矩阵 sigmaZ=[1,0;0,-1]; %初始化内存空间 s=1; for n=1:L if n==i||n==j %kron(A,B)产生 A 和 B 的 Kronecker 张量积 s=kron(s,sigmaZ); else %eye(n)产生 n 阶单位矩阵 s=kron(s,eye(2)); end end %返回张量连乘积结果 sigmaz=s; end %生成单一的\\hat{sigma}_{i}^x元素, 未求和 function sigmax=Sigmax(i,L) %定义x泡利矩阵 sigmaX=[0,1;1,0]; % 初始化内存空间 s=1; for n=1:L if n==i s=kron(s,sigmaX); else s=kron(s,eye(2)); end end sigmax=s; end Heisenberg Model 只考虑最近邻的相互作用, 且呈现各向同性.\n$$ \\hat{H} = J\\sum_{\\langle i,j\\rangle}\\hat{S}_{i}\\cdot\\hat{S}_{j} = J\\sum_{\\langle i,j\\rangle}\\left(S_{i}^{x}S_{j}^{x} + S_{i}^{y}S_{j}^{y} + S_{i}^{z}S_{j}^{z}\\right) $$\n相比于之前的 Ising Model, 变化在于真正引入了电子自旋 $\\hat{S}_{i}$. 根据不同的情景有着不同的变种.\n各向异性 $$ \\hat{H} = J_{x}\\sum_{\\langle i,j\\rangle}S_{i}^{x}S_{j}^{x} + J_{y}\\sum_{\\langle i,j\\rangle}S_{i}^{y}S_{j}^{y} + J_{z}\\sum_{\\langle i,j\\rangle}S_{i}^{z}S_{j}^{z} $$\nXXZ Model. 即 $J_{x} = J_{y} \\neq J_{z}$. 一维下的半自旋 XXZ Model 可以使用 Bethe Ansatz 进行严格求解.\n单离子各向异性 磁矩(或者自旋)大于 $\\frac{1}{2}$, 此时哈密顿量形式变为\n$$ \\hat{H} = D(S^{z})^{2} + E[(S^{x})^{2} - (S^{y})^{2}] $$\n$D$ 和 $E$ 分别指的是单轴的单离子各向异性和菱形的单离子各向异性.\n强各向异性 考虑两个 site 之间原子的各向异性交换(Anisotropic exchange), 会出现另一种各向异性. 此时哈密顿量形式变为\n$$ \\hat{H} = \\sum_{\\alpha,\\beta}J^{\\alpha,\\beta}S^{\\alpha}S^{\\beta} $$\n所以在磁性材料中, 理想模型会写作 XXZ Model $\\oplus$ 单离子各向异性:\n$$ \\hat{H} = \\sum_{\\langle i,j\\rangle}(S_{i}^{x}S_{j}^{x} + S_{i}^{y}S_{j}^{y} + \\Delta S_{i}^{z}S_{j}^{z}) + D\\sum_{j}(S_{j}^{z})^{2} + E\\sum_{j}[(S_{j}^{x})^{2} - (S_{j}^{y})^{2}] $$\n$\\Delta = 1, D = E = 0$ 时模型即退化为各向同性的 Heisenberg Model.\n升降算符 引入升降算符\n$$ S^{\\pm} = S^{x} \\pm iS^{y} $$\n原哈密顿量就可以改写为\n$$ \\hat{H} = J\\sum_{i}\\left(\\frac{1}{2}\\left(S_{i}^{+}S_{i+1}^{-} + S_{i}^{-}S_{i + 1}^{+}\\right) + S_{i}^{z}S_{i+1}^{z}\\right) $$\n基态 如果模型处于铁磁性, 考虑系统处于基态, 不妨设所有原子的自旋方向都是 $\\uparrow$, 则基态波函数可以写作\n$$ \\psi_{g} = |\\uparrow\\uparrow\\uparrow\\dots\\rangle $$\n因为是基态, 所以我们可以得到\n$$ S_{i}^{+}S_{i+1}^{-}\\psi_{g} = 0\\\\ S_{i}^{-}S_{i+1}^{+}\\psi_{g} = 0 $$\n所以我们只需要关心剩余的\n$$ S_{i}^{z}S_{i+1}^{z}\\psi_{g} = \\frac{\\hbar^{2}}{4}\\psi_{g} $$\n因此就能得到\n$$ \\hat{H}\\psi_{g} = J\\hbar^{2}\\frac{L}{4}\\psi_{g}\\Rightarrow E_{g} = J\\hbar^{2}\\frac{L}{4} $$\n自旋倒向 设基态 $\\psi_{g}$ 第 $n$ 个自旋倒向, 那么形成的波函数为\n$$ \\psi_{n} = |\\uparrow\\uparrow\\uparrow\\dots\\overbrace{\\downarrow}^{n_{\\text{th}}}\\dots\\uparrow\\rangle $$\n即有\n$$ \\hat{H}\\psi_{n} = \\frac{J}{4}[(L - 4)\\psi_{n} + 2\\psi_{n - 1} + \\psi_{n + 1}] $$\n这并不满足特征方程所需要的 $\\hat{H}\\psi_{n} = E_{n}\\psi_{n}$ 的形式, 所以按照上述方式构造出来的 $\\psi_{n}$ 一定不是 $\\hat{H}$ 的本征态.\n我们可以引入 $\\psi_{f}$, 并且要求该波函数在 $\\{\\psi_{n}\\}$ 所张成的空间中:\n$$ \\psi_{f} = \\sum_{n}c_{n}\\psi_{n} $$\n若 $\\psi_{f}$ 是 $\\hat{H}$ 的本征态, 那么就有\n$$ \\hat{H}\\psi_{f} = \\frac{J}{4}\\sum_{n}[(L - 4)c_{n}\\psi_{n} + 2c_{n - 1}\\psi_{n - 1} + 2c_{n + 1}\\psi_{n + 1}] = E_{f}\\sum_{n}c_{n}\\psi_{n} $$\n两边都有求和符号, 为了简化方程, 可以令等式两边都对 $\\psi_{m}^{*}$ 作内积:\n$$ \\frac{L}{4}[(L - 4)c_{m} + 2c_{m - 1} + 2c_{m + 1}] = E_{f}c_{m} $$\n这是一个线性方程, 可以解得\n$$ c_{n} = \\frac{1}{\\sqrt{L}}e^{ikna} $$\n所以本征态为\n$$ \\psi_{f} = \\frac{1}{\\sqrt{L}}\\sum_{n}\\psi_{n}e^{ikna} $$\n对应的本征值为\n$$ E_{f} = J\\hbar^{2}\\frac{L}{4} - J\\hbar^{2}(1 - \\cos{ka}) $$\nHubbard Model 动能项: 描述粒子从一个 site 隧穿到最近邻的 site;\n势能项: 描述晶格中, 每个 site 上不同自旋粒子之间的相互作用.\n$$ \\hat{H} = -t\\sum_{i,\\sigma}\\left(\\hat{c}^{\\dagger}_{i,\\sigma}\\hat{c}_{i + 1,\\sigma} + \\hat{c}^{\\dagger}_{i+ 1,\\sigma}\\hat{c}_{i,\\sigma}\\right) + U\\sum_{i}\\hat{n}_{i,\\uparrow}\\hat{n}_{i,\\downarrow} $$\n这是最简单的强关联模型, 因为是最简单的相互作用电子体系. 同样地, 根据不同的背景可以产生众多的变式, 比如 Extended Hubbard Model(考虑相邻 site 之间电子的相互作用), Fermi-Hubbard Model 和 Bose-Hubbard Model 等.\nt-J Model 推广自 Hubbard Model.\n$$ \\hat{H} = -t\\sum_{\\langle ij\\rangle,\\sigma}\\hat{a}^{\\dagger}_{i\\sigma}\\hat{a}_{j\\sigma} + J\\sum_{\\langle ij\\rangle}\\left(\\hat{S}_{i}\\cdot\\hat{S}_{j} - \\frac{n_{i}n_{j}}{4}\\right) $$\n",
   "wordCount" : "2989",
   "inLanguage": "zh",
   "datePublished": "2023-07-26T00:18:23+08:00",
@@ -734,7 +734,7 @@ $$</p>
 <p>计算基态下的 $\langle \sigma_{1}^{x}\rangle$;</p>
 </li>
 <li>
-<p>设 $t = 0$ 时系统处于 $h = 0.5$ 的基态, $t&gt;0$ 使 $h$ 突变为 $h = 3$, 求在新哈密顿量 $\hat{H}&rsquo;$ 下 $\langle \sigma_{1}^{x}(t)\rangle$ 在 $t\in (0,10)$ 的时间演化.</p>
+<p>设 $t = 0$ 时系统处于 $h = 0.5$ 的基态, $t&gt;0$ 使 $h$ 突变为 $h = 3$, 求在新哈密顿量 $\hat{H}'$ 下 $\langle \sigma_{1}^{x}(t)\rangle$ 在 $t\in (0,10)$ 的时间演化.</p>
 </li>
 </ol>
 <div class="details admonition tip open">
@@ -747,142 +747,142 @@ $$</p>
 
  <div class="details-content">
 
- <div class="admonition-content"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>clear;clc;
-</span></span><span style="display:flex;"><span>L=10;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%不同磁场
-</span></span><span style="display:flex;"><span>h=[1/2,1,2];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%计算不同h下的基态能量和第一激发态
-</span></span><span style="display:flex;"><span>%分配内存空间储存不同磁场下的
-</span></span><span style="display:flex;"><span>he1e2=zeros(length(h),3);
-</span></span><span style="display:flex;"><span>for n=1:length(h)
-</span></span><span style="display:flex;"><span>    %对磁场参数进行赋值
-</span></span><span style="display:flex;"><span>    hn=h(n);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    %代入初始参数, 计算哈密顿量
-</span></span><span style="display:flex;"><span>    H=G(hn,L);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    %使用matlab内置函数计算 H 本征值并且完成排序
-</span></span><span style="display:flex;"><span>    En=unique(eig(H));
-</span></span><span style="display:flex;"><span>    disp(&#34;h=&#34;+hn+&#34;时，基态能量为&#34;+En(1,1)+&#34;,第一激发态为&#34;+En(2,1))
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    %将本轮次的数据填入预留的内存空间
-</span></span><span style="display:flex;"><span>    he1e2(n,1)=hn;he1e2(n,2)=En(1,1);he1e2(n,3)=En(2,1);
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%计算基态的sigma_{1}^x的期望值
-</span></span><span style="display:flex;"><span>%在指令行分割数据展示
-</span></span><span style="display:flex;"><span>disp(&#34;-------------------------------------------------&#34;)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%预留存储空间
-</span></span><span style="display:flex;"><span>sigma1x_s=zeros(1,length(h));
-</span></span><span style="display:flex;"><span>for n=1:length(h)
-</span></span><span style="display:flex;"><span>    hn=h(n);
-</span></span><span style="display:flex;"><span>    H=G(hn,L);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    %V是特征值的对角矩阵，D使得H=DVD^(-1)
-</span></span><span style="display:flex;"><span>    %易知D是特征向量(列向量)组成的矩阵
-</span></span><span style="display:flex;"><span>    [V,D]=eig(H);
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    %D的第一个列向量即为基态波函数
-</span></span><span style="display:flex;"><span>    psi0=V(:,1);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    %计算sigma_{1}^x的期望值
-</span></span><span style="display:flex;"><span>    sigma1x=psi0&#39;*Sigmax(1,L)*psi0;
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    %将本轮次的sigma_{1}^{x} 记录到预留的内存空间中
-</span></span><span style="display:flex;"><span>    sigma1x_s(n)=sigma1x;
-</span></span><span style="display:flex;"><span>    disp(&#34;h=&#34;+hn+&#34;时, sigma_{1}^x的期望值是&#34;+ sigma1x)
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%%
-</span></span><span style="display:flex;"><span>%t=0时系统处在h=0.5的基态, t&gt;0时h=3, 求哈密顿量的时间演化.
-</span></span><span style="display:flex;"><span>%分割命令行区数据展示
-</span></span><span style="display:flex;"><span>disp(&#34;-------------------------------------------------&#34;)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%时间范围
-</span></span><span style="display:flex;"><span>tspan=0:0.1:10;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%计算h=0.5下的初态波函数
-</span></span><span style="display:flex;"><span>h=0.5;H=G(h,L);[~,D]=eig(H);psi0=V(:,1);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%计算h=3.0下的哈密顿量
-</span></span><span style="display:flex;"><span>h=3;H=G(h,L);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%分配记录含时 sigma_{1}^{x}(t) 的内存空间
-</span></span><span style="display:flex;"><span>sigma1x_t=zeros(1,length(tspan));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%遍历计算 sigma_{1}^{x}(t_{0})
-</span></span><span style="display:flex;"><span>for n=1:length(tspan)
-</span></span><span style="display:flex;"><span>    % 取 t 值
-</span></span><span style="display:flex;"><span>    t=tspan(n);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    % 含时演化
-</span></span><span style="display:flex;"><span>    psi=expm(-1i*H*t)*psi0;
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    % 计算内积得到期望值
-</span></span><span style="display:flex;"><span>    sigma1x=conj(psi.&#39;)*Sigmax(1,L)*psi;
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    % 记录当前时刻 t_{0} 的 sigma_{1}^{x}(t_{0})
-</span></span><span style="display:flex;"><span>    sigma1x_t(n)=sigma1x;
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    % 清理命令行显示区
-</span></span><span style="display:flex;"><span>    clc;
-</span></span><span style="display:flex;"><span>    disp(&#34;已完成计算进度&#34;+n/length(tspan)*100+&#34;%&#34;)
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>plot(tspan,sigma1x_t,&#39;k&#39;)
-</span></span><span style="display:flex;"><span>xlabel(&#34;Time&#34;)
-</span></span><span style="display:flex;"><span>ylabel(&#34;&lt;\sigma_{1}^x&gt;&#34;)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%%
-</span></span><span style="display:flex;"><span>%定义H的生成函数
-</span></span><span style="display:flex;"><span>function H=G(h,L)
-</span></span><span style="display:flex;"><span>    H=0;
-</span></span><span style="display:flex;"><span>    for i=1:L-1
-</span></span><span style="display:flex;"><span>        H=H-Sigmaz(i,i+1,L)+h*Sigmax(i,L);
-</span></span><span style="display:flex;"><span>    end
-</span></span><span style="display:flex;"><span>    H=H-Sigmaz(L,1,L)+h*Sigmax(L,L);
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%生成单一的\hat{sigma}_{i}^z\hat{sigma}_{j}^z元素,未求和
-</span></span><span style="display:flex;"><span>function sigmaz=Sigmaz(i,j,L)
-</span></span><span style="display:flex;"><span>    %定义z泡利矩阵
-</span></span><span style="display:flex;"><span>    sigmaZ=[1,0;0,-1];
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    %初始化内存空间
-</span></span><span style="display:flex;"><span>    s=1;
-</span></span><span style="display:flex;"><span>    for n=1:L
-</span></span><span style="display:flex;"><span>        if n==i||n==j
-</span></span><span style="display:flex;"><span>            %kron(A,B)产生 A 和 B 的 Kronecker 张量积
-</span></span><span style="display:flex;"><span>            s=kron(s,sigmaZ);
-</span></span><span style="display:flex;"><span>        else
-</span></span><span style="display:flex;"><span>            %eye(n)产生 n 阶单位矩阵
-</span></span><span style="display:flex;"><span>            s=kron(s,eye(2));
-</span></span><span style="display:flex;"><span>        end
-</span></span><span style="display:flex;"><span>    end
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    %返回张量连乘积结果
-</span></span><span style="display:flex;"><span>    sigmaz=s;
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>%生成单一的\hat{sigma}_{i}^x元素, 未求和
-</span></span><span style="display:flex;"><span>function sigmax=Sigmax(i,L)
-</span></span><span style="display:flex;"><span>    %定义x泡利矩阵
-</span></span><span style="display:flex;"><span>    sigmaX=[0,1;1,0];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    % 初始化内存空间
-</span></span><span style="display:flex;"><span>    s=1;
-</span></span><span style="display:flex;"><span>    for n=1:L
-</span></span><span style="display:flex;"><span>        if n==i
-</span></span><span style="display:flex;"><span>            s=kron(s,sigmaX);
-</span></span><span style="display:flex;"><span>        else
-</span></span><span style="display:flex;"><span>            s=kron(s,eye(2));
-</span></span><span style="display:flex;"><span>        end
-</span></span><span style="display:flex;"><span>    end
-</span></span><span style="display:flex;"><span>    sigmax=s;
-</span></span><span style="display:flex;"><span>end
-</span></span></code></pre></div></div>
+ <div class="admonition-content"><pre tabindex="0"><code>clear;clc;
+L=10;
+
+%不同磁场
+h=[1/2,1,2];
+
+%计算不同h下的基态能量和第一激发态
+%分配内存空间储存不同磁场下的
+he1e2=zeros(length(h),3);
+for n=1:length(h)
+    %对磁场参数进行赋值
+    hn=h(n);
+
+    %代入初始参数, 计算哈密顿量
+    H=G(hn,L);
+
+    %使用matlab内置函数计算 H 本征值并且完成排序
+    En=unique(eig(H));
+    disp(&#34;h=&#34;+hn+&#34;时，基态能量为&#34;+En(1,1)+&#34;,第一激发态为&#34;+En(2,1))
+    
+    %将本轮次的数据填入预留的内存空间
+    he1e2(n,1)=hn;he1e2(n,2)=En(1,1);he1e2(n,3)=En(2,1);
+end
+
+%计算基态的sigma_{1}^x的期望值
+%在指令行分割数据展示
+disp(&#34;-------------------------------------------------&#34;)
+
+%预留存储空间
+sigma1x_s=zeros(1,length(h));
+for n=1:length(h)
+    hn=h(n);
+    H=G(hn,L);
+
+    %V是特征值的对角矩阵，D使得H=DVD^(-1)
+    %易知D是特征向量(列向量)组成的矩阵
+    [V,D]=eig(H);
+    
+    %D的第一个列向量即为基态波函数
+    psi0=V(:,1);
+
+    %计算sigma_{1}^x的期望值
+    sigma1x=psi0&#39;*Sigmax(1,L)*psi0;
+    
+    %将本轮次的sigma_{1}^{x} 记录到预留的内存空间中
+    sigma1x_s(n)=sigma1x;
+    disp(&#34;h=&#34;+hn+&#34;时, sigma_{1}^x的期望值是&#34;+ sigma1x)
+end
+
+%%
+%t=0时系统处在h=0.5的基态, t&gt;0时h=3, 求哈密顿量的时间演化.
+%分割命令行区数据展示
+disp(&#34;-------------------------------------------------&#34;)
+
+%时间范围
+tspan=0:0.1:10;
+
+%计算h=0.5下的初态波函数
+h=0.5;H=G(h,L);[~,D]=eig(H);psi0=V(:,1);
+
+%计算h=3.0下的哈密顿量
+h=3;H=G(h,L);
+
+%分配记录含时 sigma_{1}^{x}(t) 的内存空间
+sigma1x_t=zeros(1,length(tspan));
+
+%遍历计算 sigma_{1}^{x}(t_{0})
+for n=1:length(tspan)
+    % 取 t 值
+    t=tspan(n);
+
+    % 含时演化
+    psi=expm(-1i*H*t)*psi0;
+    
+    % 计算内积得到期望值
+    sigma1x=conj(psi.&#39;)*Sigmax(1,L)*psi;
+    
+    % 记录当前时刻 t_{0} 的 sigma_{1}^{x}(t_{0})
+    sigma1x_t(n)=sigma1x;
+    
+    % 清理命令行显示区
+    clc;
+    disp(&#34;已完成计算进度&#34;+n/length(tspan)*100+&#34;%&#34;)
+end
+plot(tspan,sigma1x_t,&#39;k&#39;)
+xlabel(&#34;Time&#34;)
+ylabel(&#34;&lt;\sigma_{1}^x&gt;&#34;)
+
+%%
+%定义H的生成函数
+function H=G(h,L)
+    H=0;
+    for i=1:L-1
+        H=H-Sigmaz(i,i+1,L)+h*Sigmax(i,L);
+    end
+    H=H-Sigmaz(L,1,L)+h*Sigmax(L,L);
+end
+
+%生成单一的\hat{sigma}_{i}^z\hat{sigma}_{j}^z元素,未求和
+function sigmaz=Sigmaz(i,j,L)
+    %定义z泡利矩阵
+    sigmaZ=[1,0;0,-1];
+    
+    %初始化内存空间
+    s=1;
+    for n=1:L
+        if n==i||n==j
+            %kron(A,B)产生 A 和 B 的 Kronecker 张量积
+            s=kron(s,sigmaZ);
+        else
+            %eye(n)产生 n 阶单位矩阵
+            s=kron(s,eye(2));
+        end
+    end
+    
+    %返回张量连乘积结果
+    sigmaz=s;
+end
+
+%生成单一的\hat{sigma}_{i}^x元素, 未求和
+function sigmax=Sigmax(i,L)
+    %定义x泡利矩阵
+    sigmaX=[0,1;1,0];
+
+    % 初始化内存空间
+    s=1;
+    for n=1:L
+        if n==i
+            s=kron(s,sigmaX);
+        else
+            s=kron(s,eye(2));
+        end
+    end
+    sigmax=s;
+end
+</code></pre></div>
 
  </div>
 

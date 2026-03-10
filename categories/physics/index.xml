@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Muartz</copyright>
-    <lastBuildDate>Thu, 22 Jan 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/categories/physics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Mar 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/categories/physics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Formal Statistical Mechanics of Neural Networks</title>
       <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-10/</link>
@@ -126,6 +126,15 @@
     </item>
     
     <item>
+      <title>Maintaining and updating accurate internal representations of continuous variables with a handful of neurons</title>
+      <link>https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/</link>
+      <pubDate>Sun, 08 Mar 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/</guid>
+      <description>仅用少量神经元维持并更新连续变量的精确内部表征</description>
+    </item>
+    
+    <item>
       <title>Efficiently Modeling Long Sequences with Structured State Spaces</title>
       <link>https://Muatyz.github.io/posts/read/reference/efficiently-modeling-long-sequences-with-structured-state-space/</link>
       <pubDate>Thu, 22 Jan 2026 00:18:23 +0800</pubDate>
@@ -150,7 +159,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;如何找到 scaling lwa 之外可持续驱动当前 ai 系统到新阶段的 AGI 系统?&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;power issue for today&amp;rsquo;s AI system: 功耗随着性能表现提升而指数增长.&lt;/p&gt;
+&lt;p&gt;power issue for today&#39;s AI system: 功耗随着性能表现提升而指数增长.&lt;/p&gt;
 &lt;p&gt;human brain vs current large models: 人脑以远超大模型的参数量, 仅消耗 20W 的功率(大模型 300KW). 如何借鉴大脑的机制&lt;/p&gt;
 &lt;p&gt;overreliance on transformer architecture:&lt;/p&gt;
 &lt;ul&gt;

@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Maintaining and updating accurate internal representations of continuous variables with a handful of neurons | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="仅用少量神经元维持并更新连续变量的精确内部表征">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script><meta property="og:title" content="Maintaining and updating accurate internal representations of continuous variables with a handful of neurons" />
+<meta property="og:description" content="仅用少量神经元维持并更新连续变量的精确内部表征" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/03/08/9gmN/20260308084241714.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-03-08T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-03-08T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/03/08/9gmN/20260308084241714.png" />
+<meta name="twitter:title" content="Maintaining and updating accurate internal representations of continuous variables with a handful of neurons"/>
+<meta name="twitter:description" content="仅用少量神经元维持并更新连续变量的精确内部表征"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "📕 文献",
+          "item": "https://Muatyz.github.io/posts/read/reference/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Maintaining and updating accurate internal representations of continuous variables with a handful of neurons",
+      "item": "https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Maintaining and updating accurate internal representations of continuous variables with a handful of neurons",
+  "name": "Maintaining and updating accurate internal representations of continuous variables with a handful of neurons",
+  "description": "仅用少量神经元维持并更新连续变量的精确内部表征",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Abstract Many animals rely on persistent internal representations of continuous variables for working memory, navigation, and motor control. Existing theories typically assume that large networks of neurons are required to maintain such representations accurately; networks with few neurons are thought to generate discrete representations. However, analysis of two-photon calcium imaging data from tethered flies walking in darkness suggests that their small head-direction system can maintain a surprisingly continuous and accurate representation.\n许多动物依赖于连续变量的持久内部表征来进行工作记忆、导航和运动控制. 现有的理论通常假设需要大量的神经元网络来准确地维持这些表征; 而神经元数量较少的网络被认为会产生离散的表征. 然而, 对束缚在黑暗中行走的苍蝇的双光子钙成像数据的分析表明, 它们的小型头部方向系统能够维持令人惊讶的连续且准确的表征.\nWe thus ask whether it is possible for a small network to generate a continuous, rather than discrete, representation of such a variable. We show analytically that even very small networks can be tuned to maintain continuous internal representations, but this comes at the cost of sensitivity to noise and variations in tuning. This work expands the computational repertoire of small networks, and raises the possibility that larger networks could represent more and higher-dimensional variables than previously thought.\n因此, 我们探讨一个小网络是否能够生成连续而非离散的变量表征. 我们通过分析表明, 即使是非常小的网络也可以被调整以维持连续的内部表征, 但这以对噪声和调谐变化的敏感性为代价. 这项工作扩展了小网络的计算能力, 并提出了更大的网络可能能够表示比以前认为更多的高维变量的可能性.\nIntroduction The brain is thought to rely on persistent internal representations of continuous variables for a wide range of computations, from working memory to navigation to motor control. Such internal representations have been described in terms of manifolds along which population activity evolves (Fig. 1a, top), and they have been studied theoretically within the framework of continuous attractor networks; see refs. 14–16 for recent reviews.\n大脑被认为依赖于连续变量的持久内部表征来进行广泛的计算, 从工作记忆到导航再到运动控制. 这些内部表征已经被描述为沿着集群活动演化的流形 (图1a, 顶部), 并且在连续吸引子网络的框架内进行了理论研究; 参见最近的文献 14-16.\nThis framework for continuous attractor networks has historically relied on large numbers of neurons to ensure that these internal representations are approximately continuous and accurate, and this requirement becomes even more crucial in multiple dimensions and to represent multiple variables. Theories of navigation, for example, rely on large numbers of neurons to explain how continuous attractors could underlie the activity of head direction (HD), place, and grid cells in multiple dimensions, and how the hippocampus might build multiple continuous attractors corresponding to different environments that an animal has visited. Here, we ask whether such continuous representations can be maintained in much smaller networks.\n连续吸引子网络的这个框架历来依赖于大量的神经元, 以确保这些内部表征近似连续和准确, 并且在多维和表示多个变量时, 这个要求变得更加关键. 例如, 导航理论依赖于大量的神经元来解释连续吸引子如何支持多维中头部方向 (HD)、位置和网格细胞的活动, 以及海马体如何构建多个连续吸引子对应于动物访问过的不同环境. 在这里, 我们探讨这样的连续表征是否可以在更小的网络中维持.\nOne prominent example of a continuous attractor network is the ring attractor network, which can maintain an internal representation of a periodic variable such as orientation, and has been proposed as a model of the HD system. Ring attractor networks derive their name from the one-dimensional ring manifold on which activity evolves. This manifold emerges in the limit that an infinitely large population of orientation-tuned neurons maintains sustained and localized activity through positive feedback; this can be achieved through recurrent connectivity by which neurons with similar tuning excite one another, and neurons with dissimilar tuning inhibit one another (Fig. 1a, bottom, and refs. 13,22,24,27, but also see ref. 28).\n连续吸引子网络的一个突出例子是环形吸引子网络, 它可以维持周期变量的内部表征, 例如方向, 并且已被提出作为 HD 系统的模型. 环形吸引子网络得名于活动演化的一维环形流形. 这种流形在无限大的定向调谐神经元群体通过正反馈维持持续和局部活动的极限中出现; 这可以通过递归连接实现, 其中具有相似调谐的神经元相互兴奋, 而具有不同调谐的神经元相互抑制 (图1a, 底部, 以及参考文献13、22、24、27, 但也参见参考文献28).\nThe resulting population dynamics can generate a localized bump of activity that persists at the same orientation in the absence of input and traverses the ring manifold through the integration of self-motion inputs. As a result of their infinite size, ring attractor networks achieve infinite precision in maintaining and accurately updating the bump of activity.\n由此产生的集群动力学可以生成一个局部活动峰, 在没有输入的情况下持续在同一方向, 并通过自我运动输入的积分穿越环形流形. 因此, 由于其无限大小, 环形吸引子网络在维持和准确更新活动峰方面实现了无限精度.\nLarge networks have been used to approximate this infinite precision; small networks, in contrast, exhibit notable failures that are indicative of finite, rather than infinite, precision. Consistent with these studies, we work under the a priori assumption that achieving infinite precision in representing periodic variables requires infinitely large networks (see the Supplementary Note for further discussion).\n大型网络已被用来近似这种无限精度; 相比之下, 小型网络表现出显著的失败, 这表明它们具有有限而非无限的精度. 与这些研究一致, 我们在先验假设下工作, 即实现周期变量表示的无限精度需要无限大的网络 (有关进一步讨论, 请参见 Supplementary Note).\nResults Fig. 1 | A biological attractor network overcomes hypothesized limitations of discreteness.\na. Top: ring-like manifold of neural activity. Bottom: a ring attractor network maintains an internal representation of orientation through local excitation (red) and broad inhibition (blue). Two side rings use angular velocity input to shift this representation (green). CW, clockwise; CCW, counterclockwise.\na. 上: 神经活动的环形流形. 下: 环形吸引子网络通过局部兴奋 (红色)和广泛抑制 (蓝色)维持方向的内部表征. 两个侧环使用角速度输入来改变这个表征 (绿色). CW, 顺时针; CCW, 逆时针.\nb. Schematic of the fly CX. 'Compass' neurons innervate the EB and maintain an internal representation of orientation. 'Shift' neurons innervate the protocerebral bridge (PB) and shift the representation through angular velocity input from the noduli (NO).\nb. 苍蝇 CX 的示意图. \"指南针\"神经元支配 EB 并维持方向的内部表征. \"移位\"神经元支配大脑桥 (PB)并通过来自结节 (NO)的角速度输入来改变表征.\nc, Electron microscopy reconstruction of compass neurons. d, Two-photon imaging setup for tethered walking flies. Box: 32 regions of interest (ROIs) are used to compute the population vector average (PVA) of the change in fluorescence ($\\Delta F/F$).\nc, 指南针神经元的电子显微镜重建. d, 束缚行走苍蝇的双光子成像装置. 框: 32 个兴趣区域 (ROIs)用于计算荧光变化 ($\\Delta F/F$)的集群向量平均值 (PVA).\ne, Compass neurons maintain a localized bump of activity (heatmap) that tracks the fly’s orientation (red line).\ne, 指南针神经元维持一个局部活动峰 (热图), 该峰跟踪苍蝇的方向 (红线).\nf, In the absence of input, network dynamics evolve toward the minima of an energy landscape. Infinitely large networks generate flat landscapes (top); small networks generate bumpy landscapes (bottom; illustrated for $N = 6$ neurons).\nf, 在没有输入的情况下, 网络动力学朝向能量景观的最小值演化. 无限大的网络生成平坦的景观 (上); 小型网络生成崎岖的景观 (下; 以 $N = 6$ 个神经元为例).\ng, In continuous networks (dark blue), a flat landscape allows activity to persist at the same orientation in the absence of input (second column) and to integrate velocity input linearly (third and fourth columns). In discrete networks (light blue), local minima cause drift in the absence of input (second column), prevent continuous integration of small inputs (third column), and cause nonlinear integration of large inputs (fourth column).\ng, 在连续网络 (深蓝色)中, 平坦的景观允许活动在没有输入的情况下持续在同一方向 (第二列)并线性地积分速度输入 (第三和第四列). 在离散网络 (浅蓝色)中, 局部最小值导致在没有输入的情况下漂移 (第二列), 阻止小输入的连续积分 (第三列), 并导致大输入的非线性积分 (第四列).\nh, Bump orientations in the EB before and after stopping periods that exceeded 300 ms, schematized for discrete versus continuous networks (top) and shown for the same flies from e (middle and bottom).\nh, 在超过 300 ms 的停止期间之前和之后 EB 中的 bump 方向, 离散网络与连续网络的示意图 (顶部)以及来自 e 的相同苍蝇的显示 (中部和底部).\ni, Distribution of bump drifts (top histograms) accumulated across stopping periods (bottom scatterplots), shown for the same two flies (left and middle columns) and accumulated across flies (right column)\ni, 累积在停止期间的 bump 漂移分布 (顶部直方图)和散点图 (底部), 显示了相同两只苍蝇 (左和中列)以及累积在苍蝇之间 (右列).\nj, Residual bump velocities during left versus right turns as a function of bump orientation in the EB, schematized for discrete versus continuous networks (top) and shown for individual flies (middle and bottom; dark blue lines show population averages). Bump velocities were normalized for gain differences before computing residuals (Methods).\nj, 左转与右转期间的残余 bump 速度作为 EB 中 bump 方向的函数, 离散网络与连续网络的示意图 (顶部)以及个体苍蝇的显示 (中部和底部; 深蓝色线显示了群体平均值). 在计算残差之前, bump 速度已针对增益差异进行了归一化 (方法).\nThe computational properties that make ring attractor networks such appealing models of the HD system arise in the limit of large system sizes. Specifically, in the limit that the number of neurons approaches infinity (what we term a 'continuous' system), a ring attractor network generates a continuum of configurations that define the ring attractor manifold(Fig. 1f, top).\n使环形吸引子网络成为 HD 系统的一个有吸引力的模型的计算属性出现在大系统规模的极限中. 具体来说, 在神经元数量趋近于无限 (我们称之为\"连续\"系统)的极限中, 环形吸引子网络生成定义环形吸引子流形的一系列构型 (图 1f, 上).\nThese configurations are marginally stable, such that perturbations along the manifold will be maintained, and perturbations off the manifold will be driven back to it. These properties allow us to express the manifold as a flat dimension in the energy landscape of the system; all points along this flat dimension have equal and minimum energy; thus, the system can stably sit at any of these points in the absence of input (Fig. 1g, second column, dark blue).\n这些构型是临界稳定的, 即沿着流形的扰动将被维持, 而离开流形的扰动将被驱回到流形上. 这些属性允许我们将流形表示为系统能量景观中的一个平坦维度; 这个平坦维度上的所有点具有相等且最小的能量; 因此, 在没有输入的情况下, 系统可以稳定地停留在这些点中的任何一个 (图 1g, 第二列, 深蓝色).\nMoreover, small changes in input can drive the system along this flat dimension without obstruction, such that the population activity accurately tracks these changes (Fig. 1g, third and fourth columns, dark blue). This flat energy dimension gives the system infinite precision in encoding and updating an internal representation of a one-dimensional circular variable such as HD.\n此外, 输入的小变化可以驱动系统沿着这个平坦维度前进而不受阻碍, 使得集群活动准确地跟踪这些变化 (图 1g, 第三和第四列, 深蓝色). 这个平坦能量维度赋予系统在编码和更新一维环变量 (如 HD)的内部表征方面的无限精度.\nHowever, when the system is small (what we term a 'discrete' system), these properties are thought to break down, thereby limiting how precisely the internal HD representation can be stored and updated. Instead of exhibiting a flat dimension, the energy landscape is assumed to exhibit a set of discrete basins (Fig. 1f, bottom) that attract the population activity in the absence of input (Fig. 1g, second column, light blue), prevent the integration of small inputs (Fig. 1g, third column, light blue), and prevent the accurate integration of large inputs (Fig. 1g, fourth column, light blue).\n然而, 当系统较小 (我们称之为\"离散\"系统)时, 这些属性被认为会崩溃, 从而限制了内部 HD 表征的存储和更新的精确度. 能量景观被假设为表现出一组离散的盆地 (图 1f, 底部), 在没有输入的情况下吸引集群活动 (图 1g, 第二列, 浅蓝色), 阻止小输入的积分 (图1g, 第三列, 浅蓝色), 并阻止大输入的准确积分 (图 1g, 第四列, 浅蓝色).\nFor a small network such as the fly compass network, we would thus expect to observe three distinct signatures of discreteness: (1) drift in the absence of input, in which the HD bump drifts to stereotyped orientations around the EB when the fly stops turning; (2) failure to integrate small angular velocities, in which the HD bump does not move continuously when the fly makes slow turns; and (3) variable responses to larger angular velocities, in which the HD bump moves faster or slower relative to the fly’s movements, depending on its orientation within the EB.\n对于像果蝇指南针网络这样的小型网络, 我们因此预期观察到三个离散性的特征:\n(1)在没有输入的情况下漂移, 在苍蝇停止转动时 HD 峰漂移到 EB 周围的固定的典型方向;\n(2)无法积分小角速度, 在苍蝇进行慢转时 HD 峰不会连续移动; 以及\n(3)对较大角速度的可变响应, 在这种情况下, HD 峰相对于苍蝇的运动移动得更快或更慢, 具体取决于它在 EB 内的方向.\nTo assess whether the fly circuit can overcome these expected limitations, we performed two-photon calcium imaging of compass neurons in the EB while head-fixed flies walked on an air-supported ball in darkness (Fig. 1d,e,h–j and Methods). While fly-to-fly variability in the accuracy of integration may be due, in part, to limitations of the fly-on-a-ball system (Methods), several flies showed a remarkable ability to track changes in their angular orientation in darkness.\n为了评估苍蝇回路是否能够克服这些预期的限制, 我们在头部固定的苍蝇在黑暗中在空气支持的球上行走时对 EB 中的指南针神经元进行了双光子钙成像 (图 1d、e、h-j 和 Methods). 虽然苍蝇之间在积分准确性方面的变异可能部分归因于苍蝇在球上的系统的限制 (方法), 但几只苍蝇显示出在黑暗中跟踪其角度变化的惊人能力.\nWe first measured bump drift in the absence of input by comparing the bump orientation when the fly stopped moving to when the fly began walking again.\nThe distributions of initial and final bump orientations were similar (Extended Data Fig. 1), and there were no apparent signatures that the bump drifted to a discrete number of stereotypical orientations (Fig. 1h). The distribution of drifts was strongly peaked at zero (Fig. 1i, top row), and included epochs in which the bump persisted at the same orientation for several seconds (Fig. 1i, bottom row). We then analyzed the average bump velocity at different orientations as a function of the fly’s average turning velocity. Again, across several flies, the bump velocity was consistent across orientations, with no apparent signatures of nonlinear integration nor apparent failures to track small velocities (Fig. 1j and Extended Data Fig. 2). Thus, despite the imperfections of measuring the accuracy of the HD representation in head-fixed flies on a ball, we found that the peak performance of the HD system belied its small size both in its low drift and in its accurate integration.\n我们首先测量了无输入情况下的活动峰漂移, 方法是比较果蝇停止运动时的活动峰方向与再次开始行走时的活动峰方向.\n初始和最终 bump 方向的分布相似 (扩展数据图 1), 并且没有明显的迹象表明 bump 漂移到离散数量的典型方向 (图 1h). 漂移分布强烈地集中在零点 (图 1i, 第一行), 并且包括了 bump 持续在同一方向数秒钟的时期 (图 1i, 第二行).\n然后, 我们分析了不同方向上的平均 bump 速度作为苍蝇平均转向速度的函数. 同样, 在几只苍蝇中, bump 速度在各个方向上是一致的, 没有明显的非线性积分迹象, 也没有明显无法跟踪小速度的迹象 (图 1j 和扩展数据图 2).\n因此, 尽管在测量头部固定在球上的苍蝇中 HD 表征准确性的缺陷, 我们发现 HD 系统的 bump 性能掩盖了其小尺寸, 无论是在其低漂移还是其准确积分方面.\nSmall networks generate a continuum of stable configurations The previous results suggest that small networks can, in practice, integrate angular velocity without suffering the performance failures expected of discrete systems. To explore how this might be achieved in principle, we studied the performance of small attractor networks (Fig. 2a and Methods).\n之前的结果表明, 小型网络实际上可以积分角速度, 而并不会遭遇预期中离散系统导致的功能失效. 为了探讨这在原则上如何实现, 我们研究了小型吸引子网络的性能 (图 2a 和方法).\nWe considered networks of $N$ orientation-tuned neurons whose preferred orientations $\\theta_{j}$ uniformly tile orientation space, with an angular separation of $\\Delta\\theta = 2\\pi/N$ radians (rad). These neurons can be arranged topologically in a ring according to their preferred orientations, with neurons locally exciting and broadly inhibiting their neighbors.\n我们考虑由 $N$ 个定向调谐神经元组成的网络, 这些神经元的首选方向 $\\theta_{j}$ 均匀地覆盖了方向空间, 角分离为 $\\Delta\\theta = 2\\pi/N$ 弧度 (rad). 这些神经元可以根据它们的首选方向在环形上进行拓扑排列, 近邻的神经元相互兴奋, 广泛抑制它们的次近邻.\nWe capture this with a symmetric cosine weight matrix $W_{jk}^{\\text{sym}} = J_{I} + J_{E}\\cos{(\\theta_{j} − \\theta_{k})}$ , where $J_{E}$ and $J_{I}$ respectively control the strength of the tuned and untuned components of recurrent connectivity between neurons with preferred orientations $\\theta_{j}$ and $\\theta_{k}$. We will refer to these components as local excitation and broad inhibition, respectively (but note that the tuned component takes on both positive and negative values, and thus is not strictly excitatory; within the parameter regimes that we consider, the untuned component is strictly inhibitory).\n我们用一个对称的余弦权重矩阵 $W_{jk}^{\\text{sym}} = J_{I} + J_{E}\\cos{(\\theta_{j} − \\theta_{k})}$ 来捕捉这一点, 其中 $J_{E}$ 和 $J_{I}$ 分别控制具有首选方向 $\\theta_{j}$ 和 $\\theta_{k}$ 的神经元之间递归连接的调谐和非调谐成分的强度. 我们将这些成分称为 局部兴奋 和 广泛抑制 (但请注意, 调谐成分有正有负, 因此不严格是兴奋性的; 在我们考虑的参数范围内, 非调谐成分是严格抑制性的).\nThe network receives angular velocity input $v_{\\text{in}}$ through asymmetric, velocity-modulated weights $W_{jk}^{\\text{asym}} = \\sin{(\\theta_{j} − \\theta_{k})}$ (see also ref. 24); this input could be implemented through two linear side rings whose time constants are much smaller than that of neurons in the center ring (Supplementary Note). Each neuron transforms its inputs through a nonlinear transfer function $\\phi(\\cdot)$.\n网络通过非对称、速度调制的权重 $W_{jk}^{\\text{asym}} = \\sin{(\\theta_{j} − \\theta_{k})}$ 接收角速度输入 $v_{\\text{in}}$ (另见参考文献24); 这个输入可以通过两个线性侧环实现, 其时间常数远小于中心环中神经元的时间常数 (补充说明). 每个神经元通过非线性传递函数 $\\phi(\\cdot)$ 转换其输入.\n*这里的 asymmetric 疑似应该用 antisymmetric\nThe total input activity $h_{j}$ of each neuron is then governed by\n$$ \\tau \\dot{h}_{j} = -h_{j} + \\frac{1}{N}\\sum_{k}(W_{jk}^{\\text{sym}} + v_{\\text{in}}W_{jk}^{\\text{asym}})\\phi(h_{k}) + c_{\\text{ff}},\\quad j = 1,\\cdots, N $$\nwhere $c_{\\text{ff}}$ is a constant feedforward input to all neurons in the network.\n然后, 每个神经元的总输入活动 $h_{j}$ 由以下方程控制:\n$$ \\tau \\dot{h}_{j} = -h_{j} + \\frac{1}{N}\\sum_{k}(W_{jk}^{\\text{sym}} + v_{\\text{in}}W_{jk}^{\\text{asym}})\\phi(h_{k}) + c_{\\text{ff}},\\quad j = 1,\\cdots, N $$\n其中 $c_{\\text{ff}}$ 是网络中所有神经元的常数前馈输入.\n*Wilson-Cowan rate network function. $\\frac{1}{N}$ 是一种归一化处理, 避免网络规模改变输入强度, 神经元越多输入越大显然是荒谬的. $c_{\\text{ff}}$ 类似于背景场, 是一个恒定的外部驱动, 维持网络在活跃状态.\nFig. 2 | Optimally tuned local excitation can recover a ring attractor manifold. a. Schematic of the network model and connectivity $W_{jk}$. Top: a population of neurons is recurrently connected through local excitation ($J_{E}$) and broad inhibition ($J_{I}$). Two side rings receive input from and project back to the center ring with shifted, velocity-dependent connections. Bottom: a threshold-linear response function ensures that a subset of $N_{\\text{act}}$ neurons is active at any time; their dynamics are governed by an 'active submatrix' of the full connectivity.\na. 网络模型和连接 $W_{jk}$ 的示意图. 上: 一群神经元通过局部兴奋 ($J_{E}$)和广泛抑制 ($J_{I}$)递归连接. 两个侧环接收来自中心环的输入, 并通过移位、速度依赖的连接投射回中心环. 下: 一个阈值线性响应函数确保在任何时候都有 $N_{\\text{act}}$ 个神经元处于活跃状态; 它们的动力学由全连接的\"活跃子矩阵\"控制.\n*即ReLU 函数 $\\phi(h) = \\max{(0,h)}$, 在 Wilson 微分方程中实际上扮演的是 firing rate 函数的角色\nb, Top: $J_{E}$ and $J_{I}$ can be selected to maintain a persistent bump of population activity. Bottom: characterization of the bump configuration (Methods).\nb. 上: $J_{E}$ 和 $J_{I}$ 可以被选择来维持集群活动的持续 bump . 下: bump 构型的表征 (Methods).\nc, Top: energy of different bump configurations for naive choices of $J_{E}$ and $J_{I}$. The resulting landscape is bumpy, with local minima (white points) separated by barriers. Bottom: we sought parameters that 'flatten' the energy landscape by minimizing local curvature.\nc. 上: 对于 $J_{E}$ 和 $J_{I}$ 的朴素选择, 不同 bump 构型的能量. 结果景观崎岖, 具有由障碍分隔的局部最小值 (白点). 下: 我们寻求通过最小化局部曲率来\"平坦化\"能量景观的参数.\nd, For a network of size $N$, there are $N − 3$ optimal values of $J_{E}$ that flatten the energy. Shaded bar: optimal values of excitation for a network size of $N = 6$ (see e–h).\nd. 对于大小为 $N$ 的网络, 有 $N − 3$ 个最优化的 $J_{E}$ 值可以平坦化能量. 阴影条: 网络大小为 $N = 6$ 的最优化兴奋值 (见 e-h).\ne–h, We evaluate the performance (rows) of networks of size $N = 6$ with different values of $J_{E}$ (columns; $J_{E}^{*} = [12, 4, 2.4]$ (optimal); $J_{E} = [6, 3]$ (nonoptimal)).\ne-h, 我们评估了不同 $J_{E}$ 值的大小为 $N = 6$ 的网络的性能 (行) (列; $J_{E}^{*} = [12, 4, 2.4]$ (最优化); $J_{E} = [6, 3]$ (非最优化)).\ne, Same as c, for different values of $J_{E}$. Optimal energy landscapes are flat (white line); nonoptimal landscapes have local minima (filled markers) separated by barriers (open markers).\ne, 与 c 相同, 不同 $J_{E}$ 值的能量景观. 最优化能量景观是平坦的 (白线); 非最优化景观具有由障碍分隔的局部最小值 (实心标记)和障碍 (空心标记).\nf, Bump trajectories in response to a constant input (top row) and in the absence of input (bottom row). Insets show zoomed-in portions of trajectories, which highlight the failure to integrate small inputs.\nf, 对恒定输入 (第一行)和无输入 (第二行)的 bump 轨迹. 插图显示了轨迹的放大部分, 突出显示了无法积分小输入的情况.\ng, Same as b, shown for bump configurations at the endpoints in f.\ng, 与 b 相同, 显示 f 中端点处的 bump 构型.\nh, Top row: same as heatmaps in a, shown for active submatrices corresponding to the bump configurations in g. Filled markers denote active neurons. Middle row: the leading eigenvalue of each submatrix governs the dynamics of active neurons. Bottom row: in optimal networks, the bump is always maintained by the same number of active neurons (gray); in nonoptimal networks, the bump is maintained by different numbers of active neurons depending on whether the bump configuration is stable (turquoise) or unstable (orange).\nh, 第一行: 与 a 中的热图相同, 显示对应于 g 中 bump 构型的活跃子矩阵. 实心标记表示活跃神经元. 第二行: 每个子矩阵的主导特征值控制活跃神经元的动力学. 第三行: 在最优化网络中, bump 始终由相同数量的活跃神经元维持 (灰色); 在非最优化网络中, bump 由不同数量的活跃神经元维持, 具体取决于 bump 构型是稳定的 (绿松石色)还是不稳定的 (橙色).\nIn what follows, we take $\\phi(\\cdot)$ to be threshold linear; this ensures that only a subset of all neurons will be active at any time. As a result, the dynamics of active neurons will be governed by an 'active submatrix' of the full connectivity (Fig. 2a, bottom). We derive our theoretical results for networks of arbitrary size $N\u003c\\infty$; unless otherwise noted, we illustrate these results using a network of size $N = 6$ because this is the smallest network that exhibits the range of dynamics observed across parameter tunings.\n在接下来的内容中, 我们将 $\\phi(\\cdot)$ 取为阈值线性; 这确保了在任何时候只有一部分神经元会被激活. 因此, 活跃神经元的动力学将由完整连接的\"活跃子矩阵\"控制 (图 2a, 下). 我们为任意 $N\u003c\\infty$ 的网络推导了理论结果; 除非另有说明, 我们使用大小为 $N = 6$ 的网络来说明这些结果, 因为这是展示不同参数调整下观察到的动力学范围的最小网络.\n因为使用了 $\\phi(\\cdot)=\\max{(0,\\cdot)}$, 所以会有一部分 inactive neurons其激发值为 $0$, 可以等效认为只有 active neurons参与了动力学方程, 这也是从完整权重矩阵提取出 submatrix 的依据\nFor sufficiently strong local excitation and broad inhibition, this network generates a stable bump of activity [Fig. 2b (top), Extended Data Fig. 3a and Methods]. We characterize the bump by the Fourier modes of the population activity [given by equation (1)]. For the network connectivity chosen here, which varies sinusoidally with the difference between preferred orientations, the population activity is fully specified by the zeroeth- and first-order Fourier modes. This allows us to characterize the 'configuration' of the activity bump in terms of its relative amplitude $a$, angular width $w$, and angular orientation $\\psi$ (Fig. 2b (bottom) and Supplementary Note). These quantities vary continuously over time, and thus, the same number of active neurons can maintain bump configurations with different relative amplitudes, widths, and orientations.\n对于足够强的局部兴奋和广泛抑制, 这个网络会生成一个稳定的活动峰 [图 2b (上), 扩展数据图 3a 和方法]. 我们通过集群活动的傅里叶模式来表征这个峰 [由方程 (1)给出]. 对于这里选择的网络连接, 它随着首选方向之间的差异呈正弦变化, 集群活动完全由零阶和一阶傅里叶模式指定. 这使我们能够根据相对振幅 $a$、角宽度 $w$ 和角方向 $\\psi$ 来表征活动峰的 \"构型\" (图2b (底部)和补充说明). 这些量随时间连续变化, 因此, 相同数量的活跃神经元可以维持具有不同相对振幅、宽度和方向的峰构型.\n傅里叶模式 将 firing rate 视为连续函数 $r(\\theta)$, 任何周期性函数都可以写作 Fourier 级数形式\n$$ r(\\theta) = A_{0} + \\sum_{n=1}^{\\infty}[A_{n}\\cos{(n\\theta)} + B_{n}\\sin{(n\\theta)}] $$\n既然已经约定连接形式 $W(\\theta-\\theta^{\\prime}) = J_{I} + J_{E}\\cos{(\\theta-\\theta^{\\prime})}$, 那么神经元的输入为\n$$ \\begin{aligned} h(\\theta) \u0026= \\int W(\\theta-\\theta^{\\prime})r(\\theta^{\\prime})\\mathrm{d}\\theta^{\\prime} = \\int[J_{I} + J_{E}\\cos{(\\theta-\\theta^{\\prime})}]r(\\theta^{\\prime})\\mathrm{d}\\theta^{\\prime}\\\\ \u0026= J_{I}\\int r(\\theta^{\\prime})\\mathrm{d}\\theta^{\\prime} + J_{E}\\int\\cos{(\\theta-\\theta^{\\prime})}r(\\theta^{\\prime})\\mathrm{d}\\theta^{\\prime}\\\\ \u0026= J_{I}\\int r(\\theta^{\\prime})\\mathrm{d}\\theta^{\\prime} + J_{E}\\int [\\cos{\\theta}\\cos{\\theta^{\\prime}}+\\sin{\\theta}\\sin{\\theta^{\\prime}}]r(\\theta^{\\prime})\\mathrm{d}\\theta^{\\prime}\\\\ \u0026= C_{0} + C_{1}\\cos{\\theta} + C_{2}\\sin{\\theta} \\end{aligned} $$\n因为傅里叶基的正交性, 非同次内积均为 0.\nWe began by characterizing the manifold of stable bump configurations in the absence of angular velocity input (Extended Data Fig. 3b–i and Methods).\nTo this end, we constructed a landscape that describes the energy of different bump configurations for a given set of parameters $J_{E}$ and $J_{I}$ (refs. 40,41 and Methods). For most parameter settings, the energy landscape is bumpy, with discrete minima separated by barriers (Fig. 2c, top), as expected for small networks.\nThe landscape is highly curved about these minima, indicating that the bump would be highly attracted to these particular orientations.\n我们首先在没有角速度输入的情况下表征稳定峰构型的流形 (扩展数据图 3b-i 和 Methods).\n为此, 我们构建了一个描述给定参数 $J_{E}$ 和 $J_{I}$ 的不同峰构型的能量景观 (参考文献40、41 和 Methods). 对于大多数参数设置, 能量景观是崎岖的, 具有由障碍分隔的离散最小值 (图 2c, 上), 这对于小型网络来说是意料之中的.\n景观在这些最小值点附近剧烈弯曲, 表明 bump 容易被吸引到这些特定方向.\nTo weaken this attraction, we analytically determined the values of $J_{E}$ and $J_{I}$ that would locally minimize this curvature, and thus locally flatten the energy landscape (Fig. 2c, bottom).\nSurprisingly, we found that specific values of local excitation drive the curvature to zero, resulting in an energy landscape that is completely flat as a function of orientation (Extended Data Fig. 4). For a network of size $N$, there are $N − 3$ such 'optimal' values of local excitation $J_{E}^{*}$ (Fig. 2d).\nFigure 2e illustrates the corresponding optimal energy landscapes for a network of size $N = 6$, and contrasts these with two nonoptimal landscapes generated with intermediate values of local excitation.\n为了削弱这种吸引力, 我们分析确定了 $J_{E}$ 和 $J_{I}$ 的值, 这些值将局部最小化这种曲率, 从而局部平坦化能量景观 (图 2c, 下).\n令人惊讶的是, 我们发现特定值的局部兴奋 ($J_{E}$) 可将曲率化为零, 导致能量景观成为完全平坦的朝向函数 (扩展数据图4). 对于大小为 $N$ 的网络, 有 $N − 3$ 个这样的 \"最优化\" 局部兴奋值 $J_{E}^{*}$ (图 2d).\n图 2e 说明了大小为 $N = 6$ 的网络对应的最优化能量景观, 并与两个使用中间局部兴奋值生成的非最优化景观进行对比.\nTo verify that these optimally tuned networks could overcome the failure modes highlighted in Fig. 1g, we simulated the response of each network to a constant velocity input (Fig. 2f and Methods).\nAs expected, we found that optimal networks accurately integrated angular velocity input, such that the bump orientation changed linearly over time (Fig. 2f, top row). When this velocity input was removed (Fig. 2f, bottom row), the bump persisted at the same orientation and did not drift (we also observed this in networks with different nonlinearities and connectivity profiles in one and two dimensions; Extended Data Fig. 5 and Methods).\n为了验证这些最优化调制的网络能够克服图 1g 中突出显示的失败模式, 我们模拟了每个网络对恒定速度输入的响应 (图 2f 和方法).\n正如预期的那样, 我们发现最优化网络准确地积分了角速度输入, 使得 bump 方向随时间线性变化 (图 2f, 第一行). 当这个速度输入被移除时 (图2f, 第二行), bump 持续在同一方向, 并且没有漂移 (我们还在具有不同非线性和连接构型的一维和二维网络中观察到了这一点; 扩展数据图 5 和方法).\nIn contrast, nonoptimal networks failed to integrate small velocities (Fig. 2f, top row insets), and they nonlinearly integrated larger velocities (Fig. 2f, top row main panels). When this velocity input was removed, the bump drifted toward the set of discrete orientations corresponding to the local minima of their energy landscapes (Fig. 2f, bottom row).\n相比之下, 非最优化网络无法积分小速度 (图 2f, 第一行插图), 并且它们非线性地积分了更大的速度 (图 2f, 第一行主面板). 当这个速度输入被移除时, bump 漂移到对应于其能量景观局部最小值的一组离散方向上 (图 2f, 第二行).\nIn the absence of velocity input, optimal networks generate a continuum of marginally stable configurations in which the bump can persist (Fig. 2g).\nThese configurations share one striking feature: the bump is always maintained by the same number of active neurons despite variations in relative amplitude, width, and orientation. This feature has important consequences for network dynamics: when a fixed subset of neurons is active, equation (1) for $h_{j} \u003e 0$ reduces to a linear dynamical system that depends only on an 'active submatrix' of the full connectivity $W$ [Fig. 2h, top row; note that we take the full connectivity to be $W = (W^{\\text{sym}}/N − I)/τ$].\n在没有速度输入的情况下, 最优化网络生成了一系列临界稳定的构型, 在这些构型中 bump 可以持续存在 (图 2g).\n这些构型有一个显著的特征: 尽管相对振幅、宽度和方向有所变化, 但 bump 始终由相同数量的活跃神经元维持. 这一特征对网络动力学有重要影响: 当固定子集的神经元处于活跃状态时, 方程 (1)对于 $h_{j} \u003e 0$ 简化为一个线性动力系统, 仅依赖于完整连接 $W$ 的\"活跃子矩阵\" [图 2h, 第一行; 请注意, 我们将全连接取为 $W = (W^{\\text{sym}}/N − I)/\\tau$].\nactive submatrix 的导出与性质 原本的 rate network 微分动力学为\n$$ \\tau \\dot{h}_{j} = -h_{j} + \\frac{1}{N}\\sum_{k}(W_{jk}^{\\text{sym}}+v_{\\text{in}}W_{jk}^{\\text{asym}})\\phi(h_{k}) + c_{\\text{ff}} $$\n现在研究无输入 $v_{\\text{in}} = 0$ 的条件, 两边同除以 $\\tau$ 并且忽略常数项, 从而整理为\n$$ \\dot{h}_{j} = -\\frac{1}{\\tau}h_{j} + \\frac{1}{N\\tau}\\sum_{k}W_{jk}^{\\text{sym}}\\phi(h_{k}) $$\n因为 $\\phi(h) = \\max{(0,h)}$, 因此只会有 $N_{\\text{act}}",
+  "wordCount" : "22358",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/03/08/9gmN/20260308084241714.png","datePublished": "2026-03-08T00:18:23+08:00",
+  "dateModified": "2026-03-08T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script><script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  CommonHTML: {
+  scale: 100
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+  
+  
+  
+  var all = MathJax.Hub.getAllJax(), i;
+  for(i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script>
+
+<style>
+  code.has-jax {
+      font: "LXGW WenKai Screen", sans-serif, Arial;
+      scale: 1;
+      background: "LXGW WenKai Screen", sans-serif, Arial;
+      border: "LXGW WenKai Screen", sans-serif, Arial;
+      color: #515151;
+  }
+</style>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/reference/">📕 文献</a></div>
+            <h1 class="post-title">
+                Maintaining and updating accurate internal representations of continuous variables with a handful of neurons
+            </h1>
+            <div class="post-description">
+                仅用少量神经元维持并更新连续变量的精确内部表征
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-03-08
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>22358字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>45分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Muatyz.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId: "Admin", 
+                                region: "ap-shanghai", 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/03/08/9gmN/20260308084241714.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#results" aria-label="Results">Results</a><ul>
+                        
+                <li>
+                    <a href="#small-networks-generate-a-continuum-of-stable-configurations" aria-label="Small networks generate a continuum of stable configurations">Small networks generate a continuum of stable configurations</a></li>
+                <li>
+                    <a href="#variations-in-tuning-degrade-network-performance" aria-label="Variations in tuning degrade network performance">Variations in tuning degrade network performance</a><ul>
+                        
+                <li>
+                    <a href="#drift-in-the-absence-of-input" aria-label="Drift in the absence of input">Drift in the absence of input</a></li>
+                <li>
+                    <a href="#inaccuracies-in-velocity-integration" aria-label="Inaccuracies in velocity integration">Inaccuracies in velocity integration</a></li></ul>
+                </li>
+                <li>
+                    <a href="#optimal-small-networks-are-less-robust" aria-label="Optimal small networks are less robust">Optimal small networks are less robust</a></li></ul>
+                </li>
+                <li>
+                    <a href="#discussion" aria-label="Discussion">Discussion</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>Many animals rely on persistent internal representations of continuous variables for working memory, navigation, and motor control. Existing theories typically assume that large networks of neurons are required to maintain such representations accurately; networks with few neurons are thought to generate discrete representations. However, analysis of two-photon calcium imaging data from tethered flies walking in darkness suggests that their small head-direction system can maintain a surprisingly continuous and accurate representation.</p>
+</blockquote>
+<p>许多动物依赖于连续变量的持久内部表征来进行工作记忆、导航和运动控制. 现有的理论通常假设需要大量的神经元网络来准确地维持这些表征; 而神经元数量较少的网络被认为会产生离散的表征. 然而, 对束缚在黑暗中行走的苍蝇的双光子钙成像数据的分析表明, 它们的小型头部方向系统能够维持令人惊讶的连续且准确的表征.</p>
+<blockquote>
+<p>We thus ask whether it is possible for a small network to generate a continuous, rather than discrete, representation of such a variable. We show analytically that even very small networks can be tuned to maintain continuous internal representations, but this comes at the cost of sensitivity to noise and variations in tuning. This work expands the computational repertoire of small networks, and raises the possibility that larger networks could represent more and higher-dimensional variables than previously thought.</p>
+</blockquote>
+<p>因此, 我们探讨一个小网络是否能够生成连续而非离散的变量表征. 我们通过分析表明, 即使是非常小的网络也可以被调整以维持连续的内部表征, 但这以对噪声和调谐变化的敏感性为代价. 这项工作扩展了小网络的计算能力, 并提出了更大的网络可能能够表示比以前认为更多的高维变量的可能性.</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>The brain is thought to rely on persistent internal representations of continuous variables for a wide range of computations, from working memory to navigation to motor control. Such internal representations have been described in terms of manifolds along which population activity evolves (Fig. 1a, top), and they have been studied theoretically within the framework of continuous attractor networks; see refs. 14–16 for recent reviews.</p>
+</blockquote>
+<p>大脑被认为依赖于连续变量的持久内部表征来进行广泛的计算, 从工作记忆到导航再到运动控制. 这些内部表征已经被描述为沿着集群活动演化的流形 (图1a, 顶部), 并且在连续吸引子网络的框架内进行了理论研究; 参见最近的文献 14-16.</p>
+<blockquote>
+<p>This framework for continuous attractor networks has historically relied on large numbers of neurons to ensure that these internal representations are approximately continuous and accurate, and this requirement becomes even more crucial in multiple dimensions and to represent multiple variables. Theories of navigation, for example, rely on large numbers of neurons to explain how continuous attractors could underlie the activity of head direction (HD), place, and grid cells in multiple dimensions, and how the hippocampus might build multiple continuous attractors corresponding to different environments that an animal has visited. Here, we ask whether such continuous representations can be maintained in much smaller networks.</p>
+</blockquote>
+<p>连续吸引子网络的这个框架历来依赖于大量的神经元, 以确保这些内部表征近似连续和准确, 并且在多维和表示多个变量时, 这个要求变得更加关键. 例如, 导航理论依赖于大量的神经元来解释连续吸引子如何支持多维中头部方向 (HD)、位置和网格细胞的活动, 以及海马体如何构建多个连续吸引子对应于动物访问过的不同环境. 在这里, 我们探讨这样的连续表征是否可以在更小的网络中维持.</p>
+<blockquote>
+<p>One prominent example of a continuous attractor network is the ring attractor network, which can maintain an internal representation of a periodic variable such as orientation, and has been proposed as a model of the HD system. Ring attractor networks derive their name from the one-dimensional ring manifold on which activity evolves. This manifold emerges in the limit that an infinitely large population of orientation-tuned neurons maintains sustained and localized activity through positive feedback; this can be achieved through recurrent connectivity by which neurons with similar tuning excite one another, and neurons with dissimilar tuning inhibit one another (Fig. 1a, bottom, and refs. 13,22,24,27, but also see ref. 28).</p>
+</blockquote>
+<p>连续吸引子网络的一个突出例子是环形吸引子网络, 它可以维持周期变量的内部表征, 例如方向, 并且已被提出作为 HD 系统的模型. 环形吸引子网络得名于活动演化的一维环形流形. 这种流形在无限大的定向调谐神经元群体通过正反馈维持持续和局部活动的极限中出现; 这可以通过递归连接实现, 其中具有相似调谐的神经元相互兴奋, 而具有不同调谐的神经元相互抑制 (图1a, 底部, 以及参考文献13、22、24、27, 但也参见参考文献28).</p>
+<blockquote>
+<p>The resulting population dynamics can generate a localized bump of activity that persists at the same orientation in the absence of input and traverses the ring manifold through the integration of self-motion inputs. As a result of their infinite size, ring attractor networks achieve infinite precision in maintaining and accurately updating the bump of activity.</p>
+</blockquote>
+<p>由此产生的集群动力学可以生成一个局部活动峰, 在没有输入的情况下持续在同一方向, 并通过自我运动输入的积分穿越环形流形. 因此, 由于其无限大小, 环形吸引子网络在维持和准确更新活动峰方面实现了无限精度.</p>
+<blockquote>
+<p>Large networks have been used to approximate this infinite precision; small networks, in contrast, exhibit notable failures that are indicative of finite, rather than infinite, precision. Consistent with these studies, we work under the a priori assumption that achieving infinite precision in representing periodic variables requires infinitely large networks (see the Supplementary Note for further discussion).</p>
+</blockquote>
+<p>大型网络已被用来近似这种无限精度; 相比之下, 小型网络表现出显著的失败, 这表明它们具有有限而非无限的精度. 与这些研究一致, 我们在先验假设下工作, 即实现周期变量表示的无限精度需要无限大的网络 (有关进一步讨论, 请参见 Supplementary Note).</p>
+<h1 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h1>
+<blockquote>
+<p><strong>Fig. 1 | A biological attractor network overcomes hypothesized limitations of discreteness.</strong></p>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/o0gY/20260308152502868.png" alt=""  /></p>
+<p>a. Top: ring-like manifold of neural activity. Bottom: a ring attractor network maintains an internal representation of orientation through local excitation (red) and broad inhibition (blue). Two side rings use angular velocity input to shift this representation (green). CW, clockwise; CCW, counterclockwise.</p>
+</blockquote>
+<p>a. 上: 神经活动的环形流形. 下: 环形吸引子网络通过局部兴奋 (红色)和广泛抑制 (蓝色)维持方向的内部表征. 两个侧环使用角速度输入来改变这个表征 (绿色). CW, 顺时针; CCW, 逆时针.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/sZ7m/20260308152542129.png" alt=""  /></p>
+<p>b. Schematic of the fly CX. 'Compass' neurons innervate the EB and maintain an internal representation of orientation. 'Shift' neurons innervate the protocerebral bridge (PB) and shift the representation through angular velocity input from the noduli (NO).</p>
+</blockquote>
+<p>b. 苍蝇 CX 的示意图. &quot;指南针&quot;神经元支配 EB 并维持方向的内部表征. &quot;移位&quot;神经元支配大脑桥 (PB)并通过来自结节 (NO)的角速度输入来改变表征.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/4Gui/20260308152754037.png" alt=""  /></p>
+<p>c, Electron microscopy reconstruction of compass neurons. d, Two-photon imaging setup for tethered walking flies. Box: 32 regions of interest (ROIs) are used to compute the population vector average (PVA) of the change in fluorescence ($\Delta F/F$).</p>
+<p>c, 指南针神经元的电子显微镜重建. d, 束缚行走苍蝇的双光子成像装置. 框: 32 个兴趣区域 (ROIs)用于计算荧光变化 ($\Delta F/F$)的集群向量平均值 (PVA).</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/yp3P/20260308153007708.png" alt=""  /></p>
+<p>e, Compass neurons maintain a localized bump of activity (heatmap) that tracks the fly’s orientation (red line).</p>
+</blockquote>
+<p>e, 指南针神经元维持一个局部活动峰 (热图), 该峰跟踪苍蝇的方向 (红线).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/c9aX/20260308153043264.png" alt=""  /></p>
+<p>f, In the absence of input, network dynamics evolve toward the minima of an energy landscape. Infinitely large networks generate flat landscapes (top); small networks generate bumpy landscapes (bottom; illustrated for $N = 6$ neurons).</p>
+</blockquote>
+<p>f, 在没有输入的情况下, 网络动力学朝向能量景观的最小值演化. 无限大的网络生成平坦的景观 (上); 小型网络生成崎岖的景观 (下; 以 $N = 6$ 个神经元为例).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/oz8E/20260308153152467.png" alt=""  /></p>
+<p>g, In continuous networks (dark blue), a flat landscape allows activity to persist at the same orientation in the absence of input (second column) and to integrate velocity input linearly (third and fourth columns). In discrete networks (light blue), local minima cause drift in the absence of input (second column), prevent continuous integration of small inputs (third column), and cause nonlinear integration of large inputs (fourth column).</p>
+</blockquote>
+<p>g, 在连续网络 (深蓝色)中, 平坦的景观允许活动在没有输入的情况下持续在同一方向 (第二列)并线性地积分速度输入 (第三和第四列). 在离散网络 (浅蓝色)中, 局部最小值导致在没有输入的情况下漂移 (第二列), 阻止小输入的连续积分 (第三列), 并导致大输入的非线性积分 (第四列).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/5uPh/20260308153245131.png" alt=""  /></p>
+<p>h, Bump orientations in the EB before and after stopping periods that exceeded 300 ms, schematized for discrete versus continuous networks (top) and shown for the same flies from e (middle and bottom).</p>
+</blockquote>
+<p>h, 在超过 300 ms 的停止期间之前和之后 EB 中的 bump 方向, 离散网络与连续网络的示意图 (顶部)以及来自 e 的相同苍蝇的显示 (中部和底部).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/xIp5/20260308153337922.png" alt=""  /></p>
+<p>i, Distribution of bump drifts (top histograms) accumulated across stopping periods (bottom scatterplots), shown for the same two flies (left and middle columns) and accumulated across flies (right column)</p>
+</blockquote>
+<p>i, 累积在停止期间的 bump 漂移分布 (顶部直方图)和散点图 (底部), 显示了相同两只苍蝇 (左和中列)以及累积在苍蝇之间 (右列).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/8zeZ/20260308153408450.png" alt=""  /></p>
+<p>j, Residual bump velocities during left versus right turns as a function of bump orientation in the EB, schematized for discrete versus continuous networks (top) and shown for individual flies (middle and bottom; dark blue lines show population averages). Bump velocities were normalized for gain differences before computing residuals (Methods).</p>
+</blockquote>
+<p>j, 左转与右转期间的残余 bump 速度作为 EB 中 bump 方向的函数, 离散网络与连续网络的示意图 (顶部)以及个体苍蝇的显示 (中部和底部; 深蓝色线显示了群体平均值). 在计算残差之前, bump 速度已针对增益差异进行了归一化 (方法).</p>
+</blockquote>
+<blockquote>
+<p>The computational properties that make ring attractor networks such appealing models of the HD system arise in the limit of large system sizes. Specifically, in the limit that the number of neurons approaches infinity (what we term a 'continuous' system), a ring attractor network generates a continuum of configurations that define the ring attractor manifold(Fig. 1f, top).</p>
+</blockquote>
+<p>使环形吸引子网络成为 HD 系统的一个有吸引力的模型的计算属性出现在大系统规模的极限中. 具体来说, 在神经元数量趋近于无限 (我们称之为&quot;连续&quot;系统)的极限中, 环形吸引子网络生成定义环形吸引子流形的一系列构型 (图 1f, 上).</p>
+<blockquote>
+<p>These configurations are <strong>marginally stable</strong>, such that perturbations along the manifold will be maintained, and perturbations off the manifold will be driven back to it. These properties allow us to express the manifold as a flat dimension in the energy landscape of the system; all points along this flat dimension have equal and minimum energy; thus, the system can stably sit at any of these points in the absence of input (Fig. 1g, second column, dark blue).</p>
+</blockquote>
+<p>这些构型是<strong>临界稳定</strong>的, 即沿着流形的扰动将被维持, 而离开流形的扰动将被驱回到流形上. 这些属性允许我们将流形表示为系统能量景观中的一个平坦维度; 这个平坦维度上的所有点具有相等且最小的能量; 因此, 在没有输入的情况下, 系统可以稳定地停留在这些点中的任何一个 (图 1g, 第二列, 深蓝色).</p>
+<blockquote>
+<p>Moreover, small changes in input can drive the system along this flat dimension without obstruction, such that the population activity accurately tracks these changes (Fig. 1g, third and fourth columns, dark blue). This flat energy dimension gives the system infinite precision in encoding and updating an internal representation of a one-dimensional circular variable such as HD.</p>
+</blockquote>
+<p>此外, 输入的小变化可以驱动系统沿着这个平坦维度前进而不受阻碍, 使得集群活动准确地跟踪这些变化 (图 1g, 第三和第四列, 深蓝色). 这个平坦能量维度赋予系统在编码和更新一维环变量 (如 HD)的内部表征方面的无限精度.</p>
+<blockquote>
+<p>However, when the system is small (what we term a 'discrete' system), these properties are thought to break down, thereby limiting how precisely the internal HD representation can be stored and updated. Instead of exhibiting a flat dimension, the energy landscape is assumed to exhibit a set of discrete basins (Fig. 1f, bottom) that attract the population activity in the absence of input (Fig. 1g, second column, light blue), prevent the integration of small inputs (Fig. 1g, third column, light blue), and prevent the accurate integration of large inputs (Fig. 1g, fourth column, light blue).</p>
+</blockquote>
+<p>然而, 当系统较小 (我们称之为&quot;离散&quot;系统)时, 这些属性被认为会崩溃, 从而限制了内部 HD 表征的存储和更新的精确度. 能量景观被假设为表现出一组离散的盆地 (图 1f, 底部), 在没有输入的情况下吸引集群活动 (图 1g, 第二列, 浅蓝色), 阻止小输入的积分 (图1g, 第三列, 浅蓝色), 并阻止大输入的准确积分 (图 1g, 第四列, 浅蓝色).</p>
+<blockquote>
+<p>For a small network such as the fly compass network, we would thus expect to observe three distinct signatures of discreteness:
+(1) drift in the absence of input, in which the HD bump drifts to stereotyped orientations around the EB when the fly stops turning;
+(2) failure to integrate small angular velocities, in which the HD bump does not move continuously when the fly makes slow turns;
+and (3) variable responses to larger angular velocities, in which the HD bump moves faster or slower relative to the fly’s movements, depending on its orientation within the EB.</p>
+</blockquote>
+<p>对于像果蝇指南针网络这样的小型网络, 我们因此预期观察到三个离散性的特征:</p>
+<p>(1)在没有输入的情况下漂移, 在苍蝇停止转动时 HD 峰漂移到 EB 周围的固定的典型方向;</p>
+<p>(2)无法积分小角速度, 在苍蝇进行慢转时 HD 峰不会连续移动; 以及</p>
+<p>(3)对较大角速度的可变响应, 在这种情况下, HD 峰相对于苍蝇的运动移动得更快或更慢, 具体取决于它在 EB 内的方向.</p>
+<blockquote>
+<p>To assess whether the fly circuit can overcome these expected limitations, we performed two-photon calcium imaging of compass neurons in the EB while head-fixed flies walked on an air-supported ball in darkness (Fig. 1d,e,h–j and Methods). While fly-to-fly variability in the accuracy of integration may be due, in part, to limitations of the fly-on-a-ball system (Methods), several flies showed a remarkable ability to track changes in their angular orientation in darkness.</p>
+</blockquote>
+<p>为了评估苍蝇回路是否能够克服这些预期的限制, 我们在头部固定的苍蝇在黑暗中在空气支持的球上行走时对 EB 中的指南针神经元进行了双光子钙成像 (图 1d、e、h-j 和 Methods). 虽然苍蝇之间在积分准确性方面的变异可能部分归因于苍蝇在球上的系统的限制 (方法), 但几只苍蝇显示出在黑暗中跟踪其角度变化的惊人能力.</p>
+<blockquote>
+<p>We first measured bump drift in the absence of input by comparing the bump orientation when the fly stopped moving to when the fly began walking again.</p>
+<ul>
+<li>The distributions of initial and final bump orientations were similar (Extended Data Fig. 1), and there were no apparent signatures that the bump drifted to a discrete number of stereotypical orientations (Fig. 1h). The distribution of drifts was strongly peaked at zero (Fig. 1i, top row), and included epochs in which the bump persisted at the same orientation for several seconds (Fig. 1i, bottom row).</li>
+<li>We then analyzed the average bump velocity at different orientations as a function of the fly’s average turning velocity. Again, across several flies, the bump velocity was consistent across orientations, with no apparent signatures of nonlinear integration nor apparent failures to track small velocities (Fig. 1j and Extended Data Fig. 2).</li>
+</ul>
+<p>Thus, despite the imperfections of measuring the accuracy of the HD representation in head-fixed flies on a ball, we found that the peak performance of the HD system belied its small size both in its low drift and in its accurate integration.</p>
+</blockquote>
+<p>我们首先测量了无输入情况下的活动峰漂移, 方法是比较果蝇停止运动时的活动峰方向与再次开始行走时的活动峰方向.</p>
+<ul>
+<li>
+<p>初始和最终 bump 方向的分布相似 (扩展数据图 1), 并且没有明显的迹象表明 bump 漂移到离散数量的典型方向 (图 1h). 漂移分布强烈地集中在零点 (图 1i, 第一行), 并且包括了 bump 持续在同一方向数秒钟的时期 (图 1i, 第二行).</p>
+</li>
+<li>
+<p>然后, 我们分析了不同方向上的平均 bump 速度作为苍蝇平均转向速度的函数. 同样, 在几只苍蝇中, bump 速度在各个方向上是一致的, 没有明显的非线性积分迹象, 也没有明显无法跟踪小速度的迹象 (图 1j 和扩展数据图 2).</p>
+</li>
+</ul>
+<p>因此, 尽管在测量头部固定在球上的苍蝇中 HD 表征准确性的缺陷, 我们发现 HD 系统的 bump 性能掩盖了其小尺寸, 无论是在其低漂移还是其准确积分方面.</p>
+<h2 id="small-networks-generate-a-continuum-of-stable-configurations">Small networks generate a continuum of stable configurations<a hidden class="anchor" aria-hidden="true" href="#small-networks-generate-a-continuum-of-stable-configurations">#</a></h2>
+<blockquote>
+<p>The previous results suggest that small networks can, in practice, integrate angular velocity without suffering the performance failures expected of discrete systems. To explore how this might be achieved in principle, we studied the performance of small attractor networks (Fig. 2a and Methods).</p>
+</blockquote>
+<p>之前的结果表明, 小型网络实际上可以积分角速度, 而并不会遭遇预期中离散系统导致的功能失效. 为了探讨这在原则上如何实现, 我们研究了小型吸引子网络的性能 (图 2a 和方法).</p>
+<hr>
+<blockquote>
+<p>We considered networks of $N$ orientation-tuned neurons whose preferred orientations $\theta_{j}$ uniformly tile orientation space, with an angular separation of $\Delta\theta = 2\pi/N$ radians (rad). These neurons can be arranged topologically in a ring according to their preferred orientations, with neurons locally exciting and broadly inhibiting their neighbors.</p>
+</blockquote>
+<p>我们考虑由 $N$ 个定向调谐神经元组成的网络, 这些神经元的首选方向 $\theta_{j}$ 均匀地覆盖了方向空间, 角分离为 $\Delta\theta = 2\pi/N$ 弧度 (rad). 这些神经元可以根据它们的首选方向在环形上进行拓扑排列, 近邻的神经元相互兴奋, 广泛抑制它们的次近邻.</p>
+<blockquote>
+<p>We capture this with a symmetric cosine weight matrix $W_{jk}^{\text{sym}} = J_{I} + J_{E}\cos{(\theta_{j} − \theta_{k})}$ , where $J_{E}$ and $J_{I}$ respectively control the strength of the tuned and untuned components of recurrent connectivity between neurons with preferred orientations $\theta_{j}$ and $\theta_{k}$. We will refer to these components as <strong>local excitation</strong> and <strong>broad inhibition</strong>, respectively (but note that the tuned component takes on both positive and negative values, and thus is not strictly excitatory; within the parameter regimes that we consider, the untuned component is strictly inhibitory).</p>
+</blockquote>
+<p>我们用一个对称的余弦权重矩阵 $W_{jk}^{\text{sym}} = J_{I} + J_{E}\cos{(\theta_{j} − \theta_{k})}$ 来捕捉这一点, 其中 $J_{E}$ 和 $J_{I}$ 分别控制具有首选方向 $\theta_{j}$ 和 $\theta_{k}$ 的神经元之间递归连接的调谐和非调谐成分的强度. 我们将这些成分称为 <strong>局部兴奋</strong> 和 <strong>广泛抑制</strong> (但请注意, 调谐成分有正有负, 因此不严格是兴奋性的; 在我们考虑的参数范围内, 非调谐成分是严格抑制性的).</p>
+<blockquote>
+<p>The network receives angular velocity input $v_{\text{in}}$ through <strong>asymmetric</strong>, velocity-modulated weights $W_{jk}^{\text{asym}} = \sin{(\theta_{j} − \theta_{k})}$ (see also ref. 24); this input could be implemented through two linear side rings whose time constants are much smaller than that of neurons in the center ring (Supplementary Note). Each neuron transforms its inputs through a nonlinear transfer function $\phi(\cdot)$.</p>
+</blockquote>
+<p>网络通过<strong>非对称</strong>、速度调制的权重 $W_{jk}^{\text{asym}} = \sin{(\theta_{j} − \theta_{k})}$ 接收角速度输入 $v_{\text{in}}$ (另见参考文献24); 这个输入可以通过两个线性侧环实现, 其时间常数远小于中心环中神经元的时间常数 (补充说明). 每个神经元通过非线性传递函数 $\phi(\cdot)$ 转换其输入.</p>
+<p>*<em>这里的 asymmetric 疑似应该用 antisymmetric</em></p>
+<blockquote>
+<p>The total input activity $h_{j}$ of each neuron is then governed by</p>
+<p>$$
+\tau \dot{h}_{j} = -h_{j} + \frac{1}{N}\sum_{k}(W_{jk}^{\text{sym}} + v_{\text{in}}W_{jk}^{\text{asym}})\phi(h_{k}) + c_{\text{ff}},\quad j = 1,\cdots, N
+$$</p>
+<p>where $c_{\text{ff}}$ is a constant feedforward input to all neurons in the network.</p>
+</blockquote>
+<p>然后, 每个神经元的总输入活动 $h_{j}$ 由以下方程控制:</p>
+<p>$$
+\tau \dot{h}_{j} = -h_{j} + \frac{1}{N}\sum_{k}(W_{jk}^{\text{sym}} + v_{\text{in}}W_{jk}^{\text{asym}})\phi(h_{k}) + c_{\text{ff}},\quad j = 1,\cdots, N
+$$</p>
+<p>其中 $c_{\text{ff}}$ 是网络中所有神经元的常数前馈输入.</p>
+<p>*<em>Wilson-Cowan rate network function. $\frac{1}{N}$ 是一种归一化处理, 避免网络规模改变输入强度, 神经元越多输入越大显然是荒谬的. $c_{\text{ff}}$ 类似于背景场, 是一个恒定的外部驱动, 维持网络在活跃状态.</em></p>
+<blockquote>
+<blockquote>
+<p><strong>Fig. 2 | Optimally tuned local excitation can recover a ring attractor manifold.</strong>
+<img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/6gAg/20260308203606203.png" alt=""  /></p>
+<p>a. Schematic of the network model and connectivity $W_{jk}$. Top: a population of neurons is recurrently connected through local excitation ($J_{E}$) and broad inhibition ($J_{I}$). Two side rings receive input from and project back to the center ring with shifted, velocity-dependent connections. Bottom: a <strong>threshold-linear response function</strong> ensures that a subset of $N_{\text{act}}$ neurons is active at any time; their dynamics are governed by an 'active submatrix' of the full connectivity.</p>
+</blockquote>
+<p>a. 网络模型和连接 $W_{jk}$ 的示意图. 上: 一群神经元通过局部兴奋 ($J_{E}$)和广泛抑制 ($J_{I}$)递归连接. 两个侧环接收来自中心环的输入, 并通过移位、速度依赖的连接投射回中心环. 下: 一个阈值线性响应函数确保在任何时候都有 $N_{\text{act}}$ 个神经元处于活跃状态; 它们的动力学由全连接的&quot;活跃子矩阵&quot;控制.</p>
+<p>*<em>即ReLU 函数 $\phi(h) = \max{(0,h)}$, 在 Wilson 微分方程中实际上扮演的是 firing rate 函数的角色</em></p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/9Pnv/20260308205659179.png" alt=""  /></p>
+<p>b, Top: $J_{E}$ and $J_{I}$ can be selected to maintain a persistent bump of population activity. Bottom: characterization of the bump configuration (Methods).</p>
+</blockquote>
+<p>b. 上: $J_{E}$ 和 $J_{I}$ 可以被选择来维持集群活动的持续 bump . 下: bump 构型的表征 (Methods).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/W3cp/20260308205730136.png" alt=""  /></p>
+<p>c, Top: energy of different bump configurations for naive choices of $J_{E}$ and $J_{I}$. The resulting landscape is bumpy, with local minima (white points) separated by barriers. Bottom: we sought parameters that 'flatten' the energy landscape by minimizing local curvature.</p>
+</blockquote>
+<p>c. 上: 对于 $J_{E}$ 和 $J_{I}$ 的朴素选择, 不同 bump 构型的能量. 结果景观崎岖, 具有由障碍分隔的局部最小值 (白点). 下: 我们寻求通过最小化局部曲率来&quot;平坦化&quot;能量景观的参数.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/Otp8/20260308210238854.png" alt=""  /></p>
+<p>d, For a network of size $N$, there are $N − 3$ optimal values of $J_{E}$ that flatten the energy. Shaded bar: optimal values of excitation for a network size of $N = 6$ (see e–h).</p>
+</blockquote>
+<p>d. 对于大小为 $N$ 的网络, 有 $N − 3$ 个最优化的 $J_{E}$ 值可以平坦化能量. 阴影条: 网络大小为 $N = 6$ 的最优化兴奋值 (见 e-h).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/08/a5Ag/20260308210538368.png" alt=""  /></p>
+<p>e–h, We evaluate the performance (rows) of networks of size $N = 6$ with different values of $J_{E}$ (columns; $J_{E}^{*} = [12, 4, 2.4]$ (optimal); $J_{E} = [6, 3]$ (nonoptimal)).</p>
+</blockquote>
+<p>e-h, 我们评估了不同 $J_{E}$ 值的大小为 $N = 6$ 的网络的性能 (行) (列; $J_{E}^{*} = [12, 4, 2.4]$ (最优化); $J_{E} = [6, 3]$ (非最优化)).</p>
+<blockquote>
+<p>e, Same as c, for different values of $J_{E}$. Optimal energy landscapes are flat (white line); nonoptimal landscapes have local minima (filled markers) separated by barriers (open markers).</p>
+</blockquote>
+<p>e, 与 c 相同, 不同 $J_{E}$ 值的能量景观. 最优化能量景观是平坦的 (白线); 非最优化景观具有由障碍分隔的局部最小值 (实心标记)和障碍 (空心标记).</p>
+<blockquote>
+<p>f, Bump trajectories in response to a constant input (top row) and in the absence of input (bottom row). Insets show zoomed-in portions of trajectories, which highlight the failure to integrate small inputs.</p>
+</blockquote>
+<p>f, 对恒定输入 (第一行)和无输入 (第二行)的 bump 轨迹. 插图显示了轨迹的放大部分, 突出显示了无法积分小输入的情况.</p>
+<blockquote>
+<p>g, Same as b, shown for bump configurations at the endpoints in f.</p>
+</blockquote>
+<p>g, 与 b 相同, 显示 f 中端点处的 bump 构型.</p>
+<blockquote>
+<p>h, Top row: same as heatmaps in a, shown for active submatrices corresponding to the bump configurations in g. Filled markers denote active neurons. Middle row: the leading eigenvalue of each submatrix governs the dynamics of active neurons. Bottom row: in optimal networks, the bump is always maintained by the same number of active neurons (gray); in nonoptimal networks, the bump is maintained by different numbers of active neurons depending on whether the bump configuration is stable (turquoise) or unstable (orange).</p>
+</blockquote>
+<p>h, 第一行: 与 a 中的热图相同, 显示对应于 g 中 bump 构型的活跃子矩阵. 实心标记表示活跃神经元. 第二行: 每个子矩阵的主导特征值控制活跃神经元的动力学. 第三行: 在最优化网络中, bump 始终由相同数量的活跃神经元维持 (灰色); 在非最优化网络中, bump 由不同数量的活跃神经元维持, 具体取决于 bump 构型是稳定的 (绿松石色)还是不稳定的 (橙色).</p>
+</blockquote>
+<blockquote>
+<p>In what follows, we take $\phi(\cdot)$ to be <strong>threshold linear</strong>; this ensures that only a subset of all neurons will be active at any time. As a result, the dynamics of active neurons will be governed by an 'active submatrix' of the full connectivity (Fig. 2a, bottom). We derive our theoretical results for networks of arbitrary size $N&lt;\infty$; unless otherwise noted, we illustrate these results using a network of size $N = 6$ because this is the smallest network that exhibits the range of dynamics observed across parameter tunings.</p>
+</blockquote>
+<p>在接下来的内容中, 我们将 $\phi(\cdot)$ 取为<strong>阈值线性</strong>; 这确保了在任何时候只有一部分神经元会被激活. 因此, 活跃神经元的动力学将由完整连接的&quot;活跃子矩阵&quot;控制 (图 2a, 下). 我们为任意 $N&lt;\infty$ 的网络推导了理论结果; 除非另有说明, 我们使用大小为 $N = 6$ 的网络来说明这些结果, 因为这是展示不同参数调整下观察到的动力学范围的最小网络.</p>
+<p><em>因为使用了 $\phi(\cdot)=\max{(0,\cdot)}$, 所以会有一部分 inactive neurons其激发值为 $0$, 可以等效认为只有 active neurons参与了动力学方程, 这也是从完整权重矩阵提取出 submatrix 的依据</em></p>
+<blockquote>
+<p>For sufficiently strong local excitation and broad inhibition, this network generates a stable bump of activity [Fig. 2b (top), Extended Data Fig. 3a and Methods]. We characterize the bump by the <strong>Fourier modes</strong> of the population activity [given by equation (1)]. For the network connectivity chosen here, which varies sinusoidally with the difference between preferred orientations, the population activity is fully specified by the zeroeth- and first-order Fourier modes. This allows us to characterize the 'configuration' of the activity bump in terms of its relative amplitude $a$, angular width $w$, and angular orientation $\psi$ (Fig. 2b (bottom) and Supplementary Note). These quantities vary continuously over time, and thus, the same number of active neurons can maintain bump configurations with different relative amplitudes, widths, and orientations.</p>
+</blockquote>
+<p>对于足够强的局部兴奋和广泛抑制, 这个网络会生成一个稳定的活动峰 [图 2b (上), 扩展数据图 3a 和方法]. 我们通过集群活动的<strong>傅里叶模式</strong>来表征这个峰 [由方程 (1)给出]. 对于这里选择的网络连接, 它随着首选方向之间的差异呈正弦变化, 集群活动完全由零阶和一阶傅里叶模式指定. 这使我们能够根据相对振幅 $a$、角宽度 $w$ 和角方向 $\psi$ 来表征活动峰的 &quot;构型&quot; (图2b (底部)和补充说明). 这些量随时间连续变化, 因此, 相同数量的活跃神经元可以维持具有不同相对振幅、宽度和方向的峰构型.</p>
+<div class="details admonition note">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-pencil-alt fa-fw"></i>傅里叶模式<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>将 firing rate 视为连续函数 $r(\theta)$, 任何周期性函数都可以写作 Fourier 级数形式</p>
+<p>$$
+r(\theta) = A_{0} + \sum_{n=1}^{\infty}[A_{n}\cos{(n\theta)} + B_{n}\sin{(n\theta)}]
+$$</p>
+<p>既然已经约定连接形式 $W(\theta-\theta^{\prime}) = J_{I} + J_{E}\cos{(\theta-\theta^{\prime})}$, 那么神经元的输入为</p>
+<p>$$
+\begin{aligned}
+h(\theta) &amp;= \int W(\theta-\theta^{\prime})r(\theta^{\prime})\mathrm{d}\theta^{\prime} = \int[J_{I} + J_{E}\cos{(\theta-\theta^{\prime})}]r(\theta^{\prime})\mathrm{d}\theta^{\prime}\\
+&amp;= J_{I}\int r(\theta^{\prime})\mathrm{d}\theta^{\prime} + J_{E}\int\cos{(\theta-\theta^{\prime})}r(\theta^{\prime})\mathrm{d}\theta^{\prime}\\
+&amp;= J_{I}\int r(\theta^{\prime})\mathrm{d}\theta^{\prime} + J_{E}\int [\cos{\theta}\cos{\theta^{\prime}}+\sin{\theta}\sin{\theta^{\prime}}]r(\theta^{\prime})\mathrm{d}\theta^{\prime}\\
+&amp;= C_{0} + C_{1}\cos{\theta} + C_{2}\sin{\theta}
+\end{aligned}
+$$</p>
+<p>因为傅里叶基的正交性, 非同次内积均为 0.</p>
+</div>
+
+ </div>
+
+ </div>
+<blockquote>
+<p>We began by characterizing the manifold of stable bump configurations in the absence of angular velocity input (Extended Data Fig. 3b–i and Methods).</p>
+<p>To this end, we constructed a landscape that describes the energy of different bump configurations for a given set of parameters $J_{E}$ and $J_{I}$ (refs. 40,41 and Methods). For most parameter settings, the energy landscape is bumpy, with discrete minima separated by barriers (Fig. 2c, top), as expected for small networks.</p>
+<p>The landscape is highly curved about these minima, indicating that the bump would be highly attracted to these particular orientations.</p>
+</blockquote>
+<p>我们首先在没有角速度输入的情况下表征稳定峰构型的流形 (扩展数据图 3b-i 和 Methods).</p>
+<p>为此, 我们构建了一个描述给定参数 $J_{E}$ 和 $J_{I}$ 的不同峰构型的能量景观 (参考文献40、41 和 Methods). 对于大多数参数设置, 能量景观是崎岖的, 具有由障碍分隔的离散最小值 (图 2c, 上), 这对于小型网络来说是意料之中的.</p>
+<p>景观在这些最小值点附近剧烈弯曲, 表明 bump 容易被吸引到这些特定方向.</p>
+<blockquote>
+<p>To weaken this attraction, we analytically determined the values of $J_{E}$ and $J_{I}$ that would locally minimize this curvature, and thus locally flatten the energy landscape (Fig. 2c, bottom).</p>
+<p>Surprisingly, we found that specific values of local excitation drive the curvature to zero, resulting in an energy landscape that is completely flat as a function of orientation (Extended Data Fig. 4). For a network of size $N$, there are $N − 3$ such 'optimal' values of local excitation $J_{E}^{*}$ (Fig. 2d).</p>
+<p>Figure 2e illustrates the corresponding optimal energy landscapes for a network of size $N = 6$, and contrasts these with two nonoptimal landscapes generated with intermediate values of local excitation.</p>
+</blockquote>
+<p>为了削弱这种吸引力, 我们分析确定了 $J_{E}$ 和 $J_{I}$ 的值, 这些值将局部最小化这种曲率, 从而局部平坦化能量景观 (图 2c, 下).</p>
+<p>令人惊讶的是, 我们发现特定值的局部兴奋 ($J_{E}$) 可将曲率化为零, 导致能量景观成为完全平坦的朝向函数 (扩展数据图4). 对于大小为 $N$ 的网络, 有 $N − 3$ 个这样的 &quot;最优化&quot; 局部兴奋值 $J_{E}^{*}$ (图 2d).</p>
+<p>图 2e 说明了大小为 $N = 6$ 的网络对应的最优化能量景观, 并与两个使用中间局部兴奋值生成的非最优化景观进行对比.</p>
+<blockquote>
+<p>To verify that these <strong>optimally tuned</strong> networks could overcome the failure modes highlighted in Fig. 1g, we simulated the response of each network to a constant velocity input (Fig. 2f and Methods).</p>
+<p>As expected, we found that optimal networks accurately integrated angular velocity input, such that the bump orientation changed linearly over time (Fig. 2f, top row). When this velocity input was removed (Fig. 2f, bottom row), the bump persisted at the same orientation and did not drift (we also observed this in networks with different nonlinearities and connectivity profiles in one and two dimensions; Extended Data Fig. 5 and Methods).</p>
+</blockquote>
+<p>为了验证这些<strong>最优化调制</strong>的网络能够克服图 1g 中突出显示的失败模式, 我们模拟了每个网络对恒定速度输入的响应 (图 2f 和方法).</p>
+<p>正如预期的那样, 我们发现最优化网络准确地积分了角速度输入, 使得 bump 方向随时间线性变化 (图 2f, 第一行). 当这个速度输入被移除时 (图2f, 第二行), bump 持续在同一方向, 并且没有漂移 (我们还在具有不同非线性和连接构型的一维和二维网络中观察到了这一点; 扩展数据图 5 和方法).</p>
+<blockquote>
+<p>In contrast, nonoptimal networks failed to integrate small velocities (Fig. 2f, top row insets), and they nonlinearly integrated larger velocities (Fig. 2f, top row main panels). When this velocity input was removed, the bump drifted toward the set of discrete orientations corresponding to the local minima of their energy landscapes (Fig. 2f, bottom row).</p>
+</blockquote>
+<p>相比之下, 非最优化网络无法积分小速度 (图 2f, 第一行插图), 并且它们非线性地积分了更大的速度 (图 2f, 第一行主面板). 当这个速度输入被移除时, bump 漂移到对应于其能量景观局部最小值的一组离散方向上 (图 2f, 第二行).</p>
+<blockquote>
+<p>In the absence of velocity input, optimal networks generate a continuum of marginally stable configurations in which the bump can persist (Fig. 2g).</p>
+<p>These configurations share one striking feature: the bump is always maintained by <em>the same number</em> of active neurons despite variations in relative amplitude, width, and orientation. This feature has important consequences for network dynamics: when a fixed subset of neurons is active, equation (1) for $h_{j} &gt; 0$ reduces to a linear dynamical system that depends only on an 'active submatrix' of the full connectivity $W$ [Fig. 2h, top row; note that we take the full connectivity to be $W = (W^{\text{sym}}/N − I)/τ$].</p>
+</blockquote>
+<p>在没有速度输入的情况下, 最优化网络生成了一系列临界稳定的构型, 在这些构型中 bump 可以持续存在 (图 2g).</p>
+<p>这些构型有一个显著的特征: 尽管相对振幅、宽度和方向有所变化, 但 bump 始终由<em>相同数量</em>的活跃神经元维持. 这一特征对网络动力学有重要影响: 当固定子集的神经元处于活跃状态时, 方程 (1)对于 $h_{j} &gt; 0$ 简化为一个线性动力系统, 仅依赖于完整连接 $W$ 的&quot;活跃子矩阵&quot; [图 2h, 第一行; 请注意, 我们将全连接取为 $W = (W^{\text{sym}}/N − I)/\tau$].</p>
+<div class="details admonition note">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-pencil-alt fa-fw"></i>active submatrix 的导出与性质<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>原本的 rate network 微分动力学为</p>
+<p>$$
+\tau \dot{h}_{j} = -h_{j} + \frac{1}{N}\sum_{k}(W_{jk}^{\text{sym}}+v_{\text{in}}W_{jk}^{\text{asym}})\phi(h_{k}) + c_{\text{ff}}
+$$</p>
+<p>现在研究无输入 $v_{\text{in}} = 0$ 的条件, 两边同除以 $\tau$ 并且忽略常数项, 从而整理为</p>
+<p>$$
+\dot{h}_{j} = -\frac{1}{\tau}h_{j} + \frac{1}{N\tau}\sum_{k}W_{jk}^{\text{sym}}\phi(h_{k})
+$$</p>
+<p>因为 $\phi(h) = \max{(0,h)}$, 因此只会有 $N_{\text{act}}&lt;N$ 个神经元处于活跃状态. 对于这些神经元, $\phi(h_{k}) = h_{k}$, 因此</p>
+<p>$$
+\dot{\vec{h}} = \frac{1}{\tau}(-\mathbb{I}+\frac{1}{N} \mathbb{W}^{\text{sym}})\vec{h} =  \mathbb{W}\vec{h}
+$$</p>
+<p>这就是active submatrix 的导出. 因为 $W_{jk}^{\text{sym}} = J_{I} + J_{E}\cos{(\theta_{i}-\theta_{j})}$, $\theta_{j} = 2\pi j/N$, 所以 $W_{jk}^{\text{sym}}$ 具有旋转不变性.</p>
+<blockquote>
+<p>不妨设 active neurons 为 $\{1,2,3\}$, 那么同为阈值之上的 $\{2,3,4\}$ 和 $\{3,4,5\}$ 也会是 active neurons, 且 active submatrix 结构完全一致.</p>
+<p>submatrix 自身的大小($N_{\text{act}}\times N_{\text{act}}$)则是需要根据微分方程而定.</p>
+</blockquote>
+</div>
+
+ </div>
+
+ </div>
+<blockquote>
+<p>Moreover, because the connectivity is rotationally invariant, this active submatrix—and thus the resulting network dynamics—will be identical for any contiguous subset of $N_{\text{act}}$ active neurons. To characterize these dynamics, we determined the eigenvalue spectra of these active submatrices (Methods). Each submatrix exhibited a single zero eigenvalue (Fig. 2h, middle row); the real part of all remaining eigenvalues was less than zero.</p>
+</blockquote>
+<p>此外, 由于连接是旋转不变的, 这个活跃子矩阵——因此产生的网络动力学——对于任何连续的 $N_{\text{act}}$ 活跃神经元子集都是相同的. 为了表征这些动力学, 我们确定了这些活跃子矩阵的特征值谱 (方法). 每个子矩阵都表现出一个零特征值 (图2h, 中间行); 所有剩余特征值的实部都小于零.</p>
+<blockquote>
+<p>This property gives rise to a so-called <strong>line attractor</strong> that produces a continuum of marginally stable configurations along a line. Thus, in this network, a ring attractor emerges as a discrete set of $N$ line attractors that each governs the dynamics of distinct subsets of active neurons (Fig. 2h, bottom row), and that are 'stitched together' at the points where an active subset gains and loses an active neuron.</p>
+</blockquote>
+<p>这一属性产生了所谓的<strong>线吸引子</strong>, 在一条线上产生了一系列临界稳定的构型. 因此, 在这个网络中, 环形吸引子作为一组离散的 $N$ 个线吸引子出现, 每个线吸引子控制着不同活跃神经元子集的动力学 (图2h, 底部行), 并且在一个活跃子集获得和失去一个活跃神经元的点上 &quot;缝合&quot; 在一起.</p>
+<p><em>这里的缝合是指的 $[1,2,3]\leftrightarrow[2,3,4]\leftrightarrow[3,4,5]$, 从而确保线吸引子首尾相连</em></p>
+<div class="details admonition note">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-pencil-alt fa-fw"></i>动力学方程的特征值和时间演化<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>对于一个动力学系统 $\dot{\vec{x}}=F(\vec{x})$, 若有 $F(\vec{x^{*}}) = 0$, 则 $\vec{x^{*}}$ 被称作不动点. 在 $\vec{x^{*}}$ 附近对 $F$ 进行线性化, 即</p>
+<p>$$
+\dot{\delta\vec{x}} = J\delta\vec{x}, \quad J = \frac{\partial F}{\partial \vec{x}}\bigg|_{\vec{x^{*}}}
+$$</p>
+<p>$J$ 即 Jacobian 矩阵. 其形式和前文中的 $\dot{h} = Wh$ 中的 $W$ 一致. 设 $J$ 的本征方程 $J\vec{v}_{i}=\lambda_{i}\vec{v}_{i}$, 那么该扰动解形式为</p>
+<p>$$
+\delta \vec{x}(t) = \sum_{i}c_{i}e^{\lambda_{i}t}\vec{v}_{i}
+$$</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">特征值</th>
+          <th style="text-align: center">时间演化</th>
+          <th style="text-align: center">动力学意义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">$\lambda &lt; 0$</td>
+          <td style="text-align: center">$e^{\lambda t} \to 0$</td>
+          <td style="text-align: center">扰动衰减</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\lambda = 0$</td>
+          <td style="text-align: center">$e^{\lambda t} = 1$</td>
+          <td style="text-align: center">扰动保持</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\lambda &gt; 0$</td>
+          <td style="text-align: center">$e^{\lambda t} \to \infty$</td>
+          <td style="text-align: center">扰动发散</td>
+      </tr>
+  </tbody>
+</table>
+<p>回忆吸引子流形的定义: 沿着流形的扰动保持不变, 正交于流形的扰动衰减. 因此 $\lambda=0$ 的特征值个数决定吸引子流形的维数, 而剩余的特征值必须 $\lambda&lt;0$.</p>
+</div>
+
+ </div>
+
+ </div>
+<blockquote>
+<p>In contrast, nonoptimal networks can only maintain a discrete set of bump configurations in the absence of input; these configurations correspond to so-called fixed points of the dynamics. One subset of these configurations is stable; the bump will return to these stable fixed points following small perturbations (Fig. 2g, turquoise curves). The other subset is unstable; the bump will move away from these unstable fixed points if perturbed (Fig. 2g, orange curves).</p>
+</blockquote>
+<p>相比之下, 非最优化网络只能在没有输入的情况下维持一组离散的 bump 构型; 这些构型对应于所谓的动力学不动点. 这些构型的一部分是稳定的; bump 将在小扰动后返回这些稳定的不动点 (图2g, 绿松石曲线). 另一部分是不稳定的; 如果被扰动, bump 将远离这些不稳定的不动点 (图2g, 橙色曲线).</p>
+<blockquote>
+<p>In these two configurations—stable and unstable—the bump is maintained by different numbers of active neurons (also called the 'support' of the fixed point), and the corresponding active submatrices differ in size (Fig. 2h, top row).</p>
+<p>The smaller of these submatrices has a leading eigenvalue less than zero and governs network dynamics about the stable fixed point, whereas the larger of these submatrices has a leading eigenvalue greater than zero and governs dynamics about the unstable fixed point (Fig. 2h, middle row).</p>
+<p>In what follows, we use these active submatrices to dissect the dynamics of nonoptimal networks, and we show how the balance between stable and unstable dynamics shapes performance.</p>
+</blockquote>
+<p>在这两种构型(稳定与不稳定)中, bump 由不同数量的活跃神经元维持 (也称为不动点的&quot;支持&quot;), 相应的活跃子矩阵大小也不同 (图2h, 第一行).</p>
+<p>这些子矩阵中较小的一个具有一个小于零的主特征值, 并且控制着稳定不动点周围的网络动力学, 而较大的一个具有一个大于零的主特征值, 并且控制着不稳定不动点周围的动力学 (图2h, 中间行).</p>
+<p>在接下来的内容中, 我们使用这些活跃子矩阵来分析非最优化网络的动力学, 并展示稳定和不稳定动力学之间的平衡如何塑造性能.</p>
+<h2 id="variations-in-tuning-degrade-network-performance">Variations in tuning degrade network performance<a hidden class="anchor" aria-hidden="true" href="#variations-in-tuning-degrade-network-performance">#</a></h2>
+<blockquote>
+<p>The previous results highlight a unique feature of threshold-linear networks: when a fixed subset of neurons is active, the corresponding dynamical system is linear, and the dynamics of the full network can be viewed as a set of linear subsystems that are stitched together at points where the active subset gains or loses an active neuron.</p>
+<p>In this way, a ring attractor that encodes a continuum of values on a circle can be constructed by stitching together multiple line attractors that each encode a continuum of values on a line segment.</p>
+</blockquote>
+<p>之前的结果突出了阈值线性网络的一个独特特征: 当固定子集的神经元处于活跃状态时, 相应的动力系统是线性的, 并且整个网络的动力学可以被视为一组线性子系统, 这些子系统在活跃子集获得或失去一个活跃神经元的点上缝合在一起.</p>
+<p>通过这种方式, 可以通过缝合多个线吸引子来构建一个环形吸引子, 每个线吸引子编码一个线段上的连续值, 从而构建一个编码圆上连续值的环形吸引子.</p>
+<blockquote>
+<p>Because a line attractor can be constructed from a network with as few as two neurons, a minimal ring attractor could, in principle, be constructed using only three neurons. However, our choice of connectivity requires a minimum of four neurons to construct a ring attractor, in which each contiguous pair of neurons encodes a distinct line attractor (Fig. 3a).</p>
+<p>This requires a precise handoff between linear systems that share active neurons, such that the network dynamics move between line attractors by simultaneously activating and inactivating single neurons at the edges of the active subset.</p>
+</blockquote>
+<p>因为一个线吸引子可以由一个只有两个神经元的网络构建, 所以一个最小的环形吸引子原则上可以仅使用三个神经元构建. 然而, 我们选择的连接需要至少四个神经元来构建一个环形吸引子, 其中每对连续的神经元编码一个不同的线吸引子 (图 3a).</p>
+<p>这需要在线性系统之间进行精确交接, 这些系统共享活跃神经元, 使得网络动力学通过同时激活和使单个神经元在活跃子集的边缘失活来在线吸引子之间移动.</p>
+<blockquote>
+<blockquote>
+<p><strong>Fig. 3 | Nonoptimal networks balance periods of stability and instability.</strong>
+<img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/r8iQ/20260309112422831.png" alt=""  /></p>
+<p>a, A linear subsystem of active neurons can be tuned to encode a continuum of orientations over a fixed interval (heatmap; left). Multiple line attractors can be stitched together at orientations where the active subset simultaneously gains and loses an active neuron (middle), thereby generating a ring attractor (right).</p>
+</blockquote>
+<p>a, 活跃神经元的线性子系统可以被调整来编码固定区间内的连续方向 (热图; 左). 多个线吸引子可以在活跃子集同时获得和失去一个活跃神经元的方向处缝合在一起 (中), 从而生成一个环形吸引子 (右).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/Asr4/20260309122207197.png" alt=""  /></p>
+<p>b, Without precise tuning, each linear subsystem (shaded region; left) encodes a single unstable or stable fixed point (‘FP’; markers). When stitched together (middle), the set of linear subsystems can stably encode only a finite number of orientations (‘point attractors’; right).</p>
+</blockquote>
+<p>b, 没有精确调整时, 每个线性子系统 (阴影区域; 左) 编码一个不稳定或稳定的不动点 (&quot;FP&quot;; 标记). 当缝合在一起时 (中), 线性子系统的集合只能稳定地编码有限数量的方向 (&quot;点吸引子&quot;; 右).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/U8fa/20260309122308181.png" alt=""  /></p>
+<p>c, Top: the dynamics of each linear subsystem are governed by the leading eigenvalue $\lambda$ of the <strong>active submatrix</strong> of the connectivity (Fig. 2h). Bottom: in the unstable regime (orange), the bump accelerates away from an unstable fixed point at rate $\lambda_{u} &gt; 0$; in the stable regime (turquoise), the bump decelerates toward a stable fixed point at rate $\lambda_{s} &lt; 0$.</p>
+</blockquote>
+<p>c, 上: 每个线性子系统的动力学由连接的 <strong>活跃子矩阵</strong> 的主特征值 $\lambda$ 控制 (图 2h). 下: 在不稳定状态 (橙色), bump 以速率 $\lambda_{u} &gt; 0$ 加速远离不稳定不动点; 在稳定状态 (绿松石色), bump 以速率 $\lambda_{s} &lt; 0$ 减速向稳定不动点靠近.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/U2ib/20260309124107316.png" alt=""  /></p>
+<p>d, Bump dynamics depend on the fixed-point orientations (square markers), drift rates $\lambda$ (color map), and angular span of each regime (colored areas). Illustrated without velocity input.</p>
+</blockquote>
+<p>d, bump 动力学取决于不动点方向 (方形标记)、漂移速率 $\lambda$ (颜色图) 和每个状态的角度区间 (彩色区域). 没有速度输入时说明.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>e–h, Bump dynamics without velocity input.</p>
+</blockquote>
+<p>e–h, 没有速度输入时的 bump 动力学.</p>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/bhU2/20260309143714389.png" alt=""  /></p>
+<p>e, Simplified energy landscape.</p>
+</blockquote>
+<p>e, 简化的能量景观.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/o6Dy/20260309143912328.png" alt=""  /></p>
+<p>f, Same as e for different $J_{E}$. As $J_{E}$ approaches an optimal value, one region of the landscape flattens and fills the entire ring; the other sharpens and shrinks in span.</p>
+</blockquote>
+<p>f, 不同 $J_{E}$ 的 e. 随着 $J_{E}$ 接近最优化值, 景观的一个区域变平并填满整个环; 另一个区域变尖锐并缩小跨度.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/noC8/20260309144151305.png" alt=""  /></p>
+<p>g, Bump dynamics for energy landscapes in f.</p>
+</blockquote>
+<p>g, f 中能量景观的 bump 动力学.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/o9Zm/20260309144410361.png" alt=""  /></p>
+<p>h, Net drift speed, computed analytically (line) and by simulation (markers).</p>
+</blockquote>
+<p>h, 净漂移速度, 分析计算 (线) 和模拟计算 (标记).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>i–l, Bump dynamics with velocity input.</p>
+</blockquote>
+<p>i–l, 有速度输入时的 bump 动力学.</p>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/ft2W/20260309144527910.png" alt=""  /></p>
+<p>i, Small velocities shift the fixed points toward the boundary between stable and unstable regimes, tipping the energy landscape in the direction of the input. At a threshold velocity (equation (5)), the fixed points meet at the boundary, and the bump slides continuously down the landscape.</p>
+</blockquote>
+<p>i, 小速度将不动点向稳定和不稳定状态之间的边界移动, 使能量景观朝输入的方向倾斜. 在一个阈值速度 (方程 (5)), 不动点在边界处相遇, bump 连续地沿着景观滑动.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/fL0r/20260309144716842.png" alt=""  /></p>
+<p>j, Same as i for different JE, given a fixed input velocity. $J_{E}$ affects how quickly the fixed points move through the energy landscape, and, thus, how readily the landscape tips for a given velocity.</p>
+</blockquote>
+<p>j, 不同 $J_{E}$ 的 i, 给定一个固定输入速度. $J_{E}$ 影响不动点在能量景观中移动的速度, 因此, 影响景观对于给定速度倾斜的程度.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/h2Xo/20260309144847915.png" alt=""  /></p>
+<p>k, Bump dynamics for energy landscapes in j.</p>
+</blockquote>
+<p>k, j 中能量景观的 bump 动力学.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/09/d0kP/20260309144927231.png" alt=""  /></p>
+<p>l, Threshold velocity (solid curve) and linearity of integration (dashed curves), computed analytically (lines) and by simulation (markers).</p>
+</blockquote>
+<p>l, 阈值速度 (实线) 和积分的线性度 (虚线), 分析计算 (线) 和模拟计算 (标记).</p>
+</blockquote>
+<blockquote>
+<p>Achieving this precise handoff requires precise tuning, such that the leading eigenvalue $\lambda$ of all active submatrices of $W$ is zero. Without a zero eigenvalue, a linear subsystem can, at most, encode a single stable or unstable fixed point.</p>
+<p>By interleaving linear subsystems that encode stable and unstable fixed points, the network can still cover a circular interval, but the values that can be stably represented are limited to a discrete set (Fig. 3b).</p>
+<ul>
+<li>
+<p>In the vicinity of an unstable fixed point (the 'unstable' regime), the bump is pushed exponentially quickly away from the fixed point with rate $\lambda_{u} &gt; 0$ (Fig. 3c, orange).</p>
+</li>
+<li>
+<p>In the vicinity of a stable fixed point (the 'stable' regime), the bump is pulled exponentially slowly toward the fixed point with rate $\lambda_{s} &lt; 0$ (Fig. 3c, turquoise).</p>
+</li>
+</ul>
+<p>The bump transitions from the unstable to the stable regime when the active subset loses an active neuron.</p>
+</blockquote>
+<p>实现这种精确交接需要精确调整, 使得 $W$ 的所有活跃子矩阵的主特征值 $\lambda$ 都为零. 如果没有零特征值, 线性子系统最多只能编码一个稳定或不稳定的不动点.</p>
+<p>通过交错编码稳定和不稳定不动点的线性子系统, 网络仍然可以覆盖一个圆形区间, 但可以稳定表示的值被限制在一个离散集合中 (图 3b).</p>
+<ul>
+<li>
+<p>在不稳定不动点附近 (&quot;不稳定&quot;状态), bump 以速率 $\lambda_{u} &gt; 0$ 指数快速地远离不动点 (图 3c, 橙色).</p>
+</li>
+<li>
+<p>在稳定不动点附近 (&quot;稳定&quot;状态), bump 以速率 $\lambda_{s} &lt; 0$ 指数缓慢地被拉向不动点 (图 3c, 绿松石色).</p>
+</li>
+</ul>
+<p>当活跃子集失去一个活跃神经元时, bump 从不稳定状态过渡到稳定状态.</p>
+<blockquote>
+<p>This picture highlights how nonlinear computations, such as the integration of angular velocity, can be performed through an orchestrated interaction between multiple linear subsystems that have different fixed-point structures.</p>
+<p>By decomposing the full dynamical system into linear subsystems, this picture allows us to analytically characterize inaccuracies in nonoptimal networks, and thereby estimate the <strong>precision in tuning</strong> required to bound these inaccuracies.</p>
+</blockquote>
+<p>这个图景突出了非线性计算 (例如角速度的积分) 如何通过多个具有不同不动点结构的线性子系统之间的协调交互来执行.</p>
+<p>通过将完整的动力系统分解为线性子系统, 这个图景允许我们可分析地表征非最优化网络中的不准确性, 从而估计限制这些不准确性所需的 <strong>调制精度</strong>.</p>
+<blockquote>
+<p>We measure these inaccuracies using the expected signatures of discreteness highlighted in Fig. 1g (drift in the absence of input, failure to integrate small inputs, and nonlinear integration of large inputs), and we relate these to a simplified description of the energy landscapes shown in Fig. 2e.</p>
+</blockquote>
+<p>我们使用图 1g 中突出显示的离散特征的预期特点 (在没有输入的情况下漂移、无法积分小输入以及大输入的非线性积分) 来衡量这些不准确性, 并将这些与图 2e 中显示的能量景观的简化描述联系起来.</p>
+<blockquote>
+<p>A complete description of the energy landscape is not attainable in the presence of velocity inputs due to the asymmetry that it introduces in the connectivity matrix (Fig. 2a); to circumvent this, we construct an approximate description that relies on three features of the linear subsystems described above:</p>
+<p>(1) the orientations of the unstable and stable fixed points,</p>
+<p>(2) the rates at which the bump is pushed from or pulled toward these fixed points, and</p>
+<p>(3) the <strong>angular span</strong> of the regimes governed by each fixed point.</p>
+</blockquote>
+<p>在存在速度输入时, 由于它在连接矩阵中引入的不对称性, 完整描述能量景观是不可实现的 (图 2a); 为了解决这个问题, 我们构建了一个近似描述, 依赖于上述线性子系统的三个特征:</p>
+<p>(1) 不稳定和稳定不动点的方向,</p>
+<p>(2) bump 从这些不动点被推开或被拉向这些不动点的速率, 以及</p>
+<p>(3) 各不动点控制的 <strong>角度区间</strong>.</p>
+<blockquote>
+<p>As we will show, the local excitation determines the overall curvature of the energy landscape through the rates and angular spans of each regime, which affects the amount of drift. Input velocity shifts the fixed points within this landscape, which influences the accuracy of velocity integration.</p>
+</blockquote>
+<p>正如我们将要展示的, 局部兴奋通过每个状态的速率和角度区间决定了能量景观的整体曲率, 这影响了漂移量. 输入速度在这个景观内移动不动点, 这影响了速度积分的准确性.</p>
+<h3 id="drift-in-the-absence-of-input">Drift in the absence of input<a hidden class="anchor" aria-hidden="true" href="#drift-in-the-absence-of-input">#</a></h3>
+<blockquote>
+<p>In the absence of velocity input, the stable and unstable fixed points are evenly spaced by $\Delta\theta/2 = \pi/N$ rad regardless of the strength of local excitation. However, the local excitation affects how quickly the bump moves relative to each fixed point, which, in turn, affects the rate of drift in the network.</p>
+</blockquote>
+<p>在没有速度输入的情况下, 稳定和不稳定不动点以 $\Delta\theta/2 = \pi/N$ rad 的间隔均匀分布, 无论局部兴奋的强度如何. 然而, 局部兴奋影响 bump 相对于每个不动点移动的速度, 这反过来又影响网络中的漂移率.</p>
+<blockquote>
+<p>If we vary the local excitation between two optimal values, $J_{E,n}^{*}$ and $J_{E,n+1}^{*}$ (corresponding to scenarios in which the bump is always maintained by $n$ or $n + 1$ active neurons, respectively), we find that the drift rates $\lambda_{s}$ and $\lambda_{u}$ depend on how closely tuned the local excitation is to either optimal value (Fig. 3d and Extended Data Fig. 6):</p>
+<p>$$
+\begin{aligned}
+\lambda_{s} &amp;= \frac{1}{\tau}(\frac{J_{E}}{J_{E,n}^{*}} - 1) &lt; 0,\\
+\lambda_{u} &amp;= \frac{1}{\tau}(\frac{J_{E}}{J_{E,n+1}^{*}} - 1) &gt; 0.
+\end{aligned}
+$$</p>
+</blockquote>
+<p>如果我们将局部兴奋在两个最优化值 $J_{E,n}^{*}$ 和 $J_{E,n+1}^{*}$ 之间变化 (分别对应于 bump 始终由 $n$ 或 $n + 1$ 个活跃神经元维持的情况), 我们发现漂移率 $\lambda_{s}$ 和 $\lambda_{u}$ 取决于局部兴奋与任一最优化值的调整程度 (图 3d 和扩展数据图 6):</p>
+<p>$$
+\begin{aligned}
+\lambda_{s} &amp;= \frac{1}{\tau}(\frac{J_{E}}{J_{E,n}^{*}} - 1) &lt; 0,\\
+\lambda_{u} &amp;= \frac{1}{\tau}(\frac{J_{E}}{J_{E,n+1}^{*}} - 1) &gt; 0.
+\end{aligned}
+$$</p>
+<div class="details admonition note">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-pencil-alt fa-fw"></i>最优化局部激励值附近的动力学<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>无速度输入下, 微分方程为</p>
+<p>$$
+\begin{aligned}
+\tau \dot{h}_{j} &amp;= -h_{j} + \frac{1}{N}\sum_{k}W_{jk}^{\text{sym}}\phi(h_{k}) + c_{\text{ff}}\\
+W_{jk}^{\text{sym}} &amp;= J_{I} + J_{E}\cos{(\theta_{i}-\theta_{j})},\quad \phi(h) = \max{(0,h)}
+\end{aligned}
+$$</p>
+<p>只有 $n$ 个神经元是 active 状态. 对于它们而言 $\phi(h_{k})=h_{k}$, 因此</p>
+<p>$$
+\begin{aligned}
+\tau \dot{h}_{j} &amp;= -h_{j} + \frac{1}{N}\sum_{j,k\in\text{ act}}W_{jk}^{\text{sym}}h_{k} + c_{\text{ff}}\\
+\Rightarrow \dot{\vec{h}} &amp;= \frac{1}{\tau}\left(\frac{1}{N} \mathbb{W}^{\text{sym}} - \mathbb{I}\right)\vec{h} + \frac{c_{\text{ff}}}{\tau} =  \mathbb{W}\vec{h} + \frac{c_{\text{ff}}}{\tau}
+\end{aligned}
+$$</p>
+<p>根据前面的讨论, $\lambda_{\max}&lt; 0$ 对应稳定不动点, $\lambda_{\max} = 0$ 对应临界不动点, $\lambda_{\max} &gt; 0$ 对应不稳定不动点. 主特征值 $\lambda_{\max}$ 可被视为局部激励 $J_{E}$ 的函数 $\lambda_{\max}(J_{E})$, 那么最优参数 $J_{E}^{*}$ 被定义为 $\lambda_{\max}(J_{E}^{*})=0$ 的解.</p>
+<hr>
+<p>该动力学系统的稳定性由矩阵 $ \mathbb{W}$ 的特征值 $\lambda$ 决定, 可以先研究 $ \mathbb{W}^{\text{sym}}$ 的特征值 $\lambda_{W}$, 因为两特征值存在关系 $\begin{aligned}\lambda = \frac{1}{\tau}\left(\frac{\lambda_{W}}{N}-1\right)\end{aligned}$.</p>
+<p>$$
+\begin{aligned}
+\mathbb{W}^{\text{sym}} &amp;= J_{I}\vec{1}\vec{1}^{\dagger} + J_{E}\mathbb{C},\quad \vec{1} = \begin{bmatrix} 1\\1\\ \vdots\\1\end{bmatrix}, \quad C_{jk} = \cos{(\theta_{j}-\theta_{k})}\\
+\end{aligned}
+$$</p>
+<p>存在三角关系 $\cos{(\theta_{j}-\theta_{i})} = \cos{\theta_{j}}\cos{\theta_{k}} + \sin{\theta_{j}}\sin{\theta_{k}}$, 因此</p>
+<p>$$
+\mathbb{C} = \vec{c}\vec{c}^{\dagger} + \vec{s}\vec{s}^{\dagger}, \quad\begin{cases}
+c_{j} = \cos{\theta_{j}}\\
+s_{j} = \sin{\theta_{j}}
+\end{cases}
+$$</p>
+<p>$\mathbb{W}^{\text{sym}} = J_{I}\vec{1}\vec{1}^{\dagger} + J_{E}\vec{c}\vec{c}^{\dagger} + J_{E}\vec{s}\vec{s}^{\dagger}$, 其为三个 rank-1 矩阵之和, 因此根据公式 $r(A+B)\leq r(A) + r(B)$ 最多有 3 个非零特征值, 其余 $N-3$ 个特征值均为 0.</p>
+<p>因为矢量计算规则 $(uv^{\dagger})x = u(v^{\dagger}x)\in\text{span}\{u\}$, 可见</p>
+<p>$$
+\mathbb{W}^{\text{sym}}x = J_{I}(\vec{1}^{\dagger}x)\vec{1} + J_{E}(\vec{c}^{\dagger}x)\vec{c} + J_{E}(\vec{s}^{\dagger}x)\vec{s}\in \mathcal{S} = \text{span}\{\vec{1},\vec{c},\vec{s}\}
+$$</p>
+<p>那么对于特征向量 $\vec{v}$ (即 $\mathbb{W}^{\text{sym}}\vec{v}=\lambda\vec{v}$) 会存在两种情况:</p>
+<ul>
+<li>$\lambda = 0$. 即 $\vec{x}\perp\mathcal{S}$, $\mathbb{W}^{\text{sym}}\vec{x} = 0$.</li>
+<li>$\lambda\neq 0$. 则 $\begin{aligned}\vec{v} = \frac{1}{\lambda}\mathbb{W}^{\text{sym}}\vec{v}\in\mathcal{S}\end{aligned}$, 即 $\vec{v} = a_{1}\vec{1} + a_{2}\vec{c} + a_{3}\vec{s}$.</li>
+</ul>
+<p>$\vec{1}$ 是一个均匀分量, $\vec{c}$ 和 $\vec{s}$ 才是 bump 分量. 因此考虑与 $\vec{1}$ 正交的 $\vec{v} = a\vec{c} + b\vec{s}$, 有</p>
+<p>$$
+\mathbb{W}^{\text{sym}}\vec{v} = J_{E}(\vec{c}^{\dagger}\vec{v})\vec{c} + J_{E}(\vec{s}^{\dagger}\vec{v})\vec{s} = J_{E} [a(\vec{c}^{\dagger}\vec{c}) + b(\vec{c}^{\dagger}\vec{s})]\vec{c} + J_{E}[a(\vec{s}^{\dagger}\vec{c}) + b(\vec{s}^{\dagger}\vec{s})]\vec{s}
+$$</p>
+<p>注意内积规则 $\begin{aligned}\vec{c}^{\dagger}\vec{s}=0, \vec{c}^{\dagger}\vec{c} = \vec{s}^{\dagger}\vec{s} = \frac{n}{2}\end{aligned}$, 则</p>
+<p>$$
+\mathbb{W}^{\text{sym}}\vec{v} = J_{E}\frac{n}{2}a\vec{c} + J_{E}\frac{n}{2}b\vec{s} = \frac{nJ_{E}}{2}(a\vec{c} + b\vec{s}) = \lambda_{W}\vec{v}
+$$</p>
+<p>因此得到 $\begin{aligned}\lambda = \frac{1}{\tau}\left(\frac{nJ_{E}}{2N}-1\right)\end{aligned}$, $J_{E,n}^{*}$ 通过 $\lambda = 0$ 得到: $\begin{aligned}J_{E}^{*} = \frac{2N}{n}\end{aligned}$.</p>
+<p>因此得到了漂移率公式</p>
+<p>$$
+\lambda = \frac{1}{\tau}\left(\frac{J_{E}}{J_{E,n}^{*}}-1\right)
+$$</p>
+<p>假定在 $n$ 个活跃神经元时处于 stable bump, 那么 $n+1$ 个时将会转变为 unstable bump, 那么上式将转变为</p>
+<p>$$
+\begin{aligned}
+\lambda_{s} &amp;= \frac{1}{\tau}(\frac{J_{E}}{J_{E,n}^{*}} - 1) &lt; 0,\\
+\lambda_{u} &amp;= \frac{1}{\tau}(\frac{J_{E}}{J_{E,n+1}^{*}} - 1) &gt; 0.
+\end{aligned}
+$$</p>
+</div>
+
+ </div>
+
+ </div>
+<blockquote>
+<p>Thus, in the stable regime, where the bump is maintained by $n$ active neurons, the dynamics depend on how closely tuned the excitation is to the value that would be optimal if $n$ neurons maintained the bump.</p>
+<p>Similarly, in the unstable regime, where the bump is maintained by $n + 1$ active neurons, the dynamics depend on how closely tuned the excitation is to the value that would be optimal if $n + 1$ neurons maintained the bump.</p>
+</blockquote>
+<p>因此, 在稳定状态下, bump 由 $n$ 个活跃神经元维持, 动力学取决于兴奋与如果 $n$ 个神经元维持 bump 时的最优化值的调整程度.</p>
+<p>类似地, 在不稳定状态下, bump 由 $n + 1$ 个活跃神经元维持, 动力学取决于兴奋与如果 $n + 1$ 个神经元维持 bump 时的最优化值的调整程度.</p>
+<blockquote>
+<p>Assuming that the bump orientation transitions smoothly between regimes (as seen in simulations; Fig. 2f, top row), the relative widths $\begin{aligned}\frac{\Delta \theta_{s,u}}{\Delta\theta}\end{aligned}$ of these regimes depend on the ratio of the drift rates (Fig. 3d):</p>
+<p>$$
+\frac{\Delta\theta_{s}}{\Delta\theta} = \frac{1}{1+|\lambda_{s}|/|\lambda_{u}|} = 1 - \frac{\Delta\theta_{u}}{\Delta\theta}
+$$</p>
+</blockquote>
+<p>假设 bump 方向在状态之间平滑过渡 (如模拟中所见; 图 2f, 第一行), 这些状态的相对宽度 $\begin{aligned}\frac{\Delta \theta_{s,u}}{\Delta\theta}\end{aligned}$ 取决于漂移率的比率 (图 3d):</p>
+<p>$$
+\frac{\Delta\theta_{s}}{\Delta\theta} = \frac{1}{1+|\lambda_{s}|/|\lambda_{u}|} = 1 - \frac{\Delta\theta_{u}}{\Delta\theta}
+$$</p>
+<div class="details admonition note">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-pencil-alt fa-fw"></i>状态的相对宽度<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>stable point 附近 bump 被吸引, unstable point 附近 bump 被排斥.</p>
+<p>稳定区宽度 $\Delta\theta_{s}$ 与 不稳定区 $\Delta\theta_{u}$ 满足 $\Delta\theta_{s}+\Delta\theta_{u}=\Delta\theta$.</p>
+<p>在 stable 不动点附近线性化: $\dot{\theta}\approx \lambda_{s} (\theta-\theta_{s})$</p>
+<p>同理, 在 unstable 不动点附近线性化: $\dot{\theta}\approx \lambda_{u} (\theta-\theta_{u})$. 那么在两区间的边界处, 受到的来自 stable 不动点和来自 unstable 不动点的驱动力/速度应该相等(边界被定义为两种线性近似相连的位置), 即有</p>
+<p>$$
+|\lambda_{s}| \frac{\Delta\theta_{s}}{2} = |\lambda_{u}| \frac{\Delta\theta_{u}}{2}
+$$</p>
+</div>
+
+ </div>
+
+ </div>
+<blockquote>
+<p>Together, these expressions enabled us to construct a simplified landscape that captures the energy of different bump orientations within each linear subsystem (Fig. 3e and Methods).</p>
+<p>The fixed points determine the locations of extrema within the landscape, the drift rates determine the curvature of the landscape about these extrema, and the <strong>angular spans</strong> of each regime delineate different regions of the landscape that correspond to stable versus unstable dynamics.</p>
+</blockquote>
+<p>因此, 这些表达式使我们能够构建一个简化的景观, 刻画各线性子系统中不同 bump 朝向的能量 (图 3e 和 Methods).</p>
+<p>不动点决定了景观中极值的位置, 漂移率决定了这些极值附近景观的曲率, 每个状态的 <strong>角度区间</strong> 划定了景观中对应于稳定与不稳定动力学的不同区域.</p>
+<blockquote>
+<p>This description explains how a ring attractor emerges as the connectivity is tuned toward an optimal value (Fig. 3f):</p>
+<ul>
+<li>
+<p>at one extreme ( $J_{E}\to J_{E,n}^{*}$), the stable region of the landscape flattens and expands to fill the entire ring ($\lambda_{s}\to 0$, $\Delta \theta_{s}\to \Delta\theta$), whereas the unstable region sharpens and shrinks in span;</p>
+</li>
+<li>
+<p>at the other extreme ($J_{E}\to J_{E,n+1}^{*}$), the unstable region of the landscape flattens and expands to fill the entire ring ($\lambda_{u}\to 0$, $\Delta\theta_{u}\to\Delta\theta$), whereas the stable region sharpens and shrinks in span.</p>
+</li>
+</ul>
+</blockquote>
+<p>这种描述解释了当连接被调整到最优化值时环形吸引子如何出现 (图 3f):</p>
+<ul>
+<li>
+<p>在一个极端 ($J_{E}\to J_{E,n}^{*}$), 景观的稳定区域变平并扩展以填充整个环 ($\lambda_{s}\to 0$, $\Delta \theta_{s}\to \Delta\theta$), 而不稳定区域变尖锐并缩小;</p>
+</li>
+<li>
+<p>在另一个极端 ($J_{E}\to J_{E,n+1}^{*}$), 景观的不稳定区域变平并扩展以填充整个环 ($\lambda_{u}\to 0$, $\Delta\theta_{u}\to\Delta\theta$), 而稳定区域变尖锐并缩小.</p>
+</li>
+</ul>
+<blockquote>
+<p>These differences in the shape of the energy landscape affect the drift dynamics (Fig. 3g), an effect that we quantify by measuring the net drift speed of the bump (Fig. 3h):</p>
+<p>$$
+|\lambda_{d}| = c\Delta\theta_{s}|\lambda_{s}| = c\Delta\theta_{u}|\lambda_{u}|
+$$</p>
+<p>where $\begin{aligned}
+c = \frac{e − 1}{2e}
+\end{aligned}$ is a constant. This speed is related to the overall curvature of the landscape, and will be largest at intermediate values of local excitation for which the landscape is bumpiest.</p>
+</blockquote>
+<p>这些能量景观形状的差异影响漂移动力学 (图 3g), 我们通过测量 bump 的净漂移速度来量化这种影响 (图 3h):</p>
+<p>$$
+|\lambda_{d}| = c\Delta\theta_{s}|\lambda_{s}| = c\Delta\theta_{u}|\lambda_{u}|
+$$</p>
+<p>其中 $\begin{aligned}
+c = \frac{e − 1}{2e}
+\end{aligned}$ 是一个常数. 这个速度与景观的整体曲率相关, 并且在局部兴奋的中间值处最大, 此时景观最崎岖.</p>
+<div class="details admonition note">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-pencil-alt fa-fw"></i>净漂移速度<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>在不动点附近线性化: $\dot{\theta} = \lambda(\theta-\theta^{*})$, 解为 $\psi(t)-\psi^{*} = (\psi_{0}-\psi^{*})e^{\lambda t}$. 若 $\psi(t)=\psi_{1}$, 即可反解出逃逸时间 $\begin{aligned}t = \frac{1}{\lambda}\ln\left(\frac{\psi_{1}-\psi^{*}}{\psi_{0}-\psi^{*}}\right)\end{aligned}$</p>
+<ul>
+<li>
+<p>从 unstable 不动点 $\psi_{u}$ 的邻域 $\psi_{0} = \psi_{u} + \varepsilon_{u}$ 出发到边界 $\begin{aligned}\psi = \psi_{u}+\frac{\Delta\theta_{u}}{2}\end{aligned}$, 使用逃逸时间公式 $\begin{aligned}t_{u} = \frac{1}{\lambda_{u}}\ln{\left(\frac{\psi_{u}+\Delta\theta_{u}/2-\psi_{u}}{\psi_{u}+\varepsilon_{u}-\psi_{u}}\right)} = \frac{1}{\lambda_{u}}\ln{\left(\frac{\Delta\theta_{u}}{2\varepsilon_{u}}\right)}\end{aligned}$;</p>
+</li>
+<li>
+<p>从 stable 不动点 $\psi_{s}$ 的邻域 $\psi_{0} = \psi_{s} + \varepsilon_{s}$ 出发到边界 $\begin{aligned}\psi = \psi_{s}+\frac{\Delta\theta_{s}}{2}\end{aligned}$, 使用逃逸时间公式 $\begin{aligned}t_{s} = \frac{1}{|\lambda_{s}|}\ln{\left(\frac{\psi_{s}+\Delta\theta_{s}/2-\psi_{s}}{\psi_{s}+\varepsilon_{s}-\psi_{s}}\right)} = \frac{1}{|\lambda_{s}|}\ln{\left(\frac{\Delta\theta_{s}}{2\varepsilon_{s}}\right)}\end{aligned}$</p>
+</li>
+</ul>
+<p>现在就是最关键的一步: 选取 cutoff 避免发散. $\begin{aligned}\varepsilon_{u} = \frac{1}{e}\frac{\Delta\theta_{u}}{2}, \varepsilon_{s} = \frac{1}{e}\frac{\Delta\theta_{s}}{2}\end{aligned}$, 即各自区间半宽度的 $1/e$. 那么总漂移时间为</p>
+<p>$$
+T = t_{u} + t_{s} = \frac{1}{\lambda_{u}}\ln{\left(\frac{\Delta\theta_{u}}{2\varepsilon_{u}}\right)} + \frac{1}{|\lambda_{s}|}\ln{\left(\frac{\Delta\theta_{s}}{2\varepsilon_{s}}\right)} = \frac{1}{\lambda_{u}} + \frac{1}{|\lambda_{s}|}
+$$</p>
+<p>截断后总距离是 $\begin{aligned}\Delta\psi_{d}=\left(1-\frac{1}{e}\right)\frac{\Delta\theta_{u}+\Delta\theta_{s}}{2}= \left(1-\frac{1}{e}\right)\frac{\Delta\theta}{2}\end{aligned}$, 则净漂移速度可计算为</p>
+<p>$$
+|\lambda_{d}| = \frac{\Delta\psi_{d}}{T} = \frac{e-1}{2e}\frac{\Delta\theta|\lambda_{u}||\lambda_{s}|}{|\lambda_{u}|+|\lambda_{s}|} = \frac{e-1}{2e}\Delta\theta_{s}|\lambda_{s}|
+$$</p>
+<p>这就是 $\begin{aligned}c = \frac{e-1}{2e}\end{aligned}$ 的来源.</p>
+</div>
+
+ </div>
+
+ </div>
+<h3 id="inaccuracies-in-velocity-integration">Inaccuracies in velocity integration<a hidden class="anchor" aria-hidden="true" href="#inaccuracies-in-velocity-integration">#</a></h3>
+<blockquote>
+<p>When a sufficiently small velocity input is injected into the network, the local curvature and angular span of the stable and unstable regions of the landscape will remain approximately unchanged (Extended Data Fig. 7).</p>
+<p>However, the orientations of the fixed points will shift toward the boundary between regions, thereby tipping the landscape in the direction of the velocity input and driving the bump to a new stable fixed point (Fig. 3i and Extended Data Fig. 8c,d).</p>
+<p>The flatter the overall landscape (that is, the smaller the value of $|\lambda_{d}|$), the more readily the landscape will tip for a given velocity input (Fig. 3j).</p>
+</blockquote>
+<p>当一个足够小的速度输入被注入网络时, 景观的稳定和不稳定区域的局部曲率和角度区间将保持近似不变 (扩展数据图 7).</p>
+<p>然而, 不动点的方向将向区域边界移动, 从而使景观倾向于速度输入的方向, 并将 bump 驱动到一个新的稳定不动点 (图 3i 和扩展数据图 8c,d).</p>
+<p>整体景观越平坦 (即 $|\lambda_{d}|$ 的值越小), 对于给定的速度输入, 景观就越容易倾斜 (图 3j).</p>
+<blockquote>
+<p>At a particular threshold velocity, $v_{\text{thresh}}$, the fixed points will meet at the boundary between regions, thereby enabling the bump to slide down the landscape without getting stuck. This threshold velocity specifies the minimum input that can be continuously integrated by the network, and depends on the overall curvature of the landscape through the net drift speed $|\lambda_{d}|$:</p>
+<p>$$
+v_{\text{thresh}}\approx \frac{|\lambda_{d}|}{2c}
+$$</p>
+<p>The larger the overall curvature of the landscape, the larger the input velocity needed to continuously move the bump (Fig. 3k). In the limit that the local excitation approaches an optimal value, the overall curvature goes to zero, and the network can integrate infinitesimally small inputs (Fig. 3l, solid curve).</p>
+</blockquote>
+<p>在特定的阈值速度 $v_{\text{thresh}}$ 下, 不动点将在区域边界相遇, 从而使 bump 能够在景观上滑动而不会被卡住. 这个阈值速度指定了网络可以连续积分的最小输入, 并且通过净漂移速度 $|\lambda_{d}|$ 依赖于景观的整体曲率:</p>
+<p>$$
+v_{\text{thresh}}\approx \frac{|\lambda_{d}|}{2c}
+$$</p>
+<p>景观的整体曲率越大, 连续移动 bump 所需的输入速度就越大 (图 3k). 在局部兴奋接近最优化值的极限情况下, 整体曲率趋于零, 网络可以积分无限小的输入 (图 3l, 实线).</p>
+<div class="details admonition note">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-pencil-alt fa-fw"></i>阈值速度<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>阈值速度被定义为 bump 在该输入下, 刚好能从 stable 不动点移动到 stable 边界, 那么根据线性化近似有</p>
+<p>$$
+v_{\text{thresh}}\approx \lambda_{s}\frac{\Delta\theta_{s}}{2} = \frac{|\lambda_{d}|}{2c}
+$$</p>
+<p>实际上这里的 $\begin{aligned}\frac{|\lambda_{d}|}{2c}=\frac{1}{2}\Delta\theta_{s}|\lambda_{s}|=\frac{1}{2}\Delta\theta_{u}|\lambda_{u}|\end{aligned}$ 拥有一个实际的物理含义, 即能量景观两区间交界处取到最大速度的大小.</p>
+</div>
+
+ </div>
+
+ </div>
+<blockquote>
+<p>Above this threshold velocity, the fixed points will shift outside of their respective regions of the landscape, but their effect will still be felt through the local landscape curvature. As a result, the bump will speed up and slow down as it moves through the unstable and stable regions of the landscape, but it will never get stuck at a fixed point (Fig. 3k and Extended Data Fig. 8e,f).</p>
+</blockquote>
+<p>在这个阈值速度之上, 不动点将移出它们各自的景观区域, 但它们的影响仍然通过局部景观曲率感受到. 因此, bump 在通过景观的不稳定和稳定区域时会加速和减速, 但它永远不会被不动点卡住 (图 3k 和扩展数据图 8e,f).</p>
+<blockquote>
+<p>This manifests as nonlinear integration, which we quantify by measuring the ratio between the slowest and fastest bump velocities, $ν_{\text{min}}$ and $ν_{\text{max}}$.</p>
+<p>This ratio depends only on the relative difference between the threshold and input velocities:</p>
+<p>$$
+\text{linearity}(v_{\text{in}}) = \frac{v_{\text{min}}}{v_{\text{max}}} \approx \frac{v_{\text{in}}-v_{\text{thresh}}}{v_{\text{in}}+v_{\text{thresh}}}
+$$</p>
+</blockquote>
+<p>这表现为非线性积分, 我们通过测量最慢和最快 bump 速度 $ν_{\text{min}}$ 和 $ν_{\text{max}}$ 之间的比率来量化这种非线性.</p>
+<p>这个比率仅依赖于阈值和输入速度之间的相对差异:</p>
+<p>$$
+\text{linearity}(v_{\text{in}}) = \frac{v_{\text{min}}}{v_{\text{max}}} \approx \frac{v_{\text{in}}-v_{\text{thresh}}}{v_{\text{in}}+v_{\text{thresh}}}
+$$</p>
+<blockquote>
+<p>Bumpier energy landscapes lead to larger threshold velocities, which lead to increasingly nonlinear integration.</p>
+<p>However, because the overall curvature (and thus the threshold velocity) is fixed for a given value of local excitation, its relative impact on integration decreases as input velocity increases (Fig. 3l, dashed curves).</p>
+<p>In the limit that the local excitation approaches an optimal value, the threshold velocity goes to zero, and the bump moves continuously at the rate of the input velocity.</p>
+</blockquote>
+<p>崎岖的能量景观导致更大的阈值速度, 从而导致越来越非线性的积分.</p>
+<p>然而, 因为整体曲率 (因此阈值速度) 对于给定的局部兴奋值是固定的, 所以当输入速度增加时, 它对积分的相对影响会减少 (图 3l, 虚线).</p>
+<p>在局部兴奋接近最优化值的极限情况下, 阈值速度趋于零, bump 以输入速度的速率连续移动.</p>
+<h2 id="optimal-small-networks-are-less-robust">Optimal small networks are less robust<a hidden class="anchor" aria-hidden="true" href="#optimal-small-networks-are-less-robust">#</a></h2>
+<blockquote>
+<p>The previous results provide a mechanistic understanding of how small networks can achieve optimal performance through the precise tuning of local excitation.</p>
+<p>To assess the potential cost of this precision, we used the previous results to characterize how size affects the robustness of optimal networks.</p>
+</blockquote>
+<p>之前的结果提供了一个动力学理解, 说明小型网络如何通过精确调整局部兴奋来实现最优化性能.</p>
+<p>为了评估这种精确性的潜在代价, 我们使用之前的结果来表征大小如何影响最优化网络的稳健性.</p>
+<blockquote>
+<p>We first characterized robustness to variations in parameter tuning. For a given network size, deviations from optimal tuning degrade performance through more rapid drift, larger threshold velocities, and more nonlinear velocity integration.</p>
+<p>In larger networks, this degradation is less severe (Fig. 4a, top). To quantify this, we asked how precisely the local excitation should be tuned to meet a criterion level of performance (Fig. 4a, bottom).</p>
+</blockquote>
+<p>我们首先表征了对参数调整变化的稳健性. 对于给定的网络大小, 偏离最优化调整会通过更快的漂移、更大的阈值速度和更非线性的速度积分来降低性能.</p>
+<p>在较大的网络中, 这种降级不太严重 (图 4a, 顶部). 为了量化这一点, 我们询问了局部兴奋应该如何精确调整以满足性能的标准水平 (图 4a, 底部).</p>
+<blockquote>
+<blockquote>
+<p><strong>Fig. 4 | Smaller networks require more fine-tuning and are less robust to noise.</strong></p>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/10/dK1t/20260310112107395.png" alt=""  /></p>
+<p>Top: log of net drift speed (color map) as a function of $J_{E}$ and $N$. Red circular markers indicate optimal values of $J_{E}^{*}$; darker blue colors indicate slower (that is, better) drift rates. Suboptimal networks achieve better performance as $N$ increases.</p>
+<p>Bottom: to estimate <strong>tolerance</strong> around an optimal value of $J_{E}^{*}$, we compute the local change in net drift speed with respect to $J_{E}$ (turquoise lines) that will achieve performance below some threshold (horizontal dashed black line, illustrated for a threshold of $0.1\text{ rad s}^{−1}$).</p>
+</blockquote>
+<p>上: $J_{E}$ 和 $N$ 的函数的净漂移速度的对数 (颜色图). 红色圆形标记表示 $J_{E}^{*}$ 的最优化值; 深蓝色表示更慢 (即更好) 的漂移率. 随着 $N$ 的增加, 亚最优化网络实现了更好的性能.</p>
+<p>下: 为了估计 $J_{E}^{*}$ 最优化值周围的 <strong>容差</strong>, 我们计算了相对于 $J_{E}$ 的净漂移速度的局部变化 (绿松石线), 该变化将实现低于某个阈值的性能 (水平虚线黑线, 以 $0.1\text{ rad s}^{−1}$ 的阈值为例).</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/10/bAd5/20260310112641445.png" alt=""  /></p>
+<p>b, For a given $N$ (different colors), larger values of local excitation require less fine-tuning to achieve the same performance. Solid lines mark the analytic tolerance given in equation (7); filled circles indicate the numerically estimated tolerance about each optimal value of $J_{E}^{*}$. Results were computed for a threshold value of $0.001\text{ rad s}^{−1}$, and are shown for all evenly sized networks between $N = 6$ and $N = 20$.</p>
+</blockquote>
+<p>b, 对于给定的 $N$ (不同颜色), 较大的局部兴奋值需要更少的微调来实现相同的性能. 实线标记了方程 (7) 中给出的分析容差; 填充圆点表示每个 $J_{E}^{*}$ 最优化值周围的数值估计容差. 结果是针对 $0.001\text{ rad s}^{−1}$ 的阈值计算的, 并且显示了所有均匀大小网络之间 $N = 6$ 和 $N = 20$ 的结果.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/10/xaW8/20260310112837277.png" alt=""  /></p>
+<p>c, Given a fixed value of $J_{E}^{*}$,  the tolerance increases linearly with $N$. Results are shown for $J_{E}^{*} = 4$, the only optimal value of local excitation that remains unchanged with even $N$.</p>
+</blockquote>
+<p>c, 给定 $J_{E}^{*}$ 的固定值, 容差随着 $N$ 线性增加. 结果显示了 $J_{E}^{*} = 4$ 的情况, 这是唯一一个在偶数 $N$ 下保持不变的局部兴奋最优化值.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/10/zw0F/20260310113133728.png" alt=""  /></p>
+<p>d, Top: error variance between the current and initial bump positions in a small, optimally tuned network with additive Gaussian noise. Numerical results are shown for three different optimal values of $J_{E}^{*}$, and with a noise variance $\sigma^{2} = (A/6)^{2}$, where $A = 0.2$ is the bump amplitude. Bottom: beyond 10 s, the error variance grows linearly over time, following a diffusion equation with slope $2D$ (where $D$ is the diffusion coefficient). We use $1/2D$ as a measure of noise robustness, with lower diffusion signifying higher robustness.</p>
+</blockquote>
+<p>d, 上: 在具有加性高斯噪声的一个小型、最优化调整网络中当前和初始 bump 位置之间的误差方差. 数值结果显示了三个不同 $J_{E}^{*}$ 最优化值的情况, 噪声方差为 $\sigma^{2} = (A/6)^{2}$, 其中 $A = 0.2$ 是 bump 振幅. 下: 超过 10 s 后, 误差方差随时间线性增长, 遵循斜率为 $2D$ 的扩散方程 (其中 $D$ 是扩散系数). 我们使用 $1/2D$ 作为噪声稳健性的度量, 扩散越低表示稳健性越高.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/10/zn9L/20260310113353565.png" alt=""  /></p>
+<p>e, Consistent with d, larger optimal values of $J_{E}^{*}$ lead to higher noise robustness for a fixed $N$.</p>
+</blockquote>
+<p>e, 与 d 一致, 较大的 $J_{E}^{*}$ 最优化值对于固定 $N$ 导致更高的噪声稳健性.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/10/0rOv/20260310113527100.png" alt=""  /></p>
+<p>f, Given a fixed value of $J_{E}^{*}$ (shown for $J_{E}^{*} = 4$), noise robustness increases  linearly with $N$, and is inversely proportional to noise variance $\sigma^{2}$ (shown for $\sigma^{2} = (A/6)^{2}\times [1, 4, 9, 16, 25]$). Dashed lines indicate best linear fits; see Extended Data Fig. 9 for fit coefficients.</p>
+</blockquote>
+<p>f, 给定 $J_{E}^{*}$ 的固定值 (显示了 $J_{E}^{*} = 4$ 的情况), 噪声稳健性随着 $N$ 线性增加, 并且与噪声方差 $\sigma^{2}$ 成反比 (显示了 $\sigma^{2} = (A/6)^{2}\times [1, 4, 9, 16, 25]$ 的情况). 虚线表示最佳线性拟合; 见扩展数据图 9 获取拟合系数.</p>
+</blockquote>
+<blockquote>
+<p>For small values of this criterion, we analytically determined the width of the interval about each optimal value of local excitation $J_{E}^{*}$ for which a given measure of network performance meets this criterion;</p>
+<p>we define the width of this interval to be the tolerance $\text{tol} (J_{E}^{*}, N)$:</p>
+<p>$$
+\text{tol}(J_{E}^{*}, N) \geq c_{P}J_{E}^{*}N
+$$</p>
+<p>where $c_{P}$ is a constant that depends on the specific performance measure (net drift rate, threshold velocity, or linearity of integration) and the desired performance criterion.</p>
+</blockquote>
+<p>对于在该标准下的小量, 我们解析地确定了局部兴奋的每个最优化值 $J_{E}^{*}$ 周围的区间宽度, 在这个区间内网络性能的给定度量满足这个标准;</p>
+<p>我们将这个区间的宽度定义为容差 $\text{tol} (J_{E}^{*}, N)$:</p>
+<p>$$
+\text{tol}(J_{E}^{*}, N) \geq c_{P}J_{E}^{*}N
+$$</p>
+<p>其中 $c_{P}$ 是一个常数, 取决于特定的性能度量 (净漂移率、阈值速度或积分的线性) 和所需的性能标准.</p>
+<blockquote>
+<p>For a given network size, equation (7) shows that larger optimal values of local excitation permit a wider range of parameter values that meet the same criterion level of performance, and are thus more robust to parameter tuning (Fig. 4b).</p>
+<p>This robustness increases linearly with network size; this can be seen most clearly for $J_{E}^{*} = 4$, which is an optimal value of local excitation for all evenly sized networks (Fig. 4c).</p>
+</blockquote>
+<p>对于给定的网络大小, 方程 (7) 显示, 较大的局部兴奋最优化值允许满足同一性能标准水平的参数值范围更广, 因此对参数调整更稳健 (图 4b).</p>
+<p>这种稳健性随着网络大小线性增加; 对于 $J_{E}^{*} = 4$, 这是所有偶数大小网络的局部兴奋最优化值, 这一点最为明显 (图 4c).</p>
+<blockquote>
+<p>When summed across all optimal values of local excitation, equation (7) allows us to estimate the net volume of parameter space that achieves a desired performance threshold (Methods).</p>
+<p>Because larger networks permit more values of optimal excitation and exhibit higher tolerances around these values, we find that the net volume of desirable parameter space increases at least quadratically with network size (Extended Data Fig. 9a).</p>
+</blockquote>
+<p>当在所有局部兴奋最优化值上求和时, 方程 (7) 允许我们估计实现所需性能阈值的参数空间的净体积 (Methods).</p>
+<p>因为较大的网络允许更多的最优化兴奋值, 并且在这些值周围表现出更高的容差, 我们发现理想参数空间的净体积至少以网络大小的二次方增加 (扩展数据图 9a).</p>
+<blockquote>
+<p>We next characterized robustness to noise. We simulated the dynamics of optimally tuned networks with additive Gaussian noise, and measured how quickly the bump diffused in the absence of velocity input (Fig. 4d, top). At longer timescales, the difference between the initial and final bump positions is diffusive, with a variance that grows linearly over time (Fig. 4d, bottom).</p>
+<p>The inverse diffusion rate gives a measure of noise robustness; the faster the diffusion, the less robust the network is to noise. For a given network size, larger optimal values of excitation are more robust to noise (Fig. 4e), in qualitative agreement with their increased robustness to variations in parameter tuning (Fig. 4b).</p>
+<p>For a given value of excitation, noise robustness increases linearly with network size, and inversely with the noise variance (Fig. 4f and Extended Data Fig. 9b).</p>
+</blockquote>
+<p>我们接下来表征了对噪声的稳健性. 我们模拟了具有加性高斯噪声的最优化调整网络的动力学, 并测量了在没有速度输入的情况下 bump 扩散的速度 (图 4d, 顶部). 在较长的时间尺度上, bump 初末位置之间的差是扩散性的, 其方差随时间线性增长 (图 4d, 底部).</p>
+<p>逆扩散率给出了噪声稳健性的度量; 扩散越快, 网络对噪声的稳健性越差. 对于给定的网络大小, 较大的兴奋最优化值对噪声更稳健 (图 4e), 与它们对参数调整变化的增加稳健性定性一致 (图 4b).</p>
+<p>对于给定的兴奋值, 噪声稳健性随着网络大小线性增加, 并且与噪声方差成反比 (图 4f 和扩展数据图 9b).</p>
+<blockquote>
+<p>Together, these results highlight that optimally tuned small networks can recover the performance of infinitely large networks. However, in the networks considered here, this comes at the cost of being less robust to variations in parameter tuning and to noise.</p>
+</blockquote>
+<p>这些结果共同强调, 最优化调整的小型网络可以恢复无限大网络的性能. 然而, 在这里考虑的网络中, 这以对参数调整变化和噪声的稳健性较差为代价.</p>
+<h1 id="discussion">Discussion<a hidden class="anchor" aria-hidden="true" href="#discussion">#</a></h1>
+<blockquote>
+<p>Continuous attractor networks have provided a common theoretical framework for studying a wide range of computations16 involved in working memory, navigation, and motor control. Across these different task domains, this framework has historically invoked networks of many neurons to ensure smooth and accurate dynamics.</p>
+</blockquote>
+<p>连续吸引子网络提供了一个共同的理论框架, 用于研究工作记忆、导航和运动控制等广泛计算领域中的各种计算. 在这些不同的任务领域中, 这个框架历史上调用了许多神经元的网络, 以确保平滑和准确的动力学.</p>
+<blockquote>
+<p>However, growing evidence suggests that similar computations might be performed in much smaller brains with far fewer neurons. Here, we asked to what extent network size limits the performance of attractor networks, and whether small networks can overcome these limitations.</p>
+</blockquote>
+<p>然而, 越来越多的证据表明, 类似的计算可能在具有更少神经元的小型大脑中执行. 在这里, 我们探讨了网络大小在多大程度上限制了吸引子网络的性能, 以及小型网络是否可以克服这些限制.</p>
+<blockquote>
+<p>We focused on a class of attractor networks that maintain a persistent internal representation of a single circular variable, such as orientation, and that update this representation by integrating an internal signal, such as angular velocity.</p>
+</blockquote>
+<p>我们专注于一类吸引子网络, 这些网络维持一个单一环形变量 (例如方向) 的持续内部表示, 并通过积分一个内部信号 (例如角速度) 来更新这个表示.</p>
+<blockquote>
+<p>In the limit of infinite numbers of neurons, these ring attractor networks generate a continuous ring manifold along which the population activity smoothly and accurately evolves in the absence of noise.</p>
+<p>Here, we showed that networks with as few as four neurons could recover this continuous ring attractor manifold, so long as the tuned component of the connectivity (what we term <strong>local excitation</strong>) is precisely chosen.</p>
+<p>In the threshold-linear networks studied here, this manifold emerges as a set of line attractor manifolds that govern the dynamics of active subsets of neurons, and that are stitched together to generate a complete ring manifold. The resulting population activity can persist at any orientation in the absence of input, and it can smoothly integrate velocity input.</p>
+</blockquote>
+<p>在无限数量神经元的极限情况下, 这些环形吸引子网络生成一个连续的环形流形, 在没有噪声的情况下, 群体活动沿着这个流形平滑而准确地演化.</p>
+<p>在这里, 我们展示了只要精确选择连接的调谐成分 (我们称之为 <strong>局部兴奋</strong>), 具有至少四个神经元的网络就可以恢复这个连续环形吸引子流形.</p>
+<p>在这里研究的阈值线性网络中, 这个流形作为一组线吸引子流形出现, 这些流形控制着活跃神经元子集的动力学, 并且被缝合在一起以生成完整的环形流形. 结果群体活动可以在没有输入的情况下持续存在于任何方向, 并且它可以平滑地积分速度输入.</p>
+<blockquote>
+<p>Together, these results suggest that very small networks can achieve levels of performance that were thought to require large networks. However, this performance comes at the cost of finely tuning local excitation to one of a discrete number of optimal values. Our biological inspiration was the small HD circuit of the fruit fly. Although such networks have been modeled previously, studies have not demonstrated persistent encoding of arbitrary orientations in the absence of orienting stimuli.</p>
+</blockquote>
+<p>这些结果表明, 非常小的网络可以实现被认为需要大型网络才能实现的性能水平. 然而, 这种性能需要将局部兴奋精细调整到离散数量的最优化值之一. 我们的生物灵感是果蝇的小型 HD 电路. 虽然这样的网络以前已经被建模, 但研究尚未证明在没有定向刺激的情况下对任意方向的持续编码.</p>
+<blockquote>
+<p>Further, although previous studies have shown that network performance changes as connection strengths vary, our study fully characterizes how network size and connection strength influence performance. It is unclear whether the fly HD system relies on the fine-tuning that we require for optimal performance. To date, this system has only been probed under head fixation on an air-supported ball (Methods); thus, its performance during free behavior is unknown.</p>
+</blockquote>
+<p>此外, 虽然之前的研究已经显示了连接强度变化时网络性能的变化, 但我们的研究完全表征了网络大小和连接强度如何影响性能. 目前尚不清楚果蝇 HD 系统是否依赖于我们为最优化性能所需的微调. 迄今为止, 这个系统只在头部固定在一个支持空气的球上进行过测试 (Methods); 因此, 在自由行为期间的性能未知.</p>
+<blockquote>
+<p>Moreover, some inaccuracies in its performance may be attributable to errors in the computation of angular velocity, and not errors in its integration.</p>
+<p>Our main objective was to investigate the performance and capabilities of small ring-like attractor networks rather than to provide a detailed model of the fly HD circuit per se. As such, there are many differences between the fly circuit and the simple model we explore here, some of which may provide as-yet-undescribed mechanisms to overcome potential problems of discreteness.</p>
+<p>For example, a potential substrate for tuning local excitation may be the synaptic contacts that fly HD neurons make between themselves in different substructures of the CX.</p>
+<p>Some of these and other fine-scale details of synaptic connectivity have not been incorporated into existing rate models or spiking neuron models of the circuit.</p>
+</blockquote>
+<p>此外, 它的一些性能不准确可能归因于角速度计算中的错误, 而不是积分中的错误.</p>
+<p>我们的主要目标是调查小型环形吸引子网络的性能和能力, 而不是提供一个详细的果蝇 HD 回路模型. 因此, 果蝇电路和我们在这里探索的简单模型之间存在许多差异, 其中一些可能提供尚未描述的机制来克服潜在的离散问题.</p>
+<p>例如, 调节局部兴奋的潜在基质可能是果蝇 HD 神经元在 CX 不同亚结构之间相互接触的突触联系.</p>
+<p>这些以及其他一些突触连接的细节尚未被现有的速率模型或该电路的尖峰神经元模型所纳入.</p>
+<blockquote>
+<p>In addition, these previous modeling efforts have focused on capturing the dynamics of the circuit without incorporating the biophysical properties of its neurons, and, in most cases, with only a subset of the excitatory and inhibitory cell types likely involved in generating the dynamics.</p>
+<p>Although the receptor and transmitter profiles of the relevant neurons are known, further experiments are required to assess how intrinsic neuronal properties shape persistent population activity, as reported in the mammalian HD system. Indeed, these intrinsic properties may account for the low drift we observed in the circuit (Fig. 1i) relative to that predicted by the model (Fig. 4d).</p>
+<p>Thus, while our work shows that small networks can, with appropriate tuning, implement continuous ring attractors, further experiments are needed to understand their cellular and synaptic implementation in real circuits.</p>
+</blockquote>
+<p>此外, 这些先前的建模工作专注于刻画回路的动力学, 而没有纳入其神经元的生物物理特性, 并且在大多数情况下, 只涉及生成动力学可能涉及的一部分兴奋性和抑制性细胞类型.</p>
+<p>虽然相关神经元的受体和传递器构型已知, 但需要进一步实验来评估内在神经元属性如何塑造持续的集群活动, 正如哺乳动物 HD 系统中报道的那样. 事实上, 这些内在属性可能解释了相对于模型预测 (图 4d) 我们观察到的电路中更低的漂移 (图 1i) .</p>
+<p>因此, 虽然我们的工作表明小型网络可以通过适当调整实现连续环形吸引子, 但需要进一步的实验来理解它们在真实电路中的细胞和突触实现.</p>
+<blockquote>
+<p>Importantly, large ring attractor networks also suffer from the problem of fine-tuning, where noise in the connectivity—arising, for example, from heterogeneity in synaptic or cellular propertiescan yield bumpy energy landscapes similar to those generated here (Fig. 2e). Several mechanisms have been proposed to combat this issue, including homeostatic synaptic scaling and synaptic facilitation. These mechanisms might also be effective in the small networks studied here, where—in addition to fine-tuning the profile of the connectivity—the overall strength of local excitation must also be fine-tuned. Away from these optimal values, network dynamics are governed by unstable and stable linear regimes in which the population activity is pushed from or pulled toward discrete fixed points.</p>
+</blockquote>
+<p>重要的是, 大型环形吸引子网络也存在微调问题, 其中连接中的噪声 (例如来自突触或细胞属性的异质性) 可以产生类似于这里生成的崎岖能量景观 (图 2e). 已经提出了几种机制来解决这个问题, 包括稳态突触缩放和突触促进. 这些机制在这里研究的小型网络中也可能有效, 在这些网络中, 除了微调连接的构型之外, 局部兴奋的整体强度也必须进行微调. 远离这些最优化值, 网络动力学由不稳定和稳定的线性状态控制, 在这些状态中, 群体活动被推离或拉向离散不动点.</p>
+<blockquote>
+<p>We identified three properties of these regimes that govern network performance: the angular width of each regime, the locations of fixed points within each regime, and the speed at which the bump is pushed from or pulled toward each fixed point.</p>
+<p>Varying the strength of local excitation alters the balance between the regimes, such that improving performance in one regime worsens performance in the other. However, <em>as the local excitation approaches an optimal value, the overall performance is dominated by the better-performing regime, which, in the same limit, becomes a ring attractor.</em></p>
+</blockquote>
+<p>我们确定了这两个状态的三个属性, 这些属性控制着网络性能: 每个状态的角度区间、每个状态内不动点的位置以及 bump 从每个不动点被推离或被拉向的速度.</p>
+<p>改变局部兴奋的强度会改变状态之间的平衡, 使得在一个状态中改善性能会在另一个状态中恶化性能. 然而, <em>随着局部兴奋接近最优化值, 整体性能由表现更好的状态主导, 在同一极限下, 该状态成为一个环形吸引子.</em></p>
+<blockquote>
+<p>This analysis relied on characterizing the behavior of thresholdlinear networks in terms of a separation between different linear dynamical regimes. This separation has recently been used to infer the underlying connectivity of biological networks, and to design different connectivity motifs that generate distinct dynamical patterns, for example, to keep count or coarsely represent different positions.</p>
+</blockquote>
+<p>这种分析依赖于通过不同线性动力学状态之间的分离来表征阈值线性网络的行为. 这种分离最近被用来推断生物网络的潜在连接, 并设计不同的连接模式以生成不同的动力学模式, 例如, 保持计数或粗略表示不同的位置.</p>
+<blockquote>
+<p>Here, we showed how the precise tuning of interactions within a single connectivity motif shapes the properties of these linear regimes, and how these properties, in turn, affect performance. We found that certain regions of parameter space reduce drift and improve integration, and among these 'good' parameter regions, some are more robust than others. Specifically, we found that larger optimal values of local excitation, which generate narrower activity bumps, are more robust to variations in tuning and to additive noise, consistent with previous studies of noise robustness in attractor networks.</p>
+</blockquote>
+<p>在这里, 我们展示了单个连接模式内相互作用的精确调整如何塑造这些线性状态的属性, 以及这些属性又如何影响性能. 我们发现, 参数空间的某些区域可以减少漂移并改善积分, 在这些 &quot;良好&quot; 参数区域中, 有些比其他更稳健. 具体来说, 我们发现较大的局部兴奋最优化值会产生更窄的活动峰, 并且对调整变化和加性噪声更稳健, 这与之前对吸引子网络中噪声稳健性的研究一致.</p>
+<blockquote>
+<p>Our results relied on specific assumptions about network connectivity and dynamics.</p>
+<ul>
+<li>
+<p>We assumed local cosine-tuned excitation and broad uniform inhibition, but ring attractor manifolds can be generated with different hand-tuned or learned connectivity structures.</p>
+</li>
+<li>
+<p>Similarly, velocity integration can be performed in multiple ways, for example, using a network of two rings that receive differential velocity input, or through two side rings that inherit heading activity from and project back to a center ring with velocity-dependent phase shifts, as has been observed experimentally. Our formulation approximates this second implementation in the limit that the side rings have fast neural time constants.</p>
+</li>
+<li>
+<p>Finally, our choice of a threshold-linear response function enabled us to decompose the dynamics into distinct linear regimes that differentially affect performance, and it allowed us to analytically characterize the tuning precision required to achieve a desired level of performance. In such threshold-linear networks, this precision is limited to the tuned component of the connectivity; however, in networks with other nonlinearities, both the tuned and untuned components must be precisely chosen (Extended Data Fig. 5a).</p>
+</li>
+</ul>
+</blockquote>
+<p>我们的结果依赖于关于网络连接和动力学的特定假设.</p>
+<ul>
+<li>
+<p>我们假设局部余弦调谐兴奋和广泛的均匀抑制, 但环形吸引子流形可以通过不同的手工调整或学习连接结构生成.</p>
+</li>
+<li>
+<p>类似地, 速度积分可以通过多种方式执行, 例如, 使用一个接收差分速度输入的两个环网络, 或者通过两个侧环从中心环继承航向活动并以速度相关的相位偏移投射回中心环, 这在实验中已经观察到. 我们的公式在侧环具有快速神经时间常数的极限情况下近似了第二种实现.</p>
+</li>
+<li>
+<p>最后, 我们选择了一个阈值线性响应函数, 使我们能够将动力学分解为不同的线性状态, 这些状态对性能有不同的影响, 并且使我们能够分析表征实现所需性能水平所需的调整精度. 在这样的阈值线性网络中, 这种精度仅限于连接的调谐成分; 然而, 在具有其他非线性的网络中, 必须精确选择调谐和未调谐成分 (扩展数据图 5a).</p>
+</li>
+</ul>
+<blockquote>
+<p>We expect such optimal tunings to exist more generally, provided that the energy of the system varies smoothly with the network tuning. In such cases, parameter-dependent changes in the stability of fixed points must be connected through optimal parameter tunings that locally flatten the energy as a function of orientation, as observed in Fig. 3f (Supplementary Note).</p>
+<p>In the absence of such tuning precision, small networks can fail to integrate velocity inputs and can drift in the absence of input. While such performance failures are known to arise in small attractor networks with differing connectivity structures and neural response functions, it remains an open question how these different design features affect the relationship between tuning precision and performance more broadly.</p>
+</blockquote>
+<p>我们预计只要系统的能量随着网络调整平滑变化, 就更普遍地存在这样的最优化调整. 在这种情况下, 不动点稳定性的参数依赖变化必须通过最优化参数调整连接起来, 这些调整局部平坦化了作为方向函数的能量, 如图 3f 所示 (补充说明).</p>
+<p>在没有这种调整精度的情况下, 小型网络可能无法积分速度输入, 并且在没有输入的情况下可能会漂移. 虽然在具有不同连接结构和神经响应函数的小型吸引子网络中已知会出现这种性能失败, 但这些不同设计特征如何更广泛地影响调整精度与性能之间的关系仍然是一个开放的问题.</p>
+<blockquote>
+<p>While these results were motivated by and interpreted in the context of the small HD system of Drosophila, they immediately generalize to other scenarios.</p>
+<p>For example, the ring attractor network can be used to model place fields in circular environments, grid fields in one dimension, persistent-activity-mediated short-term memory of stimuli represented by angular variables1, and the preparation of motion toward targets on a circle.</p>
+</blockquote>
+<p>虽然这些结果是由果蝇的小型 HD 系统激励并在其背景下解释的, 但它们立即推广到其他场景.</p>
+<p>例如, 环形吸引子网络可以用来模拟圆形环境中的位置场、一维中的网格场、由角变量表示的刺激的持续活动介导的短期记忆, 以及朝向圆上目标的运动准备.</p>
+<blockquote>
+<p>Our results suggest that such representations could be accurately maintained using few neurons, thereby broadening the classes of computations that could be performed by small circuits. Moreover, these results could further generalize to higher-dimensional continuous variables, such as HD, place, and grid fields in two or three dimensions (see Extended Data Fig. 5b for proof-of-principle numerical results).</p>
+<p>More broadly, the ability to represent one continuous variable accurately using small numbers of neurons could more easily enable large systems to represent multiple continuous variables, such as the representation of many environments observed in the rodent hippocampus.</p>
+</blockquote>
+<p>我们的结果表明, 这样的表示可以使用少量神经元准确地维持, 从而扩大了小型电路可以执行的计算类别. 此外, 这些结果可以进一步推广到更高维度的连续变量, 例如二维或三维中的 HD、位置和网格场 (见扩展数据图 5b 的原理验证数值结果).</p>
+<p>更广泛地说, 使用少量神经元准确表示一个连续变量的能力可以更容易地使大型系统表示多个连续变量, 例如在啮齿动物海马中观察到的许多环境的表示.</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Renormalization group for neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/reference/efficiently-modeling-long-sequences-with-structured-state-space/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Efficiently Modeling Long Sequences with Structured State Spaces</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+
+
+
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-api-one-xi.vercel.app",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-shanghai',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>Muartz</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>   
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      if (event.key === 'j') {
+        
+        var nextPageLink = document.querySelector('.pagination-item.pagination-next > a');
+        if (nextPageLink) {
+          nextPageLink.click();
+        }
+      } else if (event.key === 'k') {
+        
+        var prevPageLink = document.querySelector('.pagination-item.pagination-previous > a');
+        if (prevPageLink) {
+          prevPageLink.click();
+        }
+      }
+    });
+  </script>
+  
+</body>
+
+
+
+
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

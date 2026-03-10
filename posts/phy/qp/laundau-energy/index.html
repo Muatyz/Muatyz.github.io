@@ -136,8 +136,8 @@
   "keywords": [
     ""
   ],
-  "articleBody": "Intro 对于电荷在电磁场中的运动, 我们已经知道\n$$ \\hat{H} = \\frac{1}{2m}(\\hat{p} - q\\mathbf{A})^{2} + q\\varphi $$\n$\\hat{p} = -i\\hbar\\nabla$ 是正则动量算符, 满足正则对易关系 $$ \\left[\\hat{p}_{i},\\hat{x}_{j}\\right] = -i\\hbar\\delta_{ij} $$\n将其代入到薛定谔方程中, 即有\n$$ \\left(i\\hbar\\frac{\\partial}{\\partial t} - q\\varphi\\right) \\psi = \\frac{1}{2m}(\\hat{p} - q\\mathbf{A})^{2} \\psi $$\n速度算符 $\\hat{\\mathbf{v}}$ 与 力学动量算符 $\\hat{\\mathbf{\\pi}}$ $$ \\hat{v}_{i} = \\frac{\\hat{\\pi}_{i}}{m} = \\frac{1}{m}(\\hat{p}_{i} - aA_{i}) = \\frac{1}{m}\\left(\\frac{\\hbar}{i}\\partial_{i} - qA_{i}\\right) $$\n速度与坐标分量之间的对易关系\n$$ [\\hat{x}_{i},\\hat{v}_{j}] = \\left[\\hat{x}_{i}, \\frac{1}{m}(\\hat{p}_{j} - aA_{j})\\right] = \\frac{i\\hbar}{m}\\delta_{ij} $$\n速度分量之间的对易关系\n$$ [\\hat{v}_{i}, \\hat{v}_{j}] = \\frac{i\\hbar q}{m^{2}}\\epsilon_{ijk}B_{k} $$\n如果假定背景为无电场, 磁场不含时且均匀, 那么我们不妨设 $\\vec{B} = B\\hat{z}$. 为了便于计算, 我们可以令\n$$ \\varphi = 0;\\\\ \\frac{\\partial \\mathbf{A}}{\\partial t} = 0. $$\n所以就可以知道磁场为\n$$ \\mathbf{B} = \\nabla\\times\\mathbf{A} = B\\hat{z} $$\n经典电荷的运动 我们可以梳理出经典电荷在均匀磁场中的运动特点:\n沿磁场方向($\\hat{z}$), 电荷作匀速运动; 垂直磁场方向的平面, 电荷作匀速圆周运动, 角频率可以用 $$ \\omega = \\frac{qB}{m} $$\n来描述;\n所以电荷的运动轨迹是螺旋线.\n能量本征值 涉及量子的范畴, 当然要回到薛定谔方程来分析.\n$$ \\hat{H} = \\frac{\\hat{\\mathbf{\\pi}}^{2}}{2m} = \\frac{m}{2}(\\hat{v}_{x}^{2} + \\hat{v}_{y}^{2}) + \\frac{m}{2}\\hat{v}_{z}^{2} $$\n因为磁场有了具体的量, 所以相应地, $\\hat{v}_{i}$ 之间的对易关系可以特化为\n$$ [\\hat{v}_{x}, \\hat{v}_{y}] = \\frac{i\\hbar q}{m^{2}}B\\\\ [\\hat{v}_{x}, \\hat{v}_{z}] = [\\hat{v}_{y}, \\hat{v}_{z}] = 0 $$\n根据以上对易关系, 我们可以发现\n$$ [\\hat{v}_{z}, \\hat{H}] = 0 $$\n因此 $\\hat{v}_{z}$ 和 $\\hat{H}$ 将会拥有共同本征态. 所以我们可以得出初步结论:粒子在 $z$ 轴左自由运动, 而和 $x-y$ 平面的运动没有关系.\n为了辅助分析, 我们引入参数 $\\gamma$ 和算符 $\\hat{Q}’, \\hat{P}'$\n$$ \\gamma = \\sqrt{\\frac{\\hbar qB}{m^{2}}} = \\sqrt{\\frac{\\hbar\\omega}{m}}\\\\ \\hat{Q}’ = \\frac{\\hat{v}_{x}}{\\gamma}\\\\ \\hat{P}’ = \\frac{\\hat{v}_{y}}{\\gamma} $$\n$\\hat{Q}’$ 和 $\\hat{P}’$ 之间的对易关系: $$ [\\hat{Q}’, \\hat{P}’] = i $$\n所以我们就可以将原本的哈密顿量改写为以下形式:\n$$ \\hat{H} = \\frac{1}{2}\\hbar\\omega\\left(\\hat{P}’^{2} + \\hat{Q}’^{2}\\right) + \\frac{m}{2}\\hat{v}_{z}^{2} $$\n所以我们类比于谐振子形式, 引入产生算符和湮灭算符\n$$ \\hat{a} = \\frac{1}{\\sqrt{2}}(\\hat{Q}’ + i\\hat{P}’)\\\\ \\hat{a}^{\\dagger} = \\frac{1}{\\sqrt{2}}(\\hat{Q}’ - i\\hat{P}’)\\\\ $$\n产生算符和湮灭算符之间的对易关系: $$ \\left[\\hat{a}, \\hat{a}^{\\dagger}\\right] = 1 $$\n所以就有\n$$ \\hat{H} = \\hbar\\omega(\\hat{a}^{\\dagger}\\hat{a} + \\frac{1}{2}) + \\frac{m}{2}\\hat{v}_{z}^{2} $$\n因此借用谐振子相关的结论, 有\n$$ E(n, v_{z}) = \\underbrace{\\hbar\\omega\\left(n + \\frac{1}{2}\\right)}_{x-y\\text{平面的运动}} + \\underbrace{\\frac{1}{2}mv_{z}^{2}}_{z\\text{方向的自由运动}} $$\n在这里, 我们将所有给定了 $n$ 的能级对应的能量本征态集合称为第 $n$ 朗道能级.\n本征态波函数 在上面的讨论中, 实际上磁矢势 $\\mathbf{A}$ 仍然没有被确定下来. 为了得到本征态波函数, 我们需要添加额外的条件\n$$ A_{x} = -yB, A_{y} = A_{z} = 0 $$\n这种条件被称作 “朗道规范”.\n朗道规范的意义: $$ \\nabla\\cdot\\mathbf{A} = 0; \\\\ \\nabla\\times\\mathbf{A} = -\\partial_{y}A_{x}\\hat{z} = B\\hat{z}. $$\n写出朗道规范下的哈密顿算符\n$$ \\hat{H} = \\frac{1}{2m}\\left[(\\hat{p}_{x}^{2} + yqB)^{2} + \\hat{p}_{y}^{2} + \\hat{p}_{z}^{2}\\right] $$\n$\\hat{p}_{i} = -i\\hbar\\partial_{i}$ 为正则动量分量. 正则动量与哈密顿量的对易关系 $$ \\left[\\hat{p}_{x}, \\hat{H}\\right] = \\left[\\hat{p}_{z}, \\hat{H}\\right] = 0;\\left[\\hat{p}_{y}, \\hat{H}\\right] \\neq 0. $$\n根据上述的对易关系, 我们可以确定存在 $\\hat{H}, \\hat{p}_{x},\\hat{p}_{z}$ 的共同本征态. 结合其函数特征我们写出本征态的函数形式为\n$$ \\Psi(x,y,z) = e^{i(k_{x}\\cdot x + k_{z}\\cdot z)}\\phi(y) $$\n将该形式解代入到薛定谔方程, 就可以得到对分量 $\\phi(y)$ 的方程\n$$ \\left\\{\\frac{1}{2}\\left[(\\hbar k_{x} + yqB)^{2}+\\hbar^{2}k_{z}^{2}- \\frac{\\hbar^{2}}{2m}\\frac{\\mathrm{d}^{2}}{\\mathrm{d}y^{2}}\\right] -E\\right\\}\\phi(y) = 0 $$\n为了简化系数表示, 我们约定\n$$ y_{0} = -\\frac{\\hbar k_{x}}{qB}\\\\ E’ = E - \\frac{\\hbar^{2}k_{z}^{2}}{2m} $$\n所以原方程简化为\n$$ -\\frac{\\hbar^{2}}{2m}\\phi’’(y) + \\left(\\frac{1}{2}m\\omega^{2}(y - y_{0})^{2} - E’\\right)\\phi(y) = 0 $$\n这个方程形式实际上就是一维谐振子的薛定谔方程, 势能中心点为 $y_{0}$, 圆频率为 $\\omega = \\frac{qB}{mc}$.\n因此其能量本征值为\n$$ E_{n}’ = \\hbar\\omega\\left(n + \\frac{1}{2}\\right) $$\n能量本征波函数为\n$$ \\phi_{n}(y) = H_{n}[\\alpha(y - y_{0})]e^{-\\frac{\\alpha^{2}}{2}(y - y_{0})^{2}} $$\n$H_{n}(x)$ 为 Hermite 多项式.\n将众结果代回到三维情形, 即有\n$$ E_{n, k_{x}, k_{z}} = E’ + \\frac{\\hbar^{2}k_{z}^{2}}{2m} = \\hbar\\omega\\left(n + \\frac{1}{2}\\right) + \\frac{\\hbar^{2}k_{z}^{2}}{2m}\\\\ \\Psi_{n,k_{x},k_{y}}(x,y,z) = e^{i(k_{x}\\cdot x + k_{z}\\cdot z)}H_{n}[\\alpha(y - y_{0})]e^{-\\frac{\\alpha^{2}}{2}(y - y_{0})^{2}} $$\n$$ \\alpha = \\sqrt{\\frac{m\\omega}{\\hbar}} = \\sqrt{\\frac{qB}{\\hbar}}\\\\ a = \\frac{1}{\\alpha} = \\sqrt{\\frac{\\hbar}{qB}}\\\\ y_{0} = -\\frac{\\hbar k_{x}}{qB} = -k_{x}a^{2}. $$\n能量本征态波函数在 $x-z$ 方向上为平面波, 而在 $y$ 方向上为 中心位置为 $y_{0}$ 的波包.\n波函数通过 $y_{0}$ 依赖于 $k_{x}$, 因此会导致系统能谱有着极大的简并度.\n轨道中心算符 经典电荷在均匀磁场中的圆周运动 $$ x(t) = x_{0} + r\\cos{(\\omega t + \\theta)}\\\\ y(t) = y_{0} - r\\sin{(\\omega t + \\theta)} $$\n$x_{0}, y_{0}$ 为圆心坐标, $r$ 为半径, $\\theta$ 为初始相位, $\\omega = qB/m$ 为角频率.\n我们对运动方程进行对时间求导, 即有\n$$ v_{x} = x’(t) = -\\omega r\\sin{(\\omega t + \\theta)}\\\\ v_{y} = y’(t) = -\\omega r\\cos{(\\omega t + \\theta)}. $$\n将上述两个方程组写在一起用来消除三角函数:\n$$ x - x_{0} = -\\frac{1}{\\omega}v_{y}\\\\ y - y_{0} = \\frac{1}{\\omega}v_{x} $$\n我们可以发现不变量\n$$ x_{0} = x(t) + \\frac{v_{y}(t)}{\\omega}\\\\ y_{0} = y(t) - \\frac{v_{x}(t)}{\\omega} $$\n其物理意义为轨道的中心位置.\n对于量子力学的范畴, 我们则是引入轨道中心位置算符, 将上面的这个式子量子化:\n$$ \\hat{X}_{0} = \\hat{x} + \\frac{\\hat{v}_{y}}{\\omega}, \\hat{Y}_{0} = \\hat{y} - \\frac{\\hat{v}_{x}}{\\omega} $$\n$\\hat{x}, \\hat{y}$ 为粒子的位置算符, 而 $\\hat{v}_{x}, \\hat{v}_{y}$ 则是粒子的速度算符.\n因为我们已经知道对易关系\n$$ \\left[\\hat{x}_{\\alpha}, \\hat{v}_{\\beta}\\right] = \\frac{i\\hbar}{m}\\delta_{\\alpha\\beta}\\\\ \\left[\\hat{v}_{\\alpha}, \\hat{v}_{\\beta}\\right] = \\frac{i\\hbar q}{m^{2}}\\epsilon_{\\alpha\\beta\\gamma}B_{\\gamma} $$\n所以我们可以知道\n$$ \\left[\\hat{H}, \\hat{X}_{0}\\right] = \\left[\\frac{1}{2m}\\hat{\\mathbf{\\pi}}^{2}, \\hat{x} + \\frac{\\hat{v}_{y}}{\\omega}\\right] = \\frac{m}{2}\\left[\\vec{v}^{2}, \\hat{x} + \\frac{\\hat{v}_{y}}{\\omega}\\right]\\\\ = \\frac{1}{2}m[\\hat{v_{x}^{2}}, \\hat{x}] + \\frac{1}{2}m\\left[\\hat{v}_{x}^{2} + \\frac{\\hat{v}_{y}}{\\omega}\\right]\\\\ = - m \\cdot \\frac{i\\hbar}{m}\\cdot\\hat{v}_{x} + m\\cdot\\frac{1}{\\omega}\\cdot\\frac{i\\hbar qB}{m^{2}}\\hat{v}_{x}\\\\ = i\\hbar\\cdot\\hat{v}_{x}\\underbrace{\\left( -1 + \\frac{1}{\\omega}\\frac{qB}{m}\\right)}_{0} = 0 $$\n同理, $\\left[\\hat{H}, \\hat{Y}_{0}\\right] = 0$.\n而对于中心算符本身, 则有\n$$ \\left[\\hat{X}_{0}, \\hat{Y}_{0}\\right] = \\left[\\hat{x} + \\frac{\\hat{v}_{y}}{\\omega}, \\hat{y} - \\frac{\\hat{v}_{x}}{\\omega}\\right]\\\\ = \\frac{1}{\\omega}[\\hat{v}_{y}, \\hat{y}] - \\frac{1}{\\omega}[\\hat{x}, \\hat{v}_{x}] - \\frac{1}{\\omega^{2}}[\\hat{v}_{y}, \\hat{v}_{x}]\\\\ = \\frac{1}{\\omega}\\left(\\frac{-i\\hbar}{m}-\\frac{i\\hbar}{m}\\right) + \\frac{1}{\\omega^{2}}\\frac{i\\hbar q}{m^{2}}B\\\\ = -\\frac{i\\hbar}{m\\omega} = -\\frac{i\\hbar}{qB} = -ia^{2} $$\n$a = \\sqrt{\\frac{\\hbar}{qB}}$\n根据海森堡不确定性原理, 有\n$$ \\Delta X_{0}\\Delta Y_{0}\\geq\\frac{1}{2}\\left|\\left\\langle\\left[\\hat{X}_{0}, \\hat{Y}_{0}\\right]\\right\\rangle\\right| = \\frac{1}{2}a^{2} $$\n所以我们无法同时确定轨道中心的两个坐标 $X_{0}, Y_{0}$. 如果 $xy$ 方向对称, 那么 $X_{0}, Y_{0}$ 的不确定都大约为 $a$.\n而具体到朗道规范中, 我们重新表述轨道中心算符的形式:\n$$ \\begin{aligned} \u0026 \\hat{v}_{x} = \\frac{1}{m}\\left(\\hat{p}_{x} - q\\hat{A}_{x}\\right) = \\frac{1}{m}(\\hat{p}_{x} + qB\\hat{y})\\\\ \u0026 \\hat{v}_{y} = \\frac{1}{m}\\left(\\hat{p}_{y} - q\\hat{A}_{y}\\right) = \\frac{1}{m}\\hat{p}_{y}\\\\ \u0026 \\hat{X}_{0} = \\hat{x} + \\frac{\\hat{v}_{y}}{\\omega} = \\hat{x} + \\frac{1}{m\\omega}\\hat{p}_{y}\\\\ \u0026 \\color{red}{\\hat{Y}_{0}} = \\hat{y} - \\frac{\\hat{v}_{x}}{\\omega} = \\hat{y} - \\frac{1}{m\\omega}(\\hat{p}_{x} + qB\\hat{y}) = -\\frac{\\color{red}{\\hat{p}_{x}}}{m\\omega}. \\end{aligned} $$\n可以观察到, 朗道规范下的 $\\hat{Y}_{0}$ 与 $\\hat{p}_{x}$ 只相差一个非零系数, 所以可以轻松的到其本征态和本征值. $$ Y_{0} = -\\frac{1}{qB}p_{x} = -\\frac{\\hbar k_{x}}{qB} = -a^{2} k_{x} $$\n所以 $y$ 方向的轨道中心坐标 $Y_{0}$ 其实是完全确定的, 而 $x$ 方向的轨道中心坐标 $X_{0}$ 则是不确定的.\n朗道能级的简并度 设系统为大小为 $D_{x}\\times D_{y}$ 的矩形, 因为我们已经知道系统在 $x$ 方向为平面波, 所以我们需要在 $x$ 方向上附加周期性边界条件.\n$$ e^{ik_{x}\\cdot D_{x}} = 1 \\Rightarrow k_{x}\\cdot D_{x} = 2\\pi n_{x}(n_{x} \\in \\mathbb{Z}) $$\n相邻的 $k_{x}$ 间隔为 $$ \\Delta k_{x} = \\frac{2\\pi}{D_{x}} $$\n而轨道中心坐标又由 $k_{x}$ 完全确定:\n$$ Y_{0} = -k_{x}a^{2} = -\\frac{2\\pi n_{x}}{D_{x}} a^{2} $$\n而 $Y_{0}$ 应当在矩形内部, 所以即有新的约束条件\n$$ 0\\leq Y_{0}\\leq D_{y}\\\\ \\Rightarrow 0\\leq -\\frac{2\\pi n_{x}}{D_{x}}a^{2}\\leq D_{y}\\\\ \\Rightarrow 0\\leq -n_{x}\\leq \\frac{D_{x}D_{y}}{2\\pi a^{2}} $$\n所以每个朗道能级的简并度为 $D_{x}D_{y}/2\\pi a^{2}$, 在宏观层面这个简并度极大.\n物理图像 每个本征态占有 $x-y$ 平面上面积 $2\\pi a^{2}$, 所以磁通量为 $\\Phi_{0} = 2\\pi a^{2}B = 2\\pi\\hbar/qB = \\hbar/q$, 这正是所谓的 “磁通量的自然单位” ",
-  "wordCount" : "2107",
+  "articleBody": "Intro 对于电荷在电磁场中的运动, 我们已经知道\n$$ \\hat{H} = \\frac{1}{2m}(\\hat{p} - q\\mathbf{A})^{2} + q\\varphi $$\n$\\hat{p} = -i\\hbar\\nabla$ 是正则动量算符, 满足正则对易关系 $$ \\left[\\hat{p}_{i},\\hat{x}_{j}\\right] = -i\\hbar\\delta_{ij} $$\n将其代入到薛定谔方程中, 即有\n$$ \\left(i\\hbar\\frac{\\partial}{\\partial t} - q\\varphi\\right) \\psi = \\frac{1}{2m}(\\hat{p} - q\\mathbf{A})^{2} \\psi $$\n速度算符 $\\hat{\\mathbf{v}}$ 与 力学动量算符 $\\hat{\\mathbf{\\pi}}$ $$ \\hat{v}_{i} = \\frac{\\hat{\\pi}_{i}}{m} = \\frac{1}{m}(\\hat{p}_{i} - aA_{i}) = \\frac{1}{m}\\left(\\frac{\\hbar}{i}\\partial_{i} - qA_{i}\\right) $$\n速度与坐标分量之间的对易关系\n$$ [\\hat{x}_{i},\\hat{v}_{j}] = \\left[\\hat{x}_{i}, \\frac{1}{m}(\\hat{p}_{j} - aA_{j})\\right] = \\frac{i\\hbar}{m}\\delta_{ij} $$\n速度分量之间的对易关系\n$$ [\\hat{v}_{i}, \\hat{v}_{j}] = \\frac{i\\hbar q}{m^{2}}\\epsilon_{ijk}B_{k} $$\n如果假定背景为无电场, 磁场不含时且均匀, 那么我们不妨设 $\\vec{B} = B\\hat{z}$. 为了便于计算, 我们可以令\n$$ \\varphi = 0;\\\\ \\frac{\\partial \\mathbf{A}}{\\partial t} = 0. $$\n所以就可以知道磁场为\n$$ \\mathbf{B} = \\nabla\\times\\mathbf{A} = B\\hat{z} $$\n经典电荷的运动 我们可以梳理出经典电荷在均匀磁场中的运动特点:\n沿磁场方向($\\hat{z}$), 电荷作匀速运动; 垂直磁场方向的平面, 电荷作匀速圆周运动, 角频率可以用 $$ \\omega = \\frac{qB}{m} $$\n来描述;\n所以电荷的运动轨迹是螺旋线.\n能量本征值 涉及量子的范畴, 当然要回到薛定谔方程来分析.\n$$ \\hat{H} = \\frac{\\hat{\\mathbf{\\pi}}^{2}}{2m} = \\frac{m}{2}(\\hat{v}_{x}^{2} + \\hat{v}_{y}^{2}) + \\frac{m}{2}\\hat{v}_{z}^{2} $$\n因为磁场有了具体的量, 所以相应地, $\\hat{v}_{i}$ 之间的对易关系可以特化为\n$$ [\\hat{v}_{x}, \\hat{v}_{y}] = \\frac{i\\hbar q}{m^{2}}B\\\\ [\\hat{v}_{x}, \\hat{v}_{z}] = [\\hat{v}_{y}, \\hat{v}_{z}] = 0 $$\n根据以上对易关系, 我们可以发现\n$$ [\\hat{v}_{z}, \\hat{H}] = 0 $$\n因此 $\\hat{v}_{z}$ 和 $\\hat{H}$ 将会拥有共同本征态. 所以我们可以得出初步结论:粒子在 $z$ 轴左自由运动, 而和 $x-y$ 平面的运动没有关系.\n为了辅助分析, 我们引入参数 $\\gamma$ 和算符 $\\hat{Q}', \\hat{P}'$\n$$ \\gamma = \\sqrt{\\frac{\\hbar qB}{m^{2}}} = \\sqrt{\\frac{\\hbar\\omega}{m}}\\\\ \\hat{Q}' = \\frac{\\hat{v}_{x}}{\\gamma}\\\\ \\hat{P}' = \\frac{\\hat{v}_{y}}{\\gamma} $$\n$\\hat{Q}'$ 和 $\\hat{P}'$ 之间的对易关系: $$ [\\hat{Q}', \\hat{P}'] = i $$\n所以我们就可以将原本的哈密顿量改写为以下形式:\n$$ \\hat{H} = \\frac{1}{2}\\hbar\\omega\\left(\\hat{P}'^{2} + \\hat{Q}'^{2}\\right) + \\frac{m}{2}\\hat{v}_{z}^{2} $$\n所以我们类比于谐振子形式, 引入产生算符和湮灭算符\n$$ \\hat{a} = \\frac{1}{\\sqrt{2}}(\\hat{Q}' + i\\hat{P}')\\\\ \\hat{a}^{\\dagger} = \\frac{1}{\\sqrt{2}}(\\hat{Q}' - i\\hat{P}')\\\\ $$\n产生算符和湮灭算符之间的对易关系: $$ \\left[\\hat{a}, \\hat{a}^{\\dagger}\\right] = 1 $$\n所以就有\n$$ \\hat{H} = \\hbar\\omega(\\hat{a}^{\\dagger}\\hat{a} + \\frac{1}{2}) + \\frac{m}{2}\\hat{v}_{z}^{2} $$\n因此借用谐振子相关的结论, 有\n$$ E(n, v_{z}) = \\underbrace{\\hbar\\omega\\left(n + \\frac{1}{2}\\right)}_{x-y\\text{平面的运动}} + \\underbrace{\\frac{1}{2}mv_{z}^{2}}_{z\\text{方向的自由运动}} $$\n在这里, 我们将所有给定了 $n$ 的能级对应的能量本征态集合称为第 $n$ 朗道能级.\n本征态波函数 在上面的讨论中, 实际上磁矢势 $\\mathbf{A}$ 仍然没有被确定下来. 为了得到本征态波函数, 我们需要添加额外的条件\n$$ A_{x} = -yB, A_{y} = A_{z} = 0 $$\n这种条件被称作 \"朗道规范\".\n朗道规范的意义: $$ \\nabla\\cdot\\mathbf{A} = 0; \\\\ \\nabla\\times\\mathbf{A} = -\\partial_{y}A_{x}\\hat{z} = B\\hat{z}. $$\n写出朗道规范下的哈密顿算符\n$$ \\hat{H} = \\frac{1}{2m}\\left[(\\hat{p}_{x}^{2} + yqB)^{2} + \\hat{p}_{y}^{2} + \\hat{p}_{z}^{2}\\right] $$\n$\\hat{p}_{i} = -i\\hbar\\partial_{i}$ 为正则动量分量. 正则动量与哈密顿量的对易关系 $$ \\left[\\hat{p}_{x}, \\hat{H}\\right] = \\left[\\hat{p}_{z}, \\hat{H}\\right] = 0;\\left[\\hat{p}_{y}, \\hat{H}\\right] \\neq 0. $$\n根据上述的对易关系, 我们可以确定存在 $\\hat{H}, \\hat{p}_{x},\\hat{p}_{z}$ 的共同本征态. 结合其函数特征我们写出本征态的函数形式为\n$$ \\Psi(x,y,z) = e^{i(k_{x}\\cdot x + k_{z}\\cdot z)}\\phi(y) $$\n将该形式解代入到薛定谔方程, 就可以得到对分量 $\\phi(y)$ 的方程\n$$ \\left\\{\\frac{1}{2}\\left[(\\hbar k_{x} + yqB)^{2}+\\hbar^{2}k_{z}^{2}- \\frac{\\hbar^{2}}{2m}\\frac{\\mathrm{d}^{2}}{\\mathrm{d}y^{2}}\\right] -E\\right\\}\\phi(y) = 0 $$\n为了简化系数表示, 我们约定\n$$ y_{0} = -\\frac{\\hbar k_{x}}{qB}\\\\ E' = E - \\frac{\\hbar^{2}k_{z}^{2}}{2m} $$\n所以原方程简化为\n$$ -\\frac{\\hbar^{2}}{2m}\\phi''(y) + \\left(\\frac{1}{2}m\\omega^{2}(y - y_{0})^{2} - E'\\right)\\phi(y) = 0 $$\n这个方程形式实际上就是一维谐振子的薛定谔方程, 势能中心点为 $y_{0}$, 圆频率为 $\\omega = \\frac{qB}{mc}$.\n因此其能量本征值为\n$$ E_{n}' = \\hbar\\omega\\left(n + \\frac{1}{2}\\right) $$\n能量本征波函数为\n$$ \\phi_{n}(y) = H_{n}[\\alpha(y - y_{0})]e^{-\\frac{\\alpha^{2}}{2}(y - y_{0})^{2}} $$\n$H_{n}(x)$ 为 Hermite 多项式.\n将众结果代回到三维情形, 即有\n$$ E_{n, k_{x}, k_{z}} = E' + \\frac{\\hbar^{2}k_{z}^{2}}{2m} = \\hbar\\omega\\left(n + \\frac{1}{2}\\right) + \\frac{\\hbar^{2}k_{z}^{2}}{2m}\\\\ \\Psi_{n,k_{x},k_{y}}(x,y,z) = e^{i(k_{x}\\cdot x + k_{z}\\cdot z)}H_{n}[\\alpha(y - y_{0})]e^{-\\frac{\\alpha^{2}}{2}(y - y_{0})^{2}} $$\n$$ \\alpha = \\sqrt{\\frac{m\\omega}{\\hbar}} = \\sqrt{\\frac{qB}{\\hbar}}\\\\ a = \\frac{1}{\\alpha} = \\sqrt{\\frac{\\hbar}{qB}}\\\\ y_{0} = -\\frac{\\hbar k_{x}}{qB} = -k_{x}a^{2}. $$\n能量本征态波函数在 $x-z$ 方向上为平面波, 而在 $y$ 方向上为 中心位置为 $y_{0}$ 的波包.\n波函数通过 $y_{0}$ 依赖于 $k_{x}$, 因此会导致系统能谱有着极大的简并度.\n轨道中心算符 经典电荷在均匀磁场中的圆周运动 $$ x(t) = x_{0} + r\\cos{(\\omega t + \\theta)}\\\\ y(t) = y_{0} - r\\sin{(\\omega t + \\theta)} $$\n$x_{0}, y_{0}$ 为圆心坐标, $r$ 为半径, $\\theta$ 为初始相位, $\\omega = qB/m$ 为角频率.\n我们对运动方程进行对时间求导, 即有\n$$ v_{x} = x'(t) = -\\omega r\\sin{(\\omega t + \\theta)}\\\\ v_{y} = y'(t) = -\\omega r\\cos{(\\omega t + \\theta)}. $$\n将上述两个方程组写在一起用来消除三角函数:\n$$ x - x_{0} = -\\frac{1}{\\omega}v_{y}\\\\ y - y_{0} = \\frac{1}{\\omega}v_{x} $$\n我们可以发现不变量\n$$ x_{0} = x(t) + \\frac{v_{y}(t)}{\\omega}\\\\ y_{0} = y(t) - \\frac{v_{x}(t)}{\\omega} $$\n其物理意义为轨道的中心位置.\n对于量子力学的范畴, 我们则是引入轨道中心位置算符, 将上面的这个式子量子化:\n$$ \\hat{X}_{0} = \\hat{x} + \\frac{\\hat{v}_{y}}{\\omega}, \\hat{Y}_{0} = \\hat{y} - \\frac{\\hat{v}_{x}}{\\omega} $$\n$\\hat{x}, \\hat{y}$ 为粒子的位置算符, 而 $\\hat{v}_{x}, \\hat{v}_{y}$ 则是粒子的速度算符.\n因为我们已经知道对易关系\n$$ \\left[\\hat{x}_{\\alpha}, \\hat{v}_{\\beta}\\right] = \\frac{i\\hbar}{m}\\delta_{\\alpha\\beta}\\\\ \\left[\\hat{v}_{\\alpha}, \\hat{v}_{\\beta}\\right] = \\frac{i\\hbar q}{m^{2}}\\epsilon_{\\alpha\\beta\\gamma}B_{\\gamma} $$\n所以我们可以知道\n$$ \\left[\\hat{H}, \\hat{X}_{0}\\right] = \\left[\\frac{1}{2m}\\hat{\\mathbf{\\pi}}^{2}, \\hat{x} + \\frac{\\hat{v}_{y}}{\\omega}\\right] = \\frac{m}{2}\\left[\\vec{v}^{2}, \\hat{x} + \\frac{\\hat{v}_{y}}{\\omega}\\right]\\\\ = \\frac{1}{2}m[\\hat{v_{x}^{2}}, \\hat{x}] + \\frac{1}{2}m\\left[\\hat{v}_{x}^{2} + \\frac{\\hat{v}_{y}}{\\omega}\\right]\\\\ = - m \\cdot \\frac{i\\hbar}{m}\\cdot\\hat{v}_{x} + m\\cdot\\frac{1}{\\omega}\\cdot\\frac{i\\hbar qB}{m^{2}}\\hat{v}_{x}\\\\ = i\\hbar\\cdot\\hat{v}_{x}\\underbrace{\\left( -1 + \\frac{1}{\\omega}\\frac{qB}{m}\\right)}_{0} = 0 $$\n同理, $\\left[\\hat{H}, \\hat{Y}_{0}\\right] = 0$.\n而对于中心算符本身, 则有\n$$ \\left[\\hat{X}_{0}, \\hat{Y}_{0}\\right] = \\left[\\hat{x} + \\frac{\\hat{v}_{y}}{\\omega}, \\hat{y} - \\frac{\\hat{v}_{x}}{\\omega}\\right]\\\\ = \\frac{1}{\\omega}[\\hat{v}_{y}, \\hat{y}] - \\frac{1}{\\omega}[\\hat{x}, \\hat{v}_{x}] - \\frac{1}{\\omega^{2}}[\\hat{v}_{y}, \\hat{v}_{x}]\\\\ = \\frac{1}{\\omega}\\left(\\frac{-i\\hbar}{m}-\\frac{i\\hbar}{m}\\right) + \\frac{1}{\\omega^{2}}\\frac{i\\hbar q}{m^{2}}B\\\\ = -\\frac{i\\hbar}{m\\omega} = -\\frac{i\\hbar}{qB} = -ia^{2} $$\n$a = \\sqrt{\\frac{\\hbar}{qB}}$\n根据海森堡不确定性原理, 有\n$$ \\Delta X_{0}\\Delta Y_{0}\\geq\\frac{1}{2}\\left|\\left\\langle\\left[\\hat{X}_{0}, \\hat{Y}_{0}\\right]\\right\\rangle\\right| = \\frac{1}{2}a^{2} $$\n所以我们无法同时确定轨道中心的两个坐标 $X_{0}, Y_{0}$. 如果 $xy$ 方向对称, 那么 $X_{0}, Y_{0}$ 的不确定都大约为 $a$.\n而具体到朗道规范中, 我们重新表述轨道中心算符的形式:\n$$ \\begin{aligned} \u0026 \\hat{v}_{x} = \\frac{1}{m}\\left(\\hat{p}_{x} - q\\hat{A}_{x}\\right) = \\frac{1}{m}(\\hat{p}_{x} + qB\\hat{y})\\\\ \u0026 \\hat{v}_{y} = \\frac{1}{m}\\left(\\hat{p}_{y} - q\\hat{A}_{y}\\right) = \\frac{1}{m}\\hat{p}_{y}\\\\ \u0026 \\hat{X}_{0} = \\hat{x} + \\frac{\\hat{v}_{y}}{\\omega} = \\hat{x} + \\frac{1}{m\\omega}\\hat{p}_{y}\\\\ \u0026 \\color{red}{\\hat{Y}_{0}} = \\hat{y} - \\frac{\\hat{v}_{x}}{\\omega} = \\hat{y} - \\frac{1}{m\\omega}(\\hat{p}_{x} + qB\\hat{y}) = -\\frac{\\color{red}{\\hat{p}_{x}}}{m\\omega}. \\end{aligned} $$\n可以观察到, 朗道规范下的 $\\hat{Y}_{0}$ 与 $\\hat{p}_{x}$ 只相差一个非零系数, 所以可以轻松的到其本征态和本征值. $$ Y_{0} = -\\frac{1}{qB}p_{x} = -\\frac{\\hbar k_{x}}{qB} = -a^{2} k_{x} $$\n所以 $y$ 方向的轨道中心坐标 $Y_{0}$ 其实是完全确定的, 而 $x$ 方向的轨道中心坐标 $X_{0}$ 则是不确定的.\n朗道能级的简并度 设系统为大小为 $D_{x}\\times D_{y}$ 的矩形, 因为我们已经知道系统在 $x$ 方向为平面波, 所以我们需要在 $x$ 方向上附加周期性边界条件.\n$$ e^{ik_{x}\\cdot D_{x}} = 1 \\Rightarrow k_{x}\\cdot D_{x} = 2\\pi n_{x}(n_{x} \\in \\mathbb{Z}) $$\n相邻的 $k_{x}$ 间隔为 $$ \\Delta k_{x} = \\frac{2\\pi}{D_{x}} $$\n而轨道中心坐标又由 $k_{x}$ 完全确定:\n$$ Y_{0} = -k_{x}a^{2} = -\\frac{2\\pi n_{x}}{D_{x}} a^{2} $$\n而 $Y_{0}$ 应当在矩形内部, 所以即有新的约束条件\n$$ 0\\leq Y_{0}\\leq D_{y}\\\\ \\Rightarrow 0\\leq -\\frac{2\\pi n_{x}}{D_{x}}a^{2}\\leq D_{y}\\\\ \\Rightarrow 0\\leq -n_{x}\\leq \\frac{D_{x}D_{y}}{2\\pi a^{2}} $$\n所以每个朗道能级的简并度为 $D_{x}D_{y}/2\\pi a^{2}$, 在宏观层面这个简并度极大.\n物理图像 每个本征态占有 $x-y$ 平面上面积 $2\\pi a^{2}$, 所以磁通量为 $\\Phi_{0} = 2\\pi a^{2}B = 2\\pi\\hbar/qB = \\hbar/q$, 这正是所谓的 \"磁通量的自然单位\" ",
+  "wordCount" : "2103",
   "inLanguage": "zh",
   "datePublished": "2022-05-05T00:18:23+08:00",
   "dateModified": "2022-05-05T00:18:23+08:00",
@@ -344,7 +344,7 @@ MathJax.Hub.Queue(function() {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>2107字
+        <span>2103字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -566,26 +566,26 @@ $$</p>
 [\hat{v}_{z}, \hat{H}] = 0
 $$</p>
 <p>因此 $\hat{v}_{z}$ 和 $\hat{H}$ 将会拥有共同本征态. 所以我们可以得出初步结论:<strong>粒子在 $z$ 轴左自由运动, 而和 $x-y$ 平面的运动没有关系</strong>.</p>
-<p>为了辅助分析, 我们引入参数 $\gamma$ 和算符 $\hat{Q}&rsquo;, \hat{P}'$</p>
+<p>为了辅助分析, 我们引入参数 $\gamma$ 和算符 $\hat{Q}', \hat{P}'$</p>
 <p>$$
 \gamma = \sqrt{\frac{\hbar qB}{m^{2}}} = \sqrt{\frac{\hbar\omega}{m}}\\
-\hat{Q}&rsquo; = \frac{\hat{v}_{x}}{\gamma}\\
-\hat{P}&rsquo; = \frac{\hat{v}_{y}}{\gamma}
+\hat{Q}' = \frac{\hat{v}_{x}}{\gamma}\\
+\hat{P}' = \frac{\hat{v}_{y}}{\gamma}
 $$</p>
 <blockquote>
-<p>$\hat{Q}&rsquo;$ 和 $\hat{P}&rsquo;$ 之间的对易关系:
+<p>$\hat{Q}'$ 和 $\hat{P}'$ 之间的对易关系:
 $$
-[\hat{Q}&rsquo;, \hat{P}&rsquo;] = i
+[\hat{Q}', \hat{P}'] = i
 $$</p>
 </blockquote>
 <p>所以我们就可以将原本的哈密顿量改写为以下形式:</p>
 <p>$$
-\hat{H} = \frac{1}{2}\hbar\omega\left(\hat{P}&rsquo;^{2} + \hat{Q}&rsquo;^{2}\right) + \frac{m}{2}\hat{v}_{z}^{2}
+\hat{H} = \frac{1}{2}\hbar\omega\left(\hat{P}'^{2} + \hat{Q}'^{2}\right) + \frac{m}{2}\hat{v}_{z}^{2}
 $$</p>
 <p>所以我们类比于谐振子形式, 引入产生算符和湮灭算符</p>
 <p>$$
-\hat{a} = \frac{1}{\sqrt{2}}(\hat{Q}&rsquo; + i\hat{P}&rsquo;)\\
-\hat{a}^{\dagger} = \frac{1}{\sqrt{2}}(\hat{Q}&rsquo; - i\hat{P}&rsquo;)\\
+\hat{a} = \frac{1}{\sqrt{2}}(\hat{Q}' + i\hat{P}')\\
+\hat{a}^{\dagger} = \frac{1}{\sqrt{2}}(\hat{Q}' - i\hat{P}')\\
 $$</p>
 <blockquote>
 <p>产生算符和湮灭算符之间的对易关系:
@@ -607,7 +607,7 @@ $$</p>
 <p>$$
 A_{x} = -yB, A_{y} = A_{z} = 0
 $$</p>
-<p>这种条件被称作 <strong>&ldquo;朗道规范&rdquo;</strong>.</p>
+<p>这种条件被称作 <strong>&quot;朗道规范&quot;</strong>.</p>
 <blockquote>
 <p>朗道规范的意义:
 $$
@@ -637,16 +637,16 @@ $$</p>
 <p>为了简化系数表示, 我们约定</p>
 <p>$$
 y_{0} = -\frac{\hbar k_{x}}{qB}\\
-E&rsquo; = E - \frac{\hbar^{2}k_{z}^{2}}{2m}
+E' = E - \frac{\hbar^{2}k_{z}^{2}}{2m}
 $$</p>
 <p>所以原方程简化为</p>
 <p>$$
--\frac{\hbar^{2}}{2m}\phi&rsquo;&rsquo;(y) + \left(\frac{1}{2}m\omega^{2}(y - y_{0})^{2} - E&rsquo;\right)\phi(y) = 0
+-\frac{\hbar^{2}}{2m}\phi''(y) + \left(\frac{1}{2}m\omega^{2}(y - y_{0})^{2} - E'\right)\phi(y) = 0
 $$</p>
 <p>这个方程形式实际上就是一维谐振子的薛定谔方程, 势能中心点为 $y_{0}$, 圆频率为 $\omega = \frac{qB}{mc}$.</p>
 <p>因此其能量本征值为</p>
 <p>$$
-E_{n}&rsquo; = \hbar\omega\left(n + \frac{1}{2}\right)
+E_{n}' = \hbar\omega\left(n + \frac{1}{2}\right)
 $$</p>
 <p>能量本征波函数为</p>
 <p>$$
@@ -657,7 +657,7 @@ $$</p>
 </blockquote>
 <p>将众结果代回到三维情形, 即有</p>
 <p>$$
-E_{n, k_{x}, k_{z}} = E&rsquo; + \frac{\hbar^{2}k_{z}^{2}}{2m} = \hbar\omega\left(n + \frac{1}{2}\right) + \frac{\hbar^{2}k_{z}^{2}}{2m}\\
+E_{n, k_{x}, k_{z}} = E' + \frac{\hbar^{2}k_{z}^{2}}{2m} = \hbar\omega\left(n + \frac{1}{2}\right) + \frac{\hbar^{2}k_{z}^{2}}{2m}\\
 \Psi_{n,k_{x},k_{y}}(x,y,z) = e^{i(k_{x}\cdot x + k_{z}\cdot z)}H_{n}[\alpha(y - y_{0})]e^{-\frac{\alpha^{2}}{2}(y - y_{0})^{2}}
 $$</p>
 <blockquote>
@@ -682,8 +682,8 @@ $$</p>
 </blockquote>
 <p>我们对运动方程进行对时间求导, 即有</p>
 <p>$$
-v_{x} = x&rsquo;(t) = -\omega r\sin{(\omega t + \theta)}\\
-v_{y} = y&rsquo;(t) = -\omega r\cos{(\omega t + \theta)}.
+v_{x} = x'(t) = -\omega r\sin{(\omega t + \theta)}\\
+v_{y} = y'(t) = -\omega r\cos{(\omega t + \theta)}.
 $$</p>
 <p>将上述两个方程组写在一起用来消除三角函数:</p>
 <p>$$
@@ -779,7 +779,7 @@ $$</p>
 
  <div class="details-content">
 
- <div class="admonition-content">每个本征态占有 $x-y$ 平面上面积 $2\pi a^{2}$, 所以磁通量为 $\Phi_{0} = 2\pi a^{2}B = 2\pi\hbar/qB = \hbar/q$, 这正是所谓的 <strong>&ldquo;磁通量的自然单位&rdquo;</strong></div>
+ <div class="admonition-content">每个本征态占有 $x-y$ 平面上面积 $2\pi a^{2}$, 所以磁通量为 $\Phi_{0} = 2\pi a^{2}B = 2\pi\hbar/qB = \hbar/q$, 这正是所谓的 <strong>&quot;磁通量的自然单位&quot;</strong></div>
 
  </div>
 

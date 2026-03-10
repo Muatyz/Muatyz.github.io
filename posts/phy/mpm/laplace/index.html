@@ -136,7 +136,7 @@
   "keywords": [
     ""
   ],
-  "articleBody": " 电场分布 $\\mathbf{E}(\\mathbf{r})$ 可以通过电荷密度分布 $\\rho(\\mathbf{r})$ 给出: $$ \\mathbf{E}(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\int\\frac{\\hat{\\mathfrak{s}}}{\\mathfrak{s}^{2}}\\rho(\\mathbf{r}’)\\mathrm{d}\\mathbf{r}' $$ 对应的电势分布为\n$$ V(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\int\\frac{1}{\\mathfrak{s}}\\rho(\\mathbf{r}’)\\mathrm{d}\\tau $$\n如果要计算电势分布, 上面的积分式其实是难以实操的. 我们可以将其化为泊松方程的形式:\n$$ \\nabla^{2}V = -\\frac{\\rho}{\\epsilon_{0}} $$\n具体求解还需要加入边界条件才能求解.\n1D 一维的拉普拉斯为\n$$ \\frac{\\mathrm{d}^{2}V}{\\mathrm{d}x^{2}} = 0 $$\n很容易得到其一般解为\n$$ V(x) = mx + b $$\n2D $$ \\frac{\\partial^{2}V}{\\partial x^{2}} + \\frac{\\partial^{2}V}{\\partial y^{2}} = 0 $$\n作为解的 $V(x,y)$ 将会具有以下特性:\n$$ V(\\mathbf{r}) = \\frac{1}{4\\pi R^{2}}\\oint_{\\text{圆周线}}V\\mathrm{d}l $$\n并且, $V(x,y)$ 将不会在局域上取得极值; 所有的极值都是在边界上取得的.\n3D $$ \\frac{\\partial^{2}V}{\\partial x^{2}} + \\frac{\\partial^{2}V}{\\partial y^{2}} + \\frac{\\partial^{2}V}{\\partial z^{2}} = 0 $$\n作为解的 $V(x,y,z)$ 将会具有与上相似的特性:\n$$ V(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\oint_{\\text{球面}}V\\mathrm{d}S $$\n唯一性定理 第一唯一性定理 在区域 $\\mathcal{V}$ 内, 拉普拉斯方程的解由这个区域的边界面 $\\mathcal{S} = \\partial\\mathcal{V}$ 上的 $V$ 取值决定.\n第二唯一性定理 设 $\\mathcal{V}$ 中存在导体, 且电荷密度 $\\rho$ 给定. 若每个导体上的总电荷给定, 那么电场唯一确定.\n镜像法 无限大导体板(接地) 镜像法产生一个虚拟电荷 $-q$, 使得电势:\n$$ V(x,y,z) = \\frac{1}{4\\pi\\epsilon_{0}}\\left[\\frac{q}{\\sqrt{x^{2} + y^{2} + (z - d)^{2}}} - \\frac{q}{\\sqrt{x^{2} + y^{2} + (z + d)^{2}}}\\right] $$\n显然当 $z = 0$ 时, $V = 0$.\n当 $r^{2} = x^{2} + y^{2} + z^{2}\\gg d^{2}, V\\rightarrow 0$.\n感应电荷 只要知道电势, 就可以求得导体表面的感应电荷分布.\n导体的边界条件为: $$ \\mathbf{E} = \\frac{\\sigma}{\\epsilon_{0}}\\hat{\\mathbf{n}}\\Rightarrow\\sigma = -\\epsilon_{0}\\frac{\\partial V}{\\partial n} $$\n对应在无限大导体板的模型, 就有\n$$ \\sigma = -\\epsilon_{0}\\left(\\frac{\\partial V}{\\partial z}\\right)_{z=0} $$\n上面我们已经求得了 $V(x,y,z)$, 所以有\n$$ \\frac{\\partial V}{\\partial z} = \\frac{1}{4\\pi\\epsilon_{0}}\\left\\{\\frac{-q(z-d)}{\\left[x^{2} + y^{2} + (z-d)^{2}\\right]^{\\frac{3}{2}}} + \\frac{q(z+d)}{\\left[x^{2} + y^{2} + (z+d)^{2}\\right]^{\\frac{3}{2}}}\\right\\}\\\\ \\Downarrow\\\\ \\sigma(x,y) = \\frac{-qd}{2\\pi(x^{2} + y^{2} + d^{2})^{\\frac{3}{2}}} $$\n总感应电荷为 $$ Q = \\int\\sigma\\mathrm{d}a = \\int_{0}^{2\\pi}\\int_{0}^{+\\infty}\\frac{-qd}{2\\pi(r^{2} + d^{2})^{\\frac{3}{2}}}r\\mathrm{d}r\\mathrm{d}\\phi = \\left(\\frac{qd}{\\sqrt{q^{2} + d^{2}}}\\right)_{0}^{+\\infty} = -q $$\n力和能量 电荷 $q$ 会被平面产生的感应电荷吸引.\n$$ \\mathbf{F} = \\frac{1}{4\\pi\\epsilon_{0}}\\frac{-q^{2}}{(2d)^{2}}\\hat{z} $$\n但是能量就不是简单的直接类比了. 对于简单的电偶极矩模型, 会有\n$$ W = \\frac{1}{4\\pi\\epsilon_{0}}\\frac{-q^{2}}{2d} $$\n然而平面导体给出的能量为前者的一半:\n$$ W = \\frac{1}{4\\pi\\epsilon_{0}}\\frac{-q^{2}}{4d} $$\n这是因为电场只存在于一半的空间中.\n接地导体球 点电荷 $q$ 距离半径为 $R$ 的接地导体球的球心为 $a$, 求导体球外的电势.\n镜像法的处理是引入电荷\n$$ q’ = -\\frac{R}{a}q $$\n并且其位置为在 $q$ 侧, 距球心\n$$ b = \\frac{R^{2}}{a} $$\n这样的模型产生的电势为\n$$ V(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\left(\\frac{q}{\\mathfrak{s}} + \\frac{q’}{\\mathfrak{s}’}\\right) $$\n这样的电势在球面上的电势均为 $0$.\n分离变量法 本节将根据几个例题来介绍这种方法的使用.\n直角坐标 球坐标 多极展开 ",
+  "articleBody": " 电场分布 $\\mathbf{E}(\\mathbf{r})$ 可以通过电荷密度分布 $\\rho(\\mathbf{r})$ 给出: $$ \\mathbf{E}(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\int\\frac{\\hat{\\mathfrak{s}}}{\\mathfrak{s}^{2}}\\rho(\\mathbf{r}')\\mathrm{d}\\mathbf{r}' $$ 对应的电势分布为\n$$ V(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\int\\frac{1}{\\mathfrak{s}}\\rho(\\mathbf{r}')\\mathrm{d}\\tau $$\n如果要计算电势分布, 上面的积分式其实是难以实操的. 我们可以将其化为泊松方程的形式:\n$$ \\nabla^{2}V = -\\frac{\\rho}{\\epsilon_{0}} $$\n具体求解还需要加入边界条件才能求解.\n1D 一维的拉普拉斯为\n$$ \\frac{\\mathrm{d}^{2}V}{\\mathrm{d}x^{2}} = 0 $$\n很容易得到其一般解为\n$$ V(x) = mx + b $$\n2D $$ \\frac{\\partial^{2}V}{\\partial x^{2}} + \\frac{\\partial^{2}V}{\\partial y^{2}} = 0 $$\n作为解的 $V(x,y)$ 将会具有以下特性:\n$$ V(\\mathbf{r}) = \\frac{1}{4\\pi R^{2}}\\oint_{\\text{圆周线}}V\\mathrm{d}l $$\n并且, $V(x,y)$ 将不会在局域上取得极值; 所有的极值都是在边界上取得的.\n3D $$ \\frac{\\partial^{2}V}{\\partial x^{2}} + \\frac{\\partial^{2}V}{\\partial y^{2}} + \\frac{\\partial^{2}V}{\\partial z^{2}} = 0 $$\n作为解的 $V(x,y,z)$ 将会具有与上相似的特性:\n$$ V(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\oint_{\\text{球面}}V\\mathrm{d}S $$\n唯一性定理 第一唯一性定理 在区域 $\\mathcal{V}$ 内, 拉普拉斯方程的解由这个区域的边界面 $\\mathcal{S} = \\partial\\mathcal{V}$ 上的 $V$ 取值决定.\n第二唯一性定理 设 $\\mathcal{V}$ 中存在导体, 且电荷密度 $\\rho$ 给定. 若每个导体上的总电荷给定, 那么电场唯一确定.\n镜像法 无限大导体板(接地) 镜像法产生一个虚拟电荷 $-q$, 使得电势:\n$$ V(x,y,z) = \\frac{1}{4\\pi\\epsilon_{0}}\\left[\\frac{q}{\\sqrt{x^{2} + y^{2} + (z - d)^{2}}} - \\frac{q}{\\sqrt{x^{2} + y^{2} + (z + d)^{2}}}\\right] $$\n显然当 $z = 0$ 时, $V = 0$.\n当 $r^{2} = x^{2} + y^{2} + z^{2}\\gg d^{2}, V\\rightarrow 0$.\n感应电荷 只要知道电势, 就可以求得导体表面的感应电荷分布.\n导体的边界条件为: $$ \\mathbf{E} = \\frac{\\sigma}{\\epsilon_{0}}\\hat{\\mathbf{n}}\\Rightarrow\\sigma = -\\epsilon_{0}\\frac{\\partial V}{\\partial n} $$\n对应在无限大导体板的模型, 就有\n$$ \\sigma = -\\epsilon_{0}\\left(\\frac{\\partial V}{\\partial z}\\right)_{z=0} $$\n上面我们已经求得了 $V(x,y,z)$, 所以有\n$$ \\frac{\\partial V}{\\partial z} = \\frac{1}{4\\pi\\epsilon_{0}}\\left\\{\\frac{-q(z-d)}{\\left[x^{2} + y^{2} + (z-d)^{2}\\right]^{\\frac{3}{2}}} + \\frac{q(z+d)}{\\left[x^{2} + y^{2} + (z+d)^{2}\\right]^{\\frac{3}{2}}}\\right\\}\\\\ \\Downarrow\\\\ \\sigma(x,y) = \\frac{-qd}{2\\pi(x^{2} + y^{2} + d^{2})^{\\frac{3}{2}}} $$\n总感应电荷为 $$ Q = \\int\\sigma\\mathrm{d}a = \\int_{0}^{2\\pi}\\int_{0}^{+\\infty}\\frac{-qd}{2\\pi(r^{2} + d^{2})^{\\frac{3}{2}}}r\\mathrm{d}r\\mathrm{d}\\phi = \\left(\\frac{qd}{\\sqrt{q^{2} + d^{2}}}\\right)_{0}^{+\\infty} = -q $$\n力和能量 电荷 $q$ 会被平面产生的感应电荷吸引.\n$$ \\mathbf{F} = \\frac{1}{4\\pi\\epsilon_{0}}\\frac{-q^{2}}{(2d)^{2}}\\hat{z} $$\n但是能量就不是简单的直接类比了. 对于简单的电偶极矩模型, 会有\n$$ W = \\frac{1}{4\\pi\\epsilon_{0}}\\frac{-q^{2}}{2d} $$\n然而平面导体给出的能量为前者的一半:\n$$ W = \\frac{1}{4\\pi\\epsilon_{0}}\\frac{-q^{2}}{4d} $$\n这是因为电场只存在于一半的空间中.\n接地导体球 点电荷 $q$ 距离半径为 $R$ 的接地导体球的球心为 $a$, 求导体球外的电势.\n镜像法的处理是引入电荷\n$$ q' = -\\frac{R}{a}q $$\n并且其位置为在 $q$ 侧, 距球心\n$$ b = \\frac{R^{2}}{a} $$\n这样的模型产生的电势为\n$$ V(\\mathbf{r}) = \\frac{1}{4\\pi\\epsilon_{0}}\\left(\\frac{q}{\\mathfrak{s}} + \\frac{q'}{\\mathfrak{s}'}\\right) $$\n这样的电势在球面上的电势均为 $0$.\n分离变量法 本节将根据几个例题来介绍这种方法的使用.\n直角坐标 球坐标 多极展开 ",
   "wordCount" : "846",
   "inLanguage": "zh",
   "datePublished": "2023-06-29T00:18:23+08:00",
@@ -531,11 +531,11 @@ MathJax.Hub.Queue(function() {
         <div class="post-content"><blockquote>
 <p>电场分布 $\mathbf{E}(\mathbf{r})$ 可以通过电荷密度分布 $\rho(\mathbf{r})$ 给出:
 $$
-\mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\epsilon_{0}}\int\frac{\hat{\mathfrak{s}}}{\mathfrak{s}^{2}}\rho(\mathbf{r}&rsquo;)\mathrm{d}\mathbf{r}'
+\mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\epsilon_{0}}\int\frac{\hat{\mathfrak{s}}}{\mathfrak{s}^{2}}\rho(\mathbf{r}')\mathrm{d}\mathbf{r}'
 $$
 对应的电势分布为</p>
 <p>$$
-V(\mathbf{r}) = \frac{1}{4\pi\epsilon_{0}}\int\frac{1}{\mathfrak{s}}\rho(\mathbf{r}&rsquo;)\mathrm{d}\tau
+V(\mathbf{r}) = \frac{1}{4\pi\epsilon_{0}}\int\frac{1}{\mathfrak{s}}\rho(\mathbf{r}')\mathrm{d}\tau
 $$</p>
 </blockquote>
 <p>如果要计算电势分布, 上面的积分式其实是难以实操的. 我们可以将其化为泊松方程的形式:</p>
@@ -642,7 +642,7 @@ $$</p>
 </blockquote>
 <p>镜像法的处理是引入电荷</p>
 <p>$$
-q&rsquo; = -\frac{R}{a}q
+q' = -\frac{R}{a}q
 $$</p>
 <p>并且其位置为在 $q$ 侧, 距球心</p>
 <p>$$
@@ -650,7 +650,7 @@ b = \frac{R^{2}}{a}
 $$</p>
 <p>这样的模型产生的电势为</p>
 <p>$$
-V(\mathbf{r}) = \frac{1}{4\pi\epsilon_{0}}\left(\frac{q}{\mathfrak{s}} + \frac{q&rsquo;}{\mathfrak{s}&rsquo;}\right)
+V(\mathbf{r}) = \frac{1}{4\pi\epsilon_{0}}\left(\frac{q}{\mathfrak{s}} + \frac{q'}{\mathfrak{s}'}\right)
 $$</p>
 <p>这样的电势在球面上的电势均为 $0$.</p>
 <h1 id="分离变量法">分离变量法<a hidden class="anchor" aria-hidden="true" href="#分离变量法">#</a></h1>

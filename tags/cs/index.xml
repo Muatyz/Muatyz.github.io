@@ -391,7 +391,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; true;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;tree--binary-tree&#34;&gt;Tree &amp;amp; Binary Tree&lt;/h1&gt;
-&lt;!-- &lt;span title=&#34;你知道的太多了&#34; style=&#34;background-color: black; color: black;&#34;&gt;所以为什么要学ITensor呢? 直接用matlab模拟不就好了&lt;/span&gt; --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;binary-tree&#34;&gt;Binary Tree&lt;/h2&gt;
 &lt;h3 id=&#34;definition-3&#34;&gt;Definition&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define MAXSIZE 10
