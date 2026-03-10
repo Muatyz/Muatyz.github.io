@@ -63,20 +63,20 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-      delimiters: [
-        {left: "$$", right: "$$", display: true},
-        {left: "$", right: "$", display: false},
-        {left: "\\(", right: "\\)", display: false},
-        {left: "\\[", right: "\\]", display: true}
-      ]
-    });
-  });
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+onload="renderMathInElement(document.body,{
+delimiters:[
+{left:'$$',right:'$$',display:true},
+{left:'$',right:'$',display:false}
+]
+});">
 </script><meta property="og:title" content="DIFFUSIVITY OF ULTRASOUND IN POLYCRYSTALS" />
 <meta property="og:description" content="推导出多分散体系的超声扩散方程(relevant radiative transport equations, RTE)的原始论文, 可用于了解用于颗粒介质的扩散方程是如何导出的." />
 <meta property="og:type" content="article" />
@@ -1019,9 +1019,26 @@ $$</p>
 </body>
 
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>
 
 
 <body>

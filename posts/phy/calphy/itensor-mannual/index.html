@@ -63,20 +63,20 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-      delimiters: [
-        {left: "$$", right: "$$", display: true},
-        {left: "$", right: "$", display: false},
-        {left: "\\(", right: "\\)", display: false},
-        {left: "\\[", right: "\\]", display: true}
-      ]
-    });
-  });
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+onload="renderMathInElement(document.body,{
+delimiters:[
+{left:'$$',right:'$$',display:true},
+{left:'$',right:'$',display:false}
+]
+});">
 </script><meta property="og:title" content="ITensor基础语法说明" />
 <meta property="og:description" content="介绍以DMRG算法为核心的itensor库使用方法" />
 <meta property="og:type" content="article" />
@@ -1904,9 +1904,26 @@ MERA将系统分解为一系列的张量, 每个张量代表了系统不同尺�
 </body>
 
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>
 
 
 <body>

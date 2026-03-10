@@ -63,20 +63,20 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-      delimiters: [
-        {left: "$$", right: "$$", display: true},
-        {left: "$", right: "$", display: false},
-        {left: "\\(", right: "\\)", display: false},
-        {left: "\\[", right: "\\]", display: true}
-      ]
-    });
-  });
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+onload="renderMathInElement(document.body,{
+delimiters:[
+{left:'$$',right:'$$',display:true},
+{left:'$',right:'$',display:false}
+]
+});">
 </script><meta property="og:title" content="为Github添加LFS支持" />
 <meta property="og:description" content="当你向Github提交代码时, 如果文件大小超过了100Mb的限制, 那么你的提交将会被拒绝. 这时候LFS就很有必要了." />
 <meta property="og:type" content="article" />
@@ -851,9 +851,26 @@
 </body>
 
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>
 
 
 <body>

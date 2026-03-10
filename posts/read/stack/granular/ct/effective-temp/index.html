@@ -63,20 +63,20 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-      delimiters: [
-        {left: "$$", right: "$$", display: true},
-        {left: "$", right: "$", display: false},
-        {left: "\\(", right: "\\)", display: false},
-        {left: "\\[", right: "\\]", display: true}
-      ]
-    });
-  });
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+onload="renderMathInElement(document.body,{
+delimiters:[
+{left:'$$',right:'$$',display:true},
+{left:'$',right:'$',display:false}
+]
+});">
 </script><meta property="og:title" content="A dynamic synchrotron X-ray imaging study of effective temperature in a vibrated granular medium" />
 <meta property="og:description" content="利用超快同步辐射成像技术追踪示踪颗粒计算有效温度" />
 <meta property="og:type" content="article" />
@@ -1141,9 +1141,26 @@ $$</p>
 </body>
 
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>
 
 
 <body>

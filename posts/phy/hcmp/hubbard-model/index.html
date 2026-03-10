@@ -63,20 +63,20 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-      delimiters: [
-        {left: "$$", right: "$$", display: true},
-        {left: "$", right: "$", display: false},
-        {left: "\\(", right: "\\)", display: false},
-        {left: "\\[", right: "\\]", display: true}
-      ]
-    });
-  });
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+onload="renderMathInElement(document.body,{
+delimiters:[
+{left:'$$',right:'$$',display:true},
+{left:'$',right:'$',display:false}
+]
+});">
 </script><meta property="og:title" content="强关联模型的基石: Hubbard Model" />
 <meta property="og:description" content="Hubbard Model 是固体物理的入门知识, 基于能带理论进行推广." />
 <meta property="og:type" content="article" />
@@ -863,9 +863,26 @@ $$</p>
 </body>
 
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>
 
 
 <body>
