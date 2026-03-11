@@ -345,7 +345,7 @@ delimiters:[
                     <span id="post_meta_style_8">
                         <span class="fa fa-commenting-o"></span>
                         <span>
-                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+                            <script defer src="https://cdn.jsdelivr.net/npm/twikoo/1.6.16/twikoo.all.min.js"></script>
                             <script>
                                 let url = document.documentURI
                                 
@@ -1426,7 +1426,7 @@ $$</p>
 <blockquote>
 <p>Together, these results suggest that very small networks can achieve levels of performance that were thought to require large networks. However, this performance comes at the cost of finely tuning local excitation to one of a discrete number of optimal values. Our biological inspiration was the small HD circuit of the fruit fly. Although such networks have been modeled previously, studies have not demonstrated persistent encoding of arbitrary orientations in the absence of orienting stimuli.</p>
 </blockquote>
-<p>这些结果表明, 非常小的网络可以实现被认为需要大型网络才能实现的性能水平. 然而, 这种性能需要将局部兴奋精细调整到离散数量的最优化值之一. 我们的生物灵感是果蝇的小型 HD 电路. 虽然这样的网络以前已经被建模, 但研究尚未证明在没有定向刺激的情况下对任意方向的持续编码.</p>
+<p>这些结果表明, 非常小的网络可以实现被认为需要大型网络才能实现的性能水平. 然而, 这种性能需要将局部兴奋精细调整到离散数量的最优化值之一. 我们的生物灵感是果蝇的小型 HD 回路. 虽然这样的网络以前已经被建模, 但研究尚未证明在没有定向刺激的情况下对任意方向的持续编码.</p>
 <blockquote>
 <p>Further, although previous studies have shown that network performance changes as connection strengths vary, our study fully characterizes how network size and connection strength influence performance. It is unclear whether the fly HD system relies on the fine-tuning that we require for optimal performance. To date, this system has only been probed under head fixation on an air-supported ball (Methods); thus, its performance during free behavior is unknown.</p>
 </blockquote>
@@ -1438,17 +1438,17 @@ $$</p>
 <p>Some of these and other fine-scale details of synaptic connectivity have not been incorporated into existing rate models or spiking neuron models of the circuit.</p>
 </blockquote>
 <p>此外, 它的一些性能不准确可能归因于角速度计算中的错误, 而不是积分中的错误.</p>
-<p>我们的主要目标是调查小型环形吸引子网络的性能和能力, 而不是提供一个详细的果蝇 HD 回路模型. 因此, 果蝇电路和我们在这里探索的简单模型之间存在许多差异, 其中一些可能提供尚未描述的机制来克服潜在的离散问题.</p>
+<p>我们的主要目标是调查小型环形吸引子网络的性能和能力, 而不是提供一个详细的果蝇 HD 回路模型. 因此, 果蝇回路和我们在这里探索的简单模型之间存在许多差异, 其中一些可能提供尚未描述的机制来克服潜在的离散问题.</p>
 <p>例如, 调节局部兴奋的潜在基质可能是果蝇 HD 神经元在 CX 不同亚结构之间相互接触的突触联系.</p>
-<p>这些以及其他一些突触连接的细节尚未被现有的速率模型或该电路的尖峰神经元模型所纳入.</p>
+<p>这些以及其他一些突触连接的细节尚未被现有的速率模型或该回路的尖峰神经元模型所纳入.</p>
 <blockquote>
 <p>In addition, these previous modeling efforts have focused on capturing the dynamics of the circuit without incorporating the biophysical properties of its neurons, and, in most cases, with only a subset of the excitatory and inhibitory cell types likely involved in generating the dynamics.</p>
 <p>Although the receptor and transmitter profiles of the relevant neurons are known, further experiments are required to assess how intrinsic neuronal properties shape persistent population activity, as reported in the mammalian HD system. Indeed, these intrinsic properties may account for the low drift we observed in the circuit (Fig. 1i) relative to that predicted by the model (Fig. 4d).</p>
 <p>Thus, while our work shows that small networks can, with appropriate tuning, implement continuous ring attractors, further experiments are needed to understand their cellular and synaptic implementation in real circuits.</p>
 </blockquote>
 <p>此外, 这些先前的建模工作专注于刻画回路的动力学, 而没有纳入其神经元的生物物理特性, 并且在大多数情况下, 只涉及生成动力学可能涉及的一部分兴奋性和抑制性细胞类型.</p>
-<p>虽然相关神经元的受体和传递器构型已知, 但需要进一步实验来评估内在神经元属性如何塑造持续的集群活动, 正如哺乳动物 HD 系统中报道的那样. 事实上, 这些内在属性可能解释了相对于模型预测 (图 4d) 我们观察到的电路中更低的漂移 (图 1i) .</p>
-<p>因此, 虽然我们的工作表明小型网络可以通过适当调整实现连续环形吸引子, 但需要进一步的实验来理解它们在真实电路中的细胞和突触实现.</p>
+<p>虽然相关神经元的受体和传递器构型已知, 但需要进一步实验来评估内在神经元属性如何塑造持续的集群活动, 正如哺乳动物 HD 系统中报道的那样. 事实上, 这些内在属性可能解释了相对于模型预测 (图 4d) 我们观察到的回路中更低的漂移 (图 1i) .</p>
+<p>因此, 虽然我们的工作表明小型网络可以通过适当调整实现连续环形吸引子, 但需要进一步的实验来理解它们在真实回路中的细胞和突触实现.</p>
 <blockquote>
 <p>Importantly, large ring attractor networks also suffer from the problem of fine-tuning, where noise in the connectivity—arising, for example, from heterogeneity in synaptic or cellular propertiescan yield bumpy energy landscapes similar to those generated here (Fig. 2e). Several mechanisms have been proposed to combat this issue, including homeostatic synaptic scaling and synaptic facilitation. These mechanisms might also be effective in the small networks studied here, where—in addition to fine-tuning the profile of the connectivity—the overall strength of local excitation must also be fine-tuned. Away from these optimal values, network dynamics are governed by unstable and stable linear regimes in which the population activity is pushed from or pulled toward discrete fixed points.</p>
 </blockquote>
@@ -1509,7 +1509,7 @@ $$</p>
 <p>Our results suggest that such representations could be accurately maintained using few neurons, thereby broadening the classes of computations that could be performed by small circuits. Moreover, these results could further generalize to higher-dimensional continuous variables, such as HD, place, and grid fields in two or three dimensions (see Extended Data Fig. 5b for proof-of-principle numerical results).</p>
 <p>More broadly, the ability to represent one continuous variable accurately using small numbers of neurons could more easily enable large systems to represent multiple continuous variables, such as the representation of many environments observed in the rodent hippocampus.</p>
 </blockquote>
-<p>我们的结果表明, 这样的表示可以使用少量神经元准确地维持, 从而扩大了小型电路可以执行的计算类别. 此外, 这些结果可以进一步推广到更高维度的连续变量, 例如二维或三维中的 HD、位置和网格场 (见扩展数据图 5b 的原理验证数值结果).</p>
+<p>我们的结果表明, 这样的表示可以使用少量神经元准确地维持, 从而扩大了小型回路可以执行的计算类别. 此外, 这些结果可以进一步推广到更高维度的连续变量, 例如二维或三维中的 HD、位置和网格场 (见扩展数据图 5b 的原理验证数值结果).</p>
 <p>更广泛地说, 使用少量神经元准确表示一个连续变量的能力可以更容易地使大型系统表示多个连续变量, 例如在啮齿动物海马中观察到的许多环境的表示.</p>
 
 
@@ -1555,7 +1555,7 @@ $$</p>
 
   <div id="tcomment"></div>
 
-  <script defer src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/twikoo/1.6.16/twikoo.all.min.js"></script>
 
   <script>
   window.addEventListener("load", function () {
@@ -1780,10 +1780,6 @@ $$</p>
   </script>
   
 </body>
-
-
-
-
 
 
 
