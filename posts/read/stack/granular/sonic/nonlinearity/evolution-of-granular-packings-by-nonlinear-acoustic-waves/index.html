@@ -80,6 +80,7 @@ delimiters:[
 </script>
 
 
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 <script>
@@ -93,58 +94,7 @@ delimiters:[
 })();
 </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const config = {
-        umamiUrl: "https://umami-muatyzs-projects.vercel.app", 
-        websiteId: "725be122-c28c-49af-911c-31a0fbabaa25",
-        shareId: "b6vGCcx0v0usxtHy" 
-    };
-
-    const headers = { 
-        "x-umami-share-token": config.shareId,
-        "Accept": "application/json"
-    };
-    const now = Date.now();
-
-    
-    const uvEl = document.getElementById('umami_site_uv');
-    const pvEl = document.getElementById('umami_site_pv');
-    if (uvEl || pvEl) {
-        fetch(`${config.umamiUrl}/api/websites/${config.websiteId}/stats?startAt=0&endAt=${now}`, { headers })
-            .then(res => {
-                if (!res.ok) throw new Error('Stats API 401 - 请检查 Share ID');
-                return res.json();
-            })
-            .then(data => {
-                if (uvEl) uvEl.innerText = data.visitors.value;
-                if (pvEl) pvEl.innerText = data.pageviews.value;
-            })
-            .catch(err => console.warn("Umami Site Stats:", err));
-    }
-
-    
-    const pagePvEl = document.getElementById('umami_page_pv');
-    if (pagePvEl) {
-        
-        const currentPath = window.location.pathname;
-        fetch(`${config.umamiUrl}/api/websites/${config.websiteId}/metrics?type=url&startAt=0&endAt=${now}`, { headers })
-            .then(res => {
-                if (!res.ok) throw new Error('Metrics API 401');
-                return res.json();
-            })
-            .then(data => {
-                
-                const normalize = (p) => decodeURIComponent(p).replace(/\/$/, "") || "/";
-                const target = normalize(currentPath);
-                
-                const pageData = data.find(item => normalize(item.x) === target);
-                pagePvEl.innerText = pageData ? pageData.y : 0;
-            })
-            .catch(err => console.warn("Umami Page Metrics:", err));
-    }
-});
-</script>
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
       <script>
         var doNotTrack = false;
@@ -435,12 +385,12 @@ document.addEventListener('DOMContentLoaded', () => {
 <span style="opacity: 0.8;">
                     <span id="post_meta_style_7">
                         &nbsp;&nbsp;
-                        
-                        <span class="fa fa-eye"></span>
+                        <span class="fa fa-eye" ></span>
                         <span>
-                            <span id="umami_page_container_pv"><span id="umami_page_pv">0</span></span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
                             &nbsp;&nbsp;
                         </span>
+                        
                     </span>
                     <span id="post_meta_style_8">
                         <span class="fa fa-commenting-o"></span>
@@ -1075,10 +1025,11 @@ window.addEventListener("load",loadTwikoo);
         </a>
     </span>
 
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
     
-    <span id="umami_site_container">
-    <span class="fa fa-user"></span> <span id="umami_site_uv">0</span>
-    <span class="fa fa-eye"></span> <span id="umami_site_pv">0</span>
 </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
