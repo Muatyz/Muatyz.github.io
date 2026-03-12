@@ -78,10 +78,49 @@ delimiters:[
 </script>
 
 
-<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-<script defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+<script>
+(function() {
+  var s = document.createElement("script");
+  s.src = "https://umami-muatyzs-projects.vercel.app/script.js";
+  s.async = true;
+  s.defer = true;
+  s.setAttribute("data-website-id","725be122-c28c-49af-911c-31a0fbabaa25");
+  document.head.appendChild(s);
+})();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const uvEl = document.getElementById("umami_site_uv");
+    const pvEl = document.getElementById("umami_site_pv");
+    if (uvEl && pvEl) {
+        fetch("https://umami-muatyzs-projects.vercel.app/api/websites/725be122-c28c-49af-911c-31a0fbabaa25/overview")
+        .then(res => res.json())
+        .then(data => {
+            uvEl.textContent = data.visitors;
+            pvEl.textContent = data.pageviews;
+        })
+        .catch(e => console.log("Umami fetch failed", e));
+    }
+
+    
+    const pageEl = document.getElementById("umami_page_pv");
+    if (pageEl) {
+        var pagePath = window.location.pathname;
+        fetch("https://umami-muatyzs-projects.vercel.app/api/websites/725be122-c28c-49af-911c-31a0fbabaa25/pages?filters[page]=" + encodeURIComponent(pagePath))
+        .then(res => res.json())
+        .then(data => {
+            if (data.length > 0) {
+                pageEl.textContent = data[0].pageviews;
+            }
+        })
+        .catch(e => console.log("Umami fetch failed", e));
+    }
+});
+</script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
       <script>
         var doNotTrack = false;
@@ -594,10 +633,11 @@ delimiters:[
         </a>
     </span>
 
-    <span id="busuanzi_container">
-        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
-        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
-    </span>
+    
+    <span id="umami_site_container">
+    <span class="fa fa-user"></span> <span id="umami_site_uv">0</span>
+    <span class="fa fa-eye"></span> <span id="umami_site_pv">0</span>
+</span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <span class="topInner">
