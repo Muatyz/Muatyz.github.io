@@ -6,7 +6,6 @@
     <description>Recent content on 无处惹尘埃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <copyright>Muartz</copyright>
     <lastBuildDate>Sun, 08 Mar 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Formal Statistical Mechanics of Neural Networks</title>
@@ -1842,11 +1841,11 @@ $$&lt;/p&gt;</description>
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td style=&#34;text-align: left&#34;&gt;Interest:&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Condensed Matter Physics, Numerical Calculation&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Computational Neuroscience, Numerical Calculation&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td style=&#34;text-align: left&#34;&gt;Profile:&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Undergraduate&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Graduate&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1854,12 +1853,10 @@ $$&lt;/p&gt;</description>
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$$&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;x_{&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;} &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; x_{&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;} &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; y_{&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;}^{\prime}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$$&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;显示效果为&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;显示效果为
+$$
 x_{1} + x_{2} = y_{1}^{\prime}
 $$&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;若在浏览公式时发现其字体大小不当, 可右键点击公式, 依次选取 &lt;code&gt;数学设置(Math Settings)&lt;/code&gt; -&amp;gt; &lt;code&gt;缩放所有数学...(Scale All Math...)&lt;/code&gt;, 选择合适的缩放比例即可. 经验上一般填写 &lt;code&gt;200%&lt;/code&gt; 阅读体验最好;&lt;/p&gt;</description>
     </item>
