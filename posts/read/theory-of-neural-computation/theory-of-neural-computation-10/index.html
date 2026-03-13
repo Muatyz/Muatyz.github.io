@@ -95,6 +95,25 @@ delimiters:[
 </script>
 
 <script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
       <script>
         var doNotTrack = false;
@@ -365,6 +384,7 @@ delimiters:[
     </span>
 </span>
 <span style="opacity: 0.8;">
+                    
                     <span id="post_meta_style_7">
                         &nbsp;&nbsp;
                         <span class="fa fa-eye" ></span>
@@ -372,44 +392,15 @@ delimiters:[
                             <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
                             &nbsp;&nbsp;
                         </span>
-                        
                     </span>
+                    
                     <span id="post_meta_style_8">
-                        <span class="fa fa-commenting-o"></span>
-                        <span>
-                            <script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
-                            <script>
-                                let url = document.documentURI
-                                
-                                let dnsUrl = "https://Muatyz.github.io/"
-                                let urlSplit = url.split(dnsUrl)
-                                let finalUrl = urlSplit[1]
-                                if (finalUrl[0] !== '/') {
-                                    finalUrl = '/'+finalUrl
-                                }
-                                twikoo.getCommentsCount({
-                                    envId: "Admin", 
-                                region: "ap-shanghai", 
-                                urls: [ 
-                                    
-                                    finalUrl,
-                                ],
-                                    includeReply: false 
-                                }).then(function (res) {
-                                    let count = res[0].count
-                                    const obj = document.getElementById("comment_count");
-                                    obj.innerText = count
-                                    
-                                    
-                                    
-                                }).catch(function (err) {
-                                    
-                                    console.error(err);
-                                });
-                            </script>
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
                             <span id="comment_count"></span>
                         </span>
                     </span>
+                    
                 </span>
 
 </div>
@@ -1389,61 +1380,24 @@ $$</p>
 </nav>
 
         </footer>
-    </div>
-
-<style>
-.comments_details summary::marker {
-    font-size: 20px;
-    content: '👉展开评论';
-    color: var(--content);
-}
-.comments_details[open] summary::marker{
-    font-size: 20px;
-    content: '👇关闭评论';
-    color: var(--content);
-}
-
- 
-.comment-fallback{
-    display:none;
-    margin:20px auto;
-    padding:20px;
-
-    max-width:600px;
-
-    border-radius:10px;
-    background:var(--code-bg);
-
-    color:var(--content);
-
-    font-family:inherit;
-    font-size:16px;
-    line-height:1.7;
-
-    text-align:center;
-}
-
- 
-.comment-loading{
-    margin-top:10px;
-    color:var(--secondary);
-}
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
 </style>
 
-<div>
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
 
-<div class="pagination__title">
-    <span class="pagination__title-h" style="font-size:20px;">💬评论</span>
-    <hr />
-</div>
+    <div id="tcomment"></div>
 
-<div id="tcomment"></div>
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
 
-<div id="comment-loading" class="comment-loading">
-正在加载评论...
-</div>
-
-<div id="comment-fallback" class="comment-fallback">
+    <div id="comment-fallback" class="comment-fallback">
 ⚠ 评论区加载失败。<br><br>
 
 可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
@@ -1453,52 +1407,84 @@ $$</p>
 
 <button onclick="location.reload()">👉点击重新加载评论</button>
 </div>
+</div>
 
 <script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
 
-function showFallback(){
-    document.getElementById("comment-loading").style.display="none";
-    document.getElementById("comment-fallback").style.display="block";
-}
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
 
-function loadTwikoo(){
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
 
-    var script=document.createElement("script");
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
 
-    script.src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js";
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
 
-    script.defer=true;
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
 
-    script.onload=function(){
+        document.body.appendChild(script);
+    }
 
-        if(typeof twikoo==="undefined"){
-            showFallback();
-            return;
-        }
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
 
-        twikoo.init({
-            envId:"https://twikoo-api-one-xi.vercel.app",
-            el:"#tcomment",
-            lang:"zh-CN",
-            region:"ap-shanghai",
-            path:window.TWIKOO_MAGIC_PATH || window.location.pathname
-        });
-
-        document.getElementById("comment-loading").style.display="none";
-    };
-
-    script.onerror=function(){
-        showFallback();
-    };
-
-    document.body.appendChild(script);
-}
-
-window.addEventListener("load",loadTwikoo);
-
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
 </script>
-
-</div>
 </article>
 </main>
 
