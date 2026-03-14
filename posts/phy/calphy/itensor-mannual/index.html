@@ -63,20 +63,37 @@
 
 
 
+
+
 <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
 
 <script defer
 src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
+
 <script defer
-src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-onload="renderMathInElement(document.body,{
-delimiters:[
-{left:'$$',right:'$$',display:true},
-{left:'$',right:'$',display:false}
-]
-});">
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ],
+    preProcess: function (math, displayMode) {
+      if (!displayMode && !math.includes("\\begin")) {
+        return "\\begin{aligned}" + math + "\\end{aligned}";
+      }
+      return math;
+    }
+  });
+});
+
+
 </script>
 
 
@@ -2088,7 +2105,7 @@ MERA将系统分解为一系列的张量, 每个张量代表了系统不同尺�
         
             
         
-        · 已经水了 145 篇 992596 字, 再接再厉!
+        · 已经水了 145 篇 992976 字, 再接再厉!
     </div>
 
     

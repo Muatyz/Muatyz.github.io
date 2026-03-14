@@ -60,20 +60,37 @@
 
 
 
+
+
 <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
 
 <script defer
 src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
+
 <script defer
-src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-onload="renderMathInElement(document.body,{
-delimiters:[
-{left:'$$',right:'$$',display:true},
-{left:'$',right:'$',display:false}
-]
-});">
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ],
+    preProcess: function (math, displayMode) {
+      if (!displayMode && !math.includes("\\begin")) {
+        return "\\begin{aligned}" + math + "\\end{aligned}";
+      }
+      return math;
+    }
+  });
+});
+
+
 </script>
 
 
@@ -534,7 +551,7 @@ delimiters:[
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1512字
+        <span>1912字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -2094,7 +2111,7 @@ delimiters:[
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>7324字
+        <span>7304字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -9748,7 +9765,7 @@ delimiters:[
         
             
         
-        · 已经水了 145 篇 992596 字, 再接再厉!
+        · 已经水了 145 篇 992976 字, 再接再厉!
     </div>
 
     

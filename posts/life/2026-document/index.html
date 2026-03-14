@@ -63,20 +63,37 @@
 
 
 
+
+
 <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
 
 <script defer
 src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
+
 <script defer
-src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-onload="renderMathInElement(document.body,{
-delimiters:[
-{left:'$$',right:'$$',display:true},
-{left:'$',right:'$',display:false}
-]
-});">
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ],
+    preProcess: function (math, displayMode) {
+      if (!displayMode && !math.includes("\\begin")) {
+        return "\\begin{aligned}" + math + "\\end{aligned}";
+      }
+      return math;
+    }
+  });
+});
+
+
 </script>
 
 
@@ -177,8 +194,8 @@ delimiters:[
   "keywords": [
     "life"
   ],
-  "articleBody": "1 月 目前的组会安排大致是每周二 10:00 pm(BCI) 和每周五 10:00 pm(121) 各一次.\n1.16\n整理了一下个人博客的笔记和 s4 的代码库. 但是在会上导师并没有对此有积极的反馈, 大致观点为:\n什么时候能学完这个博客页面 (我的回应是我也不太清楚, 因为我不能确定学习的速度)\nssm 只是 BCI 大课题里的很小的一个模型, 现在学得太慢了, 研究生会有很多没有学过的东西.\n不应该花太多时间学到能给别人讲解的程度\n在寻求了 ChatGPT 的帮助后, 大致的思路是:\n导师想看到的不是 \"学到了什么\", 而是有具体的 \"研究产出\"\n因此, 给导师展示自己的笔记/代码库其实是一个错误的思路.\n诚然, 以近乎为零的基础搭建一个神经网络的代码库, 需要读懂/推导/实现, 是一个很辛苦的过程. 但是这并没有什么卵用.\nGPT 给我进行了这样的支招:\n停止展示私人笔记. 可以继续学习的过程, 但是不要再给导师展示了. 除非导师主动问起.\n工作重点回到 POSSM 的复现上. 由于时间比较紧张, 最好尽快学完教学博客页面, 理解其代码后回到 POSSM 的复现上.\n上次其实已经指出了目标是 POSSM 对于 Falcon 数据库的延展性(是否跟声称的那样具有较好的迁移性).\n那么主要的路径就是:\n以目前学习 s4 实现的代码基础, 重新看 my_POSSM 库的代码, 理解 forward 数据流在模块中的传递.\n在保持 POSSM 其余结构不变的前提下, 比较 GRU 和 S4 模型之间的差异(解码速度, 收敛速度, 推理延迟...)\n根据 Hueber(2024), 硬件的指标有\ndecoding performance.\n$R^{2}$ 和 RMSE(均方根误差)/MSE(均方误差) 等指标衡量解码性能.\n# y_true, y_pred: (T, 2) or (batch, T, 2) ss_res = ((y_true - y_pred) ** 2).sum() ss_tot = ((y_true - y_true.mean()) ** 2).sum() r2 = 1 - ss_res / ss_tot latency inference latency per time bin(单个时间步的推理延迟)\nimport time torch.cuda.synchronize() t0 = time.time() _ = model(spike, spike_lengths) torch.cuda.synchronize() latency_ms = (time.time() - t0) * 1000 real-time constraint (inference latency \u003c bin size)\ncomputational efficiency Parameter count\nsum(p.numel() for p in model.parameters()) stability 收敛 epoch 数; validation; training instability\n需要注意到的是, 虽然师兄写的 toy model(my_POSSM) 使用的是 torch 框架, s4 教学博客依赖于 jax 和 flax 库, 但是这并不代表着需要自己使用 torch 重新构造一遍 s4 的实现. 直接寻找现有的 torch 实现才是更安全可靠的方法.\n1.19\nidea: 如何使用 snn 来对 possm 使用的数据库进行分析?\n观察 LIF neuron 的实现.\n如何评估一个算法的功耗?\n我决定立刻停止 s4 博客的学习.\n虽然我现在连过博资考的信心都没有, 但是和老板的谈话我还是意识到, 应该尽早开始准备有关于开题的内容. 作为一个交叉所的博士生, 一个比较大的问题就是我的毕业论文最后要落在物理的语言上.\n这个工作, 本质上是一个随机动力学系统的建模问题. 即 高维随机脉冲序列的状态空间建模.\nBCI 提供了一个高度复杂, 强噪声, 长时依赖的真实系统, 为检验状态空间模型建模能力提供了理想的平台. (BCI 作为 benchmark).\n在高维神经脉冲序列的实时解码任务中, 不同状态空间的建模方法(RNN, SSM, SNN...), 建模能力, 计算效率, 稳定性应当如何权衡?\n虽然我并不赞同前导师的某些理念, 但是有一句话我是感受颇深的: \"不要将自己的人际关系过分局限于和导师的关系上, 要多和实验室的师兄师姐沟通\". 现在我重新踏上了一条路, 虽然课题组性质发生了很大变化, 但是我的处境几乎没有改变.\nLet the feast begin.\n3 月 3.11\n显然这个月的主旋律就是准备第二次博资考了. 这一周前三天还在准备博资考复习资料的撰写, 后面三天则是比较匆忙地阅读文献来做组会的报告, 现在算是小阶段的结束, 改回神继续准备考试.\n最头疼的是问遍 AI 都没推导出聚合物混合熵的推导公式, 这个 Flory 理论的计算有点东西.\n3.12\n在 1-1 meeting 上交流了一下, 目前的打算是继续 BCI 课题的研究作为训练/练手, 后续可能会有自己更感兴趣的方向(比如吸引子?)再阅读相关文献进行调研, 以准备下学期的开题答辩.\n写完了 Mixing entropy 和 Flory 理论的最后一部分, 后续对于博资考复习的初步计划是:\n根据自己高等统计物理的笔记, 重新学习一下有关布朗运动有关的知识, 并且将其和考试题目中的对应;\n根据 Gemini 的回答, 完成模拟考卷的学习和整理;\n在这两步完成之后, 就是每天背题了.\n",
-  "wordCount" : "1512",
+  "articleBody": "1 月 目前的组会安排大致是每周二 10:00 pm(BCI) 和每周五 10:00 pm(121) 各一次.\n1.16\n整理了一下个人博客的笔记和 s4 的代码库. 但是在会上导师并没有对此有积极的反馈, 大致观点为:\n什么时候能学完这个博客页面 (我的回应是我也不太清楚, 因为我不能确定学习的速度)\nssm 只是 BCI 大课题里的很小的一个模型, 现在学得太慢了, 研究生会有很多没有学过的东西.\n不应该花太多时间学到能给别人讲解的程度\n在寻求了 ChatGPT 的帮助后, 大致的思路是:\n导师想看到的不是 \"学到了什么\", 而是有具体的 \"研究产出\"\n因此, 给导师展示自己的笔记/代码库其实是一个错误的思路.\n诚然, 以近乎为零的基础搭建一个神经网络的代码库, 需要读懂/推导/实现, 是一个很辛苦的过程. 但是这并没有什么卵用.\nGPT 给我进行了这样的支招:\n停止展示私人笔记. 可以继续学习的过程, 但是不要再给导师展示了. 除非导师主动问起.\n工作重点回到 POSSM 的复现上. 由于时间比较紧张, 最好尽快学完教学博客页面, 理解其代码后回到 POSSM 的复现上.\n上次其实已经指出了目标是 POSSM 对于 Falcon 数据库的延展性(是否跟声称的那样具有较好的迁移性).\n那么主要的路径就是:\n以目前学习 s4 实现的代码基础, 重新看 my_POSSM 库的代码, 理解 forward 数据流在模块中的传递.\n在保持 POSSM 其余结构不变的前提下, 比较 GRU 和 S4 模型之间的差异(解码速度, 收敛速度, 推理延迟...)\n根据 Hueber(2024), 硬件的指标有\ndecoding performance.\n$R^{2}$ 和 RMSE(均方根误差)/MSE(均方误差) 等指标衡量解码性能.\n# y_true, y_pred: (T, 2) or (batch, T, 2) ss_res = ((y_true - y_pred) ** 2).sum() ss_tot = ((y_true - y_true.mean()) ** 2).sum() r2 = 1 - ss_res / ss_tot latency inference latency per time bin(单个时间步的推理延迟)\nimport time torch.cuda.synchronize() t0 = time.time() _ = model(spike, spike_lengths) torch.cuda.synchronize() latency_ms = (time.time() - t0) * 1000 real-time constraint (inference latency \u003c bin size)\ncomputational efficiency Parameter count\nsum(p.numel() for p in model.parameters()) stability 收敛 epoch 数; validation; training instability\n需要注意到的是, 虽然师兄写的 toy model(my_POSSM) 使用的是 torch 框架, s4 教学博客依赖于 jax 和 flax 库, 但是这并不代表着需要自己使用 torch 重新构造一遍 s4 的实现. 直接寻找现有的 torch 实现才是更安全可靠的方法.\n1.19\nidea: 如何使用 snn 来对 possm 使用的数据库进行分析?\n观察 LIF neuron 的实现.\n如何评估一个算法的功耗?\n我决定立刻停止 s4 博客的学习.\n虽然我现在连过博资考的信心都没有, 但是和老板的谈话我还是意识到, 应该尽早开始准备有关于开题的内容. 作为一个交叉所的博士生, 一个比较大的问题就是我的毕业论文最后要落在物理的语言上.\n这个工作, 本质上是一个随机动力学系统的建模问题. 即 高维随机脉冲序列的状态空间建模.\nBCI 提供了一个高度复杂, 强噪声, 长时依赖的真实系统, 为检验状态空间模型建模能力提供了理想的平台. (BCI 作为 benchmark).\n在高维神经脉冲序列的实时解码任务中, 不同状态空间的建模方法(RNN, SSM, SNN...), 建模能力, 计算效率, 稳定性应当如何权衡?\n虽然我并不赞同前导师的某些理念, 但是有一句话我是感受颇深的: \"不要将自己的人际关系过分局限于和导师的关系上, 要多和实验室的师兄师姐沟通\". 现在我重新踏上了一条路, 虽然课题组性质发生了很大变化, 但是我的处境几乎没有改变.\nLet the feast begin.\n3 月 3.11\n显然这个月的主旋律就是准备第二次博资考了. 这一周前三天还在准备博资考复习资料的撰写, 后面三天则是比较匆忙地阅读文献来做组会的报告, 现在算是小阶段的结束, 改回神继续准备考试.\n最头疼的是问遍 AI 都没推导出聚合物混合熵的推导公式, 这个 Flory 理论的计算有点东西.\n3.12\n在 1-1 meeting 上交流了一下, 目前的打算是继续 BCI 课题的研究作为训练/练手, 后续可能会有自己更感兴趣的方向(比如吸引子?)再阅读相关文献进行调研, 以准备下学期的开题答辩.\n写完了 Mixing entropy 和 Flory 理论的最后一部分, 后续对于博资考复习的初步计划是:\n根据自己高等统计物理的笔记, 重新学习一下有关布朗运动有关的知识, 并且将其和考试题目中的对应;\n根据 Gemini 的回答, 完成模拟考卷的学习和整理;\n在这两步完成之后, 就是每天背题了.\n3.13\n稍微鼓捣了一下 busuanzi 和 umami 的脚本, 结果发现 umami 毛用没有, 还不如 google analytics 呢, 于是兜兜转转又回到了 busuanzi.\n给网页加了个自动包裹 aligned 的功能, 终于不用反复手搓了.\n3.14\n宿舍笔记本的 Tailscale 神秘断开了, 本来一开始在装上去的时候就有这毛病了. 测试了半天姑且猜测是因为 Clash 的 TUN 和 Mixin 导致. 把它关掉之后, 重新装了一下最新的版本, 然后使用管理员打开, 终于弹出登录网页了.\n并且今天还修复了一个心腹大患, 即工位电脑到宿舍笔记本的 ssh 连接问题, 之前老是要我手动输入密码, 现在终于能轻松登录了.\n$path = \"$env:USERPROFILE\\.ssh\\authorized_keys\" # 1. 确保文件存在 if (Test-Path $path) { # 2. 禁用继承并删除所有无关权限 icacls $path /inheritance:r # 3. 只给 SYSTEM、Administrators 组和当前用户 (pc) 权限 icacls $path /grant \"SYSTEM:F\" icacls $path /grant \"Administrators:F\" icacls $path /grant \"${env:USERNAME}:F\" Write-Host \"权限修复完成！\" -ForegroundColor Green } else { Write-Host \"未找到 authorized_keys 文件，请确认路径！\" -ForegroundColor Red } 还有就是取消掉工位电脑的工作区信任检查, 每次还要把它叉掉不然会一直卡在 ssh 连接. 现在对工位的生产环境满意多了.\n",
+  "wordCount" : "1912",
   "inLanguage": "zh",
   "datePublished": "2026-01-17T00:18:15+08:00",
   "dateModified": "2026-01-17T00:18:15+08:00",
@@ -348,7 +365,7 @@ delimiters:[
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1512字
+        <span>1912字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -589,6 +606,31 @@ delimiters:[
 </li>
 </ol>
 <p>在这两步完成之后, 就是每天背题了.</p>
+<hr>
+<p>3.13</p>
+<p>稍微鼓捣了一下 busuanzi 和 umami 的脚本, 结果发现 umami 毛用没有, 还不如 google analytics 呢, 于是兜兜转转又回到了 busuanzi.</p>
+<p>给网页加了个自动包裹 <code>aligned</code> 的功能, 终于不用反复手搓了.</p>
+<hr>
+<p>3.14</p>
+<p>宿舍笔记本的 Tailscale 神秘断开了, 本来一开始在装上去的时候就有这毛病了. 测试了半天姑且猜测是因为 Clash 的 TUN 和 Mixin 导致. 把它关掉之后, 重新装了一下最新的版本, 然后使用管理员打开, 终于弹出登录网页了.</p>
+<p>并且今天还修复了一个心腹大患, 即工位电脑到宿舍笔记本的 ssh 连接问题, 之前老是要我手动输入密码, 现在终于能轻松登录了.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>$path = <span style="color:#e6db74">&#34;</span>$env:USERPROFILE<span style="color:#e6db74">\.ssh\authorized_keys&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1. 确保文件存在</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (Test-Path $path) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 2. 禁用继承并删除所有无关权限</span>
+</span></span><span style="display:flex;"><span>    icacls $path /inheritance<span style="color:#960050;background-color:#1e0010">:</span>r
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 3. 只给 SYSTEM、Administrators 组和当前用户 (pc) 权限</span>
+</span></span><span style="display:flex;"><span>    icacls $path /grant <span style="color:#e6db74">&#34;SYSTEM:F&#34;</span>
+</span></span><span style="display:flex;"><span>    icacls $path /grant <span style="color:#e6db74">&#34;Administrators:F&#34;</span>
+</span></span><span style="display:flex;"><span>    icacls $path /grant <span style="color:#e6db74">&#34;</span>${env:USERNAME}<span style="color:#e6db74">:F&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Write-Host <span style="color:#e6db74">&#34;权限修复完成！&#34;</span> -ForegroundColor Green
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    Write-Host <span style="color:#e6db74">&#34;未找到 authorized_keys 文件，请确认路径！&#34;</span> -ForegroundColor Red
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>还有就是取消掉工位电脑的工作区信任检查, 每次还要把它叉掉不然会一直卡在 ssh 连接. 现在对工位的生产环境满意多了.</p>
 
 
         </div>
@@ -1048,7 +1090,7 @@ delimiters:[
         
             
         
-        · 已经水了 145 篇 992596 字, 再接再厉!
+        · 已经水了 145 篇 992976 字, 再接再厉!
     </div>
 
     
