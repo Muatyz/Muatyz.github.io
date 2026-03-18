@@ -194,8 +194,8 @@ document.addEventListener("DOMContentLoaded", function () {
   "keywords": [
     "life"
   ],
-  "articleBody": "1 月 目前的组会安排大致是每周二 10:00 pm(BCI) 和每周五 10:00 pm(121) 各一次.\n1.16\n整理了一下个人博客的笔记和 s4 的代码库. 但是在会上导师并没有对此有积极的反馈, 大致观点为:\n什么时候能学完这个博客页面 (我的回应是我也不太清楚, 因为我不能确定学习的速度)\nssm 只是 BCI 大课题里的很小的一个模型, 现在学得太慢了, 研究生会有很多没有学过的东西.\n不应该花太多时间学到能给别人讲解的程度\n在寻求了 ChatGPT 的帮助后, 大致的思路是:\n导师想看到的不是 \"学到了什么\", 而是有具体的 \"研究产出\"\n因此, 给导师展示自己的笔记/代码库其实是一个错误的思路.\n诚然, 以近乎为零的基础搭建一个神经网络的代码库, 需要读懂/推导/实现, 是一个很辛苦的过程. 但是这并没有什么卵用.\nGPT 给我进行了这样的支招:\n停止展示私人笔记. 可以继续学习的过程, 但是不要再给导师展示了. 除非导师主动问起.\n工作重点回到 POSSM 的复现上. 由于时间比较紧张, 最好尽快学完教学博客页面, 理解其代码后回到 POSSM 的复现上.\n上次其实已经指出了目标是 POSSM 对于 Falcon 数据库的延展性(是否跟声称的那样具有较好的迁移性).\n那么主要的路径就是:\n以目前学习 s4 实现的代码基础, 重新看 my_POSSM 库的代码, 理解 forward 数据流在模块中的传递.\n在保持 POSSM 其余结构不变的前提下, 比较 GRU 和 S4 模型之间的差异(解码速度, 收敛速度, 推理延迟...)\n根据 Hueber(2024), 硬件的指标有\ndecoding performance.\n$R^{2}$ 和 RMSE(均方根误差)/MSE(均方误差) 等指标衡量解码性能.\n# y_true, y_pred: (T, 2) or (batch, T, 2) ss_res = ((y_true - y_pred) ** 2).sum() ss_tot = ((y_true - y_true.mean()) ** 2).sum() r2 = 1 - ss_res / ss_tot latency inference latency per time bin(单个时间步的推理延迟)\nimport time torch.cuda.synchronize() t0 = time.time() _ = model(spike, spike_lengths) torch.cuda.synchronize() latency_ms = (time.time() - t0) * 1000 real-time constraint (inference latency \u003c bin size)\ncomputational efficiency Parameter count\nsum(p.numel() for p in model.parameters()) stability 收敛 epoch 数; validation; training instability\n需要注意到的是, 虽然师兄写的 toy model(my_POSSM) 使用的是 torch 框架, s4 教学博客依赖于 jax 和 flax 库, 但是这并不代表着需要自己使用 torch 重新构造一遍 s4 的实现. 直接寻找现有的 torch 实现才是更安全可靠的方法.\n1.19\nidea: 如何使用 snn 来对 possm 使用的数据库进行分析?\n观察 LIF neuron 的实现.\n如何评估一个算法的功耗?\n我决定立刻停止 s4 博客的学习.\n虽然我现在连过博资考的信心都没有, 但是和老板的谈话我还是意识到, 应该尽早开始准备有关于开题的内容. 作为一个交叉所的博士生, 一个比较大的问题就是我的毕业论文最后要落在物理的语言上.\n这个工作, 本质上是一个随机动力学系统的建模问题. 即 高维随机脉冲序列的状态空间建模.\nBCI 提供了一个高度复杂, 强噪声, 长时依赖的真实系统, 为检验状态空间模型建模能力提供了理想的平台. (BCI 作为 benchmark).\n在高维神经脉冲序列的实时解码任务中, 不同状态空间的建模方法(RNN, SSM, SNN...), 建模能力, 计算效率, 稳定性应当如何权衡?\n虽然我并不赞同前导师的某些理念, 但是有一句话我是感受颇深的: \"不要将自己的人际关系过分局限于和导师的关系上, 要多和实验室的师兄师姐沟通\". 现在我重新踏上了一条路, 虽然课题组性质发生了很大变化, 但是我的处境几乎没有改变.\nLet the feast begin.\n3 月 3.11\n显然这个月的主旋律就是准备第二次博资考了. 这一周前三天还在准备博资考复习资料的撰写, 后面三天则是比较匆忙地阅读文献来做组会的报告, 现在算是小阶段的结束, 改回神继续准备考试.\n最头疼的是问遍 AI 都没推导出聚合物混合熵的推导公式, 这个 Flory 理论的计算有点东西.\n3.12\n在 1-1 meeting 上交流了一下, 目前的打算是继续 BCI 课题的研究作为训练/练手, 后续可能会有自己更感兴趣的方向(比如吸引子?)再阅读相关文献进行调研, 以准备下学期的开题答辩.\n写完了 Mixing entropy 和 Flory 理论的最后一部分, 后续对于博资考复习的初步计划是:\n根据自己高等统计物理的笔记, 重新学习一下有关布朗运动有关的知识, 并且将其和考试题目中的对应;\n根据 Gemini 的回答, 完成模拟考卷的学习和整理;\n在这两步完成之后, 就是每天背题了.\n3.13\n稍微鼓捣了一下 busuanzi 和 umami 的脚本, 结果发现 umami 毛用没有, 还不如 google analytics 呢, 于是兜兜转转又回到了 busuanzi.\n给网页加了个自动包裹 aligned 的功能, 终于不用反复手搓了.\n3.14\n宿舍笔记本的 Tailscale 神秘断开了, 本来一开始在装上去的时候就有这毛病了. 测试了半天姑且猜测是因为 Clash 的 TUN 和 Mixin 导致. 把它关掉之后, 重新装了一下最新的版本, 然后使用管理员打开, 终于弹出登录网页了.\n并且今天还修复了一个心腹大患, 即工位电脑到宿舍笔记本的 ssh 连接问题, 之前老是要我手动输入密码, 现在终于能轻松登录了.\n$path = \"$env:USERPROFILE\\.ssh\\authorized_keys\" # 1. 确保文件存在 if (Test-Path $path) { # 2. 禁用继承并删除所有无关权限 icacls $path /inheritance:r # 3. 只给 SYSTEM、Administrators 组和当前用户 (pc) 权限 icacls $path /grant \"SYSTEM:F\" icacls $path /grant \"Administrators:F\" icacls $path /grant \"${env:USERNAME}:F\" Write-Host \"权限修复完成！\" -ForegroundColor Green } else { Write-Host \"未找到 authorized_keys 文件，请确认路径！\" -ForegroundColor Red } 还有就是取消掉工位电脑的工作区信任检查, 每次还要把它叉掉不然会一直卡在 ssh 连接. 现在对工位的生产环境满意多了.\n3.15\n今天溜到工位也没做什么, 主要是把周二的学术写作课的作业做了. 说实话, 这种课就是凭着是培养计划内的必选课, 一个劲地整蛊学生, 作业的 workload 感觉比正常读文献都多. 都研二下了还搞这种东西, 有点不知好歹了.\n另外就是组会和 1-1 meeting 的时间改了. 目前的计划是先把 RNN 搞起来, 做一个 baseline 和 rePOSSM 做一下对比.\n3.16\n工位电脑 Outlook 收个邮件还显示广告, 果断换成 ThunderBird 了.\nOutlookRemover\n另外找到了一个用来 AI 解析 Github 库的工具. 有一部分代码是之前移植过来的但是还没有搞懂, 希望这个工具能发挥点作用.\n这种出生, 是真的 nt.\n今天重新整理了一下之前的 rePOSSM 代码, 把它重构成了以后可以加入 baseline 的形式, 并且完善了一下之前没有考虑到的点. 看下明天有没有时间做一个最简形式的 RNN.\n首先是 对训练结束后的 ed0336 gru 为 backbone 的模型进行评估.\n(possm) hyc@Dominant:/mnt/d/codefiles/python/myPOSSM/rePOSSM$ python main.py --eval --model possm --backbone gru --ckpt ed0336 ============================================================ Model type: possm Backbone: gru Device: cuda Loading checkpoint: /mnt/d/codefiles/python/myPOSSM/rePOSSM/checkpoints/possm_gru_seed42_ed0336.pt ============================================================ Using device: cuda Loading model from /mnt/d/codefiles/python/myPOSSM/rePOSSM/checkpoints/possm_gru_seed42_ed0336.pt... Backbone selected: gru Number of channels: 96 Training Baseline (Session 0) Loaded. -------------------------------------------------- Evaluating Session 0... R2: 0.5281 (MSE: 0.0363) Evaluating Session 1... R2: 0.5094 (MSE: 0.0236) Evaluating Session 2... R2: 0.4155 (MSE: 0.0286) Evaluating Session 3... R2: 0.0286 (MSE: 0.0674) Evaluating Session 4... R2: -0.0613 (MSE: 0.0541) Evaluating Session 7... R2: -0.1071 (MSE: 0.0562) Evaluating Session 11... R2: -0.9990 (MSE: 0.1125) ================================================== Session | R2 (Avg) | R2 (X) | R2 (Y) | MSE -------------------------------------------------- 0 | 0.5281 | 0.3375 | 0.7187 | 0.0363 1 | 0.5094 | 0.4389 | 0.5800 | 0.0236 2 | 0.4155 | 0.2518 | 0.5792 | 0.0286 3 | 0.0286 | -0.1387 | 0.1959 | 0.0674 4 | -0.0613 | 0.1045 | -0.2272 | 0.0541 7 | -0.1071 | -0.2591 | 0.0449 | 0.0562 11 | -0.9990 | -1.5555 | -0.4425 | 0.1125 ================================================== 从 Session 3 开始性能急剧下降.\n然后是以 s4d 为 backbone 的模型. 今天暂时训练不完了, 明天再说.\n",
-  "wordCount" : "2433",
+  "articleBody": "1 月 目前的组会安排大致是每周二 10:00 pm(BCI) 和每周五 10:00 pm(121) 各一次.\n1.16\n整理了一下个人博客的笔记和 s4 的代码库. 但是在会上导师并没有对此有积极的反馈, 大致观点为:\n什么时候能学完这个博客页面 (我的回应是我也不太清楚, 因为我不能确定学习的速度)\nssm 只是 BCI 大课题里的很小的一个模型, 现在学得太慢了, 研究生会有很多没有学过的东西.\n不应该花太多时间学到能给别人讲解的程度\n在寻求了 ChatGPT 的帮助后, 大致的思路是:\n导师想看到的不是 \"学到了什么\", 而是有具体的 \"研究产出\"\n因此, 给导师展示自己的笔记/代码库其实是一个错误的思路.\n诚然, 以近乎为零的基础搭建一个神经网络的代码库, 需要读懂/推导/实现, 是一个很辛苦的过程. 但是这并没有什么卵用.\nGPT 给我进行了这样的支招:\n停止展示私人笔记. 可以继续学习的过程, 但是不要再给导师展示了. 除非导师主动问起.\n工作重点回到 POSSM 的复现上. 由于时间比较紧张, 最好尽快学完教学博客页面, 理解其代码后回到 POSSM 的复现上.\n上次其实已经指出了目标是 POSSM 对于 Falcon 数据库的延展性(是否跟声称的那样具有较好的迁移性).\n那么主要的路径就是:\n以目前学习 s4 实现的代码基础, 重新看 my_POSSM 库的代码, 理解 forward 数据流在模块中的传递.\n在保持 POSSM 其余结构不变的前提下, 比较 GRU 和 S4 模型之间的差异(解码速度, 收敛速度, 推理延迟...)\n根据 Hueber(2024), 硬件的指标有\ndecoding performance.\n$R^{2}$ 和 RMSE(均方根误差)/MSE(均方误差) 等指标衡量解码性能.\n# y_true, y_pred: (T, 2) or (batch, T, 2) ss_res = ((y_true - y_pred) ** 2).sum() ss_tot = ((y_true - y_true.mean()) ** 2).sum() r2 = 1 - ss_res / ss_tot latency inference latency per time bin(单个时间步的推理延迟)\nimport time torch.cuda.synchronize() t0 = time.time() _ = model(spike, spike_lengths) torch.cuda.synchronize() latency_ms = (time.time() - t0) * 1000 real-time constraint (inference latency \u003c bin size)\ncomputational efficiency Parameter count\nsum(p.numel() for p in model.parameters()) stability 收敛 epoch 数; validation; training instability\n需要注意到的是, 虽然师兄写的 toy model(my_POSSM) 使用的是 torch 框架, s4 教学博客依赖于 jax 和 flax 库, 但是这并不代表着需要自己使用 torch 重新构造一遍 s4 的实现. 直接寻找现有的 torch 实现才是更安全可靠的方法.\n1.19\nidea: 如何使用 snn 来对 possm 使用的数据库进行分析?\n观察 LIF neuron 的实现.\n如何评估一个算法的功耗?\n我决定立刻停止 s4 博客的学习.\n虽然我现在连过博资考的信心都没有, 但是和老板的谈话我还是意识到, 应该尽早开始准备有关于开题的内容. 作为一个交叉所的博士生, 一个比较大的问题就是我的毕业论文最后要落在物理的语言上.\n这个工作, 本质上是一个随机动力学系统的建模问题. 即 高维随机脉冲序列的状态空间建模.\nBCI 提供了一个高度复杂, 强噪声, 长时依赖的真实系统, 为检验状态空间模型建模能力提供了理想的平台. (BCI 作为 benchmark).\n在高维神经脉冲序列的实时解码任务中, 不同状态空间的建模方法(RNN, SSM, SNN...), 建模能力, 计算效率, 稳定性应当如何权衡?\n虽然我并不赞同前导师的某些理念, 但是有一句话我是感受颇深的: \"不要将自己的人际关系过分局限于和导师的关系上, 要多和实验室的师兄师姐沟通\". 现在我重新踏上了一条路, 虽然课题组性质发生了很大变化, 但是我的处境几乎没有改变.\nLet the feast begin.\n3 月 3.11\n显然这个月的主旋律就是准备第二次博资考了. 这一周前三天还在准备博资考复习资料的撰写, 后面三天则是比较匆忙地阅读文献来做组会的报告, 现在算是小阶段的结束, 改回神继续准备考试.\n最头疼的是问遍 AI 都没推导出聚合物混合熵的推导公式, 这个 Flory 理论的计算有点东西.\n3.12\n在 1-1 meeting 上交流了一下, 目前的打算是继续 BCI 课题的研究作为训练/练手, 后续可能会有自己更感兴趣的方向(比如吸引子?)再阅读相关文献进行调研, 以准备下学期的开题答辩.\n写完了 Mixing entropy 和 Flory 理论的最后一部分, 后续对于博资考复习的初步计划是:\n根据自己高等统计物理的笔记, 重新学习一下有关布朗运动有关的知识, 并且将其和考试题目中的对应;\n根据 Gemini 的回答, 完成模拟考卷的学习和整理;\n在这两步完成之后, 就是每天背题了.\n3.13\n稍微鼓捣了一下 busuanzi 和 umami 的脚本, 结果发现 umami 毛用没有, 还不如 google analytics 呢, 于是兜兜转转又回到了 busuanzi.\n给网页加了个自动包裹 aligned 的功能, 终于不用反复手搓了.\n3.14\n宿舍笔记本的 Tailscale 神秘断开了, 本来一开始在装上去的时候就有这毛病了. 测试了半天姑且猜测是因为 Clash 的 TUN 和 Mixin 导致. 把它关掉之后, 重新装了一下最新的版本, 然后使用管理员打开, 终于弹出登录网页了.\n并且今天还修复了一个心腹大患, 即工位电脑到宿舍笔记本的 ssh 连接问题, 之前老是要我手动输入密码, 现在终于能轻松登录了.\n$path = \"$env:USERPROFILE\\.ssh\\authorized_keys\" # 1. 确保文件存在 if (Test-Path $path) { # 2. 禁用继承并删除所有无关权限 icacls $path /inheritance:r # 3. 只给 SYSTEM、Administrators 组和当前用户 (pc) 权限 icacls $path /grant \"SYSTEM:F\" icacls $path /grant \"Administrators:F\" icacls $path /grant \"${env:USERNAME}:F\" Write-Host \"权限修复完成！\" -ForegroundColor Green } else { Write-Host \"未找到 authorized_keys 文件，请确认路径！\" -ForegroundColor Red } 还有就是取消掉工位电脑的工作区信任检查, 每次还要把它叉掉不然会一直卡在 ssh 连接. 现在对工位的生产环境满意多了.\n3.15\n今天溜到工位也没做什么, 主要是把周二的学术写作课的作业做了. 说实话, 这种课就是凭着是培养计划内的必选课, 一个劲地整蛊学生, 作业的 workload 感觉比正常读文献都多. 都研二下了还搞这种东西, 有点不知好歹了.\n另外就是组会和 1-1 meeting 的时间改了. 目前的计划是先把 RNN 搞起来, 做一个 baseline 和 rePOSSM 做一下对比.\n3.16\n工位电脑 Outlook 收个邮件还显示广告, 果断换成 ThunderBird 了.\nOutlookRemover\n另外找到了一个用来 AI 解析 Github 库的工具. 有一部分代码是之前移植过来的但是还没有搞懂, 希望这个工具能发挥点作用.\n今天重新整理了一下之前的 rePOSSM 代码, 把它重构成了以后可以加入 baseline 的形式, 并且完善了一下之前没有考虑到的点. 看下明天有没有时间做一个最简形式的 RNN.\n首先是 对训练结束后的 ed0336 gru 为 backbone 的模型进行评估.\n(possm) hyc@Dominant:/mnt/d/codefiles/python/myPOSSM/rePOSSM$ python main.py --eval --model possm --backbone gru --ckpt ed0336 ============================================================ Model type: possm Backbone: gru Device: cuda Loading checkpoint: /mnt/d/codefiles/python/myPOSSM/rePOSSM/checkpoints/possm_gru_seed42_ed0336.pt ============================================================ Using device: cuda Loading model from /mnt/d/codefiles/python/myPOSSM/rePOSSM/checkpoints/possm_gru_seed42_ed0336.pt... Backbone selected: gru Number of channels: 96 Training Baseline (Session 0) Loaded. -------------------------------------------------- Evaluating Session 0... R2: 0.5281 (MSE: 0.0363) Evaluating Session 1... R2: 0.5094 (MSE: 0.0236) Evaluating Session 2... R2: 0.4155 (MSE: 0.0286) Evaluating Session 3... R2: 0.0286 (MSE: 0.0674) Evaluating Session 4... R2: -0.0613 (MSE: 0.0541) Evaluating Session 7... R2: -0.1071 (MSE: 0.0562) Evaluating Session 11... R2: -0.9990 (MSE: 0.1125) ================================================== Session | R2 (Avg) | R2 (X) | R2 (Y) | MSE -------------------------------------------------- 0 | 0.5281 | 0.3375 | 0.7187 | 0.0363 1 | 0.5094 | 0.4389 | 0.5800 | 0.0236 2 | 0.4155 | 0.2518 | 0.5792 | 0.0286 3 | 0.0286 | -0.1387 | 0.1959 | 0.0674 4 | -0.0613 | 0.1045 | -0.2272 | 0.0541 7 | -0.1071 | -0.2591 | 0.0449 | 0.0562 11 | -0.9990 | -1.5555 | -0.4425 | 0.1125 ================================================== 从 Session 3 开始性能急剧下降.\n然后是以 s4d 为 backbone 的模型. 今天暂时训练不完了, 明天再说.\n3.17\n(possm) hyc@Dominant:/mnt/d/codefiles/python/myPOSSM/rePOSSM$ python main.py --eval --model possm --backbone s4d --ckpt 254f39 ============================================================ Model type: possm Backbone: s4d Device: cuda Loading checkpoint: /mnt/d/codefiles/python/myPOSSM/rePOSSM/checkpoints/possm_s4d_seed42_254f39.pt ============================================================ Using device: cuda Loading model from /mnt/d/codefiles/python/myPOSSM/rePOSSM/checkpoints/possm_s4d_seed42_254f39.pt... Backbone selected: s4d Number of channels: 96 Model dimension summary: embed_dim: 64 num_latents: 1 input_dim: 64 hidden_size: 512 Training Baseline (Session 0) Loaded. -------------------------------------------------- Evaluating Session 0... R2: 0.4849 (MSE: 0.0393) Evaluating Session 1... R2: 0.4782 (MSE: 0.0250) Evaluating Session 2... R2: 0.3905 (MSE: 0.0299) Evaluating Session 3... R2: 0.0763 (MSE: 0.0649) Evaluating Session 4... R2: 0.0484 (MSE: 0.0477) Evaluating Session 7... R2: 0.0376 (MSE: 0.0492) Evaluating Session 11... R2: -0.1240 (MSE: 0.0614) ================================================== Session | R2 (Avg) | R2 (X) | R2 (Y) | MSE -------------------------------------------------- 0 | 0.4849 | 0.2911 | 0.6787 | 0.0393 1 | 0.4782 | 0.4196 | 0.5367 | 0.0250 2 | 0.3905 | 0.1967 | 0.5843 | 0.0299 3 | 0.0763 | -0.1279 | 0.2805 | 0.0649 4 | 0.0484 | 0.3727 | -0.2759 | 0.0477 7 | 0.0376 | -0.1818 | 0.2569 | 0.0492 11 | -0.1240 | -0.1667 | -0.0813 | 0.0614 ================================================== 完成了旧代码库的重构, 准备加入 baseline 的实现, 目前正在处理 RNN.\n在训练分布附近(0,1,2)附近 GRU 更强, 在泛化能力上(7,11) S4D 稍微更稳健一些, 但是两者在整体上泛化能力目前都较弱 (图)\nloss 降线. S4D 的实际耗时是远超 GRU 的.\n目前 RNN 依托的是 POSSM 的 preprocess.py 的 sparse tokenization, 原论文中示意图比较相近, 但是实际上能不能这么做有待商榷. 并且目前只完成了 train 部分的嵌入, 在 long_term_inference 的兼容还没有做好.\n为什么要旋转编码... 等细节问题\nCNN?\n心态要好啊.\n3.18\n需要完成的工作:\n$\\sqrt{}$ 博资考复习资料的 random walk 补充完善;\nRNN 的 preprocess, dataloader 和 long_term_inference 模块;\n校正一遍博资考的 markdown 文档;\n使用纸笔完成一次复习资料的拉通(特别是有关于 flory 理论和 random walk 的部分).\n工位的电脑老是出现断网的毛病, 然后 github 就 push 不过去.\ngit config --global --get http.proxy git config --global --get https.proxy 常备以上修复指令.\n今天和敏行谈论了一下有关读书会的事情, 提到相比于上学期的只是摘抄数学公式的形式, 更好的处理方式可能是写成一个 Jupyter Notebook 的形式, 搭配具体的代码实现, 这样可能会更有助于理解.\n修复了一堆之前遗留在 review-sheet 的问题, 打包到了一个 release 里. 如果能帮到人的话就再好不过了.\n预约了一张 130 校庆的卡, 不要忘记取了.\n买一送一的牛奶放在二楼冰箱里被冻硬了, 解冻之后口感难喝的一, 以后不多买了.\n",
+  "wordCount" : "3098",
   "inLanguage": "zh",
   "datePublished": "2026-01-17T00:18:15+08:00",
   "dateModified": "2026-01-17T00:18:15+08:00",
@@ -365,13 +365,13 @@ document.addEventListener("DOMContentLoaded", function () {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>2433字
+        <span>3098字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>5分钟
+        <span>7分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -640,11 +640,8 @@ document.addEventListener("DOMContentLoaded", function () {
 <p>工位电脑 Outlook 收个邮件还显示广告, 果断换成 ThunderBird 了.</p>
 <p><a href="https://github.com/matej137/OutlookRemover/releases/tag/v0.99" target="_blank" rel="noopener nofollow noreferrer" >OutlookRemover</a></p>
 <p>另外找到了一个用来 <a href="https://deepwiki.com/" target="_blank" rel="noopener nofollow noreferrer" >AI 解析 Github 库的工具</a>. 有一部分代码是之前移植过来的但是还没有搞懂, 希望这个工具能发挥点作用.</p>
-<blockquote>
-<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/16/fn4M/1b99c80a-b543-4a3e-b434-ed57fc08.png" alt=""  /></p>
-<p>这种出生, 是真的 nt.</p>
-<hr>
-</blockquote>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>今天重新整理了一下之前的 rePOSSM 代码, 把它重构成了以后可以加入 baseline 的形式, 并且完善了一下之前没有考虑到的点. 看下明天有没有时间做一个最简形式的 RNN.</p>
 <p>首先是 对训练结束后的 <code>ed0336</code> gru 为 backbone 的模型进行评估.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">(</span>possm<span style="color:#f92672">)</span> hyc@Dominant:/mnt/d/codefiles/python/myPOSSM/rePOSSM$ python main.py --eval --model possm --backbone gru --ckpt ed0336
@@ -681,6 +678,94 @@ document.addEventListener("DOMContentLoaded", function () {
 </span></span><span style="display:flex;"><span><span style="color:#f92672">==================================================</span>
 </span></span></code></pre></div><p>从 Session 3 开始性能急剧下降.</p>
 <p>然后是以 s4d 为 backbone 的模型. 今天暂时训练不完了, 明天再说.</p>
+<hr>
+<p>3.17</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">(</span>possm<span style="color:#f92672">)</span> hyc@Dominant:/mnt/d/codefiles/python/myPOSSM/rePOSSM$ python main.py --eval --model possm --backbone s4d --ckpt 254f39
+</span></span><span style="display:flex;"><span><span style="color:#f92672">============================================================</span>
+</span></span><span style="display:flex;"><span>Model type: possm
+</span></span><span style="display:flex;"><span>Backbone: s4d
+</span></span><span style="display:flex;"><span>Device: cuda
+</span></span><span style="display:flex;"><span>Loading checkpoint: /mnt/d/codefiles/python/myPOSSM/rePOSSM/checkpoints/possm_s4d_seed42_254f39.pt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">============================================================</span>
+</span></span><span style="display:flex;"><span>Using device: cuda
+</span></span><span style="display:flex;"><span>Loading model from /mnt/d/codefiles/python/myPOSSM/rePOSSM/checkpoints/possm_s4d_seed42_254f39.pt...
+</span></span><span style="display:flex;"><span>Backbone selected: s4d
+</span></span><span style="display:flex;"><span>Number of channels: <span style="color:#ae81ff">96</span>
+</span></span><span style="display:flex;"><span>Model dimension summary:
+</span></span><span style="display:flex;"><span>embed_dim: <span style="color:#ae81ff">64</span>
+</span></span><span style="display:flex;"><span>num_latents: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>input_dim: <span style="color:#ae81ff">64</span>
+</span></span><span style="display:flex;"><span>hidden_size: <span style="color:#ae81ff">512</span>
+</span></span><span style="display:flex;"><span>Training Baseline <span style="color:#f92672">(</span>Session 0<span style="color:#f92672">)</span> Loaded.
+</span></span><span style="display:flex;"><span>--------------------------------------------------
+</span></span><span style="display:flex;"><span>Evaluating Session 0... R2: 0.4849 <span style="color:#f92672">(</span>MSE: 0.0393<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Evaluating Session 1... R2: 0.4782 <span style="color:#f92672">(</span>MSE: 0.0250<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Evaluating Session 2... R2: 0.3905 <span style="color:#f92672">(</span>MSE: 0.0299<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Evaluating Session 3... R2: 0.0763 <span style="color:#f92672">(</span>MSE: 0.0649<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Evaluating Session 4... R2: 0.0484 <span style="color:#f92672">(</span>MSE: 0.0477<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Evaluating Session 7... R2: 0.0376 <span style="color:#f92672">(</span>MSE: 0.0492<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Evaluating Session 11... R2: -0.1240 <span style="color:#f92672">(</span>MSE: 0.0614<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==================================================</span>
+</span></span><span style="display:flex;"><span>Session    | R2 <span style="color:#f92672">(</span>Avg<span style="color:#f92672">)</span>   | R2 <span style="color:#f92672">(</span>X<span style="color:#f92672">)</span>     | R2 <span style="color:#f92672">(</span>Y<span style="color:#f92672">)</span>     | MSE
+</span></span><span style="display:flex;"><span>--------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>          | 0.4849     | 0.2911     | 0.6787     | 0.0393
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>          | 0.4782     | 0.4196     | 0.5367     | 0.0250
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>          | 0.3905     | 0.1967     | 0.5843     | 0.0299
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>          | 0.0763     | -0.1279    | 0.2805     | 0.0649
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>          | 0.0484     | 0.3727     | -0.2759    | 0.0477
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span>          | 0.0376     | -0.1818    | 0.2569     | 0.0492
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span>         | -0.1240    | -0.1667    | -0.0813    | 0.0614
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==================================================</span>
+</span></span></code></pre></div><ol start="0">
+<li>
+<p>完成了旧代码库的重构, 准备加入 baseline 的实现, 目前正在处理 RNN.</p>
+</li>
+<li>
+<p>在训练分布附近(0,1,2)附近 GRU 更强, 在泛化能力上(7,11) S4D 稍微更稳健一些, 但是两者在整体上泛化能力目前都较弱 (图)</p>
+</li>
+<li>
+<p>loss 降线. S4D 的实际耗时是远超 GRU 的.</p>
+</li>
+<li>
+<p>目前 RNN 依托的是 POSSM 的 preprocess.py 的 sparse tokenization, 原论文中示意图比较相近, 但是实际上能不能这么做有待商榷. 并且目前只完成了 train 部分的嵌入, 在 long_term_inference 的兼容还没有做好.</p>
+</li>
+</ol>
+<hr>
+<ol>
+<li>
+<p>为什么要旋转编码... 等细节问题</p>
+</li>
+<li>
+<p>CNN?</p>
+</li>
+</ol>
+<hr>
+<p>心态要好啊.</p>
+<hr>
+<p>3.18</p>
+<p>需要完成的工作:</p>
+<p>$\sqrt{}$ 博资考复习资料的 random walk 补充完善;</p>
+<ol start="2">
+<li>
+<p>RNN 的 preprocess, dataloader 和 long_term_inference 模块;</p>
+</li>
+<li>
+<p>校正一遍博资考的 markdown 文档;</p>
+</li>
+<li>
+<p>使用纸笔完成一次复习资料的拉通(特别是有关于 flory 理论和 random walk 的部分).</p>
+</li>
+</ol>
+<p>工位的电脑老是出现断网的毛病, 然后 github 就 push 不过去.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>git config --global --get http.proxy
+</span></span><span style="display:flex;"><span>git config --global --get https.proxy
+</span></span></code></pre></div><p>常备以上修复指令.</p>
+<p>今天和敏行谈论了一下有关读书会的事情, 提到相比于上学期的只是摘抄数学公式的形式, 更好的处理方式可能是写成一个 Jupyter Notebook 的形式, 搭配具体的代码实现, 这样可能会更有助于理解.</p>
+<hr>
+<p>修复了一堆之前遗留在 review-sheet 的问题, 打包到了一个 <a href="https://github.com/Muatyz/review-sheet/releases/tag/v1.5" target="_blank" rel="noopener nofollow noreferrer" >release</a> 里. 如果能帮到人的话就再好不过了.</p>
+<p>预约了一张 130 校庆的卡, 不要忘记取了.</p>
+<p>买一送一的牛奶放在二楼冰箱里被冻硬了, 解冻之后口感难喝的一, 以后不多买了.</p>
 
 
         </div>
@@ -1140,7 +1225,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
             
         
-        · 已经水了 145 篇 993452 字, 再接再厉!
+        · 已经水了 145 篇 994664 字, 再接再厉!
     </div>
 
     
