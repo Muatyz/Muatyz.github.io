@@ -5,11 +5,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Sound in Sand | 无处惹尘埃</title>
-<meta name="keywords" content="scmp, granular">
-<meta name="description" content="早期有关声学在颗粒介质中的应用研究">
+<title>POSSM 探索日志 | 无处惹尘埃</title>
+<meta name="keywords" content="Exp, Muon">
+<meta name="description" content="数据流解析.
+
+预处理后数据 dataset 的结构为 self.dataset = [trial_0, trial_1, ...], 每个元素形式是
+
+trial = {
+     &#39;trial_id&#39;: trial_id,    # 单次实验的编号
+     &#39;spikes&#39;: active_spike,  # 动作电位数据
+     &#39;vel&#39;: vel               # 速度
+ }
+
+
+active_spike = List[bin], bin = List[(channel_id, offset),...] 或者 0.
+
+
+vel = List[vel_bin], vel_bin = List[(v_x, v_y)...].
+
+
+
+
+通过 Dataloader.py 将 dataset 转化为 tensor. pad_collate_fn 输出了 padded_bin, bin_mask, spike_mask, vel.
+
+
+padded_bin: (batch, max_bin, max_token, 2) 的张量, 2 来自于 token (channel_id, offset).
+
+
+batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的长度; max_token : 一个 bin 中最多的 token 的数量.">
 <meta name="author" content="Muartz">
-<link rel="canonical" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/">
+<link rel="canonical" href="https://Muatyz.github.io/posts/exp/possm-report/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
@@ -19,7 +44,7 @@
 <link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/exp/possm-report/">
 <noscript>
     <style>
         #theme-toggle,
@@ -144,16 +169,68 @@ document.addEventListener("DOMContentLoaded", function () {
           gtag('js', new Date());
           gtag('config', 'G-609WYY5125');
         }
-      </script><meta property="og:title" content="Sound in Sand" />
-<meta property="og:description" content="早期有关声学在颗粒介质中的应用研究" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-11-29T00:18:06+08:00" />
-<meta property="article:modified_time" content="2023-11-29T00:18:06+08:00" />
+      </script><meta property="og:title" content="POSSM 探索日志" />
+<meta property="og:description" content="数据流解析.
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Sound in Sand"/>
-<meta name="twitter:description" content="早期有关声学在颗粒介质中的应用研究"/>
+预处理后数据 dataset 的结构为 self.dataset = [trial_0, trial_1, ...], 每个元素形式是
+
+trial = {
+     &#39;trial_id&#39;: trial_id,    # 单次实验的编号
+     &#39;spikes&#39;: active_spike,  # 动作电位数据
+     &#39;vel&#39;: vel               # 速度
+ }
+
+
+active_spike = List[bin], bin = List[(channel_id, offset),...] 或者 0.
+
+
+vel = List[vel_bin], vel_bin = List[(v_x, v_y)...].
+
+
+
+
+通过 Dataloader.py 将 dataset 转化为 tensor. pad_collate_fn 输出了 padded_bin, bin_mask, spike_mask, vel.
+
+
+padded_bin: (batch, max_bin, max_token, 2) 的张量, 2 来自于 token (channel_id, offset).
+
+
+batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的长度; max_token : 一个 bin 中最多的 token 的数量." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/exp/possm-report/" />
+<meta property="og:image" content="https://s2.loli.net/2025/12/30/ILm1klWQucC39hR.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-03-19T00:18:15+08:00" />
+<meta property="article:modified_time" content="2026-03-19T00:18:15+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://s2.loli.net/2025/12/30/ILm1klWQucC39hR.png" />
+<meta name="twitter:title" content="POSSM 探索日志"/>
+<meta name="twitter:description" content="数据流解析.
+
+预处理后数据 dataset 的结构为 self.dataset = [trial_0, trial_1, ...], 每个元素形式是
+
+trial = {
+     &#39;trial_id&#39;: trial_id,    # 单次实验的编号
+     &#39;spikes&#39;: active_spike,  # 动作电位数据
+     &#39;vel&#39;: vel               # 速度
+ }
+
+
+active_spike = List[bin], bin = List[(channel_id, offset),...] 或者 0.
+
+
+vel = List[vel_bin], vel_bin = List[(v_x, v_y)...].
+
+
+
+
+通过 Dataloader.py 将 dataset 转化为 tensor. pad_collate_fn 输出了 padded_bin, bin_mask, spike_mask, vel.
+
+
+padded_bin: (batch, max_bin, max_token, 2) 的张量, 2 来自于 token (channel_id, offset).
+
+
+batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的长度; max_token : 一个 bin 中最多的 token 的数量."/>
 
 
 <script type="application/ld+json">
@@ -172,42 +249,14 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           "@type": "ListItem",
           "position":  2 ,
-          "name": "📕 阅读",
-          "item": "https://Muatyz.github.io/posts/read/"
-        },
-
-        {
-          "@type": "ListItem",
-          "position":  3 ,
-          "name": "💾 归档",
-          "item": "https://Muatyz.github.io/posts/read/stack/"
-        },
-
-        {
-          "@type": "ListItem",
-          "position":  4 ,
-          "name": "🛠 颗粒物质研究方法",
-          "item": "https://Muatyz.github.io/posts/read/stack/granular/"
-        },
-
-        {
-          "@type": "ListItem",
-          "position":  5 ,
-          "name": "🦇 超声波探测",
-          "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/"
-        },
-
-        {
-          "@type": "ListItem",
-          "position":  6 ,
-          "name": "⛓ Densed Granular Media",
-          "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/"
+          "name": "⛏️ 实验",
+          "item": "https://Muatyz.github.io/posts/exp/"
         }, 
     {
       "@type": "ListItem",
-      "position":  7 ,
-      "name": "Sound in Sand",
-      "item": "https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/"
+      "position":  3 ,
+      "name": "POSSM 探索日志",
+      "item": "https://Muatyz.github.io/posts/exp/possm-report/"
     }
   ]
 }
@@ -216,24 +265,24 @@ document.addEventListener("DOMContentLoaded", function () {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Sound in Sand",
-  "name": "Sound in Sand",
-  "description": "早期有关声学在颗粒介质中的应用研究",
+  "headline": "POSSM 探索日志",
+  "name": "POSSM 探索日志",
+  "description": "数据流解析.\n预处理后数据 dataset 的结构为 self.dataset = [trial_0, trial_1, ...], 每个元素形式是 trial = { \u0026#39;trial_id\u0026#39;: trial_id, # 单次实验的编号 \u0026#39;spikes\u0026#39;: active_spike, # 动作电位数据 \u0026#39;vel\u0026#39;: vel # 速度 } active_spike = List[bin], bin = List[(channel_id, offset),...] 或者 0.\nvel = List[vel_bin], vel_bin = List[(v_x, v_y)...].\n通过 Dataloader.py 将 dataset 转化为 tensor. pad_collate_fn 输出了 padded_bin, bin_mask, spike_mask, vel. padded_bin: (batch, max_bin, max_token, 2) 的张量, 2 来自于 token (channel_id, offset). batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的长度; max_token : 一个 bin 中最多的 token 的数量.\n",
   "keywords": [
-    "scmp", "granular"
+    "Exp", "Muon"
   ],
-  "articleBody": " DOI: https://doi.org/10.1103/PhysRevLett.68.2301\nAbstract We have studied the vibrations in a granular material and have found that they are qualitatively different from those found in solids or liquids. In response to an external oscillation, the vibrations experienced by a single particle in the material are exceedingly noisy with a power spectrum $S(f)\\propto f^{2.2}$ over more than 5 decades in frequency. The frequency response depends on the detailed packing of the beads, reminiscent of conductance Auctuations in mesoscopic metals.\n我们研究了颗粒材料中的振动，发现它们与固体或液体中的振动有着本质的区别。在响应外部振荡时，材料中的单个颗粒所经历的振动噪声非常大，其功率谱 $S(f)\\propto f^{2.2}$ 的频率超过 5 个数量级。频率响应取决于微珠的详细堆积，这让人想起介观金属中的电导波动。\nThe fundamental properties of a system are often governed by its elementary excitations. For a dry, non-cohesive, granular material like sand, the excitations of primary interest are the vibrations. As a result of the nature of the contacts between individual grains in such a material, one can expect its vibrational excitations to be quite different from those associated with normal solids or liquids. The contact between two spherical grains, known as a Hertzian contact, has a nonlinear stress-strain relation $\\Delta\\propto P^{2/3}$, where $\\Delta$ is the deformation of a grain under a pressure $P$.\n一个系统的基本特性通常受其基本激励的支配。对于像沙子这样干燥、无粘性的颗粒材料来说，主要的激励是振动。由于这种材料中各个颗粒之间接触的性质，我们可以预期其振动激振与普通固体或液体的振动激振大不相同。两个球形晶粒之间的接触称为 Hertz 接触，具有非线性的应力-应变关系 $\\Delta\\propto P^{2/3}$，其中 $\\Delta$ 是颗粒在压力 $P$ 下的变形。\nBy modeling sand as a homogeneous medium one derives that the sound speed $c$ varies as $c\\propto P^{1/6}$. Since the pressure at a point far away from the container walls is proportional to the depth $h$, this implies that $c\\propto h^{1/6}$ . Because sound travels faster at the bottom, acoustic waves launched horizontally in- side the sand will bend upward in a \"mirage\" effect and eventually escape from the top surface. Thus no conventional horizontal sound is allowed. Furthermore, the top surface is singular in the sense that $c=0$ and $\\mathrm{d}c/\\mathrm{d}h$ diverges at that point.\n通过将沙子模拟成均质介质，可以得出声速 $c$ 的变化为 $c\\propto P^{1/6}$。由于远离容器壁点的压力与深度 $h$ 成正比，这意味着 $c\\propto h^{1/6}$ 。由于声音在底部传播得更快，因此在沙子一侧水平发射的声波会因 \"海市蜃楼\" 效应中向上弯曲，最终从顶面逃逸。因此，不允许发出传统的水平声波。此外，顶面是奇异的，即 $c=0$ 和 $\\mathrm{d}c/\\mathrm{d}h$ 在该点发散。\nSuch an analysis may, however, be too simple since real sand is not homogeneous but granular. In sand, each particle has several physical contacts with its neighbors leading to the formation of a three-dimensional force- chain network. Because of this distinctive arching behavior of granular material, the spatial fluctuations of the network can extend to length scales much larger than the size of a single grain. Small amplitude vibrations, which are very sensitive to the degree of contact between particles, travel predominantly along this quasistatic network so that it may not be valid to treat them in the same manner as in a homogeneous system.\n然而，这种分析可能过于简单，因为真实的沙子并不是均质的，而是颗粒状的。在沙子中，每个颗粒都与其相邻颗粒有多个物理接触点，从而形成一个三维力链网络。由于颗粒材料的这种独特的拱形行为，网络的空间波动可以延伸到比单个颗粒大得多的长度尺度。小振幅振动对颗粒之间的接触程度非常敏感，主要沿着这种准静态网络传播，因此用均质系统中的相同方式来处理它们可能是无效的。\nSeveral studies have been made of what happens to a sandpile when it is subjected to large vibrations. Convection due to vibration within a sandpile has been known since Faraday; Evesque and Rajchenbach and Laroche, Duady, and Fauve have recently studied the role of this convection in the instability of a flat free surface of a sandpile. Other studies have shown that vibrations can cause the slope of the free surface of a sand- pile to relax logarithmically.\n关于砂堆在受到巨大振动时会发生什么情况，已经进行了多项研究。自法拉第以来，人们就知道砂堆内部振动引起的对流；Evesque 和 Rajchenbach 以及 Laroche、Duady 和 Fauve 最近研究了这种对流在砂堆平坦自由表面不稳定性中的作用。其他研究表明，振动可导致砂堆自由表面的斜度发生对数松弛。\nMehta and Barker have also argued that, depending on the vibration intensity, sand can also become more compact as well as more fluid. We report here the nature of the low amplitude vibration of individual particles within a granular medium and show some of the surprising ways that sound propagation in this medium differs from that found in homogeneous consolidated materials.\nMehta 和 Barker 还认为，根据振动强度的不同，沙子也会变得更加密实或流动。我们在此报告了颗粒介质中单个颗粒低振幅振动的性质，并展示了声音在这种介质中传播与在均质固结材料中传播的一些令人惊讶的不同之处。\nIn our experiments, the granular material, which consisted of spherical glass beads of diameter $d=0.5\\text{ cm}$, was contained in a rigid box of lateral dimensions $28\\text{ cm}\\times 28\\text{ cm}$ as shown in the inset of Fig. l (a). The depth of material ranged from 8 to 15 cm. In order to reduce the reflection of the sound waves from the walls, the con- tainer was lined with 3-cm-thick Styrofoam sheets. The results we report here are insensitive to the boundary con- ditions. This was tested by replacing the Styrofoam with other materials. In addition, the apparatus was carefully isolated from external vibrations and temperature fluctuations. In order to have a source with a well-defined amplitude and direction of motion, the vibration was transmitted to the grains by a 7-cm-diam aluminum disk buried in the material which was connected to an external speaker by a horizontal rigid rod, as shown in the illustration. We monitored the acceleration of the disk with an accelerometer attached to its back and controlled its am- plitude through an electronic feedback loop. We embed- ded small detection accelerometers in the same at dis- tances from 2 to 10 cm away from the center of the source. The size of the accelerometers, diameter 0.7 cm and length 1.2 cm, were chosen to be comparable to that of a single bead, in order to measure the motion equivalent to that of a single grain. Since accelerometers are quite massive, they respond only to vibrations transmitted through their contacts with the solid sur- roundings instead of to the sound pressure in air. They detect the acceleration along their axes, which we aligned to be along the direction of motion of the disk.\n",
-  "wordCount" : "1620",
+  "articleBody": "数据流解析.\n预处理后数据 dataset 的结构为 self.dataset = [trial_0, trial_1, ...], 每个元素形式是 trial = { 'trial_id': trial_id, # 单次实验的编号 'spikes': active_spike, # 动作电位数据 'vel': vel # 速度 } active_spike = List[bin], bin = List[(channel_id, offset),...] 或者 0.\nvel = List[vel_bin], vel_bin = List[(v_x, v_y)...].\n通过 Dataloader.py 将 dataset 转化为 tensor. pad_collate_fn 输出了 padded_bin, bin_mask, spike_mask, vel. padded_bin: (batch, max_bin, max_token, 2) 的张量, 2 来自于 token (channel_id, offset). batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的长度; max_token : 一个 bin 中最多的 token 的数量.\nbin_mask: (batch, max_bin) 的 bool 张量, 标记哪些 bin 是真实有效而非填充为 0 的.\nspike_mask: (batch, max_bin, max_token) 的 bool 张量, 标记哪些 token 是真实有效的而非填充为 0 的.\npossm_model.py 进行 Embedding 语义升维. Dataloader.py 输出的 spike (即 padded_bin) 为 (batch, max_bin, max_token, 2), 经过\nchannels, offsets = spike[..., 0], spike[..., 1] 拆分为 (batch, max_bin, max_token) 的 channels 和 offsets.\nself.emb = nn.Embedding( num_embeddings = config.num_channel, embedding_dim = config.embed_dim ) 通过 emb = self.emb(channels) 将 (batch, max_bin, max_token) 的 channels 转化为 (batch, max_bin, max_token, embed_dim) 的 emb.\nembed_dim: 用于将 1 个 channel_id 升维为 embed_dim 维的矢量.\ncross_attention.py 将 emb 转换为 num_latents 个 latent 向量. emb: (batch_size, max_bin, max_token, embed_dim) offsets: (batch_size, max_bin, max_token) 的张量, 包含每个 token 的 bin 内相对时间. spike_mask: (batch_size, max_bin, max_token) 的 bool 张量, 标记哪些 token 是非填充的 z = self.cross_attention(emb, offsets, spike_mask, self.freqs_cos, self.freqs_sin) z: (batch_size, max_bin, num_latents, embed_dim) 的张量 latents = self.latent_query xq = self.q_proj(latents).unsqueeze(0).unsqueeze(0).expand(batch_size, max_bin, -1, -1) latents: 随机初始化的 (num_latents, embed_dim) 张量 xq: (batch_size, max_bin, num_latents, num_attention_heads * head_dim) self.q_proj(latents) 通过 linear layer 将 latents 升维为 Query 向量 (num_latents, num_attention_heads * head_dim),\n再通过 .unsqueeze(0).unsqueeze(0).expand(batch_size, max_bin, -1, -1) 扩展为 xq.\nxk = self.k_proj(spike) xv = self.v_proj(spike) xk: (batch_size, max_bin, max_token, num_key_value_heads * head_dim) spike 通过 linear layer 升维为 Key 向量 xv: (batch_size, max_bin, max_token, num_key_value_heads * head_dim) spike 通过 linear layer 升维为 Value 向量 因此这里实际上是 self attention.\nxq = xq.view(batch_size, max_bin, self.num_latents, self.n_local_heads, self.head_dim) xk = xk.view(batch_size, max_bin, max_token, self.n_local_kv_heads, self.head_dim) xv = xv.view(batch_size, max_bin, max_token, self.n_local_kv_heads, self.head_dim) # self.n_local_heads = num_attention_heads # self.n_local_kv_heads = num_key_value_heads 对 xq, xk, xv 进行 reshape. 其中\nxk = RotaryEmbedding.apply_rotary_pos_emb(xq, xk, cos, sin, offsets, is_decoder=False) 对 xk 应用 Rotary Positional Embedding, offsets 是每个 token 在 bin 内的相对时间.\n# 4. Transpose for Attention xq = xq.transpose(2, 3) # 调换第 3 和 第 4 维 xk = repeat_kv(xk, self.n_rep).transpose(2, 3) xv = repeat_kv(xv, self.n_rep).transpose(2, 3) 为注意力计算做准备.\nxq: (batch_size, max_bin, num_latents, num_attention_heads, head_dim) -\u003e (batch_size, max_bin, num_attention_heads, num_latents, head_dim) 通过 repeat_kv() 将 xk 和 xv 的 num_key_value_heads 维度扩展为 num_attention_heads 维: (batch_size, max_bin, max_token, num_attention_heads, head_dim),\n再通过 .transpose(2, 3): (batch_size, max_bin, num_attention_heads, max_token, head_dim)\n注意力机制公式 $\\text{Attention}(Q,K,V) = \\text{softmax}(\\frac{QK^{\\dagger}}{\\sqrt{d_{k}}})V$\n# 5. Calculate Attention scores = (xq @ xk.transpose(-2, -1)) / math.sqrt(self.head_dim) xq @ xk.transpose(-2, -1): 对最后两个维度进行矩阵乘法, 即\nscores: (..., num_latents, head_dim) @ (..., head_dim, max_token) -\u003e (batch_size, max_bin, num_attention_heads, num_latents, max_token)\n# Apply mask if provided mask = mask_spike.unsqueeze(2).unsqueeze(2) scores = scores.masked_fill(mask == False, float('-inf')) mask: mask_spike (batch_size, max_bin, max_token) 通过 .unsqueeze(2).unsqueeze(2) 展开为 (batch_size, max_bin, 1, 1, max_token)\nscores 中的填充 0 位使用 float('-inf'), 以确保 softmax 后这些位置的权重为 0.\nscores = F.softmax(scores.float(), dim=-1).type_as(xq) scores: (batch_size, max_bin, num_attention_heads, num_latents, max_token)\noutput = scores @ xv output: (..., num_latents, max_token) @ (..., max_token, head_dim) -\u003e (batch_size, max_bin, num_attention_heads, num_latents, head_dim), 这样就消除了因数据而异的 max_token 而得到定长.\n",
+  "wordCount" : "772",
   "inLanguage": "zh",
-  "datePublished": "2023-11-29T00:18:06+08:00",
-  "dateModified": "2023-11-29T00:18:06+08:00",
+  "image":"https://s2.loli.net/2025/12/30/ILm1klWQucC39hR.png","datePublished": "2026-03-19T00:18:15+08:00",
+  "dateModified": "2026-03-19T00:18:15+08:00",
   "author":[{
     "@type": "Person",
     "name": "Muartz"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/sound-in-sand/"
+    "@id": "https://Muatyz.github.io/posts/exp/possm-report/"
   },
   "publisher": {
     "@type": "Organization",
@@ -354,13 +403,10 @@ document.addEventListener("DOMContentLoaded", function () {
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/">💾 归档</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/">🛠 颗粒物质研究方法</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/sonic/">🦇 超声波探测</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/">⛓ Densed Granular Media</a></div>
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/exp/">⛏️ 实验</a></div>
             <h1 class="post-title">
-                Sound in Sand
+                POSSM 探索日志
             </h1>
-            <div class="post-description">
-                早期有关声学在颗粒介质中的应用研究
-            </div>
             <div class="post-meta">
 
 <style>
@@ -380,7 +426,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2023-11-29
+        <span>2026-03-19
             &nbsp;&nbsp;
         </span>
     </span>
@@ -393,13 +439,13 @@ document.addEventListener("DOMContentLoaded", function () {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1620字
+        <span>772字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>4分钟
+        <span>2分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -413,7 +459,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://Muatyz.github.io/tags/read/" style="color: var(--secondary)!important;">Read</a>
+                <a href="https://Muatyz.github.io/tags/exp/" style="color: var(--secondary)!important;">Exp</a>
             </span>
         </span>
     </span>
@@ -439,114 +485,124 @@ document.addEventListener("DOMContentLoaded", function () {
                 </span>
 
 </div>
-        </header> <aside id="toc-container" class="toc-container wide">
-    <div class="toc">
-        <details  open>
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">目录</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#abstract" aria-label="Abstract">Abstract</a>
-                </li>
-            </ul>
-        </div>
-        </details>
-    </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-        
-        activeElement = elements[0];
-        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-    }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
-        
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
-            }
-        }) || activeElement
-
-        elements.forEach(element => {
-            const id = encodeURI(element.getAttribute('id')).toLowerCase();
-            if (element === activeElement){
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-            } else {
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-            }
-        })
-    }, false);
-
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
-
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
-        }
-    }
-
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;
-    }
-</script>
-        <div class="post-content"><blockquote>
-<p>DOI: <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.2301" target="_blank" rel="noopener nofollow noreferrer" >https://doi.org/10.1103/PhysRevLett.68.2301</a></p>
-</blockquote>
-<h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
-<blockquote>
-<p>We have studied the vibrations in a granular material and have found that they are qualitatively different from those found in solids or liquids. In response to an external oscillation, the vibrations experienced by a single particle in the material are exceedingly noisy with a power spectrum $S(f)\propto f^{2.2}$ over more than 5 decades in frequency. The frequency response depends on the detailed packing of the beads, reminiscent of conductance Auctuations in mesoscopic metals.</p>
-</blockquote>
-<p>我们研究了颗粒材料中的振动，发现它们与固体或液体中的振动有着本质的区别。在响应外部振荡时，材料中的单个颗粒所经历的振动噪声非常大，其功率谱 $S(f)\propto f^{2.2}$ 的频率超过 5 个数量级。频率响应取决于微珠的详细堆积，这让人想起介观金属中的电导波动。</p>
-<blockquote>
-<p>The fundamental properties of a system are often governed by its elementary excitations. For a dry, non-cohesive, granular material like sand, the excitations of primary interest are the vibrations. As a result of the nature of the contacts between individual grains in such a material, one can expect its vibrational excitations to be quite different from those associated with normal solids or liquids. The contact between two spherical grains, known as a Hertzian contact, has a nonlinear stress-strain relation $\Delta\propto P^{2/3}$, where $\Delta$ is the deformation of a grain under a pressure $P$.</p>
-</blockquote>
-<p>一个系统的基本特性通常受其基本激励的支配。对于像沙子这样干燥、无粘性的颗粒材料来说，主要的激励是振动。由于这种材料中各个颗粒之间接触的性质，我们可以预期其振动激振与普通固体或液体的振动激振大不相同。两个球形晶粒之间的接触称为 Hertz 接触，具有非线性的应力-应变关系 $\Delta\propto P^{2/3}$，其中 $\Delta$ 是颗粒在压力 $P$ 下的变形。</p>
-<blockquote>
-<p>By modeling sand as a homogeneous medium one derives that the sound speed $c$ varies as $c\propto P^{1/6}$. Since the pressure at a point far away from the container walls is proportional to the depth $h$, this implies that $c\propto h^{1/6}$ . Because sound travels faster at the bottom, acoustic waves launched horizontally in- side the sand will bend upward in a &quot;mirage&quot; effect and eventually escape from the top surface. Thus no conventional horizontal sound is allowed. Furthermore, the top surface is singular in the sense that $c=0$ and $\mathrm{d}c/\mathrm{d}h$ diverges at that point.</p>
-</blockquote>
-<p>通过将沙子模拟成均质介质，可以得出声速 $c$ 的变化为 $c\propto P^{1/6}$。由于远离容器壁点的压力与深度 $h$ 成正比，这意味着 $c\propto h^{1/6}$ 。由于声音在底部传播得更快，因此在沙子一侧水平发射的声波会因 &quot;海市蜃楼&quot; 效应中向上弯曲，最终从顶面逃逸。因此，不允许发出传统的水平声波。此外，顶面是奇异的，即 $c=0$ 和 $\mathrm{d}c/\mathrm{d}h$ 在该点发散。</p>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2025/12/30/ILm1klWQucC39hR.png" alt="">
+    
+</figure>
+        <div class="post-content"><p>数据流解析.</p>
+<ol>
+<li>预处理后数据 <code>dataset</code> 的结构为 <code>self.dataset = [trial_0, trial_1, ...]</code>, 每个元素形式是</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>trial <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#39;trial_id&#39;</span>: trial_id,    <span style="color:#75715e"># 单次实验的编号</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#39;spikes&#39;</span>: active_spike,  <span style="color:#75715e"># 动作电位数据</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#39;vel&#39;</span>: vel               <span style="color:#75715e"># 速度</span>
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><ul>
+<li>
+<p><code>active_spike = List[bin]</code>, <code>bin = List[(channel_id, offset),...]</code> 或者 <code>0</code>.</p>
+</li>
+<li>
+<p><code>vel = List[vel_bin]</code>, <code>vel_bin = List[(v_x, v_y)...]</code>.</p>
+</li>
+</ul>
 <hr>
+<ol start="2">
+<li>通过 <code>Dataloader.py</code> 将 <code>dataset</code> 转化为 tensor. <code>pad_collate_fn</code> 输出了 <code>padded_bin, bin_mask, spike_mask, vel</code>.</li>
+</ol>
+<ul>
+<li><code>padded_bin</code>: (<code>batch</code>, <code>max_bin</code>, <code>max_token</code>, <code>2</code>) 的张量, <code>2</code> 来自于 token <code>(channel_id, offset)</code>.</li>
+</ul>
 <blockquote>
-<p>Such an analysis may, however, be too simple since real sand is not homogeneous but granular. In sand, each particle has several physical contacts with its neighbors leading to the formation of a three-dimensional force- chain network. Because of this distinctive arching behavior of granular material, the spatial fluctuations of the network can extend to length scales much larger than the size of a single grain. Small amplitude vibrations, which are very sensitive to the degree of contact between particles, travel predominantly along this quasistatic network so that it may not be valid to treat them in the same manner as in a homogeneous system.</p>
+<p><code>batch</code>: 每次训练的批量大小; <code>max_bin</code> : 一个 batch 中最长的 bin 的长度; <code>max_token</code> : 一个 bin 中最多的 token 的数量.</p>
 </blockquote>
-<p>然而，这种分析可能过于简单，因为真实的沙子并不是均质的，而是颗粒状的。在沙子中，每个颗粒都与其相邻颗粒有多个物理接触点，从而形成一个三维力链网络。由于颗粒材料的这种独特的拱形行为，网络的空间波动可以延伸到比单个颗粒大得多的长度尺度。小振幅振动对颗粒之间的接触程度非常敏感，主要沿着这种准静态网络传播，因此用均质系统中的相同方式来处理它们可能是无效的。</p>
+<ul>
+<li>
+<p><code>bin_mask</code>: (<code>batch</code>, <code>max_bin</code>) 的 bool 张量, 标记哪些 bin 是真实有效而非填充为 <code>0</code> 的.</p>
+</li>
+<li>
+<p><code>spike_mask</code>: (<code>batch</code>, <code>max_bin</code>, <code>max_token</code>) 的 bool 张量, 标记哪些 token 是真实有效的而非填充为 <code>0</code> 的.</p>
+</li>
+</ul>
 <hr>
+<ol start="3">
+<li><code>possm_model.py</code> 进行 Embedding 语义升维.</li>
+</ol>
+<p><code>Dataloader.py</code> 输出的 <code>spike</code> (即 <code>padded_bin</code>) 为 (<code>batch</code>, <code>max_bin</code>, <code>max_token</code>, <code>2</code>), 经过</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>channels, offsets <span style="color:#f92672">=</span> spike[<span style="color:#f92672">...</span>, <span style="color:#ae81ff">0</span>], spike[<span style="color:#f92672">...</span>, <span style="color:#ae81ff">1</span>]
+</span></span></code></pre></div><p>拆分为 (<code>batch</code>, <code>max_bin</code>, <code>max_token</code>) 的 <code>channels</code> 和 <code>offsets</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>self<span style="color:#f92672">.</span>emb <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Embedding(
+</span></span><span style="display:flex;"><span>    num_embeddings <span style="color:#f92672">=</span> config<span style="color:#f92672">.</span>num_channel, 
+</span></span><span style="display:flex;"><span>    embedding_dim <span style="color:#f92672">=</span> config<span style="color:#f92672">.</span>embed_dim
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><p>通过 <code>emb = self.emb(channels)</code> 将 (<code>batch</code>, <code>max_bin</code>, <code>max_token</code>) 的 <code>channels</code> 转化为 (<code>batch</code>, <code>max_bin</code>, <code>max_token</code>, <code>embed_dim</code>) 的 <code>emb</code>.</p>
 <blockquote>
-<p>Several studies have been made of what happens to a sandpile when it is subjected to large vibrations. Convection due to vibration within a sandpile has been known since Faraday; Evesque and Rajchenbach and Laroche, Duady, and Fauve have recently studied the role of this convection in the instability of a flat free surface of a sandpile. Other studies have shown that vibrations can cause the slope of the free surface of a sand- pile to relax logarithmically.</p>
+<p><code>embed_dim</code>: 用于将 1 个 <code>channel_id</code> 升维为 <code>embed_dim</code> 维的矢量.</p>
 </blockquote>
-<p>关于砂堆在受到巨大振动时会发生什么情况，已经进行了多项研究。自法拉第以来，人们就知道砂堆内部振动引起的对流；Evesque 和 Rajchenbach 以及 Laroche、Duady 和 Fauve 最近研究了这种对流在砂堆平坦自由表面不稳定性中的作用。其他研究表明，振动可导致砂堆自由表面的斜度发生对数松弛。</p>
-<blockquote>
-<p>Mehta and Barker have also argued that, depending on the vibration intensity, sand can also become more compact as well as more fluid. We report here the nature of the low amplitude vibration of individual particles within a granular medium and show some of the surprising ways that sound propagation in this medium differs from that found in homogeneous consolidated materials.</p>
-</blockquote>
-<p>Mehta 和 Barker 还认为，根据振动强度的不同，沙子也会变得更加密实或流动。我们在此报告了颗粒介质中单个颗粒低振幅振动的性质，并展示了声音在这种介质中传播与在均质固结材料中传播的一些令人惊讶的不同之处。</p>
 <hr>
-<blockquote>
-<p>In our experiments, the granular material, which consisted of spherical glass beads of diameter $d=0.5\text{ cm}$, was contained in a rigid box of lateral dimensions $28\text{ cm}\times 28\text{ cm}$ as shown in the inset of Fig. l (a). The depth of material ranged from 8 to 15 cm. In order to reduce the reflection of the sound waves from the walls, the con- tainer was lined with 3-cm-thick Styrofoam sheets. The results we report here are insensitive to the boundary con- ditions. This was tested by replacing the Styrofoam with other materials. In addition, the apparatus was carefully isolated from external vibrations and temperature fluctuations. In order to have a source with a well-defined amplitude and direction of motion, the vibration was transmitted to the grains by a 7-cm-diam aluminum disk buried in the material which was connected to an external speaker by a horizontal rigid rod, as shown in the illustration. We monitored the acceleration of the disk with an accelerometer attached to its back and controlled its am- plitude through an electronic feedback loop. We embed- ded small detection accelerometers in the same at dis- tances from 2 to 10 cm away from the center of the source. The size of the accelerometers, diameter 0.7 cm and length 1.2 cm, were chosen to be comparable to that of a single bead, in order to measure the motion equivalent to that of a single grain. Since accelerometers are quite massive, they respond only to vibrations transmitted through their contacts with the solid sur- roundings instead of to the sound pressure in air. They detect the acceleration along their axes, which we aligned to be along the direction of motion of the disk.</p>
-</blockquote>
+<ol start="4">
+<li><code>cross_attention.py</code> 将 <code>emb</code> 转换为 <code>num_latents</code> 个 latent 向量.</li>
+</ol>
+<ul>
+<li><code>emb</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>, <code>embed_dim</code>)</li>
+<li><code>offsets</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>) 的张量, 包含每个 token 的 bin 内相对时间.</li>
+<li><code>spike_mask</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>) 的 bool 张量, 标记哪些 token 是非填充的</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>z <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>cross_attention(emb, offsets, spike_mask, self<span style="color:#f92672">.</span>freqs_cos, self<span style="color:#f92672">.</span>freqs_sin)
+</span></span></code></pre></div><ul>
+<li><code>z</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>num_latents</code>, <code>embed_dim</code>) 的张量</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>latents <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>latent_query
+</span></span><span style="display:flex;"><span>xq <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>q_proj(latents)<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>expand(batch_size, max_bin, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><ul>
+<li><code>latents</code>: 随机初始化的 (<code>num_latents</code>, <code>embed_dim</code>) 张量</li>
+<li><code>xq</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>num_latents</code>, <code>num_attention_heads</code> * <code>head_dim</code>)</li>
+</ul>
+<p><code>self.q_proj(latents)</code> 通过 linear layer 将 <code>latents</code> 升维为 Query 向量 (<code>num_latents</code>, <code>num_attention_heads</code> * <code>head_dim</code>),</p>
+<p>再通过 <code>.unsqueeze(0).unsqueeze(0).expand(batch_size, max_bin, -1, -1)</code> 扩展为 <code>xq</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>xk <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>k_proj(spike)
+</span></span><span style="display:flex;"><span>xv <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>v_proj(spike)
+</span></span></code></pre></div><ul>
+<li><code>xk</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>, <code>num_key_value_heads</code> * <code>head_dim</code>) spike 通过 linear layer 升维为 Key 向量</li>
+<li><code>xv</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>, <code>num_key_value_heads</code> * <code>head_dim</code>) spike 通过 linear layer 升维为 Value 向量</li>
+</ul>
+<p>因此这里实际上是 self attention.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>xq <span style="color:#f92672">=</span> xq<span style="color:#f92672">.</span>view(batch_size, max_bin, self<span style="color:#f92672">.</span>num_latents, self<span style="color:#f92672">.</span>n_local_heads, self<span style="color:#f92672">.</span>head_dim)
+</span></span><span style="display:flex;"><span>xk <span style="color:#f92672">=</span> xk<span style="color:#f92672">.</span>view(batch_size, max_bin, max_token, self<span style="color:#f92672">.</span>n_local_kv_heads, self<span style="color:#f92672">.</span>head_dim)
+</span></span><span style="display:flex;"><span>xv <span style="color:#f92672">=</span> xv<span style="color:#f92672">.</span>view(batch_size, max_bin, max_token, self<span style="color:#f92672">.</span>n_local_kv_heads, self<span style="color:#f92672">.</span>head_dim)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># self.n_local_heads = num_attention_heads</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># self.n_local_kv_heads = num_key_value_heads</span>
+</span></span></code></pre></div><p>对 <code>xq</code>, <code>xk</code>, <code>xv</code> 进行 reshape. 其中</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>xk <span style="color:#f92672">=</span> RotaryEmbedding<span style="color:#f92672">.</span>apply_rotary_pos_emb(xq, xk, cos, sin, offsets, is_decoder<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span></code></pre></div><p>对 <code>xk</code> 应用 Rotary Positional Embedding, <code>offsets</code> 是每个 token 在 bin 内的相对时间.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 4. Transpose for Attention</span>
+</span></span><span style="display:flex;"><span>xq <span style="color:#f92672">=</span> xq<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>) <span style="color:#75715e"># 调换第 3 和 第 4 维</span>
+</span></span><span style="display:flex;"><span>xk <span style="color:#f92672">=</span> repeat_kv(xk, self<span style="color:#f92672">.</span>n_rep)<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>) 
+</span></span><span style="display:flex;"><span>xv <span style="color:#f92672">=</span> repeat_kv(xv, self<span style="color:#f92672">.</span>n_rep)<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><p>为注意力计算做准备.</p>
+<ul>
+<li><code>xq</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>num_latents</code>, <code>num_attention_heads</code>, <code>head_dim</code>) -&gt; (<code>batch_size</code>, <code>max_bin</code>, <code>num_attention_heads</code>, <code>num_latents</code>, <code>head_dim</code>)</li>
+</ul>
+<p>通过 <code>repeat_kv()</code> 将 <code>xk</code> 和 <code>xv</code> 的 <code>num_key_value_heads</code> 维度扩展为 <code>num_attention_heads</code> 维: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>, <code>num_attention_heads</code>, <code>head_dim</code>),</p>
+<p>再通过 <code>.transpose(2, 3)</code>:  (<code>batch_size</code>, <code>max_bin</code>, <code>num_attention_heads</code>, <code>max_token</code>, <code>head_dim</code>)</p>
+<p>注意力机制公式 $\text{Attention}(Q,K,V) = \text{softmax}(\frac{QK^{\dagger}}{\sqrt{d_{k}}})V$</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 5. Calculate Attention</span>
+</span></span><span style="display:flex;"><span>scores <span style="color:#f92672">=</span> (xq <span style="color:#f92672">@</span> xk<span style="color:#f92672">.</span>transpose(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)) <span style="color:#f92672">/</span> math<span style="color:#f92672">.</span>sqrt(self<span style="color:#f92672">.</span>head_dim) 
+</span></span></code></pre></div><p><code>xq @ xk.transpose(-2, -1)</code>: 对最后两个维度进行矩阵乘法, 即</p>
+<p><code>scores</code>: (..., <code>num_latents</code>, <code>head_dim</code>) @ (..., <code>head_dim</code>, <code>max_token</code>) -&gt; (<code>batch_size</code>, <code>max_bin</code>, <code>num_attention_heads</code>, <code>num_latents</code>, <code>max_token</code>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Apply mask if provided</span>
+</span></span><span style="display:flex;"><span>mask <span style="color:#f92672">=</span> mask_spike<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>scores <span style="color:#f92672">=</span> scores<span style="color:#f92672">.</span>masked_fill(mask <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span>, float(<span style="color:#e6db74">&#39;-inf&#39;</span>))
+</span></span></code></pre></div><p><code>mask</code>: <code>mask_spike</code> (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>) 通过 <code>.unsqueeze(2).unsqueeze(2)</code> 展开为 (<code>batch_size</code>, <code>max_bin</code>, <code>1</code>, <code>1</code>, <code>max_token</code>)</p>
+<p><code>scores</code> 中的填充 <code>0</code> 位使用 <code>float('-inf')</code>, 以确保 softmax 后这些位置的权重为 <code>0</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>scores <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>softmax(scores<span style="color:#f92672">.</span>float(), dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>type_as(xq)
+</span></span></code></pre></div><p><code>scores</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>num_attention_heads</code>, <code>num_latents</code>, <code>max_token</code>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>output <span style="color:#f92672">=</span> scores <span style="color:#f92672">@</span> xv
+</span></span></code></pre></div><p><code>output</code>: (..., <code>num_latents</code>, <code>max_token</code>) @ (..., <code>max_token</code>, <code>head_dim</code>) -&gt; (<code>batch_size</code>, <code>max_bin</code>, <code>num_attention_heads</code>, <code>num_latents</code>, <code>head_dim</code>), 这样就消除了因数据而异的 <code>max_token</code> 而得到定长.</p>
+<hr>
+<ol start="5">
+<li></li>
+</ol>
 
 
         </div>
@@ -581,15 +637,15 @@ document.addEventListener("DOMContentLoaded", function () {
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://Muatyz.github.io/posts/read/stack/granular/sonic/dgm/probing-the-effect-of-particle-shape/">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/">
     <span class="title">« 上一页</span>
     <br>
-    <span>Probing the effect of particle shape on the rigidity of jammed granular solids with sound speed measurements</span>
+    <span>Renormalization group for neurons</span>
   </a>
-  <a class="next" href="https://Muatyz.github.io/posts/phy/scmp/effective-medium-theory/">
+  <a class="next" href="https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/">
     <span class="title">下一页 »</span>
     <br>
-    <span>等效介质理论(EMT)</span>
+    <span>Maintaining and updating accurate internal representations of continuous variables with a handful of neurons</span>
   </a>
 </nav>
 
