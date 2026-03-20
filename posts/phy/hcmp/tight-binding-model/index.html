@@ -60,8 +60,7 @@
 <script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
 
 
-
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
 
 
 
@@ -78,38 +77,27 @@ src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js">
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  renderMathInElement(document.body, {
-    delimiters: [
-      {left: "$$", right: "$$", display: true},
-      {left: "$", right: "$", display: false}
-    ],
-    preProcess: function (math, displayMode) {
-      if (!displayMode && !math.includes("\\begin")) {
-        return "\\begin{aligned}" + math + "\\end{aligned}";
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
       }
-      return math;
-    }
-  });
+    });
+  }
 });
-
-
 </script>
 
 
 <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-
-<script>
-(function() {
-  var s = document.createElement("script");
-  s.src = "https://umami-muatyzs-projects.vercel.app/script.js";
-  s.async = true;
-  s.defer = true;
-  s.setAttribute("data-website-id","725be122-c28c-49af-911c-31a0fbabaa25");
-  document.head.appendChild(s);
-})();
-</script>
 
 <script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
 
@@ -131,6 +119,15 @@ document.addEventListener("DOMContentLoaded", function () {
     margin-right: 0.2em;
 }
 </style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
       <script>
         var doNotTrack = false;
@@ -1478,7 +1475,7 @@ $$</p>
         
             
         
-        · 已经水了 146 篇 995518 字, 再接再厉!
+        · 已经水了 146 篇 995685 字, 再接再厉!
     </div>
 
     
@@ -1549,7 +1546,55 @@ $$</p>
    
     }
    
-   </script>   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
 
 <script>
     let menu = document.getElementById('menu')

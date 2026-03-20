@@ -17,7 +17,7 @@
 &lt;ol&gt;
 &lt;li&gt;预处理后数据 &lt;code&gt;dataset&lt;/code&gt; 的结构为 &lt;code&gt;self.dataset = [trial_0, trial_1, ...]&lt;/code&gt;, 每个元素形式是&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;trial &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;trial &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;trial_id&amp;#39;&lt;/span&gt;: trial_id,    &lt;span style=&#34;color:#75715e&#34;&gt;# 单次实验的编号&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;spikes&amp;#39;&lt;/span&gt;: active_spike,  &lt;span style=&#34;color:#75715e&#34;&gt;# 动作电位数据&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;vel&amp;#39;&lt;/span&gt;: vel               &lt;span style=&#34;color:#75715e&#34;&gt;# 速度&lt;/span&gt;

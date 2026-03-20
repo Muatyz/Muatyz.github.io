@@ -85,8 +85,7 @@ batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的�
 <script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
 
 
-
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
 
 
 
@@ -103,38 +102,27 @@ src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js">
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  renderMathInElement(document.body, {
-    delimiters: [
-      {left: "$$", right: "$$", display: true},
-      {left: "$", right: "$", display: false}
-    ],
-    preProcess: function (math, displayMode) {
-      if (!displayMode && !math.includes("\\begin")) {
-        return "\\begin{aligned}" + math + "\\end{aligned}";
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
       }
-      return math;
-    }
-  });
+    });
+  }
 });
-
-
 </script>
 
 
 <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-
-<script>
-(function() {
-  var s = document.createElement("script");
-  s.src = "https://umami-muatyzs-projects.vercel.app/script.js";
-  s.async = true;
-  s.defer = true;
-  s.setAttribute("data-website-id","725be122-c28c-49af-911c-31a0fbabaa25");
-  document.head.appendChild(s);
-})();
-</script>
 
 <script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
 
@@ -156,6 +144,15 @@ document.addEventListener("DOMContentLoaded", function () {
     margin-right: 0.2em;
 }
 </style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
       <script>
         var doNotTrack = false;
@@ -493,7 +490,7 @@ batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的�
 <ol>
 <li>预处理后数据 <code>dataset</code> 的结构为 <code>self.dataset = [trial_0, trial_1, ...]</code>, 每个元素形式是</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>trial <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>trial <span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#39;trial_id&#39;</span>: trial_id,    <span style="color:#75715e"># 单次实验的编号</span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#39;spikes&#39;</span>: active_spike,  <span style="color:#75715e"># 动作电位数据</span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#39;vel&#39;</span>: vel               <span style="color:#75715e"># 速度</span>
@@ -529,9 +526,9 @@ batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的�
 <li><code>possm_model.py</code> 进行 Embedding 语义升维.</li>
 </ol>
 <p><code>Dataloader.py</code> 输出的 <code>spike</code> (即 <code>padded_bin</code>) 为 (<code>batch</code>, <code>max_bin</code>, <code>max_token</code>, <code>2</code>), 经过</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>channels, offsets <span style="color:#f92672">=</span> spike[<span style="color:#f92672">...</span>, <span style="color:#ae81ff">0</span>], spike[<span style="color:#f92672">...</span>, <span style="color:#ae81ff">1</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>channels, offsets <span style="color:#f92672">=</span> spike[<span style="color:#f92672">...</span>, <span style="color:#ae81ff">0</span>], spike[<span style="color:#f92672">...</span>, <span style="color:#ae81ff">1</span>]
 </span></span></code></pre></div><p>拆分为 (<code>batch</code>, <code>max_bin</code>, <code>max_token</code>) 的 <code>channels</code> 和 <code>offsets</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>self<span style="color:#f92672">.</span>emb <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Embedding(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>self<span style="color:#f92672">.</span>emb <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Embedding(
 </span></span><span style="display:flex;"><span>    num_embeddings <span style="color:#f92672">=</span> config<span style="color:#f92672">.</span>num_channel, 
 </span></span><span style="display:flex;"><span>    embedding_dim <span style="color:#f92672">=</span> config<span style="color:#f92672">.</span>embed_dim
 </span></span><span style="display:flex;"><span>    )
@@ -548,11 +545,11 @@ batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的�
 <li><code>offsets</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>) 的张量, 包含每个 token 的 bin 内相对时间.</li>
 <li><code>spike_mask</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>) 的 bool 张量, 标记哪些 token 是非填充的</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>z <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>cross_attention(emb, offsets, spike_mask, self<span style="color:#f92672">.</span>freqs_cos, self<span style="color:#f92672">.</span>freqs_sin)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>z <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>cross_attention(emb, offsets, spike_mask, self<span style="color:#f92672">.</span>freqs_cos, self<span style="color:#f92672">.</span>freqs_sin)
 </span></span></code></pre></div><ul>
 <li><code>z</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>num_latents</code>, <code>embed_dim</code>) 的张量</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>latents <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>latent_query
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>latents <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>latent_query
 </span></span><span style="display:flex;"><span>xq <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>q_proj(latents)<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>expand(batch_size, max_bin, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
 </span></span></code></pre></div><ul>
 <li><code>latents</code>: 随机初始化的 (<code>num_latents</code>, <code>embed_dim</code>) 张量</li>
@@ -560,22 +557,22 @@ batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的�
 </ul>
 <p><code>self.q_proj(latents)</code> 通过 linear layer 将 <code>latents</code> 升维为 Query 向量 (<code>num_latents</code>, <code>num_attention_heads</code> * <code>head_dim</code>),</p>
 <p>再通过 <code>.unsqueeze(0).unsqueeze(0).expand(batch_size, max_bin, -1, -1)</code> 扩展为 <code>xq</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>xk <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>k_proj(spike)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>xk <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>k_proj(spike)
 </span></span><span style="display:flex;"><span>xv <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>v_proj(spike)
 </span></span></code></pre></div><ul>
 <li><code>xk</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>, <code>num_key_value_heads</code> * <code>head_dim</code>) spike 通过 linear layer 升维为 Key 向量</li>
 <li><code>xv</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>, <code>num_key_value_heads</code> * <code>head_dim</code>) spike 通过 linear layer 升维为 Value 向量</li>
 </ul>
 <p>因此这里实际上是 self attention.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>xq <span style="color:#f92672">=</span> xq<span style="color:#f92672">.</span>view(batch_size, max_bin, self<span style="color:#f92672">.</span>num_latents, self<span style="color:#f92672">.</span>n_local_heads, self<span style="color:#f92672">.</span>head_dim)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>xq <span style="color:#f92672">=</span> xq<span style="color:#f92672">.</span>view(batch_size, max_bin, self<span style="color:#f92672">.</span>num_latents, self<span style="color:#f92672">.</span>n_local_heads, self<span style="color:#f92672">.</span>head_dim)
 </span></span><span style="display:flex;"><span>xk <span style="color:#f92672">=</span> xk<span style="color:#f92672">.</span>view(batch_size, max_bin, max_token, self<span style="color:#f92672">.</span>n_local_kv_heads, self<span style="color:#f92672">.</span>head_dim)
 </span></span><span style="display:flex;"><span>xv <span style="color:#f92672">=</span> xv<span style="color:#f92672">.</span>view(batch_size, max_bin, max_token, self<span style="color:#f92672">.</span>n_local_kv_heads, self<span style="color:#f92672">.</span>head_dim)
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># self.n_local_heads = num_attention_heads</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># self.n_local_kv_heads = num_key_value_heads</span>
 </span></span></code></pre></div><p>对 <code>xq</code>, <code>xk</code>, <code>xv</code> 进行 reshape. 其中</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>xk <span style="color:#f92672">=</span> RotaryEmbedding<span style="color:#f92672">.</span>apply_rotary_pos_emb(xq, xk, cos, sin, offsets, is_decoder<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>xk <span style="color:#f92672">=</span> RotaryEmbedding<span style="color:#f92672">.</span>apply_rotary_pos_emb(xq, xk, cos, sin, offsets, is_decoder<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
 </span></span></code></pre></div><p>对 <code>xk</code> 应用 Rotary Positional Embedding, <code>offsets</code> 是每个 token 在 bin 内的相对时间.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 4. Transpose for Attention</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># 4. Transpose for Attention</span>
 </span></span><span style="display:flex;"><span>xq <span style="color:#f92672">=</span> xq<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>) <span style="color:#75715e"># 调换第 3 和 第 4 维</span>
 </span></span><span style="display:flex;"><span>xk <span style="color:#f92672">=</span> repeat_kv(xk, self<span style="color:#f92672">.</span>n_rep)<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>) 
 </span></span><span style="display:flex;"><span>xv <span style="color:#f92672">=</span> repeat_kv(xv, self<span style="color:#f92672">.</span>n_rep)<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
@@ -586,18 +583,18 @@ batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的�
 <p>通过 <code>repeat_kv()</code> 将 <code>xk</code> 和 <code>xv</code> 的 <code>num_key_value_heads</code> 维度扩展为 <code>num_attention_heads</code> 维: (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>, <code>num_attention_heads</code>, <code>head_dim</code>),</p>
 <p>再通过 <code>.transpose(2, 3)</code>:  (<code>batch_size</code>, <code>max_bin</code>, <code>num_attention_heads</code>, <code>max_token</code>, <code>head_dim</code>)</p>
 <p>注意力机制公式 $\text{Attention}(Q,K,V) = \text{softmax}(\frac{QK^{\dagger}}{\sqrt{d_{k}}})V$</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 5. Calculate Attention</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># 5. Calculate Attention</span>
 </span></span><span style="display:flex;"><span>scores <span style="color:#f92672">=</span> (xq <span style="color:#f92672">@</span> xk<span style="color:#f92672">.</span>transpose(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)) <span style="color:#f92672">/</span> math<span style="color:#f92672">.</span>sqrt(self<span style="color:#f92672">.</span>head_dim) 
 </span></span></code></pre></div><p><code>xq @ xk.transpose(-2, -1)</code>: 对最后两个维度进行矩阵乘法, 即</p>
 <p><code>scores</code>: (..., <code>num_latents</code>, <code>head_dim</code>) @ (..., <code>head_dim</code>, <code>max_token</code>) -&gt; (<code>batch_size</code>, <code>max_bin</code>, <code>num_attention_heads</code>, <code>num_latents</code>, <code>max_token</code>)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Apply mask if provided</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Apply mask if provided</span>
 </span></span><span style="display:flex;"><span>mask <span style="color:#f92672">=</span> mask_spike<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">2</span>) 
 </span></span><span style="display:flex;"><span>scores <span style="color:#f92672">=</span> scores<span style="color:#f92672">.</span>masked_fill(mask <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span>, float(<span style="color:#e6db74">&#39;-inf&#39;</span>))
 </span></span></code></pre></div><p><code>mask</code>: <code>mask_spike</code> (<code>batch_size</code>, <code>max_bin</code>, <code>max_token</code>) 通过 <code>.unsqueeze(2).unsqueeze(2)</code> 展开为 (<code>batch_size</code>, <code>max_bin</code>, <code>1</code>, <code>1</code>, <code>max_token</code>)</p>
 <p><code>scores</code> 中的填充 <code>0</code> 位使用 <code>float('-inf')</code>, 以确保 softmax 后这些位置的权重为 <code>0</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>scores <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>softmax(scores<span style="color:#f92672">.</span>float(), dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>type_as(xq)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>scores <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>softmax(scores<span style="color:#f92672">.</span>float(), dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>type_as(xq)
 </span></span></code></pre></div><p><code>scores</code>: (<code>batch_size</code>, <code>max_bin</code>, <code>num_attention_heads</code>, <code>num_latents</code>, <code>max_token</code>)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>output <span style="color:#f92672">=</span> scores <span style="color:#f92672">@</span> xv
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>output <span style="color:#f92672">=</span> scores <span style="color:#f92672">@</span> xv
 </span></span></code></pre></div><p><code>output</code>: (..., <code>num_latents</code>, <code>max_token</code>) @ (..., <code>max_token</code>, <code>head_dim</code>) -&gt; (<code>batch_size</code>, <code>max_bin</code>, <code>num_attention_heads</code>, <code>num_latents</code>, <code>head_dim</code>), 这样就消除了因数据而异的 <code>max_token</code> 而得到定长.</p>
 <hr>
 <ol start="5">
@@ -1064,7 +1061,7 @@ batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的�
         
             
         
-        · 已经水了 146 篇 995518 字, 再接再厉!
+        · 已经水了 146 篇 995685 字, 再接再厉!
     </div>
 
     
@@ -1135,7 +1132,55 @@ batch: 每次训练的批量大小; max_bin : 一个 batch 中最长的 bin 的�
    
     }
    
-   </script>   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
 
 <script>
     let menu = document.getElementById('menu')

@@ -60,8 +60,7 @@
 <script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
 
 
-
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
 
 
 
@@ -78,38 +77,27 @@ src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js">
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  renderMathInElement(document.body, {
-    delimiters: [
-      {left: "$$", right: "$$", display: true},
-      {left: "$", right: "$", display: false}
-    ],
-    preProcess: function (math, displayMode) {
-      if (!displayMode && !math.includes("\\begin")) {
-        return "\\begin{aligned}" + math + "\\end{aligned}";
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
       }
-      return math;
-    }
-  });
+    });
+  }
 });
-
-
 </script>
 
 
 <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-
-<script>
-(function() {
-  var s = document.createElement("script");
-  s.src = "https://umami-muatyzs-projects.vercel.app/script.js";
-  s.async = true;
-  s.defer = true;
-  s.setAttribute("data-website-id","725be122-c28c-49af-911c-31a0fbabaa25");
-  document.head.appendChild(s);
-})();
-</script>
 
 <script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
 
@@ -131,6 +119,15 @@ document.addEventListener("DOMContentLoaded", function () {
     margin-right: 0.2em;
 }
 </style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
       <script>
         var doNotTrack = false;
@@ -1510,7 +1507,7 @@ $$</p>
 <p>至于温度则是相当于在改变排斥体积参数 $v$, 因此可以视为温度在将溶剂在好溶剂在差溶剂之间调节. 体积排斥参数 $v$ 的温度 $T$ 依赖关系为 $\begin{aligned}v\propto 1 - \frac{T_{\theta}}{T}\end{aligned}$, 即低温 ($T &lt; T_{\theta}$) 时体现为差溶剂, $T = T_{\theta}$ 时为 $\theta$ 溶剂, 高温 ($T &gt; T_{\theta}$) 时为好溶剂.</p>
 <h1 id="液晶"><strong>液晶</strong><a hidden class="anchor" aria-hidden="true" href="#液晶">#</a></h1>
 <h2 id="1-解释液晶的三种相-丝状向列相-层状相-螺旋相">1. <strong>解释液晶的三种相: 丝状/向列相, 层状相, 螺旋相</strong><a hidden class="anchor" aria-hidden="true" href="#1-解释液晶的三种相-丝状向列相-层状相-螺旋相">#</a></h2>
-<!-- raw HTML omitted -->
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/04/9Pcw/20260304184705100.png" alt=""  /></p>
 <p>液晶是取向有序, 位置长程无序的物质状态. 有序程度从高到低:</p>
 <ul>
 <li>
@@ -1520,15 +1517,15 @@ $$</p>
 <p><strong>Smectic(层状相)</strong>: 分子长轴取向一致, 相比于 Nematic 具有层状结构, 存在一维位置有序. 层和层之间可以滑动.</p>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/04/g7oC/20260304154620859.png" alt=""  /></p>
 <ul>
 <li><strong>Nematic(向列相)</strong>: 分子长轴取向一致, 无层状结构, 位置(液晶分子中心)长程无序. 被比喻为 &quot;盒子里的牙签&quot;, 总体方向一样但是可以自由向任意位置移动.</li>
 </ul>
-<!-- raw HTML omitted -->
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/01/y1Vq/20260301143611080.png" alt=""  /></p>
 <ul>
 <li><strong>Cholesteric(螺旋相)</strong>: Nematic 的 director $\vec{n}$ 沿着空间中某轴呈现螺旋.</li>
 </ul>
-<!-- raw HTML omitted -->
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/03/04/c5dI/20260304183822862.png" alt=""  /></p>
 <ul>
 <li><strong>Isotropic(各向同性相)</strong>: 分子取向和位置完全无序, 是液晶在高温下表现出的液体性质, 物理性质呈现各向同性. $S = 0$.</li>
 </ul>
@@ -2106,7 +2103,7 @@ $$</p>
         
             
         
-        · 已经水了 146 篇 995518 字, 再接再厉!
+        · 已经水了 146 篇 995685 字, 再接再厉!
     </div>
 
     
@@ -2177,7 +2174,55 @@ $$</p>
    
     }
    
-   </script>   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
 
 <script>
     let menu = document.getElementById('menu')
