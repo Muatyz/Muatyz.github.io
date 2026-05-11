@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>A line attractor encoding a persistent internal state requires neuropeptide signaling | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="编码持久内部状态的线性吸引子需要神经肽信号传导">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/a-line-attractor-encoding-a-persistent-internal-state-requires-neuropeptide-signaling/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/a-line-attractor-encoding-a-persistent-internal-state-requires-neuropeptide-signaling/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="A line attractor encoding a persistent internal state requires neuropeptide signaling" />
+<meta property="og:description" content="编码持久内部状态的线性吸引子需要神经肽信号传导" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/a-line-attractor-encoding-a-persistent-internal-state-requires-neuropeptide-signaling/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/05/10/4Ogu/20260510192843030.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-05-10T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-05-10T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/05/10/4Ogu/20260510192843030.png" />
+<meta name="twitter:title" content="A line attractor encoding a persistent internal state requires neuropeptide signaling"/>
+<meta name="twitter:description" content="编码持久内部状态的线性吸引子需要神经肽信号传导"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "A line attractor encoding a persistent internal state requires neuropeptide signaling",
+      "item": "https://Muatyz.github.io/posts/read/attractors/a-line-attractor-encoding-a-persistent-internal-state-requires-neuropeptide-signaling/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A line attractor encoding a persistent internal state requires neuropeptide signaling",
+  "name": "A line attractor encoding a persistent internal state requires neuropeptide signaling",
+  "description": "编码持久内部状态的线性吸引子需要神经肽信号传导",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Summary Internal states drive survival behaviors, but their neural implementation is poorly understood. Recently, we identified a line attractor in the ventromedial hypothalamus (VMH) that represents a state of aggressiveness. Line attractors can be implemented by recurrent connectivity or neuromodulatory signaling, but evidence for the latter is scant.\n内部状态驱动生存行为，但其神经实现机制尚不明确。最近，我们在 腹内侧下丘脑（VMH）中识别出一个线性吸引子，它代表了一种攻击性状态。线性吸引子可以通过反馈连接或神经调制信号来实现，但后者的证据很少。\nHere, we demonstrate that neuropeptidergic signaling is necessary for line attractor dynamics in this system by using cell-type-specific CRISPR-Cas9-based gene editing combined with singlecell calcium imaging.\n在这里，我们通过使用细胞类型特异性的 CRISPR-Cas9 基因编辑技术结合单细胞钙成像，证明了神经肽信号传导对于该系统中的线性吸引子动力学是必要的。\nCo-disruption of receptors for oxytocin and vasopressin in adult VMH Esr1+ neurons that control aggression diminished attack, reduced persistent neural activity, and eliminated line attractor dynamics while only slightly reducing overall neural activity and sex- or behavior-specific tuning.\n在成年 VMH Esr1+ 神经元中同时破坏催产素和血管加压素受体，这些神经元控制攻击行为，减弱了攻击行为，减少了持续的神经活动，并消除了线性吸引子动力学，而对整体神经活动和性别或行为特异性调制的减少仅轻微。\nThese data identify a requisite role for neuropeptidergic signaling in implementing a behaviorally relevant line attractor in mammals. Our approach should facilitate mechanistic studies in neuroscience that bridge different levels of biological function and abstraction.\n这些数据确定了神经肽信号传导在哺乳动物中实现行为相关线性吸引子中的必要作用。我们的方法应该有助于促进连接不同生物功能和抽象层次的机制研究。\nIntroduction Innate survival behaviors such as aggression, mating, feeding, and defense are driven by internal motivational or affective states, which are experienced in humans as subjective feelings. How and where such internal states are encoded in the brain, and how they are causally related to overt behavior, is emerging as a major topic in circuit and systems neuroscience.\n攻击、交配、进食和防御等天生的生存行为是由内部动机或情感状态驱动的，在人类中被体验为主观感觉。这样的内部状态在大脑中如何以及在哪里编码，以及它们与明显行为的因果关系，正在成为(神经)回路和系统神经科学的一个重要话题。\nThe study of internal states has been pursued via two approaches that have, until recently, remained relatively separate. One, a \"bottom-up\" approach, employs genetically or pharmacologically based manipulations of genes and neural circuits aimed at providing causal explanations for behavioral and psychological internal states.\n通过两种方法来研究内部状态，直到最近，这两种方法一直相对独立。\n一种是“自下而上”的方法，采用基因或药物干预基因和神经回路，旨在为行为和心理内部状态提供因果解释。\nThe other, a \"topdown\" approach, identifies internal states computationally in high-dimensional neural population activity. The latter has revealed attractors as a mechanism for encoding low-dimensional variables underlying cognitive functions. More recently, such models have been applied in behavioral neuroscience as well. To test the causal role of such attractors, it is important to understand their neural implementation at the level of cell types and genes. This in turn requires integration of these two approaches, which has been accomplished in very few systems.\n另一种是“自上而下”的方法，在高维神经群体活动中计算识别内部状态。后者揭示了吸引子作为编码认知功能底层低维变量的一种机制。最近，这些模型也被应用于行为神经科学。为了测试这些吸引子的因果作用，了解它们在细胞类型和基因水平上的神经实现非常重要。这反过来又需要整合这两种方法，而这在很少的系统中得以实现。\nPersistent neural activity (on a timescale of seconds to minutes) is a characteristic feature of neural integrators and attractor dynamics. Two alternative (but not mutually exclusive) implementation mechanisms are typically invoked to explain such persistence: recurrent fast synaptic connectivity or slow neuromodulation.28 While there is evidence of recurrent connectivity underlying a ring attractor that encodes head direction in Drosophila, to our knowledge, there is no evidence of any neuromodulator that controls attractor dynamics in any system.\n持续的神经活动（在几秒到几分钟的时间尺度上）是神经积分器和吸引子动力学的一个特征。通常会调用两种替代（但不互斥）的实现机制来解释这种持久性：快速突触连接的反馈或缓慢的神经调制。虽然有证据表明，在果蝇中编码头部方向的环形吸引子背后存在反馈连接，但据我们所知，没有任何系统中有证据表明任何神经调节剂控制吸引子动力学。\nNeuropeptides comprise a class of evolutionarily conserved neuromodulators that control behavior-specific internal motive states associated with mating aggression, social attachment,37 and other behaviors. Neuropeptides are well known to modulate synaptic strength and neural circuit properties such as patterns of oscillation, but their role in implementing neural integrator and attractor dynamics has not been extensively studied in vertebrates. Experiments in C. elegans have identified neuropeptides that control persistent states of locomotor activity, but whether they influence the dynamical manifolds identified in that system43 is not yet clear.\n神经肽 是一类进化上保守的神经调节剂，控制与交配攻击、社会依恋和其他行为相关的行为特异性内部动机状态。神经肽众所周知可以调节突触强度和神经回路属性，如振荡模式，但它们在实现神经积分器和吸引子动力学方面的作用在脊椎动物中尚未得到广泛研究。在秀丽隐杆线虫中进行的实验已经确定了控制运动活动持续状态的神经肽，但它们是否影响该系统中识别出的动力学流形尚不清楚。\nA powerful approach to this question is to combine cell typespecific genetic perturbations of neuromodulatory signaling with simultaneous large-scale recording of neural activity in the same brain region and genetically defined cell type. While these experimental modalities have been successfully integrated in C. elegans, D. melanogaster and larval zebrafish, they have been difficult to combine in mammalian systems for technical reasons (Figure S1A).\n解决这个问题的一种强有力的方法是将神经调节信号的细胞类型特异性遗传干扰与同一大脑区域和基因定义的细胞类型的神经活动同时大规模记录相结合。虽然这些实验模式已成功地在秀丽隐杆线虫、黑腹果蝇和斑马鱼幼体中整合，但由于技术原因，在哺乳动物系统中很难结合使用（图 S1A）。\nHere we describe a viral-based strategy that integrates celltype-specific, regionally restricted CRISPR-Cas9-based multiplex gene editing with single-unit-resolution calcium imaging of neural dynamics in freely behaving adult animals, which we call \"CRISPRoscopy.\" This method, when combined with dynamical systems modeling, allows investigation of the effects of local inactivation of different neuromodulatory receptors on neural population coding, dynamics, and behavior in the same brain region and cell type during naturalistic behaviors.\n在这里，我们描述了一种基于病毒的策略，将细胞类型特异性、区域限制的 CRISPR-Cas9 基因编辑与自由行为成年动物神经动力学的单位分辨率钙成像相结合，我们称之为 “CRISPRoscopy”。当与动力系统建模相结合时，该方法允许研究在自然行为过程中同一大脑区域和细胞类型中不同神经调节受体局部失活对神经群体编码、动力学和行为的影响。\nAs a proof-of-concept application of this approach, we have examined the role of oxytocin (OXT) and arginine vasopressin (AVP) signaling in a population of neurons in the ventromedial hypothalamus (VMH) that controls aggression. We chose these peptides for several reasons.\n作为这种方法的概念验证应用，我们检查了催产素（OXT）和精氨酸加压素（AVP）信号在控制攻击行为的腹内侧下丘脑（VMH）神经元群中的作用。我们选择这些肽有几个原因。\nFirst, they have been widely implicated in the control of social behaviors (although the role of OXT in aggression has been controversial).\nSecond, VMH neurons are known to express receptors for OXT and AVP, and infusion of the latter into VMH can enhance aggression in hamsters.\nThird, aggression is an instinctive and phylogenetically widespread social behavior that expresses an internal affective state.\nFinally, dynamical systems modeling of population activity from estrogen receptor-1 (Esr1)-expressing neurons in the ventrolateral subdivision of the VMH (VMHvlEsr1)64 has revealed an approximate line attractor (or leaky integrator). This attractor is intrinsic to VMHvl65 and represents a scalable, persistent aggressive internal state.\n首先，它们已被广泛认为与社会行为的控制有关（尽管 OXT 在攻击中的作用一直存在争议）。\n第二，已知 VMH 神经元表达 OXT 和 AVP 的受体，并且将后者注入 VMH 可以增强仓鼠的攻击性。\n第三，攻击是一种本能的、系统发育上广泛存在的社会行为，表达了一种内部情感状态。\n最后，对 VMH 腹外侧亚区（VMHvlEsr1）中雌激素受体-1（Esr1）表达神经元群体活动的动力系统建模已经揭示了一个近似线性吸引子（或泄漏积分器）。这个吸引子是 VMHvl 内在的，并代表一个可伸缩、持久的攻击性内部状态。\nHere, we show that genetic perturbation of OXT and AVP receptors in VMHvlEsr1 neurons disrupts aggressive behavior, persistent activity, and line attractor dynamics while only modestly affecting overall neuronal activity and population coding of behavior or intruder sex.66 These data provide evidence of a requirement for neuropeptides in line attractor dynamics and strengthen the link between such dynamics and an internal affective state.\n在这里，我们展示了在 VMHvlEsr1 神经元中对 OXT 和 AVP 受体的遗传干扰会破坏攻击行为、持续活动和线性吸引子动力学，同时仅适度影响整体神经活动和行为或入侵者性别的人口编码。这些数据提供了神经肽在线性吸引子动力学中的必要性的证据，并加强了这种动力学与内部情感状态之间的联系。\n",
+  "wordCount" : "2542",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/05/10/4Ogu/20260510192843030.png","datePublished": "2026-05-10T00:18:23+08:00",
+  "dateModified": "2026-05-10T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/a-line-attractor-encoding-a-persistent-internal-state-requires-neuropeptide-signaling/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                A line attractor encoding a persistent internal state requires neuropeptide signaling
+            </h1>
+            <div class="post-description">
+                编码持久内部状态的线性吸引子需要神经肽信号传导
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-05-10
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2542字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>6分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/05/10/4Ogu/20260510192843030.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#summary" aria-label="Summary">Summary</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h1>
+<blockquote>
+<p>Internal states drive survival behaviors, but their neural implementation is poorly understood. Recently, we identified a line attractor in the <strong>ventromedial hypothalamus</strong> (VMH) that represents a state of aggressiveness. Line attractors can be implemented by recurrent connectivity or neuromodulatory signaling, but evidence for the latter is scant.</p>
+</blockquote>
+<p>内部状态驱动生存行为，但其神经实现机制尚不明确。最近，我们在 <strong>腹内侧下丘脑</strong>（VMH）中识别出一个线性吸引子，它代表了一种攻击性状态。线性吸引子可以通过反馈连接或神经调制信号来实现，但后者的证据很少。</p>
+<blockquote>
+<p>Here, we demonstrate <em>that neuropeptidergic signaling is necessary for line attractor dynamics</em> in this system by using cell-type-specific CRISPR-Cas9-based gene editing combined with singlecell calcium imaging.</p>
+</blockquote>
+<p>在这里，我们通过使用细胞类型特异性的 CRISPR-Cas9 基因编辑技术结合单细胞钙成像，证明了<em>神经肽信号传导对于该系统中的线性吸引子动力学是必要的</em>。</p>
+<blockquote>
+<p>Co-disruption of receptors for oxytocin and vasopressin in adult VMH Esr1+ neurons that control aggression diminished attack, reduced persistent neural activity, and eliminated line attractor dynamics while only slightly reducing overall neural activity and sex- or behavior-specific tuning.</p>
+</blockquote>
+<p>在成年 VMH Esr1+ 神经元中同时破坏催产素和血管加压素受体，这些神经元控制攻击行为，减弱了攻击行为，减少了持续的神经活动，并消除了线性吸引子动力学，而对整体神经活动和性别或行为特异性调制的减少仅轻微。</p>
+<blockquote>
+<p>These data identify a requisite role for neuropeptidergic signaling in implementing a behaviorally relevant line attractor in mammals. Our approach should facilitate mechanistic studies in neuroscience that bridge different levels of biological function and abstraction.</p>
+</blockquote>
+<p>这些数据确定了神经肽信号传导在哺乳动物中实现行为相关线性吸引子中的必要作用。我们的方法应该有助于促进连接不同生物功能和抽象层次的机制研究。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>Innate survival behaviors such as aggression, mating, feeding, and defense are driven by internal motivational or affective states, which are experienced in humans as subjective feelings. How and where such internal states are encoded in the brain, and how they are causally related to overt behavior, is emerging as a major topic in circuit and systems neuroscience.</p>
+</blockquote>
+<p>攻击、交配、进食和防御等天生的生存行为是由内部动机或情感状态驱动的，在人类中被体验为主观感觉。这样的内部状态在大脑中如何以及在哪里编码，以及它们与明显行为的因果关系，正在成为(神经)回路和系统神经科学的一个重要话题。</p>
+<blockquote>
+<p>The study of internal states has been pursued via two approaches that have, until recently, remained relatively separate. One, a &quot;bottom-up&quot; approach, employs genetically or pharmacologically based manipulations of genes and neural circuits aimed at providing causal explanations for behavioral and psychological internal states.</p>
+</blockquote>
+<p>通过两种方法来研究内部状态，直到最近，这两种方法一直相对独立。</p>
+<p>一种是“自下而上”的方法，采用基因或药物干预基因和神经回路，旨在为行为和心理内部状态提供因果解释。</p>
+<blockquote>
+<p>The other, a &quot;topdown&quot; approach, identifies internal states computationally in high-dimensional neural population activity. The latter has revealed attractors as a mechanism for encoding low-dimensional variables underlying cognitive functions. More recently, such models have been applied in behavioral neuroscience as well. To test the causal role of such attractors, it is important to understand their neural implementation at the level of cell types and genes. This in turn requires integration of these two approaches, which has been accomplished in very few systems.</p>
+</blockquote>
+<p>另一种是“自上而下”的方法，在高维神经群体活动中计算识别内部状态。后者揭示了吸引子作为编码认知功能底层低维变量的一种机制。最近，这些模型也被应用于行为神经科学。为了测试这些吸引子的因果作用，了解它们在细胞类型和基因水平上的神经实现非常重要。这反过来又需要整合这两种方法，而这在很少的系统中得以实现。</p>
+<hr>
+<blockquote>
+<p>Persistent neural activity (on a timescale of seconds to minutes) is a characteristic feature of neural integrators and attractor dynamics. Two alternative (but not mutually exclusive) implementation mechanisms are typically invoked to explain such persistence: recurrent fast synaptic connectivity or slow neuromodulation.28 While there is evidence of recurrent connectivity underlying a ring attractor that encodes head direction in Drosophila, to our knowledge, there is no evidence of any neuromodulator that controls attractor dynamics in any system.</p>
+</blockquote>
+<p>持续的神经活动（在几秒到几分钟的时间尺度上）是神经积分器和吸引子动力学的一个特征。通常会调用两种替代（但不互斥）的实现机制来解释这种持久性：快速突触连接的反馈或缓慢的神经调制。虽然有证据表明，在果蝇中编码头部方向的环形吸引子背后存在反馈连接，但据我们所知，没有任何系统中有证据表明任何神经调节剂控制吸引子动力学。</p>
+<hr>
+<blockquote>
+<p><strong>Neuropeptides</strong> comprise a class of evolutionarily conserved neuromodulators that control behavior-specific internal motive states associated with mating aggression, social attachment,37 and other behaviors. Neuropeptides are well known to modulate synaptic strength and neural circuit properties such as patterns of oscillation, but their role in implementing neural integrator and attractor dynamics has not been extensively studied in vertebrates. Experiments in C. elegans have identified neuropeptides that control persistent states of locomotor activity, but whether they influence the dynamical manifolds identified in that system43 is not yet clear.</p>
+</blockquote>
+<p><strong>神经肽</strong> 是一类进化上保守的神经调节剂，控制与交配攻击、社会依恋和其他行为相关的行为特异性内部动机状态。神经肽众所周知可以调节突触强度和神经回路属性，如振荡模式，但它们在实现神经积分器和吸引子动力学方面的作用在脊椎动物中尚未得到广泛研究。在秀丽隐杆线虫中进行的实验已经确定了控制运动活动持续状态的神经肽，但它们是否影响该系统中识别出的动力学流形尚不清楚。</p>
+<hr>
+<blockquote>
+<p>A powerful approach to this question is to combine cell typespecific genetic perturbations of neuromodulatory signaling with simultaneous large-scale recording of neural activity in the same brain region and genetically defined cell type. While these experimental modalities have been successfully integrated in C. elegans, D. melanogaster and larval zebrafish, they have been difficult to combine in mammalian systems for technical reasons (Figure S1A).</p>
+</blockquote>
+<p>解决这个问题的一种强有力的方法是将神经调节信号的细胞类型特异性遗传干扰与同一大脑区域和基因定义的细胞类型的神经活动同时大规模记录相结合。虽然这些实验模式已成功地在秀丽隐杆线虫、黑腹果蝇和斑马鱼幼体中整合，但由于技术原因，在哺乳动物系统中很难结合使用（图 S1A）。</p>
+<hr>
+<blockquote>
+<p>Here we describe a viral-based strategy that integrates celltype-specific, regionally restricted CRISPR-Cas9-based multiplex gene editing with single-unit-resolution calcium imaging of neural dynamics in freely behaving adult animals, which we call &quot;CRISPRoscopy.&quot; This method, when combined with dynamical systems modeling, allows investigation of the effects of local inactivation of different neuromodulatory receptors on neural population coding, dynamics, and behavior in the same brain region and cell type during naturalistic behaviors.</p>
+</blockquote>
+<p>在这里，我们描述了一种基于病毒的策略，将细胞类型特异性、区域限制的 CRISPR-Cas9 基因编辑与自由行为成年动物神经动力学的单位分辨率钙成像相结合，我们称之为 “CRISPRoscopy”。当与动力系统建模相结合时，该方法允许研究在自然行为过程中同一大脑区域和细胞类型中不同神经调节受体局部失活对神经群体编码、动力学和行为的影响。</p>
+<hr>
+<blockquote>
+<p>As a proof-of-concept application of this approach, we have examined the role of oxytocin (OXT) and arginine vasopressin (AVP) signaling in a population of neurons in the ventromedial hypothalamus (VMH) that controls aggression. We chose these peptides for several reasons.</p>
+</blockquote>
+<p>作为这种方法的概念验证应用，我们检查了催产素（OXT）和精氨酸加压素（AVP）信号在控制攻击行为的腹内侧下丘脑（VMH）神经元群中的作用。我们选择这些肽有几个原因。</p>
+<blockquote>
+<p>First, they have been widely implicated in the control of social behaviors (although the role of OXT in aggression has been controversial).</p>
+<p>Second, VMH neurons are known to express receptors for OXT and AVP, and infusion of the latter into VMH can enhance aggression in hamsters.</p>
+<p>Third, aggression is an instinctive and phylogenetically widespread social behavior that expresses an internal affective state.</p>
+<p>Finally, dynamical systems modeling of population activity from estrogen receptor-1 (Esr1)-expressing neurons in the ventrolateral subdivision of the VMH (VMHvlEsr1)64 has revealed an approximate line attractor (or leaky integrator). This attractor is intrinsic to VMHvl65 and represents a scalable, persistent aggressive internal state.</p>
+</blockquote>
+<p>首先，它们已被广泛认为与社会行为的控制有关（尽管 OXT 在攻击中的作用一直存在争议）。</p>
+<p>第二，已知 VMH 神经元表达 OXT 和 AVP 的受体，并且将后者注入 VMH 可以增强仓鼠的攻击性。</p>
+<p>第三，攻击是一种本能的、系统发育上广泛存在的社会行为，表达了一种内部情感状态。</p>
+<p>最后，对 VMH 腹外侧亚区（VMHvlEsr1）中雌激素受体-1（Esr1）表达神经元群体活动的动力系统建模已经揭示了一个近似线性吸引子（或泄漏积分器）。这个吸引子是 VMHvl 内在的，并代表一个可伸缩、持久的攻击性内部状态。</p>
+<hr>
+<blockquote>
+<p>Here, we show that genetic perturbation of OXT and AVP receptors in VMHvlEsr1 neurons disrupts aggressive behavior, persistent activity, and line attractor dynamics while only modestly affecting overall neuronal activity and population coding of behavior or intruder sex.66 These data provide evidence of a requirement for neuropeptides in line attractor dynamics and strengthen the link between such dynamics and an internal affective state.</p>
+</blockquote>
+<p>在这里，我们展示了在 VMHvlEsr1 神经元中对 OXT 和 AVP 受体的遗传干扰会破坏攻击行为、持续活动和线性吸引子动力学，同时仅适度影响整体神经活动和行为或入侵者性别的人口编码。这些数据提供了神经肽在线性吸引子动力学中的必要性的证据，并加强了这种动力学与内部情感状态之间的联系。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/attractors/causal-evidence-of-a-line-attractor-encoding-an-affective-state/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Causal evidence of a line attractor encoding an affective state</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/a-line-attractor-maintains-aggressiveness-during-feeding-in-hangry-mice/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>A line attractor maintains aggressiveness during feeding in &#39;hangry&#39; mice</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1167 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 152 篇 1019076 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

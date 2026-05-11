@@ -6,7 +6,7 @@
     <description>Recent content in Physics on 无处惹尘埃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 08 Mar 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/categories/physics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 May 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/categories/physics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Formal Statistical Mechanics of Neural Networks</title>
       <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-10/</link>
@@ -125,11 +125,20 @@
     </item>
     
     <item>
+      <title>A line attractor encoding a persistent internal state requires neuropeptide signaling</title>
+      <link>https://Muatyz.github.io/posts/read/attractors/a-line-attractor-encoding-a-persistent-internal-state-requires-neuropeptide-signaling/</link>
+      <pubDate>Sun, 10 May 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/attractors/a-line-attractor-encoding-a-persistent-internal-state-requires-neuropeptide-signaling/</guid>
+      <description>编码持久内部状态的线性吸引子需要神经肽信号传导</description>
+    </item>
+    
+    <item>
       <title>Maintaining and updating accurate internal representations of continuous variables with a handful of neurons</title>
-      <link>https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/</link>
+      <link>https://Muatyz.github.io/posts/read/attractors/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/</link>
       <pubDate>Sun, 08 Mar 2026 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/reference/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/</guid>
+      <guid>https://Muatyz.github.io/posts/read/attractors/maintaining-and-updating-accurate-internal-representations-of-continuous-variables-with-a-handful-of-neurons/</guid>
       <description>仅用少量神经元维持并更新连续变量的精确内部表征</description>
     </item>
     
@@ -207,10 +216,10 @@
     
     <item>
       <title>Integration as a self-organizing process</title>
-      <link>https://Muatyz.github.io/posts/read/reference/integration-as-a-self-organizing-process/</link>
+      <link>https://Muatyz.github.io/posts/read/attractors/integration-as-a-self-organizing-process/</link>
       <pubDate>Mon, 24 Nov 2025 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/reference/integration-as-a-self-organizing-process/</guid>
+      <guid>https://Muatyz.github.io/posts/read/attractors/integration-as-a-self-organizing-process/</guid>
       <description>计算神经科学中的积分概念</description>
     </item>
     
@@ -225,10 +234,10 @@
     
     <item>
       <title>Attractor and integrator networks in the brain</title>
-      <link>https://Muatyz.github.io/posts/read/reference/attractor-and-integrator-networks-in-the-brain/</link>
+      <link>https://Muatyz.github.io/posts/read/attractors/attractor-and-integrator-networks-in-the-brain/</link>
       <pubDate>Sun, 23 Nov 2025 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/reference/attractor-and-integrator-networks-in-the-brain/</guid>
+      <guid>https://Muatyz.github.io/posts/read/attractors/attractor-and-integrator-networks-in-the-brain/</guid>
       <description>大脑中的吸引子与积分网络</description>
     </item>
     
@@ -288,10 +297,10 @@
     
     <item>
       <title>Symmetries and Continuous Attractors in Disordered Neural Circuits</title>
-      <link>https://Muatyz.github.io/posts/read/reference/symmetries-and-continuous-attractors-in-disordered-neural-circuits/</link>
+      <link>https://Muatyz.github.io/posts/read/attractors/symmetries-and-continuous-attractors-in-disordered-neural-circuits/</link>
       <pubDate>Wed, 08 Oct 2025 00:18:23 +0800</pubDate>
       
-      <guid>https://Muatyz.github.io/posts/read/reference/symmetries-and-continuous-attractors-in-disordered-neural-circuits/</guid>
+      <guid>https://Muatyz.github.io/posts/read/attractors/symmetries-and-continuous-attractors-in-disordered-neural-circuits/</guid>
       <description>无序神经回路中的对称性和连续吸引子</description>
     </item>
     

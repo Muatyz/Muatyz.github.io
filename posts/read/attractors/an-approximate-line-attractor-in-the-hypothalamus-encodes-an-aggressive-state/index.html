@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>An approximate line attractor in the hypothalamus encodes an aggressive state | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="下丘脑中的一个近似线性吸引子编码了一种攻击状态">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/an-approximate-line-attractor-in-the-hypothalamus-encodes-an-aggressive-state/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/an-approximate-line-attractor-in-the-hypothalamus-encodes-an-aggressive-state/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="An approximate line attractor in the hypothalamus encodes an aggressive state" />
+<meta property="og:description" content="下丘脑中的一个近似线性吸引子编码了一种攻击状态" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/an-approximate-line-attractor-in-the-hypothalamus-encodes-an-aggressive-state/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/05/10/rtY3/20260510221342769.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-05-11T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-05-11T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/05/10/rtY3/20260510221342769.png" />
+<meta name="twitter:title" content="An approximate line attractor in the hypothalamus encodes an aggressive state"/>
+<meta name="twitter:description" content="下丘脑中的一个近似线性吸引子编码了一种攻击状态"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "An approximate line attractor in the hypothalamus encodes an aggressive state",
+      "item": "https://Muatyz.github.io/posts/read/attractors/an-approximate-line-attractor-in-the-hypothalamus-encodes-an-aggressive-state/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "An approximate line attractor in the hypothalamus encodes an aggressive state",
+  "name": "An approximate line attractor in the hypothalamus encodes an aggressive state",
+  "description": "下丘脑中的一个近似线性吸引子编码了一种攻击状态",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Summary The hypothalamus regulates innate social behaviors, including mating and aggression. These behaviors can be evoked by optogenetic stimulation of specific neuronal subpopulations within MPOA and VMHvl, respectively.\n下丘脑调节着先天的社交行为，包括交配和攻击。这些行为可以通过对 MPOA 和 VMHvl 中特定神经亚群进行光遗传学刺激来引发。\nHere, we perform dynamical systems modeling of population neuronal activity in these nuclei during social behaviors. In VMHvl, unsupervised analysis identified a dominant dimension of neural activity with a large time constant (\u003e50 s), generating an approximate line attractor in neural state space. Progression of the neural trajectory along this attractor was correlated with an escalation of agonistic behavior, suggesting that it may encode a scalable state of aggressiveness.\n在这里，我们对这些核在社交行为期间的神经群体活动进行了动力系统建模。在 VMHvl 中，无监督分析识别出一个具有较大时间常数（\u003e50秒）的神经活动主导维度，在神经状态空间中生成了一个近似线性吸引子。沿着这个吸引子推进的神经轨迹与攻击行为的升级相关，这表明它可能编码了一种可扩展的攻击状态。\nConsistent with this, individual differences in the magnitude of the integration dimension time constant were strongly correlated with differences in aggressiveness. In contrast, approximate line attractors were not observed in MPOA during mating; instead, neurons with fast dynamics were tuned to specific actions. Thus, different hypothalamic nuclei employ distinct neural population codes to represent similar social behaviors.\n与此一致的是，积分维度时间常数大小的个体差异与攻击性的差异强烈相关。相比之下，在 MPOA 中没有观察到近似线性吸引子; 相反，具有快速动态的神经元被调整到特定的动作。因此，不同的下丘脑核采用不同的神经群体代码来表示类似的社交行为。\nIntroduction A fundamental problem in neuroscience is to understand how the brain controls innate behaviors. Many such behaviors are governed by the hypothalamus, a deep subcortical brain region present in all vertebrates. Classical brain stimulation and lesion experiments have implicated different hypothalamic regions (\"nuclei\") in diverse innate behaviors (reviewed in Paredes and Baum, Siegel et al., Canteras, King, Kruk, Swanson, and Simerly). More recently, optogenetic stimulation has identified genetically marked neuronal subpopulations that can evoke such behaviors (reviewed in Yamaguchi, Zha and Xu, Augustine et al., and Sternson). Genetic ablation or reversible silencing has demonstrated that these subpopulations are essential for natural occurrences of these behaviors.\n神经科学的一个基本问题是理解大脑如何控制先天行为。许多这样的行为由下丘脑控制，下丘脑是所有脊椎动物中存在的一个深层皮质下脑区。经典的脑刺激和病变实验已经涉及不同的下丘脑区域（“核”）在多种先天行为中的作用（参见 Paredes 和 Baum， Siegel 等人， Canteras，King，Kruk，Swanson 和 Simerly 的综述）。最近，光遗传学刺激已经确定了可以引发这些行为的遗传标记神经亚群（参见 Yamaguchi， Zha 和 Xu, Augustine 等人， 和 Sternson 的评论）。基因消融或可逆沉默已经证明这些亚群对于这些行为的自然发生是必不可少的。\nAn important open question is how the activity of these neural subpopulations during naturally occurring behavior reflects their \"causative\" function. Relatively few single-unit recordings have been performed in hypothalamic nuclei because of their inaccessibility.13,19–21 Recordings of bulk calcium signals22 have confirmed that these neuronal subpopulations are active during the natural behaviors they can artificially evoke.23–25 However, this averaging method obscures individual cell activity patterns.\n一个重要的未解之谜是，在自然发生的行为中，这些神经亚群的活动如何反映它们的\"因果\"功能。由于下丘脑核的不易接近，已经进行的单元记录相对较少。对整体钙信号的记录已经确认这些神经亚群在它们可以人工引发的自然行为中是活跃的。然而，这种平均方法掩盖了个别细胞的活动模式。\nMiniature head-mounted microscopes allow calcium imaging with single-cell resolution in freely moving animals.26,27 Application of this approach to the hypothalamus has identified cells exhibiting stimulus-locked activity during natural behavior.28–30 For example, imaging of estrogen receptor type 1 (Esr1)-expressing neurons in the medial preoptic area (MPOA), whose optogenetic activation can elicit mounting behavior in male mice,31,32 has revealed cells that respond specifically during spontaneous mounting of females (see also Figure 1E). Such results, together with single-cell transcriptomic analysis, have reinforced the prevailing view that the hypothalamus controls different survival behaviors via genetically determined, functionally specific neuronal subpopulations.\n迷你头戴式显微镜允许在自由移动的动物中进行单细胞分辨率的钙成像。将这种方法应用于下丘脑已经确定了在自然行为中表现出刺激锁定活动的细胞。例如，在内侧前视区（MPOA）中表达雌激素受体类型1（Esr1）的神经元的成像显示，在雄性小鼠自发地爬上雌性时，特定细胞会做出反应。这些结果与单细胞转录组分析一起，加强了普遍的观点，即下丘脑通过遗传决定的、功能特异性的神经亚群控制不同的生存行为。\nThe case of aggression, however, presents a paradox seemingly at odds with this view. On one hand, optogenetic stimulation of Esr1+ neurons in the ventrolateral subdivision of the ventromedial hypothalamus (VMHvl) neurons triggers attack behavior,12,39–41 identifying these neurons as the likely cellular substrate of electrical brain-stimulated aggression.4,7,42 Conversely, genetic ablation of VMHvl neurons expressing the progesterone receptor (PR; co-expressed with Esr1) or optogenetic silencing of VMHvlEsr1 neurons blocks natural aggression.\n然而，攻击的情况提出了一个似乎与这种观点相矛盾的悖论。一方面，对下丘脑腹内侧区（VMHvl）中 Esr1+ 神经元的光遗传学刺激会触发攻击行为，确定这些神经元是电刺激引发攻击行为的可能细胞基础。相反，基因消融表达孕酮受体（PR; 与 Esr1 共表达）的 VMHvl 神经元或对 VMHvlEsr1 神经元进行光遗传学沉默会阻止自然攻击。\nOn the other hand, miniscope imaging of VMHvlEsr1 neurons during natural fighting revealed surprisingly few cells that exhibited time-locked, attack-specific activity.29 Instead, most such neurons exhibited ‘‘mixed selectivity,’’ responding during different phases of an aggressive interaction. Different subsets of Esr1+ neurons responded to male versus female conspecifics, suggesting an encoding of conspecific sex.29,31,43 Nevertheless, decoders trained on VMHvlEsr1 neural imaging data could accurately distinguish episodes of attack from sniffing.\n另一方面，在自然战斗期间对 VMHvlEsr1 神经元进行迷你显微镜成像，发现很少有细胞表现出时间锁定的、攻击特异性的活动。相反，大多数这样的神经元表现出\"混合选择性\"，在攻击互动的不同阶段做出反应。不同亚群的 Esr1+ 神经元对雄性和雌性同种动物做出反应，表明编码了同种动物的性别。然而，在 VMHvlEsr1 神经成像数据上训练的解码器可以准确区分攻击和嗅探的情节。\nThus, observational versus perturbational studies of VMHvlEsr1 neurons yield seemingly inconsistent views: these neurons causally control aggressive behavior; however, very few of them are specifically \"tuned\" to attack. There are two possible explanations for this paradox. First, the small fraction of VMHvlEsr1 neurons that are more active during attack may be the ones responsible for the specific causative influence of this population. Alternatively, the majority of VMHvlEsr1 neurons, despite their mixed behavioral selectivity, may control attack through some type of population code.\n因此，对 VMHvlEsr1 神经元的观察性与干预性研究产生了看似不一致的观点：这些神经元因果地控制攻击行为; 然而，只有很少一部分神经元被特定地\"调谐\"到攻击。这个悖论有两种可能的解释。首先，在攻击期间更活跃的 VMHvlEsr1 神经元的小部分可能是这个群体特定因果影响的原因。或者，尽管具有混合行为选择性，但大多数 VMHvlEsr1 神经元可能通过某种类型的群体代码控制攻击。\nIn other systems where there is no clear correlation between single-unit spiking patterns and behavior, modeling neural populations as a dynamical system44–46 (reviewed in Vyas et al.47) has revealed signals in the dynamics of population activity that can robustly predict motor actions.48,49 We have therefore carried out similar modeling of VMHvlEsr1 neural activity dynamics during naturalistic social behaviors, using legacy data from previous studies.29,31,43 Our results reveal line attractor dynamics in VMHvl that correlate with escalating levels of aggressive behavior, suggesting that they may represent or encode an aggressive internal state. Strikingly, line attractor dynamics are absent in MPOA activity during both mating and aggression. This analysis therefore reveals fundamental differences in the neural coding of social behaviors by different hypothalamic nuclei.\n在其他系统中，当单元尖峰模式与行为之间没有明显相关性时，将神经群体建模为动力系统已经揭示了群体活动动态中的信号，可以稳健地预测运动行为。因此，我们对 VMHvlEsr1 神经活动动态在自然社交行为期间进行了类似的建模，使用了之前研究的遗留数据。我们的结果揭示了 VMHvl 中的线性吸引子动力学与攻击行为升级水平相关，这表明它们可能代表或编码了一种攻击内部状态。令人震惊的是，在交配和攻击期间，MPOA 活动中没有线性吸引子动力学。因此，这种分析揭示了不同下丘脑核对社交行为的神经编码的根本差异。\n",
+  "wordCount" : "2444",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/05/10/rtY3/20260510221342769.png","datePublished": "2026-05-11T00:18:23+08:00",
+  "dateModified": "2026-05-11T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/an-approximate-line-attractor-in-the-hypothalamus-encodes-an-aggressive-state/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                An approximate line attractor in the hypothalamus encodes an aggressive state
+            </h1>
+            <div class="post-description">
+                下丘脑中的一个近似线性吸引子编码了一种攻击状态
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-05-11
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2444字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>5分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/line-attractor/" style="color: var(--secondary)!important;">Line Attractor</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/05/10/rtY3/20260510221342769.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#summary" aria-label="Summary">Summary</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h1>
+<blockquote>
+<p>The hypothalamus regulates innate social behaviors, including mating and aggression. These behaviors can be evoked by optogenetic stimulation of specific neuronal subpopulations within MPOA and VMHvl, respectively.</p>
+</blockquote>
+<p>下丘脑调节着先天的社交行为，包括交配和攻击。这些行为可以通过对 MPOA 和 VMHvl 中特定神经亚群进行光遗传学刺激来引发。</p>
+<blockquote>
+<p>Here, we perform dynamical systems modeling of population neuronal activity in these nuclei during social behaviors. In VMHvl, unsupervised analysis identified a dominant dimension of neural activity with a large time constant (&gt;50 s), generating an approximate line attractor in neural state space. Progression of the neural trajectory along this attractor was correlated with an escalation of agonistic behavior, suggesting that it may encode a scalable state of aggressiveness.</p>
+</blockquote>
+<p>在这里，我们对这些核在社交行为期间的神经群体活动进行了动力系统建模。在 VMHvl 中，无监督分析识别出一个具有较大时间常数（&gt;50秒）的神经活动主导维度，在神经状态空间中生成了一个近似线性吸引子。沿着这个吸引子推进的神经轨迹与攻击行为的升级相关，这表明它可能编码了一种可扩展的攻击状态。</p>
+<blockquote>
+<p>Consistent with this, individual differences in the magnitude of the integration dimension time constant were strongly correlated with differences in aggressiveness. In contrast, approximate line attractors were not observed in MPOA during mating; instead, neurons with fast dynamics were tuned to specific actions. Thus, different hypothalamic nuclei employ distinct neural population codes to represent similar social behaviors.</p>
+</blockquote>
+<p>与此一致的是，积分维度时间常数大小的个体差异与攻击性的差异强烈相关。相比之下，在 MPOA 中没有观察到近似线性吸引子; 相反，具有快速动态的神经元被调整到特定的动作。因此，不同的下丘脑核采用不同的神经群体代码来表示类似的社交行为。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>A fundamental problem in neuroscience is to understand how the brain controls innate behaviors. Many such behaviors are governed by the hypothalamus, a deep subcortical brain region present in all vertebrates. Classical brain stimulation and lesion experiments have implicated different hypothalamic regions (&quot;nuclei&quot;) in diverse innate behaviors (reviewed in Paredes and Baum, Siegel et al., Canteras, King, Kruk, Swanson, and Simerly). More recently, optogenetic stimulation has identified genetically marked neuronal subpopulations that can evoke such behaviors (reviewed in Yamaguchi, Zha and Xu, Augustine et al., and Sternson). Genetic ablation or reversible silencing has demonstrated that these subpopulations are essential for natural occurrences of these behaviors.</p>
+</blockquote>
+<p>神经科学的一个基本问题是理解大脑如何控制先天行为。许多这样的行为由下丘脑控制，下丘脑是所有脊椎动物中存在的一个深层皮质下脑区。经典的脑刺激和病变实验已经涉及不同的下丘脑区域（“核”）在多种先天行为中的作用（参见 Paredes 和 Baum， Siegel 等人， Canteras，King，Kruk，Swanson 和 Simerly 的综述）。最近，光遗传学刺激已经确定了可以引发这些行为的遗传标记神经亚群（参见 Yamaguchi， Zha 和 Xu, Augustine 等人， 和 Sternson 的评论）。基因消融或可逆沉默已经证明这些亚群对于这些行为的自然发生是必不可少的。</p>
+<blockquote>
+<p>An important open question is how the activity of these neural subpopulations during naturally occurring behavior reflects their &quot;causative&quot; function. Relatively few single-unit recordings have been performed in hypothalamic nuclei because of their inaccessibility.13,19–21 Recordings of bulk calcium signals22 have confirmed that these neuronal subpopulations are active during the natural behaviors they can artificially evoke.23–25 However, this averaging method obscures individual cell activity patterns.</p>
+</blockquote>
+<p>一个重要的未解之谜是，在自然发生的行为中，这些神经亚群的活动如何反映它们的&quot;因果&quot;功能。由于下丘脑核的不易接近，已经进行的单元记录相对较少。对整体钙信号的记录已经确认这些神经亚群在它们可以人工引发的自然行为中是活跃的。然而，这种平均方法掩盖了个别细胞的活动模式。</p>
+<blockquote>
+<p>Miniature head-mounted microscopes allow calcium imaging with single-cell resolution in freely moving animals.26,27 Application of this approach to the hypothalamus has identified cells exhibiting stimulus-locked activity during natural behavior.28–30 For example, imaging of estrogen receptor type 1 (Esr1)-expressing neurons in the medial preoptic area (MPOA), whose optogenetic activation can elicit mounting behavior in male mice,31,32 has revealed cells that respond specifically during spontaneous mounting of females (see also Figure 1E). Such results, together with single-cell transcriptomic analysis, have reinforced the prevailing view that the hypothalamus controls different survival behaviors via genetically determined, functionally specific neuronal subpopulations.</p>
+</blockquote>
+<p>迷你头戴式显微镜允许在自由移动的动物中进行单细胞分辨率的钙成像。将这种方法应用于下丘脑已经确定了在自然行为中表现出刺激锁定活动的细胞。例如，在内侧前视区（MPOA）中表达雌激素受体类型1（Esr1）的神经元的成像显示，在雄性小鼠自发地爬上雌性时，特定细胞会做出反应。这些结果与单细胞转录组分析一起，加强了普遍的观点，即下丘脑通过遗传决定的、功能特异性的神经亚群控制不同的生存行为。</p>
+<blockquote>
+<p>The case of aggression, however, presents a paradox seemingly at odds with this view. On one hand, optogenetic stimulation of Esr1+ neurons in the ventrolateral subdivision of the ventromedial hypothalamus (VMHvl) neurons triggers attack behavior,12,39–41 identifying these neurons as the likely cellular substrate of electrical brain-stimulated aggression.4,7,42 Conversely, genetic ablation of VMHvl neurons expressing the progesterone receptor (PR; co-expressed with Esr1) or optogenetic silencing of VMHvlEsr1 neurons blocks natural aggression.</p>
+</blockquote>
+<p>然而，攻击的情况提出了一个似乎与这种观点相矛盾的悖论。一方面，对下丘脑腹内侧区（VMHvl）中 Esr1+ 神经元的光遗传学刺激会触发攻击行为，确定这些神经元是电刺激引发攻击行为的可能细胞基础。相反，基因消融表达孕酮受体（PR; 与 Esr1 共表达）的 VMHvl 神经元或对 VMHvlEsr1 神经元进行光遗传学沉默会阻止自然攻击。</p>
+<blockquote>
+<p>On the other hand, miniscope imaging of VMHvlEsr1 neurons during natural fighting revealed surprisingly few cells that exhibited time-locked, attack-specific activity.29 Instead, most such neurons exhibited ‘‘mixed selectivity,’’ responding during different phases of an aggressive interaction. Different subsets of Esr1+ neurons responded to male versus female conspecifics,  suggesting an encoding of conspecific sex.29,31,43 Nevertheless, decoders trained on VMHvlEsr1 neural imaging data could accurately distinguish episodes of attack from sniffing.</p>
+</blockquote>
+<p>另一方面，在自然战斗期间对 VMHvlEsr1 神经元进行迷你显微镜成像，发现很少有细胞表现出时间锁定的、攻击特异性的活动。相反，大多数这样的神经元表现出&quot;混合选择性&quot;，在攻击互动的不同阶段做出反应。不同亚群的 Esr1+ 神经元对雄性和雌性同种动物做出反应，表明编码了同种动物的性别。然而，在 VMHvlEsr1 神经成像数据上训练的解码器可以准确区分攻击和嗅探的情节。</p>
+<blockquote>
+<p>Thus, observational versus perturbational studies of VMHvlEsr1 neurons yield seemingly inconsistent views: these neurons causally control aggressive behavior; however, very few of them are specifically &quot;tuned&quot; to attack. There are two possible explanations for this paradox. First, the small fraction of VMHvlEsr1 neurons that are more active during attack may be the ones responsible for the specific causative influence of this population. Alternatively, the majority of VMHvlEsr1 neurons, despite their mixed behavioral selectivity, may control attack through some type of population code.</p>
+</blockquote>
+<p>因此，对 VMHvlEsr1 神经元的观察性与干预性研究产生了看似不一致的观点：这些神经元因果地控制攻击行为; 然而，只有很少一部分神经元被特定地&quot;调谐&quot;到攻击。这个悖论有两种可能的解释。首先，在攻击期间更活跃的 VMHvlEsr1 神经元的小部分可能是这个群体特定因果影响的原因。或者，尽管具有混合行为选择性，但大多数 VMHvlEsr1 神经元可能通过某种类型的群体代码控制攻击。</p>
+<blockquote>
+<p>In other systems where there is no clear correlation between single-unit spiking patterns and behavior, modeling neural populations as a dynamical system44–46 (reviewed in Vyas et al.47) has revealed signals in the dynamics of population activity that can robustly predict motor actions.48,49 We have therefore carried out similar modeling of VMHvlEsr1 neural activity dynamics during naturalistic social behaviors, using legacy data from previous studies.29,31,43 Our results reveal line attractor dynamics in VMHvl that correlate with escalating levels of aggressive behavior, suggesting that they may represent or encode an aggressive internal state. Strikingly, line attractor dynamics are absent in MPOA activity during both mating and aggression. This analysis therefore reveals fundamental differences in the neural coding of social behaviors by different hypothalamic nuclei.</p>
+</blockquote>
+<p>在其他系统中，当单元尖峰模式与行为之间没有明显相关性时，将神经群体建模为动力系统已经揭示了群体活动动态中的信号，可以稳健地预测运动行为。因此，我们对 VMHvlEsr1 神经活动动态在自然社交行为期间进行了类似的建模，使用了之前研究的遗留数据。我们的结果揭示了 VMHvl 中的线性吸引子动力学与攻击行为升级水平相关，这表明它们可能代表或编码了一种攻击内部状态。令人震惊的是，在交配和攻击期间，MPOA 活动中没有线性吸引子动力学。因此，这种分析揭示了不同下丘脑核对社交行为的神经编码的根本差异。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Renormalization group for neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/causal-evidence-of-a-line-attractor-encoding-an-affective-state/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Causal evidence of a line attractor encoding an affective state</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1167 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 152 篇 1019076 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

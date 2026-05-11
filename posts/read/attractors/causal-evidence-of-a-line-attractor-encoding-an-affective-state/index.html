@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Causal evidence of a line attractor encoding an affective state | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="线性吸引子编码情感状态的因果证据">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/causal-evidence-of-a-line-attractor-encoding-an-affective-state/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/causal-evidence-of-a-line-attractor-encoding-an-affective-state/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="Causal evidence of a line attractor encoding an affective state" />
+<meta property="og:description" content="线性吸引子编码情感状态的因果证据" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/causal-evidence-of-a-line-attractor-encoding-an-affective-state/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/05/11/fhU8/20260511130416581.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-05-11T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-05-11T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/05/11/fhU8/20260511130416581.png" />
+<meta name="twitter:title" content="Causal evidence of a line attractor encoding an affective state"/>
+<meta name="twitter:description" content="线性吸引子编码情感状态的因果证据"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Causal evidence of a line attractor encoding an affective state",
+      "item": "https://Muatyz.github.io/posts/read/attractors/causal-evidence-of-a-line-attractor-encoding-an-affective-state/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Causal evidence of a line attractor encoding an affective state",
+  "name": "Causal evidence of a line attractor encoding an affective state",
+  "description": "线性吸引子编码情感状态的因果证据",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Abstract Continuous attractors are an emergent property of neural population dynamics that have been hypothesized to encode continuous variables such as head direction and eye position1–4. In mammals, direct evidence of neural implementation of a continuous attractor has been hindered by the challenge of targeting perturbations to specific neurons within contributing ensembles2,3.\n连续吸引子是神经群体动力学的一个涌现属性，被假设为编码连续变量，如头部方向和眼睛位置。在哺乳动物中，直接证据表明连续吸引子的神经实现受到挑战，因为很难针对贡献集合中的特定神经元进行干扰。\nDynamical systems modelling has revealed that neurons in the hypothalamus exhibit approximate line-attractor dynamics in male mice during aggressive encounters5. We have previously hypothesized that these dynamics may encode the variable intensity and persistence of an aggressive internal state. Here we report that these neurons also showed line-attractor dynamics in head-fixed mice observing aggression6. This allowed us to identify and manipulate line-attractor-contributing neurons using two-photon calcium imaging and holographic optogenetic perturbations.\n动力系统建模已经揭示，在雄性小鼠的攻击遭遇期间，下丘脑中的神经元表现出近似线性吸引子动力学。我们之前假设这些动力学可能编码攻击内部状态的变量强度和持久性。在这里，我们报告这些神经元在观察攻击的头固定小鼠中也表现出线性吸引子动力学。这使我们能够使用双光子钙成像和全息光遗传学干扰来识别和操纵线性吸引子贡献神经元。\nOn-manifold perturbations yielded integration of optogenetic stimulation pulses and persistent activity that drove the system along the line attractor, while transient off-manifold perturbations were followed by rapid relaxation back into the attractor. Furthermore, single-cell stimulation and imaging revealed selective functional connectivity among attractor-contributing neurons. Notably, individual differences among mice in line-attractor stability were correlated with the degree of functional connectivity among attractor-contributing neurons.\n流形上的干扰产生了光遗传学刺激脉冲的积分和持续活动，推动系统沿着线性吸引子前进，而短暂的流形外干扰则迅速回到吸引子中。此外，单细胞刺激和成像揭示了吸引子贡献神经元之间的选择性功能连接。值得注意的是，小鼠之间在线性吸引子稳定性的个体差异与吸引子贡献神经元之间功能连接的程度相关。\nMechanistic recurrent neural network modelling indicated that dense subnetwork connectivity and slow neurotransmission7 best recapitulate our empirical findings. Our work bridges circuit and manifold levels3, providing causal evidence of continuous attractor dynamics encoding an affective internal state in the mammalian hypothalamus.\n机械递归神经网络建模表明，密集的子网络连接和慢速神经传递最能重现我们的实证发现。我们的工作桥接了电路和流形水平，提供了连续吸引子动力学编码哺乳动物下丘脑中情感内部状态的因果证据。\nIntroduction Neural circuit function has been studied from two vantage points.\nOne focuses on understanding behaviourally specialized neuron types and their functional connectivity, whereas the other investigates emergent properties of neural networks, such as attractors. Continuous attractors of different topologies are theorized to encode a variety of continuous variables, ranging from head direction12, location in space2,reward history14 to internal states.\n神经回路功能从两个角度进行研究。\n一个侧重于理解行为专门化的神经类型及其功能连接，而另一个则研究神经网络的涌现属性，如吸引子。不同拓扑结构的连续吸引子被理论化为编码各种连续变量，从头部方向、空间位置、奖励历史到内部状态。\nRecent data-driven methodologies have allowed for the identification of such attractor-mediated computations directly in neural data. Consequently, attractor dynamics have received increasing attention as a major type of neural coding mechanism.\n最近的数据驱动方法已经允许直接在神经数据中识别这种吸引子介导的计算。因此，吸引子动力学作为一种主要的神经编码机制受到了越来越多的关注。\nDespite this progress, establishing that these attractors arise from the dynamics of the observed network remains a formidable challenge. This calls for combining large-scale recordings with perturbations of neuronal activity invivo. Although this has been accomplished for a point attractor that controls motor planning in cortical area anterolateral motor cortex17,18, spatial ensembles in visual cortex that encode visually guided behaviours19,20 and for a ring attractor in Drosophila, there is no study reporting such perturbations for a continuous attractor in any mammalian system. While theoretical work on continuous attractors in mammals is well developed2, the lack of direct, neural-perturbation-based experimental evidence of such attractor dynamics has hindered progress towards a mechanistic circuit-level understanding of such emergent manifold-level network features3.\n除了这一进展之外，建立这些吸引子是由观察到的网络动力学产生的仍然是一个艰巨的挑战。这需要结合大规模记录和体内神经活动的微扰。虽然这已经在控制皮层前侧运动区中的运动计划的点吸引子、编码视觉引导行为的视觉皮层空间集合以及 Drosophila 中的环形吸引子中实现，但没有研究报告了任何哺乳动物系统中连续吸引子的这种干扰。虽然关于哺乳动物连续吸引子的理论工作已经得到很好的发展，但缺乏直接基于神经干扰的实验证据阻碍了对这种涌现流形级网络特征的机制回路级理解的进展。\nOestrogen receptor type 1 (Esr1)-expressing neurons in the ventrolateral subdivision of the ventromedial hypothalamus (VMHvlEsr1) comprise a key node in the social behaviour network and have been causally implicated in aggression. Calcium imaging of these neurons in freely behaving animals has revealed mixed selectivity and variable dynamics, with time-locked attack signals sparsely represented at the single-neuron level. Application of dynamical system modelling27 has revealed an approximate line attractor in the VMHvl that correlates with the intensity of agonistic behaviour, suggesting a populationlevel encoding of a continuously varying aggressive internal state5. This raises the question of whether the observation of a line attractor in a statistical dynamical systems model fit to VMHvlEsr1 neuronal activity reflects inherited dynamics or can be instantiated locally.\n腹内侧下丘脑腹外侧亚区（VMHvlEsr1）中表达雌激素受体类型1（Esr1）的神经元组成了社交行为网络中的一个关键节点，并且已经被因果地涉及到攻击行为中。在自由行为动物中对这些神经元进行钙成像已经揭示了混合选择性和可变动力学，在单神经元水平上稀疏地表示了时间锁定的攻击信号。动力系统建模的应用已经揭示了 VMHvl 中一个近似线性吸引子与攻击行为的强度相关，这表明了连续变化的攻击内部状态的人口水平编码。这引出了一个问题，即在统计动力系统模型中观察到的 VMHvlEsr1 神经活动中的线性吸引子是否反映了继承的动力学，还是可以在局部实例化。\nThis question can be addressed, in principle, using all-optical methods to observe and perturb line-attractor-relevant neural activity3,28–30. A challenge in applying these methods during aggression is that current technology requires head-fixed preparations, and head-fixed mice cannot fight. To overcome this challenge, we took advantage of a recent observation that VMHvl-progesterone receptor neurons (which encompass the Esr1+ subset)31–33 mirror observed interindividual aggression6, to instantiate the line attractor in head-fixed mice. Using this preparation, we performed model-guided, closed-loop on- and off-manifold perturbations34 of VMHvlEsr1 activity. These experiments demonstrate that the VMHvl line attractor indeed reflects causal neural dynamics in this nucleus. They also identified selective functional connectivity within attractor-weighted ensembles, suggesting a local circuit implementation of attractor dynamics. Modelling suggests that this implementation may incorporate slow neurotransmission. Collectively, our findings elucidate a circuit-level foundation for a continuous attractor in the mammalian brain.\n这个问题原则上可以使用全光学方法来观察和干扰线性吸引子相关的神经活动来解决。在攻击期间应用这些方法的一个挑战是当前技术需要头固定的准备，而头固定的小鼠无法战斗。为了克服这个挑战，我们利用了最近的观察，即 VMHvl 孕酮受体神经元（包括 Esr1+ 亚群）镜像了观察到的个体间攻击行为，在头固定的小鼠中实例化了线性吸引子。使用这种准备，我们进行了模型指导的闭环流形内和流形外干扰 VMHvlEsr1 活动。这些实验表明，VMHvl 线性吸引子确实反映了该核中的因果神经动力学。它们还确定了吸引子加权集合内的选择性功能连接，表明了吸引子动力学的局部回路实现。建模表明，这种实现可能包含慢速神经传递。总的来说，我们的发现阐明了哺乳动物大脑中连续吸引子的回路级基础。\nLine attractor for observing aggression Recent studies have demonstrated that the VMHvl contains neurons that are active during passive observation of, as well as active participation in, aggression and that reactivating the former can evoke aggressive behaviour6. However, those findings were based on a relatively small sample of VMHvl neurons, which might comprise a specific subset distinct from those contributing to the line attractor (the latter represent around 20–25% of Esr1+ neurons5). To assess whether these mirror-like responses can be observed in Esr1+ neurons that contribute to line-attractor dynamics, we performed microendoscopic imaging35 of VMHvlEsr1 neurons expressing jGCaMP7s in the same freely behaving animals during engagement in followed by observation of aggression (Extended Data Fig. 1a–e). Analysis using recurrent switching linear dynamical systems (rSLDS)27 to fit a statistical model to each dataset (Extended Data Fig. 1f) revealed an approximate line attractor under both conditions, exhibiting ramping and persistent activity aligned and maintained across both performed and observed attack sessions (Extended Data Figs. 1g–q, 2 and 3a–f). Activity during observation of aggression in the integration dimension (x1), which contributes to the line attractor, could be reliably used to decode from held-out data instances of both observation of and engagement in attack, suggesting that this dimension encodes a similar internal state variable under both conditions (Extended Data Fig. 3g,h). Moreover, the integration dimension was weighted by a consistent and aligned set of neurons under both conditions, suggesting that a highly overlapping set of neurons (70%) contributes to line-attractor dynamics during observing or engaging in attack (Extended Data Fig. 4a–d).\n最近的研究表明，VMHvl 包含在被动观察以及积极参与攻击期间活跃的神经元，并且重新激活前者可以引发攻击行为。然而，这些发现是基于相对较小的 VMHvl 神经元样本，这些神经元可能包含一个特定的亚群，与那些贡献线性吸引子的神经元不同（后者占 Esr1+ 神经元的约 20-25%）。为了评估是否可以在贡献线性吸引子动力学的 Esr1+ 神经元中观察到这些镜像反应，我们在同一自由行为动物中进行微内窥镜成像，观察参与攻击和观察攻击期间表达 jGCaMP7s 的 VMHvlEsr1 神经元。使用递归切换线性动力系统（rSLDS）分析为每个数据集拟合统计模型，揭示了在两种条件下都存在近似线性吸引子，在执行和观察攻击会话中对齐并保持上升和持续活动。在积分维度（$x_{1}$）中的活动有助于线性吸引子，可以可靠地用于从保留的数据实例中解码观察和参与攻击的实例，表明这个维度在两种条件下编码了一个类似的内部状态变量。此外，在两种条件下，积分维度由一组一致且对齐的神经元加权，表明在观察或参与攻击期间，有一个高度重叠的神经元集合（70%）贡献了线性吸引子动力学。\nFig.1 | Attractor dynamics in head-fixed mice observing aggression\na, The experimental paradigm for 2P imaging in head-fixed mice observing aggression. b, Representative FOV through a GRIN lens in the 2P set-up (top). Bottom, fluorescence image of a coronal slice showing expression of jGCaMP7s and ChRmine. Scale bars, 100 μm.\na, 2P 成像观察头固定的小鼠攻击的实验范例。b, 通过 GRIN 镜头在 2P 设置中的代表性 FOV（顶部）。底部，显示 jGCaMP7s 和 ChRmine 表达的冠状切片的荧光图像。比例尺，100 μm。\nc, Neural and behavioural raster from an example mouse observing aggression in the 2P set-up (left). The arrows indicate insertion of submissive BALB/c intruders into the observation chamber for interaction with an aggressive Swiss Webster (SW) mouse. Right, example neurons from the raster to the left.\nc, 在 2P 设置中观察攻击的示例小鼠的神经和行为光栅图（左）。箭头表示将顺从的 BALB/c 入侵者插入观察室与攻击性的 Swiss Webster（SW）小鼠进行互动。右侧，来自左侧光栅图的示例神经元。\nd, Neural activity projected onto rSLDS dimensions obtained from models fit to 2P imaging data in one example mouse. e, rSLDS time constants across mice. n = 9 mice. Statistical analysis was performed using two-tailed Mann–Whitney U-tests. Data are mean ± s.e.m. f, The line-attractor score (Methods) across mice. n = 9 mice. Data are mean ± s.e.m. g , Behaviour-triggered average of x1 and x2 dimensions, aligned to the introduction of BALB/c mice into the resident’s cage. n = 9 mice. Data are the average activity (dark line) ± s.e.m. (shading).\nd, 投影到从一个示例小鼠的 2P 成像数据拟合的模型中获得的 rSLDS 维度上的神经活动。\ne, 小鼠的 rSLDS 时间常数。$n = 9$ 只小鼠。统计分析使用双尾 Mann–Whitney U 检验进行。数据为平均值 $\\pm \\mathrm{s.e.m.}$\nf, 小鼠的线性吸引子得分（方法）。$n = 9$ 只小鼠。数据为平均值 $\\pm \\mathrm{s.e.m.}$\ng, $x_{1}$ 和 $x_{2}$ 维度的行为触发平均值，对齐到将 BALB/c 小鼠引入居民笼子的时间点。$n = 9$ 只小鼠。数据为平均活动（深线）$\\pm \\mathrm{s.e.m.}$（阴影）。\nh, Flow fields from rSLDS model fit to 2P imaging data during observation of aggression from one example mouse. The larger blue arrows next to the neural trajectory indicate the direction flow of time. The smaller arrows represent the vector field from the rSLDS model. i, Identification of neurons contributing to x1 dimension from rSLDS model (top). The neuron’s weight is shown as an absolute (abs) value. Bottom, activity heat map of five neurons contributing most strongly to the x1 dimension. Right, neural traces of the same neurons and an indication of when the system enters the line attractor. j, As in i but for the x2 dimension.\nh, 从一个示例小鼠的 2P 成像数据拟合的 rSLDS 模型的流场。在神经轨迹旁边的较大的蓝色箭头表示时间流动的方向。较小的箭头表示 rSLDS 模型的向量场。\ni, 从 rSLDS 模型中识别贡献 $x_{1}$ 维度的神经元（顶部）。神经元的权重以绝对值（abs）显示。底部，五个对 $x_{1}$ 维度贡献最强的神经元的活动热图。右侧，同一神经元的神经迹线和系统进入线性吸引子的指示。\nj, 与 i 类似，但针对 $x_{2}$ 维度。神经元的权重以绝对值（abs）显示。底部，五个对 $x_{2}$ 维度贡献最强的神经元的活动热图。右侧，同一神经元的神经迹线和系统进入线性吸引子的指示。\nk, Dynamic velocity landscape from 2P imaging data during observation of aggression from one example mouse. Blue, stable area in the landscape; red, unstable area in the landscape. The black line shows the trajectory of neuronal activity.\nk, 从一个示例小鼠的 2P 成像数据中观察攻击期间的动态速度景观。蓝色，景观中的稳定区域；红色，景观中的不稳定区域。黑线显示神经活动的轨迹。\nl, The cumulative distributions of the autocorrelation half width (ACHW) of neurons contributing to the x1 (green) and x2 (red) dimensions. n = 9 mice, 45 neurons each for the x1 and x2 distributions.\nl, 贡献 $x_{1}$（绿色）和 $x_{2}$（红色）维度的神经元的自相关半宽（ACHW）的累积分布。$n = 9$ 只小鼠，每个 $x_{1}$ 和 $x_{2}$ 分布各 45 个神经元。\nm, The mean autocorrelation half width (HW) across mice for neurons contributing to the x1 and x2 dimensions. n = 9 mice. Statistical analysis was performed using a two-tailed Mann–Whitney U-test; **P = 0.0078. Data are mean ± s.e.m. ****P \u003c 0.0001, **P \u003c 0.01.\nm, 贡献 $x_{1}$ 和 $x_{2}$ 维度的神经元在小鼠之间的平均自相关半宽（HW）。$n = 9$ 只小鼠。统计分析使用双尾 Mann–Whitney U 检验进行；**P = 0.0078。数据为平均值 $\\pm \\mathrm{s.e.m.}$ $****P \u003c 0.0001$, $**P \u003c 0.01$。\nThe dynamical systems analysis also revealed a dimension orthogonal to the integration dimension (x2) that displayed faster dynamics time locked to the entry of the intruder(s) in both conditions (Extended Data Fig. 1g–l). To examine whether the neurons contributing to the two dimensions (x1 and x2 neurons) can be separated on the basis of physiological properties, we examined their baseline activity when solitary animals were exploring their home cage before any interaction. We did not detect a difference in amplitude or decay constant (tau) between x1 and x2 neurons (Extended Data Fig. 4e–i). However, we did see a slightly but significantly higher frequency of spontaneous calcium transients in x2 neurons (Extended Data Fig.4f,g), suggesting that x2 neurons are more spontaneously active than x1 neurons when no interaction is taking place.\n动力学系统分析还揭示了一个与积分维度（$x_{1}$）正交的维度（$x_{2}$），在两种条件下都显示出与入侵者进入时间锁定的更快动态。为了检查基于生理特性是否可以区分贡献两个维度（$x_{1}$ 和 $x_{2}$ 神经元）的神经元，我们检查了它们在孤立动物在任何交互之前探索其家庭笼子时的基线活动。我们没有检测到 $x_{1}$ 和 $x_{2}$ 神经元之间的幅度或衰减常数（tau）的差异。然而，我们确实看到 $x_{2}$ 神经元的自发钙瞬变频率略高但显著高于 $x_{1}$ 神经元，表明当没有交互发生时，$x_{2}$ 神经元比 $x_{1}$ 神经元更自发地活跃。\nWhile these observed attractor dynamics could be generated in the VMHvl, they might also arise from unmeasured ramping sensory input or dynamics inherited from an input brain region. Although behavioural perturbations in previous studies have hinted at the intrinsic nature of VMHvl line-attractor dynamics, a rigorous test requires direct neuronal perturbations targeted to cells that contribute to the attractor. Direct on-manifold perturbation of a continuous attractor has previously been performed only in the Drosophila head direction system. In mammals, although a point attractor has been perturbed off-manifold using optogenetic manipulation, direct single-cell perturbations of neurons contributing to a continuous attractor invivo have not been reported.\n虽然这些观察到的吸引子动力学可能在 VMHvl 中产生，但它们也可能来自未测量的上升感觉输入或从输入大脑区域继承的动力学。虽然之前的行为干扰已经暗示了 VMHvl 线性吸引子动力学的内在性质，但严格的测试需要针对贡献吸引子的细胞进行直接神经干扰。连续吸引子的直接流形内干扰之前只在 Drosophila 头部方向系统中进行过。在哺乳动物中，虽然点吸引子已经使用光遗传学操作进行了流形外干扰，但尚未报道对连续吸引子贡献神经元的直接单细胞干扰。\nTo do this, we used two-photon (2P) imaging in head-fixed mice of VMHvlEsr1 neurons expressing jGCaMP7s38 after observation of aggression and removal of the demonstrator mice (Fig. 1a–c). As described above, during observation of aggression by the head-fixed mice, rSLDS analysis identified an integration dimension with slow dynamics (x1) aligned to an approximate line attractor, and an orthogonal dimension with faster dynamics (x2) (Fig. 1d–h,k). We used the mapping between neural activity and the underlying state space to directly identify neurons contributing to each dimension (Fig. 1i,j). Neurons contributing to the integration dimension displayed more persistence than those aligned with the faster dimension (Fig. 1g,l,m). Importantly, only a small fraction of the neural activity could be explained by movements of the observer mouse (Extended Data Fig. 5a–e). Thus, a line attractor can be recapitulated in head-fixed mice observing aggression, opening the way to 2P-based perturbation experiments.\n为此，我们在头固定的小鼠中使用双光子（2P）成像，观察攻击后表达 jGCaMP7s 的 VMHvlEsr1 神经元。在头固定的小鼠观察攻击期间，rSLDS 分析确定了一个具有慢动态的积分维度（$x_{1}$），与近似线性吸引子对齐，以及一个具有更快动态的正交维度（$x_{2}$）。我们使用神经活动与基础状态空间之间的映射来直接识别贡献每个维度的神经元。贡献积分维度的神经元比那些与更快维度对齐的神经元显示出更多的持久性。重要的是，只有一小部分神经活动可以通过观察者小鼠的运动来解释。因此，可以在观察攻击的头固定小鼠中重现线性吸引子，为基于 2P 的干扰实验打开了道路。\nHolographic activation shows integration Next, to determine whether VMHvlEsr1 line-attractor dynamics are intrinsic to this hypothalamic nucleus, after removing the demonstrator mice, we performed holographic re-activation of a subset of neurons contributing to the integration dimension (x1) using soma-tagged ChRmine39, which was co-expressed with jGCaMP7s (Fig. 1b (bottom)). These neurons were identified in real-time using rSLDS fitting of data recorded during observation of aggression (in a manual closed loop), followed by 2P single-cell-targeted optogenetic reactivation of those neurons (Fig. 2a). In each field of view (FOV), we concurrently targeted five neurons, chosen on the basis of the criteria that they (1) contributed most strongly to a given dimension (x1 or x2); and (2) could be reliably reactivated by photostimulation (Fig. 2a). Repeated pulses of optogenetic stimulation (2 s, 20 Hz, 5 mW) were delivered with a 20 s interstimulus interval (ISI) (Fig. 2b–d). Under these conditions, we observed minimal off-target effects (Extended Data Fig.6a–h) and did not observe spatial clustering of x1 or x2 neurons (Methods and Extended Data Figs. 6i–k and 7a,b).\n接下来，为了确定 VMHvlEsr1 线性吸引子动力学是否是这个下丘脑核的内在属性，在移除示范者小鼠后，我们使用 soma-tagged ChRmine 进行全息重新激活，重新激活贡献积分维度（$x_{1}$）的神经元子集，这些神经元与 jGCaMP7s 共表达。这些神经元通过在观察攻击期间记录的数据进行 rSLDS 拟合实时识别（在手动闭环中），随后对这些神经元进行 2P 单细胞靶向光遗传学重新激活。在每个视野（FOV）中，我们同时针对五个神经元，选择的标准是它们（1）对给定维度（$x_{1}$ 或 $x_{2}$）的贡献最强; 和（2）可以通过光刺激可靠地重新激活。在这些条件下，我们观察到最小的离靶效应，并且没有观察到 $x_{1}$ 或 $x_{2}$ 神经元的空间聚类。\nIn this paradigm, optogenetically induced activity along the x1 (but not the x2) dimension is predicted to exhibit integration across successive photostimulation pulses, based on the time constants of these dimensions extracted from the fit rSLDS model (Fig. 1e). Consistent with this expectation, optogenetic reactivation of cohorts of five individual x1 neurons yielded robust integration of activity in the entire x1 dimension-weighted population, as evidenced by progressively increasing peak activity during the 20 s ISI after each consecutive pulse (Fig. 2c,d; n = 8 mice). Activity decayed slowly after each peak but did not return to pre-stimulus baseline. Activated x1 neurons exhibited activity levels comparable to their response during observation of aggression (Extended Data Fig. 7d–f). Similar results were obtained using an 8 s ISI (Extended Data Fig. 8a). This activity also scaled with different laser powers (Extended Data Fig. 8e,f). Providing the same (digital optogenetic) input to the fit rSLDS model also resulted in integration by the model along the x1 dimension, similar to that observed in the data (Extended Data Fig.8c). Importantly, x1 stimulation did not evoke appreciable activity in x2 dimension neurons (Extended Data Fig. 8g–i).\n在这个范式中，根据从拟合的 rSLDS 模型提取的这些维度的时间常数，沿着 $x_{1}$（而非 $x_{2}$）维度的光遗传学诱导活动预计会在连续光刺激脉冲之间表现出积分。与这一预期一致，对五个单独 $x_{1}$ 神经元群体的光遗传学重新激活在整个 $x_{1}$ 维度加权集群中产生了强烈的活动积分，这可以通过每个连续脉冲后 20 秒 ISI 期间逐渐增加的峰值活动来证明。每个峰值后的活动缓慢衰减，但没有返回到刺激前的基线水平。被激活的 $x_{1}$ 神经元表现出与它们在观察攻击期间响应相当的活动水平。使用 8 秒 ISI 得到了类似的结果。该活动也随着不同激光功率而缩放。向拟合的 rSLDS 模型提供相同（数字光遗传学）输入也导致模型沿着 $x_{1}$ 维度进行积分，类似于数据中观察到的情况。重要的是，$x_{1}$ 刺激没有在 $x_{2}$ 维度神经元中引起明显的活动。\nTo visualize in neural-state space the effect of reactivating x1 neurons in the absence of demonstrator mice, we projected the data into a 2D flow-field based on the dynamics matrix fit to data acquired during the observation of aggression. Activation pulses transiently moved the population activity vector (PAV) ‘up’ the line attractor, followed by relaxation back down the attractor to a point that was higher than the initial position of the system (Fig. 2e,f). To quantify this effect, we calculated the Euclidean distance in state space between the initial timepoint during the baseline period (tinitial) and the timepoint at the end of stimulation or at the end of the ISI after each pulse (tstim-end and tpost-stim, respectively) (Fig. 2e–h). This revealed that the x1 perturbations resulted in progressive, stable on-manifold movement along the attractor with each consecutive stimulation, as measured by the increase in both metrics (Fig. 2g,h). However, we found that integration of optogenetic stimulation pulses saturated in the x1 dimension after the third pulse, suggesting that the line attractor occupies a finite portion of the neural state space (Extended Data Fig. 9a–d).\n为了在神经状态空间中可视化在没有示范者小鼠的情况下重新激活 $x_{1}$ 神经元的效果，我们将数据投影到基于在观察攻击期间获得的数据拟合的动力学矩阵的二维流场中。激活脉冲暂时将群体活动向量（PAV）“向上”移动到线性吸引子上，然后回落到吸引子上的一个点，该点高于系统的初始位置。为了量化这种效果，我们计算了状态空间中基线期间初始时间点（$t_{\\text{initial}}$）与每个脉冲后刺激结束或 ISI 结束时的时间点（分别为 $t_{\\text{stim-end}}$ 和 $t_{\\text{post-stim}}$）之间的欧几里得距离。这揭示了 $x_{1}$ 干扰导致沿着吸引子的逐渐、稳定的流形内运动，每次连续刺激都通过两个指标的增加来衡量。然而，我们发现，在第三次脉冲后，$x_{1}$ 维度的光遗传学刺激脉冲积分饱和，表明线性吸引子占据了神经状态空间的一部分。\nImportantly, activation of x2 neurons did not lead to integration (Fig. 2i–k) as predicted by the time constant derived from the fit rSLDS model (Fig. 1e (red bar)). Instead, after each pulse, we observed stimulus-locked transient activity in the x2 dimension followed by a decay back to the baseline during the ISI period, across stimulation paradigms (Fig. 2k and Extended Data Fig. 8b), with little to no effect on x1 neurons (Extended Data Fig. 8j–l). In 2D neural-state space, we observed that x2 neuron activation caused transient off-manifold movements of the PAV orthogonal to the attractor axis during each pulse (Fig. 2l–o). After each stimulus, the PAV relaxed back into the attractor, near to the initial location that it occupied before the stimulus.\n重要的是，激活 $x_{2}$ 神经元并没有导致积分，这与从拟合的 rSLDS 模型得出的时间常数预测一致。相反，在每个脉冲之后，我们观察到 $x_{2}$ 维度的刺激锁定瞬态活动，随后在 ISI 期间衰减回基线，在刺激范式中都是如此，对 $x_{1}$ 神经元几乎没有影响。在二维神经状态空间中，我们观察到 $x_{2}$ 神经元激活导致 PAV 在每个脉冲期间沿着吸引子轴正交的流形外运动。在每次刺激后，PAV 放松回吸引子，接近于刺激前占据的初始位置。\nTo examine further the stability of different points along the line attractor, we performed photostimulation of x2 neurons after first moving activity in neural-state space further along the attractor using photostimulation of x1 neurons (Extended Data Fig. 9e, f). This x2 perturbation also resulted in transient off-manifold movements of the PAV orthogonal to the line attractor, followed by relaxation to the position occupied after the previous x1 stimulation (but before the x2 stimulation), rather than simply relaxing back to the baseline (Extended Data Fig.9g–i). This experiment confirms the attractive nature of different points along the line. Lastly, activation of randomly selected neurons that were not weighted by either dimension did not produce activity along either the x1 or x2 dimension, emphasizing the specificity of our on- and off-manifold holographic activation (Extended Data Fig.9j–n). Activation of either ensemble did not result in overt changes in the behaviour of the head-fixed mouse (Extended Data Fig. 5f–j). Together, these findings demonstrate that a subset of VMHvlEsr1 neurons (x1) can integrate direct optogenetic stimulation, moving the PAV along the line attractor, while a different subset (x2) pushes the PAV out of the attractor.\n为了进一步检查沿着线性吸引子不同点的稳定性，我们在使用 $x_{1}$ 神经元的光刺激将神经状态空间中的活动进一步沿着吸引子移动后，进行了 $x_{2}$ 神经元的光刺激。这个 $x_{2}$ 干扰也导致了 PAV 沿着线性吸引子正交的流形外运动，随后放松到之前的 $x_{1}$ 刺激后（但在 $x_{2}$ 刺激之前）占据的位置，而不是简单地放松回基线。这一实验确认了沿着线性吸引子不同点的吸引性质。最后，激活未被任何维度加权的随机选择的神经元并没有在 $x_{1}$ 或 $x_{2}$ 维度上产生活动，强调了我们流形内和流形外全息激活的特异性。激活任一集合都没有导致头固定小鼠行为的明显变化。总之，这些发现表明，VMHvlEsr1 神经元的一个子集（$x_{1}$）可以积分直接光遗传学刺激，使 PAV 沿着线性吸引子移动，而另一个子集（$x_{2}$）则将 PAV 推出吸引子。\nLine-attractor neurons form ensembles The integration observed in the abovementioned experiments could reflect a cell-intrinsic mechanism, or it could emerge from recurrent interactions within a network40. To determine whether the latter mechanism contributes to the line attractor, we first examined whether putative x1 follower cells (that is, non-targeted neurons that were photoactivated by stimulation of targeted x1 neurons) exhibited integration. Indeed, even after excluding the targeted x1 neurons themselves as well as potentially off-target neurons located within a 50 μm radius of the targeted cell (Extended Data Figs. 6a–h and 10j–n), we observed integration in the remaining x1 neurons (Extended Data Fig. 10a–c). Moreover, optogenetically evoked integrated activity in targeted x1 neurons could be reliably decoded from the activity of their follower x1 neurons (Extended Data Fig. 10d–f). This decoding was significantly better than that obtained using the activity of non-targeted x2 neurons; furthermore, the x2 activity-based decoder performance was slightly worse than decoders trained on neurons chosen randomly (Extended Data Fig. 10g). These analyses suggest that selective functional connectivity between integration dimension-weighted x1 neurons contributes to line-attractor dynamics in the VMHvl.\n在以上实验中观察到的积分可能反映了细胞内在机制，或者它可能来自网络内的递归相互作用。为了确定后者机制是否有助于线性吸引子，我们首先检查了假定的 $x_{1}$ 下游细胞（即，通过刺激目标 $x_{1}$ 神经元而被光激活的非目标神经元）是否表现出积分。确实，即使在排除了被刺激的 $x_{1}$ 神经元本身以及位于目标细胞 $50,\\mu\\mathrm{m}$ 半径范围内的潜在离靶神经元之后，我们仍然观察到了剩余 $x_{1}$ 神经元中的积分。此外，在目标 $x_{1}$ 神经元中通过光遗传学诱导的集成活动可以从其追随者 $x_{1}$ 神经元的活动中可靠地解码。这种解码明显优于使用非目标 $x_{2}$ 神经元活动获得的解码性能; 此外，基于 $x_{2}$ 活动的解码器性能略逊于基于随机选择神经元训练的解码器。这些分析表明，积分维度加权的 $x_{1}$ 神经元之间的选择性功能连接有助于 VMHvl 中的线性吸引子动力学。\nTo assess more precisely the extent of functional connectivity among VMHvlEsr1 neurons, we activated unitary x1 or x2 neurons and performed imaging of non-targeted neurons (Fig. 3a). These experiments revealed a slowly decaying elevation of activity during the ISI period in non-targeted x1 neurons after each pulse of activation (Fig. 3b,d) that was mostly positive (Extended Data Fig.10h,i). Notably, the strength of functional connectivity was not positively correlated with the distance from the targeted photostimulated cell (Extended Data Fig.10j–n) and was still observed even after excluding neurons in a 50 μm zone surrounding the targeted neuron to eliminate potential off-target effects due to ‘spillover’ photostimulation (Extended Data Fig. 10o,p). Comparing the activity of non-targeted photoactivated x1 neurons during unitary x1 neuron photoactivation versus during targeted activation of the five-x1 neuron cohorts revealed that the response strength of the non-targeted x1 neurons scaled with the number of targeted x1 neurons (Extended Data Fig.10q,r). Importantly, the observed functional coupling between x1 neurons could not be explained by local clustering of non-targeted x1 neurons near the targeted cell (Extended Data Figs. 6i–k and 10k–l).\n为了更准确地评估 VMHvlEsr1 神经元之间功能连接的程度，我们激活单个 $x_{1}$ 或 $x_{2}$ 神经元并对非目标神经元进行成像。这些实验揭示，在每次激活脉冲后，在 ISI 期间非目标 $x_{1}$ 神经元中活动的缓慢衰减升高，这种升高大多是正向的。值得注意的是，功能连接的强度与距离目标光刺激细胞的距离没有正相关，并且即使在排除目标神经元周围 $50,\\mu\\mathrm{m}$ 区域内的神经元以消除潜在的“溢出”光刺激引起的离靶效应后，仍然观察到了这种功能连接。比较单个 $x_{1}$ 神经元光激活期间非目标光激活 $x_{1}$ 神经元的活动与针对五个 $x_{1}$ 神经元群体的目标激活期间的活动，发现非目标 $x_{1}$ 神经元的响应强度随着目标 $x_{1}$ 神经元数量的增加而增加。重要的是，观察到的 $x_{1}$ 神经元之间的功能耦合不能通过非目标 $x_{1}$ 神经元在目标细胞附近的局部聚类来解释。\nIn contrast to the observed x1-to-x1 functional connectivity, we observed little activity in non-targeted x2 neurons after activation of unitary x1 or x2 neurons (Fig. 3c,e,g,j), suggesting that functional x1–x1 connectivity is selective. While there was a trend to a gradual increase in activity in non-targeted x1 neurons after repeated activation of unitary x2 neurons (Fig. 3f–h), that increase was not statistically significant (Fig. 3i,j).\n与观察到的 $x_{1}$ 到 $x_{1}$ 功能连接相比，在激活单个 $x_{1}$ 或 $x_{2}$ 神经元后，我们在非目标 $x_{2}$ 神经元中观察到的活动很少，这表明功能性 $x_{1}$–$x_{1}$ 连接是选择性的。虽然在重复激活单个 $x_{2}$ 神经元后，非目标 $x_{1}$ 神经元的活动有逐渐增加的趋势，但这种增加没有统计学意义。\nThe functional connectivity that we observed could arise either from a population of sparsely but strongly interconnected neurons, or from a population with denser connections of intermediate strength41 (Fig. 4a (left)). To assess this, we calculated the distribution of pairwise influence scores in our unitary neuron stimulation experiments, defined as the average evoked z-scored activity in each non-targeted photoactivated x1 neuron after photostimulation of a single targeted cell. To estimate the amount of functional coupling within the x1 network, we considered the percentage of x1→x1 pairs that had influence scores higher than the highest x1→x2 pair, which had a z score of around 0.6 (Fig. 4a (right, vertical line)). The fraction of x1→x1 pairs above this threshold was around 36% (Fig. 4a (right)). These data suggest that VMHvlEsr1 neurons that contribute to the line attractor form relatively dense functional ensembles, consistent with theory-based predictions40.\n我们观察到的功能连接可能来自一个稀疏但强烈互连的神经元群体，或者来自一个具有中等强度更密集连接的群体。为了评估这一点，我们计算了在单个神经元刺激实验中成对影响分数的分布，定义为在光刺激单个目标细胞后每个非目标光激活 $x_{1}$ 神经元中平均诱发的 z 评分活动。为了估计 $x_{1}$ 网络内的功能耦合量，我们考虑了具有高于最高 $x_{1}$ 到 $x_{2}$ 对（z 评分约为 0.6）的影响分数的 $x_{1}$ 到 $x_{1}$ 对的百分比。超过这个阈值的 $x_{1}$ 到 $x_{1}$ 对的比例约为 36%。这些数据表明，贡献线性吸引子的 VMHvlEsr1 神经元形成了相对密集的功能集合，这与基于理论的预测一致。\nWe next used computational approaches to investigate the kinetics of the observed functional connectivity within x1 ensembles. Such connectivity could reflect either fast, glutamatergic synapses, as typically assumed for most attractor networks40; or they could be slow neuromodulator-based connections that use GPCR-mediated second messenger pathways to sustain long-time-scale changes in synaptic conductance. To investigate systematically the density and synaptic kinetics of networks capable of generating line attractorlike dynamics with the measured integration-dimension (x1) network time constants, we turned to mechanistic modelling using an excitatory integrate and fire network7 (Fig. 4b). As VMHvl is \u003e80% glutamatergic42, we used excitatory networks and analytically calculated the network time constant using an eigen-decomposition of the connectivity matrix40 (Extended Data Fig. 11a). By varying the synaptic conductance time constant (τs) and the density of the integration subnetwork connectivity, we found that only artificial networks based on relatively sparse connectivity (around 8–12%) and slow synaptic time constants (around 20 s) could yield network time constants (τn) in the experimentally observed range (~50–200 s; Fig. 4c,e (red shading)). By contrast, networks with fast glutamatergic connectivity failed to do so over the same range of connection densities (Fig. 4d,f).\n接下来，我们使用计算方法来研究 $x_{1}$ 集合内观察到的功能连接的动力学。这种连接可能反映了快速的谷氨酸能突触，通常被认为是大多数吸引子网络的特征; 或者它们可能是使用 GPCR 介导的第二信使通路来维持突触电导长时间尺度变化的慢速神经调节剂连接。为了系统地调查能够生成具有测量的积分维度（$x_{1}$）网络时间常数的线性吸引子样动力学的网络的密度和突触动力学，我们转向使用兴奋性积分和发放网络进行机制建模。由于 VMHvl 中超过 80% 是谷氨酸能，我们使用兴奋性网络并通过对连接矩阵进行特征分解来分析计算网络时间常数。通过改变突触电导时间常数（$\\tau_{s}$）和积分子网络连接的密度，我们发现只有基于相对稀疏连接（约 8-12%）和慢速突触时间常数（约 20 秒）的人工网络才能在实验观察范围内产生网络时间常数（$\\tau_{n}$）（约 50-200 秒）。相比之下，具有快速谷氨酸能连接的网络在相同范围的连接密度下无法做到这一点。\nIn these purely excitatory network models, the density of connections that yielded network time constants in the observed range was much lower than the experimentally measured value (36%). To match more accurately the empirically observed connection density, we incorporated excitation-recruited fast-feedback inhibition into our integrate-and-fire network7, as VMHvl is known to receive dense GABAergic innervation from surrounding areas43,44. The addition of global strong feedback inhibition allowed networks to match the observed connection density (36%) but, importantly, maintained the slow nature of the functional connectivity (20 s; Fig. 4g and 4h (left)). Indeed, networks simulated with a long τs (20s) and dense σ (36%) could integrate digital optogenetic stimulation in a manner like that observed experimentally (Fig. 4i,j). By contrast, purely glutamatergic networks (τs = 100 ms) were unable to integrate at the observed timescales given the measured connectivity density (Fig. 4h (right) and 4k–l). Together, these results suggest an implementation of the VMHvlEsr1 line attractor that combines slow neurotransmission and relatively dense41 subnetwork interconnectivity within an attractor-creating ensemble.\n在这些纯兴奋性网络模型中，产生观察范围内网络时间常数的连接密度远低于实验测量值（36%）。为了更准确地匹配经验观察到的连接密度，我们在我们的积分和发放网络中加入了兴奋性招募的快速反馈抑制，因为已知 VMHvl 从周围区域接收密集的 GABA 能支配。全局强反馈抑制的加入使网络能够匹配观察到的连接密度（36%），但重要的是，保持了功能连接的慢速特性（20 秒）。确实，使用长 $\\tau_{s}$（20 秒）和密集 $\\sigma$（36%）模拟的网络可以以类似于实验观察到的方式整合数字光遗传学刺激。相比之下，纯谷氨酸能网络（$\\tau_{s} = 100,\\mathrm{ms}$）在给定测量的连接密度时无法在观察到的时间尺度上进行积分。总之，这些结果表明 VMHvlEsr1 线性吸引子的实现结合了慢速神经传递和相对密集的子网络互连。\nAttractor stability ties to connectivity The observed dynamics along the integration dimension exhibits two important characteristics that can reflect the stability of the line attractor, ramping activity up; and slow decay down the integrator (Fig. 5a). Both of these characteristics might either be intrinsic or be driven by external inputs to the line attractor5,40. Previously, we observed that individual differences in aggressiveness among mice were positively correlated with the stability and decay of the VMHvl line attractor during aggression5. We therefore investigated whether individual differences in line-attractor ramping or rate of decay might also be correlated with the strength of functional connectivity within the x1 ensemble (Fig. 5b–d). We plotted either the x1 decay time constants, or the rate of ramp up along the x1 dimension (obtained from rSLDS models fit to each mouse using data recorded during attack observation), against different quantitative metrics of functional connectivity between targeted x1 or x2 neurons and their non-targeted putative follower cells (obtained from the same animals by single-cell optogenetic stimulation and imaging after removal of the demonstrator intruder mice) (Fig. 5d,e and Extended Data Fig. 12a).\n在积分维度上观察到的动力学表现出两个重要特征，可以反映线性吸引子的稳定性：活动的上升; 和沿着积分器的缓慢衰减。这两个特征可能是内在的，也可能是由线性吸引子的外部输入驱动的。之前，我们观察到小鼠之间攻击性的个体差异与攻击期间 VMHvl 线性吸引子的稳定性和衰减呈正相关。因此，我们调查了线性吸引子上升或衰减率的个体差异是否也可能与 $x_{1}$ 集合内功能连接的强度相关。我们将 $x_{1}$ 衰减时间常数或沿着 $x_{1}$ 维度的上升率（从使用攻击观察期间记录的数据拟合到每只小鼠的 rSLDS 模型获得）与针对 $x_{1}$ 或 $x_{2}$ 神经元及其非目标假定追随者细胞之间不同定量指标的功能连接（通过单细胞光遗传学刺激和成像从同一动物获得，在移除示范者入侵小鼠后）进行绘图。\nNotably, there was a strong correlation across mice between the time constant (decay) of the line attractor measured during the observation of aggression, and the strength of functional connectivity among integration-dimension (x1) neurons measured by post-observation optogenetic stimulation (Extended Data Fig.12c,d). The strength of this correlation was higher after the third stimulus (r2 = 0.87) compared with after the first stimulus (r2 = 0.59) (Fig. 5g and Extended Data Fig. 12b), indicating that individual differences in the attractor time constant become more apparent once the system has already integrated several inputs, thereby taking longer to decay. By contrast, there was no correlation between functional connectivity and the rate of ramp-up, suggesting that the latter might be driven by extrinsic inputs to the VMHvl (Fig. 5f and Extended Data Fig. 12b–d). Importantly, the correlation between attractor stability and functional connectivity was specific to neurons in the integration (x1) subnetwork, and did not hold when rSLDS time constants were compared with the influence strength of targeted x1 neurons on x2 cells (Extended Data Fig. 12e–h). Thus, individual differences among mice in the stability of the line attractor during the observation of aggression are correlated with individual differences in the functional connection strength among attractor-contributing neurons.\n值得注意的是，在观察攻击期间测量的线性吸引子时间常数（衰减）与通过观察后光遗传学刺激测量的积分维度（$x_{1}$）神经元之间的功能连接强度在小鼠之间存在强烈相关性。这种相关性的强度在第三次刺激后（$r^{2} = 0.87$）比第一次刺激后（$r^{2} = 0.59$）更高，表明当系统已经整合了几个输入时，吸引子时间常数的个体差异变得更加明显，因此需要更长时间才能衰减。相比之下，功能连接与上升率之间没有相关性，表明后者可能由 VMHvl 的外部输入驱动。重要的是，吸引子稳定性与功能连接之间的相关性特定于积分（$x_{1}$）子网络中的神经元，并且当 rSLDS 时间常数与目标 $x_{1}$ 神经元对 $x_{2}$ 细胞的影响强度进行比较时，这种相关性不成立。因此，小鼠之间在观察攻击期间线性吸引子稳定性的个体差异与吸引子贡献神经元之间功能连接强度的个体差异相关。\nDiscussion Using model-guided closed-loop all-optical experiments, we provide causal evidence of line attractor-like dynamics in a mammalian system (Fig. 5h,i). Our data and modelling also provide insights into the implementation of the approximate line attractor5. We found evidence of relatively dense, selective connectivity among a physiologically distinct subset of Esr1+ neurons. Whether this subset corresponds to one of the transcriptomically distinct subtypes of Esr1+ neurons remains to be determined31. Our models confirm the importance of rapid feedback inhibition7, consistent with studies of the Drosophila ring attractor21,45. However they differ from most continuous attractor models3,40 by invoking slow neuromodulatory transmission rather than fast glutamatergic excitation. Numerous theoretical studies have posited that continuous attractors relying on recurrent glutamatergic connectivity require precise tuning of synaptic weights to sustain stable attractor dynamics40,46,47. By contrast, the inclusion of slow neurotransmission in our mechanistic models yielded network time constants in the observed range across a wide range of connectivity densities. This slow neurotransmission may have evolved not only to ensure attractor robustness, but also to implement the relatively long time scales of internal affective or motive states. These slow dynamics could be implemented by GPCR-mediated signalling triggered by biogenic amines or neuropeptides48. Consistent with this prediction, we have recently found that VMHvl line-attractor dynamics and aggression are dependent on signalling through oxytocin and/or vasopressin neuropeptide receptors expressed in Esr1+ neurons49. However, that does not exclude a contribution from recurrent glutamatergic excitation in the ventromedial hypothalamus, as in line attractors that mediate cognitive functions on shorter time scales.\n通过模型指导的闭环全光学实验，我们提供了哺乳动物系统中线性吸引子样动力学的因果证据。我们的数据和建模还提供了对近似线性吸引子实现的见解。我们发现 Esr1+ 神经元的一个生理上不同的子集之间存在相对密集、选择性的连接。这个子集是否对应于 Esr1+ 神经元的转录组学不同亚型之一还有待确定。我们的模型确认了快速反馈抑制的重要性，这与 Drosophila 环形吸引子研究一致。然而，它们通过调用慢速神经调节传递而不是快速谷氨酸能兴奋，与大多数连续吸引子模型不同。许多理论研究假设，依赖于递归谷氨酸能连接的连续吸引子需要精确调整突触权重以维持稳定的吸引子动力学。相比之下，在我们的机制模型中包含慢速神经传递在广泛的连接密度范围内产生了观察范围内的网络时间常数。这种慢速神经传递可能不仅进化以确保吸引子的鲁棒性，还进化以实现内部情感或动机状态的相对长时间尺度。这些慢速动力学可以由 GPCR 介导的信号传导实现，该信号传导由生物胺或神经肽触发。与这一预测一致，我们最近发现 VMHvl 线性吸引子动力学和攻击依赖于 Esr1+ 神经元中表达的催产素和/或加压素神经肽受体介导的信号传导。然而，这并不排除在下丘脑腹内侧区中递归谷氨酸能兴奋的贡献，就像在介导较短时间尺度认知功能的线性吸引子中一样。\nLastly, our observations indicate a pronounced correlation between individual differences in the functional strength of integration subnetwork connectivity and differences in the measured stability of the line attractor, perhaps reflecting a leaky integrator. We previously found that, in freely behaving animals, individual differences in attractor stability were correlated with individual differences in aggressiveness5. By transitivity, this suggests that individual differences in the strength of functional connectivity within the attractor network might underlie individual differences in aggressiveness. As these differences are observed among genetically identical inbred mice, these observations suggest that attributes of the attractor, such as its connectivity density or strength, may be modifiable (either by epigenetic mechanisms and/or experience). Deciphering the underlying mechanisms that afford this attractor its apparent flexibility while maintaining its robustness represents a promising avenue for future research.\n最后，我们的观察表明，积分子网络连接的功能强度的个体差异与线性吸引子测量稳定性的差异之间存在明显相关性，这可能反映了一个泄漏积分器。我们之前发现，在自由行为的动物中，吸引子稳定性的个体差异与攻击性的个体差异相关。通过传递性，这表明吸引子网络内功能连接强度的个体差异可能是攻击性个体差异的基础。由于这些差异在遗传上相同的近交小鼠中观察到，这些观察表明，吸引子的属性，如其连接密度或强度，可能是可修改的（无论是通过表观遗传机制和/或经验）。破译赋予这个吸引子其明显灵活性的潜在机制，同时保持其鲁棒性，是未来研究的一个有前途的途径。\n",
+  "wordCount" : "12635",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/05/11/fhU8/20260511130416581.png","datePublished": "2026-05-11T00:18:23+08:00",
+  "dateModified": "2026-05-11T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/causal-evidence-of-a-line-attractor-encoding-an-affective-state/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                Causal evidence of a line attractor encoding an affective state
+            </h1>
+            <div class="post-description">
+                线性吸引子编码情感状态的因果证据
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-05-11
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>12635字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>26分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/line-attractor/" style="color: var(--secondary)!important;">Line Attractor</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/05/11/fhU8/20260511130416581.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#line-attractor-for-observing-aggression" aria-label="Line attractor for observing aggression">Line attractor for observing aggression</a></li>
+                <li>
+                    <a href="#holographic-activation-shows-integration" aria-label="Holographic activation shows integration">Holographic activation shows integration</a></li>
+                <li>
+                    <a href="#line-attractor-neurons-form-ensembles" aria-label="Line-attractor neurons form ensembles">Line-attractor neurons form ensembles</a></li>
+                <li>
+                    <a href="#attractor-stability-ties-to-connectivity" aria-label="Attractor stability ties to connectivity">Attractor stability ties to connectivity</a></li>
+                <li>
+                    <a href="#discussion" aria-label="Discussion">Discussion</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>Continuous attractors are an emergent property of neural population dynamics that have been hypothesized to encode continuous variables such as head direction and eye position1–4. In mammals, direct evidence of neural implementation of a continuous attractor has been hindered by the challenge of targeting perturbations to specific neurons within contributing ensembles2,3.</p>
+</blockquote>
+<p>连续吸引子是神经群体动力学的一个涌现属性，被假设为编码连续变量，如头部方向和眼睛位置。在哺乳动物中，直接证据表明连续吸引子的神经实现受到挑战，因为很难针对贡献集合中的特定神经元进行干扰。</p>
+<blockquote>
+<p>Dynamical systems modelling has revealed that neurons in the hypothalamus exhibit approximate line-attractor dynamics in male mice during aggressive encounters5. We have previously hypothesized that these dynamics may encode the variable intensity and persistence of an aggressive internal state. Here we report that these neurons also showed line-attractor dynamics in head-fixed mice observing aggression6. This allowed us to identify and manipulate line-attractor-contributing neurons using two-photon calcium imaging and holographic optogenetic perturbations.</p>
+</blockquote>
+<p>动力系统建模已经揭示，在雄性小鼠的攻击遭遇期间，下丘脑中的神经元表现出近似线性吸引子动力学。我们之前假设这些动力学可能编码攻击内部状态的变量强度和持久性。在这里，我们报告这些神经元在观察攻击的头固定小鼠中也表现出线性吸引子动力学。这使我们能够使用双光子钙成像和全息光遗传学干扰来识别和操纵线性吸引子贡献神经元。</p>
+<blockquote>
+<p>On-manifold perturbations yielded integration of optogenetic stimulation pulses and persistent activity that drove the system along the line attractor, while transient off-manifold perturbations were followed by rapid relaxation back into the attractor. Furthermore, single-cell stimulation and imaging revealed selective functional connectivity among attractor-contributing neurons. Notably, individual differences among mice in line-attractor stability were correlated with the degree of functional connectivity among attractor-contributing neurons.</p>
+</blockquote>
+<p>流形上的干扰产生了光遗传学刺激脉冲的积分和持续活动，推动系统沿着线性吸引子前进，而短暂的流形外干扰则迅速回到吸引子中。此外，单细胞刺激和成像揭示了吸引子贡献神经元之间的选择性功能连接。值得注意的是，小鼠之间在线性吸引子稳定性的个体差异与吸引子贡献神经元之间功能连接的程度相关。</p>
+<blockquote>
+<p>Mechanistic recurrent neural network modelling indicated that dense subnetwork connectivity and slow neurotransmission7 best recapitulate our empirical findings. Our work bridges circuit and manifold levels3, providing causal evidence of continuous attractor dynamics encoding an affective internal state in the mammalian hypothalamus.</p>
+</blockquote>
+<p>机械递归神经网络建模表明，密集的子网络连接和慢速神经传递最能重现我们的实证发现。我们的工作桥接了电路和流形水平，提供了连续吸引子动力学编码哺乳动物下丘脑中情感内部状态的因果证据。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>Neural circuit function has been studied from two vantage points.</p>
+<p>One focuses on understanding behaviourally specialized neuron types and their functional connectivity, whereas the other investigates emergent properties of neural networks, such as attractors. Continuous attractors of different topologies are theorized to encode a variety of continuous variables, ranging from head direction12, location in space2,reward history14 to internal states.</p>
+</blockquote>
+<p>神经回路功能从两个角度进行研究。</p>
+<p>一个侧重于理解行为专门化的神经类型及其功能连接，而另一个则研究神经网络的涌现属性，如吸引子。不同拓扑结构的连续吸引子被理论化为编码各种连续变量，从头部方向、空间位置、奖励历史到内部状态。</p>
+<blockquote>
+<p>Recent data-driven methodologies have allowed for the identification of such attractor-mediated computations directly in neural data. Consequently, attractor dynamics have received increasing attention as a major type of neural coding mechanism.</p>
+</blockquote>
+<p>最近的数据驱动方法已经允许直接在神经数据中识别这种吸引子介导的计算。因此，吸引子动力学作为一种主要的神经编码机制受到了越来越多的关注。</p>
+<blockquote>
+<p>Despite this progress, establishing that these attractors arise from the dynamics of the observed network remains a formidable challenge. This calls for combining large-scale recordings with perturbations of neuronal activity invivo. Although this has been accomplished for a point attractor that controls motor planning in cortical area anterolateral motor cortex17,18, spatial ensembles in visual cortex that encode visually guided behaviours19,20 and for a ring attractor  in Drosophila, there is no study reporting such perturbations for a continuous attractor in any mammalian system. While theoretical work on continuous attractors in mammals is well developed2, the lack of direct, neural-perturbation-based experimental evidence of such attractor dynamics has hindered progress towards a mechanistic circuit-level understanding of such emergent manifold-level network features3.</p>
+</blockquote>
+<p>除了这一进展之外，建立这些吸引子是由观察到的网络动力学产生的仍然是一个艰巨的挑战。这需要结合大规模记录和体内神经活动的微扰。虽然这已经在控制皮层前侧运动区中的运动计划的点吸引子、编码视觉引导行为的视觉皮层空间集合以及 Drosophila 中的环形吸引子中实现，但没有研究报告了任何哺乳动物系统中连续吸引子的这种干扰。虽然关于哺乳动物连续吸引子的理论工作已经得到很好的发展，但缺乏直接基于神经干扰的实验证据阻碍了对这种涌现流形级网络特征的机制回路级理解的进展。</p>
+<blockquote>
+<p>Oestrogen receptor type 1 (Esr1)-expressing neurons in the ventrolateral subdivision of the ventromedial hypothalamus (VMHvlEsr1) comprise a key node in the social behaviour network and have been causally implicated in aggression. Calcium imaging of these neurons in freely behaving animals has revealed mixed selectivity and variable dynamics, with time-locked attack signals sparsely represented at the single-neuron level. Application of dynamical system modelling27 has revealed an approximate line attractor in the VMHvl that correlates with the intensity of agonistic behaviour, suggesting a populationlevel encoding of a continuously varying aggressive internal state5. This raises the question of whether the observation of a line attractor in a statistical dynamical systems model fit to VMHvlEsr1 neuronal activity reflects inherited dynamics or can be instantiated locally.</p>
+</blockquote>
+<p>腹内侧下丘脑腹外侧亚区（VMHvlEsr1）中表达雌激素受体类型1（Esr1）的神经元组成了社交行为网络中的一个关键节点，并且已经被因果地涉及到攻击行为中。在自由行为动物中对这些神经元进行钙成像已经揭示了混合选择性和可变动力学，在单神经元水平上稀疏地表示了时间锁定的攻击信号。动力系统建模的应用已经揭示了 VMHvl 中一个近似线性吸引子与攻击行为的强度相关，这表明了连续变化的攻击内部状态的人口水平编码。这引出了一个问题，即在统计动力系统模型中观察到的 VMHvlEsr1 神经活动中的线性吸引子是否反映了继承的动力学，还是可以在局部实例化。</p>
+<blockquote>
+<p>This question can be addressed, in principle, using all-optical methods to observe and perturb line-attractor-relevant neural activity3,28–30. A challenge in applying these methods during aggression is that current technology requires head-fixed preparations, and head-fixed mice cannot fight. To overcome this challenge, we took advantage of a recent observation that VMHvl-progesterone receptor neurons (which encompass the Esr1+ subset)31–33 mirror observed interindividual aggression6, to instantiate the line attractor in head-fixed mice. Using this preparation, we performed model-guided, closed-loop on- and off-manifold perturbations34 of VMHvlEsr1 activity. These experiments demonstrate that the VMHvl line attractor indeed reflects causal neural dynamics in this nucleus. They also identified selective functional connectivity within attractor-weighted ensembles, suggesting a local circuit implementation of attractor dynamics. Modelling suggests that this implementation may incorporate slow neurotransmission. Collectively, our findings elucidate a circuit-level foundation for a continuous attractor in the mammalian brain.</p>
+</blockquote>
+<p>这个问题原则上可以使用全光学方法来观察和干扰线性吸引子相关的神经活动来解决。在攻击期间应用这些方法的一个挑战是当前技术需要头固定的准备，而头固定的小鼠无法战斗。为了克服这个挑战，我们利用了最近的观察，即 VMHvl 孕酮受体神经元（包括 Esr1+ 亚群）镜像了观察到的个体间攻击行为，在头固定的小鼠中实例化了线性吸引子。使用这种准备，我们进行了模型指导的闭环流形内和流形外干扰 VMHvlEsr1 活动。这些实验表明，VMHvl 线性吸引子确实反映了该核中的因果神经动力学。它们还确定了吸引子加权集合内的选择性功能连接，表明了吸引子动力学的局部回路实现。建模表明，这种实现可能包含慢速神经传递。总的来说，我们的发现阐明了哺乳动物大脑中连续吸引子的回路级基础。</p>
+<h1 id="line-attractor-for-observing-aggression">Line attractor for observing aggression<a hidden class="anchor" aria-hidden="true" href="#line-attractor-for-observing-aggression">#</a></h1>
+<blockquote>
+<p>Recent studies have demonstrated that the VMHvl contains neurons that are active during passive observation of, as well as active participation in, aggression and that reactivating the former can evoke aggressive behaviour6. However, those findings were based on a relatively small sample of VMHvl neurons, which might comprise a specific subset distinct from those contributing to the line attractor (the latter represent around 20–25% of Esr1+ neurons5). To assess whether these mirror-like responses can be observed in Esr1+ neurons that contribute to line-attractor dynamics, we performed microendoscopic imaging35 of VMHvlEsr1 neurons expressing jGCaMP7s in the same freely behaving animals during engagement in followed by observation of aggression (Extended Data Fig. 1a–e). Analysis using recurrent switching linear dynamical systems (rSLDS)27 to fit a statistical model to each dataset (Extended Data Fig. 1f) revealed an approximate line attractor under both conditions, exhibiting ramping and persistent activity aligned and maintained across both performed and observed attack sessions (Extended Data Figs. 1g–q, 2 and 3a–f). Activity during observation of aggression in the integration dimension (x1), which contributes to the line attractor, could be reliably used to decode from held-out data instances of both observation of and engagement in attack, suggesting that this dimension encodes a similar internal state variable under both conditions (Extended Data Fig. 3g,h). Moreover, the integration dimension was weighted by a consistent and aligned set of neurons under both conditions, suggesting that a highly overlapping set of neurons (70%) contributes to line-attractor dynamics during observing or engaging in attack (Extended Data Fig. 4a–d).</p>
+</blockquote>
+<p>最近的研究表明，VMHvl 包含在被动观察以及积极参与攻击期间活跃的神经元，并且重新激活前者可以引发攻击行为。然而，这些发现是基于相对较小的 VMHvl 神经元样本，这些神经元可能包含一个特定的亚群，与那些贡献线性吸引子的神经元不同（后者占 Esr1+ 神经元的约 20-25%）。为了评估是否可以在贡献线性吸引子动力学的 Esr1+ 神经元中观察到这些镜像反应，我们在同一自由行为动物中进行微内窥镜成像，观察参与攻击和观察攻击期间表达 jGCaMP7s 的 VMHvlEsr1 神经元。使用递归切换线性动力系统（rSLDS）分析为每个数据集拟合统计模型，揭示了在两种条件下都存在近似线性吸引子，在执行和观察攻击会话中对齐并保持上升和持续活动。在积分维度（$x_{1}$）中的活动有助于线性吸引子，可以可靠地用于从保留的数据实例中解码观察和参与攻击的实例，表明这个维度在两种条件下编码了一个类似的内部状态变量。此外，在两种条件下，积分维度由一组一致且对齐的神经元加权，表明在观察或参与攻击期间，有一个高度重叠的神经元集合（70%）贡献了线性吸引子动力学。</p>
+<blockquote>
+<blockquote>
+<p>Fig.1 | Attractor dynamics in head-fixed mice observing aggression</p>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/05/11/Qm1v/20260511135418978.png" alt=""  />
+a, The experimental paradigm for 2P imaging in head-fixed mice observing aggression. b, Representative FOV through a GRIN lens in the 2P set-up (top). Bottom, fluorescence image of a coronal slice showing expression of jGCaMP7s and ChRmine. Scale bars, 100 μm.</p>
+</blockquote>
+<p>a, 2P 成像观察头固定的小鼠攻击的实验范例。b, 通过 GRIN 镜头在 2P 设置中的代表性 FOV（顶部）。底部，显示 jGCaMP7s 和 ChRmine 表达的冠状切片的荧光图像。比例尺，100 μm。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/05/11/Bp2z/20260511135728314.png" alt=""  /></p>
+<p>c, Neural and behavioural raster from an example mouse observing aggression in the 2P set-up (left). The arrows indicate insertion of submissive BALB/c intruders into the observation chamber for interaction with an aggressive Swiss Webster (SW) mouse. Right, example neurons from the raster to the left.</p>
+</blockquote>
+<p>c, 在 2P 设置中观察攻击的示例小鼠的神经和行为光栅图（左）。箭头表示将顺从的 BALB/c 入侵者插入观察室与攻击性的 Swiss Webster（SW）小鼠进行互动。右侧，来自左侧光栅图的示例神经元。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/05/11/M1nr/20260511135845650.png" alt=""  /></p>
+<p>d, Neural activity projected onto rSLDS dimensions obtained from models fit to 2P imaging data in one example mouse. e, rSLDS time constants across mice. n = 9 mice. Statistical analysis was performed using two-tailed Mann–Whitney U-tests. Data are mean ± s.e.m. f, The line-attractor score (Methods) across mice. n = 9 mice. Data are mean ± s.e.m. g , Behaviour-triggered average of x1 and x2 dimensions, aligned to the introduction of BALB/c mice into the resident’s cage. n = 9 mice. Data are the average activity (dark line) ± s.e.m. (shading).</p>
+</blockquote>
+<p>d, 投影到从一个示例小鼠的 2P 成像数据拟合的模型中获得的 rSLDS 维度上的神经活动。</p>
+<p>e, 小鼠的 rSLDS 时间常数。$n = 9$ 只小鼠。统计分析使用双尾 Mann–Whitney U 检验进行。数据为平均值 $\pm \mathrm{s.e.m.}$</p>
+<p>f, 小鼠的线性吸引子得分（方法）。$n = 9$ 只小鼠。数据为平均值 $\pm \mathrm{s.e.m.}$</p>
+<p>g, $x_{1}$ 和 $x_{2}$ 维度的行为触发平均值，对齐到将 BALB/c 小鼠引入居民笼子的时间点。$n = 9$ 只小鼠。数据为平均活动（深线）$\pm \mathrm{s.e.m.}$（阴影）。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/05/11/Eu7g/20260511140757386.png" alt=""  /></p>
+<p>h, Flow fields from rSLDS model fit to 2P imaging data during observation of aggression from one example mouse. The larger blue arrows  next to the neural trajectory indicate the direction flow of time. The smaller arrows represent the vector field from the rSLDS model. i, Identification of neurons contributing to x1 dimension from rSLDS model (top). The neuron’s weight is shown as an absolute (abs) value. Bottom, activity heat map of five neurons contributing most strongly to the x1 dimension. Right, neural traces of the same neurons and an indication of when the system enters the line attractor. j, As in i but for the x2 dimension.</p>
+</blockquote>
+<p>h, 从一个示例小鼠的 2P 成像数据拟合的 rSLDS 模型的流场。在神经轨迹旁边的较大的蓝色箭头表示时间流动的方向。较小的箭头表示 rSLDS 模型的向量场。</p>
+<p>i, 从 rSLDS 模型中识别贡献 $x_{1}$ 维度的神经元（顶部）。神经元的权重以绝对值（abs）显示。底部，五个对 $x_{1}$ 维度贡献最强的神经元的活动热图。右侧，同一神经元的神经迹线和系统进入线性吸引子的指示。</p>
+<p>j, 与 i 类似，但针对 $x_{2}$ 维度。神经元的权重以绝对值（abs）显示。底部，五个对 $x_{2}$ 维度贡献最强的神经元的活动热图。右侧，同一神经元的神经迹线和系统进入线性吸引子的指示。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/05/11/2hqA/20260511141055433.png" alt=""  /></p>
+<p>k, Dynamic velocity landscape from 2P imaging data during observation of aggression from one example mouse. Blue, stable area in the landscape; red, unstable area in the landscape. The black line shows the trajectory of neuronal activity.</p>
+</blockquote>
+<p>k, 从一个示例小鼠的 2P 成像数据中观察攻击期间的动态速度景观。蓝色，景观中的稳定区域；红色，景观中的不稳定区域。黑线显示神经活动的轨迹。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/05/11/C6hk/20260511141143915.png" alt=""  /></p>
+<p>l, The cumulative distributions of the autocorrelation half width (ACHW) of neurons contributing to the x1 (green) and x2 (red) dimensions. n = 9 mice, 45 neurons each for the x1 and x2 distributions.</p>
+</blockquote>
+<p>l, 贡献 $x_{1}$（绿色）和 $x_{2}$（红色）维度的神经元的自相关半宽（ACHW）的累积分布。$n = 9$ 只小鼠，每个 $x_{1}$ 和 $x_{2}$ 分布各 45 个神经元。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/05/11/f3kR/20260511141519705.png" alt=""  /></p>
+<p>m, The mean autocorrelation half width (HW) across mice for neurons contributing to the x1 and x2 dimensions. n = 9 mice. Statistical analysis was performed using a two-tailed Mann–Whitney U-test; **P = 0.0078. Data are mean ± s.e.m. ****P &lt; 0.0001, **P &lt; 0.01.</p>
+</blockquote>
+<p>m, 贡献 $x_{1}$ 和 $x_{2}$ 维度的神经元在小鼠之间的平均自相关半宽（HW）。$n = 9$ 只小鼠。统计分析使用双尾 Mann–Whitney U 检验进行；**P = 0.0078。数据为平均值 $\pm \mathrm{s.e.m.}$ $****P &lt; 0.0001$, $**P &lt; 0.01$。</p>
+</blockquote>
+<blockquote>
+<p>The dynamical systems analysis also revealed a dimension orthogonal to the integration dimension (x2) that displayed faster dynamics time locked to the entry of the intruder(s) in both conditions (Extended Data Fig. 1g–l). To examine whether the neurons contributing to the two dimensions (x1 and x2 neurons) can be separated on the basis of physiological properties, we examined their baseline activity when solitary animals were exploring their home cage before any interaction. We did not detect a difference in amplitude or decay constant (tau) between x1 and x2 neurons (Extended Data Fig. 4e–i). However, we did see a slightly but significantly higher frequency of spontaneous calcium transients in x2 neurons (Extended Data Fig.4f,g), suggesting that x2 neurons are more spontaneously active than x1 neurons when no interaction is taking place.</p>
+</blockquote>
+<p>动力学系统分析还揭示了一个与积分维度（$x_{1}$）正交的维度（$x_{2}$），在两种条件下都显示出与入侵者进入时间锁定的更快动态。为了检查基于生理特性是否可以区分贡献两个维度（$x_{1}$ 和 $x_{2}$ 神经元）的神经元，我们检查了它们在孤立动物在任何交互之前探索其家庭笼子时的基线活动。我们没有检测到 $x_{1}$ 和 $x_{2}$ 神经元之间的幅度或衰减常数（tau）的差异。然而，我们确实看到 $x_{2}$ 神经元的自发钙瞬变频率略高但显著高于 $x_{1}$ 神经元，表明当没有交互发生时，$x_{2}$ 神经元比 $x_{1}$ 神经元更自发地活跃。</p>
+<blockquote>
+<p>While these observed attractor dynamics could be generated in the VMHvl, they might also arise from unmeasured ramping sensory input or dynamics inherited from an input brain region. Although behavioural perturbations in previous studies have hinted at the intrinsic  nature of VMHvl line-attractor dynamics, a rigorous test requires direct neuronal perturbations targeted to cells that contribute to the attractor. Direct on-manifold perturbation of a continuous attractor has previously been performed only in the Drosophila head direction system. In mammals, although a point attractor has been perturbed off-manifold using optogenetic manipulation, direct single-cell perturbations of neurons contributing to a continuous attractor invivo have not been reported.</p>
+</blockquote>
+<p>虽然这些观察到的吸引子动力学可能在 VMHvl 中产生，但它们也可能来自未测量的上升感觉输入或从输入大脑区域继承的动力学。虽然之前的行为干扰已经暗示了 VMHvl 线性吸引子动力学的内在性质，但严格的测试需要针对贡献吸引子的细胞进行直接神经干扰。连续吸引子的直接流形内干扰之前只在 Drosophila 头部方向系统中进行过。在哺乳动物中，虽然点吸引子已经使用光遗传学操作进行了流形外干扰，但尚未报道对连续吸引子贡献神经元的直接单细胞干扰。</p>
+<blockquote>
+<p>To do this, we used two-photon (2P) imaging in head-fixed mice of VMHvlEsr1 neurons expressing jGCaMP7s38 after observation of aggression and removal of the demonstrator mice (Fig. 1a–c). As described above, during observation of aggression by the head-fixed mice, rSLDS analysis identified an integration dimension with slow dynamics (x1) aligned to an approximate line attractor, and an orthogonal dimension with faster dynamics (x2) (Fig. 1d–h,k). We used the mapping between neural activity and the underlying state space to directly identify neurons contributing to each dimension (Fig. 1i,j). Neurons contributing to the integration dimension displayed more persistence than those aligned with the faster dimension (Fig. 1g,l,m). Importantly, only a small fraction of the neural activity could be explained by movements of the observer mouse (Extended Data Fig. 5a–e). Thus, a line attractor can be recapitulated in head-fixed mice observing aggression, opening the way to 2P-based perturbation experiments.</p>
+</blockquote>
+<p>为此，我们在头固定的小鼠中使用双光子（2P）成像，观察攻击后表达 jGCaMP7s 的 VMHvlEsr1 神经元。在头固定的小鼠观察攻击期间，rSLDS 分析确定了一个具有慢动态的积分维度（$x_{1}$），与近似线性吸引子对齐，以及一个具有更快动态的正交维度（$x_{2}$）。我们使用神经活动与基础状态空间之间的映射来直接识别贡献每个维度的神经元。贡献积分维度的神经元比那些与更快维度对齐的神经元显示出更多的持久性。重要的是，只有一小部分神经活动可以通过观察者小鼠的运动来解释。因此，可以在观察攻击的头固定小鼠中重现线性吸引子，为基于 2P 的干扰实验打开了道路。</p>
+<h1 id="holographic-activation-shows-integration">Holographic activation shows integration<a hidden class="anchor" aria-hidden="true" href="#holographic-activation-shows-integration">#</a></h1>
+<blockquote>
+<p>Next, to determine whether VMHvlEsr1 line-attractor dynamics are intrinsic to this hypothalamic nucleus, after removing the demonstrator mice, we performed holographic re-activation of a subset of neurons contributing to the integration dimension (x1) using soma-tagged ChRmine39, which was co-expressed with jGCaMP7s (Fig. 1b (bottom)). These neurons were identified in real-time using rSLDS fitting of data recorded during observation of aggression (in a manual closed loop), followed by 2P single-cell-targeted optogenetic reactivation of those neurons (Fig. 2a). In each field of view (FOV), we concurrently targeted five neurons, chosen on the basis of the criteria that they (1) contributed most strongly to a given dimension (x1 or x2); and (2) could be reliably reactivated by photostimulation (Fig. 2a). Repeated pulses of optogenetic stimulation (2 s, 20 Hz, 5 mW) were delivered with a 20 s interstimulus interval (ISI) (Fig. 2b–d). Under these conditions, we observed minimal off-target effects (Extended Data Fig.6a–h) and did not observe spatial clustering of x1 or x2 neurons (Methods and Extended Data Figs. 6i–k and 7a,b).</p>
+</blockquote>
+<p>接下来，为了确定 VMHvlEsr1 线性吸引子动力学是否是这个下丘脑核的内在属性，在移除示范者小鼠后，我们使用 soma-tagged ChRmine 进行全息重新激活，重新激活贡献积分维度（$x_{1}$）的神经元子集，这些神经元与 jGCaMP7s 共表达。这些神经元通过在观察攻击期间记录的数据进行 rSLDS 拟合实时识别（在手动闭环中），随后对这些神经元进行 2P 单细胞靶向光遗传学重新激活。在每个视野（FOV）中，我们同时针对五个神经元，选择的标准是它们（1）对给定维度（$x_{1}$ 或 $x_{2}$）的贡献最强; 和（2）可以通过光刺激可靠地重新激活。在这些条件下，我们观察到最小的离靶效应，并且没有观察到 $x_{1}$ 或 $x_{2}$ 神经元的空间聚类。</p>
+<blockquote>
+<p>In this paradigm, optogenetically induced activity along the x1 (but not the x2) dimension is predicted to exhibit integration across successive photostimulation pulses, based on the time constants of these dimensions extracted from the fit rSLDS model (Fig. 1e). Consistent with this expectation, optogenetic reactivation of cohorts of five individual x1 neurons yielded robust integration of activity in the entire x1 dimension-weighted population, as evidenced by progressively increasing peak activity during the 20 s ISI after each consecutive pulse (Fig. 2c,d; n = 8 mice). Activity decayed slowly after each peak but did not return to pre-stimulus baseline. Activated x1 neurons exhibited activity levels comparable to their response during observation of aggression (Extended Data Fig. 7d–f). Similar results were obtained using an 8 s ISI (Extended Data Fig. 8a). This activity also scaled with different laser powers (Extended Data Fig. 8e,f). Providing the same (digital optogenetic) input to the fit rSLDS model also resulted in integration by the model along the x1 dimension, similar to that observed in the data (Extended Data Fig.8c). Importantly, x1 stimulation did not evoke appreciable activity in x2 dimension neurons (Extended Data Fig. 8g–i).</p>
+</blockquote>
+<p>在这个范式中，根据从拟合的 rSLDS 模型提取的这些维度的时间常数，沿着 $x_{1}$（而非 $x_{2}$）维度的光遗传学诱导活动预计会在连续光刺激脉冲之间表现出积分。与这一预期一致，对五个单独 $x_{1}$ 神经元群体的光遗传学重新激活在整个 $x_{1}$ 维度加权集群中产生了强烈的活动积分，这可以通过每个连续脉冲后 20 秒 ISI 期间逐渐增加的峰值活动来证明。每个峰值后的活动缓慢衰减，但没有返回到刺激前的基线水平。被激活的 $x_{1}$ 神经元表现出与它们在观察攻击期间响应相当的活动水平。使用 8 秒 ISI 得到了类似的结果。该活动也随着不同激光功率而缩放。向拟合的 rSLDS 模型提供相同（数字光遗传学）输入也导致模型沿着 $x_{1}$ 维度进行积分，类似于数据中观察到的情况。重要的是，$x_{1}$ 刺激没有在 $x_{2}$ 维度神经元中引起明显的活动。</p>
+<blockquote>
+<p>To visualize in neural-state space the effect of reactivating x1 neurons in the absence of demonstrator mice, we projected the data into a 2D flow-field based on the dynamics matrix fit to data acquired during the observation of aggression. Activation pulses transiently moved the population activity vector (PAV) ‘up’ the line attractor, followed by relaxation back down the attractor to a point that was higher than the initial position of the system (Fig. 2e,f). To quantify this effect, we calculated the Euclidean distance in state space between the initial timepoint during the baseline period (tinitial) and the timepoint at the end of stimulation or at the end of the ISI after each pulse (tstim-end and tpost-stim, respectively) (Fig. 2e–h). This revealed that the x1 perturbations resulted in progressive, stable on-manifold movement along the attractor with each consecutive stimulation, as measured by the increase in both metrics (Fig. 2g,h). However, we found that integration of optogenetic stimulation pulses saturated in the x1 dimension after the third pulse, suggesting that the line attractor occupies a finite portion of the neural state space (Extended Data Fig. 9a–d).</p>
+</blockquote>
+<p>为了在神经状态空间中可视化在没有示范者小鼠的情况下重新激活 $x_{1}$ 神经元的效果，我们将数据投影到基于在观察攻击期间获得的数据拟合的动力学矩阵的二维流场中。激活脉冲暂时将群体活动向量（PAV）“向上”移动到线性吸引子上，然后回落到吸引子上的一个点，该点高于系统的初始位置。为了量化这种效果，我们计算了状态空间中基线期间初始时间点（$t_{\text{initial}}$）与每个脉冲后刺激结束或 ISI 结束时的时间点（分别为 $t_{\text{stim-end}}$ 和 $t_{\text{post-stim}}$）之间的欧几里得距离。这揭示了 $x_{1}$ 干扰导致沿着吸引子的逐渐、稳定的流形内运动，每次连续刺激都通过两个指标的增加来衡量。然而，我们发现，在第三次脉冲后，$x_{1}$ 维度的光遗传学刺激脉冲积分饱和，表明线性吸引子占据了神经状态空间的一部分。</p>
+<blockquote>
+<p>Importantly, activation of x2 neurons did not lead to integration (Fig. 2i–k) as predicted by the time constant derived from the fit rSLDS model (Fig. 1e (red bar)). Instead, after each pulse, we observed stimulus-locked transient activity in the x2 dimension followed by a decay back to the baseline during the ISI period, across stimulation paradigms (Fig. 2k and Extended Data Fig. 8b), with little to no effect on x1 neurons (Extended Data Fig. 8j–l). In 2D neural-state space, we observed that x2 neuron activation caused transient off-manifold movements of the PAV orthogonal to the attractor axis during each pulse (Fig. 2l–o). After each stimulus, the PAV relaxed back into the attractor, near to the initial location that it occupied before the stimulus.</p>
+</blockquote>
+<p>重要的是，激活 $x_{2}$ 神经元并没有导致积分，这与从拟合的 rSLDS 模型得出的时间常数预测一致。相反，在每个脉冲之后，我们观察到 $x_{2}$ 维度的刺激锁定瞬态活动，随后在 ISI 期间衰减回基线，在刺激范式中都是如此，对 $x_{1}$ 神经元几乎没有影响。在二维神经状态空间中，我们观察到 $x_{2}$ 神经元激活导致 PAV 在每个脉冲期间沿着吸引子轴正交的流形外运动。在每次刺激后，PAV 放松回吸引子，接近于刺激前占据的初始位置。</p>
+<blockquote>
+<p>To examine further the stability of different points along the line attractor, we performed photostimulation of x2 neurons after first moving activity in neural-state space further along the attractor using photostimulation of x1 neurons (Extended Data Fig. 9e, f). This x2 perturbation also resulted in transient off-manifold movements of the PAV orthogonal to the line attractor, followed by relaxation to the position occupied after the previous x1 stimulation (but before the x2 stimulation), rather than simply relaxing back to the baseline (Extended Data Fig.9g–i). This experiment confirms the attractive nature of different points along the line. Lastly, activation of randomly selected neurons that were not weighted by either dimension did not produce activity along either the x1 or x2 dimension, emphasizing the specificity of our on- and off-manifold holographic activation (Extended Data Fig.9j–n). Activation of either ensemble did not result in overt changes in the behaviour of the head-fixed mouse (Extended Data Fig. 5f–j). Together, these findings demonstrate that a subset of VMHvlEsr1 neurons (x1) can integrate direct optogenetic stimulation, moving the PAV along the line attractor, while a different subset (x2) pushes the PAV out of the attractor.</p>
+</blockquote>
+<p>为了进一步检查沿着线性吸引子不同点的稳定性，我们在使用 $x_{1}$ 神经元的光刺激将神经状态空间中的活动进一步沿着吸引子移动后，进行了 $x_{2}$ 神经元的光刺激。这个 $x_{2}$ 干扰也导致了 PAV 沿着线性吸引子正交的流形外运动，随后放松到之前的 $x_{1}$ 刺激后（但在 $x_{2}$ 刺激之前）占据的位置，而不是简单地放松回基线。这一实验确认了沿着线性吸引子不同点的吸引性质。最后，激活未被任何维度加权的随机选择的神经元并没有在 $x_{1}$ 或 $x_{2}$ 维度上产生活动，强调了我们流形内和流形外全息激活的特异性。激活任一集合都没有导致头固定小鼠行为的明显变化。总之，这些发现表明，VMHvlEsr1 神经元的一个子集（$x_{1}$）可以积分直接光遗传学刺激，使 PAV 沿着线性吸引子移动，而另一个子集（$x_{2}$）则将 PAV 推出吸引子。</p>
+<h1 id="line-attractor-neurons-form-ensembles">Line-attractor neurons form ensembles<a hidden class="anchor" aria-hidden="true" href="#line-attractor-neurons-form-ensembles">#</a></h1>
+<blockquote>
+<p>The integration observed in the abovementioned experiments could reflect a cell-intrinsic mechanism, or it could emerge from recurrent interactions within a network40. To determine whether the latter mechanism contributes to the line attractor, we first examined whether putative x1 follower cells (that is, non-targeted neurons that were photoactivated by stimulation of targeted x1 neurons) exhibited integration. Indeed, even after excluding the targeted x1 neurons themselves as well as potentially off-target neurons located within a 50 μm radius of the targeted cell (Extended Data Figs. 6a–h and 10j–n), we observed integration in the remaining x1 neurons (Extended Data Fig. 10a–c). Moreover, optogenetically evoked integrated activity in targeted x1 neurons could be reliably decoded from the activity of their follower x1 neurons (Extended Data Fig. 10d–f). This decoding was significantly better than that obtained using the activity of non-targeted x2 neurons; furthermore, the x2 activity-based decoder performance was slightly worse than decoders trained on neurons chosen randomly (Extended Data Fig. 10g). These analyses suggest that selective functional connectivity between integration dimension-weighted x1 neurons contributes to line-attractor dynamics in the VMHvl.</p>
+</blockquote>
+<p>在以上实验中观察到的积分可能反映了细胞内在机制，或者它可能来自网络内的递归相互作用。为了确定后者机制是否有助于线性吸引子，我们首先检查了假定的 $x_{1}$ 下游细胞（即，通过刺激目标 $x_{1}$ 神经元而被光激活的非目标神经元）是否表现出积分。确实，即使在排除了被刺激的 $x_{1}$ 神经元本身以及位于目标细胞 $50,\mu\mathrm{m}$ 半径范围内的潜在离靶神经元之后，我们仍然观察到了剩余 $x_{1}$ 神经元中的积分。此外，在目标 $x_{1}$ 神经元中通过光遗传学诱导的集成活动可以从其追随者 $x_{1}$ 神经元的活动中可靠地解码。这种解码明显优于使用非目标 $x_{2}$ 神经元活动获得的解码性能; 此外，基于 $x_{2}$ 活动的解码器性能略逊于基于随机选择神经元训练的解码器。这些分析表明，积分维度加权的 $x_{1}$ 神经元之间的选择性功能连接有助于 VMHvl 中的线性吸引子动力学。</p>
+<blockquote>
+<p>To assess more precisely the extent of functional connectivity among VMHvlEsr1 neurons, we activated unitary x1 or x2 neurons and performed imaging of non-targeted neurons (Fig. 3a). These experiments revealed a slowly decaying elevation of activity during the ISI period in non-targeted x1 neurons after each pulse of activation (Fig. 3b,d) that was mostly positive (Extended Data Fig.10h,i). Notably, the strength of functional connectivity was not positively correlated with the distance from the targeted photostimulated cell (Extended Data Fig.10j–n) and was still observed even after excluding neurons in a 50 μm zone surrounding the targeted neuron to eliminate potential off-target effects due to ‘spillover’ photostimulation (Extended Data Fig. 10o,p). Comparing the activity of non-targeted photoactivated x1 neurons during unitary x1 neuron photoactivation versus during targeted activation of the five-x1 neuron cohorts revealed that the response strength of the non-targeted x1 neurons scaled with the number of targeted x1 neurons (Extended Data Fig.10q,r). Importantly, the observed functional coupling between x1 neurons could not be explained by local clustering of non-targeted x1 neurons near the targeted cell (Extended Data Figs. 6i–k and 10k–l).</p>
+</blockquote>
+<p>为了更准确地评估 VMHvlEsr1 神经元之间功能连接的程度，我们激活单个 $x_{1}$ 或 $x_{2}$ 神经元并对非目标神经元进行成像。这些实验揭示，在每次激活脉冲后，在 ISI 期间非目标 $x_{1}$ 神经元中活动的缓慢衰减升高，这种升高大多是正向的。值得注意的是，功能连接的强度与距离目标光刺激细胞的距离没有正相关，并且即使在排除目标神经元周围 $50,\mu\mathrm{m}$ 区域内的神经元以消除潜在的“溢出”光刺激引起的离靶效应后，仍然观察到了这种功能连接。比较单个 $x_{1}$ 神经元光激活期间非目标光激活 $x_{1}$ 神经元的活动与针对五个 $x_{1}$ 神经元群体的目标激活期间的活动，发现非目标 $x_{1}$ 神经元的响应强度随着目标 $x_{1}$ 神经元数量的增加而增加。重要的是，观察到的 $x_{1}$ 神经元之间的功能耦合不能通过非目标 $x_{1}$ 神经元在目标细胞附近的局部聚类来解释。</p>
+<blockquote>
+<p>In contrast to the observed x1-to-x1 functional connectivity, we observed little activity in non-targeted x2 neurons after activation of unitary x1 or x2 neurons (Fig. 3c,e,g,j), suggesting that functional x1–x1 connectivity is selective. While there was a trend to a gradual increase in activity in non-targeted x1 neurons after repeated activation of unitary x2 neurons (Fig. 3f–h), that increase was not statistically significant (Fig. 3i,j).</p>
+</blockquote>
+<p>与观察到的 $x_{1}$ 到 $x_{1}$ 功能连接相比，在激活单个 $x_{1}$ 或 $x_{2}$ 神经元后，我们在非目标 $x_{2}$ 神经元中观察到的活动很少，这表明功能性 $x_{1}$–$x_{1}$ 连接是选择性的。虽然在重复激活单个 $x_{2}$ 神经元后，非目标 $x_{1}$ 神经元的活动有逐渐增加的趋势，但这种增加没有统计学意义。</p>
+<blockquote>
+<p>The functional connectivity that we observed could arise either from a population of sparsely but strongly interconnected neurons, or from a population with denser connections of intermediate strength41 (Fig. 4a (left)). To assess this, we calculated the distribution of pairwise influence scores in our unitary neuron stimulation experiments, defined as the average evoked z-scored activity in each non-targeted photoactivated x1 neuron after photostimulation of a single targeted cell. To estimate the amount of functional coupling within the x1 network, we considered the percentage of x1→x1 pairs that had influence scores higher than the highest x1→x2 pair, which had a z score of around 0.6 (Fig. 4a (right, vertical line)). The fraction of x1→x1 pairs above this threshold was around 36% (Fig. 4a (right)). These data suggest that VMHvlEsr1 neurons that contribute to the line attractor form relatively dense functional ensembles, consistent with theory-based predictions40.</p>
+</blockquote>
+<p>我们观察到的功能连接可能来自一个稀疏但强烈互连的神经元群体，或者来自一个具有中等强度更密集连接的群体。为了评估这一点，我们计算了在单个神经元刺激实验中成对影响分数的分布，定义为在光刺激单个目标细胞后每个非目标光激活 $x_{1}$ 神经元中平均诱发的 z 评分活动。为了估计 $x_{1}$ 网络内的功能耦合量，我们考虑了具有高于最高 $x_{1}$ 到 $x_{2}$ 对（z 评分约为 0.6）的影响分数的 $x_{1}$ 到 $x_{1}$ 对的百分比。超过这个阈值的 $x_{1}$ 到 $x_{1}$ 对的比例约为 36%。这些数据表明，贡献线性吸引子的 VMHvlEsr1 神经元形成了相对密集的功能集合，这与基于理论的预测一致。</p>
+<blockquote>
+<p>We next used computational approaches to investigate the kinetics of the observed functional connectivity within x1 ensembles. Such connectivity could reflect either fast, glutamatergic synapses, as typically assumed for most attractor networks40; or they could be slow neuromodulator-based connections that use GPCR-mediated second messenger pathways to sustain long-time-scale changes in synaptic conductance. To investigate systematically the density and synaptic kinetics of networks capable of generating line attractorlike dynamics with the measured integration-dimension (x1) network time constants, we turned to mechanistic modelling using an excitatory integrate and fire network7 (Fig. 4b). As VMHvl is &gt;80% glutamatergic42, we used excitatory networks and analytically calculated the network time constant using an eigen-decomposition of the connectivity matrix40 (Extended Data Fig. 11a). By varying the synaptic conductance time constant (τs) and the density of the integration subnetwork connectivity, we found that only artificial networks based on relatively sparse connectivity (around 8–12%) and slow synaptic time constants (around 20 s) could yield network time constants (τn) in the experimentally observed range (~50–200 s; Fig. 4c,e (red shading)). By contrast, networks with fast glutamatergic connectivity failed to do so over the same range of connection densities (Fig. 4d,f).</p>
+</blockquote>
+<p>接下来，我们使用计算方法来研究 $x_{1}$ 集合内观察到的功能连接的动力学。这种连接可能反映了快速的谷氨酸能突触，通常被认为是大多数吸引子网络的特征; 或者它们可能是使用 GPCR 介导的第二信使通路来维持突触电导长时间尺度变化的慢速神经调节剂连接。为了系统地调查能够生成具有测量的积分维度（$x_{1}$）网络时间常数的线性吸引子样动力学的网络的密度和突触动力学，我们转向使用兴奋性积分和发放网络进行机制建模。由于 VMHvl 中超过 80% 是谷氨酸能，我们使用兴奋性网络并通过对连接矩阵进行特征分解来分析计算网络时间常数。通过改变突触电导时间常数（$\tau_{s}$）和积分子网络连接的密度，我们发现只有基于相对稀疏连接（约 8-12%）和慢速突触时间常数（约 20 秒）的人工网络才能在实验观察范围内产生网络时间常数（$\tau_{n}$）（约 50-200 秒）。相比之下，具有快速谷氨酸能连接的网络在相同范围的连接密度下无法做到这一点。</p>
+<blockquote>
+<p>In these purely excitatory network models, the density of connections that yielded network time constants in the observed range was much lower than the experimentally measured value (36%). To match more accurately the empirically observed connection density, we incorporated excitation-recruited fast-feedback inhibition into our integrate-and-fire network7, as VMHvl is known to receive dense GABAergic innervation from surrounding areas43,44. The addition of global strong feedback inhibition allowed networks to match the observed connection density (36%) but, importantly, maintained the slow nature of the functional connectivity (20 s; Fig. 4g and 4h (left)). Indeed, networks simulated with a long τs (20s) and dense σ (36%) could integrate digital optogenetic stimulation in a manner like that observed experimentally (Fig. 4i,j). By contrast, purely glutamatergic networks (τs = 100 ms) were unable to integrate at the observed timescales given the measured connectivity density (Fig. 4h (right) and 4k–l). Together, these results suggest an implementation of the VMHvlEsr1 line attractor that combines slow neurotransmission and relatively dense41 subnetwork interconnectivity within an attractor-creating ensemble.</p>
+</blockquote>
+<p>在这些纯兴奋性网络模型中，产生观察范围内网络时间常数的连接密度远低于实验测量值（36%）。为了更准确地匹配经验观察到的连接密度，我们在我们的积分和发放网络中加入了兴奋性招募的快速反馈抑制，因为已知 VMHvl 从周围区域接收密集的 GABA 能支配。全局强反馈抑制的加入使网络能够匹配观察到的连接密度（36%），但重要的是，保持了功能连接的慢速特性（20 秒）。确实，使用长 $\tau_{s}$（20 秒）和密集 $\sigma$（36%）模拟的网络可以以类似于实验观察到的方式整合数字光遗传学刺激。相比之下，纯谷氨酸能网络（$\tau_{s} = 100,\mathrm{ms}$）在给定测量的连接密度时无法在观察到的时间尺度上进行积分。总之，这些结果表明 VMHvlEsr1 线性吸引子的实现结合了慢速神经传递和相对密集的子网络互连。</p>
+<h1 id="attractor-stability-ties-to-connectivity">Attractor stability ties to connectivity<a hidden class="anchor" aria-hidden="true" href="#attractor-stability-ties-to-connectivity">#</a></h1>
+<blockquote>
+<p>The observed dynamics along the integration dimension exhibits two important characteristics that can reflect the stability of the line attractor, ramping activity up; and slow decay down the integrator (Fig. 5a). Both of these characteristics might either be intrinsic or be driven by external inputs to the line attractor5,40. Previously, we observed that individual differences in aggressiveness among mice were positively correlated with the stability and decay of the VMHvl line attractor during aggression5. We therefore investigated whether individual  differences in line-attractor ramping or rate of decay might also be correlated with the strength of functional connectivity within the x1 ensemble (Fig. 5b–d). We plotted either the x1 decay time constants, or the rate of ramp up along the x1 dimension (obtained from rSLDS models fit to each mouse using data recorded during attack observation), against different quantitative metrics of functional connectivity between targeted x1 or x2 neurons and their non-targeted putative follower cells (obtained from the same animals by single-cell optogenetic stimulation and imaging after removal of the demonstrator intruder mice) (Fig. 5d,e and Extended Data Fig. 12a).</p>
+</blockquote>
+<p>在积分维度上观察到的动力学表现出两个重要特征，可以反映线性吸引子的稳定性：活动的上升; 和沿着积分器的缓慢衰减。这两个特征可能是内在的，也可能是由线性吸引子的外部输入驱动的。之前，我们观察到小鼠之间攻击性的个体差异与攻击期间 VMHvl 线性吸引子的稳定性和衰减呈正相关。因此，我们调查了线性吸引子上升或衰减率的个体差异是否也可能与 $x_{1}$ 集合内功能连接的强度相关。我们将 $x_{1}$ 衰减时间常数或沿着 $x_{1}$ 维度的上升率（从使用攻击观察期间记录的数据拟合到每只小鼠的 rSLDS 模型获得）与针对 $x_{1}$ 或 $x_{2}$ 神经元及其非目标假定追随者细胞之间不同定量指标的功能连接（通过单细胞光遗传学刺激和成像从同一动物获得，在移除示范者入侵小鼠后）进行绘图。</p>
+<blockquote>
+<p>Notably, there was a strong correlation across mice between the time constant (decay) of the line attractor measured during the observation of aggression, and the strength of functional connectivity among integration-dimension (x1) neurons measured by post-observation optogenetic stimulation (Extended Data Fig.12c,d). The strength of this correlation was higher after the third stimulus (r2 = 0.87) compared with after the first stimulus (r2 = 0.59) (Fig. 5g and Extended Data Fig. 12b), indicating that individual differences in the attractor time constant become more apparent once the system has already integrated several inputs, thereby taking longer to decay. By contrast, there was no correlation between functional connectivity and the rate of ramp-up, suggesting that the latter might be driven by extrinsic inputs to the VMHvl (Fig. 5f and Extended Data Fig. 12b–d). Importantly, the correlation between attractor stability and functional connectivity was specific to neurons in the integration (x1) subnetwork, and did not hold when rSLDS time constants were compared with the influence strength of targeted x1 neurons on x2 cells (Extended Data Fig. 12e–h). Thus, individual differences among mice in the stability of the line attractor during the observation of aggression are correlated with individual differences in the functional connection strength among attractor-contributing neurons.</p>
+</blockquote>
+<p>值得注意的是，在观察攻击期间测量的线性吸引子时间常数（衰减）与通过观察后光遗传学刺激测量的积分维度（$x_{1}$）神经元之间的功能连接强度在小鼠之间存在强烈相关性。这种相关性的强度在第三次刺激后（$r^{2} = 0.87$）比第一次刺激后（$r^{2} = 0.59$）更高，表明当系统已经整合了几个输入时，吸引子时间常数的个体差异变得更加明显，因此需要更长时间才能衰减。相比之下，功能连接与上升率之间没有相关性，表明后者可能由 VMHvl 的外部输入驱动。重要的是，吸引子稳定性与功能连接之间的相关性特定于积分（$x_{1}$）子网络中的神经元，并且当 rSLDS 时间常数与目标 $x_{1}$ 神经元对 $x_{2}$ 细胞的影响强度进行比较时，这种相关性不成立。因此，小鼠之间在观察攻击期间线性吸引子稳定性的个体差异与吸引子贡献神经元之间功能连接强度的个体差异相关。</p>
+<h1 id="discussion">Discussion<a hidden class="anchor" aria-hidden="true" href="#discussion">#</a></h1>
+<blockquote>
+<p>Using model-guided closed-loop all-optical experiments, we provide causal evidence of line attractor-like dynamics in a mammalian system (Fig. 5h,i). Our data and modelling also provide insights into the implementation of the approximate line attractor5. We found evidence of relatively dense, selective connectivity among a physiologically  distinct subset of Esr1+ neurons. Whether this subset corresponds to one of the transcriptomically distinct subtypes of Esr1+ neurons remains to be determined31. Our models confirm the importance of rapid feedback inhibition7, consistent with studies of the Drosophila ring attractor21,45. However they differ from most continuous attractor models3,40 by invoking slow neuromodulatory transmission rather than fast glutamatergic excitation. Numerous theoretical studies have posited that continuous attractors relying on recurrent glutamatergic connectivity require precise tuning of synaptic weights to sustain stable attractor dynamics40,46,47. By contrast, the inclusion of slow neurotransmission in our mechanistic models yielded network time constants in the observed range across a wide range of connectivity densities. This slow neurotransmission may have evolved not only to ensure attractor robustness, but also to implement the relatively long time scales of internal affective or motive states. These slow dynamics could be implemented by GPCR-mediated signalling triggered by biogenic amines or neuropeptides48. Consistent with this prediction, we have recently found that VMHvl line-attractor dynamics and aggression are dependent on signalling through oxytocin and/or vasopressin neuropeptide receptors expressed in Esr1+ neurons49. However, that does not exclude a contribution from recurrent glutamatergic excitation in the ventromedial hypothalamus, as in line attractors that mediate cognitive functions on shorter time scales.</p>
+</blockquote>
+<p>通过模型指导的闭环全光学实验，我们提供了哺乳动物系统中线性吸引子样动力学的因果证据。我们的数据和建模还提供了对近似线性吸引子实现的见解。我们发现 Esr1+ 神经元的一个生理上不同的子集之间存在相对密集、选择性的连接。这个子集是否对应于 Esr1+ 神经元的转录组学不同亚型之一还有待确定。我们的模型确认了快速反馈抑制的重要性，这与 Drosophila 环形吸引子研究一致。然而，它们通过调用慢速神经调节传递而不是快速谷氨酸能兴奋，与大多数连续吸引子模型不同。许多理论研究假设，依赖于递归谷氨酸能连接的连续吸引子需要精确调整突触权重以维持稳定的吸引子动力学。相比之下，在我们的机制模型中包含慢速神经传递在广泛的连接密度范围内产生了观察范围内的网络时间常数。这种慢速神经传递可能不仅进化以确保吸引子的鲁棒性，还进化以实现内部情感或动机状态的相对长时间尺度。这些慢速动力学可以由 GPCR 介导的信号传导实现，该信号传导由生物胺或神经肽触发。与这一预测一致，我们最近发现 VMHvl 线性吸引子动力学和攻击依赖于 Esr1+ 神经元中表达的催产素和/或加压素神经肽受体介导的信号传导。然而，这并不排除在下丘脑腹内侧区中递归谷氨酸能兴奋的贡献，就像在介导较短时间尺度认知功能的线性吸引子中一样。</p>
+<blockquote>
+<p>Lastly, our observations indicate a pronounced correlation between individual differences in the functional strength of integration subnetwork connectivity and differences in the measured stability of the line attractor, perhaps reflecting a leaky integrator. We previously found that, in freely behaving animals, individual differences in attractor stability were correlated with individual differences in aggressiveness5. By transitivity, this suggests that individual differences in the strength of functional connectivity within the attractor network might underlie individual differences in aggressiveness. As these differences are observed among genetically identical inbred mice, these observations suggest that attributes of the attractor, such as its connectivity density or strength, may be modifiable (either by epigenetic mechanisms and/or experience). Deciphering the underlying mechanisms that afford this attractor its apparent flexibility while maintaining its robustness represents a promising avenue for future research.</p>
+</blockquote>
+<p>最后，我们的观察表明，积分子网络连接的功能强度的个体差异与线性吸引子测量稳定性的差异之间存在明显相关性，这可能反映了一个泄漏积分器。我们之前发现，在自由行为的动物中，吸引子稳定性的个体差异与攻击性的个体差异相关。通过传递性，这表明吸引子网络内功能连接强度的个体差异可能是攻击性个体差异的基础。由于这些差异在遗传上相同的近交小鼠中观察到，这些观察表明，吸引子的属性，如其连接密度或强度，可能是可修改的（无论是通过表观遗传机制和/或经验）。破译赋予这个吸引子其明显灵活性的潜在机制，同时保持其鲁棒性，是未来研究的一个有前途的途径。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/attractors/an-approximate-line-attractor-in-the-hypothalamus-encodes-an-aggressive-state/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>An approximate line attractor in the hypothalamus encodes an aggressive state</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/a-line-attractor-encoding-a-persistent-internal-state-requires-neuropeptide-signaling/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>A line attractor encoding a persistent internal state requires neuropeptide signaling</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1167 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 152 篇 1019076 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
