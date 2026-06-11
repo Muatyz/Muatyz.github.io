@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Discovering plasticity rules that organize and maintain neural circuits | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="探索组织和维持神经回路的可塑性规律">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/discovering-plasticity-rules-that-organize-and-maintain-neural-circuits/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/discovering-plasticity-rules-that-organize-and-maintain-neural-circuits/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="Discovering plasticity rules that organize and maintain neural circuits" />
+<meta property="og:description" content="探索组织和维持神经回路的可塑性规律" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/discovering-plasticity-rules-that-organize-and-maintain-neural-circuits/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/06/08/C3fi/20260608162926546.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-06-08T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-06-08T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/06/08/C3fi/20260608162926546.png" />
+<meta name="twitter:title" content="Discovering plasticity rules that organize and maintain neural circuits"/>
+<meta name="twitter:description" content="探索组织和维持神经回路的可塑性规律"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Discovering plasticity rules that organize and maintain neural circuits",
+      "item": "https://Muatyz.github.io/posts/read/attractors/discovering-plasticity-rules-that-organize-and-maintain-neural-circuits/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Discovering plasticity rules that organize and maintain neural circuits",
+  "name": "Discovering plasticity rules that organize and maintain neural circuits",
+  "description": "探索组织和维持神经回路的可塑性规律",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Abstract Intrinsic dynamics within the brain can accelerate learning by providing a prior scaffolding for dynamics aligned with task objectives.\nSuch intrinsic dynamics should self-organize and self-sustain in the face of fluctuating inputs and biological noise, including synaptic turnover and cell death.\n大脑内部的内在动力学能够通过为与任务目标相一致的动态过程提供先验框架，从而加速学习。\n此类内在动力学应在面对波动的输入和生物噪声（包括突触更新和细胞死亡）时，能够自组织并自我维持.\nAn example of such dynamics is the formation of sequences, a ubiquitous motif in neural activity. The sequencegenerating circuit in zebra finch HVC provides a reliable timing scaffold for motor output in song and demonstrates a remarkable capacity for unsupervised recovery following perturbation.\n序列的形成便是此类动力学的一个例子，它是神经活动中无处不在的模式。\n斑胸草雀 HVC 中的序列生成回路为鸣唱时的运动输出提供了可靠的时序支架，并展现出在受到扰动后进行无监督恢复的卓越能力。\nInspired by HVC, we seek a local plasticity rule capable of organizing and maintaining sequence-generating dynamics despite continual network perturbations.\nWe adopt a meta-learning approach introduced by Confavreux et al, which parameterizes a learning rule using basis functions constructed from pre- and postsynaptic activity and synapse size, with tunable time constants.\nCandidate rules are simulated within initially random networks, and their fitness is evaluated according to a loss function that measures the fidelity with which the resulting dynamics encode time.\nWe use this approach to introduce biological noise, forcing meta-learning to find robust solutions.\n受 HVC 启发，我们致力于寻找一种局部可塑性规则，使其能够在持续的网络扰动下组织并维持序列生成动力学。\n我们采用 Confavreux 等人提出的元学习方法，该方法利用由突触前和突触后活动以及突触大小构成的基函数对学习规则进行参数化，并配备可调的时间常数。\n候选规则在初始随机网络中进行模拟，其适应度根据一个损失函数进行评估，该函数衡量生成的动力学编码时间的精密度。\n我们利用该方法引入生物噪声，迫使元学习寻找稳健的解。\nWe first show that, in the absence of perturbation, meta-learning identifies a temporally asymmetric generalization of Oja’s rule that reliably organizes sparse sequential activity.\nWhen synaptic turnover is introduced, the learned rule incorporates an additional form of homeostasis, better maintaining sequential dynamics relative to other previously proposed rules.\nAdditionally, inspired by recent findings demonstrating plasticity in synapses from inhibitory interneurons in HVC, we explore the role of inhibitory plasticity in sequence-generating circuits.\n首先，我们证明在无扰动条件下，元学习能识别出 Oja 规则的一种时间不对称推广形式，该规则能可靠地组织稀疏的序列活动。\n当引入突触更新时，所学习的规则会整合一种额外的稳态机制，相较于先前提出的其他规则，更能有效维持序列动力学。\n此外，受近期关于 HVC 中抑制性中间神经元突触可塑性的研究启发，我们探讨了抑制性可塑性在序列生成回路中的作用。\nWe find that learned plasticity adjusts both excitation and inhibition in response to manipulations, outperforming rules applied only to excitatory connections.\nWe demonstrate how plasticity acting on both excitatory and inhibitory synapses can better shape excitatory cell dynamics to scaffold timing representations.\n我们发现，学习到的可塑性会根据操作调整兴奋性和抑制性，其表现优于仅作用于兴奋性连接的规则。\n我们证明了作用于兴奋性和抑制性突触的可塑性如何能更好地塑造兴奋性细胞动力学，从而构建时间表征的框架。\nIntroduction How computational structures are organized and maintained within the brain is a central question within neuroscience.\nWhile feedback is clearly essential for learning, self-organization of neural circuits can unfold without feedback, e.g. during development.\nBrains have evolved specific cell types with nonrandom spatial organization, plasticity rules, and connectivity that likely introduce a strong set of inductive biases on the information processing they perform.\nHow might organization of useful circuit dynamics be established and maintained throughout life without the need for feedback?\n神经系统中计算结构是如何组织和维持的，是神经科学中的一个核心问题。\n虽然反馈对于学习显然是必不可少的，但神经回路的自组织可以在没有反馈的情况下展开，例如在发育过程中。\n大脑已经进化出具有非随机空间组织、可塑性规则和连接性的特定细胞类型，这些可能对它们执行的信息处理引入了一套强烈的归纳偏差。\n没有反馈的情况下，如何在整个生命过程中建立和维持有用的回路动力学的组织？\nRecent work suggests self-organized computations, once established, can accelerate learning and improve performance when experience is limited: Nicola and Clopath [1] demonstrated that a stable high dimensional time signal could improve a network’s performance on sequential motor tasks (Fig. 1a).\nNajarro and Risi [2] learned Hebbian plasticity that orchestrated spontaneous walking behavior in quadruped agents; similar work has shown architectural priors increase the sample efficiency and generalization of RL approaches to locomotion [3, 4].\nAdditionally, in RL settings, supplying agents with a time input permits them to adopt time-dependent policies [5]. The ability of computational primitives, such as timing representations, to self-organize is challenged by the shifting structure of neural circuits. Synaptic loss, synaptogenesis, cell death, and neurogenesis pose challenges for all learning algorithms, but particularly for self-organization which must be based solely on local information rather than global task performance.\n最近的工作表明，一旦建立，自组织计算可以加速学习并在经验有限时提高性能：Nicola 和 Clopath 证明了稳定的高维时间信号可以改善网络在序列运动任务上的表现（图 1a）。\nNajarro 和 Risi 学习了协调四足动物代理自发行走行为的 Hebbian 可塑性；类似的工作表明，架构先验增加了 RL 方法在运动方面的样本效率和泛化能力。\n此外，在 RL 设置中，为代理提供时间输入使它们能够采用时间依赖的策略。计算原语（如时间表征）的自组织能力受到神经回路结构变化的挑战。突触丢失、突触发生、细胞死亡和神经发生对所有学习算法都构成挑战，但特别是对于必须完全基于局部信息而非全局任务性能进行自组织的算法来说更是如此。\nFigure 1: Meta-learning approach to discovering plasticity rules that organize sequences\n图 1: 发现组织序列的可塑性规则的元学习方法\n(a) In zebra finch song learning, a neural representation of time (left) in HVC simplifies the sequential motor learning task of producing the correct spectral output.\n(a) 在斑胸草雀的鸣唱学习中，HVC 中的时间神经表征（左）简化了产生正确频谱输出的序列运动学习任务。\n(b) Putative network structure of zebra finch HVC: a feed-forward, excitatory network with recurrent inhibition (left). HVC excitatory neurons (red) fire sparsely in time while interneurons (blue) fire tonically (right).\n(b) 斑胸草雀 HVC 的假定网络结构：具有递归抑制的前馈兴奋性网络（左）。HVC 兴奋性神经元（红色）在时间上稀疏地放电，而中间神经元（蓝色）持续放电（右）。\n(c) Strategy for learning plasticity underlying sequence organization: candidate plasticity rules, parameterized by a set of coefficients and time constants, are simulated. A loss function is evaluated on the resulting dynamics, and new candidate rules are generated.\n(c) 学习组织序列的可塑性基础的策略：通过一组系数和时间常数参数化的候选可塑性规则被模拟。对生成的动力学评估一个损失函数，并生成新的候选规则。\n(d) Test procedure for representation of time. Networks are activated 400 times (red bars). From the final 50 activations, six are chosen to train a decoder and six to test the representation by decoding time from neural activity.\n(d) 时间表征的测试程序。网络被激活 400 次（红色条）。从最后 50 次激活中，选择六次来训练解码器，并选择六次来测试通过神经活动解码时间的表征。\n(e) Discovery of robust plasticity rules is encouraged by introducing synaptic turnover, the stochastic addition and removal of synapses, into simulations.\n(e) 通过在模拟中引入突触更新（突触的随机添加和移除）来鼓励发现稳健的可塑性规则。\nHere, we aim to find plasticity rules that self-organize and maintain one useful computational primitive: sparse, sequential activity. Such activity is widely seen in many areas of the brain including hippocampus [6], cortex [7], and basal ganglia [8].\nIn the songbird zebra finch, area HVC (used as a proper noun), a cortical-like region, displays sequential activity representing time [9], reducing the problem of motor learning to driving the correct motor neuron at the correct moment [10].\n在这里，我们的目标是找到能够自组织和维持一种有用的计算原语的可塑性规则：稀疏的序列活动。这种活动在大脑的许多区域都广泛存在，包括海马、皮层和基底神经节。\n在鸣唱鸟斑胸草雀中，HVC 区域（用作专有名词）是一个类似于皮层的区域，显示出代表时间的序列活动，将运动学习的问题简化为在正确的时刻驱动正确的运动神经元.\nExtensive literature has explored how such sequence-generating circuits could emerge in the absence of feedback, but has largely focused on either how these structures organize or how they self-maintain, using guessed plasticity rules, and neglecting the effects of ongoing synaptic noise. Further, previous work on sequence organization within HVC has focused on plasticity between excitatory (E) neurons. Recent experimental findings show unsupervised recovery of HVC dynamics is accompanied by changes in both E→E and also inhibitory-to-excitatory (I→E) synaptic strength [18].\n大量文献探讨了在没有反馈的情况下如何出现这样的序列生成回路，但主要关注这些结构是如何组织或自我维持的，使用猜测的可塑性规则，并忽略了持续突触噪声的影响。此外，以前关于 HVC 中序列组织的工作主要关注兴奋性（E）神经元之间的可塑性。最近的实验发现表明，HVC 动态的无监督恢复伴随着 E→E 和抑制性到兴奋性（I→E）突触强度的变化。\n",
+  "wordCount" : "2559",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/06/08/C3fi/20260608162926546.png","datePublished": "2026-06-08T00:18:23+08:00",
+  "dateModified": "2026-06-08T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/discovering-plasticity-rules-that-organize-and-maintain-neural-circuits/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                Discovering plasticity rules that organize and maintain neural circuits
+            </h1>
+            <div class="post-description">
+                探索组织和维持神经回路的可塑性规律
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-06-08
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2559字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>6分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/06/08/C3fi/20260608162926546.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>Intrinsic dynamics within the brain can accelerate learning by providing a prior scaffolding for dynamics aligned with task objectives.</p>
+<p>Such intrinsic dynamics should self-organize and self-sustain in the face of fluctuating inputs and biological noise, including synaptic turnover and cell death.</p>
+</blockquote>
+<p>大脑内部的内在动力学能够通过为与任务目标相一致的动态过程提供先验框架，从而加速学习。</p>
+<p>此类内在动力学应在面对波动的输入和生物噪声（包括突触更新和细胞死亡）时，能够自组织并自我维持.</p>
+<blockquote>
+<p>An example of such dynamics is the formation of sequences, a ubiquitous motif in neural activity. The sequencegenerating circuit in zebra finch HVC provides a reliable timing scaffold for motor output in song and demonstrates a remarkable capacity for unsupervised recovery following perturbation.</p>
+</blockquote>
+<p>序列的形成便是此类动力学的一个例子，它是神经活动中无处不在的模式。</p>
+<p>斑胸草雀 HVC 中的序列生成回路为鸣唱时的运动输出提供了可靠的时序支架，并展现出在受到扰动后进行无监督恢复的卓越能力。</p>
+<blockquote>
+<p>Inspired by HVC, we seek a local plasticity rule capable of organizing and maintaining sequence-generating dynamics despite continual network perturbations.</p>
+<p>We adopt a meta-learning approach introduced by Confavreux et al, which parameterizes a learning rule using basis functions constructed from pre- and postsynaptic activity and synapse size, with tunable time constants.</p>
+<p>Candidate rules are simulated within initially random networks, and their fitness is evaluated according to a loss function that measures the fidelity with which the resulting dynamics encode time.</p>
+<p>We use this approach to introduce biological noise, forcing meta-learning to find robust solutions.</p>
+</blockquote>
+<p>受 HVC 启发，我们致力于寻找一种局部可塑性规则，使其能够在持续的网络扰动下组织并维持序列生成动力学。</p>
+<p>我们采用 Confavreux 等人提出的元学习方法，该方法利用由突触前和突触后活动以及突触大小构成的基函数对学习规则进行参数化，并配备可调的时间常数。</p>
+<p>候选规则在初始随机网络中进行模拟，其适应度根据一个损失函数进行评估，该函数衡量生成的动力学编码时间的精密度。</p>
+<p>我们利用该方法引入生物噪声，迫使元学习寻找稳健的解。</p>
+<blockquote>
+<p>We first show that, in the absence of perturbation, meta-learning identifies a temporally asymmetric generalization of Oja’s rule that reliably organizes sparse sequential activity.</p>
+<p>When synaptic turnover is introduced, the learned rule incorporates an additional form of homeostasis, better maintaining sequential dynamics relative to other previously proposed rules.</p>
+<p>Additionally, inspired by recent findings demonstrating plasticity in synapses from inhibitory interneurons in HVC, we explore the role of inhibitory plasticity in sequence-generating circuits.</p>
+</blockquote>
+<p>首先，我们证明在无扰动条件下，元学习能识别出 Oja 规则的一种时间不对称推广形式，该规则能可靠地组织稀疏的序列活动。</p>
+<p>当引入突触更新时，所学习的规则会整合一种额外的稳态机制，相较于先前提出的其他规则，更能有效维持序列动力学。</p>
+<p>此外，受近期关于 HVC 中抑制性中间神经元突触可塑性的研究启发，我们探讨了抑制性可塑性在序列生成回路中的作用。</p>
+<blockquote>
+<p>We find that learned plasticity adjusts both excitation and inhibition in response to manipulations, outperforming rules applied only to excitatory connections.</p>
+<p>We demonstrate how plasticity acting on both excitatory and inhibitory synapses can better shape excitatory cell dynamics to scaffold timing representations.</p>
+</blockquote>
+<p>我们发现，学习到的可塑性会根据操作调整兴奋性和抑制性，其表现优于仅作用于兴奋性连接的规则。</p>
+<p>我们证明了作用于兴奋性和抑制性突触的可塑性如何能更好地塑造兴奋性细胞动力学，从而构建时间表征的框架。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>How computational structures are organized and maintained within the brain is a central question within neuroscience.</p>
+<p>While feedback is clearly essential for learning, self-organization of neural circuits can unfold without feedback, e.g. during development.</p>
+<p>Brains have evolved specific cell types with nonrandom spatial organization, plasticity rules, and connectivity that likely introduce a strong set of inductive biases on the information processing they perform.</p>
+<p>How might organization of useful circuit dynamics be established and maintained throughout life without the need for feedback?</p>
+</blockquote>
+<p>神经系统中计算结构是如何组织和维持的，是神经科学中的一个核心问题。</p>
+<p>虽然反馈对于学习显然是必不可少的，但神经回路的自组织可以在没有反馈的情况下展开，例如在发育过程中。</p>
+<p>大脑已经进化出具有非随机空间组织、可塑性规则和连接性的特定细胞类型，这些可能对它们执行的信息处理引入了一套强烈的归纳偏差。</p>
+<p>没有反馈的情况下，如何在整个生命过程中建立和维持有用的回路动力学的组织？</p>
+<blockquote>
+<p>Recent work suggests self-organized computations, once established, can accelerate learning and improve performance when experience is limited: Nicola and Clopath [1] demonstrated that a stable high dimensional time signal could improve a network’s performance on sequential motor tasks (Fig. 1a).</p>
+<p>Najarro and Risi [2] learned Hebbian plasticity that orchestrated spontaneous walking behavior in quadruped agents; similar work has shown architectural priors increase the sample efficiency and generalization of RL approaches to locomotion [3, 4].</p>
+<p>Additionally, in RL settings, supplying agents with a time input permits them to adopt time-dependent policies [5]. The ability of computational primitives, such as timing representations, to self-organize is challenged by the shifting structure of neural circuits. Synaptic loss, synaptogenesis, cell death, and neurogenesis pose challenges for all learning algorithms, but particularly for self-organization which must be based solely on local information rather than global task performance.</p>
+</blockquote>
+<p>最近的工作表明，一旦建立，自组织计算可以加速学习并在经验有限时提高性能：Nicola 和 Clopath 证明了稳定的高维时间信号可以改善网络在序列运动任务上的表现（图 1a）。</p>
+<p>Najarro 和 Risi 学习了协调四足动物代理自发行走行为的 Hebbian 可塑性；类似的工作表明，架构先验增加了 RL 方法在运动方面的样本效率和泛化能力。</p>
+<p>此外，在 RL 设置中，为代理提供时间输入使它们能够采用时间依赖的策略。计算原语（如时间表征）的自组织能力受到神经回路结构变化的挑战。突触丢失、突触发生、细胞死亡和神经发生对所有学习算法都构成挑战，但特别是对于必须完全基于局部信息而非全局任务性能进行自组织的算法来说更是如此。</p>
+<blockquote>
+<blockquote>
+<p>Figure 1: Meta-learning approach to discovering plasticity rules that organize sequences</p>
+</blockquote>
+<p>图 1: 发现组织序列的可塑性规则的元学习方法</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/09/t9aO/20260609220228667.png" alt=""  /></p>
+<p>(a) In zebra finch song learning, a neural representation of time (left) in HVC simplifies the sequential motor learning task of producing the correct spectral output.</p>
+</blockquote>
+<p>(a) 在斑胸草雀的鸣唱学习中，HVC 中的时间神经表征（左）简化了产生正确频谱输出的序列运动学习任务。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/09/8Yoq/20260609220341802.png" alt=""  /></p>
+<p>(b) Putative network structure of zebra finch HVC: a feed-forward, excitatory network with recurrent inhibition (left). HVC excitatory neurons (red) fire sparsely in time while interneurons (blue) fire tonically (right).</p>
+</blockquote>
+<p>(b) 斑胸草雀 HVC 的假定网络结构：具有递归抑制的前馈兴奋性网络（左）。HVC 兴奋性神经元（红色）在时间上稀疏地放电，而中间神经元（蓝色）持续放电（右）。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/09/gRk9/20260609220429443.png" alt=""  /></p>
+<p>(c) Strategy for learning plasticity underlying sequence organization: candidate plasticity rules, parameterized by a set of coefficients and time constants, are simulated. A loss function is evaluated on the resulting dynamics, and new candidate rules are generated.</p>
+</blockquote>
+<p>(c) 学习组织序列的可塑性基础的策略：通过一组系数和时间常数参数化的候选可塑性规则被模拟。对生成的动力学评估一个损失函数，并生成新的候选规则。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/09/hgC1/20260609220520537.png" alt=""  /></p>
+<p>(d) Test procedure for representation of time. Networks are activated 400 times (red bars). From the final 50 activations, six are chosen to train a decoder and six to test the representation by decoding time from neural activity.</p>
+</blockquote>
+<p>(d) 时间表征的测试程序。网络被激活 400 次（红色条）。从最后 50 次激活中，选择六次来训练解码器，并选择六次来测试通过神经活动解码时间的表征。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/09/0bSn/20260609220617569.png" alt=""  /></p>
+<p>(e) Discovery of robust plasticity rules is encouraged by introducing synaptic turnover, the stochastic addition and removal of synapses, into simulations.</p>
+</blockquote>
+<p>(e) 通过在模拟中引入突触更新（突触的随机添加和移除）来鼓励发现稳健的可塑性规则。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Here, we aim to find plasticity rules that self-organize and maintain one useful <strong>computational primitive</strong>: sparse, sequential activity. Such activity is widely seen in many areas of the brain including hippocampus [6], cortex [7], and basal ganglia [8].</p>
+<p>In the songbird zebra finch, area HVC (used as a proper noun), a cortical-like region, displays sequential activity representing time [9], reducing the problem of motor learning to driving the correct motor neuron at the correct moment [10].</p>
+</blockquote>
+<p>在这里，我们的目标是找到能够自组织和维持一种有用的<strong>计算原语</strong>的可塑性规则：稀疏的序列活动。这种活动在大脑的许多区域都广泛存在，包括海马、皮层和基底神经节。</p>
+<p>在鸣唱鸟斑胸草雀中，HVC 区域（用作专有名词）是一个类似于皮层的区域，显示出代表时间的序列活动，将运动学习的问题简化为在正确的时刻驱动正确的运动神经元.</p>
+<blockquote>
+<p>Extensive literature has explored how such sequence-generating circuits could emerge in the absence of feedback, but has largely focused on either how these structures organize or how they self-maintain, using guessed plasticity rules, and neglecting the effects of ongoing synaptic noise. Further, previous work on sequence organization within HVC has focused on plasticity between excitatory (E) neurons. Recent experimental findings show unsupervised recovery of HVC dynamics is accompanied by changes in both E→E and also inhibitory-to-excitatory (I→E) synaptic strength [18].</p>
+</blockquote>
+<p>大量文献探讨了在没有反馈的情况下如何出现这样的序列生成回路，但主要关注这些结构是如何组织或自我维持的，使用猜测的可塑性规则，并忽略了持续突触噪声的影响。此外，以前关于 HVC 中序列组织的工作主要关注兴奋性（E）神经元之间的可塑性。最近的实验发现表明，HVC 动态的无监督恢复伴随着 E→E 和抑制性到兴奋性（I→E）突触强度的变化。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Renormalization group for neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/months-long-stability-of-the-head-direction-system/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Months-long stability of the head-direction system</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1198 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 154 篇 1032328 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

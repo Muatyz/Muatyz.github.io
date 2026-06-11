@@ -147,7 +147,7 @@ window.addEventListener("load", function () {
 <meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/symmetries-and-continuous-attractors-in-disordered-neural-circuits/" />
 <meta property="og:image" content="https://s2.loli.net/2025/11/24/BWUica1QGNP6rLH.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-10-08T00:18:23+08:00" />
-<meta property="article:modified_time" content="2025-10-08T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-05-16T00:18:23+08:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://s2.loli.net/2025/11/24/BWUica1QGNP6rLH.png" />
@@ -200,11 +200,11 @@ window.addEventListener("load", function () {
   "keywords": [
     ""
   ],
-  "articleBody": "见 disordered-circuits.ipynb\n",
-  "wordCount" : "2",
+  "articleBody": "0. Abstract 经典 cann: 依赖于循环权重 $\\mathbb{M}$ 的连续对称性, 调谐曲线也具有平移对称性. 而小鼠头朝向细胞具有异质性.\n仍可通过经典 cann 动力学解释哺乳动物神经回路.\n通过动力学平均场理论(Dynamical Mean Field Theory) 表明调谐异质性网络(在大 N 下)等效于经典 ring attractor. 随机权重通过特征值简并反映出来. 因此可以对权重进行谱结构分析.\n将这一方法推广至二维, 从而构造 环面吸引子(toroidal attractor), 如 grid cell.\n结论: 经典 cann 动力学不仅适用于小型脑, 也存在于复杂的哺乳动物神经回路.\n1. Introduction 表征: 头朝向, 位置, 更抽象的认知变量(比如进攻性...)\ncann 维持这些表征.\ncann 具有 marginally stable manifold 的要素:\n非线性激活函数 $v=F(I)$ (非线性地将输入电流 $I$ 转换为放电率 $v$) 循环权重 $\\mathbb{M}$ 支持 Turing pattern 的形成(局部兴奋和长程抑制) 循环权重 $\\mathbb{M}$ 具有和所 encode 的变量匹配的连续对称性(头朝向: 一维圆对称; grid cell: 二维). 单神经元的调谐曲线除了神经元偏移完全一致 Drosophila 大脑中(中央复合体 central complex, 椭球体 ellipsoid body)存在 ring attractor cuircuit.\n设有 $N$ 个神经元, 一共有 $M$ 只小鼠. 证明小鼠头朝向细胞的调谐曲线具有异质性.\nC: 经典 ring attractor 调谐曲线平移不变 D: postsubicular 头朝向细胞的神经元调谐曲线具有异质性, 并不具有方向的平移不变性 调谐曲线峰值对齐($\\theta=0^{\\circ}$)后, 小鼠 $k$ 在某角度 $\\theta_{i}$ 会有 $N$ 个 $v_{j}(\\theta_{i})$, E 浅色线: 单只小鼠 $k$ 对神经元求均值 $\\begin{aligned} \\langle v^{(k)}(\\theta_{i})\\rangle = \\frac{1}{N}\\sum_{j=1}^{N}v_{j}^{(k)}(\\theta_{i}) \\end{aligned}$ 粗实线: 对 $M$ 只小鼠求均值 $\\begin{aligned} \\bar{v}(\\theta) = \\frac{1}{M}\\sum_{k=1}^{M} \\langle v^{(k)}(\\theta)\\rangle \\end{aligned}$ F 浅色线: 单只小鼠 $k$ 对神经元求标准差 $\\begin{aligned}\\sigma_{k}(\\theta_{i}) = \\sqrt{\\frac{1}{N}\\sum_{j=1}^{N}[v_{j}(\\theta_{i})-\\langle v_{k}(\\theta_{i})\\rangle]^{2}}\\end{aligned}$ 粗实线: 对 $M$ 只小鼠求标准差均值 $\\begin{aligned}\\bar{\\sigma}(\\theta) = \\frac{1}{M}\\sum_{k=1}^{M}\\sigma_{k}(\\theta) \\end{aligned}$ 哺乳动物稳定表征连续变量\n丘脑前背核, 下托后部: 头朝向神经元(环状拓扑流形) 内测内嗅皮层(medial entorhinal cortex): grid cell(环面拓扑流形) 符合 \"神经活动限制于低维流形\" 的预测.\n哺乳动物神经回路不具有平移对称的调谐曲线. 啮齿动物; 内嗅皮层的 grid scores.\n异质性调节的本质是什么? 通过高斯过程采样 tuning curve, 并使其通过非线性激活函数 $F(\\cdot)$, 可以解释海马体 place cell. 平移对称性破缺的情况下, 经典 cann 的适用性? RNN 的 universal approximation 能力 (没有建立与经典模型的联系) 通过高 rank 和低 rank 权重组合解释异质性调谐的 ring attractor 预设动力学的 RNN 生成异质性调谐的 ring attractor 具有一定相关性的低 rank 随机权重生成振幅异质性的 ring attractor 本文解决了 1, 2 问: 哺乳动物的异质性神经回路可以依赖于经典 cann 的基于对称性的动力学.\n开发了统计生成过程捕捉异质性调谐曲线 通过 DMFT 证明异质性网络在大 $N$ 下等效于经典 cann 1.1 Ouline of the paper 啮齿动物的头朝向系统.\n异质性调谐曲线不可能自身构成经典 cann. 用实验测得的调谐曲线构造 RNN, 且异质性调谐可以维持表征, 即准连续吸引子动力学 开发用于采样合成调谐曲线的统计生成过程, 其中用到了圆对称的高斯过程 分析大 $N$ 极限下的最优权重. 随机矩阵具有潜在的圆对称性, 即简并度为 2 的特征值, 与经典模型通过 Fourier 模嵌入圆对称不同 使用 DMFT 分析大 $N$ 网络. MFT 恢复了经典 cann 的非线性激活函数/mexican hat/连续对称性三个特征. 2 Examining a dataset of head-direction cells 自由移动小鼠后下托(postsubiculum)头朝向细胞. 调谐曲线存在异质性, 与经典 cann 的预测偏离.\n没有明显的单峰性约束.\n使用高斯核对调谐曲线进行平滑.\n2.1 Failure of classical ring-attractor models 两种曲线在不同小鼠都存在着某种一致的统计结构. 和经典模型的调谐曲线零偏差预设不同.\n2.2 Network construction 仅仅依靠 RNN 能否维持异质性调谐曲线的 attractor 结构?\n$N$ 神经元($i=1,\\cdots,N$).\nfiring rate RNN, 但是也可推广至 spiking RNN.\n动力学: $\\begin{aligned}\\tau\\frac{\\partial x_{i}(t)}{\\partial t} = -x_{i}(t) + \\sum_{j=1}^{N}J_{ij}\\phi_{j}(t) + b\\end{aligned}$\n$x_{i}(t)$ 输入电流, $\\phi_{i}(t)$ 输出放电率\n$J_{ij}$: 神经元 $j$ 到 $i$ 的突触权重, $b$: 偏置电流, $\\tau = 50,\\mathrm{ms}$: 网络时间常数, $\\phi(x) = \\ln{(1+e^{x})}$: 非线性激活函数 softplus\n该动力学在 $N$ 维空间中约束了一个流形, 稳定的 $\\left(\\frac{\\partial x}{\\partial t} = 0\\right)$ 神经活动只能在该流形上演化. 令该流形为 $\\phi_{i}^{*}(\\theta)$, 使用激活函数的逆函数 $\\phi^{-1}$ 解得输入电流流形 $x_{i}^{*}(\\theta)$.\n沿着流形 $x_{i}^{*}(\\theta)$, 应有零流条件(vanishing-flow condition) $\\begin{aligned}\\frac{\\partial x_{i}(t)}{\\partial t} = 0\\end{aligned}$.\n非饱和激活函数(如 $\\phi(x) = [x]_{+}$) 没有输出上限. 为此归一化处理 $\\frac{1}{N}\\sum_{i=1}^{N}\\phi_{i}^{*}(\\theta) = 1$\n偏置电流平移 $b\\to b + c$, 为了维持整体形式不变相当于权重平移 $J_{ij}\\to J_{ij} - \\frac{c}{N}$. 因此可在 $b=0$ 下优化 $J_{ij}$.\n最小二乘法优化目标函数\n$$ \\mathcal{L} = \\frac{1}{2\\pi}\\int_{0}^{2\\pi}\\mathrm{d}\\theta\\,\\sum_{i=1}^{N}\\left[\\sum_{j=1}^{N}J_{ij}\\phi_{j}^{*}(\\theta) - x_{i}^{*}(\\theta)\\right]^{2} + \\lambda \\sum_{i,j}J_{ij}^{2} $$\n$\\lambda \\sum_{i,j}J_{ij}^{2}$: 生物大脑维持突触需要消耗能量. 因此要求尽可能使用最小的突触权重 $J_{ii} = 0\\,(\\forall i)$: 神经元几乎没有自突触连接 解得 $J_{ij} = \\frac{1}{N}\\int_{0}^{2\\pi}\\mathrm{d}\\theta\\,\\int_{0}^{2\\pi}\\mathrm{d}\\theta^{\\prime}\\, K_{i,\\lambda}^{-1}(\\theta,\\theta^{\\prime}) x_{i}^{*}(\\theta)\\phi_{j}^{*}(\\theta^{\\prime})$\n形式类似于 Hebb's rule $w_{ij} = \\frac{1}{p}\\sum_{k=1}^{p}x_{i}^{k}x_{j}^{k}$, 但是 $J_{ij}$ 并非对称阵所以不能使用能量函数\n确保网络在迭代过程中能量单调下降从而收敛至极小值. 若 $J_{ij}\\neq J_{ji}$, 网络将进入无休止循环.\n核函数 $K_{i,\\lambda}(\\theta,\\theta^{\\prime}) = C^{\\phi}(\\theta,\\theta^{\\prime}) - \\frac{\\phi_{i}^{*}(\\theta)\\phi_{i}^{*}(\\theta^{\\prime})}{N} + \\frac{2\\pi\\lambda\\delta(\\theta-\\theta^{\\prime})}{N}$\n关联函数 $C^{\\phi} = \\frac{1}{N}\\sum_{i=1}^{N}\\phi_{i}^{*}(\\theta)\\phi_{i}^{*}(\\theta^{\\prime})$\n悖论: 由于 $\\theta\\in[0,2\\pi]$ 连续变量, 产生无穷多方程组 $x_{i}^{*}(\\theta) = \\sum_{j=1}^{N}J_{ij}\\phi_{j}^{*}(\\theta)$, 每组都对应 $\\{J_{ij}\\}$ 的 $N$ 个未知数. $N$ 个未知数无法满足无穷多的方程组. 然而 $\\phi_{j}^{*}$ 是平滑曲线, 因此在 Fourier 空间中频率存在上限, 写作 $\\phi_{j}^{*}(\\theta) = \\sum_{n=-D}^{D} \\hat{\\phi}_{jn}e^{in\\theta}$ 和 $x_{i}^{*}(\\theta) = \\sum_{n=-D}^{D}\\hat{x}_{in}e^{in\\theta}$,\n方程 $\\sum_{n=-D}^{D}\\hat{x}_{in}e^{in\\theta} = \\sum_{j=1}^{N}J_{ij}\\left(\\sum_{n=-D}^{D}\\hat{\\phi}_{jn}e^{in\\theta}\\right)$, 根据 Fourier 模正交性提取 $n\\in\\{-D,\\cdots,D\\}$ 的 $\\hat{x}_{in} = \\sum_{j=1}^{N}J_{ij}\\hat{\\phi}_{jn}$, 共有 $2D+1$ 个方程, 而 $D\\ll N$, 因此实际上是欠约束(underconstrained), 存在无穷多解\n头朝向系统具有角速度积分功能. 为此修改为\n$$ J_{ij}[\\omega(t)] = \\frac{1}{N}\\int_{0}^{2\\pi}\\mathrm{d}\\theta\\int_{0}^{2\\pi}\\mathrm{d}\\theta^{\\prime}K_{i,\\lambda}^{-1}(\\theta,\\theta^{\\prime})\\left[1 + \\tau\\omega(t)\\frac{\\partial}{\\partial\\theta}\\right]x_{i}^{*}(\\theta)\\phi_{j}^{*}(\\theta^{\\prime}) $$\n",
+  "wordCount" : "1909",
   "inLanguage": "zh",
   "image":"https://s2.loli.net/2025/11/24/BWUica1QGNP6rLH.png","datePublished": "2025-10-08T00:18:23+08:00",
-  "dateModified": "2025-10-08T00:18:23+08:00",
+  "dateModified": "2026-05-16T00:18:23+08:00",
   "author":[{
     "@type": "Person",
     "name": "Muartz"
@@ -371,13 +371,13 @@ window.addEventListener("load", function () {
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>2字
+        <span>1909字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1分钟
+        <span>4分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -421,8 +421,218 @@ window.addEventListener("load", function () {
         </header> 
 <figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://s2.loli.net/2025/11/24/BWUica1QGNP6rLH.png" alt="">
     
-</figure>
-        <div class="post-content"><p>见 disordered-circuits.ipynb</p>
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#0-abstract" aria-label="0. Abstract">0. Abstract</a></li>
+                <li>
+                    <a href="#1-introduction" aria-label="1. Introduction">1. Introduction</a><ul>
+                        
+                <li>
+                    <a href="#11-ouline-of-the-paper" aria-label="1.1 Ouline of the paper">1.1 Ouline of the paper</a></li></ul>
+                </li>
+                <li>
+                    <a href="#2-examining-a-dataset-of-head-direction-cells" aria-label="2 Examining a dataset of head-direction cells">2 Examining a dataset of head-direction cells</a><ul>
+                        
+                <li>
+                    <a href="#21-failure-of-classical-ring-attractor-models" aria-label="2.1 Failure of classical ring-attractor models">2.1 Failure of classical ring-attractor models</a></li>
+                <li>
+                    <a href="#22-network-construction" aria-label="2.2 Network construction">2.2 Network construction</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="0-abstract">0. Abstract<a hidden class="anchor" aria-hidden="true" href="#0-abstract">#</a></h1>
+<p>经典 cann: 依赖于循环权重 $\mathbb{M}$ 的连续对称性, 调谐曲线也具有平移对称性. 而小鼠头朝向细胞具有异质性.</p>
+<p>仍可通过经典 cann 动力学解释哺乳动物神经回路.</p>
+<p>通过动力学平均场理论(Dynamical Mean Field Theory) 表明调谐异质性网络(在大 N 下)等效于经典 ring attractor. 随机权重通过特征值简并反映出来. 因此可以对权重进行谱结构分析.</p>
+<p>将这一方法推广至二维, 从而构造 环面吸引子(toroidal attractor), 如 grid cell.</p>
+<p>结论: 经典 cann 动力学不仅适用于小型脑, 也存在于复杂的哺乳动物神经回路.</p>
+<h1 id="1-introduction">1. Introduction<a hidden class="anchor" aria-hidden="true" href="#1-introduction">#</a></h1>
+<p>表征: 头朝向, 位置, 更抽象的认知变量(比如进攻性...)</p>
+<p>cann 维持这些表征.</p>
+<p>cann 具有 marginally stable manifold 的要素:</p>
+<ul>
+<li>非线性激活函数 $v=F(I)$ (非线性地将输入电流 $I$ 转换为放电率 $v$)</li>
+<li>循环权重 $\mathbb{M}$ 支持 Turing pattern 的形成(局部兴奋和长程抑制)</li>
+<li>循环权重 $\mathbb{M}$ 具有和所 encode 的变量匹配的连续对称性(头朝向: 一维圆对称; grid cell: 二维). 单神经元的调谐曲线除了神经元偏移完全一致</li>
+</ul>
+<p>Drosophila 大脑中(中央复合体 central complex, 椭球体 ellipsoid body)存在 ring attractor cuircuit.</p>
+<!-- raw HTML omitted -->
+<p>设有 $N$ 个神经元, 一共有 $M$ 只小鼠. 证明小鼠头朝向细胞的调谐曲线具有异质性.</p>
+<ul>
+<li>C: 经典 ring attractor 调谐曲线平移不变</li>
+<li>D: postsubicular 头朝向细胞的神经元调谐曲线具有异质性, 并不具有方向的平移不变性</li>
+<li>调谐曲线峰值对齐($\theta=0^{\circ}$)后, 小鼠 $k$ 在某角度 $\theta_{i}$ 会有 $N$ 个 $v_{j}(\theta_{i})$,
+<ul>
+<li>E
+<ul>
+<li>浅色线: 单只小鼠 $k$ 对神经元求均值 $\begin{aligned} \langle v^{(k)}(\theta_{i})\rangle = \frac{1}{N}\sum_{j=1}^{N}v_{j}^{(k)}(\theta_{i}) \end{aligned}$</li>
+<li>粗实线: 对 $M$ 只小鼠求均值 $\begin{aligned} \bar{v}(\theta) = \frac{1}{M}\sum_{k=1}^{M} \langle v^{(k)}(\theta)\rangle \end{aligned}$</li>
+</ul>
+</li>
+<li>F
+<ul>
+<li>浅色线: 单只小鼠 $k$ 对神经元求标准差 $\begin{aligned}\sigma_{k}(\theta_{i}) = \sqrt{\frac{1}{N}\sum_{j=1}^{N}[v_{j}(\theta_{i})-\langle v_{k}(\theta_{i})\rangle]^{2}}\end{aligned}$</li>
+<li>粗实线: 对 $M$ 只小鼠求标准差均值 $\begin{aligned}\bar{\sigma}(\theta) = \frac{1}{M}\sum_{k=1}^{M}\sigma_{k}(\theta) \end{aligned}$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>哺乳动物稳定表征连续变量</p>
+<ul>
+<li>丘脑前背核, 下托后部: 头朝向神经元(环状拓扑流形)</li>
+<li>内测内嗅皮层(medial entorhinal cortex): grid cell(环面拓扑流形)</li>
+</ul>
+<p>符合 &quot;神经活动限制于低维流形&quot; 的预测.</p>
+<p>哺乳动物神经回路不具有平移对称的调谐曲线. 啮齿动物; 内嗅皮层的 grid scores.</p>
+<ol>
+<li>异质性调节的本质是什么?
+<ul>
+<li>通过高斯过程采样 tuning curve, 并使其通过非线性激活函数 $F(\cdot)$, 可以解释海马体 place cell.</li>
+</ul>
+</li>
+<li>平移对称性破缺的情况下, 经典 cann 的适用性?
+<ul>
+<li>RNN 的 universal approximation 能力 (没有建立与经典模型的联系)
+<ul>
+<li>通过高 rank 和低 rank 权重组合解释异质性调谐的 ring attractor</li>
+<li>预设动力学的 RNN 生成异质性调谐的 ring attractor</li>
+<li>具有一定相关性的低 rank 随机权重生成振幅异质性的 ring attractor</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>本文解决了 1, 2 问: 哺乳动物的异质性神经回路可以依赖于经典 cann 的基于对称性的动力学.</p>
+<ul>
+<li>开发了统计生成过程捕捉异质性调谐曲线</li>
+<li>通过 DMFT 证明异质性网络在大 $N$ 下等效于经典 cann</li>
+</ul>
+<h2 id="11-ouline-of-the-paper">1.1 Ouline of the paper<a hidden class="anchor" aria-hidden="true" href="#11-ouline-of-the-paper">#</a></h2>
+<!-- raw HTML omitted -->
+<p>啮齿动物的头朝向系统.</p>
+<ol>
+<li>异质性调谐曲线不可能自身构成经典 cann.</li>
+<li>用实验测得的调谐曲线构造 RNN, 且异质性调谐可以维持表征, 即准连续吸引子动力学</li>
+<li>开发用于采样合成调谐曲线的统计生成过程, 其中用到了圆对称的高斯过程</li>
+<li>分析大 $N$ 极限下的最优权重. 随机矩阵具有潜在的圆对称性, 即简并度为 2 的特征值, 与经典模型通过 Fourier 模嵌入圆对称不同</li>
+<li>使用 DMFT 分析大 $N$ 网络. MFT 恢复了经典 cann 的非线性激活函数/mexican hat/连续对称性三个特征.</li>
+</ol>
+<h1 id="2-examining-a-dataset-of-head-direction-cells">2 Examining a dataset of head-direction cells<a hidden class="anchor" aria-hidden="true" href="#2-examining-a-dataset-of-head-direction-cells">#</a></h1>
+<p>自由移动小鼠后下托(postsubiculum)头朝向细胞. 调谐曲线存在异质性, 与经典 cann 的预测偏离.</p>
+<p>没有明显的单峰性约束.</p>
+<p>使用高斯核对调谐曲线进行平滑.</p>
+<h2 id="21-failure-of-classical-ring-attractor-models">2.1 Failure of classical ring-attractor models<a hidden class="anchor" aria-hidden="true" href="#21-failure-of-classical-ring-attractor-models">#</a></h2>
+<!-- raw HTML omitted -->
+<p>两种曲线在不同小鼠都存在着某种一致的统计结构. 和经典模型的调谐曲线零偏差预设不同.</p>
+<h2 id="22-network-construction">2.2 Network construction<a hidden class="anchor" aria-hidden="true" href="#22-network-construction">#</a></h2>
+<p>仅仅依靠 RNN 能否维持异质性调谐曲线的 attractor 结构?</p>
+<p>$N$ 神经元($i=1,\cdots,N$).</p>
+<blockquote>
+<p>firing rate RNN, 但是也可推广至 spiking RNN.</p>
+</blockquote>
+<p>动力学: $\begin{aligned}\tau\frac{\partial x_{i}(t)}{\partial t} = -x_{i}(t) + \sum_{j=1}^{N}J_{ij}\phi_{j}(t) + b\end{aligned}$</p>
+<p>$x_{i}(t)$ 输入电流, $\phi_{i}(t)$ 输出放电率</p>
+<p>$J_{ij}$: 神经元 $j$ 到 $i$ 的突触权重, $b$: 偏置电流, $\tau = 50,\mathrm{ms}$: 网络时间常数, $\phi(x) = \ln{(1+e^{x})}$: 非线性激活函数 softplus</p>
+<p>该动力学在 $N$ 维空间中约束了一个流形, 稳定的 $\left(\frac{\partial x}{\partial t} = 0\right)$ 神经活动只能在该流形上演化. 令该流形为 $\phi_{i}^{*}(\theta)$, 使用激活函数的逆函数 $\phi^{-1}$ 解得输入电流流形 $x_{i}^{*}(\theta)$.</p>
+<p>沿着流形 $x_{i}^{*}(\theta)$, 应有零流条件(vanishing-flow condition) $\begin{aligned}\frac{\partial x_{i}(t)}{\partial t} = 0\end{aligned}$.</p>
+<p>非饱和激活函数(如 $\phi(x) = [x]_{+}$) 没有输出上限. 为此归一化处理 $\frac{1}{N}\sum_{i=1}^{N}\phi_{i}^{*}(\theta) = 1$</p>
+<p>偏置电流平移 $b\to b + c$, 为了维持整体形式不变相当于权重平移 $J_{ij}\to J_{ij} - \frac{c}{N}$. 因此可在 $b=0$ 下优化 $J_{ij}$.</p>
+<p>最小二乘法优化目标函数</p>
+<p>$$
+\mathcal{L} = \frac{1}{2\pi}\int_{0}^{2\pi}\mathrm{d}\theta\,\sum_{i=1}^{N}\left[\sum_{j=1}^{N}J_{ij}\phi_{j}^{*}(\theta) - x_{i}^{*}(\theta)\right]^{2} + \lambda \sum_{i,j}J_{ij}^{2}
+$$</p>
+<blockquote>
+<ul>
+<li>$\lambda \sum_{i,j}J_{ij}^{2}$: 生物大脑维持突触需要消耗能量. 因此要求尽可能使用最小的突触权重</li>
+<li>$J_{ii} = 0\,(\forall i)$: 神经元几乎没有自突触连接</li>
+</ul>
+</blockquote>
+<p>解得 $J_{ij} = \frac{1}{N}\int_{0}^{2\pi}\mathrm{d}\theta\,\int_{0}^{2\pi}\mathrm{d}\theta^{\prime}\, K_{i,\lambda}^{-1}(\theta,\theta^{\prime}) x_{i}^{*}(\theta)\phi_{j}^{*}(\theta^{\prime})$</p>
+<p>形式类似于 Hebb's rule $w_{ij} = \frac{1}{p}\sum_{k=1}^{p}x_{i}^{k}x_{j}^{k}$, 但是 $J_{ij}$ 并非对称阵所以不能使用能量函数</p>
+<blockquote>
+<p>确保网络在迭代过程中能量单调下降从而收敛至极小值. 若 $J_{ij}\neq J_{ji}$, 网络将进入无休止循环.</p>
+</blockquote>
+<blockquote>
+<p>核函数 $K_{i,\lambda}(\theta,\theta^{\prime}) = C^{\phi}(\theta,\theta^{\prime}) - \frac{\phi_{i}^{*}(\theta)\phi_{i}^{*}(\theta^{\prime})}{N} + \frac{2\pi\lambda\delta(\theta-\theta^{\prime})}{N}$</p>
+<p>关联函数 $C^{\phi} = \frac{1}{N}\sum_{i=1}^{N}\phi_{i}^{*}(\theta)\phi_{i}^{*}(\theta^{\prime})$</p>
+</blockquote>
+<p>悖论: 由于 $\theta\in[0,2\pi]$ 连续变量, 产生无穷多方程组 $x_{i}^{*}(\theta) = \sum_{j=1}^{N}J_{ij}\phi_{j}^{*}(\theta)$, 每组都对应 $\{J_{ij}\}$ 的 $N$ 个未知数. $N$ 个未知数无法满足无穷多的方程组. 然而 $\phi_{j}^{*}$ 是平滑曲线, 因此在 Fourier 空间中频率存在上限, 写作 $\phi_{j}^{*}(\theta) = \sum_{n=-D}^{D} \hat{\phi}_{jn}e^{in\theta}$ 和 $x_{i}^{*}(\theta) = \sum_{n=-D}^{D}\hat{x}_{in}e^{in\theta}$,</p>
+<p>方程 $\sum_{n=-D}^{D}\hat{x}_{in}e^{in\theta} = \sum_{j=1}^{N}J_{ij}\left(\sum_{n=-D}^{D}\hat{\phi}_{jn}e^{in\theta}\right)$, 根据 Fourier 模正交性提取 $n\in\{-D,\cdots,D\}$ 的 $\hat{x}_{in} = \sum_{j=1}^{N}J_{ij}\hat{\phi}_{jn}$, 共有 $2D+1$ 个方程, 而 $D\ll N$, 因此实际上是欠约束(underconstrained), 存在无穷多解</p>
+<p>头朝向系统具有角速度积分功能. 为此修改为</p>
+<p>$$
+J_{ij}[\omega(t)] = \frac{1}{N}\int_{0}^{2\pi}\mathrm{d}\theta\int_{0}^{2\pi}\mathrm{d}\theta^{\prime}K_{i,\lambda}^{-1}(\theta,\theta^{\prime})\left[1 + \tau\omega(t)\frac{\partial}{\partial\theta}\right]x_{i}^{*}(\theta)\phi_{j}^{*}(\theta^{\prime})
+$$</p>
 
 
         </div>
@@ -560,7 +770,7 @@ window.addEventListener("load", function () {
         <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
         
         
-        · 运行 1197 天
+        · 运行 1198 天
 
         
         
@@ -869,7 +1079,11 @@ window.addEventListener("load", function () {
         
             
         
-        · 已经水了 152 篇 1019076 字, 再接再厉!
+            
+        
+            
+        
+        · 已经水了 154 篇 1032328 字, 再接再厉!
     </div>
 
     

@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Months-long stability of the head-direction system | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="头部方向系统的数月稳定性">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/months-long-stability-of-the-head-direction-system/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/months-long-stability-of-the-head-direction-system/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="Months-long stability of the head-direction system" />
+<meta property="og:description" content="头部方向系统的数月稳定性" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/months-long-stability-of-the-head-direction-system/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/05/26/x2Rd/20260526212340978.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-05-26T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-05-26T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/05/26/x2Rd/20260526212340978.png" />
+<meta name="twitter:title" content="Months-long stability of the head-direction system"/>
+<meta name="twitter:description" content="头部方向系统的数月稳定性"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Months-long stability of the head-direction system",
+      "item": "https://Muatyz.github.io/posts/read/attractors/months-long-stability-of-the-head-direction-system/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Months-long stability of the head-direction system",
+  "name": "Months-long stability of the head-direction system",
+  "description": "头部方向系统的数月稳定性",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Abstract Spatial orientation enables animals to navigate their environment by rapidly mapping the external world and remembering key locations1. In mammals, the head-direction (HD) system is an essential component of the navigation system of the brain2. Although the tuning of neurons in other areas of this system is unstable—evidenced, for example, by the change in the spatial tuning of hippocampal place cells3 across days4–11—the stability of the neuronal code that underlies the sense of direction remains unclear. Here, by longitudinally tracking the activity of the same HD cells in the post-subiculum of freely moving mice, we show stability and plasticity at two levels. Although the population structure remained highly conserved across environments and over time, subtle shifts in population coherence encoded environment identity. In addition, the HD system established a distinct, environment-specific alignment between its internal representation and external landmarks, which persisted for weeks, even after a single exposure. These findings suggest that the HD system forms long-lasting orientation memories that are anchored to specific environments.\n空间定向使动物能够通过快速映射外部世界和记住关键位置来导航它们的环境。在哺乳动物中，头部方向（HD）系统是大脑导航系统的重要组成部分。虽然该系统其他区域的神经元调谐不稳定，例如，海马体位置细胞在几天内空间调谐的变化，但支撑方向感的神经编码的稳定性仍不清楚。在这里，通过纵向跟踪自由移动小鼠中同一HD细胞的活动，我们展示了两个层次的稳定性和可塑性。虽然人口结构在不同环境和时间上高度保守，但人口一致性的微妙变化编码了环境身份。此外，HD系统建立了其内部表示与外部地标之间的独特、环境特定的对齐，即使在单次暴露后也持续了数周。这些发现表明，HD系统形成了长期存在的定向记忆，这些记忆锚定在特定环境中。\nIntroduction Although animals are capable of lifelong memories, brain representations change over time6,12–16. This ‘representational drift’ has been observed in sensory systems, where the tuning of individual neurons to, for example, olfactory12 and visual inputs13–15 changes over days. Similar effects have been observed in higher-order systems such as the hippocampus, where the spatial tuning of CA1 place cells3 changes across days6–11, and even between successive trials5,17, although this hippocampal drift has been shown to be inversely correlated with attentional demands4.\n虽然动物能够拥有终生的记忆，但大脑表征会随着时间而改变。这种“表征漂移”已经在感觉系统中观察到，例如，个体神经元对嗅觉和视觉输入的调谐在几天内发生变化。在更高阶的系统中也观察到了类似的效应，例如，在海马体中，CA1 位置细胞的空间调谐在几天内发生变化，甚至在连续试验之间发生变化，尽管已经显示这种海马体漂移与注意力需求成反比相关。\nOf note, although drift affects both single-neuron activity and population-level responses, some distributed representations—such as those related to environment identity18 or specific behavioural correlates19—can remain decodable over time. This suggests that stable coding dimensions may coexist with drifting ones, enabling reliable readout of behaviourally relevant variables even as the underlying population activity evolves.\n值得注意的是，虽然漂移影响单个神经元的活动和群体水平的反应，但一些分布式表征，例如与环境身份或特定行为相关的表征，可以随着时间的推移保持可解码。这表明，稳定的编码维度可能与漂移的维度共存，即使在基础群体活动演变的情况下，也能可靠地读取行为相关变量。\nThese observations raise the question of the stability of the neuronal population code upstream of the hippocampus. To address this, we study the post-subiculum (PoSub), the primary cortical stage of the HD system, where many neurons encode the head direction of the animal2,20,21. The HD system is believed to be governed by attractor dynamics22–27, which constrain neuronal population activity to lie on a one-dimensional ring. In mammals, this was suggested by the stability of internal population dynamics across brain states20,23,28, yet these observations have only been made within single days of recordings. Furthermore, HD neurons map their internal states to the direction of the animal in an allocentric reference frame by integrating external sensory inputs29,30. This mapping is rapidly learned during the first exposure to an environment31. However, the stability of these orientation memories across visits remains unclear2. We thus explored whether the population of HD neurons maintains their coordination and their alignment to the external world for extended periods, across days.\n虽然动物能够拥有终生的记忆，但大脑表征会随着时间而改变。这种“表征漂移”已经在感觉系统中观察到，例如，个体神经元对嗅觉和视觉输入的调谐在几天内发生变化。在更高阶的系统中也观察到了类似的效应，例如，在海马体中，CA1 位置细胞的空间调谐在几天内发生变化，甚至在连续试验之间发生变化，尽管已经显示这种海马体漂移与注意力需求成反比相关。\nThe tuning of HD cells is stable over time To determine the long-term stability of the HD signal, we implanted 5 mice with a 1.0 mm GRIN lens over the PoSub (Fig. 1a, Extended Data Fig.1a,b and Methods). We detected regions of interest (ROIs), spatially localized areas where individual putative neurons were identified, in each recording session. Across a total of 388 sessions, the number of ROIs persession ranged from 21 to 286 (95 ± 56 (mean ± s.d.)) and was stable over time (Extended Data Fig. 1d).\n为了确定 HD 信号的长期稳定性，我们在 5 只小鼠的 PoSub 上植入了一个 1.0 mm 的 GRIN 镜头。我们在每个记录会话中检测了兴趣区域（ROIs），这些区域是个体假定神经元被识别的空间局部化区域。在总共 388 个会话中，每个会话的 ROI 数量范围从 21 到 286（平均值 ± 标准差为 95 ± 56），并且随着时间的推移保持稳定。\nWe first characterized the tuning of single putative units over multiple visits in the same environment (Fig. 1b). ROIs in the PoSub showed strong tuning to the head direction of the mouse (Fig. 1c,d and Extended Data Fig. 1e,g). Low-dimensional projection of HD cell population activity using Isomap (Methods), a technique for visualizing high-dimensional data by preserving its geometric structure, revealed a ring topology (Extended Data Fig. 1h), which reflects the continuous circular representation of angular head direction within the HD cell population23. We then registered ROIs across the whole recording protocol32 (20 visits over 4 weeks; Fig. 1e) and identified HD cells as ROIs with strong tuning to head direction and being registered across multiple days (Methods). We quantified the consistency of HD cell detection across sessions using the Jaccard index, which measures the overlap in the set of ROIs classified as HD cells on different days (Extended Data Fig.2a,b and Methods). This index reflects both the reliability of registration and fluctuations in HD cell activity over time (for example, drop-in/drop-out), and is therefore used here as a descriptive measure of active HD cell recurrence rather than as a direct proxy for registration accuracy. The Jaccard index remained high regardless of the delay between sessions, suggesting that most ROIs were successfully registered and continued to exhibit activity across time.\n我们首先在同一环境中的多次访问中表征了单个假定单位的调谐。PoSub 中的 ROI 显示出对小鼠头部方向的强烈调谐。使用 Isomap（一种通过保留几何结构来可视化高维数据的技术）对 HD 细胞群体活动进行低维投影，揭示了一个环形拓扑结构，这反映了 HD 细胞群体内角度头部方向的连续圆形表示。然后，我们在整个记录协议中注册了 ROI（20 次访问，持续 4 周），并将 HD 细胞识别为对头部方向具有强烈调谐并且在多天内注册的 ROI。我们使用 Jaccard 指数量化了不同天之间被分类为 HD 细胞的 ROI 集合的重叠程度，以衡量 HD 细胞检测在不同会话之间的一致性。该指数反映了注册的可靠性和 HD 细胞活动随时间的波动（例如，加入/退出），因此在这里用作活跃 HD 细胞重复出现的描述性度量，而不是注册准确性的直接代理。无论会话之间的延迟如何，Jaccard 指数都保持较高水平，这表明大多数 ROI 都成功注册并继续随着时间展现活动。\nIn an example mouse, the tuning of single HD cells was highly preserved across days (Fig. 1e,f), and the same observation was made across all mice (Fig. 1g and Extended Data Figs. 3 and 4a–d). Of note, the change in preferred direction was not significantly correlated with the quality of cell registration nor the drift of the ROI in the Miniscope field of view (Extended Data Fig.2c–e). To further assess the time course of cell tuning stability, we computed the absolute change in preferred direction as a function of days passed between recordings and observed a slow drift rate (7.1 ± 4.4° per week) (Fig. 1h). Analysis of the cumulative variance of orientation across days suggested that this drift, although modest, was not diffusive (that is, not a random walk) but instead fluctuated around a fixed direction (Fig. 1g and Extended Data Fig. 4e,f).\n在一个示例小鼠中，单个 HD 细胞的调谐在几天内高度保留，在所有小鼠中也观察到了同样的现象。值得注意的是，首选方向的变化与细胞注册的质量或 ROI 在 Miniscope 视野中的漂移没有显著相关性。为了进一步评估细胞调谐稳定性的时间进程，我们计算了首选方向的绝对变化与记录之间经过的天数的函数，并观察到一个缓慢的漂移率（每周 7.1 ± 4.4°）。对几天内定向累积方差的分析表明，这种漂移虽然适度，但不是扩散性的（即，不是随机游走），而是围绕固定方向波动。\nThis drift could arise from changes across cells or from the coherent drift of the HD cell population alignment to the environment. If HD cells drift independently from each other, the pairwise angular offset should show a larger change than individual HD cell drift. The change in pairwise angular offset across all registered cell pairs (independent of interleaving days) was strongly biased towards 0 (Extended Data Fig. 4g), suggesting highly coherent population dynamics. Furthermore, the change in pairwise angular offset drifted more slowly (4.1 ± 4.8° per week), yet this was not significantly different from single cell tuning drift rate (Fig. 1i).\n这种漂移可能来自细胞之间的变化，或者来自 HD 细胞群体与环境对齐的相干漂移。如果 HD 细胞彼此独立漂移，则成对的角偏移应该显示出比单个 HD 细胞漂移更大的变化。所有注册的细胞对之间的成对角偏移的变化（不考虑交错的天数）强烈偏向于 0，这表明高度一致的人口动态。此外，成对角偏移的变化漂移得更慢（每周 4.1 ± 4.8°），但这与单个细胞调谐漂移率没有显著差异。\nFinally, this relative stability in population code suggests that head direction could be read out from previous knowledge of neuron tuning. To test this, we trained and tested non-linear decoders (extreme gradient-boosted trees (Methods)) on every recording session pair and observed statistically significant decoding for nearly the entire duration of the experiment (Fig. 1j,k). This is in line with a slow decay in the population vector coherence over the course of the recording (Extended Data Fig. 4h–j). Together, these observations suggest that HD cells form a highly stable population, both at the level of internal coherence and alignment with the environment. However, animals in the wild navigate various environments and the effect of these rich and diverse experiences on the organization of the HD cell population is unclear.\nHD 细胞群体代码的这种相对稳定性表明，可以从先前对神经元调谐的了解中读取头部方向。为了测试这一点，我们在每个记录会话对上训练和测试了非线性解码器（极端梯度提升树），并观察到几乎整个实验期间的统计显著解码。这与记录过程中人口向量一致性的缓慢衰减一致。总之，这些观察表明，HD 细胞形成了一个高度稳定的人口，无论是在内部一致性水平还是与环境的对齐水平。然而，野外动物在各种环境中导航，这些丰富多样的经历对 HD 细胞群体组织的影响尚不清楚。\nInternal organization across time and environments We then interrogated whether HD cells preserve their pairwise angular difference across days and environments. To this end, we recorded mice in four different environments for two weeks in each environment (eight weeks in total) (Fig. 2a). ROIs were detected and monitored throughout the recording protocol (Fig. 2b and Extended Data Fig.5a,b). In an example mouse, HD cells showed environment-specific alignment and, importantly, preserved their pairwise angular difference (Fig. 2c,d). The tuning of HD cells was stable within each environment for all mice (Extended Data Fig.5c). We observed the same tendency of preserved pairwise angular difference in preferred directions across all sessions and mice (Fig. 2e and Extended Data Fig. 6). To confirm that this long-tailed distribution is not specific to the imaging technique, we confirmed these results with electrophysiological recordings (Extended Data Fig.7). These findings suggest a highly structured neuronal population in which the majority of cell pairs remain stable across environments, with only a minority changing their pairwise offset.\n我们随后调查了 HD 细胞是否在不同天和环境中保持它们的成对角度差异。为此，我们在四个不同的环境中记录了小鼠，每个环境记录两周（总共八周）。在整个记录协议中检测和监控 ROI。在一个示例小鼠中，HD 细胞显示出环境特定的对齐，并且重要的是，保持了它们的成对角度差异。所有小鼠在每个环境中的 HD 细胞调谐都很稳定。我们在所有会话和小鼠中观察到了首选方向成对角度差异保持的同样趋势。为了确认这种长尾分布不是特定于成像技术，我们通过电生理记录确认了这些结果。这些发现表明了一个高度结构化的神经群体，其中大多数细胞对在不同环境中保持稳定，只有少数改变它们的成对偏移。\nEnvironmental modulation of the HD cell population Although the tail of the distribution of pairwise angular offset could arise from measurement noise or non-specific drift, another possibility is that this marginal change reflects a code for environment identity. Decoders of head direction of mice trained and tested in the same environment one week apart showed a tendency for better (yet non-significant) accuracy than decoders trained across environments with the same delay between sessions (Extended Data Fig. 8c), suggesting an environment-specific code on top of a highly structured population organization. To test this possibility, we trained classifiers of environment identity based on neuronal signal correlation—that is, the pairwise correlation of HD cell tuning curves (Methods). These classifiers showed higher accuracy than controls (Fig. 2f,g), supporting the idea that the HD signal in the PoSub is environment specific.\n虽然成对角度偏移分布的尾部可能来自测量噪声或非特异性漂移，但另一种可能性是这种边际变化反映了环境身份的代码。训练和测试在同一环境中相隔一周的小鼠头部方向解码器显示出比在不同环境中训练的解码器更好的（但不显著）准确性，这表明在高度结构化的人口组织之上存在环境特定的代码。为了测试这种可能性，我们基于神经信号相关性（即 HD 细胞调谐曲线的成对相关）训练了环境身份分类器。这些分类器显示出比控制更高的准确性，支持了 PoSub 中 HD 信号是环境特定的想法。\nThe four-week-long recording in the circular environment suggested that the absolute alignment of the HD system is maintained for extended periods (Fig. 1). However, it is unclear whether the HD system was explicitly aligned to each environment or with respect to global coordinates. The first three environments of the protocol were in the same experimental room, and the HD system alignment was measured with respect to the absolute coordinates of the room. We thus computed the average remapping (the change in alignment to the external world) of the HD cell population across environments for each mouse (Fig. 2h,i). Notably, this remapping seemed random across mice, although more data would be required to support a true random remapping. Whereas the internal structure of the HD system was largely preserved across environments, with only minor modulations, its absolute orientation was specific to each environment, as shown by previous studies29,33,34. Overall, these observations suggest that HD cells are part of a rigidly configured system that rapidly acquires a new and random alignment when visiting an environment for the first time and suggest that this alignment is maintained over a long term for subsequent visits.\n虽然在圆形环境中的为期四周的记录表明 HD 系统的绝对对齐可以维持较长时间，但尚不清楚 HD 系统是明确地与每个环境对齐还是相对于全局坐标对齐。协议的前三个环境位于同一实验室中，HD 系统的对齐是相对于房间的绝对坐标测量的。因此，我们计算了每只小鼠在不同环境中 HD 细胞群体的平均重映射（与外部世界对齐的变化）。值得注意的是，这种重映射在不同小鼠之间似乎是随机的，尽管需要更多数据来支持真正的随机重映射。虽然 HD 系统的内部结构在不同环境中基本保持不变，只有轻微调制，但其绝对方向是特定于每个环境的，正如之前的研究所示。总体而言，这些观察表明，HD 细胞是一个刚性配置系统的一部分，在第一次访问环境时迅速获得新的随机对齐，并且这种对齐在随后的访问中长期保持。\nHD system forms long-term memories of orientation The acquisition of a new absolute alignment in each environment and maintenance of that alignment during two weeks of recordings suggests that the HD system maintains a memory of its mapping to the external world in each environment. To address the question of long-term stability of this memory, we added a week of probe trials after the eight weeks of visits (Fig. 2), during which each environment was visited once again (one environment per day) (Fig. 3a). An example HD cell, as well as nearly all the other HD cells recorded simultaneously, showed similar tuning curves in the probe trials and the last visit of the same environment during the two-week long exploration (Fig. 3b,c). Because environments were initially visited one after the other (Fig. 2), each environment was associated with a different delay between the probe trial and the last visit. For each delay (that is, each environment) and each mouse, we computed the angular remapping of the HD cell population (as in Fig. 2h,i). Although each mouse showed changes in orientation after variable delays (to note, these delays correspond to different environments), the average alignment of the HD system to external environments across mice drifted gradually, albeit slowly, as the interval between sessions increased, becoming significantly different from 0° only at the 6-week delay (Fig. 3d,e). We further tested this drift by assessing the absolute changes in individual neuronal preferred directions and observed a similar drift from the original direction (Fig. 3f). Of note, the population structure maintained its coherence across these recordings (Fig. 3g). These findings suggest that the HD system preserves a highly stable internal coherence while its orientation memory slowly decays over several weeks. Notably, this orientation memory may be affected by cognitive load as after four additional weeks of extensive experience with the different environments, the systems showed reduced retention of the original preferred direction (Extended Data Fig. 9).\n在每个环境中获得新的绝对对齐并在两周的记录期间保持该对齐，表明 HD 系统在每个环境中维护了其与外部世界映射的记忆。为了解决这个记忆长期稳定性的问题，我们在八周访问后添加了一周的探针试验，在此期间再次访问每个环境（每天一个环境）。一个示例 HD 细胞以及几乎所有同时记录的其他 HD 细胞在探针试验和两周长探索期间同一环境的最后一次访问中显示出类似的调谐曲线。因为环境最初是一个接一个地访问的，所以每个环境都与探针试验和最后一次访问之间的不同延迟相关联。对于每个延迟（即每个环境）和每只小鼠，我们计算了 HD 细胞群体的角重映射。虽然每只小鼠在不同延迟后显示出方向变化，但随着会话之间间隔的增加，HD 系统对外部环境的平均对齐逐渐漂移，虽然缓慢，但只有在 6 周延迟时才显著不同于 0°。我们通过评估单个神经元首选方向的绝对变化进一步测试了这种漂移，并观察到与原始方向类似的漂移。值得注意的是，人口结构在这些记录中保持其一致性。这些发现表明，HD 系统保持高度稳定的内部一致性，而其定向记忆在几周内缓慢衰减。值得注意的是，这种定向记忆可能会受到认知负荷的影响，因为在与不同环境进行四周额外广泛经验之后，该系统显示出对原始首选方向的保留减少。\nMemory from a single visit is stable over weeks Although HD cells seem to form a highly structured population that is stably aligned over successive visits to the same environment (Fig. 1), the slow drift in orientation memory observed with increasing delays between consecutive visits (Fig. 3d,e) could result not from passing time but from interferences with experiences in other environments (Fig. 3 and Extended Data Fig. 9). To test this possibility, we implanted five more mice in an experience-scarce protocol whereby mice were introduced to two novel environments on a given day (8 h apart). Then, mice visited one of the environments every week while they re-experienced the other one only four weeks later (Fig. 4a). We observed a highly maintained absolute orientation of the HD cell population for both environments (Fig. 4b–d and Extended Data Fig. 10). This was further supported by the high accuracy of a decoder of head direction for both environments (not significantly different from other animals) (Fig. 4e). These results confirm that orientation memory is formed in a single visit and is not affected by sparse experience in another environment.\n虽然 HD 细胞似乎形成了一个高度结构化的人口，在连续访问同一环境时保持稳定对齐，但随着连续访问之间的延迟增加观察到的定向记忆的缓慢漂移可能不是由于时间的流逝，而是由于与其他环境中的经历的干扰。为了测试这种可能性，我们在一个经验稀缺的协议中又植入了五只小鼠，在给定的一天内引入两个新环境（相隔 8 小时）。然后，小鼠每周访问其中一个环境，而另一个环境则在四周后重新体验。我们观察到 HD 细胞群体在两个环境中的绝对方向高度保持。这进一步得到了两个环境头部方向解码器高准确性的支持（与其他动物没有显著差异）。这些结果证实，定向记忆是在单次访问中形成的，并且不受另一个环境中稀疏经验的影响。\nDiscussion We found that the organization of population activity in the PoSub HD system is, overall, stable at two levels: its internal organization remains highly coherent over time and across environments, and its absolute alignment within an environment is maintained for weeks, showing only a small drift. Although the population structure was largely conserved across experiences, it also exhibited environment-specific features. Moreover, the absolute alignment of the HD system within a given environment was reinstated when the mouse was re-exposed several weeks later—provided that intervening experience with other environments remained limited. These observations suggests that representational drift affects mainly the absolute alignment of the HD cell population while sparing its internal structure.\n我们发现，PoSub HD 系统中群体活动的组织总体上在两个层面上是稳定的：其内部组织随着时间和环境的变化保持高度一致，并且在一个环境中的绝对对齐保持数周，仅显示出小的漂移。虽然人口结构在不同经历中基本保持不变，但它也表现出环境特定的特征。此外，在给定环境中的 HD 系统的绝对对齐在小鼠几周后重新暴露时得以恢复——前提是与其他环境的干预经验保持有限。这些观察表明，表征漂移主要影响 HD 细胞群体的绝对对齐，而不影响其内部结构。\nOur findings that the organization of the HD cell population was maintained across months extend earlier reports that HD cell pairs shift their preferred direction coherently29,31, and sometimes across several days2,29,31,34,35, as well as preserve their mutual coordination across all brain states, including in sleep23,28. As the HD system shows structured activity from an early age36, our observations raise the possibility of a neuronal population that is rigidly wired37 and maintains its organization throughout its lifespan. This may be especially true for subcortical stages of the HD system. Indeed, the subtle, environment-specific changes observed in HD population tuning suggest that the PoSub is strongly driven by a structured thalamic signal, and is further modulated by sensory inputs, particularly visual29,38,39 and olfactory cues30.\n我们发现 HD 细胞群体的组织在几个月内保持不变，扩展了早期报告的 HD 细胞对以协调方式改变其首选方向的报告，有时跨越几天，以及在所有脑状态下保持其相互协调，包括在睡眠中。由于 HD 系统从早期就显示出结构化的活动，我们的观察提出了一个可能性，即一个刚性连接的神经群体，并在其整个生命周期中保持其组织。这对于 HD 系统的亚皮层阶段尤其如此。事实上，在 HD 群体调谐中观察到的微妙、环境特定的变化表明，PoSub 受到结构化丘脑信号的强烈驱动，并进一步受到感觉输入的调制，特别是视觉和嗅觉线索。\nNotably, our data showed how the HD system acquires an alignment at the first visit to the environment and maintains it afterwards, although it slowly drifted. This alignment seemed random and independent of the inputs, as the angular shift of the HD system in different environments was not consistent across animals. Mice were systematically disoriented before each visit. Thus, an association between the sensory inputs and the HD system after entering the environment may have set an initial alignment, which would have been memorized. Hebbian learning from sensory inputs to a rigidly organized ring attractor neural networks would be sufficient to stabilize an absolute alignment, as suggested in computational models22,40 and demonstrated in the fly HD system41. Another possibility is that an absolute alignment depends on pre-configured connections from the sensory inputs to the HD system, setting an alignment for a given state of inputs. Such mechanisms will predict that an absolute alignment is maintained across visits, irrespective of the duration between two consecutive visits. However, previous reports have suggested that the alignment is learned33,42,43. Furthermore, the slow drift we observed over weeks, particularly following extensive visits to multiple environments, argues against rigidly configured inputs and instead suggests that orientation memories can form and interfere with one another across experiences.\n值得注意的是，我们的数据展示了 HD 系统如何在第一次访问环境时获得对齐并在之后保持，尽管它慢慢漂移。这种对齐似乎是随机的，与输入无关，因为 HD 系统在不同环境中的角度偏移在不同动物中不一致。小鼠在每次访问前都被系统性地迷惑了。因此，在进入环境后，感觉输入与 HD 系统之间的关联可能设置了初始对齐，并且会被记忆。来自感觉输入到刚性组织的环形吸引子神经网络的 Hebbian 学习将足以稳定绝对对齐，如计算模型所示，并在飞行 HD 系统中得到证明。另一种可能性是，绝对对齐依赖于从感觉输入到 HD 系统的预配置连接，为给定状态的输入设置对齐。这些机制将预测绝对对齐在访问之间保持，无论两次连续访问之间的持续时间如何。然而，之前的报告已经表明，对齐是学习的。此外，我们观察到的几周内的缓慢漂移，特别是在多环境广泛访问之后，反驳了刚性配置输入，而是表明定向记忆可以形成并在经历中相互干扰。\nFinally, the absolute alignment between consecutive visits separated by more than a week did not abruptly change but slowly drifted from their original alignment, increasing with the delay between the two successive visits. These results suggest that if synaptic weight changes occur between the visual and HD systems, they do not result in an abrupt remapping at a specific time point but may instead gradually alter the alignment of the HD system over time. Note that representation in the visual system also drifts at a faster timescale13, raising the possibility that the HD system must constantly adapt to a changing input.\n最后，连续访问之间的绝对对齐在相隔一周以上时没有突然改变，而是从它们的原始对齐慢慢漂移，随着两次连续访问之间的延迟增加。这些结果表明，如果视觉系统和 HD 系统之间发生突触权重变化，它们不会在特定时间点导致突然重映射，而可能会随着时间的推移逐渐改变 HD 系统的对齐。请注意，视觉系统中的表征也以更快的时间尺度漂移，这提出了一个可能性，即 HD 系统必须不断适应不断变化的输入。\nThe HD system is a crucial component of the brain’s navigation system44–46. The PoSub is the main cortical relay of the HD signal and projects directly to the entorhinal cortex44,45,47, the primary cortical input and output of the hippocampus. The mapping of a familiar environment by hippocampal place cells drifts across sessions6–9,18. Our results suggest that this drift occurs irrespective of a stable HD signal. This indicates that, although individual place cells change their firing rate, the global alignment of the hippocampal map should be maintained for several weeks, as suggested by the stability of the position, but not the rate, of each hippocampal place field48. Furthermore, the stability of the HD system calls into question whether spatial representation in the medial entorhinal cortex, especially in the form of a highly organized grid cell system49, maintains a stable mapping to the environment. In addition, although the alignment of the HD system is known to be independent of the hippocampus35, further studies are needed to determine whether the environment-specific structure of the HD cell population depends on hippocampal integrity. Finally, these results echo recent computational evidence showing that a cognitive map can emerge in a neural network receiving a stable HD signal, which does not need to be learned end-to-end with the map50.\nHD 系统是大脑导航系统的关键组成部分。PoSub 是 HD 信号的主要皮层中继站，并直接投射到内嗅皮层，内嗅皮层是海马体的主要皮层输入和输出。熟悉环境的海马体位置细胞的映射在不同会话之间发生漂移。我们的结果表明，这种漂移发生在稳定的 HD 信号无关的情况下。这表明，虽然个别位置细胞改变了它们的放电率，但海马体地图的全局对齐应该在几周内保持不变，正如每个海马体位置场的位置稳定性所示，而不是速率。此外，HD 系统的稳定性提出了一个问题，即内侧嗅皮层中的空间表征，特别是以高度组织化的网格细胞系统的形式，是否保持与环境的稳定映射。此外，虽然 HD 系统的对齐已知与海马体无关，但需要进一步研究来确定 HD 细胞群体的环境特定结构是否依赖于海马体完整性。最后，这些结果呼应了最近的计算证据，显示在接收稳定 HD 信号的神经网络中可以出现认知地图，而不需要与地图进行端到端学习。\nOrientation memory remained stable with repeated exposure, as long as experience was restricted to a limited set of environments. Similar observations were made in the olfactory12 and visual14 systems. The opposite was observed for hippocampal place cells as experience leads to increased representational drift7,8. It is thus possible that experience in a familiar setting, where animals are frequently re-exposed to the same sensory inputs, stabilizes primary sensory representations while increasing the changes in the representation of context by hippocampal neurons.\n当经验限制在有限的环境集合中时，定向记忆在反复暴露下保持稳定。在嗅觉和视觉系统中也观察到了类似的现象。对于海马体位置细胞则观察到了相反的现象，因为经验导致表征漂移增加。因此，在熟悉的环境中，动物经常重新暴露于相同的感觉输入，可能会稳定主要感觉表征，同时增加海马体神经元对环境表征的变化。\nIn conclusion, our findings demonstrate that the HD system is rigidly organized, potentially for the entire lifespan, and forms memories of orientation that last several weeks without re-exposure.\n总之，我们的发现表明，HD 系统是刚性组织的，可能持续整个生命周期，并形成持续数周的定向记忆，无需重新暴露。\n",
+  "wordCount" : "8224",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/05/26/x2Rd/20260526212340978.png","datePublished": "2026-05-26T00:18:23+08:00",
+  "dateModified": "2026-05-26T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/months-long-stability-of-the-head-direction-system/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                Months-long stability of the head-direction system
+            </h1>
+            <div class="post-description">
+                头部方向系统的数月稳定性
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-05-26
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>8224字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>17分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/physics/" style="color: var(--secondary)!important;">Physics</a>
+                &nbsp;<a href="https://Muatyz.github.io/tags/numerical-calculation/" style="color: var(--secondary)!important;">Numerical Calculation</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/05/26/x2Rd/20260526212340978.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#the-tuning-of-hd-cells-is-stable-over-time" aria-label="The tuning of HD cells is stable over time">The tuning of HD cells is stable over time</a></li>
+                <li>
+                    <a href="#internal-organization-across-time-and-environments" aria-label="Internal organization across time and environments">Internal organization across time and environments</a></li>
+                <li>
+                    <a href="#environmental-modulation-of-the-hd-cell-population" aria-label="Environmental modulation of the HD cell population">Environmental modulation of the HD cell population</a></li>
+                <li>
+                    <a href="#hd-system-forms-long-term-memories-of-orientation" aria-label="HD system forms long-term memories of orientation">HD system forms long-term memories of orientation</a></li>
+                <li>
+                    <a href="#memory-from-a-single-visit-is-stable-over-weeks" aria-label="Memory from a single visit is stable over weeks">Memory from a single visit is stable over weeks</a></li>
+                <li>
+                    <a href="#discussion" aria-label="Discussion">Discussion</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>Spatial orientation enables animals to navigate their environment by rapidly mapping the external world and remembering key locations1. In mammals, the head-direction (HD) system is an essential component of the navigation system of the brain2. Although the tuning of neurons in other areas of this system is unstable—evidenced, for example, by the change in the spatial tuning of hippocampal place cells3 across days4–11—the stability of the neuronal code that underlies the sense of direction remains unclear. Here, by longitudinally tracking the activity of the same HD cells in the post-subiculum of freely moving mice, we show stability and plasticity at two levels. Although the population structure remained highly conserved across environments and over time, subtle shifts in population coherence encoded environment identity. In addition, the HD system established a distinct, environment-specific alignment between its internal representation and external landmarks, which persisted for weeks, even after a single exposure. These findings suggest that the HD system forms long-lasting orientation memories that are anchored to specific environments.</p>
+</blockquote>
+<p>空间定向使动物能够通过快速映射外部世界和记住关键位置来导航它们的环境。在哺乳动物中，头部方向（HD）系统是大脑导航系统的重要组成部分。虽然该系统其他区域的神经元调谐不稳定，例如，海马体位置细胞在几天内空间调谐的变化，但支撑方向感的神经编码的稳定性仍不清楚。在这里，通过纵向跟踪自由移动小鼠中同一HD细胞的活动，我们展示了两个层次的稳定性和可塑性。虽然人口结构在不同环境和时间上高度保守，但人口一致性的微妙变化编码了环境身份。此外，HD系统建立了其内部表示与外部地标之间的独特、环境特定的对齐，即使在单次暴露后也持续了数周。这些发现表明，HD系统形成了长期存在的定向记忆，这些记忆锚定在特定环境中。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>Although animals are capable of lifelong memories, brain representations change over time6,12–16. This ‘representational drift’ has been observed in sensory systems, where the tuning of individual neurons to, for example, olfactory12 and visual inputs13–15 changes over days. Similar effects have been observed in higher-order systems such as the hippocampus, where the spatial tuning of CA1 place cells3 changes across days6–11, and even between successive trials5,17, although this hippocampal drift has been shown to be inversely correlated with attentional demands4.</p>
+</blockquote>
+<p>虽然动物能够拥有终生的记忆，但大脑表征会随着时间而改变。这种“表征漂移”已经在感觉系统中观察到，例如，个体神经元对嗅觉和视觉输入的调谐在几天内发生变化。在更高阶的系统中也观察到了类似的效应，例如，在海马体中，CA1 位置细胞的空间调谐在几天内发生变化，甚至在连续试验之间发生变化，尽管已经显示这种海马体漂移与注意力需求成反比相关。</p>
+<blockquote>
+<p>Of note, although drift affects both single-neuron activity and population-level responses, some distributed representations—such as those related to environment identity18 or specific behavioural correlates19—can remain decodable over time. This suggests that stable coding dimensions may coexist with drifting ones, enabling reliable readout of behaviourally relevant variables even as the underlying population activity evolves.</p>
+</blockquote>
+<p>值得注意的是，虽然漂移影响单个神经元的活动和群体水平的反应，但一些分布式表征，例如与环境身份或特定行为相关的表征，可以随着时间的推移保持可解码。这表明，稳定的编码维度可能与漂移的维度共存，即使在基础群体活动演变的情况下，也能可靠地读取行为相关变量。</p>
+<blockquote>
+<p>These observations raise the question of the stability of the neuronal population code upstream of the hippocampus. To address this, we study the post-subiculum (PoSub), the primary cortical stage of the HD system, where many neurons encode the head direction of the animal2,20,21. The HD system is believed to be governed by attractor dynamics22–27, which constrain neuronal population activity to lie on a one-dimensional ring. In mammals, this was suggested by the stability of internal population dynamics across brain states20,23,28, yet these observations have only been made within single days of recordings. Furthermore, HD neurons map their internal states to the direction of the animal in an allocentric reference frame by integrating external sensory inputs29,30. This mapping is rapidly learned during the first exposure to an environment31. However, the stability of these orientation memories across visits remains unclear2. We thus explored whether the population of HD neurons maintains their coordination and their alignment to the external world for extended periods, across days.</p>
+</blockquote>
+<p>虽然动物能够拥有终生的记忆，但大脑表征会随着时间而改变。这种“表征漂移”已经在感觉系统中观察到，例如，个体神经元对嗅觉和视觉输入的调谐在几天内发生变化。在更高阶的系统中也观察到了类似的效应，例如，在海马体中，CA1 位置细胞的空间调谐在几天内发生变化，甚至在连续试验之间发生变化，尽管已经显示这种海马体漂移与注意力需求成反比相关。</p>
+<h1 id="the-tuning-of-hd-cells-is-stable-over-time">The tuning of HD cells is stable over time<a hidden class="anchor" aria-hidden="true" href="#the-tuning-of-hd-cells-is-stable-over-time">#</a></h1>
+<blockquote>
+<p>To determine the long-term stability of the HD signal, we implanted 5 mice with a 1.0 mm GRIN lens over the PoSub (Fig. 1a, Extended Data Fig.1a,b and Methods). We detected regions of interest (ROIs), spatially localized areas where individual putative neurons were identified, in each recording session. Across a total of 388 sessions, the number of ROIs persession ranged from 21 to 286 (95 ± 56 (mean ± s.d.)) and was stable over time (Extended Data Fig. 1d).</p>
+</blockquote>
+<p>为了确定 HD 信号的长期稳定性，我们在 5 只小鼠的 PoSub 上植入了一个 1.0 mm 的 GRIN 镜头。我们在每个记录会话中检测了兴趣区域（ROIs），这些区域是个体假定神经元被识别的空间局部化区域。在总共 388 个会话中，每个会话的 ROI 数量范围从 21 到 286（平均值 ± 标准差为 95 ± 56），并且随着时间的推移保持稳定。</p>
+<blockquote>
+<p>We first characterized the tuning of single putative units over multiple visits in the same environment (Fig. 1b). ROIs in the PoSub showed strong tuning to the head direction of the mouse (Fig. 1c,d and Extended Data Fig. 1e,g). Low-dimensional projection of HD cell population activity using Isomap (Methods), a technique for visualizing high-dimensional data by preserving its geometric structure, revealed a ring topology (Extended Data Fig. 1h), which reflects the continuous circular representation of angular head direction within the HD cell population23. We then registered ROIs across the whole recording protocol32 (20 visits over 4 weeks; Fig. 1e) and identified HD cells as ROIs with strong tuning to head direction and being registered across multiple days (Methods). We quantified the consistency of HD cell detection across sessions using the Jaccard index, which measures the overlap in the set of ROIs classified as HD cells on different days (Extended Data Fig.2a,b and Methods). This index reflects both the reliability of registration and fluctuations in HD cell activity over time (for example, drop-in/drop-out), and is therefore used here as a descriptive measure of active HD cell recurrence rather than as a direct proxy for registration accuracy. The Jaccard index remained high regardless of the delay between sessions, suggesting that most ROIs were successfully registered and continued to exhibit activity across time.</p>
+</blockquote>
+<p>我们首先在同一环境中的多次访问中表征了单个假定单位的调谐。PoSub 中的 ROI 显示出对小鼠头部方向的强烈调谐。使用 Isomap（一种通过保留几何结构来可视化高维数据的技术）对 HD 细胞群体活动进行低维投影，揭示了一个环形拓扑结构，这反映了 HD 细胞群体内角度头部方向的连续圆形表示。然后，我们在整个记录协议中注册了 ROI（20 次访问，持续 4 周），并将 HD 细胞识别为对头部方向具有强烈调谐并且在多天内注册的 ROI。我们使用 Jaccard 指数量化了不同天之间被分类为 HD 细胞的 ROI 集合的重叠程度，以衡量 HD 细胞检测在不同会话之间的一致性。该指数反映了注册的可靠性和 HD 细胞活动随时间的波动（例如，加入/退出），因此在这里用作活跃 HD 细胞重复出现的描述性度量，而不是注册准确性的直接代理。无论会话之间的延迟如何，Jaccard 指数都保持较高水平，这表明大多数 ROI 都成功注册并继续随着时间展现活动。</p>
+<blockquote>
+<p>In an example mouse, the tuning of single HD cells was highly preserved across days (Fig. 1e,f), and the same observation was made across all mice (Fig. 1g and Extended Data Figs. 3 and 4a–d). Of note, the change in preferred direction was not significantly correlated with the quality of cell registration nor the drift of the ROI in the Miniscope field of view (Extended Data Fig.2c–e). To further assess the time course of cell tuning stability, we computed the absolute change in preferred direction as a function of days passed between recordings and observed a slow drift rate (7.1 ± 4.4° per week) (Fig. 1h). Analysis of the cumulative variance of orientation across days suggested that this drift, although modest, was not diffusive (that is, not a random walk) but instead fluctuated around a fixed direction (Fig. 1g and Extended Data Fig. 4e,f).</p>
+</blockquote>
+<p>在一个示例小鼠中，单个 HD 细胞的调谐在几天内高度保留，在所有小鼠中也观察到了同样的现象。值得注意的是，首选方向的变化与细胞注册的质量或 ROI 在 Miniscope 视野中的漂移没有显著相关性。为了进一步评估细胞调谐稳定性的时间进程，我们计算了首选方向的绝对变化与记录之间经过的天数的函数，并观察到一个缓慢的漂移率（每周 7.1 ± 4.4°）。对几天内定向累积方差的分析表明，这种漂移虽然适度，但不是扩散性的（即，不是随机游走），而是围绕固定方向波动。</p>
+<blockquote>
+<p>This drift could arise from changes across cells or from the coherent drift of the HD cell population alignment to the environment. If HD cells drift independently from each other, the pairwise angular offset should show a larger change than individual HD cell drift. The change in pairwise angular offset across all registered cell pairs (independent of interleaving days) was strongly biased towards 0 (Extended Data Fig. 4g), suggesting highly coherent population dynamics. Furthermore, the change in pairwise angular offset drifted more slowly (4.1 ± 4.8° per week), yet this was not significantly different from single cell tuning drift rate (Fig. 1i).</p>
+</blockquote>
+<p>这种漂移可能来自细胞之间的变化，或者来自 HD 细胞群体与环境对齐的相干漂移。如果 HD 细胞彼此独立漂移，则成对的角偏移应该显示出比单个 HD 细胞漂移更大的变化。所有注册的细胞对之间的成对角偏移的变化（不考虑交错的天数）强烈偏向于 0，这表明高度一致的人口动态。此外，成对角偏移的变化漂移得更慢（每周 4.1 ± 4.8°），但这与单个细胞调谐漂移率没有显著差异。</p>
+<blockquote>
+<p>Finally, this relative stability in population code suggests that head direction could be read out from previous knowledge of neuron tuning. To test this, we trained and tested non-linear decoders (extreme gradient-boosted trees (Methods)) on every recording session pair and observed statistically significant decoding for nearly the entire duration of the experiment (Fig. 1j,k). This is in line with a slow decay  in the population vector coherence over the course of the recording (Extended Data Fig. 4h–j). Together, these observations suggest that HD cells form a highly stable population, both at the level of internal coherence and alignment with the environment. However, animals in the wild navigate various environments and the effect of these rich and diverse experiences on the organization of the HD cell population is unclear.</p>
+</blockquote>
+<p>HD 细胞群体代码的这种相对稳定性表明，可以从先前对神经元调谐的了解中读取头部方向。为了测试这一点，我们在每个记录会话对上训练和测试了非线性解码器（极端梯度提升树），并观察到几乎整个实验期间的统计显著解码。这与记录过程中人口向量一致性的缓慢衰减一致。总之，这些观察表明，HD 细胞形成了一个高度稳定的人口，无论是在内部一致性水平还是与环境的对齐水平。然而，野外动物在各种环境中导航，这些丰富多样的经历对 HD 细胞群体组织的影响尚不清楚。</p>
+<h1 id="internal-organization-across-time-and-environments">Internal organization across time and environments<a hidden class="anchor" aria-hidden="true" href="#internal-organization-across-time-and-environments">#</a></h1>
+<blockquote>
+<p>We then interrogated whether HD cells preserve their pairwise angular difference across days and environments. To this end, we recorded mice in four different environments for two weeks in each environment (eight weeks in total) (Fig. 2a). ROIs were detected and monitored throughout the recording protocol (Fig. 2b and Extended Data Fig.5a,b). In an example mouse, HD cells showed environment-specific alignment and, importantly, preserved their pairwise angular difference (Fig. 2c,d). The tuning of HD cells was stable within each environment for all mice (Extended Data Fig.5c). We observed the same tendency of preserved pairwise angular difference in preferred directions across all sessions and mice (Fig. 2e and Extended Data Fig. 6). To confirm that this long-tailed distribution is not specific to the imaging technique, we confirmed these results with electrophysiological recordings (Extended Data Fig.7). These findings suggest a highly structured neuronal population in which the majority of cell pairs remain stable across environments, with only a minority changing their pairwise offset.</p>
+</blockquote>
+<p>我们随后调查了 HD 细胞是否在不同天和环境中保持它们的成对角度差异。为此，我们在四个不同的环境中记录了小鼠，每个环境记录两周（总共八周）。在整个记录协议中检测和监控 ROI。在一个示例小鼠中，HD 细胞显示出环境特定的对齐，并且重要的是，保持了它们的成对角度差异。所有小鼠在每个环境中的 HD 细胞调谐都很稳定。我们在所有会话和小鼠中观察到了首选方向成对角度差异保持的同样趋势。为了确认这种长尾分布不是特定于成像技术，我们通过电生理记录确认了这些结果。这些发现表明了一个高度结构化的神经群体，其中大多数细胞对在不同环境中保持稳定，只有少数改变它们的成对偏移。</p>
+<h1 id="environmental-modulation-of-the-hd-cell-population">Environmental modulation of the HD cell population<a hidden class="anchor" aria-hidden="true" href="#environmental-modulation-of-the-hd-cell-population">#</a></h1>
+<blockquote>
+<p>Although the tail of the distribution of pairwise angular offset could arise from measurement noise or non-specific drift, another possibility is that this marginal change reflects a code for environment identity. Decoders of head direction of mice trained and tested in the same environment one week apart showed a tendency for better (yet non-significant) accuracy than decoders trained across environments with the same delay between sessions (Extended Data Fig. 8c), suggesting an environment-specific code on top of a highly structured population organization. To test this possibility, we trained classifiers of environment identity based on neuronal signal correlation—that  is, the pairwise correlation of HD cell tuning curves (Methods). These classifiers showed higher accuracy than controls (Fig. 2f,g), supporting the idea that the HD signal in the PoSub is environment specific.</p>
+</blockquote>
+<p>虽然成对角度偏移分布的尾部可能来自测量噪声或非特异性漂移，但另一种可能性是这种边际变化反映了环境身份的代码。训练和测试在同一环境中相隔一周的小鼠头部方向解码器显示出比在不同环境中训练的解码器更好的（但不显著）准确性，这表明在高度结构化的人口组织之上存在环境特定的代码。为了测试这种可能性，我们基于神经信号相关性（即 HD 细胞调谐曲线的成对相关）训练了环境身份分类器。这些分类器显示出比控制更高的准确性，支持了 PoSub 中 HD 信号是环境特定的想法。</p>
+<blockquote>
+<p>The four-week-long recording in the circular environment suggested that the absolute alignment of the HD system is maintained for extended periods (Fig. 1). However, it is unclear whether the HD system was explicitly aligned to each environment or with respect to global coordinates. The first three environments of the protocol were in the same experimental room, and the HD system alignment was measured with respect to the absolute coordinates of the room. We thus computed the average remapping (the change in alignment to the external world) of the HD cell population across environments for each mouse (Fig. 2h,i). Notably, this remapping seemed random across mice, although more data would be required to support a true random remapping. Whereas the internal structure of the HD system was largely preserved across environments, with only minor modulations, its absolute orientation was specific to each environment, as shown by previous studies29,33,34. Overall, these observations suggest that HD cells are part of a rigidly configured system that rapidly acquires a new and random alignment when visiting an environment for the first time and suggest that this alignment is maintained over a long term for subsequent visits.</p>
+</blockquote>
+<p>虽然在圆形环境中的为期四周的记录表明 HD 系统的绝对对齐可以维持较长时间，但尚不清楚 HD 系统是明确地与每个环境对齐还是相对于全局坐标对齐。协议的前三个环境位于同一实验室中，HD 系统的对齐是相对于房间的绝对坐标测量的。因此，我们计算了每只小鼠在不同环境中 HD 细胞群体的平均重映射（与外部世界对齐的变化）。值得注意的是，这种重映射在不同小鼠之间似乎是随机的，尽管需要更多数据来支持真正的随机重映射。虽然 HD 系统的内部结构在不同环境中基本保持不变，只有轻微调制，但其绝对方向是特定于每个环境的，正如之前的研究所示。总体而言，这些观察表明，HD 细胞是一个刚性配置系统的一部分，在第一次访问环境时迅速获得新的随机对齐，并且这种对齐在随后的访问中长期保持。</p>
+<h1 id="hd-system-forms-long-term-memories-of-orientation">HD system forms long-term memories of orientation<a hidden class="anchor" aria-hidden="true" href="#hd-system-forms-long-term-memories-of-orientation">#</a></h1>
+<blockquote>
+<p>The acquisition of a new absolute alignment in each environment and maintenance of that alignment during two weeks of recordings suggests that the HD system maintains a memory of its mapping to the external world in each environment. To address the question of long-term stability of this memory, we added a week of probe trials after the eight weeks of visits (Fig. 2), during which each environment was visited once again (one environment per day) (Fig. 3a). An example HD cell, as well as nearly all the other HD cells recorded simultaneously, showed similar tuning curves in the probe trials and the last visit of the same environment during the two-week long exploration (Fig. 3b,c). Because environments were initially visited one after the other (Fig. 2), each environment was associated with a different delay between the probe trial and the last visit. For each delay (that is, each environment) and each mouse, we computed the angular remapping of the HD cell population (as in Fig. 2h,i). Although each mouse showed changes in orientation after variable delays (to note, these delays correspond to different environments), the average alignment of the HD system to external environments across mice drifted gradually, albeit slowly, as the interval between sessions increased, becoming significantly different from 0° only at the 6-week delay (Fig. 3d,e). We further tested this drift by assessing the absolute changes in individual neuronal preferred directions and observed a similar drift from the original direction (Fig. 3f). Of note, the population structure maintained its coherence across these recordings (Fig. 3g). These findings suggest that the HD system preserves a highly stable internal coherence while its orientation memory slowly decays over several weeks. Notably, this orientation memory may be affected by cognitive load as after four additional weeks of extensive experience with the different environments, the systems showed reduced retention of the original preferred direction (Extended Data Fig. 9).</p>
+</blockquote>
+<p>在每个环境中获得新的绝对对齐并在两周的记录期间保持该对齐，表明 HD 系统在每个环境中维护了其与外部世界映射的记忆。为了解决这个记忆长期稳定性的问题，我们在八周访问后添加了一周的探针试验，在此期间再次访问每个环境（每天一个环境）。一个示例 HD 细胞以及几乎所有同时记录的其他 HD 细胞在探针试验和两周长探索期间同一环境的最后一次访问中显示出类似的调谐曲线。因为环境最初是一个接一个地访问的，所以每个环境都与探针试验和最后一次访问之间的不同延迟相关联。对于每个延迟（即每个环境）和每只小鼠，我们计算了 HD 细胞群体的角重映射。虽然每只小鼠在不同延迟后显示出方向变化，但随着会话之间间隔的增加，HD 系统对外部环境的平均对齐逐渐漂移，虽然缓慢，但只有在 6 周延迟时才显著不同于 0°。我们通过评估单个神经元首选方向的绝对变化进一步测试了这种漂移，并观察到与原始方向类似的漂移。值得注意的是，人口结构在这些记录中保持其一致性。这些发现表明，HD 系统保持高度稳定的内部一致性，而其定向记忆在几周内缓慢衰减。值得注意的是，这种定向记忆可能会受到认知负荷的影响，因为在与不同环境进行四周额外广泛经验之后，该系统显示出对原始首选方向的保留减少。</p>
+<h1 id="memory-from-a-single-visit-is-stable-over-weeks">Memory from a single visit is stable over weeks<a hidden class="anchor" aria-hidden="true" href="#memory-from-a-single-visit-is-stable-over-weeks">#</a></h1>
+<blockquote>
+<p>Although HD cells seem to form a highly structured population that is stably aligned over successive visits to the same environment (Fig. 1), the slow drift in orientation memory observed with increasing delays between consecutive visits (Fig. 3d,e) could result not from passing time but from interferences with experiences in other environments (Fig. 3 and Extended Data Fig. 9). To test this possibility, we implanted five more mice in an experience-scarce protocol whereby mice were introduced to two novel environments on a given day (8 h apart). Then, mice visited one of the environments every week while they re-experienced the other one only four weeks later (Fig. 4a). We observed a highly maintained absolute orientation of the HD cell population for both environments (Fig. 4b–d and Extended Data Fig. 10). This was further supported by the high accuracy of a decoder of head direction for both environments (not significantly different from other animals) (Fig. 4e). These results confirm that orientation memory is formed in a single visit and is not affected by sparse experience in another environment.</p>
+</blockquote>
+<p>虽然 HD 细胞似乎形成了一个高度结构化的人口，在连续访问同一环境时保持稳定对齐，但随着连续访问之间的延迟增加观察到的定向记忆的缓慢漂移可能不是由于时间的流逝，而是由于与其他环境中的经历的干扰。为了测试这种可能性，我们在一个经验稀缺的协议中又植入了五只小鼠，在给定的一天内引入两个新环境（相隔 8 小时）。然后，小鼠每周访问其中一个环境，而另一个环境则在四周后重新体验。我们观察到 HD 细胞群体在两个环境中的绝对方向高度保持。这进一步得到了两个环境头部方向解码器高准确性的支持（与其他动物没有显著差异）。这些结果证实，定向记忆是在单次访问中形成的，并且不受另一个环境中稀疏经验的影响。</p>
+<h1 id="discussion">Discussion<a hidden class="anchor" aria-hidden="true" href="#discussion">#</a></h1>
+<blockquote>
+<p>We found that the organization of population activity in the PoSub HD system is, overall, stable at two levels: its internal organization remains highly coherent over time and across environments, and its absolute alignment within an environment is maintained for weeks, showing only a small drift. Although the population structure was largely conserved across experiences, it also exhibited environment-specific features. Moreover, the absolute alignment of the HD system within a given environment was reinstated when the mouse was re-exposed several weeks later—provided that intervening experience with other environments remained limited. These observations suggests that representational drift affects mainly the absolute alignment of the HD cell population while sparing its internal structure.</p>
+</blockquote>
+<p>我们发现，PoSub HD 系统中群体活动的组织总体上在两个层面上是稳定的：其内部组织随着时间和环境的变化保持高度一致，并且在一个环境中的绝对对齐保持数周，仅显示出小的漂移。虽然人口结构在不同经历中基本保持不变，但它也表现出环境特定的特征。此外，在给定环境中的 HD 系统的绝对对齐在小鼠几周后重新暴露时得以恢复——前提是与其他环境的干预经验保持有限。这些观察表明，表征漂移主要影响 HD 细胞群体的绝对对齐，而不影响其内部结构。</p>
+<blockquote>
+<p>Our findings that the organization of the HD cell population was maintained across months extend earlier reports that HD cell pairs shift their preferred direction coherently29,31, and sometimes across several days2,29,31,34,35, as well as preserve their mutual coordination across all brain states, including in sleep23,28. As the HD system shows structured activity from an early age36, our observations raise the possibility of a neuronal population that is rigidly wired37 and maintains its organization throughout its lifespan. This may be especially true for subcortical stages of the HD system. Indeed, the subtle, environment-specific changes observed in HD population tuning suggest that the PoSub is strongly driven by a structured thalamic signal, and is further modulated by sensory inputs, particularly visual29,38,39 and olfactory cues30.</p>
+</blockquote>
+<p>我们发现 HD 细胞群体的组织在几个月内保持不变，扩展了早期报告的 HD 细胞对以协调方式改变其首选方向的报告，有时跨越几天，以及在所有脑状态下保持其相互协调，包括在睡眠中。由于 HD 系统从早期就显示出结构化的活动，我们的观察提出了一个可能性，即一个刚性连接的神经群体，并在其整个生命周期中保持其组织。这对于 HD 系统的亚皮层阶段尤其如此。事实上，在 HD 群体调谐中观察到的微妙、环境特定的变化表明，PoSub 受到结构化丘脑信号的强烈驱动，并进一步受到感觉输入的调制，特别是视觉和嗅觉线索。</p>
+<blockquote>
+<p>Notably, our data showed how the HD system acquires an alignment at the first visit to the environment and maintains it afterwards, although it slowly drifted. This alignment seemed random and independent of the inputs, as the angular shift of the HD system in different environments was not consistent across animals. Mice were systematically disoriented before each visit. Thus, an association between the sensory inputs and the HD system after entering the environment may have set an initial alignment, which would have been memorized. Hebbian learning from sensory inputs to a rigidly organized ring attractor neural networks would be sufficient to stabilize an absolute alignment, as suggested in computational models22,40 and demonstrated in the fly HD system41. Another possibility is that an absolute alignment depends on pre-configured connections from the sensory inputs to the HD system, setting an alignment for a given state of inputs. Such mechanisms will predict that an absolute alignment is maintained across visits, irrespective of the duration between two consecutive visits. However, previous reports have suggested that the alignment is learned33,42,43. Furthermore, the slow drift we observed over weeks, particularly following extensive visits to multiple environments, argues against rigidly configured inputs and instead suggests that orientation memories can form and interfere with one another across experiences.</p>
+</blockquote>
+<p>值得注意的是，我们的数据展示了 HD 系统如何在第一次访问环境时获得对齐并在之后保持，尽管它慢慢漂移。这种对齐似乎是随机的，与输入无关，因为 HD 系统在不同环境中的角度偏移在不同动物中不一致。小鼠在每次访问前都被系统性地迷惑了。因此，在进入环境后，感觉输入与 HD 系统之间的关联可能设置了初始对齐，并且会被记忆。来自感觉输入到刚性组织的环形吸引子神经网络的 Hebbian 学习将足以稳定绝对对齐，如计算模型所示，并在飞行 HD 系统中得到证明。另一种可能性是，绝对对齐依赖于从感觉输入到 HD 系统的预配置连接，为给定状态的输入设置对齐。这些机制将预测绝对对齐在访问之间保持，无论两次连续访问之间的持续时间如何。然而，之前的报告已经表明，对齐是学习的。此外，我们观察到的几周内的缓慢漂移，特别是在多环境广泛访问之后，反驳了刚性配置输入，而是表明定向记忆可以形成并在经历中相互干扰。</p>
+<blockquote>
+<p>Finally, the absolute alignment between consecutive visits separated by more than a week did not abruptly change but slowly drifted from their original alignment, increasing with the delay between the two successive visits. These results suggest that if synaptic weight changes occur between the visual and HD systems, they do not result in an abrupt remapping at a specific time point but may instead gradually alter the alignment of the HD system over time. Note that representation in the visual system also drifts at a faster timescale13, raising the possibility that the HD system must constantly adapt to a changing input.</p>
+</blockquote>
+<p>最后，连续访问之间的绝对对齐在相隔一周以上时没有突然改变，而是从它们的原始对齐慢慢漂移，随着两次连续访问之间的延迟增加。这些结果表明，如果视觉系统和 HD 系统之间发生突触权重变化，它们不会在特定时间点导致突然重映射，而可能会随着时间的推移逐渐改变 HD 系统的对齐。请注意，视觉系统中的表征也以更快的时间尺度漂移，这提出了一个可能性，即 HD 系统必须不断适应不断变化的输入。</p>
+<blockquote>
+<p>The HD system is a crucial component of the brain’s navigation system44–46. The PoSub is the main cortical relay of the HD signal and projects directly to the entorhinal cortex44,45,47, the primary cortical input and output of the hippocampus. The mapping of a familiar environment by hippocampal place cells drifts across sessions6–9,18. Our results suggest that this drift occurs irrespective of a stable HD signal. This indicates that, although individual place cells change their firing rate, the global alignment of the hippocampal map should be maintained for several weeks, as suggested by the stability of the position, but not the rate, of each hippocampal place field48. Furthermore, the stability of the HD system calls into question whether spatial representation in the medial entorhinal cortex, especially in the form of a highly organized grid cell system49, maintains a stable mapping to the environment. In addition, although the alignment of the HD system is known to be independent of the hippocampus35, further studies are needed to determine whether the environment-specific structure of the HD cell population depends on hippocampal integrity. Finally, these results echo recent computational evidence showing that a cognitive map can emerge in a neural network receiving a stable HD signal, which does not need to be learned end-to-end with the map50.</p>
+</blockquote>
+<p>HD 系统是大脑导航系统的关键组成部分。PoSub 是 HD 信号的主要皮层中继站，并直接投射到内嗅皮层，内嗅皮层是海马体的主要皮层输入和输出。熟悉环境的海马体位置细胞的映射在不同会话之间发生漂移。我们的结果表明，这种漂移发生在稳定的 HD 信号无关的情况下。这表明，虽然个别位置细胞改变了它们的放电率，但海马体地图的全局对齐应该在几周内保持不变，正如每个海马体位置场的位置稳定性所示，而不是速率。此外，HD 系统的稳定性提出了一个问题，即内侧嗅皮层中的空间表征，特别是以高度组织化的网格细胞系统的形式，是否保持与环境的稳定映射。此外，虽然 HD 系统的对齐已知与海马体无关，但需要进一步研究来确定 HD 细胞群体的环境特定结构是否依赖于海马体完整性。最后，这些结果呼应了最近的计算证据，显示在接收稳定 HD 信号的神经网络中可以出现认知地图，而不需要与地图进行端到端学习。</p>
+<blockquote>
+<p>Orientation memory remained stable with repeated exposure, as long as experience was restricted to a limited set of environments. Similar observations were made in the olfactory12 and visual14 systems. The opposite was observed for hippocampal place cells as experience leads to increased representational drift7,8. It is thus possible that experience in a familiar setting, where animals are frequently re-exposed to the same sensory inputs, stabilizes primary sensory representations while increasing the changes in the representation of context by hippocampal neurons.</p>
+</blockquote>
+<p>当经验限制在有限的环境集合中时，定向记忆在反复暴露下保持稳定。在嗅觉和视觉系统中也观察到了类似的现象。对于海马体位置细胞则观察到了相反的现象，因为经验导致表征漂移增加。因此，在熟悉的环境中，动物经常重新暴露于相同的感觉输入，可能会稳定主要感觉表征，同时增加海马体神经元对环境表征的变化。</p>
+<blockquote>
+<p>In conclusion, our findings demonstrate that the HD system is rigidly organized, potentially for the entire lifespan, and forms memories of orientation that last several weeks without re-exposure.</p>
+</blockquote>
+<p>总之，我们的发现表明，HD 系统是刚性组织的，可能持续整个生命周期，并形成持续数周的定向记忆，无需重新暴露。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/attractors/discovering-plasticity-rules-that-organize-and-maintain-neural-circuits/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Discovering plasticity rules that organize and maintain neural circuits</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/an-approximate-line-attractor-in-the-hypothalamus-encodes-an-aggressive-state/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>An approximate line attractor in the hypothalamus encodes an aggressive state</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1198 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 154 篇 1032328 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

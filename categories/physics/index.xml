@@ -6,7 +6,7 @@
     <description>Recent content in Physics on 无处惹尘埃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 10 May 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/categories/physics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jun 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/categories/physics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Formal Statistical Mechanics of Neural Networks</title>
       <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-10/</link>
@@ -122,6 +122,24 @@
       
       <guid>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/</guid>
       <description>真实神经元网络的统计力学</description>
+    </item>
+    
+    <item>
+      <title>Discovering plasticity rules that organize and maintain neural circuits</title>
+      <link>https://Muatyz.github.io/posts/read/attractors/discovering-plasticity-rules-that-organize-and-maintain-neural-circuits/</link>
+      <pubDate>Mon, 08 Jun 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/attractors/discovering-plasticity-rules-that-organize-and-maintain-neural-circuits/</guid>
+      <description>探索组织和维持神经回路的可塑性规律</description>
+    </item>
+    
+    <item>
+      <title>Months-long stability of the head-direction system</title>
+      <link>https://Muatyz.github.io/posts/read/attractors/months-long-stability-of-the-head-direction-system/</link>
+      <pubDate>Tue, 26 May 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/attractors/months-long-stability-of-the-head-direction-system/</guid>
+      <description>头部方向系统的数月稳定性</description>
     </item>
     
     <item>
