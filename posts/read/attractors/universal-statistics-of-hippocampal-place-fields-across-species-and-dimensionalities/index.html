@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Universal statistics of hippocampal place fields across species and dimensionalities | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="跨物种和维度的海马体位置场普适统计特征">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/universal-statistics-of-hippocampal-place-fields-across-species-and-dimensionalities/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/universal-statistics-of-hippocampal-place-fields-across-species-and-dimensionalities/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="Universal statistics of hippocampal place fields across species and dimensionalities" />
+<meta property="og:description" content="跨物种和维度的海马体位置场普适统计特征" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/universal-statistics-of-hippocampal-place-fields-across-species-and-dimensionalities/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/06/13/4vaI/20260613203930960.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-06-13T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-06-13T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/06/13/4vaI/20260613203930960.png" />
+<meta name="twitter:title" content="Universal statistics of hippocampal place fields across species and dimensionalities"/>
+<meta name="twitter:description" content="跨物种和维度的海马体位置场普适统计特征"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Universal statistics of hippocampal place fields across species and dimensionalities",
+      "item": "https://Muatyz.github.io/posts/read/attractors/universal-statistics-of-hippocampal-place-fields-across-species-and-dimensionalities/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Universal statistics of hippocampal place fields across species and dimensionalities",
+  "name": "Universal statistics of hippocampal place fields across species and dimensionalities",
+  "description": "跨物种和维度的海马体位置场普适统计特征",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Summary Hippocampal place cells have single, bell-shaped place fields in small environments. Recent experiments, however, reveal that, in large environments, place cells have multiple fields with heterogeneous shapes and sizes.\n海马体位置细胞在小环境中具有单一的钟形位置场. 然而, 最近的实验表明, 在大环境中, 位置细胞具有多个具有 异质形状和大小 的位置场.\nWe show that this diversity is explained by a surprisingly simple mathematical model, in which place fields are generated by thresholding a realization of a random Gaussian process.\nThe model captures the statistics of field arrangements and generates new quantitative predictions about the statistics of field shapes and topologies. These predictions are quantitatively verified in bats and rodents, in one, two, and three dimensions, in both small and large environments.\nThese results imply that common mechanisms underlie the diverse statistics observed in different experiments and further suggest that synaptic projections to CA1 are predominantly random.\n我们展示了一个出人意料的简单数学模型可以解释这种多样性, 在该模型中, 位置场是通过对随机 Gaussian 过程的实现进行阈值处理生成的.\n该模型捕捉了场排列的统计特征, 并生成了关于场形状和拓扑统计的新定量预测. 这些预测在蝙蝠和啮齿动物中, 在一维、二维和三维空间中, 在小环境和大环境中得到了定量验证.\n这些结果表明, 不同实验中观察到的多样化统计特征背后存在共同机制, 并进一步表明 CA1 的突触投射主要是随机的.\nIntroduction A central goal of systems neuroscience is to characterize how neural systems represent information about the world or about the brain’s internal state. For several decades, much of the thinking about neural population codes was motivated by reports on neurons with highly stereotyped tuning functions.\nNeurons were often observed to have a smooth, typically unimodal tuning to the encoded variable, centered on preferred stimuli that vary across the neural population.1,2\nExamples include the radially symmetric receptive fields of retinal ganglion cells,3 the receptive fields of simple cells in the primary visual cortex,4,5 cosine tuning to movement direction in the motor cortex,6 the unimodal fields of head direction cells,7 and the fields of hippocampal place cells in small environments.8\n系统神经科学的一个核心目标是描述神经系统如何表示关于世界或大脑内部状态的信息. 几十年来, 关于神经群体编码的思考很大程度上是由对具有 高度刻板 调谐函数的神经元的报道所驱动的.\n神经元通常被观察到对编码变量具有平滑、通常是单峰的调谐, 中心在不同神经群体中变化的偏好刺激上.\n例子包括视网膜神经节细胞的径向对称感受野, 初级视觉皮层简单细胞的感受野, 运动皮层中对运动方向的余弦调谐, 头部方向细胞的单峰场, 以及小环境中海马体位置细胞的位置场.\nExperiments in the past decade, however, have uncovered neural response functions that are much less stereotyped and regular than observed previously. These recent findings were enabled by high-throughput recording techniques, which substantially reduced bias in the selection of cells for analysis, as well as new technologies that enabled the monitoring of neural activity in freely behaving animals, under reduced behavioral constraints.\n然而, 过去十年的实验发现, 神经反应函数比以前观察到的要不那么刻板和规则. 这些最新的发现得益于高通量记录技术, 这些技术大大减少了分析中细胞选择的偏差, 以及使在自由行为动物中监测神经活动成为可能的新技术, 在减少行为约束的情况下.\nSome of the most striking examples of irregular neural responses were recently identified in area CA1 of the hippocampus. The classical view of spatial coding by place cells in this area has been that they are active in a single, compact region of space and exhibit a stereotyped bell-shaped tuning to position.\nSeveral recent experiments in bats and rodents have revealed, however, that this picture breaks down in large environments. Place cells typically fire in multiple locations, and furthermore, the multiple firing fields of individual cells, as well as those of the whole population, vary in size and shape, the latter of which can deviate substantially from the classical bell-shaped form. It remains unknown, however, whether the irregular statistics of place fields in bats and rodents can be described in terms of common mathematical principles and whether these statistics yield insights on the synaptic architecture that underlies spatial coding in hippocampal area CA1.\n最近在海马体 CA1 区域发现了一些最引人注目的不规则神经反应的例子. 这个区域位置细胞空间编码的经典观点是, 它们在空间的单个紧凑区域内活跃, 并且对位置表现出刻板的钟形调谐.\n然而, 最近在蝙蝠和啮齿动物中的几个实验揭示了, 在大环境中, 这种情况不再适用. 位置细胞通常在多个位置放电, 此外, 个体细胞的多个放电场以及整个群体的放电场在大小和形状上变化, 后者可以与经典的钟形形式有很大偏离.\n然而, 目前尚不清楚, 蝙蝠和啮齿动物中位置场的不规则统计特征是否可以用共同的数学原理来描述, 以及这些统计特征是否能提供关于海马体 CA1 区域空间编码背后的突触结构的见解.\nA number of theoretical studies have modeled the spatial selectivity of place cells in large environments.\nIn one approach, heterogeneous activity patterns were embedded in the attractor manifolds of recurrent neural networks, serving as models of place-cell dynamics in area CA3. Place cells were modeled as having multiple, randomly positioned firing fields26,27 with variable peak firing rates and field sizes.\nAnother study28 predicted an exponential distribution of place-field sizes based on a normative theory. Finally, multi-peaked, multi-scale tuning curves were shown to be advantageous for coding efficiency.21,29 However, there is a lack of a theory that can explain the observed heterogeneity of place-field properties, across the diverse experimental conditions, from basic principles.\n已经有一些理论研究模拟了大环境中位置细胞的空间选择性.\n在一种方法中, 异质的活动模式被嵌入到递归神经网络的吸引子流形中, 作为 CA3 区域位置细胞动力学的模型. 位置细胞被建模为具有多个随机定位的放电场, 具有可变的峰值放电率和场大小.\n另一项研究基于规范理论预测了位置场大小的指数分布. 最后, 多峰、多尺度的调谐曲线被证明对编码效率有利. 然而, 目前缺乏一个理论能够从基本原理解释在不同实验条件下观察到的位置场属性的异质性.\nHere, we report that a surprisingly simple generative model accounts for highly detailed features of place-field statistics. We model place fields as derived from a realization of a random Gaussian process over the spatial coordinates: a realization of the process is sampled for each cell and is then thresholded and rectified, resulting in multiple, heterogeneous fields (Figure 1A). A Gaussian process is a random function whose values at any discrete set of positions are jointly normal.30 The statistics of a Gaussian process are uniquely determined by its mean, which we set to zero without loss of generality as its choice is redundant with the choice of the threshold, and by the spatial correlation function, which we assume to be translationally invariant.\n在这里, 我们报告了一个出人意料的简单生成模型, 可以解释位置场统计的高度详细特征. 我们将位置场建模为空间坐标上随机 Gaussian 过程的实现: 为每个细胞采样一个过程的实现, 然后进行阈值处理和整流, 产生多个异质场 (图 1A). Gaussian 过程是一种随机函数, 其在任何离散位置集上的值都是联合正态分布的. Gaussian 过程的统计特征由其均值唯一确定, 我们将其设置为零而不失一般性, 因为它的选择与阈值的选择是冗余的, 并且由空间相关函数唯一确定, 我们假设它是 平移不变 的.\nFigure 1. Field arrangements of 1D place fields are explained by the thresholded Gaussian process model\n(A) Top: example of place fields measured in bats flying in a 1D 200-m-long tunnel.21 Bottom: firing rates in the model are generated by thresholding and rectifying a realization of a random Gaussian process (gray). In all figures, green represents experimental data, and orange represents the model.\n(A) 顶部: 在蝙蝠飞行的 1D 200 米长隧道中测量的位置场的例子. 底部: 模型中的放电率是通过对随机 Gaussian 过程的实现进行阈值处理和整流生成的 (灰色). 在所有图中, 绿色代表实验数据, 橙色代表模型.\n实验数据 图 A 展示的曲线不是 \"某一时刻\" 的神经活动截图, 而是蝙蝠在 200 m 隧道来回活动后, 对位置 $x\\in[0,200]$ 的平均放电率 $\\bar{r}(x) = \\int_{0}^{t} r(x,\\tau)\\mathrm{d}\\tau$ (B) A simple neural architecture that gives rise to place fields that follow the thresholded Gaussian process model. Presynaptic inputs from many spatially selective neurons are summed with random synaptic weights to create the input to each CA1 place cell, followed by rectification.\n(B) 一个简单的神经架构, 产生遵循阈值化 Gaussian 过程模型的位置场. 来自许多空间选择性神经元的突触前输入通过随机突触权重求和, 以创建每个 CA1 位置细胞的输入, 然后进行整流.\n(E) Skew (left) and kurtosis (right) of the log-field-size distribution, obtained from multiple simulations of the model and the best-fit heuristic log-normal distribution (gray). Each simulation is matched to the size of the experimental dataset. For the log-normal distribution, the empirical skew and kurtosis are expected to be close to zero. Dashed line: skew and kurtosis of the experimental distribution.\n(E) 从模型的多个模拟和最佳拟合的启发式对数正态分布 (灰色) 中获得的 log-field-size 分布的偏度 (左) 和峰度 (右). 每个模拟都与实验数据集的大小相匹配. 对于对数正态分布, 经验偏度和峰度预计接近于零. 虚线: 实验分布的偏度和峰度.\n(F) Rayleigh distribution compared against place-field size distribution in four different mice, running in a 40-m-long virtual track.\n(F) Rayleigh 分布与四只不同小鼠在 40 米长虚拟轨道上奔跑的位置场大小分布进行比较.\nSeveral lines of reasoning have led us to examine the above model.\nFirst, a Gaussian process is the random process that maximizes entropy under constraints on the mean and the spatial covariance function. Hence, our modeling choice invokes minimal assumptions other than a specification of a place cell’s underlying input correlation structure.31\nSecond, Gaussian statistics arise when many independent random variables are summed. The summed presynaptic input into area CA1 from area CA3 and entorhinal cortex is thus expected to be approximately Gaussian if synaptic weights are predominantly random (Figure 1; Methods S1 and S2).\nThird, a neural code structured as a random Gaussian process can achieve exponential coding efficiency.29 We further discuss these motivations in the discussion.\n我们研究上述模型的几个理由.\n首先, Gaussian 过程是在均值和空间协方差函数约束下最大化熵的随机过程. 因此, 我们的建模选择除了对位置细胞的基础输入相关结构进行规范之外, 几乎没有其他假设.\n最大化熵的随机过程 设随机向量 $\\vec{x}\\in\\mathbb{R}^{n}$ 均值为 $E[\\vec{x}]=\\vec{\\mu}$, 协方差矩阵为 $\\mathrm{Cov}(\\vec{x}) = \\Sigma$. 要求在该二约束下最大化熵\n$$ h[p(\\vec{x})] = -\\int p(\\vec{x})\\log{p(\\vec{x})}\\mathrm{d}\\vec{x} $$\n证明最优解 $g(\\vec{x}) = \\frac{1}{(2\\pi)^{\\frac{n}{2}}|\\Sigma|^{\\frac{1}{2}}}\\exp{\\left[-\\frac{1}{2}(\\vec{x}-\\vec{\\mu})^{T}\\Sigma^{-1}(\\vec{x}-\\vec{\\mu})\\right]}$.\n$p$ 和 $g$ 的 KL 散度为\n$$ \\begin{aligned} D_{\\mathrm{KL}} \u0026= \\int p(\\vec{x})\\log{\\frac{p(\\vec{x})}{g(\\vec{x})}}\\mathrm{d}\\vec{x}\\\\ \u0026= \\int p\\log{p}\\mathrm{d}\\vec{x} - \\int p\\log{g}\\mathrm{d}\\vec{x} = -h[p] - E_{p}[\\log{g(\\vec{x})}] \\end{aligned} $$\n由于 $\\log{g(\\vec{x})} = -\\frac{n}{2}\\log{(2\\pi)} - \\frac{1}{2}\\log{|\\Sigma|} - \\frac{1}{2}(\\vec{x}-\\vec{\\mu})^{T}\\Sigma^{-1}(\\vec{x}-\\vec{\\mu})$, 则第二项\n$$ \\begin{aligned} E_{p}[\\log{g(\\vec{x})}] \u0026= -\\frac{n}{2}\\log{(2\\pi)} - \\frac{1}{2}\\log{|\\Sigma|} - \\frac{1}{2}E_{p}[(\\vec{x}-\\vec{\\mu})\\Sigma^{-1}(\\vec{x}-\\vec{\\mu})] \\\\ \u0026= -\\frac{1}{2}\\log{[(2\\pi)^{n}|\\Sigma|]} - \\frac{n}{2} \\end{aligned} $$\n代回 KL 散度不等式\n$$ \\begin{aligned} 0\\leq D_{\\mathrm{KL}}(p||g) = -h[p] + \\frac{1}{2}\\log{[(2\\pi)^{n}|\\Sigma|]} + \\frac{n}{2}\\\\ \\Rightarrow h[p] \\leq \\frac{1}{2}\\log{[(2\\pi e)^{n}|\\Sigma|]} \\end{aligned} $$\n取等时 $D_{\\mathrm{KL}}(p||g) = 0 \\Leftrightarrow p(\\vec{x}) = g(\\vec{x})$. 因此, 在均值和协方差矩阵约束下, Gaussian 分布是最大熵分布.\n其次, 当许多独立随机变量被求和时, 会出现 Gaussian 统计特征. 如果突触权重主要是随机的, 那么来自 CA3 区域和内嗅皮层输入到 CA1 区域的总突触输入预计将近似为 Gaussian 分布 (图 1; 方法 S1 和 S2).\n第三, 结构为随机 Gaussian 过程的神经编码可以实现指数级编码效率. 我们将在讨论中进一步讨论这些动机.\nResults Field arrangements Place-field locations in the model are identified as the regions in space in which the Gaussian process exceeds a given threshold (Methods S1). Extensive results exist for the statistics of these regions in the mathematical literature, where they are called ‘‘excursion sets.’’30\nA recent result of central importance to this work is that threshold-crossing statistics assume a universal form when the spatial correlation function of the process obeys mild smoothness requirements and the threshold is sufficiently high.32 Threshold-crossing statistics are then insensitive to the detailed structure of the correlation function and depend only on two scalar parameters: the normalized threshold, $\\theta$, defined as the ratio between the threshold and the standard deviation of the Gaussian process (Equation 3) and a correlation length, $\\sigma$, which is derived from the spatial correlation function (Equation 4).\n模型中位置场的位置被确定为 Gaussian 过程超过给定阈值的空间区域 (方法 S1). 在数学文献中, 这些区域被称为 “excursion 集”, 已经存在大量关于这些区域统计特征的结果.\n一个与本工作密切相关的最新结果是, 当过程的空间相关函数满足温和的平滑性要求且阈值足够高时, Threshold-crossing 统计特征呈现出普适形式. 然后, Threshold-crossing 统计特征对相关函数的详细结构不敏感, 仅依赖于两个标量参数: 归一化阈值 $\\theta$, 定义为阈值与 Gaussian 过程标准差的比率 (方程 3) 和相关长度 $\\sigma$, 它是从空间相关函数导出的 (方程 4).\nSpecifically, the mean density of fields and the mean field size can both be expressed in terms of s and $\\theta$ using the Kac-Rice formula33 for the threshold crossings of a Gaussian process (Methods S3, see Equations S12 and S14). Furthermore, the full distribution of field sizes acquires a universal form in the limit of large $\\theta$ (Methods S4), expressed as\n$$ P(s) = \\frac{2\\beta}{D}s^{\\left(\\frac{2}{D}-1\\right)}\\exp{\\left(-\\beta s^{\\frac{2}{D}}\\right)} $$\nwhere $D$ is the dimensionality of the space over which the Gaussian process is defined, $s$ is the field size (length in one dimension, area in two dimensions, and volume in three dimensions; 1D, 2D, and 3D hereafter), and the single parameter $\\beta$ can be expressed in terms of $\\sigma$ and $\\theta$ (see Methods S3, Equation S18).\n具体来说, 场的平均密度和平均场大小都可以使用 Kac-Rice 公式来表达, 该公式用于 Gaussian 过程的 Threshold-crossing (方法 S3, 见方程 S12 和 S14). 此外, 在大 $\\theta$ 的极限下, 场大小的完整分布获得了一个普适形式 (方法 S4) , 表达式为\n$$ P(s) = \\frac{2\\beta}{D}s^{\\left(\\frac{2}{D}-1\\right)}\\exp{\\left(-\\beta s^{\\frac{2}{D}}\\right)} $$\n其中 $D$ 是定义 Gaussian 过程的空间的维度, $s$ 是场大小 (在一维中是长度, 在二维中是面积, 在三维中是体积; 以下分别称为 1D、2D 和 3D) , 单参数 $\\beta$ 可以用 $\\sigma$ 和 $\\theta$ 来表达 (见方法 S3, 方程 S18).\nIn the 1D case $(D=1)$, this expression takes the form of a Rayleigh distribution (Figure 1C). Similarly, field gap statistics assume a universal form in the high-threshold limit: threshold crossings are spatially uncorrelated and, consequently, gap sizes follow an exponential distribution with a mean that can be expressed in terms of $\\sigma$ and $\\theta$ (see STAR Methods). Thus, according to the model, the empirical distributions of CA1 field sizes and gaps between fields should be jointly explained using the two parameters, $\\sigma$ and $\\theta$.\n在 1D 情况下 ($D=1$) , 这个表达式呈现出 Rayleigh 分布的形式 (图 1C). 同样, 场间隙统计特征在高阈值极限下也呈现出普适形式: Threshold-crossing 在空间上不相关, 因此, 场间隙大小遵循指数分布, 其均值可以用 $\\sigma$ 和 $\\theta$ 来表达 (见 STAR 方法). 因此, 根据模型, CA1 场大小和场之间间隙的经验分布应该使用两个参数 $\\sigma$ 和 $\\theta$ 来共同解释.\nWe began by examining place fields recently recorded in bats flying in a 200-m-long tunnel, where the highly stereotyped trajectory of the animals along the 1D track allowed for the gathering of comprehensive statistics on the spatial arrangement of place fields.21 We determined the two parameters $\\sigma$ and $\\theta$ by matching the means of the field sizes and gaps to the model in the data from the 200-m-long tunnel. This fitting procedure, based only on the means, was sufficient to capture the full distributions of field sizes and gaps (Figures 1C and 1D). This outcome was particularly striking for the field sizes, whose distribution had a distinctive, highly asymmetric form.\n我们首先检查了最近在蝙蝠飞行的 200 米长隧道中记录的位置场, 在那里, 动物沿着 1D 轨道的高度刻板的轨迹允许我们收集关于位置场空间排列的全面统计数据. 我们通过将场大小和间隙的均值与模型进行匹配来确定两个参数 $\\sigma$ 和 $\\theta$, 这个拟合过程仅基于均值, 就足以捕捉场大小和间隙的完整分布 (图 1C 和 1D). 这个结果对于场大小来说尤其引人注目, 因为它们的分布具有独特的高度不对称形式.\n(C) Field-size distribution of bats in the 1D tunnel compared against the field-size distribution predicted by the model. Dotted line: approximate analytical prediction of the field-size distribution, valid for high thresholds (Rayleigh distribution). Orange bars: precise predictions of the model, obtained from simulations (error bars: standard deviation across simulations, see STAR Methods). Here and in all subsequent bar plots, the overlap between green bars (experiment) and orange bars (model) is represented in brown. Inset: same data in a semi-logarithmic scale.\n(C) 蝙蝠在 1D 隧道中的场大小分布与模型预测的场大小分布进行比较. 虚线: 模型预测的场大小分布的近似解析预测, 适用于高阈值 (Rayleigh 分布). 橙色条: 从模拟中获得的模型的精确预测 (误差条: 模拟之间的标准差, 见 STAR 方法). 在这里和所有后续的条形图中, 绿色条 (实验) 和橙色条 (模型) 之间的重叠以棕色表示. 插图: 在半对数尺度上的相同数据.\n(D) Distribution of consecutive field gaps in the experiment compared against the distribution predicted by the model. Dashed line: analytical prediction.\n(D) 实验中连续场间隙的分布与模型预测的分布进行比较. 虚线: 解析预测.\nDue to its highly asymmetric structure (Figure 1C), the fieldsize distribution was previously fitted heuristically to a lognormal distribution, yet this approach lacked a principled rationale. By contrast, in our model, the asymmetry is explained by the statistical dependencies between locations of adjacent threshold crossings of the underlying random Gaussian process34 (see Methods S4). The empirical field-size distribution was more likely to arise from the Gaussian threshold-crossing model than the best-fit log-normal distribution, even though the model had one fewer degree of freedom (assessed via likelihood and parameter-aware likelihood based model performance metrics: $\\Delta$ LLR \u003c 0, $\\Delta$ BIC \u003c 0, $\\Delta$ AIC \u003c 0; see STAR Methods). Furthermore, skew and kurtosis of the log-field-size distribution were in agreement with the threshold-crossing model, but not with the log-normal distribution, according to which they should be close to zero (Figure 1E; see STAR Methods). Thus, the model captured subtle features of the distribution beyond its first- and second-order moments. As expected in the high-threshold limit, the distribution of gap sizes followed an exponential distribution (Figure 1D).\n由于其高度不对称的结构 (图 1C) , 场大小分布之前被启发式地拟合为对数正态分布, 但这种方法缺乏原则性的理由. 相比之下, 在我们的模型中, 这种不对称性可以通过基础随机 Gaussian 过程的相邻Threshold-crossing 位置之间的统计依赖关系来解释 (见方法 S4). 即使该模型的自由度比最佳拟合的对数正态分布少一个, 经验场大小分布也更有可能来自 Gaussian Threshold-crossing 模型 (通过似然和参数感知的似然基于模型性能指标评估: $\\Delta$ LLR \u003c 0, $\\Delta$ BIC \u003c 0, $\\Delta$ AIC \u003c 0; 见 STAR 方法). 此外, 根据对数正态分布, 场大小分布的偏度和峰度应该接近于零, 但根据Threshold-crossing 模型, 它们与该模型一致, 而与对数正态分布不一致 (图 1E; 见 STAR 方法). 因此, 该模型捕捉了分布的微妙特征, 超出了其第一阶和第二阶矩. 正如在高阈值极限中所预期的那样, 间隙大小的分布遵循指数分布 (图 1D).\nWe subsequently tested the model’s ability to explain the statistics of place fields measured in rodents running in long 1D tracks. Field size distributions extracted from experiments in which mice ran in a 40-m-long 1D virtual track24 were in qualitative agreement with the Rayleigh distribution (Figure 1F). We also analyzed the distribution of field sizes from an experiment in which rats explored a 48-m-long 1D maze.10 The distribution of field sizes was in quantitative agreement with the distribution predicted by the model, with matching skew and kurtosis (Figure S1).\n随后, 我们测试了该模型解释啮齿动物在长 1D 轨道上测量的位置场统计特征的能力. 在小鼠在 40 米长的 1D 虚拟轨道上奔跑的实验中提取的场大小分布与 Rayleigh 分布在定性上是一致的 (图 1F). 我们还分析了大鼠探索 48 米长的 1D 迷宫实验中场大小的分布. 场大小的分布与模型预测的分布在定量上是一致, 偏度和峰度匹配 (图 S1).\nPlace fields in 2 and 3 dimensions Experimental data on place fields in rats navigating large 2D environments25 and bats in 3D rooms23 reveal place cells with multiple, heterogeneous place fields. Intriguingly, though, the experiments uncover field-size distributions that are distinct in one, two, and three dimensions. Building on our initial findings in 1D environments, we examined the extension of the model to 2D and 3D environments, where place fields are determined by excursion sets of a Gaussian process over the higher-dimensional space. As in the 1D case, the model generated multiple, heterogeneous fields, which were qualitatively similar to the ones observed experimentally (Figures 2A, 2B, 2F, and 2G).\n在大鼠导航大型二维环境和蝙蝠在三维房间中的实验数据揭示了具有多个异质位置场的位细胞. 虽然如此, 但实验发现了一维、二维和三维中不同的场大小分布. 基于我们在一维环境中的初步发现, 我们检查了模型在二维和三维环境中的扩展, 在这些环境中, 位置场由高维空间上 Gaussian 过程的越界集确定. 与一维情况一样, 该模型生成了多个异质场, 这些场在定性上与实验观察到的相似 (图 2A、2B、2F 和 2G).\nMoreover, 1D slices through a multidimensional Gaussian process are themselves Gaussian processes. Hence, field sizes in 1D slices through multidimensional firing fields are expected to follow the same field-size distribution as in the 1D case. To test this prediction, we examined 1D slices through 2D place fields measured in rats foraging in a 18.6 m2 arena (data from 20 cells recorded in Harland et al.25) and found that they were well fitted by the Rayleigh distribution (Figure 2C). We further compared the model against a histogram of field areas from all cells (as reported in Harland et al.25). The statistics precisely followed an exponential distribution as predicted by the model (Equation 1, $D = 2$; Figure 2D). Finally, field counts were well fitted by a Poisson distribution, as expected in the high-threshold regime in which field locations are independent (Figure 2E).\n此外, 通过多维 Gaussian 过程的一维切片本身就是 Gaussian 过程. 因此, 通过多维放电场的一维切片中的场大小预计将遵循与一维情况相同的场大小分布. 为了测试这个预测, 我们检查了在一个 $18.6\\mathrm{ m}^{2}$ 场地中觅食的大鼠测量的二维位置场的一维切片 (数据来自 Harland 等人记录的 20 个细胞) , 发现它们很好地拟合了 Rayleigh 分布 (图 2C). 我们进一步将模型与所有细胞的场面积直方图进行了比较 (如 Harland 等人所报道). 统计特征完全遵循模型预测的指数分布 (方程 1, $D = 2$; 图 2D). 最后, 场计数很好地拟合了 Poisson 分布, 这在高阈值 regime 中是预期的, 在该 regime 中场位置是独立的 (图 2E).\nNext, we analyzed 3D place fields in bats navigating a large room of size 5.8 3 4.6 3 2.7 m3.23 The model predicts that 2D slices through the 3D place fields should exhibit the same statistics as those of fields in 2D environments, since these slices are also realizations of a thresholded Gaussian process in two dimensions. The predictions for both 1D and 2D slices were verified by the data (Figures 2H and 2I), along with the distribution of the 3D field volumes (Figure 2J), which followed the prediction of Equation 1 with $D = 3$. In an alternative model, in which field volumes and peak firing rates were exactly matched to the empirical data, without the underlying Gaussian statistics, distributions of 1D and 2D slice sizes did not match the data (Figures S2A and S2B).\n接下来, 我们分析了在一个大小为 $5.8 \\times 4.6 \\times 2.7\\mathrm{ m}^{3}$ 的大房间中导航的蝙蝠的三维位置场. 模型预测, 通过三维位置场的二维切片应该表现出与二维环境中位置场相同的统计特征, 因为这些切片也是二维阈值化 Gaussian 过程的实现. 对于一维和二维切片的预测都得到了数据的验证 (图 2H 和 2I) , 以及三维场体积的分布 (图 2J) , 其遵循方程 1 中 $D = 3$ 的预测. 在一个替代模型中, 其中场体积和峰值放电率完全匹配经验数据, 而没有基础的 Gaussian 统计特征, 一维和二维切片大小的分布与数据不匹配 (图 S2A 和 S2B).\nIn summary, the statistics of field arrangements in 1D, 2D, and 3D were explained in both bats and rodents by the threshold crossings of Gaussian processes. In particular, the model explained the different field-size statistics that were observed across experiments in different dimensionalities (Equation 1; Figures 1C, 2D, and 2J). The generality of these results suggests that common mechanisms, shared across species and dimensionalities, underlie the structure of the hippocampal code for space.\n总之, 1D、2D 和 3D 中场排列的统计特征在蝙蝠和啮齿动物中都可以通过 Gaussian 过程的Threshold-crossing 来解释. 特别是, 该模型解释了在不同维度的不同实验中观察到的不同场大小统计特征 (方程 1; 图 1C、2D 和 2J). 这些结果的普遍性表明, 在物种和维度之间共享的共同机制是海马体空间编码结构的基础.\nStatistics of field shapes The statistics of field sizes and gaps only reflect the statistics of field boundaries, which, in the model, correspond to threshold crossings. The model also makes quantitative predictions on the statistics of field shapes, defined as the firing rate’s dependence on position within place fields (Figure 3A). These statistics are determined by the properties of the Gaussian process in the threshold-crossing segments, yielding new theoretical predictions that can be tested in the experimental data. First, according to the model, the firing rate within a given place field may exhibit multiple local maxima, unlike in the classical picture of bellshaped fields. The predicted distribution of the number of local maxima across fields was in close agreement with the empirical distribution of local maxima per field in bats flying in the 1D tunnel (Figure 3B). Second, the model predicts a positive correlation between the size of a field and its peak firing rate, with an approximate power law relation between these two quantities. The experimental data confirmed this prediction, in both bats flying in the 1D tunnel (Figure 3C) and bats flying in the 3D environment (Figure 3D). In both cases, the model not only predicted the qualitative relation between field size and peak firing rate but also accurately predicted the power law coefficient (Figures 3C and 3D). Third, in the model, the slope of the firing rate at the boundaries of 1D place fields follows a Rayleigh distribution.35 This prediction was verified in the data (Figure 3E). Fourth, for bats flying in the 3D environment, the mean and Gaussian curvatures of isosurfaces formed by the boundary of 3D place fields were distributed in agreement with the predictions of the model (Figures S2D and S2E). All the above predictions of the model were verified using the values of $\\sigma$ and $\\theta$ that were previously inferred based only on field arrangements, independent of field shapes.\n场大小和间隙的统计特征仅反映了场边界的统计特征, 在模型中, 这些边界对应于Threshold-crossing . 该模型还对场内位置的放电率依赖关系定义的场形状统计特征做出了定量预测 (图 3A). 这些统计特征由Threshold-crossing 段中 Gaussian 过程的属性决定, 产生了可以在实验数据中测试的新理论预测. 首先, 根据模型, 给定位置场内的放电率可能表现出多个局部最大值, 这与钟形场的经典图景不同. 预测的每个场的局部最大值数量分布与蝙蝠在 1D 隧道中飞行时每个场的局部最大值的经验分布非常一致 (图 3B). 第二, 模型预测场大小与其峰值放电率之间存在正相关关系, 这两者之间近似满足幂律关系. 实验数据证实了这一预测, 在蝙蝠在 1D 隧道中飞行 (图 3C) 和蝙蝠在 3D 环境中飞行 (图 3D) 中都是如此. 在这两种情况下, 模型不仅预测了场大小与峰值放电率之间的定性关系, 还准确地预测了幂律系数 (图 3C 和 3D). 第三, 在模型中, 1D 位点场边界处放电率的斜率遵循 Rayleigh 分布. 这一预测在数据中得到了验证 (图 3E). 第四, 对于在 3D 环境中飞行的蝙蝠, 由 3D 位点场边界形成的等值面上的平均曲率和 Gaussian 曲率的分布与模型的预测一致 (图 S2D 和 S2E). 上述所有模型预测都使用之前仅基于场排列推断出的 $\\sigma$ 和 $\\theta$ 的值进行了验证, 与场形状无关.\nWe next examined whether the model captures the topological properties of the place fields by using recent results on the Euler characteristic (EC) of excursion sets of Gaussian processes. The EC of the thresholded Gaussian process is a function of the number of connected components and holes of various dimensions (see STAR Methods) and has a universal dependence on the threshold, which is specific to Gaussian processes.30 An analytical expression has been obtained for this quantity in terms of q and s. (This result has also been used to test for Gaussianity in the spatial structure of the cosmic background microwave radiation, as well as other natural processes.)\n我们接下来检查了模型是否通过使用关于 Gaussian 过程的越界集的欧拉特征 (EC) 的最新结果来捕捉位置场的拓扑属性. 阈值化 Gaussian 过程的 EC 是连接组件数量和各种维度孔洞数量的函数 (见 STAR 方法) , 并且对阈值具有普适依赖关系, 这对于 Gaussian 过程是特定的. 已经获得了这个量的分析表达式, 表达式中包含 q 和 s. (这个结果也被用来测试宇宙背景微波辐射以及其他自然过程空间结构的 Gaussian 性. )\nIn the 1D case, the EC is simply equal to the number of connected components. The theory provides an exact expression for the EC curve (Equation 8), whose only dependence on the correlation function is through the correlation length s. We tested this prediction for place fields by placing a varying threshold on the firing rates measured in bats flying in the 200-m-long tunnel, followed by evaluation of the EC of the rectified fields. The resulting EC curve (Figure 3F) was in excellent agreement with the analytical prediction using the previously obtained value of s. While an increase in the threshold can be artificially applied to the measured rate maps, it is also possible to reduce the threshold by optogenetically depolarizing during behavior. Recent results from such experiments40 are in qualitative agreement with the threshold-crossing model since the stimulation led to the emergence of unmasked place fields.\n在 1D 情况下, EC 简单地等于连接组件的数量. 理论提供了 EC 曲线的精确表达式 (方程 8) , 其对相关函数的唯一依赖是通过相关长度 s. 我们通过在蝙蝠在 200 米长隧道中飞行时测量的放电率上设置不同的阈值, 然后评估整流场的 EC 来测试这个预测. 得到的 EC 曲线 (图 3F) 与使用先前获得的 s 值的分析预测非常一致. 虽然可以人为地将阈值增加到测量的速率图上, 但也可以通过在行为期间光遗传学去极化来降低阈值. 这些实验的最新结果与Threshold-crossing 模型在定性上是一致的, 因为刺激导致了未掩盖位置场的出现.\nIn dimensions higher than one, the EC depends not only on the number of connected components but also on the number of holes of various dimensions within the fields. This results in a non-monotonic dependence of the EC curve on the threshold due to the emergence and disappearance of holes. Here, too, the theory provides an exact analytical expression (Equation 10) for the expected EC curve. We tested this prediction on all measured firing fields in bats flying in 3D.23 The empirical EC curve was non-monotonic as predicted and precisely followed the analytical expression (Figure 3G) using the previously obtained value of s. This agreement is specific to the Gaussian threshold-crossing model and was not reproduced by an alternative model with matching joint statistics of field volumes and peak rates (Figure S2C). We also tested the EC curve prediction in 2D on 20 cells from rats recorded in the 2D megaspace25 and obtained excellent agreement with the analytical prediction (Equation 9; Figure 3H).\n在一维以上的维度中, EC 不仅取决于连接组件的数量, 还取决于场内各种维度孔洞的数量. 这导致了 EC 曲线对阈值的非单调依赖关系, 因为孔洞的出现和消失. 在这里, 理论也提供了一个精确的分析表达式 (方程 10) 来预测 EC 曲线. 我们在蝙蝠在 3D 中飞行时测量的所有放电场上测试了这个预测. 经验 EC 曲线如预测所示是非单调的, 并且使用先前获得的 s 值精确地遵循分析表达式 (图 3G). 这种一致性是特定于 Gaussian Threshold-crossing 模型的, 并且没有被具有匹配场体积和峰值率联合统计特征的替代模型复制 (图 S2C). 我们还在 2D 上测试了 EC 曲线预测, 在记录了 2D 大空间中大鼠的 20 个细胞上, 并与分析预测 (方程 9; 图 3H) 获得了极好的吻合.\nParameter variation across experiments Our analyses of data from 1D and 2D environments of varying sizes allow us to identify qualitative trends across datasets, as a function of the environment size (Figures 4A and 4B). We observe that the correlation length, $\\sigma$, increases sublinearly with the size of the environment, and the normalized threshold, $\\theta$, decreases with the size of the environment (Figure 4B). Together, these trends induce an increase in the average number of fields with the size of the environment, consistent with the observation of single firing fields per cell in small environments and a sublinear increase in their sizes (Figure S4). It is also interesting to consider the number of fields divided by the environment size, to which we refer as the ‘‘average propensity.’’24 The sublinear increase of $\\sigma$ and the decrease of $\\theta$ have opposing influences on this quantity. Consequently, the average propensity varies only weakly with environment size (Figure S3).\n我们对不同大小的 1D 和 2D 环境中的数据分析使我们能够根据环境大小识别数据集之间的定性趋势 (图 4A 和 4B). 我们观察到相关长度 $\\sigma$ 随环境大小亚线性增加, 而归一化阈值 $\\theta$ 随环境大小减小 (图 4B). 这些趋势共同导致了平均场数量随着环境大小的增加而增加, 这与在小环境中每个细胞单个放电场的观察结果以及它们大小的亚线性增加一致 (图 S4). 考虑将场数量除以环境大小也是有趣的, 我们称之为 “平均倾向”. $\\sigma$ 的亚线性增加和 $\\theta$ 的减少对这个量有相反的影响. 因此, 平均倾向随环境大小的变化很弱 (图 S3).\nWhile the two parameters jointly affect the field counts and the field sizes, the normalized threshold also influences the heterogeneity in field shapes (Figure 5A). With increasing $\\theta$, the fraction of multi-peaked fields decreases and the exponent of the power law relationship between the maximum firing rate and the field size approaches 2, as expected for parabolic fields30 (Figures 5B and 5C). Thus, the model predicts a greater stereotypy of field shapes with an increasing normalized threshold. As a result, and following the trend seen in the data (Figures 4A and 4B), field shapes are predicted to be more stereotyped in smaller environments than in larger ones (Figures 5A–5C). We tested this prediction on place fields measured in bats flying in a short, 6-mlong tunnel.21 As predicted, field shapes were more stereotyped than in the 200-m-long tunnel, with statistics that quantitatively agreed with the model (Figures 4C and 5D). In summary, the model accounts for the different characteristics of CA1 spatial selectivity across environmental scales, ranging from early experiments in small environments, where place cells typically had a single, bell-shaped firing field,8,22 to more recent experiments in large environments, where place cells had multiple firing fields with heterogeneous shapes.\n虽然这两个参数共同影响场计数和场大小, 但归一化阈值还影响场形状的异质性 (图 5A). 随着 $\\theta$ 的增加, 多峰场的比例减少, 最大放电率与场大小之间幂律关系的指数接近于 2, 这对于抛物线场是预期的 (图 5B 和 5C). 因此, 模型预测随着归一化阈值的增加, 场形状的刻板性增加. 因此, 并且遵循数据中看到的趋势 (图 4A 和 4B) , 在较小环境中的场形状被预测为比在较大环境中更刻板 (图 5A–5C). 我们在蝙蝠在一个短的 6 米长隧道中飞行时测量的位置场上测试了这个预测. 正如预测的那样, 场形状比在 200 米长隧道中更刻板, 其统计特征与模型定量一致 (图 4C 和 5D). 总之, 该模型解释了 CA1 空间选择性在环境尺度上的不同特征, 从小环境中的早期实验, 在那里位置细胞通常具有单个钟形放电场, 到最近在大环境中的实验, 在那里位置细胞具有多个具有异质形状的放电场.\nEach one of the experimental datasets is well explained by a single choice of the values of $\\sigma$ and $\\theta$, yet some variation in these parameters across cells and anatomical regions is to be expected. For the length scale $\\sigma$, our choice of a single value is motivated by the fact that recordings were tightly localized anatomically in dorsal CA1.21,23,25,41 In the data from bats flying in the 1D tunnel, the number of place fields expressed by individual neurons, as well as their sizes, were observed to be correlated in the two flying directions, despite remapping of the fields.21 We hypothesized that this correlation arises from variability in the threshold, $\\theta$. In agreement with this hypothesis, an extended model with a distribution of thresholds accounted for the empirical correlations, while remaining compatible with the distributions of field sizes and gaps obtained from the basic model (Figure S4). A distribution of thresholds may arise from a variation in intrinsic cell properties or from variation in the inhibitory inputs to place cells and is consistent with the recent observation that propensity varies across cells also in rodents.\n每个实验数据集都可以通过单一选择 $\\sigma$ 和 $\\theta$ 的值来很好地解释, 但预计这些参数在细胞和解剖区域之间会有所变化. 对于长度尺度 $\\sigma$, 我们选择单一值的动机是因为记录在解剖上紧密定位在背侧 CA1 中. 在蝙蝠在 1D 隧道中飞行的数据中, 个体神经元表达的位置场数量以及它们的大小在两个飞行方向上被观察到是相关的, 尽管场发生了重映射. 我们假设这种相关性来自于阈值 $\\theta$ 的变异. 与这一假设一致, 具有阈值分布的扩展模型解释了经验相关性, 同时仍然与基本模型获得的场大小和间隙分布兼容. 阈值分布可能来自于内在细胞属性的变化或位置细胞抑制输入的变化, 并且与最近观察到的小鼠中倾向也在细胞之间变化的观察结果一致.\nDiscussion The classical view of spatial coding in the hippocampus has been challenged by the recent discoveries of heterogeneous and distributed CA1 response patterns in large environments. It was unknown whether a unified mathematical framework can encompass the diverse statistics of these irregular responses. Here, we identified such a framework, in which place fields are obtained from the threshold crossings of a spatially fluctuating random process. The underlying randomness of the Gaussian process enabled the model to explain in quantitative detail the variability in the size of place fields and their spatial arrangement, as well as a range of geometric and topological properties associated with the heterogeneous field shapes. Indeed, when constrained only on the mean field size and count, the model precisely captured the statistics of shape variability, which, in principle, could have had an independent origin. This surprising result suggests that the different degrees of heterogeneity, observed across experiments, arise as a byproduct of mechanisms that regulate the field frequency and size. With only two parameters, the model accounts for the seemingly diverse statistics observed in rodents and bats and in environments of varying sizes and dimensionalities. Therefore, the model allows for direct comparison between the statistics observed in the different experiments and suggests that they arise from common underlying principles. Specifically, our analysis of the experimental data indicates that there are systematic differences in the statistics of place fields in environments of different size: field sizes increase with environment size, propensity decreases, and field shapes become more heterogeneous. Consequently, place fields in small environments differ from those observed in a similarly sized portion of a larger environment.\n海马体空间编码的经典观点受到了最近在大环境中发现的 CA1 响应模式异质性和分布式性的挑战. 尚不清楚是否存在一个统一的数学框架可以涵盖这些不规则响应的多样统计特征. 在这里, 我们确定了这样一个框架, 其中位置场是从空间波动的随机过程的Threshold-crossing 中获得的. Gaussian 过程的基础随机性使得模型能够定量详细地解释位置场大小和空间排列的变异性, 以及与异质场形状相关的一系列几何和拓扑属性. 事实上, 当仅限制在平均场大小和计数时, 模型精确地捕捉了形状变异性的统计特征, 原则上, 这些特征可能具有独立的起源. 这个令人惊讶的结果表明, 在不同实验中观察到的不同程度的异质性是作为调节场频率和大小机制的副产品出现的. 该模型仅使用两个参数, 就可以解释在啮齿动物和蝙蝠以及不同大小和维度环境中观察到的看似多样化的统计特征. 因此, 该模型允许直接比较不同实验中观察到的统计特征, 并表明它们来自共同的基本原理. 具体来说, 我们对实验数据的分析表明, 在不同大小环境中的位置场统计特征存在系统差异: 位置场大小随着环境大小增加而增加, 倾向随着环境大小增加而降低, 位置场形状变得更加异质. 因此, 小环境中的位置场与在较大环境中观察到的位置场不同.\nA Gaussian process is the random process that maximizes entropy under constraints on the mean and the spatial covariance function. Hence, the model invokes minimal assumptions other han a specification of a place cell’s underlying input correlation structure.31,42 At the same time, random Gaussian processes can generate a highly efficient coding scheme, with capacity that increases exponentially with the number of neurons,29 and, therefore, the structure of tuning curves in CA1 might be shaped to optimize coding efficiency. Another possibility is that the structure of neural responses in CA1 is beneficial for the maintenance and retrieval of associative memory,27 since CA1 is part of a larger system involved in this function.43 It will be interesting to examine theoretically whether it is possible to obtain a coherent understanding of the trends seen in the parameters across the different geometries (Figure 4B) in light of a theory of efficient coding29 or of optimal storage capacity.\nGaussian 过程是在平均值和空间协方差函数的约束下最大化熵的随机过程. 因此, 该模型除了对位置细胞的基础输入相关结构进行规范之外, 不涉及其他假设. 同时, 随机 Gaussian 过程可以生成一个高度有效的编码方案, 其容量随着神经元数量的增加而指数增加, 因此, CA1 中调谐曲线的结构可能被塑造以优化编码效率. 另一种可能性是, CA1 中神经响应的结构有利于联想记忆的维护和检索, 因为 CA1 是涉及这一功能的更大系统的一部分. 考虑到有效编码理论或最佳存储容量理论, 理论上检查是否有可能获得对不同几何形状中参数趋势 (图 4B) 的连贯理解将是很有趣的.\nThe success of the parsimonious model introduced here invites an exploration into its possible mechanistic origin. The apparent stereotypy of place fields in small environments has motivated a view of hippocampal spatial selectivity as arising from highly organized synaptic connectivity.44–46 However, the irregular CA1 firing patterns in large environments are inconsistent with this view. Our results indicate that CA1 place fields, in small and large environments alike, are compatible with predominantly random synaptic connections into CA1. This is because random projections from a sufficiently large number of spatially selective cells necessarily produce an input to each CA1 cell that varies spatially as a realization of a random Gaussian process, due to the multivariate central limit theorem (see Methods S2). Gaussian statistics arise robustly from random synaptic projections without the necessity to invoke highly specific assumptions on the structure of spatial responses in the input layer. These can range from regular tuning curves that tile the environment to heterogeneous and irregular tuning curves with a distance-dependent covariance function (see Methods S2). Hence, the broad success of the model across datasets and statistics suggests that randomness, rather than specific design, governs the synaptic organization of inputs to CA1.\n该模型的成功引发了对其可能机械起源的探索. 小环境中位置场的明显刻板性促使人们将海马体空间选择性视为来自高度组织化的突触连接. 然而, 大环境中不规则的 CA1 放电模式与这种观点不一致. 我们的结果表明, 无论是在小环境还是在大环境中, CA1 位置场都与 CA1 中主要是随机突触连接兼容. 这是因为来自足够数量的空间选择性细胞的随机投射必然会产生一个输入到每个 CA1 细胞的输入, 这个输入在空间上变化, 作为随机 Gaussian 过程的实现, 这是由于多变量中心极限定理 (见方法 S2). Gaussian 统计特征从随机突触投射中稳健地出现, 而不需要对输入层空间响应结构进行高度特定的假设. 这些假设可以从覆盖环境的规则调谐曲线到具有距离依赖协方差函数的异质和不规则调谐曲线范围不等. 因此, 该模型在数据集和统计特征上的广泛成功表明, 随机性而不是特定设计支配了 CA1 输入的突触组织.\nRandomness in the connectivity might be associated with a fairly fixed anatomical structure, potentially influenced by the developmental trajectory of neurons and their embedding in the network.47 Yet, the strength of synaptic projections between CA3 and CA1 is known to be plastic. Specifically, recent experiments indicate that a dominant mode of plasticity in CA1 involves randomly occurring modifications of synaptic projections from CA3, triggered by inputs from the entorhinal cortex.48–50 The randomness of the synaptic weights may be related to the cumulative effect of many such non-Hebbian plasticity events. Since all the measurements analyzed in this work were collected in highly familiar and uniform environments, it is possible that the stationarity of the underlying Gaussian processes is specific to such conditions. We speculate that more intricate features of the place-cell code arise under richer behavioral conditions via activity-dependent plasticity mechanisms acting on top of a scaffold of random synaptic weights.\nCA3 和 CA1 之间连接的随机性可能与相当固定的解剖结构相关, 这可能受到神经元发育轨迹及其在网络中的嵌入的影响. 然而, CA3 和 CA1 之间突触投射的强度是已知的可塑的. 具体来说, 最近的实验表明, CA1 中的主导可塑性模式涉及 CA3 突触投射的随机发生修改, 这些修改由来自内嗅皮层的输入触发. 突触权重的随机性可能与许多此类非 Hebbian 可塑性事件的累积效应有关. 由于在这项工作中分析的所有测量都是在高度熟悉和统一的环境中收集的, 因此基础 Gaussian 过程的平稳性可能特定于这种条件. 我们推测, 在更丰富的行为条件下, 通过作用在随机突触权重支架上的活动依赖性可塑性机制, 位置细胞代码更复杂的特征会出现.\n",
+  "wordCount" : "11967",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/06/13/4vaI/20260613203930960.png","datePublished": "2026-06-13T00:18:23+08:00",
+  "dateModified": "2026-06-13T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/universal-statistics-of-hippocampal-place-fields-across-species-and-dimensionalities/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                Universal statistics of hippocampal place fields across species and dimensionalities
+            </h1>
+            <div class="post-description">
+                跨物种和维度的海马体位置场普适统计特征
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-06-13
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>11967字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>24分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/line-attractor/" style="color: var(--secondary)!important;">Line Attractor</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/06/13/4vaI/20260613203930960.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#summary" aria-label="Summary">Summary</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#results" aria-label="Results">Results</a><ul>
+                        
+                <li>
+                    <a href="#field-arrangements" aria-label="Field arrangements">Field arrangements</a></li>
+                <li>
+                    <a href="#place-fields-in-2-and-3-dimensions" aria-label="Place fields in 2 and 3 dimensions">Place fields in 2 and 3 dimensions</a></li>
+                <li>
+                    <a href="#statistics-of-field-shapes" aria-label="Statistics of field shapes">Statistics of field shapes</a></li>
+                <li>
+                    <a href="#parameter-variation-across-experiments" aria-label="Parameter variation across experiments">Parameter variation across experiments</a></li></ul>
+                </li>
+                <li>
+                    <a href="#discussion" aria-label="Discussion">Discussion</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h1>
+<blockquote>
+<p>Hippocampal place cells have single, bell-shaped place fields in small environments. Recent experiments, however, reveal that, in large environments, place cells have multiple fields with <strong>heterogeneous shapes and sizes</strong>.</p>
+</blockquote>
+<p>海马体位置细胞在小环境中具有单一的钟形位置场. 然而, 最近的实验表明, 在大环境中, 位置细胞具有多个具有 <strong>异质形状和大小</strong> 的位置场.</p>
+<blockquote>
+<p>We show that this diversity is explained by a surprisingly simple mathematical model, in which place fields are generated by thresholding a realization of a random Gaussian process.</p>
+<p>The model captures the statistics of field arrangements and generates new quantitative predictions about the statistics of field shapes and topologies. These predictions are quantitatively verified in bats and rodents, in one, two, and three dimensions, in both small and large environments.</p>
+<p>These results imply that common mechanisms underlie the diverse statistics observed in different experiments and further suggest <strong>that synaptic projections to CA1 are predominantly random</strong>.</p>
+</blockquote>
+<p>我们展示了一个出人意料的简单数学模型可以解释这种多样性, 在该模型中, 位置场是通过对随机 Gaussian 过程的实现进行阈值处理生成的.</p>
+<p>该模型捕捉了场排列的统计特征, 并生成了关于场形状和拓扑统计的新定量预测. 这些预测在蝙蝠和啮齿动物中, 在一维、二维和三维空间中, 在小环境和大环境中得到了定量验证.</p>
+<p>这些结果表明, 不同实验中观察到的多样化统计特征背后存在共同机制, 并进一步表明 <strong>CA1 的突触投射主要是随机的</strong>.</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>A central goal of systems neuroscience is to characterize how neural systems represent information about the world or about the brain’s internal state. For several decades, much of the thinking about neural population codes was motivated by reports on neurons with <strong>highly stereotyped</strong> tuning functions.</p>
+<p>Neurons were often observed to have a smooth, typically unimodal tuning to the encoded variable, centered on preferred stimuli that vary across the neural population.1,2</p>
+<p>Examples include the radially symmetric receptive fields of retinal ganglion cells,3 the receptive fields of simple cells in the primary visual cortex,4,5 cosine tuning to movement direction in the motor cortex,6 the unimodal fields of head direction cells,7 and the fields of hippocampal place cells in small environments.8</p>
+</blockquote>
+<p>系统神经科学的一个核心目标是描述神经系统如何表示关于世界或大脑内部状态的信息. 几十年来, 关于神经群体编码的思考很大程度上是由对具有 <strong>高度刻板</strong> 调谐函数的神经元的报道所驱动的.</p>
+<p>神经元通常被观察到对编码变量具有平滑、通常是单峰的调谐, 中心在不同神经群体中变化的偏好刺激上.</p>
+<p>例子包括视网膜神经节细胞的径向对称感受野, 初级视觉皮层简单细胞的感受野, 运动皮层中对运动方向的余弦调谐, 头部方向细胞的单峰场, 以及小环境中海马体位置细胞的位置场.</p>
+<blockquote>
+<p>Experiments in the past decade, however, have uncovered neural response functions that are much less stereotyped and regular than observed previously. These recent findings were enabled by high-throughput recording techniques, which substantially reduced bias in the selection of cells for analysis, as well as new technologies that enabled the monitoring of neural activity in freely behaving animals, under reduced behavioral constraints.</p>
+</blockquote>
+<p>然而, 过去十年的实验发现, 神经反应函数比以前观察到的要不那么刻板和规则. 这些最新的发现得益于高通量记录技术, 这些技术大大减少了分析中细胞选择的偏差, 以及使在自由行为动物中监测神经活动成为可能的新技术, 在减少行为约束的情况下.</p>
+<blockquote>
+<p>Some of the most striking examples of irregular neural responses were recently identified in area CA1 of the hippocampus. The classical view of spatial coding by place cells in this area has been that they are active in a single, compact region of space and exhibit a stereotyped bell-shaped tuning to position.</p>
+<p>Several recent experiments in bats and rodents have revealed, however, that this picture breaks down in large environments. <strong>Place cells typically fire in multiple locations</strong>, and furthermore, the multiple firing fields of individual cells, as well as those of the whole population, vary in size and shape, the latter of which can deviate substantially from the classical bell-shaped form. It remains unknown, however, whether the irregular statistics of place fields in bats and rodents can be described in terms of common mathematical principles and whether these statistics yield insights on the synaptic architecture that underlies spatial coding in hippocampal area CA1.</p>
+</blockquote>
+<p>最近在海马体 CA1 区域发现了一些最引人注目的不规则神经反应的例子. 这个区域位置细胞空间编码的经典观点是, 它们在空间的单个紧凑区域内活跃, 并且对位置表现出刻板的钟形调谐.</p>
+<p>然而, 最近在蝙蝠和啮齿动物中的几个实验揭示了, 在大环境中, 这种情况不再适用. <strong>位置细胞通常在多个位置放电</strong>, 此外, 个体细胞的多个放电场以及整个群体的放电场在大小和形状上变化, 后者可以与经典的钟形形式有很大偏离.</p>
+<p>然而, 目前尚不清楚, 蝙蝠和啮齿动物中位置场的不规则统计特征是否可以用共同的数学原理来描述, 以及这些统计特征是否能提供关于海马体 CA1 区域空间编码背后的突触结构的见解.</p>
+<blockquote>
+<p>A number of theoretical studies have modeled the spatial selectivity of place cells in large environments.</p>
+<p>In one approach, heterogeneous activity patterns were embedded in the attractor manifolds of recurrent neural networks, serving as models of place-cell dynamics in area CA3. Place cells were modeled as having multiple, randomly positioned firing fields26,27 with variable peak firing rates and field sizes.</p>
+<p>Another study28 predicted an exponential distribution of place-field sizes based on a normative theory. Finally, multi-peaked, multi-scale tuning curves were shown to be advantageous for coding efficiency.21,29 However, there is a lack of a theory that can explain the observed heterogeneity of place-field properties, across the diverse experimental conditions, from basic principles.</p>
+</blockquote>
+<p>已经有一些理论研究模拟了大环境中位置细胞的空间选择性.</p>
+<p>在一种方法中, 异质的活动模式被嵌入到递归神经网络的吸引子流形中, 作为 CA3 区域位置细胞动力学的模型. 位置细胞被建模为具有多个随机定位的放电场, 具有可变的峰值放电率和场大小.</p>
+<p>另一项研究基于规范理论预测了位置场大小的指数分布. 最后, 多峰、多尺度的调谐曲线被证明对编码效率有利. 然而, 目前缺乏一个理论能够从基本原理解释在不同实验条件下观察到的位置场属性的异质性.</p>
+<blockquote>
+<p>Here, we report that a surprisingly simple generative model accounts for highly detailed features of place-field statistics. We model place fields as derived from a realization of a random Gaussian process over the spatial coordinates: a realization of the process is sampled for each cell and is then thresholded and rectified, resulting in multiple, heterogeneous fields (Figure 1A). A Gaussian process is a random function whose values at any discrete set of positions are jointly normal.30 The statistics of a Gaussian process are uniquely determined by its mean, which we set to zero without loss of generality as its choice is redundant with the choice of the threshold, and by the spatial correlation function, which we assume to be <strong>translationally invariant</strong>.</p>
+</blockquote>
+<p>在这里, 我们报告了一个出人意料的简单生成模型, 可以解释位置场统计的高度详细特征. 我们将位置场建模为空间坐标上随机 Gaussian 过程的实现: 为每个细胞采样一个过程的实现, 然后进行阈值处理和整流, 产生多个异质场 (图 1A).  Gaussian 过程是一种随机函数, 其在任何离散位置集上的值都是联合正态分布的.  Gaussian 过程的统计特征由其均值唯一确定, 我们将其设置为零而不失一般性, 因为它的选择与阈值的选择是冗余的, 并且由空间相关函数唯一确定, 我们假设它是 <strong>平移不变</strong> 的.</p>
+<blockquote>
+<blockquote>
+<p>Figure 1. Field arrangements of 1D place fields are explained by the thresholded Gaussian process model</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/14/6Wtc/20260614200039978.png" alt=""  /></p>
+<p>(A) Top: example of place fields measured in bats flying in a 1D 200-m-long tunnel.21 Bottom: firing rates in the model are generated by thresholding and rectifying a realization of a random Gaussian process (gray). In all figures, green represents experimental data, and orange represents the model.</p>
+</blockquote>
+<p>(A) 顶部: 在蝙蝠飞行的 1D 200 米长隧道中测量的位置场的例子. 底部: 模型中的放电率是通过对随机 Gaussian 过程的实现进行阈值处理和整流生成的 (灰色). 在所有图中, 绿色代表实验数据, 橙色代表模型.</p>
+</blockquote>
+<div class="details admonition info open">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-info-circle fa-fw"></i>实验数据<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content">图 A 展示的曲线不是 &quot;某一时刻&quot; 的神经活动截图, 而是蝙蝠在 200 m 隧道来回活动后, 对位置 $x\in[0,200]$ 的平均放电率 $\bar{r}(x) = \int_{0}^{t} r(x,\tau)\mathrm{d}\tau$</div>
+
+ </div>
+
+ </div>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/14/8jOg/20260614200308298.png" alt=""  /></p>
+<p>(B) A simple neural architecture that gives rise to place fields that follow the thresholded Gaussian process model. Presynaptic inputs from many spatially selective neurons are summed with random synaptic weights to create the input to each CA1 place cell, followed by rectification.</p>
+</blockquote>
+<p>(B) 一个简单的神经架构, 产生遵循阈值化 Gaussian 过程模型的位置场. 来自许多空间选择性神经元的突触前输入通过随机突触权重求和, 以创建每个 CA1 位置细胞的输入, 然后进行整流.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/14/Ppj5/20260614201539283.png" alt=""  /></p>
+<p>(E) Skew (left) and kurtosis (right) of the log-field-size distribution, obtained from multiple simulations of the model and the best-fit heuristic log-normal distribution (gray). Each simulation is matched to the size of the experimental dataset. For the log-normal distribution, the empirical skew and kurtosis are expected to be close to zero. Dashed line: skew and kurtosis of the experimental distribution.</p>
+</blockquote>
+<p>(E) 从模型的多个模拟和最佳拟合的启发式对数正态分布 (灰色) 中获得的 log-field-size 分布的偏度 (左) 和峰度 (右). 每个模拟都与实验数据集的大小相匹配. 对于对数正态分布, 经验偏度和峰度预计接近于零. 虚线: 实验分布的偏度和峰度.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/14/ti5J/20260614202333878.png" alt=""  /></p>
+<p>(F) Rayleigh distribution compared against place-field size distribution in four different mice, running in a 40-m-long virtual track.</p>
+</blockquote>
+<p>(F) Rayleigh 分布与四只不同小鼠在 40 米长虚拟轨道上奔跑的位置场大小分布进行比较.</p>
+</blockquote>
+<blockquote>
+<p>Several lines of reasoning have led us to examine the above model.</p>
+<p>First, <strong>a Gaussian process is the random process that maximizes entropy under constraints on the mean and the spatial covariance function</strong>. Hence, our modeling choice invokes minimal assumptions other than a specification of a place cell’s underlying input correlation structure.31</p>
+<p>Second, Gaussian statistics arise when many independent random variables are summed. The summed presynaptic input into area CA1 from area CA3 and entorhinal cortex is thus expected to be approximately Gaussian if synaptic weights are predominantly random (Figure 1; Methods S1 and S2).</p>
+<p>Third, a neural code structured as a random Gaussian process can achieve exponential coding efficiency.29 We further discuss these motivations in the discussion.</p>
+</blockquote>
+<p>我们研究上述模型的几个理由.</p>
+<p>首先,  <strong>Gaussian 过程是在均值和空间协方差函数约束下最大化熵的随机过程</strong>. 因此, 我们的建模选择除了对位置细胞的基础输入相关结构进行规范之外, 几乎没有其他假设.</p>
+<div class="details admonition info">
+
+ <div class="details-summary admonition-title">
+
+ <i class="icon fas fa-info-circle fa-fw"></i>最大化熵的随机过程<i class="details-icon fas fa-angle-right fa-fw"></i>
+
+ </div>
+
+ <div class="details-content">
+
+ <div class="admonition-content"><p>设随机向量 $\vec{x}\in\mathbb{R}^{n}$ 均值为 $E[\vec{x}]=\vec{\mu}$, 协方差矩阵为 $\mathrm{Cov}(\vec{x}) = \Sigma$. 要求在该二约束下最大化熵</p>
+<p>$$
+h[p(\vec{x})] = -\int p(\vec{x})\log{p(\vec{x})}\mathrm{d}\vec{x}
+$$</p>
+<p>证明最优解 $g(\vec{x}) = \frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^{\frac{1}{2}}}\exp{\left[-\frac{1}{2}(\vec{x}-\vec{\mu})^{T}\Sigma^{-1}(\vec{x}-\vec{\mu})\right]}$.</p>
+<p>$p$ 和 $g$ 的 KL 散度为</p>
+<p>$$
+\begin{aligned}
+D_{\mathrm{KL}} &amp;= \int p(\vec{x})\log{\frac{p(\vec{x})}{g(\vec{x})}}\mathrm{d}\vec{x}\\
+&amp;= \int p\log{p}\mathrm{d}\vec{x} - \int p\log{g}\mathrm{d}\vec{x} = -h[p] - E_{p}[\log{g(\vec{x})}]
+\end{aligned}
+$$</p>
+<p>由于 $\log{g(\vec{x})} = -\frac{n}{2}\log{(2\pi)} - \frac{1}{2}\log{|\Sigma|} - \frac{1}{2}(\vec{x}-\vec{\mu})^{T}\Sigma^{-1}(\vec{x}-\vec{\mu})$, 则第二项</p>
+<p>$$
+\begin{aligned}
+E_{p}[\log{g(\vec{x})}] &amp;= -\frac{n}{2}\log{(2\pi)} - \frac{1}{2}\log{|\Sigma|} - \frac{1}{2}E_{p}[(\vec{x}-\vec{\mu})\Sigma^{-1}(\vec{x}-\vec{\mu})] \\
+&amp;= -\frac{1}{2}\log{[(2\pi)^{n}|\Sigma|]} - \frac{n}{2}
+\end{aligned}
+$$</p>
+<p>代回 KL 散度不等式</p>
+<p>$$
+\begin{aligned}
+0\leq D_{\mathrm{KL}}(p||g) = -h[p] + \frac{1}{2}\log{[(2\pi)^{n}|\Sigma|]} + \frac{n}{2}\\
+\Rightarrow h[p] \leq \frac{1}{2}\log{[(2\pi e)^{n}|\Sigma|]}
+\end{aligned}
+$$</p>
+<p>取等时 $D_{\mathrm{KL}}(p||g) = 0 \Leftrightarrow p(\vec{x}) = g(\vec{x})$. 因此, 在均值和协方差矩阵约束下, Gaussian 分布是最大熵分布.</p>
+</div>
+
+ </div>
+
+ </div>
+<p>其次, 当许多独立随机变量被求和时, 会出现 Gaussian 统计特征. 如果突触权重主要是随机的, 那么来自 CA3 区域和内嗅皮层输入到 CA1 区域的总突触输入预计将近似为 Gaussian 分布 (图 1; 方法 S1 和 S2).</p>
+<p>第三, 结构为随机 Gaussian 过程的神经编码可以实现指数级编码效率. 我们将在讨论中进一步讨论这些动机.</p>
+<h1 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h1>
+<h2 id="field-arrangements">Field arrangements<a hidden class="anchor" aria-hidden="true" href="#field-arrangements">#</a></h2>
+<blockquote>
+<p>Place-field locations in the model are identified as the regions in space in which the Gaussian process exceeds a given threshold (Methods S1). Extensive results exist for the statistics of these regions in the mathematical literature, where they are called ‘‘<strong>excursion sets</strong>.’’30</p>
+<p>A recent result of central importance to this work is that threshold-crossing statistics assume a universal form when the spatial correlation function of the process obeys mild smoothness requirements and the threshold is sufficiently high.32 Threshold-crossing statistics are then insensitive to the detailed structure of the correlation function and depend only on two scalar parameters: the normalized threshold, $\theta$, defined as the ratio between the threshold and the standard deviation of the Gaussian process (Equation 3) and a correlation length, $\sigma$, which is derived from the spatial correlation function (Equation 4).</p>
+</blockquote>
+<p>模型中位置场的位置被确定为 Gaussian 过程超过给定阈值的空间区域 (方法 S1). 在数学文献中, 这些区域被称为 “<strong>excursion 集</strong>”, 已经存在大量关于这些区域统计特征的结果.</p>
+<p>一个与本工作密切相关的最新结果是, 当过程的空间相关函数满足温和的平滑性要求且阈值足够高时, Threshold-crossing 统计特征呈现出普适形式. 然后, Threshold-crossing 统计特征对相关函数的详细结构不敏感, 仅依赖于两个标量参数: 归一化阈值 $\theta$, 定义为阈值与 Gaussian 过程标准差的比率 (方程 3) 和相关长度 $\sigma$, 它是从空间相关函数导出的 (方程 4).</p>
+<blockquote>
+<p>Specifically, the mean density of fields and the mean field size can both be expressed in terms of s and $\theta$ using the Kac-Rice formula33 for the threshold crossings of a Gaussian process (Methods S3, see Equations S12 and S14). Furthermore, the full distribution of field sizes acquires a universal form in the limit of large $\theta$ (Methods S4), expressed as</p>
+<p>$$
+P(s) = \frac{2\beta}{D}s^{\left(\frac{2}{D}-1\right)}\exp{\left(-\beta s^{\frac{2}{D}}\right)}
+$$</p>
+<p>where $D$ is the dimensionality of the space over which the Gaussian process is defined, $s$ is the field size (length in one  dimension, area in two dimensions, and volume in three dimensions; 1D, 2D, and 3D hereafter), and the single parameter $\beta$ can be expressed in terms of $\sigma$ and $\theta$ (see Methods S3, Equation S18).</p>
+</blockquote>
+<p>具体来说, 场的平均密度和平均场大小都可以使用 Kac-Rice 公式来表达, 该公式用于 Gaussian 过程的 Threshold-crossing  (方法 S3, 见方程 S12 和 S14). 此外, 在大 $\theta$ 的极限下, 场大小的完整分布获得了一个普适形式 (方法 S4) , 表达式为</p>
+<p>$$
+P(s) = \frac{2\beta}{D}s^{\left(\frac{2}{D}-1\right)}\exp{\left(-\beta s^{\frac{2}{D}}\right)}
+$$</p>
+<p>其中 $D$ 是定义 Gaussian 过程的空间的维度, $s$ 是场大小 (在一维中是长度, 在二维中是面积, 在三维中是体积; 以下分别称为 1D、2D 和 3D) , 单参数 $\beta$ 可以用 $\sigma$ 和 $\theta$ 来表达 (见方法 S3, 方程 S18).</p>
+<blockquote>
+<p>In the 1D case $(D=1)$, this expression takes the form of a Rayleigh distribution (Figure 1C). Similarly, field gap statistics assume a universal form in the high-threshold limit: threshold crossings are spatially uncorrelated and, consequently, gap sizes follow an exponential distribution with a mean that can be expressed in terms of $\sigma$ and $\theta$ (see STAR Methods). Thus, according to the model, the empirical distributions of CA1 field sizes and gaps between fields should be jointly explained using the two parameters, $\sigma$ and $\theta$.</p>
+</blockquote>
+<p>在 1D 情况下 ($D=1$) , 这个表达式呈现出 Rayleigh 分布的形式 (图 1C). 同样, 场间隙统计特征在高阈值极限下也呈现出普适形式: Threshold-crossing 在空间上不相关, 因此, 场间隙大小遵循指数分布, 其均值可以用 $\sigma$ 和 $\theta$ 来表达 (见 STAR 方法). 因此, 根据模型, CA1 场大小和场之间间隙的经验分布应该使用两个参数 $\sigma$ 和 $\theta$ 来共同解释.</p>
+<blockquote>
+<p>We began by examining place fields recently recorded in bats flying in a 200-m-long tunnel, where the highly stereotyped trajectory of the animals along the 1D track allowed for the gathering of comprehensive statistics on the spatial arrangement of place fields.21 We determined the two parameters $\sigma$ and $\theta$ by matching the means of the field sizes and gaps to the model in the data from the 200-m-long tunnel. This fitting procedure, based only on the means, was sufficient to capture the full distributions of field sizes and gaps (Figures 1C and 1D). This outcome was particularly striking for the field sizes, whose distribution had a distinctive, highly asymmetric form.</p>
+</blockquote>
+<p>我们首先检查了最近在蝙蝠飞行的 200 米长隧道中记录的位置场, 在那里, 动物沿着 1D 轨道的高度刻板的轨迹允许我们收集关于位置场空间排列的全面统计数据. 我们通过将场大小和间隙的均值与模型进行匹配来确定两个参数 $\sigma$ 和 $\theta$, 这个拟合过程仅基于均值, 就足以捕捉场大小和间隙的完整分布 (图 1C 和 1D). 这个结果对于场大小来说尤其引人注目, 因为它们的分布具有独特的高度不对称形式.</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/14/9zxX/20260614200429423.png" alt=""  /></p>
+<p>(C) Field-size distribution of bats in the 1D tunnel compared against the field-size distribution predicted by the model. Dotted line: approximate analytical prediction of the field-size distribution, valid for high thresholds (Rayleigh distribution). Orange bars: precise predictions of the model, obtained from simulations (error bars: standard deviation across simulations, see STAR Methods). Here and in all subsequent bar plots, the overlap between green bars (experiment) and orange bars (model) is represented in brown. Inset: same data in a semi-logarithmic scale.</p>
+</blockquote>
+<p>(C) 蝙蝠在 1D 隧道中的场大小分布与模型预测的场大小分布进行比较. 虚线: 模型预测的场大小分布的近似解析预测, 适用于高阈值 (Rayleigh 分布). 橙色条: 从模拟中获得的模型的精确预测 (误差条: 模拟之间的标准差, 见 STAR 方法). 在这里和所有后续的条形图中, 绿色条 (实验) 和橙色条 (模型) 之间的重叠以棕色表示. 插图: 在半对数尺度上的相同数据.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/14/ikK4/20260614201005575.png" alt=""  /></p>
+<p>(D) Distribution of consecutive field gaps in the experiment compared against the distribution predicted by the model. Dashed line: analytical prediction.</p>
+</blockquote>
+<p>(D) 实验中连续场间隙的分布与模型预测的分布进行比较. 虚线: 解析预测.</p>
+</blockquote>
+<blockquote>
+<p>Due to its highly asymmetric structure (Figure 1C), the fieldsize distribution was previously fitted heuristically to a lognormal distribution, yet this approach lacked a principled rationale. By contrast, in our model, the asymmetry is explained by the statistical dependencies between locations of adjacent threshold crossings of the underlying random Gaussian process34 (see Methods S4). The empirical field-size distribution was more likely to arise from the Gaussian threshold-crossing model than the best-fit log-normal distribution, even though the model had one fewer degree of freedom (assessed via likelihood and parameter-aware likelihood based model performance metrics: $\Delta$ LLR &lt; 0, $\Delta$ BIC &lt; 0, $\Delta$ AIC &lt; 0; see STAR Methods). Furthermore, skew and kurtosis of the log-field-size distribution were in agreement with the threshold-crossing model, but not with the log-normal distribution, according to which they should be close to zero (Figure 1E; see STAR Methods). Thus, the model captured subtle features of the distribution beyond its first- and second-order moments. As expected in the high-threshold limit, the distribution of gap sizes followed an exponential distribution (Figure 1D).</p>
+</blockquote>
+<p>由于其高度不对称的结构 (图 1C) , 场大小分布之前被启发式地拟合为对数正态分布, 但这种方法缺乏原则性的理由. 相比之下, 在我们的模型中, 这种不对称性可以通过基础随机 Gaussian 过程的相邻Threshold-crossing 位置之间的统计依赖关系来解释 (见方法 S4). 即使该模型的自由度比最佳拟合的对数正态分布少一个, 经验场大小分布也更有可能来自 Gaussian Threshold-crossing 模型 (通过似然和参数感知的似然基于模型性能指标评估: $\Delta$ LLR &lt; 0, $\Delta$ BIC &lt; 0, $\Delta$ AIC &lt; 0; 见 STAR 方法). 此外, 根据对数正态分布, 场大小分布的偏度和峰度应该接近于零, 但根据Threshold-crossing 模型, 它们与该模型一致, 而与对数正态分布不一致 (图 1E; 见 STAR 方法). 因此, 该模型捕捉了分布的微妙特征, 超出了其第一阶和第二阶矩. 正如在高阈值极限中所预期的那样, 间隙大小的分布遵循指数分布 (图 1D).</p>
+<blockquote>
+<p>We subsequently tested the model’s ability to explain the statistics of place fields measured in rodents running in long 1D tracks. Field size distributions extracted from experiments in which mice ran in a 40-m-long 1D virtual track24 were in qualitative agreement with the Rayleigh distribution (Figure 1F). We also analyzed the distribution of field sizes from an experiment in which rats explored a 48-m-long 1D maze.10 The distribution of field sizes was in quantitative agreement with the distribution predicted by the model, with matching skew and kurtosis (Figure S1).</p>
+</blockquote>
+<p>随后, 我们测试了该模型解释啮齿动物在长 1D 轨道上测量的位置场统计特征的能力. 在小鼠在 40 米长的 1D 虚拟轨道上奔跑的实验中提取的场大小分布与 Rayleigh 分布在定性上是一致的 (图 1F). 我们还分析了大鼠探索 48 米长的 1D 迷宫实验中场大小的分布. 场大小的分布与模型预测的分布在定量上是一致, 偏度和峰度匹配 (图 S1).</p>
+<h2 id="place-fields-in-2-and-3-dimensions">Place fields in 2 and 3 dimensions<a hidden class="anchor" aria-hidden="true" href="#place-fields-in-2-and-3-dimensions">#</a></h2>
+<blockquote>
+<p>Experimental data on place fields in rats navigating large 2D environments25 and bats in 3D rooms23 reveal place cells with multiple, heterogeneous place fields. Intriguingly, though, the experiments uncover field-size distributions that are distinct in one, two, and three dimensions. Building on our initial findings in 1D environments, we examined the extension of the model to 2D and 3D environments, where place fields are determined by excursion sets of a Gaussian process over the higher-dimensional space. As in the 1D case, the model generated multiple, heterogeneous fields, which were qualitatively similar to the ones observed experimentally (Figures 2A, 2B, 2F, and 2G).</p>
+</blockquote>
+<p>在大鼠导航大型二维环境和蝙蝠在三维房间中的实验数据揭示了具有多个异质位置场的位细胞. 虽然如此, 但实验发现了一维、二维和三维中不同的场大小分布. 基于我们在一维环境中的初步发现, 我们检查了模型在二维和三维环境中的扩展, 在这些环境中, 位置场由高维空间上 Gaussian 过程的越界集确定. 与一维情况一样, 该模型生成了多个异质场, 这些场在定性上与实验观察到的相似 (图 2A、2B、2F 和 2G).</p>
+<blockquote>
+<p>Moreover, 1D slices through a multidimensional Gaussian process are themselves Gaussian processes. Hence, field sizes in 1D slices through multidimensional firing fields are expected to follow the same field-size distribution as in the 1D case. To test this prediction, we examined 1D slices through 2D place fields measured in rats foraging in a 18.6 m2 arena (data from 20 cells recorded in Harland et al.25) and found that they were well fitted by the Rayleigh distribution (Figure 2C). We further compared the model against a histogram of field areas from all cells (as reported in Harland et al.25). The statistics precisely followed an exponential distribution as predicted by the model (Equation 1, $D = 2$; Figure 2D). Finally, field counts were well fitted by a Poisson distribution, as expected in the high-threshold regime in which field locations are independent (Figure 2E).</p>
+</blockquote>
+<p>此外, 通过多维 Gaussian 过程的一维切片本身就是 Gaussian 过程. 因此, 通过多维放电场的一维切片中的场大小预计将遵循与一维情况相同的场大小分布. 为了测试这个预测, 我们检查了在一个 $18.6\mathrm{ m}^{2}$ 场地中觅食的大鼠测量的二维位置场的一维切片 (数据来自 Harland 等人记录的 20 个细胞) , 发现它们很好地拟合了 Rayleigh 分布 (图 2C). 我们进一步将模型与所有细胞的场面积直方图进行了比较 (如 Harland 等人所报道). 统计特征完全遵循模型预测的指数分布 (方程 1, $D = 2$; 图 2D). 最后, 场计数很好地拟合了 Poisson 分布, 这在高阈值 regime 中是预期的, 在该 regime 中场位置是独立的 (图 2E).</p>
+<blockquote>
+<p>Next, we analyzed 3D place fields in bats navigating a large room of size 5.8 3 4.6 3 2.7 m3.23 The model predicts that 2D slices through the 3D place fields should exhibit the same statistics as those of fields in 2D environments, since these slices are also realizations of a thresholded Gaussian process in two dimensions. The predictions for both 1D and 2D slices were verified by the data (Figures 2H and 2I), along with the distribution of the 3D field volumes (Figure 2J), which followed the prediction of Equation 1 with $D = 3$. In an alternative model, in which field volumes and peak firing rates were exactly matched to the empirical data, without the underlying Gaussian statistics, distributions of 1D and 2D slice sizes did not match the data (Figures S2A and S2B).</p>
+</blockquote>
+<p>接下来, 我们分析了在一个大小为 $5.8 \times 4.6 \times 2.7\mathrm{ m}^{3}$ 的大房间中导航的蝙蝠的三维位置场. 模型预测, 通过三维位置场的二维切片应该表现出与二维环境中位置场相同的统计特征, 因为这些切片也是二维阈值化 Gaussian 过程的实现. 对于一维和二维切片的预测都得到了数据的验证 (图 2H 和 2I) , 以及三维场体积的分布 (图 2J) , 其遵循方程 1 中 $D = 3$ 的预测. 在一个替代模型中, 其中场体积和峰值放电率完全匹配经验数据, 而没有基础的 Gaussian 统计特征, 一维和二维切片大小的分布与数据不匹配 (图 S2A 和 S2B).</p>
+<blockquote>
+<p>In summary, the statistics of field arrangements in 1D, 2D, and 3D were explained in both bats and rodents by the threshold crossings of Gaussian processes. In particular, the model explained the different field-size statistics that were observed across experiments in different dimensionalities (Equation 1; Figures 1C, 2D, and 2J). The generality of these results suggests that common mechanisms, shared across species and dimensionalities, underlie the structure of the hippocampal code for space.</p>
+</blockquote>
+<p>总之, 1D、2D 和 3D 中场排列的统计特征在蝙蝠和啮齿动物中都可以通过 Gaussian 过程的Threshold-crossing 来解释. 特别是, 该模型解释了在不同维度的不同实验中观察到的不同场大小统计特征 (方程 1; 图 1C、2D 和 2J). 这些结果的普遍性表明, 在物种和维度之间共享的共同机制是海马体空间编码结构的基础.</p>
+<h2 id="statistics-of-field-shapes">Statistics of field shapes<a hidden class="anchor" aria-hidden="true" href="#statistics-of-field-shapes">#</a></h2>
+<blockquote>
+<p>The statistics of field sizes and gaps only reflect the statistics of field boundaries, which, in the model, correspond to threshold crossings. The model also makes quantitative predictions on the statistics of field shapes, defined as the firing rate’s dependence on position within place fields (Figure 3A). These statistics are determined by the properties of the Gaussian process in the threshold-crossing segments, yielding new theoretical predictions that can be tested in the experimental data. First, according to the model, the firing rate within a given place field may exhibit multiple local maxima, unlike in the classical picture of bellshaped fields. The predicted distribution of the number of local maxima across fields was in close agreement with the empirical distribution of local maxima per field in bats flying in the 1D tunnel (Figure 3B). Second, the model predicts a positive correlation between the size of a field and its peak firing rate, with an approximate power law relation between these two quantities. The experimental data confirmed this prediction, in both bats flying in the 1D tunnel (Figure 3C) and bats flying in the 3D environment (Figure 3D). In both cases, the model not only predicted the qualitative relation between field size and peak firing rate but also accurately predicted the power law coefficient (Figures 3C and 3D). Third, in the model, the slope of the firing rate at the boundaries of 1D place fields follows a Rayleigh distribution.35 This prediction was verified in the data (Figure 3E). Fourth, for bats flying in the 3D environment, the mean and Gaussian curvatures of isosurfaces formed by the boundary of 3D place fields were distributed in agreement with the predictions of the model (Figures S2D and S2E). All the above predictions of the model were verified using the values of $\sigma$ and $\theta$ that were previously inferred based only on field arrangements, independent of field shapes.</p>
+</blockquote>
+<p>场大小和间隙的统计特征仅反映了场边界的统计特征, 在模型中, 这些边界对应于Threshold-crossing . 该模型还对场内位置的放电率依赖关系定义的场形状统计特征做出了定量预测 (图 3A). 这些统计特征由Threshold-crossing 段中 Gaussian 过程的属性决定, 产生了可以在实验数据中测试的新理论预测. 首先, 根据模型, 给定位置场内的放电率可能表现出多个局部最大值, 这与钟形场的经典图景不同. 预测的每个场的局部最大值数量分布与蝙蝠在 1D 隧道中飞行时每个场的局部最大值的经验分布非常一致 (图 3B). 第二, 模型预测场大小与其峰值放电率之间存在正相关关系, 这两者之间近似满足幂律关系. 实验数据证实了这一预测, 在蝙蝠在 1D 隧道中飞行 (图 3C) 和蝙蝠在 3D 环境中飞行 (图 3D) 中都是如此. 在这两种情况下, 模型不仅预测了场大小与峰值放电率之间的定性关系, 还准确地预测了幂律系数 (图 3C 和 3D). 第三, 在模型中, 1D 位点场边界处放电率的斜率遵循 Rayleigh 分布. 这一预测在数据中得到了验证 (图 3E). 第四, 对于在 3D 环境中飞行的蝙蝠, 由 3D 位点场边界形成的等值面上的平均曲率和 Gaussian 曲率的分布与模型的预测一致 (图 S2D 和 S2E). 上述所有模型预测都使用之前仅基于场排列推断出的 $\sigma$ 和 $\theta$ 的值进行了验证, 与场形状无关.</p>
+<blockquote>
+<p>We next examined whether the model captures the topological properties of the place fields by using recent results on the Euler characteristic (EC) of excursion sets of Gaussian processes. The EC of the thresholded Gaussian process is a function of the number of connected components and holes of various dimensions (see STAR Methods) and has a universal dependence on the threshold, which is specific to Gaussian processes.30 An analytical expression has been obtained for this quantity in terms of q and s. (This result has also been used to test for Gaussianity in the spatial structure of the cosmic background microwave radiation, as well as other natural processes.)</p>
+</blockquote>
+<p>我们接下来检查了模型是否通过使用关于 Gaussian 过程的越界集的欧拉特征 (EC) 的最新结果来捕捉位置场的拓扑属性. 阈值化 Gaussian 过程的 EC 是连接组件数量和各种维度孔洞数量的函数 (见 STAR 方法) , 并且对阈值具有普适依赖关系, 这对于 Gaussian 过程是特定的. 已经获得了这个量的分析表达式, 表达式中包含 q 和 s.  (这个结果也被用来测试宇宙背景微波辐射以及其他自然过程空间结构的 Gaussian 性. )</p>
+<blockquote>
+<p>In the 1D case, the EC is simply equal to the number of connected components. The theory provides an exact expression for the EC curve (Equation 8), whose only dependence on the correlation function is through the correlation length s. We tested this prediction for place fields by placing a varying threshold on the firing rates measured in bats flying in the 200-m-long tunnel, followed by evaluation of the EC of the rectified fields. The resulting EC curve (Figure 3F) was in excellent agreement with the analytical prediction using the previously obtained value of s. While an increase in the threshold can be artificially applied to the measured rate maps, it is also possible to reduce the threshold by optogenetically depolarizing during behavior. Recent results from such experiments40 are in qualitative agreement with the threshold-crossing model since the stimulation led to the emergence of unmasked place fields.</p>
+</blockquote>
+<p>在 1D 情况下, EC 简单地等于连接组件的数量. 理论提供了 EC 曲线的精确表达式 (方程 8) , 其对相关函数的唯一依赖是通过相关长度 s. 我们通过在蝙蝠在 200 米长隧道中飞行时测量的放电率上设置不同的阈值, 然后评估整流场的 EC 来测试这个预测. 得到的 EC 曲线 (图 3F) 与使用先前获得的 s 值的分析预测非常一致. 虽然可以人为地将阈值增加到测量的速率图上, 但也可以通过在行为期间光遗传学去极化来降低阈值. 这些实验的最新结果与Threshold-crossing 模型在定性上是一致的, 因为刺激导致了未掩盖位置场的出现.</p>
+<blockquote>
+<p>In dimensions higher than one, the EC depends not only on the number of connected components but also on the number of holes of various dimensions within the fields. This results in a non-monotonic dependence of the EC curve on the threshold due to the emergence and disappearance of holes. Here, too, the theory provides an exact analytical expression (Equation 10) for the expected EC curve. We tested this prediction on all measured firing fields in bats flying in 3D.23 The empirical EC curve was non-monotonic as predicted and precisely followed the analytical expression (Figure 3G) using the previously obtained value of s. This agreement is specific to the Gaussian threshold-crossing model and was not reproduced by an alternative model with matching joint statistics of field volumes and peak rates (Figure S2C). We also tested the EC curve prediction in 2D on 20 cells from rats recorded in the 2D megaspace25 and obtained excellent agreement with the analytical prediction (Equation 9; Figure 3H).</p>
+</blockquote>
+<p>在一维以上的维度中, EC 不仅取决于连接组件的数量, 还取决于场内各种维度孔洞的数量. 这导致了 EC 曲线对阈值的非单调依赖关系, 因为孔洞的出现和消失. 在这里, 理论也提供了一个精确的分析表达式 (方程 10) 来预测 EC 曲线. 我们在蝙蝠在 3D 中飞行时测量的所有放电场上测试了这个预测. 经验 EC 曲线如预测所示是非单调的, 并且使用先前获得的 s 值精确地遵循分析表达式 (图 3G). 这种一致性是特定于 Gaussian Threshold-crossing 模型的, 并且没有被具有匹配场体积和峰值率联合统计特征的替代模型复制 (图 S2C). 我们还在 2D 上测试了 EC 曲线预测, 在记录了 2D 大空间中大鼠的 20 个细胞上, 并与分析预测 (方程 9; 图 3H) 获得了极好的吻合.</p>
+<h2 id="parameter-variation-across-experiments">Parameter variation across experiments<a hidden class="anchor" aria-hidden="true" href="#parameter-variation-across-experiments">#</a></h2>
+<blockquote>
+<p>Our analyses of data from 1D and 2D environments of varying sizes allow us to identify qualitative trends across datasets, as a function of the environment size (Figures 4A and 4B). We observe that the correlation length, $\sigma$, increases sublinearly with the size of the environment, and the normalized threshold, $\theta$, decreases with the size of the environment (Figure 4B). Together, these trends induce an increase in the average number of fields with the size of the environment, consistent with the observation of single firing fields per cell in small environments and a sublinear increase in their sizes (Figure S4). It is also interesting to consider the number of fields divided by the environment size, to which we refer as the ‘‘average propensity.’’24 The sublinear increase of $\sigma$ and the decrease of $\theta$ have opposing influences on this quantity. Consequently, the average propensity varies only weakly with environment size (Figure S3).</p>
+</blockquote>
+<p>我们对不同大小的 1D 和 2D 环境中的数据分析使我们能够根据环境大小识别数据集之间的定性趋势 (图 4A 和 4B). 我们观察到相关长度 $\sigma$ 随环境大小亚线性增加, 而归一化阈值 $\theta$ 随环境大小减小 (图 4B). 这些趋势共同导致了平均场数量随着环境大小的增加而增加, 这与在小环境中每个细胞单个放电场的观察结果以及它们大小的亚线性增加一致 (图 S4). 考虑将场数量除以环境大小也是有趣的, 我们称之为 “平均倾向”. $\sigma$ 的亚线性增加和 $\theta$ 的减少对这个量有相反的影响. 因此, 平均倾向随环境大小的变化很弱 (图 S3).</p>
+<blockquote>
+<p>While the two parameters jointly affect the field counts and the field sizes, the normalized threshold also influences the heterogeneity in field shapes (Figure 5A). With increasing $\theta$, the fraction of multi-peaked fields decreases and the exponent of the power  law relationship between the maximum firing rate and the field size approaches 2, as expected for parabolic fields30 (Figures 5B and 5C). Thus, the model predicts a greater stereotypy of field shapes with an increasing normalized threshold. As a result, and following the trend seen in the data (Figures 4A and 4B), field shapes are predicted to be more stereotyped in smaller environments than in larger ones (Figures 5A–5C). We tested this prediction on place fields measured in bats flying in a short, 6-mlong tunnel.21 As predicted, field shapes were more stereotyped than in the 200-m-long tunnel, with statistics that quantitatively agreed with the model (Figures 4C and 5D). In summary, the model accounts for the different characteristics of CA1 spatial selectivity across environmental scales, ranging from early experiments in small environments, where place cells typically had a single, bell-shaped firing field,8,22 to more recent experiments in large environments, where place cells had multiple firing fields with heterogeneous shapes.</p>
+</blockquote>
+<p>虽然这两个参数共同影响场计数和场大小, 但归一化阈值还影响场形状的异质性 (图 5A). 随着 $\theta$ 的增加, 多峰场的比例减少, 最大放电率与场大小之间幂律关系的指数接近于 2, 这对于抛物线场是预期的 (图 5B 和 5C). 因此, 模型预测随着归一化阈值的增加, 场形状的刻板性增加. 因此, 并且遵循数据中看到的趋势 (图 4A 和 4B) , 在较小环境中的场形状被预测为比在较大环境中更刻板 (图 5A–5C). 我们在蝙蝠在一个短的 6 米长隧道中飞行时测量的位置场上测试了这个预测. 正如预测的那样, 场形状比在 200 米长隧道中更刻板, 其统计特征与模型定量一致 (图 4C 和 5D). 总之, 该模型解释了 CA1 空间选择性在环境尺度上的不同特征, 从小环境中的早期实验, 在那里位置细胞通常具有单个钟形放电场, 到最近在大环境中的实验, 在那里位置细胞具有多个具有异质形状的放电场.</p>
+<blockquote>
+<p>Each one of the experimental datasets is well explained by a single choice of the values of $\sigma$ and $\theta$, yet some variation in these parameters across cells and anatomical regions is to be expected. For the length scale $\sigma$, our choice of a single value is motivated by the fact that recordings were tightly localized anatomically in dorsal CA1.21,23,25,41 In the data from bats flying in the 1D tunnel, the number of place fields expressed by individual neurons, as well as their sizes, were observed to be correlated in the two flying directions, despite remapping of the fields.21 We hypothesized that this correlation arises from variability in the threshold, $\theta$. In agreement with this hypothesis, an extended model with a distribution of thresholds accounted for the empirical correlations, while remaining compatible with the distributions of field sizes and gaps obtained from the basic model (Figure S4). A distribution of thresholds may arise from a variation in intrinsic cell properties or from variation in the inhibitory inputs to place cells and is consistent with the recent observation that propensity varies across cells also in rodents.</p>
+</blockquote>
+<p>每个实验数据集都可以通过单一选择 $\sigma$ 和 $\theta$ 的值来很好地解释, 但预计这些参数在细胞和解剖区域之间会有所变化. 对于长度尺度 $\sigma$, 我们选择单一值的动机是因为记录在解剖上紧密定位在背侧 CA1 中. 在蝙蝠在 1D 隧道中飞行的数据中, 个体神经元表达的位置场数量以及它们的大小在两个飞行方向上被观察到是相关的, 尽管场发生了重映射. 我们假设这种相关性来自于阈值 $\theta$ 的变异. 与这一假设一致, 具有阈值分布的扩展模型解释了经验相关性, 同时仍然与基本模型获得的场大小和间隙分布兼容. 阈值分布可能来自于内在细胞属性的变化或位置细胞抑制输入的变化, 并且与最近观察到的小鼠中倾向也在细胞之间变化的观察结果一致.</p>
+<h1 id="discussion">Discussion<a hidden class="anchor" aria-hidden="true" href="#discussion">#</a></h1>
+<blockquote>
+<p>The classical view of spatial coding in the hippocampus has been challenged by the recent discoveries of heterogeneous and distributed CA1 response patterns in large environments. It was unknown whether a unified mathematical framework can encompass the diverse statistics of these irregular responses. Here, we identified such a framework, in which place fields are obtained from the threshold crossings of a spatially fluctuating random process. The underlying randomness of the Gaussian process enabled the model to explain in quantitative detail the variability in the size of place fields and their spatial arrangement, as well as a range of geometric and topological properties associated with the heterogeneous field shapes. Indeed, when constrained only on the mean field size and count, the model precisely captured the statistics of shape variability, which, in principle, could have had an independent origin. This surprising result suggests that the different degrees of heterogeneity, observed across experiments, arise as a byproduct of mechanisms that regulate the field frequency and size. With only two parameters, the model accounts for the seemingly diverse statistics observed in rodents and bats and in environments of varying sizes and dimensionalities. Therefore, the model allows for direct comparison between the statistics observed in the different experiments and suggests that they arise from common underlying principles. Specifically, our analysis of the experimental data indicates that there are systematic differences in the statistics of place fields in environments of different size: field sizes increase with environment size, propensity decreases, and field shapes become more heterogeneous. Consequently, place fields in small environments differ from those observed in a similarly sized portion of a larger environment.</p>
+</blockquote>
+<p>海马体空间编码的经典观点受到了最近在大环境中发现的 CA1 响应模式异质性和分布式性的挑战. 尚不清楚是否存在一个统一的数学框架可以涵盖这些不规则响应的多样统计特征. 在这里, 我们确定了这样一个框架, 其中位置场是从空间波动的随机过程的Threshold-crossing 中获得的.  Gaussian 过程的基础随机性使得模型能够定量详细地解释位置场大小和空间排列的变异性, 以及与异质场形状相关的一系列几何和拓扑属性. 事实上, 当仅限制在平均场大小和计数时, 模型精确地捕捉了形状变异性的统计特征, 原则上, 这些特征可能具有独立的起源. 这个令人惊讶的结果表明, 在不同实验中观察到的不同程度的异质性是作为调节场频率和大小机制的副产品出现的. 该模型仅使用两个参数, 就可以解释在啮齿动物和蝙蝠以及不同大小和维度环境中观察到的看似多样化的统计特征. 因此, 该模型允许直接比较不同实验中观察到的统计特征, 并表明它们来自共同的基本原理. 具体来说, 我们对实验数据的分析表明, 在不同大小环境中的位置场统计特征存在系统差异: 位置场大小随着环境大小增加而增加, 倾向随着环境大小增加而降低, 位置场形状变得更加异质. 因此, 小环境中的位置场与在较大环境中观察到的位置场不同.</p>
+<blockquote>
+<p>A Gaussian process is the random process that maximizes entropy under constraints on the mean and the spatial covariance function. Hence, the model invokes minimal assumptions other han a specification of a place cell’s underlying input correlation structure.31,42 At the same time, random Gaussian processes can generate a highly efficient coding scheme, with capacity that increases exponentially with the number of neurons,29 and, therefore, the structure of tuning curves in CA1 might be shaped to optimize coding efficiency. Another possibility is that the structure of neural responses in CA1 is beneficial for the maintenance and retrieval of associative memory,27 since CA1 is part of a larger system involved in this function.43 It will be interesting to examine theoretically whether it is possible to obtain a coherent understanding of the trends seen in the parameters across the different geometries (Figure 4B) in light of a theory of efficient coding29 or of optimal storage capacity.</p>
+</blockquote>
+<p>Gaussian 过程是在平均值和空间协方差函数的约束下最大化熵的随机过程. 因此, 该模型除了对位置细胞的基础输入相关结构进行规范之外, 不涉及其他假设. 同时, 随机 Gaussian 过程可以生成一个高度有效的编码方案, 其容量随着神经元数量的增加而指数增加, 因此, CA1 中调谐曲线的结构可能被塑造以优化编码效率. 另一种可能性是, CA1 中神经响应的结构有利于联想记忆的维护和检索, 因为 CA1 是涉及这一功能的更大系统的一部分. 考虑到有效编码理论或最佳存储容量理论, 理论上检查是否有可能获得对不同几何形状中参数趋势 (图 4B) 的连贯理解将是很有趣的.</p>
+<blockquote>
+<p>The success of the parsimonious model introduced here invites an exploration into its possible mechanistic origin. The apparent stereotypy of place fields in small environments has motivated a view of hippocampal spatial selectivity as arising from highly organized synaptic connectivity.44–46 However, the irregular CA1 firing patterns in large environments are inconsistent with this view. Our results indicate that CA1 place fields, in small and large environments alike, are compatible with predominantly random synaptic connections into CA1. This is because random projections from a sufficiently large number of spatially selective cells necessarily produce an input to each CA1 cell that varies spatially as a realization of a random Gaussian process, due to the multivariate central limit theorem (see Methods S2). Gaussian statistics arise robustly from random synaptic projections without the necessity to invoke highly specific assumptions on the structure of spatial responses in the input layer. These can range from regular tuning curves that tile the environment to heterogeneous and irregular tuning curves with a distance-dependent covariance function (see Methods S2). Hence, the broad success of the model across datasets and statistics suggests that randomness, rather than specific design, governs the synaptic organization of inputs to CA1.</p>
+</blockquote>
+<p>该模型的成功引发了对其可能机械起源的探索. 小环境中位置场的明显刻板性促使人们将海马体空间选择性视为来自高度组织化的突触连接. 然而, 大环境中不规则的 CA1 放电模式与这种观点不一致. 我们的结果表明, 无论是在小环境还是在大环境中, CA1 位置场都与 CA1 中主要是随机突触连接兼容. 这是因为来自足够数量的空间选择性细胞的随机投射必然会产生一个输入到每个 CA1 细胞的输入, 这个输入在空间上变化, 作为随机 Gaussian 过程的实现, 这是由于多变量中心极限定理 (见方法 S2).  Gaussian 统计特征从随机突触投射中稳健地出现, 而不需要对输入层空间响应结构进行高度特定的假设. 这些假设可以从覆盖环境的规则调谐曲线到具有距离依赖协方差函数的异质和不规则调谐曲线范围不等. 因此, 该模型在数据集和统计特征上的广泛成功表明, 随机性而不是特定设计支配了 CA1 输入的突触组织.</p>
+<blockquote>
+<p>Randomness in the connectivity might be associated with a fairly fixed anatomical structure, potentially influenced by the developmental trajectory of neurons and their embedding in the network.47 Yet, the strength of synaptic projections between CA3 and CA1 is known to be plastic. Specifically, recent experiments indicate that a dominant mode of plasticity in CA1 involves randomly occurring modifications of synaptic projections from CA3, triggered by inputs from the entorhinal cortex.48–50 The randomness of the synaptic weights may be related to the cumulative effect of many such non-Hebbian plasticity events. Since all the measurements analyzed in this work were collected in highly familiar and uniform environments, it is possible that the stationarity of the underlying Gaussian processes is specific to such conditions. We speculate that more intricate features of the place-cell code arise under richer behavioral conditions via activity-dependent plasticity mechanisms acting on top of a scaffold of random synaptic weights.</p>
+</blockquote>
+<p>CA3 和 CA1 之间连接的随机性可能与相当固定的解剖结构相关, 这可能受到神经元发育轨迹及其在网络中的嵌入的影响. 然而, CA3 和 CA1 之间突触投射的强度是已知的可塑的. 具体来说, 最近的实验表明, CA1 中的主导可塑性模式涉及 CA3 突触投射的随机发生修改, 这些修改由来自内嗅皮层的输入触发. 突触权重的随机性可能与许多此类非 Hebbian 可塑性事件的累积效应有关. 由于在这项工作中分析的所有测量都是在高度熟悉和统一的环境中收集的, 因此基础 Gaussian 过程的平稳性可能特定于这种条件. 我们推测, 在更丰富的行为条件下, 通过作用在随机突触权重支架上的活动依赖性可塑性机制, 位置细胞代码更复杂的特征会出现.</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/attractors/multiscale-representation-of-very-large-environments-in-the-hippocampus-of-flying-bats/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Multiscale representation of very large environments in the hippocampus of flying bats</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/discovering-plasticity-rules-that-organize-and-maintain-neural-circuits/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Discovering plasticity rules that organize and maintain neural circuits</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1201 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 156 篇 1049264 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

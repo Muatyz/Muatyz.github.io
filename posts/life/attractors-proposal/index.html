@@ -298,8 +298,8 @@ A circuit that integrates drive state and social contact to gate mating"/>
   "keywords": [
     "Exp"
   ],
-  "articleBody": "可能的方向 实验(联合西湖大学) Integrator dynamics in the cortico-basal ganglia loop for flexible motor timing\nAn approximate line attractor in the hypothalamus encodes an aggressive state\nAn approximate line attractor in the hypothalamus encodes an aggressive state 日期: 2026-05-11 标签: #line attractor Summary The hypothalamus regulates innate social behaviors, including mating and aggression. These behaviors can be evoked by optogenetic stimulation of specific neuronal subpopulations within MPOA and VMHvl, respectively. 下丘脑调节着先天的社交行为，包括交配和攻击。这些行为可以通过对 MPOA 和 VMHvl 中特定神经亚群进行光遗传学刺激来引发。 Here, we perform dynamical systems modeling of population neuronal activity in these nuclei during social behaviors. In VMHvl, unsupervised analysis identified a dominant dimension of neural activity with a large time constant (\u003e50 s), generating an approximate line attractor in neural state space. Progression of the neural trajectory along this attractor was correlated with an escalation of agonistic behavior, suggesting that it may encode a scalable state of aggressiveness. ...... A circuit that integrates drive state and social contact to gate mating\nA line attractor maintains aggressiveness during feeding in 'hangry' mice\nA line attractor maintains aggressiveness during feeding in 'hangry' mice 日期: 2026-05-10 标签: #line attractor ...... Encoding of female mating dynamics by a hypothalamic line attractor\nCausal evidence of a line attractor encoding an affective state\nCausal evidence of a line attractor encoding an affective state 日期: 2026-05-11 标签: #line attractor Abstract Continuous attractors are an emergent property of neural population dynamics that have been hypothesized to encode continuous variables such as head direction and eye position1–4. In mammals, direct evidence of neural implementation of a continuous attractor has been hindered by the challenge of targeting perturbations to specific neurons within contributing ensembles2,3. 连续吸引子是神经群体动力学的一个涌现属性，被假设为编码连续变量，如头部方向和眼睛位置。在哺乳动物中，直接证据表明连续吸引子的神经实现受到挑战，因为很难针对贡献集合中的特定神经元进行干扰。 ...... meta-learning(biologically plausible learning rule) The neural computation of affective internal states in the hypothalamus - A dynamical systems perspective\nA line attractor encoding a persistent state requires neuropeptide signaling\nA line attractor encoding a persistent internal state requires neuropeptide signaling 日期: 2026-05-10 标签: #physics #numerical calculation Summary Internal states drive survival behaviors, but their neural implementation is poorly understood. Recently, we identified a line attractor in the ventromedial hypothalamus (VMH) that represents a state of aggressiveness. Line attractors can be implemented by recurrent connectivity or neuromodulatory signaling, but evidence for the latter is scant. 内部状态驱动生存行为，但其神经实现机制尚不明确。最近，我们在 腹内侧下丘脑（VMH）中识别出一个线性吸引子，它代表了一种攻击性状态。线性吸引子可以通过反馈连接或神经调制信号来实现，但后者的证据很少。 ...... 自下而上的方法: 通过病毒和基因编辑, 钙成像神经活动, 研究同一区域(腹内侧下丘脑 VMH)不同神经调节受体(催产素 OXT, 精氨酸加压素 AVP) 局部失活的影响.\n社交行为(如攻击性)的神经元集群可构成一个近似线性吸引子.\nIntegration as a self-organizing process Integration as a self-organizing process 日期: 2025-11-24 标签: #physics #numerical calculation Integration—the accumulation of information over time—is a fundamental computation in navigation, decisionmaking, and memory. The dominant circuit model, the continuous attractor neural network (CANN), explains integration through finely tuned connectivity that supports marginally stable states. However, data from systems such as Drosophila central complex suggest that real connectivity is heterogeneous, implying that symmetry may only exist in a coarse-grained sense, if at all. One class of models explains this heterogenous connectivity by evoking supervised learning which can enforce coarse-grained symmetry at the expense of extensive trial and error learning or by employing biologically unrealistic learning rules. Another class employs only local learning rules, but this approach typically fails when circuit connectivity or tutoring inputs become sufficiently heterogeneous. 积分——随时间积累信息——是导航、决策和记忆中的基本计算. 主导的回路模型, 连续吸引子神经网络（CANN）, 通过支持边际稳定状态的精细调制连接来解释积分. ...... embeded continuous attractors with random rnn random rnn(DMFT), random matrix theory\nSymmetries and continuous attractors in disordered neural circuits Symmetries and Continuous Attractors in Disordered Neural Circuits 日期: 2025-10-08 标签: #physics #numerical calculation 0. Abstract 经典 cann: 依赖于循环权重 $\\mathbb{M}$ 的连续对称性, 调谐曲线也具有平移对称性. 而小鼠头朝向细胞具有异质性. 仍可通过经典 cann 动力学解释哺乳动物神经回路. 通过动力学平均场理论(Dynamical Mean Field Theory) 表明调谐异质性网络(在大 N 下)等效于经典 ring attractor. 随机权重通过特征值简并反映出来. 因此可以对权重进行谱结构分析. ...... 面试 PPT 大纲 John Hopfield (Symmetric)\nAssociative Memory\ndiscrete fixed point\ndegenerate manifold\nExamples\noccular motor control ring attractors(head direction cells) place cells intrinsic behavior(aggression, mating...) Existing model/theory\nFine tuned connectivity 1996 S.Seung PNAS $$ \\tau\\frac{\\mathrm{d}x}{\\mathrm{d}t} = Ax + \\xi_{\\tau} $$\nBiological noisyness\n问题: 是否存在一套学习规则, 使得神经网络在接受到一些实验数据的时候, 可以在无监督下自组织出对应的连续吸引子网络, 从而将现实世界的某低维变量嵌入到高维的 RNN 相空间中?\n实验数据是否存在低维流形 2020: Manifold GPLVMs for discovering non-Euclidean latent structure in neural data 流形高斯过程隐变量模型: 还原了 Head Direction 的环结构\n2018: Learning a latent manifold of odor representations from neural responses in piriform cortex: 不是证明了气味分子在现实世界构成低维流形, 而是从小鼠 piriform cortex 的神经活动中能够反推一个能解释这些响应的潜在嗅觉表征空间\n能否在无监督下自组织, 从而恢复流形的 latent variable\n是否存在某种生物学上可行的学习规则, 使得 RNN 能够将流形映射到自己的相空间中\nOja rule: Discovering plasticity rules that organize and maintain neural circuits 是否有不同的流形可以拓展应用目前学习的 random RNN 的理论框架? 线性吸引子: 能否构造一个协方差矩阵, 使得生成的调谐曲线能满足 aggression 等表征? 蝙蝠: (目前尚未查到比较完整的数据集) Three-dimensional head-direction coding in the bat brain: 并未构成想象中的球面吸引子, 而更像是一个环面吸引子 ",
-  "wordCount" : "1585",
+  "articleBody": "可能的方向 实验(联合西湖大学) Integrator dynamics in the cortico-basal ganglia loop for flexible motor timing\nAn approximate line attractor in the hypothalamus encodes an aggressive state\nAn approximate line attractor in the hypothalamus encodes an aggressive state 日期: 2026-05-11 标签: #line attractor Summary The hypothalamus regulates innate social behaviors, including mating and aggression. These behaviors can be evoked by optogenetic stimulation of specific neuronal subpopulations within MPOA and VMHvl, respectively. 下丘脑调节着先天的社交行为，包括交配和攻击。这些行为可以通过对 MPOA 和 VMHvl 中特定神经亚群进行光遗传学刺激来引发。 Here, we perform dynamical systems modeling of population neuronal activity in these nuclei during social behaviors. In VMHvl, unsupervised analysis identified a dominant dimension of neural activity with a large time constant (\u003e50 s), generating an approximate line attractor in neural state space. Progression of the neural trajectory along this attractor was correlated with an escalation of agonistic behavior, suggesting that it may encode a scalable state of aggressiveness. ...... A circuit that integrates drive state and social contact to gate mating\nA line attractor maintains aggressiveness during feeding in 'hangry' mice\nA line attractor maintains aggressiveness during feeding in 'hangry' mice 日期: 2026-05-10 标签: #line attractor ...... Encoding of female mating dynamics by a hypothalamic line attractor\nCausal evidence of a line attractor encoding an affective state\nCausal evidence of a line attractor encoding an affective state 日期: 2026-05-11 标签: #line attractor Abstract Continuous attractors are an emergent property of neural population dynamics that have been hypothesized to encode continuous variables such as head direction and eye position1–4. In mammals, direct evidence of neural implementation of a continuous attractor has been hindered by the challenge of targeting perturbations to specific neurons within contributing ensembles2,3. 连续吸引子是神经群体动力学的一个涌现属性，被假设为编码连续变量，如头部方向和眼睛位置。在哺乳动物中，直接证据表明连续吸引子的神经实现受到挑战，因为很难针对贡献集合中的特定神经元进行干扰。 ...... meta-learning(biologically plausible learning rule) The neural computation of affective internal states in the hypothalamus - A dynamical systems perspective\nA line attractor encoding a persistent state requires neuropeptide signaling\nA line attractor encoding a persistent internal state requires neuropeptide signaling 日期: 2026-05-10 标签: #physics #numerical calculation Summary Internal states drive survival behaviors, but their neural implementation is poorly understood. Recently, we identified a line attractor in the ventromedial hypothalamus (VMH) that represents a state of aggressiveness. Line attractors can be implemented by recurrent connectivity or neuromodulatory signaling, but evidence for the latter is scant. 内部状态驱动生存行为，但其神经实现机制尚不明确。最近，我们在 腹内侧下丘脑（VMH）中识别出一个线性吸引子，它代表了一种攻击性状态。线性吸引子可以通过反馈连接或神经调制信号来实现，但后者的证据很少。 ...... 自下而上的方法: 通过病毒和基因编辑, 钙成像神经活动, 研究同一区域(腹内侧下丘脑 VMH)不同神经调节受体(催产素 OXT, 精氨酸加压素 AVP) 局部失活的影响.\n社交行为(如攻击性)的神经元集群可构成一个近似线性吸引子.\nIntegration as a self-organizing process Integration as a self-organizing process 日期: 2025-11-24 标签: #physics #numerical calculation Integration—the accumulation of information over time—is a fundamental computation in navigation, decisionmaking, and memory. The dominant circuit model, the continuous attractor neural network (CANN), explains integration through finely tuned connectivity that supports marginally stable states. However, data from systems such as Drosophila central complex suggest that real connectivity is heterogeneous, implying that symmetry may only exist in a coarse-grained sense, if at all. One class of models explains this heterogenous connectivity by evoking supervised learning which can enforce coarse-grained symmetry at the expense of extensive trial and error learning or by employing biologically unrealistic learning rules. Another class employs only local learning rules, but this approach typically fails when circuit connectivity or tutoring inputs become sufficiently heterogeneous. 积分——随时间积累信息——是导航、决策和记忆中的基本计算. 主导的回路模型, 连续吸引子神经网络（CANN）, 通过支持边际稳定状态的精细调制连接来解释积分. ...... embeded continuous attractors with random rnn random rnn(DMFT), random matrix theory\nSymmetries and continuous attractors in disordered neural circuits Symmetries and Continuous Attractors in Disordered Neural Circuits 日期: 2025-10-08 标签: #physics #numerical calculation 0. Abstract 经典 cann: 依赖于循环权重 $\\mathbb{M}$ 的连续对称性, 调谐曲线也具有平移对称性. 而小鼠头朝向细胞具有异质性. 仍可通过经典 cann 动力学解释哺乳动物神经回路. 通过动力学平均场理论(Dynamical Mean Field Theory) 表明调谐异质性网络(在大 N 下)等效于经典 ring attractor. 随机权重通过特征值简并反映出来. 因此可以对权重进行谱结构分析. ...... 面试 PPT 大纲 John Hopfield (Symmetric)\nAssociative Memory\ndiscrete fixed point\ndegenerate manifold\nExamples\noccular motor control ring attractors(head direction cells) place cells intrinsic behavior(aggression, mating...) Existing model/theory\nFine tuned connectivity 1996 S.Seung PNAS $$ \\tau\\frac{\\mathrm{d}x}{\\mathrm{d}t} = Ax + \\xi_{\\tau} $$\nBiological noisyness\n问题: 是否存在一套学习规则, 使得神经网络在接受到一些实验数据的时候, 可以在无监督下自组织出对应的连续吸引子网络, 从而将现实世界的某低维变量嵌入到高维的 RNN 相空间中?\n实验数据是否存在低维流形 2020: Manifold GPLVMs for discovering non-Euclidean latent structure in neural data 流形高斯过程隐变量模型: 还原了 Head Direction 的环结构\n2018: Learning a latent manifold of odor representations from neural responses in piriform cortex: 不是证明了气味分子在现实世界构成低维流形, 而是从小鼠 piriform cortex 的神经活动中能够反推一个能解释这些响应的潜在嗅觉表征空间\n能否在无监督下自组织, 从而恢复流形的 latent variable\n是否存在某种生物学上可行的学习规则, 使得 RNN 能够将流形映射到自己的相空间中\nOja rule: Discovering plasticity rules that organize and maintain neural circuits 是否有不同的流形可以拓展应用目前学习的 random RNN 的理论框架? 线性吸引子: 能否构造一个协方差矩阵, 使得生成的调谐曲线能满足 aggression 等表征? 蝙蝠: (目前尚未查到比较完整的数据集) Three-dimensional head-direction coding in the bat brain: 并未构成想象中的球面吸引子, 而更像是一个环面吸引子 meeting notes:\n$(\\cos{\\theta}, \\sin{\\theta})\\rightarrow \\vec{x}\\in\\mathbb{R}^{N}\\rightarrow \\mathrm{bump}$ 设计 $\\Delta J_{ij}$, 使得具有一定初始化规则创建的 J0 通过具有一定内在结构的外部输入更新权重, 从而收敛至 optimized J matrix, 并且其更新规则需要是 local 的(而非机器学习中的梯度下降算法这类依赖于全局状态的方法)\n线性吸引子: 搞清楚积分变量的累积是否具有方向性, 以及和速度输入的关系, aggression 是否能够用类扩散行为来描述. 比如小鼠的和 aggression 相关存在类似线性吸引子的机制, 攻击性的累积具体是怎样的机制? 这个需要具体确认一下(因为头朝向是一个旋转对称的系统, 而线性吸引子并不具有这个特性: 往一个方向和另一个方向的漂移是代表同一个生理过程吗? 还是往一个方向积分是提高攻击性, 另一个方向是减少攻击性? ...)\nplace cell 是否可以应用于 random RNN 理论框架 (是不是对 $\\Gamma$ 协方差函数的 M matrix 进行修改, 以及新的协方差函数应该如何设计从而适应 place cell 单 bump 以及多 bump 的结构, grid cell 是六角晶格分布的 bump 因此两者还是存在神经集群活动模式的区别)\n论文阅读:\nS. Seung 1996 PNAS: How the brain keeps the eyes still David Trank 继续 Follow 有关 3D 蝙蝠 head direction 的相关工作, 对其进行了解\n补充的论文阅读材料:\nMultiscale representation of very large environments in the hippocampus of flying bats Large environments reveal the statistical structure governing hippocampal representations Universal statistics of hippocampal place fields across species and dimensionalities A thalamus-brainstem attractor network drives history-biased decisions 思路:\n通过 universal... 的 place cells 数据集, 使用 symmetries... 中的 random RNN 框架, 先尝试构造 target manifold 以及对应的 weight matrix\nData for \"Multiscale representation of very large environments in the hippocampus of flying bats\": Eliav CA1 200m 一维隧道数据 *rats navigating in an 18.6 m² environment: 无法打开? 大 2D 环境大鼠 CA1 数据 *蝙蝠在 5.8×4.6×2.7m3 房间中自由飞行时的 3D place fields: 未公开 *1D 其它啮齿类: 小鼠 40 m virtual track 和大鼠 48 m 1D maze: 未公开 通过 Gaussian process 构造的通性:\nClark: 现实状态: 头朝向 $\\theta\\in [0,2\\pi]$ 随机变量: 输入电流场 $\\vec{x}^{*}_{i}\\sim \\mathcal{N}(0,\\mathbf{\\Gamma}^{x}(\\theta-\\theta^{\\prime}))$ 非线性激活函数: $\\phi(x) = 1 + \\mathrm{erf}\\left(\\frac{\\beta\\sqrt{\\pi}}{2}x\\right)$ Mainali: 现实状态: 位矢 $\\vec{x}\\in\\mathbb{R}^{D}$, 随机变量: 输入电流场 $h(\\vec{x})\\sim \\mathcal{GP}[\\vec{0},\\mathbf{r}(\\vec{x}-\\vec{x}^{\\prime})]$ 非线性激活函数: $f(\\vec{x}) = \\left[h(\\vec{x}) - q\\sqrt{\\mathbf{r}(\\vec{0})}\\right]$ *学习规则: 什么样的学习规则能使 weight matrix 学习到随机变量背后的协方差矩阵?\n",
+  "wordCount" : "2297",
   "inLanguage": "zh",
   "image":"https://files.seeusercontent.com/2026/05/10/Rpj7/20260510150139552.png","datePublished": "2026-05-10T00:18:15+08:00",
   "dateModified": "2026-05-10T00:18:15+08:00",
@@ -466,13 +466,13 @@ A circuit that integrates drive state and social contact to gate mating"/>
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1585字
+        <span>2297字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>4分钟
+        <span>5分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -863,6 +863,73 @@ neural circuits
 <li>线性吸引子: 能否构造一个协方差矩阵, 使得生成的调谐曲线能满足 aggression 等表征?</li>
 <li>蝙蝠: (目前尚未查到比较完整的数据集) <a href="https://www.nature.com/articles/nature14031" target="_blank" rel="noopener nofollow noreferrer" >Three-dimensional head-direction coding in the bat brain</a>: 并未构成想象中的球面吸引子, 而更像是一个环面吸引子</li>
 </ul>
+</li>
+</ol>
+<hr>
+<p>meeting notes:</p>
+<ul>
+<li>
+<p><input disabled="" type="checkbox"> $(\cos{\theta}, \sin{\theta})\rightarrow \vec{x}\in\mathbb{R}^{N}\rightarrow \mathrm{bump}$ 设计 $\Delta J_{ij}$, 使得具有一定初始化规则创建的 J0 通过具有一定内在结构的外部输入更新权重, 从而收敛至 optimized J matrix, 并且其更新规则需要是 local 的(而非机器学习中的梯度下降算法这类依赖于全局状态的方法)</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 线性吸引子: 搞清楚积分变量的累积是否具有方向性, 以及和速度输入的关系, aggression 是否能够用类扩散行为来描述. 比如小鼠的和 aggression 相关存在类似线性吸引子的机制, 攻击性的累积具体是怎样的机制? 这个需要具体确认一下(因为头朝向是一个旋转对称的系统, 而线性吸引子并不具有这个特性: 往一个方向和另一个方向的漂移是代表同一个生理过程吗? 还是往一个方向积分是提高攻击性, 另一个方向是减少攻击性? ...)</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> place cell 是否可以应用于 random RNN 理论框架 (是不是对 $\Gamma$ 协方差函数的 M matrix 进行修改, 以及新的协方差函数应该如何设计从而适应 place cell 单 bump 以及多 bump 的结构, grid cell 是六角晶格分布的 bump 因此两者还是存在神经集群活动模式的区别)</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 论文阅读:</p>
+<ul>
+<li>S. Seung 1996 PNAS: <a href="https://www.pnas.org/doi/epdf/10.1073/pnas.93.23.13339" target="_blank" rel="noopener nofollow noreferrer" >How the brain keeps the eyes still</a></li>
+<li>David Trank</li>
+</ul>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 继续 Follow 有关 3D 蝙蝠 head direction 的相关工作, 对其进行了解</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 补充的论文阅读材料:</p>
+<ul>
+<li>Multiscale representation of very large environments in the hippocampus of flying bats</li>
+<li>Large environments reveal the statistical structure governing hippocampal representations</li>
+<li><strong>Universal statistics of hippocampal place fields across species and dimensionalities</strong></li>
+<li>A thalamus-brainstem attractor network drives history-biased decisions</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>思路:</p>
+<ol>
+<li>
+<p>通过 universal... 的 place cells 数据集, 使用 symmetries...  中的 random RNN 框架, 先尝试构造 target manifold 以及对应的 weight matrix</p>
+<ul>
+<li><a href="https://zenodo.org/records/4646728" target="_blank" rel="noopener nofollow noreferrer" >Data for &quot;Multiscale representation of very large environments in the hippocampus of flying bats&quot;</a>: <strong>Eliav CA1 200m 一维隧道数据</strong></li>
+<li>*<a href="http://amygdala.psychdept.arizona.edu/lab.html" target="_blank" rel="noopener nofollow noreferrer" >rats navigating in an 18.6 m² environment</a>: 无法打开? 大 2D 环境大鼠 CA1 数据</li>
+<li>*蝙蝠在 5.8×4.6×2.7m3 房间中自由飞行时的 3D place fields: 未公开</li>
+<li>*1D 其它啮齿类: 小鼠 40 m virtual track 和大鼠 48 m 1D maze: 未公开</li>
+</ul>
+</li>
+<li>
+<p>通过 Gaussian process 构造的通性:</p>
+<ul>
+<li>Clark:
+<ul>
+<li>现实状态: 头朝向 $\theta\in [0,2\pi]$</li>
+<li>随机变量: 输入电流场 $\vec{x}^{*}_{i}\sim \mathcal{N}(0,\mathbf{\Gamma}^{x}(\theta-\theta^{\prime}))$</li>
+<li>非线性激活函数: $\phi(x) = 1 + \mathrm{erf}\left(\frac{\beta\sqrt{\pi}}{2}x\right)$</li>
+</ul>
+</li>
+<li>Mainali:
+<ul>
+<li>现实状态: 位矢 $\vec{x}\in\mathbb{R}^{D}$,</li>
+<li>随机变量: 输入电流场 $h(\vec{x})\sim \mathcal{GP}[\vec{0},\mathbf{r}(\vec{x}-\vec{x}^{\prime})]$</li>
+<li>非线性激活函数: $f(\vec{x}) = \left[h(\vec{x}) - q\sqrt{\mathbf{r}(\vec{0})}\right]$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>*学习规则: 什么样的学习规则能使 weight matrix 学习到随机变量背后的协方差矩阵?</p>
 </li>
 </ol>
 
@@ -1342,7 +1409,11 @@ neural circuits
         
             
         
-        · 已经水了 154 篇 1032328 字, 再接再厉!
+            
+        
+            
+        
+        · 已经水了 156 篇 1049264 字, 再接再厉!
     </div>
 
     

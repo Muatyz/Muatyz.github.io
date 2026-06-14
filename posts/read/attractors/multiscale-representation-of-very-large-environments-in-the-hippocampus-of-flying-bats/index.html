@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Multiscale representation of very large environments in the hippocampus of flying bats | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="飞行蝙蝠的海马体中对极大环境的多尺度表征">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/multiscale-representation-of-very-large-environments-in-the-hippocampus-of-flying-bats/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/multiscale-representation-of-very-large-environments-in-the-hippocampus-of-flying-bats/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="Multiscale representation of very large environments in the hippocampus of flying bats" />
+<meta property="og:description" content="飞行蝙蝠的海马体中对极大环境的多尺度表征" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/multiscale-representation-of-very-large-environments-in-the-hippocampus-of-flying-bats/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/06/14/Xmj4/20260614220737467.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-06-14T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-06-14T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/06/14/Xmj4/20260614220737467.png" />
+<meta name="twitter:title" content="Multiscale representation of very large environments in the hippocampus of flying bats"/>
+<meta name="twitter:description" content="飞行蝙蝠的海马体中对极大环境的多尺度表征"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Multiscale representation of very large environments in the hippocampus of flying bats",
+      "item": "https://Muatyz.github.io/posts/read/attractors/multiscale-representation-of-very-large-environments-in-the-hippocampus-of-flying-bats/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Multiscale representation of very large environments in the hippocampus of flying bats",
+  "name": "Multiscale representation of very large environments in the hippocampus of flying bats",
+  "description": "飞行蝙蝠的海马体中对极大环境的多尺度表征",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Research Article Summary INTRODUCTION Place cells are neurons in the hippocampus that represent the animal’s position in space and are important for supporting navigation behaviors. These cells increase their spiking activity when the animal passes through a specific region of space, called the neuron’s “place field.” Since the discovery of place cells half a century ago, nearly all the research on spatial representations in the mammalian brain has focused on rats and mice as animal models and used small laboratory environments as experimental setups—usually small boxes or short linear tracks ~1 to 2 m in size. In such small environments, individual place cells typically have one place field, with a small field size. However, outdoor navigation of all mammals occurs in natural environments that span much larger spatial scales, of hundreds of meters or kilometers, and nothing is known about the neural codes for such large spatial scales.\n位置细胞是海马体中的神经元, 代表动物在空间中的位置, 对支持导航行为很重要. 当动物通过特定的空间区域时, 这些细胞会增加它们的尖峰活动, 这个区域被称为神经元的 \"位置场\". 自从半个世纪前发现位置细胞以来, 几乎所有关于哺乳动物大脑中空间表征的研究都集中在老鼠和小鼠作为动物模型上, 并使用小型实验环境作为实验设置 - 通常是小盒子或短线性轨道 ~1 到 2 米大小. 在这样的小环境中, 个别位置细胞通常只有一个位置场, 场大小也很小. 然而, 所有哺乳动物的户外导航都发生在跨越数百米或公里的自然环境中, 对于如此大空间尺度的神经编码一无所知.\nRATIONALE We reasoned that in very large environments, the hippocampus must exhibit a different coding scheme than seen in small environments because large environments cannot be tiled fully by the limited number of hippocampal neurons. We set out to discover this alternative coding scheme and thus to close the longstanding gap between the neurobiology of navigation as studied in the laboratory and natural large-scale navigation. To this end, we studied bats flying in a 200-m-long tunnel while we recorded the activity of hippocampal dorsal CA1 neurons using a custom wirelesselectrophysiology system.\n我们认为在非常大的环境中, 海马体必须表现出与在小环境中看到的不同的编码方案, 因为大环境不能被有限数量的海马神经元完全覆盖. 我们着手发现这种替代编码方案, 从而弥合了实验室研究的导航神经生物学与自然大规模导航之间长期存在的差距. 为此, 我们研究了在 200 米长隧道中飞行的蝙蝠, 同时使用定制的无线电生理系统记录海马体背部 CA1 神经元的活动.\nRESULTS We found that place cells recorded in the large environment exhibited a multifield, multiscale representation of space: Individual neurons exhibited multiple place fields of diverse sizes, ranging from \u003c1 m to more than 30 m, and the fields of the same neuron could differ up to 20-fold in size. This multifield, multiscale code was observed already from the first day in the environment and was similar between wild-born and laboratory-born bats that were never exposed to large environments. By contrast, recordings from a smallscale 6-m environment did not reveal such a multiscale code but rather classical single fields. Theoretical decoding analysis showed major advantages of the multiscale code over classical single-field codes, both in the number of required neurons and in the decoding errors. Thus, the multiscale code provides an efficient population code with a high capacity for representing very large environments. We conducted neural-network modeling, which suggested that the multiscale code may arise from interacting attractor networks with multiple scales or from feedforward networks, which yielded experimentally testable predictions for the inputs into CA1.\n我们发现, 在大环境中记录的位置细胞表现出空间的多场、多尺度表征: 个别神经元表现出多个不同大小的场, 范围从 \u003c1 米到超过 30 米, 同一神经元的场大小可以相差 20 倍. 这种多场、多尺度代码已经在环境中的第一天就被观察到, 并且在从未暴露于大环境中的野生出生和实验室出生的蝙蝠之间相似. 相比之下, 从一个小规模 6 米环境中的记录没有显示出这样的多尺度代码, 而是经典的单场. 理论解码分析显示了多尺度代码相对于经典单场代码的主要优势, 无论是在所需神经元数量还是在解码错误方面. 因此, 多尺度代码提供了一种高效的集群代码, 具有表示非常大环境的高容量. 我们进行了神经网络建模, 建议多尺度代码可能来自具有多个尺度的相互作用吸引子网络或前馈网络, 这产生了对 CA1 输入的可实验测试的预测.\nCONCLUSION Using this experimental setup, our study uncovered a new coding scheme for large spaces, which was never observed before in small spaces: a multiscale code for space. This coding scheme existed from day 1 in the environment and was observed in both wild-born and laboratory-born bats, suggesting that it does not require previous experience. These findings provide a new notion for how the hippocampus represents space. The large naturalistic scale of our experimental environment was crucial for revealing this type of code. More generally, this study demonstrates the power of studying brain circuits under naturalistic conditions.\n使用这个实验设置, 我们的研究发现了一个新的大空间编码方案, 以前在小空间中从未观察到过: 空间的多尺度代码. 这种编码方案从环境中的第一天就存在, 并且在野生出生和实验室出生的蝙蝠中都被观察到, 这表明它不需要先前的经验. 这些发现为海马体如何表示空间提供了一个新的概念. 我们实验环境的大自然尺度对于揭示这种类型的代码至关重要. 更一般地说, 这项研究展示了在自然条件下研究大脑电路的力量.\nQuestions: What is the neural code for very large spaces? Methods Bat flying in 200-m-long tunnel with wireless electrophysiology system\n蝙蝠在 200 米长的隧道中飞行, 使用无线电生理系统记录\nFindings Individual place-cells in dorsal hippocampus CA1 showed multiple fields with highly variable sizes, from day 1 in the tunnel\n单个位置细胞在背部海马体 CA1 中显示出多个场, 大小高度可变, 从进入隧道的第一天就存在\nFunction Decoding analysis showed that the multifield multiscale code outperforms classical place-codes\n解码分析显示, 多场多尺度代码优于经典位置代码\nModeling Multifield multiscale coding can be explained with 1D interacting attractor networks and feedforward models\n多场多尺度编码可以用一维相互作用吸引子网络和前馈模型来解释\nAbstract Hippocampal place cells encode the animal’s location. Place cells were traditionally studied in small environments, and nothing is known about large ethologically relevant spatial scales. We wirelessly recorded from hippocampal dorsal CA1 neurons of wild-born bats flying in a long tunnel (200 meters). The size of place fields ranged from 0.6 to 32 meters. Individual place cells exhibited multiple fields and a multiscale representation: Place fields of the same neuron differed up to 20-fold in size. This multiscale coding was observed from the first day of exposure to the environment, and also in laboratory-born bats that never experienced large environments. Theoretical decoding analysis showed that the multiscale code allows representation of very large environments with much higher precision than that of other codes. Together, by increasing the spatial scale, we discovered a neural code that is radically different from classical place codes.\n海马体位置细胞编码动物的位置. 位置细胞传统上在小环境中研究, 对于大型相关空间尺度一无所知. 我们无线记录了在长隧道 (200 米) 中飞行的野生出生蝙蝠的海马体背部 CA1 神经元. 位置场的大小范围从 0.6 到 32 米. 个别位置细胞表现出多个场和多尺度表征: 同一神经元的场大小相差高达 20 倍. 这种多尺度编码从暴露于环境的第一天就被观察到, 并且在从未经历过大环境的实验室出生蝙蝠中也被观察到. 理论解码分析显示, 多尺度代码允许以比其他代码更高的精度表示非常大的环境. 总之, 通过增加空间尺度, 我们发现了一种与经典位置代码截然不同的神经代码.\nIntroduction Navigation and spatial memory are crucial for the survival of animals in the wild. The hippocampal formation contains several types of spatial neurons whose activity represents the animal’s position and direction in space (1–10). One of these spatial cell types is the “place cell,” hippocampal neurons that increase their spiking activity when the animal passes through a specific region of space, in turn called the neuron’s “place field” (1, 2, 11–15). Individual place cells typically have only one (or two) place fields in a small environment (2, 11, 16), whereas multiple place fields are found in dentate-gyrus neurons upstream (16). Nearly all of the research on spatial representations in the mammalian brain has focused on rats and mice as animal models and used small laboratory environments as experimental setupsusually small boxes or short linear tracks ~1 to 2 m in size. Consequently, almost all current knowledge on spatial neurons in the hippocampal formation is based on data from animals moving in small laboratory environments. Two studies of place cells examined larger spatial scales (17, 18). However, these studies used either a zig-zagging track composed of ~1-m segments or a track that passed through several small rooms; thus, the largest singlecompartment environment in which place cells were recorded to date was \u003c10 m in size.\n导航和空间记忆对于野外动物的生存至关重要. 海马体包含几种类型的空间神经元, 其活动代表动物在空间中的位置和方向. 其中一种空间细胞类型是 \"位置细胞\", 海马体神经元在动物通过特定空间区域时增加它们的尖峰活动, 这个区域被称为神经元的 \"位置场\". 个别位置细胞通常在小环境中只有一个 (或两个) 位置场, 而在上游的齿状回神经元中发现了多个位置场. 几乎所有关于哺乳动物大脑中空间表征的研究都集中在老鼠和小鼠作为动物模型上, 并使用小型实验环境作为实验设置 - 通常是小盒子或短线性轨道 $\\sim 1$ 到 2 米大小. 因此, 关于海马体形成中空间神经元的几乎所有当前知识都是基于动物在小型实验环境中移动的数据. 两项关于位置细胞的研究检查了更大的空间尺度. 然而, 这些研究使用了由 $\\sim 1$ 米段组成的曲折轨道或穿过几个小房间的轨道; 因此, 到目前为止记录位置细胞的最大单隔室环境大小 $\u003c10$ 米.\nBy contrast, outdoor navigation of all mammals occurs in natural environments that span spatial scales much larger than 10 m. For example, wild rats were shown to navigate outdoors \u003e1 km per night (19, 20). Navigation over such distances requires spatial representation of very large environments, on the scale of hundreds of meters or kilometers (21). Egyptian fruit bats fly every night distances of up to ~30 km to their favorite fruit trees, with flyways spanning ~2 km in width and 0.5 km in height (21, 22). A simple calculation shows that tiling this space with typical place fields as measured in the laboratory (~10 to 20 cm diameter, single field per neuron) would require ~1013 neurons. This is ~108 times more neurons than the number of cells in the entire dorsal hippocampal area CA1 (3), suggesting that it is simply not feasible to represent such large spatial scales with laboratory-sized place fields. Thus, there is a fundamental gap between the neurobiology of navigation as studied in the laboratory and kilometer-scale natural navigation outdoors.\n相比之下, 所有哺乳动物的户外导航都发生在跨越比 10 米大得多的空间尺度的自然环境中. 例如, 野生老鼠被证明每晚在户外导航超过 1 公里. 在如此距离上的导航需要对非常大环境的空间表征, 在数百米或公里的尺度上. 埃及果蝠每晚飞行距离可达 $\\sim 30$ 公里到它们最喜欢的果树, 飞行路径宽约 $\\sim 2$ 公里, 高约 0.5 公里. 一个简单的计算表明, 用实验室中测量的典型位置场 (直径约 10 到 20 厘米, 每个神经元一个场) 来覆盖这个空间将需要约 $10^{13}$ 个神经元. 这是整个背部海马体 CA1 区域细胞数量的约 $10^8$ 倍, 表明用实验室大小的位置场来表示如此大的空间尺度根本不可行. 因此, 实验室研究的导航神经生物学与户外公里级自然导航之间存在一个根本性的差距.\nNeural recordings in bats flying in a 200-m environment We studied wild-born Egyptian fruit bats, a mammal that has rodent-like hippocampal spatial representations in small laboratory environments (23–26). We developed a miniaturized wireless neural-logging system that stores all the data on board (Fig. 1A). This system enabled neural recordings to be conducted over great distances in freely behaving animals, with uninterrupted experiments lasting up to ~3 hours (27). Using this system, we conducted tetrode recordings from dorsal CA1, in flight (Fig. 1, B to D, and fig. S1). We built a 200-mlong flight tunnel (Fig. 1E), composed of a long arm and a shorter arm, with landmarks dispersed along it (fig. S2). We used a medium light level (5 lux), allowing these bats—which have excellent vision (21)—to see several distal landmarks from each location in the tunnel (fig. S2B). We used a radio frequency–based localization system, with a small mobile tag placed on the bat that measured the bat’s distances to a ground-based antenna array (Fig. 1F). This system yielded a high spatial localization accuracy of ~9 cm (Fig. 1G) along with a high temporal resolution (27). We harnessed the natural behavioral tendency of bats to fly long distances in straight trajectories (22) and trained them to fly in the tunnel between two landing balls that were placed at the two ends of the tunnel, on which food was given. The bats flew continuously back and forth between the landing balls (fig. S3A). Flight trajectories were rather stereotyped, with bats flying at the center-top portion of the tunnel, with only very small deviations perpendicular to the flight direction (Fig. 1H and fig. S3, B and C). Thus, the bats exhibited nearly perfect one-dimensional (1D) back-andforth trajectories. Hence, in all subsequent analyses, we projected the behavioral data onto the main axis of the tunnel and included only long unidirectional flights that were \u003e100 m in length (27). This 1D tunnel bears similarities to bats’ natural behaviors because these bats navigate underground in 1D cave tunnels, and also their flight trajectories outdoors are largely 1D (22). Flight speed was high and showed very little variation across different locations (Fig. 1, I and J). Bats flew dozens of flights per direction in each recording session (Fig. 1K), covering on average 14.1 km per session and up to 22.5 km in a single session (Fig. 1L).\n我们研究了野生出生的埃及果蝠, 这是一种在小型实验环境中具有类似啮齿类海马空间表征的哺乳动物. 我们开发了一个小型无线神经记录系统, 将所有数据存储在板载上 (图 1A). 该系统使得在自由行为动物中进行长距离神经记录成为可能, 不间断的实验持续时间最长可达 $\\sim 3$ 小时. 使用该系统, 我们在飞行中从背部 CA1 进行四极电极记录 (图 1, B 到 D, 和图 S1). 我们建造了一个 200 米长的飞行隧道 (图 1E), 由一个长臂和一个短臂组成, 沿途分布着地标 (图 S2). 我们使用了中等光照水平 (5 lux), 允许这些视力出色的蝙蝠从隧道中的每个位置看到几个远处的地标 (图 S2B). 我们使用基于射频的定位系统, 在蝙蝠上放置一个小型移动标签, 测量蝙蝠与地面天线阵列的距离 (图 1F). 该系统提供了高空间定位精度约为 9 厘米 (图 1G) 和高时间分辨率. 我们利用了蝙蝠在直线轨迹中飞行长距离的自然行为倾向, 并训练它们在隧道中飞行, 在隧道两端放置两个着陆球, 上面提供食物. 蝙蝠连续来回飞行在着陆球之间 (图 S3A). 飞行轨迹相当刻板, 蝙蝠飞行在隧道的中心顶部部分, 垂直于飞行方向只有非常小的偏差 (图 1H 和图 S3, B 和 C). 因此, 蝙蝠表现出几乎完美的一维来回轨迹. 因此, 在所有后续分析中, 我们将行为数据投影到隧道的主轴上, 并且只包括长度超过 100 米的长单向飞行. 这个一维隧道与蝙蝠的自然行为有相似之处, 因为这些蝙蝠在地下的 1D 洞穴隧道中导航, 而且它们在户外的飞行轨迹在很大程度上是 1D 的. 飞行速度很快, 在不同位置之间几乎没有变化 (图 1, I 和 J). 蝙蝠每个记录会话每个方向飞行数十次 (图 1K), 平均每个会话覆盖 14.1 公里, 在单个会话中最多覆盖 22.5 公里 (图 1L).\n",
+  "wordCount" : "4257",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/06/14/Xmj4/20260614220737467.png","datePublished": "2026-06-14T00:18:23+08:00",
+  "dateModified": "2026-06-14T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/multiscale-representation-of-very-large-environments-in-the-hippocampus-of-flying-bats/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                Multiscale representation of very large environments in the hippocampus of flying bats
+            </h1>
+            <div class="post-description">
+                飞行蝙蝠的海马体中对极大环境的多尺度表征
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-06-14
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>4257字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>9分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/line-attractor/" style="color: var(--secondary)!important;">Line Attractor</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/06/14/Xmj4/20260614220737467.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#research-article-summary" aria-label="Research Article Summary">Research Article Summary</a><ul>
+                        
+                <li>
+                    <a href="#introduction" aria-label="INTRODUCTION">INTRODUCTION</a></li>
+                <li>
+                    <a href="#rationale" aria-label="RATIONALE">RATIONALE</a></li>
+                <li>
+                    <a href="#results" aria-label="RESULTS">RESULTS</a></li>
+                <li>
+                    <a href="#conclusion" aria-label="CONCLUSION">CONCLUSION</a></li>
+                <li>
+                    <a href="#questions-what-is-the-neural-code-for-very-large-spaces" aria-label="Questions: What is the neural code for very large spaces?">Questions: What is the neural code for very large spaces?</a><ul>
+                        
+                <li>
+                    <a href="#methods" aria-label="Methods">Methods</a></li>
+                <li>
+                    <a href="#findings" aria-label="Findings">Findings</a></li>
+                <li>
+                    <a href="#function" aria-label="Function">Function</a></li>
+                <li>
+                    <a href="#modeling" aria-label="Modeling">Modeling</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction-1" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#neural-recordings-in-bats-flying-in-a-200-m-environment" aria-label="Neural recordings in bats flying in a 200-m environment">Neural recordings in bats flying in a 200-m environment</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="research-article-summary">Research Article Summary<a hidden class="anchor" aria-hidden="true" href="#research-article-summary">#</a></h1>
+<h2 id="introduction">INTRODUCTION<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<blockquote>
+<p>Place cells are neurons in the hippocampus that represent the animal’s position in space and are important for supporting navigation behaviors. These cells increase their spiking activity when the animal passes through a specific region of space, called the neuron’s “place field.” Since the discovery of place cells half a century ago, nearly all the research on spatial representations in the mammalian brain has focused on rats and mice as animal models and used small laboratory environments as experimental setups—usually small boxes or short linear tracks ~1 to 2 m in  size. In such small environments, individual place cells typically have one place field, with a small field size. However, outdoor navigation of all mammals occurs in natural environments that span much larger spatial scales, of hundreds of meters or kilometers, and nothing is known about the neural codes for such large spatial scales.</p>
+</blockquote>
+<p>位置细胞是海马体中的神经元, 代表动物在空间中的位置, 对支持导航行为很重要. 当动物通过特定的空间区域时, 这些细胞会增加它们的尖峰活动, 这个区域被称为神经元的 &quot;位置场&quot;. 自从半个世纪前发现位置细胞以来, 几乎所有关于哺乳动物大脑中空间表征的研究都集中在老鼠和小鼠作为动物模型上, 并使用小型实验环境作为实验设置 - 通常是小盒子或短线性轨道 ~1 到 2 米大小. 在这样的小环境中, 个别位置细胞通常只有一个位置场, 场大小也很小. 然而, 所有哺乳动物的户外导航都发生在跨越数百米或公里的自然环境中, 对于如此大空间尺度的神经编码一无所知.</p>
+<h2 id="rationale">RATIONALE<a hidden class="anchor" aria-hidden="true" href="#rationale">#</a></h2>
+<blockquote>
+<p>We reasoned that in very large environments, the hippocampus must exhibit a different coding scheme than seen in small environments because large environments  cannot be tiled fully by the limited number of hippocampal neurons. We set out to discover this alternative coding scheme and thus to close the longstanding gap between the neurobiology of navigation as studied in the laboratory and natural large-scale navigation. To this end, we studied bats flying in a 200-m-long tunnel while we recorded the activity of hippocampal dorsal CA1 neurons using a custom wirelesselectrophysiology system.</p>
+</blockquote>
+<p>我们认为在非常大的环境中, 海马体必须表现出与在小环境中看到的不同的编码方案, 因为大环境不能被有限数量的海马神经元完全覆盖. 我们着手发现这种替代编码方案, 从而弥合了实验室研究的导航神经生物学与自然大规模导航之间长期存在的差距. 为此, 我们研究了在 200 米长隧道中飞行的蝙蝠, 同时使用定制的无线电生理系统记录海马体背部 CA1 神经元的活动.</p>
+<h2 id="results">RESULTS<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h2>
+<blockquote>
+<p>We found that place cells recorded in the large environment exhibited a multifield, multiscale representation of space: Individual neurons exhibited multiple place fields of diverse sizes, ranging from &lt;1 m to more than 30 m, and the fields of the same neuron could differ up to 20-fold in size. This multifield, multiscale code was observed already from the first day in the environment and was similar between wild-born and laboratory-born bats that were never exposed to large environments. By contrast, recordings from a smallscale 6-m environment did not reveal such a multiscale code but rather classical single fields. Theoretical decoding analysis showed major advantages of the multiscale code over classical single-field codes, both in the number of required neurons and in the decoding errors. Thus, the multiscale code provides an efficient population code with a high capacity for representing very large environments. We conducted neural-network modeling, which suggested that the multiscale code may arise from interacting attractor networks with multiple scales or from feedforward networks, which yielded experimentally testable predictions for the inputs into CA1.</p>
+</blockquote>
+<p>我们发现, 在大环境中记录的位置细胞表现出空间的多场、多尺度表征: 个别神经元表现出多个不同大小的场, 范围从 &lt;1 米到超过 30 米, 同一神经元的场大小可以相差 20 倍. 这种多场、多尺度代码已经在环境中的第一天就被观察到, 并且在从未暴露于大环境中的野生出生和实验室出生的蝙蝠之间相似. 相比之下, 从一个小规模 6 米环境中的记录没有显示出这样的多尺度代码, 而是经典的单场. 理论解码分析显示了多尺度代码相对于经典单场代码的主要优势, 无论是在所需神经元数量还是在解码错误方面. 因此, 多尺度代码提供了一种高效的集群代码, 具有表示非常大环境的高容量. 我们进行了神经网络建模, 建议多尺度代码可能来自具有多个尺度的相互作用吸引子网络或前馈网络, 这产生了对 CA1 输入的可实验测试的预测.</p>
+<h2 id="conclusion">CONCLUSION<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<blockquote>
+<p>Using this experimental setup, our study uncovered a new coding scheme for large spaces, which was never observed before in small spaces: a multiscale code for space. This coding scheme existed from day 1 in the environment and was observed in both wild-born and laboratory-born bats, suggesting that it does not require previous experience. These findings provide a new notion for how the hippocampus represents space. The large naturalistic scale of our experimental environment was crucial for revealing this type of code. More generally, this study demonstrates the power of studying brain circuits  under naturalistic conditions.</p>
+</blockquote>
+<p>使用这个实验设置, 我们的研究发现了一个新的大空间编码方案, 以前在小空间中从未观察到过: 空间的多尺度代码. 这种编码方案从环境中的第一天就存在, 并且在野生出生和实验室出生的蝙蝠中都被观察到, 这表明它不需要先前的经验. 这些发现为海马体如何表示空间提供了一个新的概念. 我们实验环境的大自然尺度对于揭示这种类型的代码至关重要. 更一般地说, 这项研究展示了在自然条件下研究大脑电路的力量.</p>
+<h2 id="questions-what-is-the-neural-code-for-very-large-spaces">Questions: What is the neural code for very large spaces?<a hidden class="anchor" aria-hidden="true" href="#questions-what-is-the-neural-code-for-very-large-spaces">#</a></h2>
+<h3 id="methods">Methods<a hidden class="anchor" aria-hidden="true" href="#methods">#</a></h3>
+<blockquote>
+<p>Bat flying in 200-m-long tunnel with wireless electrophysiology system</p>
+</blockquote>
+<p>蝙蝠在 200 米长的隧道中飞行, 使用无线电生理系统记录</p>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/14/Q6gk/20260614222213208.png" alt=""  /></p>
+</blockquote>
+<h3 id="findings">Findings<a hidden class="anchor" aria-hidden="true" href="#findings">#</a></h3>
+<blockquote>
+<p>Individual place-cells in dorsal hippocampus CA1 showed multiple fields with highly variable sizes, from day 1 in the tunnel</p>
+</blockquote>
+<p>单个位置细胞在背部海马体 CA1 中显示出多个场, 大小高度可变, 从进入隧道的第一天就存在</p>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/14/Lld5/20260614222318740.png" alt=""  /></p>
+</blockquote>
+<h3 id="function">Function<a hidden class="anchor" aria-hidden="true" href="#function">#</a></h3>
+<blockquote>
+<p>Decoding analysis showed that the multifield multiscale code outperforms classical place-codes</p>
+</blockquote>
+<p>解码分析显示, 多场多尺度代码优于经典位置代码</p>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/14/hd9B/20260614222353315.png" alt=""  /></p>
+</blockquote>
+<h3 id="modeling">Modeling<a hidden class="anchor" aria-hidden="true" href="#modeling">#</a></h3>
+<blockquote>
+<p>Multifield multiscale coding can be explained with 1D interacting attractor networks and feedforward models</p>
+</blockquote>
+<p>多场多尺度编码可以用一维相互作用吸引子网络和前馈模型来解释</p>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/14/zFq5/20260614222453342.png" alt=""  /></p>
+</blockquote>
+<hr>
+<h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>Hippocampal place cells encode the animal’s location. Place cells were traditionally studied in small environments, and nothing is known about large ethologically relevant spatial scales. We wirelessly recorded from hippocampal dorsal CA1 neurons of wild-born bats flying in a long tunnel (200 meters). The size of place fields ranged from 0.6 to 32 meters. Individual place cells exhibited multiple fields and a multiscale representation: Place fields of the same neuron differed up to 20-fold in size. This multiscale coding was observed from the first day of exposure to the environment, and also in laboratory-born bats that never experienced large environments. Theoretical decoding analysis showed that the multiscale code allows representation of very large environments with much higher precision than that of other codes. Together, by increasing the spatial scale, we discovered a neural code that is radically different from classical place codes.</p>
+</blockquote>
+<p>海马体位置细胞编码动物的位置. 位置细胞传统上在小环境中研究, 对于大型相关空间尺度一无所知. 我们无线记录了在长隧道 (200 米) 中飞行的野生出生蝙蝠的海马体背部 CA1 神经元. 位置场的大小范围从 0.6 到 32 米. 个别位置细胞表现出多个场和多尺度表征: 同一神经元的场大小相差高达 20 倍. 这种多尺度编码从暴露于环境的第一天就被观察到, 并且在从未经历过大环境的实验室出生蝙蝠中也被观察到. 理论解码分析显示, 多尺度代码允许以比其他代码更高的精度表示非常大的环境. 总之, 通过增加空间尺度, 我们发现了一种与经典位置代码截然不同的神经代码.</p>
+<h1 id="introduction-1">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction-1">#</a></h1>
+<blockquote>
+<p>Navigation and spatial memory are crucial for the survival of animals in the wild. The hippocampal formation contains several types of spatial neurons whose activity represents the animal’s position and direction in space (1–10). One of these spatial cell types is the “place cell,” hippocampal neurons that increase their spiking activity when the animal passes through a specific region of space, in turn called the neuron’s “place field” (1, 2, 11–15). Individual place cells typically have only one (or two) place fields in a small environment (2, 11, 16), whereas multiple place fields are found in dentate-gyrus neurons upstream (16). Nearly all of the research on spatial representations in the mammalian brain has focused on rats and mice as animal models and used small laboratory environments as experimental setupsusually small boxes or short linear tracks ~1 to 2 m in size. Consequently, almost all current knowledge on spatial neurons in the hippocampal formation is based on data from animals moving in small laboratory environments. Two studies of place cells examined larger spatial scales (17, 18). However, these studies used either a zig-zagging track composed of ~1-m segments or a track that passed through several small rooms; thus, the largest singlecompartment environment in which place cells were recorded to date was &lt;10 m in size.</p>
+</blockquote>
+<p>导航和空间记忆对于野外动物的生存至关重要. 海马体包含几种类型的空间神经元, 其活动代表动物在空间中的位置和方向. 其中一种空间细胞类型是 &quot;位置细胞&quot;, 海马体神经元在动物通过特定空间区域时增加它们的尖峰活动, 这个区域被称为神经元的 &quot;位置场&quot;. 个别位置细胞通常在小环境中只有一个 (或两个) 位置场, 而在上游的齿状回神经元中发现了多个位置场. 几乎所有关于哺乳动物大脑中空间表征的研究都集中在老鼠和小鼠作为动物模型上, 并使用小型实验环境作为实验设置 - 通常是小盒子或短线性轨道 $\sim 1$ 到 2 米大小. 因此, 关于海马体形成中空间神经元的几乎所有当前知识都是基于动物在小型实验环境中移动的数据. 两项关于位置细胞的研究检查了更大的空间尺度. 然而, 这些研究使用了由 $\sim 1$ 米段组成的曲折轨道或穿过几个小房间的轨道; 因此, 到目前为止记录位置细胞的最大单隔室环境大小 $&lt;10$ 米.</p>
+<blockquote>
+<p>By contrast, outdoor navigation of all mammals occurs in natural environments that span  spatial scales much larger than 10 m. For example, wild rats were shown to navigate outdoors &gt;1 km per night (19, 20). Navigation over such distances requires spatial representation of very large environments, on the scale of hundreds of meters or kilometers (21). Egyptian fruit bats fly every night distances of up to ~30 km to their favorite fruit trees, with flyways spanning ~2 km in width and 0.5 km in height (21, 22). A simple calculation shows that tiling this space with typical place fields as measured in the laboratory (~10 to 20 cm diameter, single field per neuron) would require ~1013 neurons. This is ~108 times more neurons than the number of cells in the entire dorsal hippocampal area CA1 (3), suggesting that it is simply not feasible to represent such large spatial scales with laboratory-sized place fields. Thus, there is a fundamental gap between the neurobiology of navigation as studied in the laboratory and kilometer-scale natural navigation outdoors.</p>
+</blockquote>
+<p>相比之下, 所有哺乳动物的户外导航都发生在跨越比 10 米大得多的空间尺度的自然环境中. 例如, 野生老鼠被证明每晚在户外导航超过 1 公里. 在如此距离上的导航需要对非常大环境的空间表征, 在数百米或公里的尺度上. 埃及果蝠每晚飞行距离可达 $\sim 30$ 公里到它们最喜欢的果树, 飞行路径宽约 $\sim 2$ 公里, 高约 0.5 公里. 一个简单的计算表明, 用实验室中测量的典型位置场 (直径约 10 到 20 厘米, 每个神经元一个场) 来覆盖这个空间将需要约 $10^{13}$ 个神经元. 这是整个背部海马体 CA1 区域细胞数量的约 $10^8$ 倍, 表明用实验室大小的位置场来表示如此大的空间尺度根本不可行. 因此, 实验室研究的导航神经生物学与户外公里级自然导航之间存在一个根本性的差距.</p>
+<h1 id="neural-recordings-in-bats-flying-in-a-200-m-environment">Neural recordings in bats flying in a 200-m environment<a hidden class="anchor" aria-hidden="true" href="#neural-recordings-in-bats-flying-in-a-200-m-environment">#</a></h1>
+<blockquote>
+<p>We studied wild-born Egyptian fruit bats, a mammal that has rodent-like hippocampal spatial representations in small laboratory environments (23–26). We developed a miniaturized wireless neural-logging system that stores all the data on board (Fig. 1A). This system enabled neural recordings to be conducted over great distances in freely behaving animals, with uninterrupted experiments lasting up to ~3 hours (27). Using this system, we conducted tetrode recordings from dorsal CA1, in flight (Fig. 1, B to D, and fig. S1). We built a 200-mlong flight tunnel (Fig. 1E), composed of a long arm and a shorter arm, with landmarks dispersed along it (fig. S2). We used a medium  light level (5 lux), allowing these bats—which have excellent vision (21)—to see several distal landmarks from each location in the tunnel (fig. S2B). We used a radio frequency–based localization system, with a small mobile tag placed on the bat that measured the bat’s distances to a ground-based antenna array (Fig. 1F). This system yielded a high spatial localization accuracy of ~9 cm (Fig. 1G) along with a high temporal resolution (27). We harnessed the natural behavioral tendency of bats to fly long distances in straight trajectories (22) and trained them to fly in the tunnel between two landing balls that were placed at the two ends of the tunnel, on which food was given. The bats flew continuously back and forth between the landing balls (fig. S3A). Flight trajectories were rather stereotyped, with bats flying at the center-top portion of the tunnel, with only very small deviations perpendicular to the flight direction (Fig. 1H and fig. S3, B and C). Thus, the bats exhibited nearly perfect one-dimensional (1D) back-andforth trajectories. Hence, in all subsequent analyses, we projected the behavioral data onto the main axis of the tunnel and included only long unidirectional flights that were &gt;100 m in length (27). This 1D tunnel bears similarities to bats’ natural behaviors because these bats navigate underground in 1D cave tunnels, and also their flight trajectories outdoors are largely 1D (22). Flight speed was high and showed very little variation across different locations (Fig. 1, I and J). Bats flew dozens of flights per direction in each recording session (Fig. 1K), covering on average 14.1 km per session and up to 22.5 km in a single session (Fig. 1L).</p>
+</blockquote>
+<p>我们研究了野生出生的埃及果蝠, 这是一种在小型实验环境中具有类似啮齿类海马空间表征的哺乳动物. 我们开发了一个小型无线神经记录系统, 将所有数据存储在板载上 (图 1A). 该系统使得在自由行为动物中进行长距离神经记录成为可能, 不间断的实验持续时间最长可达 $\sim 3$ 小时. 使用该系统, 我们在飞行中从背部 CA1 进行四极电极记录 (图 1, B 到 D, 和图 S1). 我们建造了一个 200 米长的飞行隧道 (图 1E), 由一个长臂和一个短臂组成, 沿途分布着地标 (图 S2). 我们使用了中等光照水平 (5 lux), 允许这些视力出色的蝙蝠从隧道中的每个位置看到几个远处的地标 (图 S2B). 我们使用基于射频的定位系统, 在蝙蝠上放置一个小型移动标签, 测量蝙蝠与地面天线阵列的距离 (图 1F). 该系统提供了高空间定位精度约为 9 厘米 (图 1G) 和高时间分辨率. 我们利用了蝙蝠在直线轨迹中飞行长距离的自然行为倾向, 并训练它们在隧道中飞行, 在隧道两端放置两个着陆球, 上面提供食物. 蝙蝠连续来回飞行在着陆球之间 (图 S3A). 飞行轨迹相当刻板, 蝙蝠飞行在隧道的中心顶部部分, 垂直于飞行方向只有非常小的偏差 (图 1H 和图 S3, B 和 C). 因此, 蝙蝠表现出几乎完美的一维来回轨迹. 因此, 在所有后续分析中, 我们将行为数据投影到隧道的主轴上, 并且只包括长度超过 100 米的长单向飞行. 这个一维隧道与蝙蝠的自然行为有相似之处, 因为这些蝙蝠在地下的 1D 洞穴隧道中导航, 而且它们在户外的飞行轨迹在很大程度上是 1D 的. 飞行速度很快, 在不同位置之间几乎没有变化 (图 1, I 和 J). 蝙蝠每个记录会话每个方向飞行数十次 (图 1K), 平均每个会话覆盖 14.1 公里, 在单个会话中最多覆盖 22.5 公里 (图 1L).</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Renormalization group for neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/universal-statistics-of-hippocampal-place-fields-across-species-and-dimensionalities/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Universal statistics of hippocampal place fields across species and dimensionalities</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1201 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 156 篇 1049264 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
