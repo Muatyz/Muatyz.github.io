@@ -6,7 +6,25 @@
     <description>Recent content in Line Attractor on 无处惹尘埃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 14 Jun 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/line-attractor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Jun 2026 00:18:23 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/line-attractor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Back to the Continuous Attractor</title>
+      <link>https://Muatyz.github.io/posts/read/attractors/back-to-the-continuous-attractor/</link>
+      <pubDate>Tue, 23 Jun 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/attractors/back-to-the-continuous-attractor/</guid>
+      <description>回归连续吸引子</description>
+    </item>
+    
+    <item>
+      <title>Learning Continuous Attractors in Recurrent Networks</title>
+      <link>https://Muatyz.github.io/posts/read/attractors/learning-continuous-attractors-in-recurrent-networks/</link>
+      <pubDate>Tue, 23 Jun 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/attractors/learning-continuous-attractors-in-recurrent-networks/</guid>
+      <description>在循环网络中学习连续吸引子机制</description>
+    </item>
+    
     <item>
       <title>Multiscale representation of very large environments in the hippocampus of flying bats</title>
       <link>https://Muatyz.github.io/posts/read/attractors/multiscale-representation-of-very-large-environments-in-the-hippocampus-of-flying-bats/</link>
@@ -50,6 +68,15 @@
       
       <guid>https://Muatyz.github.io/posts/read/attractors/a-line-attractor-maintains-aggressiveness-during-feeding-in-hangry-mice/</guid>
       <description>&amp;#39;饿怒&amp;#39;小鼠在进食过程中保持攻击性的线性吸引子机制</description>
+    </item>
+    
+    <item>
+      <title>A thalamus–brainstem attractor network drives history-biased decisions</title>
+      <link>https://Muatyz.github.io/posts/read/attractors/a-thalamus-brainstem-attractor-network-drives-history-biased-decisions/</link>
+      <pubDate>Sun, 10 May 2026 00:18:23 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/attractors/a-thalamus-brainstem-attractor-network-drives-history-biased-decisions/</guid>
+      <description>丘脑-脑干吸引子网络驱动历史偏置决策</description>
     </item>
     
   </channel>

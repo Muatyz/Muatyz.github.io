@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Back to the Continuous Attractor | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="回归连续吸引子">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/back-to-the-continuous-attractor/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/back-to-the-continuous-attractor/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="Back to the Continuous Attractor" />
+<meta property="og:description" content="回归连续吸引子" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/back-to-the-continuous-attractor/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/06/23/bjD4/20260623211158726.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-06-23T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-06-23T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/06/23/bjD4/20260623211158726.png" />
+<meta name="twitter:title" content="Back to the Continuous Attractor"/>
+<meta name="twitter:description" content="回归连续吸引子"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Back to the Continuous Attractor",
+      "item": "https://Muatyz.github.io/posts/read/attractors/back-to-the-continuous-attractor/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Back to the Continuous Attractor",
+  "name": "Back to the Continuous Attractor",
+  "description": "回归连续吸引子",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Abstract Continuous attractors offer a unique class of solutions for storing continuousvalued variables in recurrent system states for indefinitely long time intervals.\nUnfortunately, continuous attractors suffer from severe structural instability in general—they are destroyed by most infinitesimal changes of the dynamical law that defines them.\nThis fragility limits their utility especially in biological systems as their recurrent dynamics are subject to constant perturbations.\n连续吸引子为在循环系统状态中无限期存储连续值变量提供了一类独特的解决方案。\n不幸的是，连续吸引子通常存在严重的结构不稳定性——它们会被定义它们的动力学规律的大多数微小变化所破坏。\n这种脆弱性限制了它们的实用性，尤其是在生物系统中，因为它们的循环动力学受到持续扰动。\nWe observe that the bifurcations from continuous attractors in theoretical neuroscience models display various structurally stable forms. Although their asymptotic behaviors to maintain memory are categorically distinct, their finite-time behaviors are similar.\nWe build on the persistent manifold theory to explain the commonalities between bifurcations from and approximations of continuous attractors. Fast-slow decomposition analysis uncovers the existence of a persistent slow manifold that survives the seemingly destructive bifurcation, relating the flow within the manifold to the size of the perturbation. Moreover, this allows the bounding of the memory error of these approximations of continuous attractors.\n我们观察到理论神经科学模型中连续吸引子的 分岔 显示出各种结构稳定的形式。尽管它们维持记忆的渐近行为在类别上是不同的，但它们的有限时间行为是相似的。\n我们基于持久流形理论来解释连续吸引子的分岔和近似之间的共性。快慢分解分析揭示了一个持久慢流形的存在，它在看似破坏性的分岔中幸存下来，将流动与扰动大小联系起来。此外，这允许对这些连续吸引子近似的记忆误差进行界定。\nFinally, we train recurrent neural networks on analog memory tasks to support the appearance of these systems as solutions and their generalization capabilities. Therefore, we conclude that continuous attractors are functionally robust and remain useful as a universal analogy for understanding analog memory.\n最后，我们在模拟记忆任务上训练循环神经网络，以支持这些系统作为解决方案的出现及其泛化能力。因此，我们得出结论，连续吸引子在功能上是稳健的，并且仍然有用，作为理解模拟记忆的普遍类比。\nIntroduction Biological systems exhibit robust behaviors that require neural information processing of analog variables such as intensity, direction, and distance. Virtually all neural models of working memory for continuous-valued information rely on persistent internal representations through recurrent dynamics.\nThe continuous attractor structure in their recurrent dynamics has been a pivotal theoretical tool due to their ability to maintain activity patterns indefinitely through neural population states 1–4. They are hypothesized to be the neural mechanism for the maintenance of eye positions, heading direction, self-location, target location, sensory evidence, working memory, and decision variables, to name a few 5–7. Observations of persistent neural activity across many brain areas, organisms, and tasks have corroborated the existence of continuous attractors.\n生物系统表现出稳健的行为，这些行为需要对 模拟变量（如强度、方向和距离）进行神经信息处理。几乎所有用于连续值信息的工作记忆的神经模型都依赖于通过循环动力学实现的持久内部表示。\n由于它们能够通过神经群体状态无限期地维持活动模式，它们在循环动力学中的连续吸引子结构一直是一个关键的理论工具。人们假设它们是维持 眼睛位置、航向方向、自我位置、目标位置、感官证据、工作记忆和决策变量 等的神经机制。在许多大脑区域、生物体和任务中观察到的持续神经活动证实了连续吸引子的存在。\nDespite their widespread adoption as models of analog memory, continuous attractors are brittle mathematical objects, casting significant doubts on their ontological value and hence suitability in accurately representing biological functions.\nEven the smallest arbitrary change in recurrent dynamics can be problematic, destroying the continuum of fixed points essential for continuous-valued working memory. In neuroscience, this vulnerability is well-known and often referred to as the “fine-tuning problem”.\n尽管它们被广泛采用作为模拟记忆的模型，但连续吸引子是 脆弱的数学对象，这对它们的本体价值以及准确表示生物功能的适用性提出了重大质疑。\n即使是循环动力学中的最小任意变化也可能是有问题的，破坏了连续值工作记忆所必需的固定点连续体。在神经科学中，这种脆弱性是众所周知的，通常被称为 “微调问题”。\nThere are two primary sources of perturbations in the recurrent network dynamics:\n(1) the stochastic nature of online learning signals that act via synaptic plasticity, and\n(2) spontaneous fluctuations in synaptic weights.\nThus, additional mechanisms are necessary to compensate for the degradation in particular implementations, by bringing the short-term behavior closer to that of a continuous attractor.\n循环网络动力学中扰动的两个主要来源是：\n（1）通过突触可塑性作用的在线学习信号的随机性，以及\n（2）突触权重的自发涨落。\n因此，需要额外的机制来补偿特定实现中的退化，通过使短期行为更接近连续吸引子的行为。\nHowever, we lack the theoretical basis to understand how much this matters in practice, i.e. what are the effects of different levels of degradation on memory. This is fundamental to justify relying on the brittle concept of continuous attractors for understanding biological analog working memory.\n然而，我们缺乏理论基础来理解这实际上有多重要，即不同水平退化对记忆的影响是什么。这对于证明依赖于脆弱的连续吸引子概念来理解生物模拟工作记忆是基本的。\nIn this study, we explore perturbations and approximations of continuous attractors in the space of dynamical models. We first report on the differences and similarities between the various structurally stable dynamics in the vicinity of continuous attractors in the space of dynamical systems models.\nOur analysis reveals the presence of a “ghost” continuous attractor (a.k.a. slow manifold) in all of them (Sec. 2).\nBy assuming normal hyperbolicity we separate the time scales to obtain a decomposition of the dynamics by separating out the fast flow normal to and the slow flow within the slow manifold. We derive theoretical results that ensure the existence of a slow manifold and determine its closeness to a continuous attractor (Sec. 3).\n在本研究中，我们探索了动力学模型空间中连续吸引子的扰动和近似。我们首先报告了动力系统模型空间中连续吸引子附近各种结构稳定动力学之间的差异和相似性。\n我们的分析揭示了它们中都存在一个 “幽灵” 连续吸引子（又名慢流形）（第2节）。\n通过假设正常超曲率，我们 分离时间尺度，通过分离快流（垂直于慢流形）和慢流（在慢流形内）来获得动力学的分解。我们推导了理论结果，确保慢流形的存在，并确定其与连续吸引子的接近程度（第3节）。\nWe explore task-trained recurrent neural networks (RNNs) to show that these systems appear naturally as solutions to the task (Sec. 4) and that their generalization capabilities can easily be studied as the distance to the continuous attractor (Sec. 5).\nThe proposed decomposition applied to theoretical models and task-trained RNNs reveals a “universal motif” of analog memory mechanism with various potential topologies. This leads to the connection of different systems with different topologies as approximate continuous attractors (Sec. 6).\nOur theory guarantees that systems close to a continuous attractor (in the space of vector fields) will have similar behavior to it, implying that the concept of continuous attractors remains a crucial framework for understanding the neural computation underlying analog memory (Sec. 3.4).\n我们探索了任务训练的循环神经网络（RNNs），以显示这些系统自然地作为任务的解决方案出现（第4节），并且它们的泛化能力可以很容易地作为与连续吸引子的距离来研究（第5节）。\n将所提出的分解应用于理论模型和任务训练的 RNNs 揭示了具有各种潜在拓扑结构的模拟记忆机制的 “通用模式”。这导致了不同拓扑结构的不同系统作为近似连续吸引子的连接（第6节）。\n我们的理论保证了接近连续吸引子的系统（在向量场空间中）将具有类似的行为，这意味着连续吸引子的概念仍然是理解模拟记忆背后的神经计算的重要框架（第3.4节）。\nA critique of pure continuous attractors We will first lay out a number of observations about the dynamics of bifurcations and approximations of continuous attractors used in theoretical neuroscience. Ordinary differential equations (ODEs) are commonly used to describe the dynamical laws governing the temporal evolution of firing rates or latent population states 1. In this framework, neural systems are viewed as implementing the continuous time evolution of neural states to perform computations. We will consider a continuous attractor as a mechanism that implements analog memory computation: carrying a particular memory representation over time. To define it formally, let $\\mathbf{x}(t)\\in\\mathbb{R}^{d}$ denote the neural state, and $\\dot{\\mathbf{x}}=\\mathbf{f}(\\mathbf{x})$ represent its dynamics. Let $\\mathcal{M}\\subset \\mathbb{R}^{d}$ be a manifold. We say $\\mathcal{M}$ is a continuous attractor, if (1) every state on the manifold is a fixed point, $\\forall\\mathbf{x}\\in\\mathcal{M}$, $\\mathbf{f} (\\mathbf{x}) = 0$, and (2) the fixed points are marginally stable tangent to the manifold and stable normal to the manifold. In other words, the continuous attractor is a continuum of equilibrium points such that the neural state near the manifold is attracted to it, and on the manifold, the state does not move. Marginal stability implies that continuous systems are structurally unstable, meaning that small perturbations or variations in the system’s parameters lead to significant changes in the system’s behavior or stability. We will now study some examples of continuous attractors and how perturbations change their dynamics.\n我们首先将提出一些关于理论神经科学中使用的连续吸引子的分岔和近似动力学的观察。常微分方程（ODEs）通常用于描述控制发射率或潜在群体状态时间演化的动力学规律。在这个框架中，神经系统被视为实现神经状态的连续时间演化以执行计算。我们将考虑连续吸引子作为实现模拟记忆计算的机制：随时间携带特定的记忆表示。为了正式定义它，让 $\\mathbf{x}(t)\\in\\mathbb{R}^{d}$ 表示神经状态，并且 $\\dot{\\mathbf{x}}=\\mathbf{f}(\\mathbf{x})$ 表示其动力学。设 $\\mathcal{M}\\subset \\mathbb{R}^{d}$ 为流形。如果满足以下条件，我们称 $\\mathcal{M}$ 为连续吸引子：(1) 流形上的每个状态都是一个固定点，$\\forall\\mathbf{x}\\in\\mathcal{M}$, $\\mathbf{f} (\\mathbf{x}) = 0$，以及 (2) 固定点在流形切线方向上是边际稳定的，在流形法线方向上是稳定的。换句话说，连续吸引子是一系列平衡点，使得流形附近的神经状态被吸引到它上面，并且在流形上，状态不会移动。边际稳定性意味着连续系统在结构上是不稳定的，这意味着系统参数的小扰动或变化会导致系统行为或稳定性的显著变化。我们现在将研究一些连续吸引子的例子，以及扰动如何改变它们的动力学。\n",
+  "wordCount" : "2847",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/06/23/bjD4/20260623211158726.png","datePublished": "2026-06-23T00:18:23+08:00",
+  "dateModified": "2026-06-23T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/back-to-the-continuous-attractor/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                Back to the Continuous Attractor
+            </h1>
+            <div class="post-description">
+                回归连续吸引子
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-06-23
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2847字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>6分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/line-attractor/" style="color: var(--secondary)!important;">Line Attractor</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/06/23/bjD4/20260623211158726.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#a-critique-of-pure-continuous-attractors" aria-label="A critique of pure continuous attractors">A critique of pure continuous attractors</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>Continuous attractors offer a unique class of solutions for storing continuousvalued variables in recurrent system states for indefinitely long time intervals.</p>
+<p>Unfortunately, continuous attractors suffer from severe structural instability in general—they are destroyed by most infinitesimal changes of the dynamical law that defines them.</p>
+<p>This fragility limits their utility especially in biological systems as their recurrent dynamics are subject to constant perturbations.</p>
+</blockquote>
+<p>连续吸引子为在循环系统状态中无限期存储连续值变量提供了一类独特的解决方案。</p>
+<p>不幸的是，连续吸引子通常存在严重的结构不稳定性——它们会被定义它们的动力学规律的大多数微小变化所破坏。</p>
+<p>这种脆弱性限制了它们的实用性，尤其是在生物系统中，因为它们的循环动力学受到持续扰动。</p>
+<blockquote>
+<p>We observe that the <strong>bifurcations</strong> from continuous attractors in theoretical neuroscience models display various structurally stable forms. Although their asymptotic behaviors to maintain memory are categorically distinct, their finite-time behaviors are similar.</p>
+<p>We build on the persistent manifold theory to explain the commonalities between bifurcations from and approximations of continuous attractors. Fast-slow decomposition analysis uncovers the existence of a persistent slow manifold that survives the seemingly destructive bifurcation, relating the flow within the manifold to the size of the perturbation. Moreover, this allows the bounding of the memory error of these approximations of continuous attractors.</p>
+</blockquote>
+<p>我们观察到理论神经科学模型中连续吸引子的 <strong>分岔</strong> 显示出各种结构稳定的形式。尽管它们维持记忆的渐近行为在类别上是不同的，但它们的有限时间行为是相似的。</p>
+<p>我们基于持久流形理论来解释连续吸引子的分岔和近似之间的共性。快慢分解分析揭示了一个持久慢流形的存在，它在看似破坏性的分岔中幸存下来，将流动与扰动大小联系起来。此外，这允许对这些连续吸引子近似的记忆误差进行界定。</p>
+<blockquote>
+<p>Finally, we train recurrent neural networks on analog memory tasks to support the appearance of these systems as solutions and their generalization capabilities. Therefore, we conclude that continuous attractors are functionally robust and remain useful as a universal analogy for understanding analog memory.</p>
+</blockquote>
+<p>最后，我们在模拟记忆任务上训练循环神经网络，以支持这些系统作为解决方案的出现及其泛化能力。因此，我们得出结论，连续吸引子在功能上是稳健的，并且仍然有用，作为理解模拟记忆的普遍类比。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>Biological systems exhibit robust behaviors that require neural information processing of <strong>analog variables</strong> such as intensity, direction, and distance. Virtually all neural models of working memory for continuous-valued information rely on persistent internal representations through recurrent dynamics.</p>
+<p>The continuous attractor structure in their recurrent dynamics has been a pivotal theoretical tool due to their ability to maintain activity patterns indefinitely through neural population states 1–4. They are hypothesized to be the neural mechanism for the maintenance of <em>eye positions, heading direction, self-location, target location, sensory evidence, working memory, and decision variables</em>, to name a few 5–7. Observations of persistent neural activity across many brain areas, organisms, and tasks have corroborated the existence of continuous attractors.</p>
+</blockquote>
+<p>生物系统表现出稳健的行为，这些行为需要对 <strong>模拟变量</strong>（如强度、方向和距离）进行神经信息处理。几乎所有用于连续值信息的工作记忆的神经模型都依赖于通过循环动力学实现的持久内部表示。</p>
+<p>由于它们能够通过神经群体状态无限期地维持活动模式，它们在循环动力学中的连续吸引子结构一直是一个关键的理论工具。人们假设它们是维持 <em>眼睛位置、航向方向、自我位置、目标位置、感官证据、工作记忆和决策变量</em> 等的神经机制。在许多大脑区域、生物体和任务中观察到的持续神经活动证实了连续吸引子的存在。</p>
+<blockquote>
+<p>Despite their widespread adoption as models of analog memory, continuous attractors are <strong>brittle mathematical objects</strong>, casting significant doubts on their ontological value and hence suitability in accurately representing biological functions.</p>
+<p>Even the smallest arbitrary change in recurrent dynamics can be problematic, destroying the continuum of fixed points essential for continuous-valued working memory. In neuroscience, this vulnerability is well-known and often referred to as the “<strong>fine-tuning problem</strong>”.</p>
+</blockquote>
+<p>尽管它们被广泛采用作为模拟记忆的模型，但连续吸引子是 <strong>脆弱的数学对象</strong>，这对它们的本体价值以及准确表示生物功能的适用性提出了重大质疑。</p>
+<p>即使是循环动力学中的最小任意变化也可能是有问题的，破坏了连续值工作记忆所必需的固定点连续体。在神经科学中，这种脆弱性是众所周知的，通常被称为 “<strong>微调问题</strong>”。</p>
+<blockquote>
+<p>There are two primary sources of perturbations in the recurrent network dynamics:</p>
+<p>(1) the stochastic nature of online learning signals that act via synaptic plasticity, and</p>
+<p>(2) spontaneous fluctuations in synaptic weights.</p>
+<p>Thus, additional mechanisms are necessary to compensate for the degradation in particular implementations, by bringing the short-term behavior closer to that of a continuous attractor.</p>
+</blockquote>
+<p>循环网络动力学中扰动的两个主要来源是：</p>
+<p>（1）通过突触可塑性作用的在线学习信号的随机性，以及</p>
+<p>（2）突触权重的自发涨落。</p>
+<p>因此，需要额外的机制来补偿特定实现中的退化，通过使短期行为更接近连续吸引子的行为。</p>
+<blockquote>
+<p>However, we lack the theoretical basis to understand how much this matters in practice, i.e. what are the effects of different levels of degradation on memory. This is fundamental to justify relying on the brittle concept of continuous attractors for understanding biological analog working memory.</p>
+</blockquote>
+<p>然而，我们缺乏理论基础来理解这实际上有多重要，即不同水平退化对记忆的影响是什么。这对于证明依赖于脆弱的连续吸引子概念来理解生物模拟工作记忆是基本的。</p>
+<blockquote>
+<p>In this study, we explore perturbations and approximations of continuous attractors in the space of dynamical models. We first report on the differences and similarities between the various structurally stable dynamics in the vicinity of continuous attractors in the space of dynamical systems models.</p>
+<p>Our analysis reveals the presence of a “ghost” continuous attractor (a.k.a. slow manifold) in all of them (Sec. 2).</p>
+<p>By assuming normal hyperbolicity we <strong>separate the time scales</strong> to obtain a decomposition of the dynamics by separating out the fast flow normal to and the slow flow within the slow manifold. We derive theoretical results that ensure the existence of a slow manifold and determine its closeness to a continuous attractor (Sec. 3).</p>
+</blockquote>
+<p>在本研究中，我们探索了动力学模型空间中连续吸引子的扰动和近似。我们首先报告了动力系统模型空间中连续吸引子附近各种结构稳定动力学之间的差异和相似性。</p>
+<p>我们的分析揭示了它们中都存在一个 “幽灵” 连续吸引子（又名慢流形）（第2节）。</p>
+<p>通过假设正常超曲率，我们 <strong>分离时间尺度</strong>，通过分离快流（垂直于慢流形）和慢流（在慢流形内）来获得动力学的分解。我们推导了理论结果，确保慢流形的存在，并确定其与连续吸引子的接近程度（第3节）。</p>
+<blockquote>
+<p>We explore task-trained recurrent neural networks (RNNs) to show that these systems appear naturally as solutions to the task (Sec. 4) and that their generalization capabilities can easily be studied as the distance to the continuous attractor (Sec. 5).</p>
+<p>The proposed decomposition applied to theoretical models and task-trained RNNs reveals a “universal motif” of analog memory mechanism with various potential topologies. This leads to the connection of different systems with different topologies as approximate continuous attractors (Sec. 6).</p>
+<p>Our theory guarantees that systems close to a continuous attractor (in the space of vector fields) will have similar behavior to it, implying that the concept of continuous attractors remains a crucial framework for understanding the neural computation underlying analog memory (Sec. 3.4).</p>
+</blockquote>
+<p>我们探索了任务训练的循环神经网络（RNNs），以显示这些系统自然地作为任务的解决方案出现（第4节），并且它们的泛化能力可以很容易地作为与连续吸引子的距离来研究（第5节）。</p>
+<p>将所提出的分解应用于理论模型和任务训练的 RNNs 揭示了具有各种潜在拓扑结构的模拟记忆机制的 “通用模式”。这导致了不同拓扑结构的不同系统作为近似连续吸引子的连接（第6节）。</p>
+<p>我们的理论保证了接近连续吸引子的系统（在向量场空间中）将具有类似的行为，这意味着连续吸引子的概念仍然是理解模拟记忆背后的神经计算的重要框架（第3.4节）。</p>
+<h1 id="a-critique-of-pure-continuous-attractors">A critique of pure continuous attractors<a hidden class="anchor" aria-hidden="true" href="#a-critique-of-pure-continuous-attractors">#</a></h1>
+<blockquote>
+<p>We will first lay out a number of observations about the dynamics of bifurcations and approximations of continuous attractors used in theoretical neuroscience. Ordinary differential equations (ODEs) are commonly used to describe the dynamical laws governing the temporal evolution of firing rates or latent population states 1. In this framework, neural systems are viewed as implementing the continuous time evolution of neural states to perform computations. We will consider a continuous attractor as a mechanism that implements analog memory computation: carrying a particular memory representation over time. To define it formally, let $\mathbf{x}(t)\in\mathbb{R}^{d}$ denote the neural state, and $\dot{\mathbf{x}}=\mathbf{f}(\mathbf{x})$ represent its dynamics. Let $\mathcal{M}\subset \mathbb{R}^{d}$ be a manifold. We say $\mathcal{M}$ is a continuous attractor, if (1) every state on the manifold is a fixed point, $\forall\mathbf{x}\in\mathcal{M}$, $\mathbf{f} (\mathbf{x}) = 0$, and (2) the fixed points are marginally stable tangent to the manifold and stable normal to the manifold. In other words, the continuous attractor is a continuum of equilibrium points such that the neural state near the manifold is attracted to it, and on the manifold, the state does not move. Marginal stability implies that continuous systems are structurally unstable, meaning that small perturbations or variations in the system’s parameters lead to significant changes in the system’s behavior or stability. We will now study some examples of continuous attractors and how perturbations change their dynamics.</p>
+</blockquote>
+<p>我们首先将提出一些关于理论神经科学中使用的连续吸引子的分岔和近似动力学的观察。常微分方程（ODEs）通常用于描述控制发射率或潜在群体状态时间演化的动力学规律。在这个框架中，神经系统被视为实现神经状态的连续时间演化以执行计算。我们将考虑连续吸引子作为实现模拟记忆计算的机制：随时间携带特定的记忆表示。为了正式定义它，让 $\mathbf{x}(t)\in\mathbb{R}^{d}$ 表示神经状态，并且 $\dot{\mathbf{x}}=\mathbf{f}(\mathbf{x})$ 表示其动力学。设 $\mathcal{M}\subset \mathbb{R}^{d}$ 为流形。如果满足以下条件，我们称 $\mathcal{M}$ 为连续吸引子：(1) 流形上的每个状态都是一个固定点，$\forall\mathbf{x}\in\mathcal{M}$, $\mathbf{f} (\mathbf{x}) = 0$，以及 (2) 固定点在流形切线方向上是边际稳定的，在流形法线方向上是稳定的。换句话说，连续吸引子是一系列平衡点，使得流形附近的神经状态被吸引到它上面，并且在流形上，状态不会移动。边际稳定性意味着连续系统在结构上是不稳定的，这意味着系统参数的小扰动或变化会导致系统行为或稳定性的显著变化。我们现在将研究一些连续吸引子的例子，以及扰动如何改变它们的动力学。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Renormalization group for neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/learning-continuous-attractors-in-recurrent-networks/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Learning Continuous Attractors in Recurrent Networks</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1210 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 159 篇 1072275 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>A thalamus–brainstem attractor network drives history-biased decisions | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="丘脑-脑干吸引子网络驱动历史偏置决策">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/a-thalamus-brainstem-attractor-network-drives-history-biased-decisions/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/a-thalamus-brainstem-attractor-network-drives-history-biased-decisions/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="A thalamus–brainstem attractor network drives history-biased decisions" />
+<meta property="og:description" content="丘脑-脑干吸引子网络驱动历史偏置决策" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/a-thalamus-brainstem-attractor-network-drives-history-biased-decisions/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/06/15/zO1y/20260615182309271.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-05-10T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-05-10T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/06/15/zO1y/20260615182309271.png" />
+<meta name="twitter:title" content="A thalamus–brainstem attractor network drives history-biased decisions"/>
+<meta name="twitter:description" content="丘脑-脑干吸引子网络驱动历史偏置决策"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "A thalamus–brainstem attractor network drives history-biased decisions",
+      "item": "https://Muatyz.github.io/posts/read/attractors/a-thalamus-brainstem-attractor-network-drives-history-biased-decisions/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A thalamus–brainstem attractor network drives history-biased decisions",
+  "name": "A thalamus–brainstem attractor network drives history-biased decisions",
+  "description": "丘脑-脑干吸引子网络驱动历史偏置决策",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Abstract Natural environments often change gradually, making it adaptive to bias decisions on the basis of the recent past — a phenomenon known as serial dependence1–3. Large-scale recordings during behaviour have identified that serial dependence is a common motif for decision-making, with neural representations of past experiences found throughout the brain4–11. However, it remains unclear whether this bias arises from dedicated neural circuits with history-specific computations. Using wholebrain, cellular-resolution imaging in zebrafish performing memory-guided evasive manoeuvres12–14, we identified a hierarchical circuit that maintains past information and biases future choices. Discrete attractors in the dorsal thalamus encoded the position of the most recent obstacle, maintaining a categorical memory via persistent activity lasting 10–20 s. Optogenetic manipulation of the dorsal thalamus abolished or imposed serial bias. A downstream hindbrain integrator received input from the thalamus and combined it with current sensory cues to produce graded responses reflecting multi-trial history. Leveraging a comprehensive brain atlas in zebrafish15, we constructed a whole-brain computational model that recapitulated behaviour and also predicted a key role for heterogeneous inhibitory subtypes in enabling flexible state transitions. This attractor–integrator architecture reveals a hierarchical and modular computation that unifies robust memory retention with flexible sensory integration, providing a general principle for history-biased decisions.\n自然环境经常逐渐变化，因此根据最近的过去来偏向决策是适应性的——这一现象被称为序列依赖。行为期间的大规模记录已经确定，序列依赖是决策的一个常见模式，在整个大脑中都发现了过去经验的神经表征。然而，目前尚不清楚这种偏差是否来自具有历史特定计算的专用神经回路。使用在执行记忆引导的规避机动的小型斑马鱼中进行全脑、细胞分辨率成像，我们确定了一个分层电路，该电路保持过去的信息并偏向未来的选择。背侧丘脑中的离散吸引子编码了最近障碍物的位置，通过持续活动维持了 10-20 秒的分类记忆。对背侧丘脑的光遗传学操纵消除了或强加了序列偏差。下游的后脑积分器接收来自丘脑的输入，并将其与当前的感觉线索结合起来，产生反映多次试验历史的分级响应。利用斑马鱼的综合大脑图谱，我们构建了一个全脑计算模型，重现了行为，并预测了异质抑制亚型在实现灵活状态转换中的关键作用。这种吸引子-积分器架构揭示了一种分层和模块化的计算，统一了稳健的记忆保持与灵活的感觉整合，为历史偏置决策提供了一般原则。\nIntroduction In environments that change gradually, the recent past is the best predictor of the present. Organisms exploit this continuity by biasing their next action towards what just succeeded, gaining a clear adaptive edge. A bee that finds nectar on one flower will correctly bias its next landing towards neighbouring blooms; an animal that hears a faint rustle from one side across several intervals grows progressively more likely to avoid that side in its subsequent decisions; and a driver who encounters several potholes on the left lane begins to favour the right, even after the road smooths out. This systematic pull of recent experience on perception and choice — serial dependence or history bias1–3 — stabilizes behaviour, smooths noisy inputs and leverages elements of the structure of the world, such as clustered resources or recurring threats.\n在逐渐变化的环境中，最近的过去是现在的最佳预测。生物通过偏向他们刚刚成功的下一个行动来利用这种连续性，从而获得明显的适应优势。一只在一朵花上找到花蜜的蜜蜂会正确地偏向它下一次降落在邻近的花朵上；一个在几个时间间隔内从一侧听到微弱沙沙声的动物在随后的决策中越来越可能避免那一侧；一个遇到几个坑洼的司机开始偏向右边，即使道路变平了。这种最近经验对感知和选择的系统性拉动——序列依赖或历史偏差——稳定了行为，平滑了嘈杂的输入，并利用了世界结构的元素，例如聚类资源或反复出现的威胁。\nSerial dependence is widespread across species and cognitive domains: perceptions and decisions are steered by a weighted average of recent stimuli, motor outputs and rewards4–9,18–24. Its neural correlates span the entire neuroaxis: from early sensory circuits such as the lateral geniculate nucleus and primary visual cortex to association areas such as the posterior parietal and prefrontal cortices. A recent brain-wide survey by the International Brain Laboratory, integrating efforts from over 20 laboratories, found that decision history is encoded across more than 20% of cortical and subcortical regions, forming subjective priors that track behavioural bias during flexible choice.\n序列依赖在物种和认知领域中普遍存在：感知和决策受到最近刺激、运动输出和奖励的加权平均的引导。它的神经相关物跨越整个神经轴：从早期感觉回路如外侧膝状体和初级视觉皮层到联合区如后顶叶和前额叶皮层。国际脑实验室最近进行的一项全脑调查，整合了20多个实验室的努力，发现决策历史在超过20%的皮层和亚皮层区域中被编码，形成了跟踪灵活选择期间行为偏差的主观先验。\nYet, although these extensive studies have successfully identified where past information is encoded, they have not revealed how it is selectively maintained, updated and transformed into a behavioural bias. We hypothesize that the distributed correlates of history are not functionally redundant; rather, they constitute a computational hierarchy in which upstream nodes preserve past information as short-term memory, and downstream nodes integrate that memory with current input to generate serial dependence. Elucidating this hierarchical implementation and its interactions is essential to resolve how a multi-experience cognitive bias emerges from distributed neural activity.\n然而，尽管这些广泛的研究已经成功地确定了过去信息被编码的位置，但它们并没有揭示它是如何被选择性地维护、更新和转化为行为偏差的。我们假设历史的分布式相关物不是功能冗余的；相反，它们构成了一个计算层次结构，其中上游节点将过去的信息保留为短期记忆，下游节点将该记忆与当前输入整合以产生序列依赖。阐明这种分层实现及其交互作用对于解决多经验认知偏差如何从分布式神经活动中出现至关重要。\nHere we address this challenge through an unbiased, brain-wide screen, revealing a hierarchical circuit that underlies serial dependence. Using cellular-resolution, whole-brain imaging in larval zebrafish executing memory-guided evasive manoeuvres12–14, we systematically mapped all brain regions and identified the circuit dynamics underlying history-biased decisions. We found that the dorsal thalamus (DT) acts as a memory buffer using discrete attractor dynamics, maintaining a robust, perturbation-resistant trace of the most recent sensory event. This single-trial memory trace is read out by a downstream hindbrain integrator, which transforms the thalamic state into a graded response that reflects multi-trial history. Leveraging the recently established zebrafish projectome, we built an anatomy-constrained whole-brain model that demonstrates how an attractor-to-integrator algorithm is implemented within this thalamus–brainstem circuit. Together, our findings reveal a modular hierarchy that segregates memory maintenance and sensory integration into distinct substrates, enabling a robust yet flexible transformation of past experience into current action.\n通过一个无偏见的全脑筛选，我们解决了这个挑战，揭示了一个支持序列依赖的分层电路。使用在执行记忆引导的规避机动的小型斑马鱼中进行全脑、细胞分辨率成像，我们系统地映射了所有大脑区域，并确定了历史偏置决策背后的电路动力学。我们发现背侧丘脑（DT）使用离散吸引子动力学作为记忆缓冲区，保持最近一次感觉事件的稳健、抗扰动的痕迹。这个单次试验的记忆痕迹被下游的后脑积分器读取，它将丘脑状态转化为反映多次试验历史的分级响应。利用最近建立的斑马鱼项目组，我们构建了一个受解剖约束的全脑模型，展示了如何在这个丘脑-脑干电路中实现吸引子到积分器算法。总之，我们的发现揭示了一个模块化层次结构，将记忆维护和感觉整合分隔到不同的基质中，实现了过去经验到当前行动的稳健而灵活的转化。\nSerial dependence biases navigation To identify the complete neural circuit underlying serial dependence, we developed a virtual reality obstacle-avoidance task for zebrafish while monitoring brain-wide activity at single-cell resolution (Fig. 1a). In this assay, paralysed zebrafish navigated a virtual environment; their motor neuron activity was recorded and decoded in real time to update the visual scene13,26. Fish were motivated to swim forwards by a drifting grating that simulated the optic flow of moving water14,26. During swimming, they encountered dark square obstacles that mimicked pieces of floating debris: objects larger than the fish. The obstacle was approximately four times the body length of the fish (approximately 20 mm) and appeared sequentially either on the left or right side. Successive obstacles were presented with long enough intervals to ensure that each one disappeared before the next appeared (Fig. 1a). This design allowed us to test whether identical visual stimuli evoked different responses depending on the positions of previous obstacles. Simultaneously, we performed whole-brain calcium imaging with single-cell resolution by a custom-built light-sheet microscope, in transgenic zebrafish expressing pan-neuronal GCaMP8m.\n为了确定支持序列依赖的完整神经回路，我们为斑马鱼开发了一个虚拟现实障碍物规避任务，同时以单细胞分辨率监测全脑活动。在这个测定中，麻痹的斑马鱼在一个虚拟环境中导航；他们的运动神经元活动被实时记录和解码以更新视觉场景。通过模拟水流的光流漂移条纹，鱼被激励向前游泳。在游泳过程中，他们遇到了模仿漂浮碎片的黑色方形障碍物：比鱼更大的物体。障碍物大约是鱼体长的四倍（约20毫米），依次出现在左侧或右侧。连续的障碍物以足够长的间隔呈现，以确保每个障碍物在下一个出现之前消失。这种设计使我们能够测试相同的视觉刺激是否会根据先前障碍物的位置引发不同的反应。同时，我们通过定制的光片显微镜，在表达全神经元 GCaMP8m 的转基因斑马鱼中进行全脑钙成像，达到单细胞分辨率。\nWe first assessed serial dependence in zebrafish navigational choices. Trials were classified as left (L) or right (R) on the basis of the obstacle position in the virtual environment. Zebrafish reliably avoided obstacles via lateral turns (Fig. 1b,c, Extended Data Fig. 1a,b and Supplementary Video 1). Critically, avoidance magnitude was not determined solely by the current obstacle but was significantly influenced by the preceding encounters. When the current obstacle appeared on the same side as the preceding obstacle (LL or RR sequences), fish exhibited stronger avoidance behaviour, with trajectories further away from the obstacle compared with alternating sequences (RL or LR sequences; Fig. 1d,e). This history-dependent amplification of avoidance reveals a robust serial dependence in navigational decisions. A comparable bias was also observed in a free-swimming assay, indicating that serial dependence is not specific to virtual navigation (Extended Data Fig. 1c–e and Supplementary Video 2).\n我们首先评估了斑马鱼导航选择中的序列依赖。试验根据虚拟环境中障碍物的位置被分类为左（L）或右（R）。斑马鱼通过侧转可靠地避免障碍物。关键是，避免的程度不仅仅由当前的障碍物决定，而是受到之前遭遇的显著影响。当当前障碍物出现在与前一个障碍物相同的一侧（LL 或 RR 序列）时，鱼表现出更强的避免行为，轨迹比交替序列（RL 或 LR 序列）更远离障碍物。这种基于历史的避免增强揭示了导航决策中的稳健序列依赖。在自由游泳测定中也观察到了类似的偏差，表明序列依赖并非特定于虚拟导航。\nSuch serial dependence may confer a behavioural advantage. We simulated an agent navigating a maze in which obstacle locations were spatially correlated, mimicking naturalistic environments. A serial-dependent agent, which integrates past obstacle encounters into its current avoidance, navigated more efficiently than a purely reactive agent (Extended Data Fig. 1f). This advantage disappeared in mazes where the obstacles were more randomly distributed, supporting the hypothesis that serial dependence optimizes navigation by exploiting environmental continuity in nature.\n这种序列依赖可能带来行为优势。我们模拟了一个在迷宫中导航的代理，其中障碍物位置具有空间相关性，模仿自然环境。一个序列依赖的代理将过去的障碍物遭遇整合到当前的避免中，比一个纯反应性的代理导航更有效。在障碍物更随机分布的迷宫中，这种优势消失了，支持了序列依赖通过利用自然环境中的连续性来优化导航的假设。\nThis serial bias persisted across intervals up to 20 s (Fig. 1f). Furthermore, serial dependence was not limited to the immediately preceding trial; obstacle positions from two trials earlier in the sequence also significantly biased the current response, with more recent events exerting a greater influence (Fig. 1g). Three-trial sequences with consistent laterality (for example, LLL) produced the strongest bias (Extended Data Fig. 2a). We confirmed that serial dependence did not arise from simple sensory or motor inertia. Each trial began with the obstacle at the same fixed position relative to the fish, ensuring identical sensory conditions at onset. To control for motor inertia, we found that pre-obstacle swimming was independent of history (Extended Data Fig. 2b) and that the bias persisted even when fish remained completely immobile throughout the interval, a condition induced by pausing the drifting grating (Extended Data Fig. 2c). These observations confirm that the bias was not due to residual motor activity.\n这种序列偏差在长达 20 秒的间隔内持续存在。此外，序列依赖不仅限于紧接前一个试验；序列中两个试验之前的障碍物位置也显著地偏向当前的反应，更近的事件施加更大的影响。具有一致侧性的三试验序列（例如 LLL）产生了最强的偏差。我们确认序列依赖不是由简单的感觉或运动惯性引起的。每个试验开始时，障碍物相对于鱼的位置都是相同的固定位置，确保了开始时的感觉条件相同。为了控制运动惯性，我们发现障碍物前的游泳与历史无关，并且即使当鱼在整个间隔期间完全静止时，偏差仍然存在，这种情况是通过暂停漂移条纹来诱导的。这些观察结果确认了偏差不是由于残余运动活动引起的。\nTogether, these behavioural findings establish a robust vertebrate model of serial dependence, in which multi-event sensory history is integrated over tens of seconds to shape subsequent actions, providing a foundation for dissecting the underlying circuit mechanisms.\n总之，这些行为发现建立了一个稳健的脊椎动物序列依赖模型，其中多事件的感觉历史在几十秒内被整合以塑造随后的行动，为剖析潜在的电路机制提供了基础。\nWhole-brain dynamics of sensory history To elucidate the neural circuitry that underlies this serial bias, we analysed brain-wide neuronal activity recorded during the task. Navigation engaged a remarkably distributed network, with approximately 45% of recorded neurons (23,139 ± 3,948 of 52,000 ± 1,693; n = 9 fish) active across approximately 70% of brain regions (Fig. 1h). Whole-brain recordings illustrated broad temporal changes in neuronal activity across the four behavioural phases — encountering, avoiding, passing the obstacle and the subsequent interval — providing an overview of the task-related dynamics later analysed in detail (Fig. 1i,j).\n为了阐明支持这种序列偏差的神经回路，我们分析了在任务期间记录的全脑神经活动。导航涉及一个非常分布式的网络，大约 45% 的记录神经元（23,139 ± 3,948 个，52,000 ± 1,693 个；n = 9 条鱼）在大约70%的大脑区域中活跃。全脑记录显示了在四个行为阶段——遇到、避免、通过障碍物和随后的间隔——中神经活动的广泛时间变化，为后续详细分析的任务相关动态提供了概览。\nUnlike stimulus-driven processing, such as evidence accumulation28, serial dependence requires retention of past information during a stimulus-free interval lasting tens of seconds and spanning multiple recent events (Figs. 1f,g and 2a). We therefore focused on the interval, during which the brain must internally retain information about the past obstacle to guide future actions. During this period, widespread activation during sensory phases converged to a smaller subset of neurons (approximately 8%).\n与刺激驱动的处理（例如证据积累）不同，序列依赖需要在持续几十秒并跨越多个最近事件的无刺激间隔期间保留过去的信息。因此，我们专注于这个期间，在此期间，大脑在感觉阶段的广泛激活收敛到一个较小的神经子集（约 8%）。\nPersistent neural activity has been widely recognized as a correlate of serial dependence7,9,29. To identify whether such sustained representations are anatomically localized, we registered all neurons to a standardized brain atlas15 (Fig. 2b) and quantified, for each region, the population-level discriminability of recently disappeared left versus right obstacles. Several regions emerged as top candidates, including the DT, pretectum (Pr), ventral thalamus (VT), optic tectum (TeO), habenula (Ha) and torus semicircularis (TS), all of which showed high discriminability (Fig. 2c, Extended Data Fig. 3a,b and Supplementary Table 1). Among them, the DT showed the strongest combination of history discriminability, persistence and interval selectivity (Extended Data Fig. 3c–f). In contrast to visually responsive but transient regions such as the TeO, DT neurons exhibited long-lasting activity that persisted well after obstacle disappearance (Fig. 2d). This sustained activity was both spatially selective, favouring contralateral stimuli (Fig. 2e,f), and temporally selective, occurring predominantly during the interval rather than during stimulus presentation (Extended Data Fig. 3e).\n持续的神经活动已被广泛认为是序列依赖的相关物。为了确定这种持续表示是否在解剖学上局部化，我们将所有神经元注册到一个标准化的大脑图谱，并量化了每个区域最近消失的左侧与右侧障碍物的群体水平可区分性。几个区域成为顶级候选，包括 DT、前视区（Pr）、腹侧丘脑（VT）、视丘（TeO）、缰核（Ha）和半规管圆顶（TS），它们都显示出高可区分性。其中，DT显示出历史可区分性、持久性和间隔选择性的最强组合。与视觉响应但短暂的区域如 TeO 不同，DT 神经元表现出长时间的活动，在障碍物消失后仍然持续。这种持续活动在空间上具有选择性，偏向对侧刺激，并且在时间上具有选择性，主要发生在间隔期间而不是刺激呈现期间。\nThe zebrafish DT, which is homologous to the mammalian DT30, encodes diverse and motivationally salient visual cues, including conspecific motion, looming threats and ambient light changes31–33. This broad visual responsiveness, combined with robust persistent activity, positions the DT as a key hub for storing sensory history that drives serial dependence.\n斑马鱼 DT 与哺乳动物 DT 同源，编码多样且具有动机意义的视觉线索，包括同种运动、逼近威胁和环境光变化。这种广泛的视觉响应性，结合稳健的持续活动，使 DT 成为存储驱动序列依赖的感觉历史的关键枢纽。\nThe DT mediates serial bias To determine whether persistent DT activity causally drives serial dependence, we performed optogenetic manipulation. Bilateral inhibition of the DT during the interval, achieved by pan-neuronal expression of an inhibitory opsin (GtACR1 or GtACR2)34 and targeted illumination with a spatial light modulator, substantially reduced DT activity and abolished serial bias in the next trial; fish responded to the obstacle as if they were devoid of memory (Fig. 2g–i). The same effect was observed when opsin was selectively expressed in DT neurons using the s1026tEt enhancer trap line31, whereas identical illumination in control fish lacking opsin expression had no effect, confirming that DT activation is necessary for serial dependence (Fig. 2i and Extended Data Fig. 4a).\n为了确定持续的 DT 活动是否因果地驱动序列依赖，我们进行了光遗传学操纵。通过全神经元表达抑制性光敏蛋白（GtACR1 或 GtACR2）并使用空间光调制器进行定向照明，在间隔期间双侧抑制 DT，显著减少了 DT 活动并消除了下一试验中的序列偏差；鱼对障碍物的反应就像它们没有记忆一样。在使用 s1026tEt 增强子陷阱线选择性表达 opsin 的 DT 神经元中观察到了同样的效果，而在缺乏 opsin 表达的对照鱼中进行相同照明没有效果，确认了 DT 激活对于序列依赖是必要的。\nNext, we asked whether DT activation alone is sufficient to impose such bias. We used trials with long inter-obstacle intervals (27 s), in which endogenous bias from previous trials was minimal. Unilateral DT activation for 2 s using ChrimsonR35 before the next obstacle effectively mimicked the memory of a previous obstacle (Fig. 2j). Specifically, this induced avoidance biases that mirrored those associated with an obstacle presented contralaterally to the stimulated hemisphere (Fig. 2k–m and Extended Data Fig. 4b). For example, activating the left DT enhanced avoidance of a subsequent right obstacle and reduced avoidance of a left obstacle, mimicking the effect of previous experience with a right-side obstacle.\n接下来，我们问 DT 激活是否足以施加这种偏差。我们使用了长障碍物间隔（27 秒）的试验，在这些试验中，来自先前试验的内源性偏差最小。在下一个障碍物出现之前，使用 ChrimsonR 单侧激活 DT 2 秒有效地模拟了先前障碍物的记忆。具体来说，这引起了回避偏差，反映了与刺激半球对侧呈现的障碍物相关的偏差。例如，激活左侧 DT 增强了对随后的右侧障碍物的回避，并减少了对左侧障碍物的回避，模仿了之前经历右侧障碍物的效果。\nOf note, both inhibition and activation used moderate laser power that did not elicit immediate motor responses: bout frequency, forwards velocity and lateral velocity were unchanged (Extended Data Fig. 4c,d). Instead, bias emerged only on encountering the next obstacle, indicating that persistent DT activity encoded an internal memory state that shaped subsequent decisions.\n值得注意的是，抑制和激活都使用了适度的激光功率，不会引起立即的运动反应：游泳频率、前向速度和横向速度没有改变。相反，偏差仅在遇到下一个障碍物时出现，表明持续的 DT 活动编码了一个内部记忆状态，塑造了随后的决策。\nTogether, these results establish that persistent DT activity is both necessary and sufficient for serial dependence. The DT maintains a memory trace of recent sensory experience and transforms it into a behavioural bias in subsequent actions.\n总之，这些结果表明持续的 DT 活动对于序列依赖既是必要的又是充分的。DT 保持了最近感觉经验的记忆痕迹，并将其转化为随后的行为偏差。\nThe DT shows attractor dynamics Persistent activity can arise from intrinsic cellular properties or from network-level interactions, such as recurrent excitation and inhibition, producing attractor dynamics and thus stabilizing activity states36–41. During maintenance periods, DT population activity settled into one of two stable states that persisted for over 10 s (Fig. 3a and Supplementary Video 3), far larger than the time constant of individual neurons (Extended Data Fig. 5a). Cross-validated analysis of this population activity showed robust separation corresponding to the side of the preceding obstacle, indicating that trial-specific memories are maintained through discrete attractor dynamics (Fig. 3b,c).\n持续的活动可以来自内在的细胞特性或来自网络级的相互作用，例如递归兴奋和抑制，产生吸引子动力学，从而稳定活动状态。在维护期间，DT 群体活动进入了两个稳定状态之一，持续超过 10 秒，远大于单个神经元的时间常数。对这种群体活动的交叉验证分析显示出与前一个障碍物侧面对应的稳健分离，表明试验特定的记忆是通过离散吸引子动力学维持的。\nA key feature of a two-point attractor is that following the same mild perturbation, activity should either return to its original state (‘stay’) or jump to the alternative (‘switch’), depending on the internal network noise and initial conditions41,42 (Fig. 3d). To test this, we briefly suppressed the DT bilaterally immediately after obstacle offset. Trials were classified into these two types using a threshold defined by the intersection of the coding direction distributions from control trials (current and opposite condition in Fig. 3e; see Methods). Following perturbation, DT activity in stay trials remained close to the original state (current type); whereas in switch trials, DT activity evolved towards the state associated with the opposite-side obstacle (opposite type; Fig. 3e). In a subset of animals, post-perturbation activity showed a clear bimodal distribution (Fig. 3f). Crucially, these two neural outcomes predicted opposite behavioural consequences: switch trials exhibited an inverted serial bias relative to stay trials (Fig. 3g and Extended Data Fig. 5b), demonstrating that the post-perturbation DT state determines the direction of subsequent behavioural bias.\n离散吸引子的一个关键特征是，在相同的轻微扰动之后，活动应该根据内部网络噪声和初始条件，要么返回到原始状态（“保持”），要么跳转到替代状态（“切换”）。为了测试这一点，我们在障碍物消失后立即双侧短暂抑制 DT。使用控制试验的编码方向分布的交点定义的阈值对这些试验进行分类。在扰动之后，保持试验中的 DT 活动保持接近原始状态（当前类型）；而在切换试验中，DT 活动演变朝向与对侧障碍物相关的状态（相反类型）。在一部分动物中，扰动后的活动显示出明显的双峰分布。关键是，这两种神经结果预测了相反的行为后果：切换试验相对于保持试验表现出反转的序列偏差，表明扰动后 DT 状态决定了随后的行为偏差方向。\nDiscrete attractors should also classify fluctuating or corrupted sensory inputs to their corresponding attractor states41. We therefore systematically varied obstacle distance and duration (Fig. 3h). Unlike other brain regions with diminished or graded responses, DT activity persisted after the cue offset and consistently resolved into one of two discrete states, regardless of varied features (Fig. 3i and Extended Data Fig. 5c). The DT showed the highest bistability index — defined as the ratio of inter-category to intra-category differences — in both paradigms (Fig. 3j), highlighting its robust two-state memory-encoding ability.\n离散吸引子还应该将波动或损坏的感觉输入分类到它们对应的吸引子状态。因此，我们系统地改变了障碍物的距离和持续时间。与其他大脑区域相比，DT 活动在提示消失后持续存在，并且无论特征如何变化，都始终分为两个离散状态。DT 在两种范式中显示出最高的双稳态指数——定义为类别间差异与类别内差异的比率——突显了其稳健的两状态记忆编码能力。\nTogether, these results show that DT activity occupies two stable states during the maintenance period, can either recover or switch after perturbation, and remains bistable across variable inputs. Thus, the DT behaves as a two-point attractor in the conventional computational neuroscience sense: a pair of discrete, self-sustaining, perturbation-switchable states that are well suited for maintaining recent sensory history while filtering input variability.\n总之，这些结果表明 DT 活动在维护期间占据两个稳定状态，在扰动后可以恢复或切换，并且在可变输入中保持双稳态。因此，DT 在传统计算神经科学意义上表现为一个两点吸引子：一对离散的、自我维持的、可通过扰动切换的状态，非常适合在过滤输入变异性的同时维护最近的感觉历史。\nThe brainstem integrates multi-trial history A limitation of a two-point attractor is its winner-take-all nature: each new input resets the state, preventing graded accumulation over multiple trials41. Consistent with this, during the interval, DT encoded the most recent obstacle (trial t) with high fidelity, but failed to retain information from earlier trials (for example, trial t – 1), indicating that it cannot support multi-trial history (Fig. 4a,b). This computational constraint necessitates a downstream circuit to integrate these categorical memory states into the graded multi-trial serial bias observed behaviourally (Fig. 1g).\n两点吸引子的一个限制是它的赢家通吃性质：每个新输入都会重置状态，阻止多次试验的分级积累。与此一致，在间隔期间，DT 以高保真度编码了最近的障碍物（试验 t），但未能保留来自早期试验的信息（例如，试验 t – 1），表明它无法支持多试验历史。这种计算限制需要一个下游电路将这些分类记忆状态整合到行为上观察到的分级多试验序列偏差中。\nTo identify such a substrate, we searched for neurons that encode both current and past stimuli. This revealed an ‘integrator’ network in the hindbrain premotor regions, localized mainly to rhombomeres 2, 3, 5 and 6, that decoded both the most recent obstacle and the obstacle preceding it (Fig. 4c and Extended Data Fig. 6a). It consists of an anatomically clustered but sparse population — representing just 1.5–2% of neurons per rhombomere — which explains why this network was not prominent in our earlier region-based analyses. Functionally, the graded and dynamically evolving activity of these neurons simultaneously encoded the history of multiple past events and predicted the strength of the upcoming behavioural bias (Fig. 4c and Extended Data Fig. 6b–d).\n为了确定这样的基质，我们搜索了同时编码当前和过去刺激的神经元。这揭示了一个位于后脑前运动区域的“积分器”网络，主要定位在第 2、3、5 和 6 个菱形体中，解码了最近的障碍物和之前的障碍物。它由一个解剖学上聚集但稀疏的群体组成——每个菱形体仅占神经元的 1.5–2%——这解释了为什么这个网络在我们早期基于区域的分析中不突出。从功能上讲，这些神经元的分级和动态演变活动同时编码了多个过去事件的历史，并预测了即将到来的行为偏差的强度。\nThe zebrafish hindbrain is known to support sensorimotor computations including evidence accumulation, head-direction coding and lateralized motor command generation43–46, making it a plausible downstream integrator of the thalamic memory signal. Consistent with this hierarchy, optogenetic activation of the DT elicited robust responses in the same hindbrain areas, confirming causal functional connectivity (Fig. 4d and Extended Data Fig. 6e,f). Furthermore, anatomical data from our mesoscopic projectome revealed excitatory projections from the DT to these hindbrain regions15 (Extended Data Fig. 7). Of note, DT activation triggered hindbrain activity on the opposite anatomical side (Extended Data Fig. 6f), indicating that the spatial memory signal crosses over and flips its meaning. Supporting this cross-hemisphere transformation, optogenetic activation of the contralateral hindbrain integrator region reversed the subsequent behavioural bias of the fish (Extended Data Fig. 6g).\n斑马鱼后脑已知支持包括证据积累、头部方向编码和侧化运动命令生成在内的感觉运动计算，使其成为丘脑记忆信号的合理下游积分器。与这种层次结构一致，DT 的光遗传学激活在同一后脑区域引起了强烈反应，确认了因果功能连接。此外，我们的中观项目组的解剖数据揭示了从 DT 到这些后脑区域的兴奋性投射。值得注意的是，DT 激活触发了对侧解剖学侧的后脑活动，表明空间记忆信号交叉并翻转了其含义。支持这种跨半球转换的是，对对侧后脑积分器区域的光遗传学激活逆转了鱼的随后的行为偏差。\nTogether, these results support a hierarchical flow of history information in serial dependence: early sensory regions encode the current input, the DT maintains a categorical memory of the most recent event and the hindbrain integrates this signal into a multi-trial representation that biases behaviour (Fig. 4e).\n总之，这些结果支持序列依赖中历史信息的层次流动：早期感觉区域编码当前输入，DT 维持最近事件的分类记忆，后脑将该信号整合到一个多试验表示中，从而偏向行为。\nHierarchical attractor–integrator model To elucidate the computations that underlie these multi-regional dynamics, we constructed a three-layered computational model constrained by the zebrafish whole-brain atlas15. The model consists of an input layer (layer 1, TeO analogue), an attractor network layer (layer 2, DT analogue) and an integrator layer (layer 3, hindbrain analogue) that combines signals from the first two layers to produce history-dependent output (Fig. 5a and Extended Data Fig. 8a,b). The architecture incorporated known anatomical data, including regional excitatory-to-inhibitory neuron ratios, ipsilateral TeO-to-DT excitatory projections, cross-hemispheric inhibitory projections within the DT, and ipsilateral DT-to-hindbrain projections that preferentially target hindbrain inhibitory populations, an arrangement consistent with the observed lateralization flip between the DT and the hindbrain integrator15 (Extended Data Fig. 7). NMDA receptor-mediated currents were included to support persistent activity and integration, consistent with their known biophysical roles47 and with the clinical observation that NMDA receptor hypofunction reduces serial dependence48. To compare model output directly with behaviour, we added a readout stage that maps layer 3 activity to simulated avoidance behaviour (Fig. 5d,e and Extended Data Fig. 8a,b).\n为了阐明这些多区域动态背后的计算，我们构建了一个受斑马鱼全脑图谱约束的三层计算模型。该模型由输入层（层 1，TeO 类似物）、吸引子网络层（层 2，DT 类似物）和一个积分器层（层 3，后脑类似物）组成，后者结合了前两层的信号以产生基于历史的输出。该架构包含已知的解剖数据，包括区域兴奋性与抑制性神经元比例、同侧 TeO 到 DT 的兴奋性投射、DT 内的跨半球抑制性投射，以及同侧 DT 到后脑的投射，优先靶向后脑抑制性群体，这种安排与观察到的 DT 和后脑积分器之间的侧化翻转一致。包括 NMDA 受体介导的电流以支持持续活动和积分，与它们已知的生物物理作用以及临床观察到 NMDA 受体功能减退减少序列依赖一致。为了将模型输出直接与行为进行比较，我们添加了一个读出阶段，将第 3 层活动映射到模拟的回避行为。\nIn our simulation, layer 2 exhibited two-state attractor dynamics (Fig. 5c). Crucially, our model solved the stability-versus-flexibility trade-off by incorporating transient inhibitory interneurons gated by sensory input from layer 1. This sensory-driven transient inhibition destabilizes the attractor to allow for rapid memory updating, whereas sustained inhibition maintains stability between stimuli. Consequently, the attractor can be flexibly reset by new input, consistent with DT dynamics in the real brain. A comparable model lacking this transient inhibition motif required substantially stronger input to achieve state transitions (Extended Data Fig. 9a). To validate the biological plausibility of this transient inhibition, we imaged DT inhibitory neurons in transgenic zebrafish. With an unsupervised clustering, we identified two functionally distinguishable clusters: a transient population (124 ± 32 neurons per fish) that was active primarily during stimulus presentation and a sustained population (41 ± 12 neurons per fish) that remained active across stimulus and maintenance phases (Fig. 5b and Extended Data Fig. 9b–f). Thus, the dual-inhibitory motif predicted by the model is present in the biological circuit.\n在我们的模拟中，第 2 层表现出两状态吸引子动力学。关键是，我们的模型通过引入由第 1 层感觉输入门控的瞬态抑制性中间神经元来解决稳定性与灵活性的权衡。这种感觉驱动的瞬态抑制使吸引子不稳定，以允许快速记忆更新，而持续的抑制在刺激之间保持稳定。因此，吸引子可以被新输入灵活地重置，与真实大脑中的 DT 动态一致。缺乏这种瞬态抑制模式的可比模型需要更强的输入才能实现状态转换。为了验证这种瞬态抑制的生物学合理性，我们在转基因斑马鱼中成像了 DT 抑制性神经元。通过无监督聚类，我们确定了两个功能上可区分的簇：一个瞬态群体（每条鱼 124 ± 32 个神经元），主要在刺激呈现期间活跃；另一个持续群体（每条鱼 41 ± 12 个神经元），在刺激和维护阶段保持活跃。因此，模型预测的双重抑制模式存在于生物电路中。\nWhen signals reach layer 3, the integrator combines the current sensory input from layer 1 with the stay-or-switch context from the layer 2, producing four distinct activation states corresponding to LL, LR, RL and RR (Fig. 5c, Extended Data Fig. 8c and Supplementary Video 4). A representative trial illustrates the dynamics of transformation (Fig. 5f). In a left-obstacle trial, the left integrator of layer 3 governs the output, whereas the right integrator is silenced by layer 2 input (Extended Data Fig. 8d). This strength of left integrator response depends on history. During a switch trial (for example, RL), strong inhibitory input from layer 2 suppresses the response of the integrator, whereas during a stay trial (LL), reduced inhibition allows for a stronger response (Fig. 5f and Extended Data Fig. 8d). Algorithmically, the model converts discrete attractor transitions into graded inhibition, modulating the excitation level of layer 3 and generates serial bias (Fig. 5g).\n当信号到达第 3 层时，积分器将来自第 1 层的当前感觉输入与来自第 2 层的保持或切换上下文结合起来，产生四个不同的激活状态，分别对应 LL、LR、RL 和 RR。在一个代表性试验中，左侧障碍物试验中，第 3 层的左侧积分器控制输出，而右侧积分器被第 2 层输入抑制。左侧积分器响应的强度取决于历史。在切换试验（例如 RL）期间，第 2 层的强烈抑制输入抑制了积分器的响应，而在保持试验（LL）期间，减少的抑制允许更强的响应。从算法上讲，该模型将离散吸引子转换为分级抑制，调节第 3 层的兴奋水平并产生序列偏差。\nThis hierarchical attractor–integrator model provides a modular and biologically grounded account of serial dependence, separating memory maintenance from downstream integration to explain how serial dependence arises from multi-regional cooperation.\n这个分层吸引子-积分器模型提供了一个模块化和生物学基础的序列依赖解释，将记忆维护与下游整合分开，以解释序列依赖如何从多区域合作中产生。\nDiscussion Our study reveals a brain-wide circuit mechanism for serial dependence, emerging from a two-stage neural computation. First, thalamic attractor dynamics stabilize a categorical memory of recent experience; second, a brainstem integrator transforms that memory into a graded premotor bias. This reframes serial dependence not as a passive byproduct of neural inertia, but as an active computation implemented by specialized modules. By monitoring nearly all neurons simultaneously, we linked previously disconnected observations into a unified circuit framework.\n我们的研究揭示了一个全脑电路机制，用于序列依赖，源自两阶段神经计算。首先，丘脑吸引子动力学稳定了最近经验的分类记忆；其次，脑干积分器将该记忆转化为分级的前运动偏差。这将序列依赖重新定义为一个由专门模块实现的主动计算，而不是神经惯性的被动副产品。通过同时监测几乎所有神经元，我们将先前未连接的观察结果联系到一个统一的电路框架中。\nSerial dependence is widely viewed as a solution to the stabilityflexibility tradeoff, exploiting environmental continuity to stabilize representations while preserving sensitivity to change1,3. Our hierarchical framework provides a concrete circuit implementation: by segregating persistent sensory memory in the thalamic attractor from ongoing sensory drive in the TeO, the circuit minimizes interference between past and present information. The hindbrain then serves as a convergence zone to compute history-biased actions. This modularity robustly preserves categorical priors within a discrete attractor while avoiding corruption of current perception. Here we use ‘attractors’ in the conventional computational-neuroscience sense to denote self-sustaining states that can be switched by perturbation; a fuller dynamical characterization of the landscape will be important to link state stability quantitatively to bias magnitude. Within our attractor framework, sensory-driven transient inhibition allows the circuit to stably preserve past information while remaining readily updatable by new input, thereby supporting serially biased decisions.\n序列依赖被广泛视为稳定性与灵活性权衡的解决方案，利用环境连续性来稳定表示，同时保持对变化的敏感性。我们的分层框架提供了一个具体的电路实现：通过将丘脑吸引子中的持续感觉记忆与 TeO 中的持续感觉驱动分开，电路最小化了过去和现在信息之间的干扰。然后，后脑作为一个汇聚区来计算基于历史的动作。这种模块化在离散吸引子中稳健地保留了分类先验，同时避免了当前感知的损坏。在这里，我们使用“吸引子”这个术语是指传统计算神经科学意义上的自我维持状态，可以通过扰动切换；对景观进行更全面的动力学表征将对于定量地将状态稳定性与偏差大小联系起来非常重要。在我们的吸引子框架内，感觉驱动的瞬态抑制使电路能够稳定地保留过去的信息，同时可以通过新输入轻松更新，从而支持序列偏置的决策。\nThis hierarchical attractor–integrator motif is generalizable and scalable. The zebrafish DT responds to diverse sensory cues, from social cues to threatening stimuli31–33, whereas the hindbrain handles various sensorimotor functions, such as evidence accumulation, motor planning and path integration43–46,49. This suggests a reusable motif in which distinct sensory tasks can flexibly couple to premotor integrators to enable history-dependent modulation across many behaviours. The DT memory trace persists across multiple visual contexts (looming and gratings), and serial dependence extends from obstacle avoidance to escape manoeuvres evoked by threatening agents (Extended Data Fig. 10a,b). Thus, the DT functions as a relatively task-flexible memory buffer. Furthermore, the architecture is inherently scalable. Our modelling further suggests that longer history dependence could emerge from heterogeneity in the integrator stage, for example, through distinct NMDA receptor kinetics in L3 neurons48,50 (Extended Data Fig. 10c–e).\n这种分层吸引子-积分器模式是可推广和可扩展的。斑马鱼 DT 对多种感觉线索做出反应，从社交线索到威胁刺激，而后脑处理各种感觉运动功能，如证据积累、运动计划和路径积分。这表明了一个可重用的模式，其中不同的感觉任务可以灵活地耦合到前运动积分器，以实现许多行为的基于历史的调制。DT 记忆痕迹在多个视觉环境中持续存在（逼近和条纹），序列依赖从障碍物回避扩展到由威胁代理引发的逃逸机动。因此，DT 作为一个相对任务灵活的记忆缓冲区。此外，该架构本质上是可扩展的。我们的建模进一步表明，更长的历史依赖可能来自积分器阶段的异质性，例如，通过 L3 神经元中不同的 NMDA 受体动力学。\nUnconventionally, the downstream circuit decodes the transition structure (stay versus switch) of the attractor rather than its absolute persistent activity level41,51. This provides a biologically plausible solution to the theoretical fragility of finely tuned continuous attractors: instead of relying on absolute firing rates, robust integration can emerge from heterogeneous bistable units that exploit hysteresis52,53. In this framework, the DT acts as a noise-resistant categorical gate that delivers discrete state-transition signals, whereas the hindbrain integrator transforms these transitions into progressively graded population responses through state-dependent inhibition. By recruiting heterogeneous bistable subunits, such as L3 neurons with distinct NMDA receptor kinetics, the hindbrain can approximate a quasi-continuous manifold without implementing a strict line attractor, thereby converting a winner-take-all memory into an analogue signal that accumulates across trials to drive multi-trial serial bias.\n非传统地，下游电路解码吸引子的转变结构（保持与切换），而不是其绝对持续活动水平。这为理论上微调连续吸引子脆弱性的生物学合理解决方案提供了可能：不依赖于绝对的发火率，稳健的积分可以从利用滞后的异质双稳态单元中产生。在这个框架中，DT 作为一个抗噪声的分类门，提供离散状态转换信号，而后脑积分器通过状态依赖的抑制将这些转换转化为逐渐分级的群体响应。通过招募异质双稳态子单元，例如具有不同 NMDA 受体动力学的 L3 神经元，后脑可以近似一个准连续流形，而不需要实现严格的线性吸引子，从而将赢家通吃记忆转换为一个模拟信号，在试验之间积累以驱动多试验序列偏差。\nSeveral limitations point to future work. First, incorporating continuous-attractor dynamics into the integrator stage could improve the robustness and memory capacity of the model36,41,54. Second, connectomics are needed to resolve the microcircuitry of the DT (approximately 26.7% recurrent connectivity31) and to test whether its outputs preferentially recruit ipsilateral hindbrain inhibitory populations to explain the observed polarity inversion. Third, beyond the dominant PC1 axis, discrimination in higher-dimensional subspaces such as PC2 and PC3 suggests that mapping these representations will be essential for resolving the full distributed organization of history-dependent computation. Finally, our optogenetic perturbations relied on anatomical markers. Future work using real-time, activity-guided manipulations will enable the precise functional dissection of circuit components55,56, such as different subpopulations of inhibitory neurons in the DT.\n几个限制指向未来的工作。首先，将连续吸引子动力学纳入积分器阶段可以提高模型的稳健性和记忆容量。第二，需要连接组学来解析 DT 的微电路（约 26.7% 的递归连接）并测试其输出是否优先招募同侧后脑抑制性群体以解释观察到的极性反转。第三，除了主导的 PC1 轴之外，在 PC2 和 PC3 等更高维子空间中的区分表明，映射这些表示对于解决基于历史的计算的完整分布式组织至关重要。最后，我们的光遗传学扰动依赖于解剖标记。未来使用实时、基于活动的操纵将使得对电路组件进行精确功能剖析成为可能，例如 DT 中不同亚群体的抑制性神经元。\nAn important next step is to test whether serial bias is plastic and adapts to environmental statistics. The brain might downweight previous information in volatile environments and upweight it when temporal correlations are strong. Such recalibration could be mediated by neuromodulatory or glial systems that regulate attractor stability or the integration window14,17,57. Demonstrating this plasticity would link our circuit model to Bayesian frameworks of adaptive inference and may have clinical relevance, as altered serial dependence has been implicated in conditions such as schizophrenia and autism48,58. Ultimately, by framing serial dependence as an active, distributed computation across hierarchical modules, our work provides a foundation for understanding how sensory history systematically shapes behaviour.\n一个重要的下一步是测试序列偏差是否具有可塑性并适应环境统计。在不稳定的环境中，大脑可能会降低对先前信息的权重，而在时间相关性强时增加其权重。这种重新校准可能由调节吸引子稳定性或积分窗口的神经调节或胶质系统介导。证明这种可塑性将把我们的电路模型与适应性推理的贝叶斯框架联系起来，并可能具有临床相关性，因为改变的序列依赖已被涉及到诸如精神分裂症和自闭症等疾病中。最终，通过将序列依赖框架化为跨层次模块的主动、分布式计算，我们的工作为理解感觉历史如何系统地塑造行为提供了基础。\n",
+  "wordCount" : "11817",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/06/15/zO1y/20260615182309271.png","datePublished": "2026-05-10T00:18:23+08:00",
+  "dateModified": "2026-05-10T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/a-thalamus-brainstem-attractor-network-drives-history-biased-decisions/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                A thalamus–brainstem attractor network drives history-biased decisions
+            </h1>
+            <div class="post-description">
+                丘脑-脑干吸引子网络驱动历史偏置决策
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-05-10
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>11817字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>24分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/line-attractor/" style="color: var(--secondary)!important;">Line Attractor</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/06/15/zO1y/20260615182309271.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#serial-dependence-biases-navigation" aria-label="Serial dependence biases navigation">Serial dependence biases navigation</a></li>
+                <li>
+                    <a href="#whole-brain-dynamics-of-sensory-history" aria-label="Whole-brain dynamics of sensory history">Whole-brain dynamics of sensory history</a></li>
+                <li>
+                    <a href="#the-dt-mediates-serial-bias" aria-label="The DT mediates serial bias">The DT mediates serial bias</a></li>
+                <li>
+                    <a href="#the-dt-shows-attractor-dynamics" aria-label="The DT shows attractor dynamics">The DT shows attractor dynamics</a></li>
+                <li>
+                    <a href="#the-brainstem-integrates-multi-trial-history" aria-label="The brainstem integrates multi-trial history">The brainstem integrates multi-trial history</a></li>
+                <li>
+                    <a href="#hierarchical-attractorintegrator-model" aria-label="Hierarchical attractor–integrator model">Hierarchical attractor–integrator model</a></li>
+                <li>
+                    <a href="#discussion" aria-label="Discussion">Discussion</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>Natural environments often change gradually, making it adaptive to bias decisions on the basis of the recent past — a phenomenon known as serial dependence1–3. Large-scale recordings during behaviour have identified that serial dependence is a common motif for decision-making, with neural representations of past experiences found throughout the brain4–11. However, it remains unclear whether this bias arises from dedicated neural circuits with history-specific computations. Using wholebrain, cellular-resolution imaging in zebrafish performing memory-guided evasive manoeuvres12–14, we identified a hierarchical circuit that maintains past information and biases future choices. Discrete attractors in the dorsal thalamus encoded the position of the most recent obstacle, maintaining a categorical memory via persistent activity lasting 10–20 s. Optogenetic manipulation of the dorsal thalamus abolished or imposed serial bias. A downstream hindbrain integrator received input from the thalamus and combined it with current sensory cues to produce graded responses reflecting multi-trial history. Leveraging a comprehensive brain atlas in zebrafish15, we constructed a whole-brain computational model that recapitulated behaviour and also predicted a key role for heterogeneous inhibitory subtypes in enabling flexible state transitions. This attractor–integrator architecture reveals a hierarchical and modular computation that unifies robust memory retention with flexible sensory integration, providing a general principle for history-biased decisions.</p>
+</blockquote>
+<p>自然环境经常逐渐变化，因此根据最近的过去来偏向决策是适应性的——这一现象被称为序列依赖。行为期间的大规模记录已经确定，序列依赖是决策的一个常见模式，在整个大脑中都发现了过去经验的神经表征。然而，目前尚不清楚这种偏差是否来自具有历史特定计算的专用神经回路。使用在执行记忆引导的规避机动的小型斑马鱼中进行全脑、细胞分辨率成像，我们确定了一个分层电路，该电路保持过去的信息并偏向未来的选择。背侧丘脑中的离散吸引子编码了最近障碍物的位置，通过持续活动维持了 10-20 秒的分类记忆。对背侧丘脑的光遗传学操纵消除了或强加了序列偏差。下游的后脑积分器接收来自丘脑的输入，并将其与当前的感觉线索结合起来，产生反映多次试验历史的分级响应。利用斑马鱼的综合大脑图谱，我们构建了一个全脑计算模型，重现了行为，并预测了异质抑制亚型在实现灵活状态转换中的关键作用。这种吸引子-积分器架构揭示了一种分层和模块化的计算，统一了稳健的记忆保持与灵活的感觉整合，为历史偏置决策提供了一般原则。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>In environments that change gradually, the recent past is the best predictor of the present. Organisms exploit this continuity by biasing their next action towards what just succeeded, gaining a clear adaptive edge. A bee that finds nectar on one flower will correctly bias its next landing towards neighbouring blooms; an animal that hears a faint rustle from one side across several intervals grows progressively more likely to avoid that side in its subsequent decisions; and a driver who encounters several potholes on the left lane begins to favour the right, even after the road smooths out. This systematic pull of recent experience on perception and choice — serial dependence or history bias1–3 — stabilizes behaviour, smooths noisy inputs and leverages elements of the structure of the world, such as clustered resources or recurring threats.</p>
+</blockquote>
+<p>在逐渐变化的环境中，最近的过去是现在的最佳预测。生物通过偏向他们刚刚成功的下一个行动来利用这种连续性，从而获得明显的适应优势。一只在一朵花上找到花蜜的蜜蜂会正确地偏向它下一次降落在邻近的花朵上；一个在几个时间间隔内从一侧听到微弱沙沙声的动物在随后的决策中越来越可能避免那一侧；一个遇到几个坑洼的司机开始偏向右边，即使道路变平了。这种最近经验对感知和选择的系统性拉动——序列依赖或历史偏差——稳定了行为，平滑了嘈杂的输入，并利用了世界结构的元素，例如聚类资源或反复出现的威胁。</p>
+<blockquote>
+<p>Serial dependence is widespread across species and cognitive domains: perceptions and decisions are steered by a weighted average of recent stimuli, motor outputs and rewards4–9,18–24. Its neural correlates span the entire neuroaxis: from early sensory circuits such as the lateral geniculate nucleus and primary visual cortex to association areas such as the posterior parietal and prefrontal cortices. A recent brain-wide survey by the International Brain Laboratory, integrating efforts from over 20 laboratories, found that decision history  is encoded across more than 20% of cortical and subcortical regions, forming subjective priors that track behavioural bias during flexible choice.</p>
+</blockquote>
+<p>序列依赖在物种和认知领域中普遍存在：感知和决策受到最近刺激、运动输出和奖励的加权平均的引导。它的神经相关物跨越整个神经轴：从早期感觉回路如外侧膝状体和初级视觉皮层到联合区如后顶叶和前额叶皮层。国际脑实验室最近进行的一项全脑调查，整合了20多个实验室的努力，发现决策历史在超过20%的皮层和亚皮层区域中被编码，形成了跟踪灵活选择期间行为偏差的主观先验。</p>
+<blockquote>
+<p>Yet, although these extensive studies have successfully identified where past information is encoded, they have not revealed how it is selectively maintained, updated and transformed into a behavioural bias. We hypothesize that the distributed correlates of history are not functionally redundant; rather, they constitute a computational hierarchy in which upstream nodes preserve past information as short-term memory, and downstream nodes integrate that memory with current input to generate serial dependence. Elucidating this hierarchical implementation and its interactions is essential to resolve how a multi-experience cognitive bias emerges from distributed neural activity.</p>
+</blockquote>
+<p>然而，尽管这些广泛的研究已经成功地确定了过去信息被编码的位置，但它们并没有揭示它是如何被选择性地维护、更新和转化为行为偏差的。我们假设历史的分布式相关物不是功能冗余的；相反，它们构成了一个计算层次结构，其中上游节点将过去的信息保留为短期记忆，下游节点将该记忆与当前输入整合以产生序列依赖。阐明这种分层实现及其交互作用对于解决多经验认知偏差如何从分布式神经活动中出现至关重要。</p>
+<blockquote>
+<p>Here we address this challenge through an unbiased, brain-wide screen, revealing a hierarchical circuit that underlies serial dependence. Using cellular-resolution, whole-brain imaging in larval zebrafish executing memory-guided evasive manoeuvres12–14, we systematically mapped all brain regions and identified the circuit dynamics underlying history-biased decisions. We found that the dorsal thalamus (DT) acts as a memory buffer using discrete attractor dynamics, maintaining a robust, perturbation-resistant trace of the most recent sensory event. This single-trial memory trace is read out by a downstream hindbrain integrator, which transforms the thalamic state into a graded response that reflects multi-trial history. Leveraging the recently established zebrafish projectome, we built an anatomy-constrained whole-brain model that demonstrates how an attractor-to-integrator algorithm is implemented within this thalamus–brainstem circuit. Together, our findings reveal a modular hierarchy that segregates memory maintenance and sensory integration into distinct substrates, enabling a robust yet flexible transformation of past experience into current action.</p>
+</blockquote>
+<p>通过一个无偏见的全脑筛选，我们解决了这个挑战，揭示了一个支持序列依赖的分层电路。使用在执行记忆引导的规避机动的小型斑马鱼中进行全脑、细胞分辨率成像，我们系统地映射了所有大脑区域，并确定了历史偏置决策背后的电路动力学。我们发现背侧丘脑（DT）使用离散吸引子动力学作为记忆缓冲区，保持最近一次感觉事件的稳健、抗扰动的痕迹。这个单次试验的记忆痕迹被下游的后脑积分器读取，它将丘脑状态转化为反映多次试验历史的分级响应。利用最近建立的斑马鱼项目组，我们构建了一个受解剖约束的全脑模型，展示了如何在这个丘脑-脑干电路中实现吸引子到积分器算法。总之，我们的发现揭示了一个模块化层次结构，将记忆维护和感觉整合分隔到不同的基质中，实现了过去经验到当前行动的稳健而灵活的转化。</p>
+<h1 id="serial-dependence-biases-navigation">Serial dependence biases navigation<a hidden class="anchor" aria-hidden="true" href="#serial-dependence-biases-navigation">#</a></h1>
+<blockquote>
+<p>To identify the complete neural circuit underlying serial dependence, we developed a virtual reality obstacle-avoidance task for zebrafish while monitoring brain-wide activity at single-cell resolution (Fig. 1a). In this assay, paralysed zebrafish navigated a virtual environment; their motor neuron activity was recorded and decoded in real time to update the visual scene13,26. Fish were motivated to swim forwards by a drifting grating that simulated the optic flow of moving water14,26. During swimming, they encountered dark square obstacles that mimicked pieces of floating debris: objects larger than the fish. The obstacle was approximately four times the body length of the fish (approximately 20 mm) and appeared sequentially either on the left or right side. Successive obstacles were presented with long enough intervals to ensure that each one disappeared before the next appeared (Fig. 1a). This design allowed us to test whether identical visual stimuli evoked different responses depending on the positions of previous obstacles. Simultaneously, we performed whole-brain calcium imaging with single-cell resolution by a custom-built light-sheet microscope, in transgenic zebrafish expressing pan-neuronal GCaMP8m.</p>
+</blockquote>
+<p>为了确定支持序列依赖的完整神经回路，我们为斑马鱼开发了一个虚拟现实障碍物规避任务，同时以单细胞分辨率监测全脑活动。在这个测定中，麻痹的斑马鱼在一个虚拟环境中导航；他们的运动神经元活动被实时记录和解码以更新视觉场景。通过模拟水流的光流漂移条纹，鱼被激励向前游泳。在游泳过程中，他们遇到了模仿漂浮碎片的黑色方形障碍物：比鱼更大的物体。障碍物大约是鱼体长的四倍（约20毫米），依次出现在左侧或右侧。连续的障碍物以足够长的间隔呈现，以确保每个障碍物在下一个出现之前消失。这种设计使我们能够测试相同的视觉刺激是否会根据先前障碍物的位置引发不同的反应。同时，我们通过定制的光片显微镜，在表达全神经元 GCaMP8m 的转基因斑马鱼中进行全脑钙成像，达到单细胞分辨率。</p>
+<blockquote>
+<p>We first assessed serial dependence in zebrafish navigational choices. Trials were classified as left (L) or right (R) on the basis of the obstacle position in the virtual environment. Zebrafish reliably avoided obstacles via lateral turns (Fig. 1b,c, Extended Data Fig. 1a,b and Supplementary Video 1). Critically, avoidance magnitude was not determined solely by the current obstacle but was significantly influenced by the preceding encounters. When the current obstacle appeared on the same side as the preceding obstacle (LL or RR sequences), fish exhibited stronger avoidance behaviour, with trajectories further away from the obstacle compared with alternating sequences (RL or LR sequences; Fig. 1d,e). This history-dependent amplification of avoidance reveals a robust serial dependence in navigational decisions. A comparable bias was also observed in a free-swimming assay, indicating that serial dependence is not specific to virtual navigation (Extended Data Fig. 1c–e and Supplementary Video 2).</p>
+</blockquote>
+<p>我们首先评估了斑马鱼导航选择中的序列依赖。试验根据虚拟环境中障碍物的位置被分类为左（L）或右（R）。斑马鱼通过侧转可靠地避免障碍物。关键是，避免的程度不仅仅由当前的障碍物决定，而是受到之前遭遇的显著影响。当当前障碍物出现在与前一个障碍物相同的一侧（LL 或 RR 序列）时，鱼表现出更强的避免行为，轨迹比交替序列（RL 或 LR 序列）更远离障碍物。这种基于历史的避免增强揭示了导航决策中的稳健序列依赖。在自由游泳测定中也观察到了类似的偏差，表明序列依赖并非特定于虚拟导航。</p>
+<blockquote>
+<p>Such serial dependence may confer a behavioural advantage. We simulated an agent navigating a maze in which obstacle locations were spatially correlated, mimicking naturalistic environments. A serial-dependent agent, which integrates past obstacle encounters into its current avoidance, navigated more efficiently than a purely reactive agent (Extended Data Fig. 1f). This advantage disappeared in mazes where the obstacles were more randomly distributed, supporting the hypothesis that serial dependence optimizes navigation by exploiting environmental continuity in nature.</p>
+</blockquote>
+<p>这种序列依赖可能带来行为优势。我们模拟了一个在迷宫中导航的代理，其中障碍物位置具有空间相关性，模仿自然环境。一个序列依赖的代理将过去的障碍物遭遇整合到当前的避免中，比一个纯反应性的代理导航更有效。在障碍物更随机分布的迷宫中，这种优势消失了，支持了序列依赖通过利用自然环境中的连续性来优化导航的假设。</p>
+<blockquote>
+<p>This serial bias persisted across intervals up to 20 s (Fig. 1f). Furthermore, serial dependence was not limited to the immediately preceding trial; obstacle positions from two trials earlier in the sequence also significantly biased the current response, with more recent events exerting a greater influence (Fig. 1g). Three-trial sequences with consistent laterality (for example, LLL) produced the strongest bias (Extended Data Fig. 2a). We confirmed that serial dependence did not arise from simple sensory or motor inertia. Each trial began with the obstacle at the same fixed position relative to the fish, ensuring identical sensory conditions  at onset. To control for motor inertia, we found that pre-obstacle swimming was independent of history (Extended Data Fig. 2b) and that the bias persisted even when fish remained completely immobile throughout the interval, a condition induced by pausing the drifting grating (Extended Data Fig. 2c). These observations confirm that the bias was not due to residual motor activity.</p>
+</blockquote>
+<p>这种序列偏差在长达 20 秒的间隔内持续存在。此外，序列依赖不仅限于紧接前一个试验；序列中两个试验之前的障碍物位置也显著地偏向当前的反应，更近的事件施加更大的影响。具有一致侧性的三试验序列（例如 LLL）产生了最强的偏差。我们确认序列依赖不是由简单的感觉或运动惯性引起的。每个试验开始时，障碍物相对于鱼的位置都是相同的固定位置，确保了开始时的感觉条件相同。为了控制运动惯性，我们发现障碍物前的游泳与历史无关，并且即使当鱼在整个间隔期间完全静止时，偏差仍然存在，这种情况是通过暂停漂移条纹来诱导的。这些观察结果确认了偏差不是由于残余运动活动引起的。</p>
+<blockquote>
+<p>Together, these behavioural findings establish a robust vertebrate model of serial dependence, in which multi-event sensory history is integrated over tens of seconds to shape subsequent actions, providing a foundation for dissecting the underlying circuit mechanisms.</p>
+</blockquote>
+<p>总之，这些行为发现建立了一个稳健的脊椎动物序列依赖模型，其中多事件的感觉历史在几十秒内被整合以塑造随后的行动，为剖析潜在的电路机制提供了基础。</p>
+<h1 id="whole-brain-dynamics-of-sensory-history">Whole-brain dynamics of sensory history<a hidden class="anchor" aria-hidden="true" href="#whole-brain-dynamics-of-sensory-history">#</a></h1>
+<blockquote>
+<p>To elucidate the neural circuitry that underlies this serial bias, we analysed brain-wide neuronal activity recorded during the task. Navigation engaged a remarkably distributed network, with approximately 45% of recorded neurons (23,139 ± 3,948 of 52,000 ± 1,693; n = 9 fish) active across approximately 70% of brain regions (Fig. 1h). Whole-brain recordings illustrated broad temporal changes in neuronal activity across the four behavioural phases — encountering, avoiding, passing the obstacle and the subsequent interval — providing an overview of the task-related dynamics later analysed in detail (Fig. 1i,j).</p>
+</blockquote>
+<p>为了阐明支持这种序列偏差的神经回路，我们分析了在任务期间记录的全脑神经活动。导航涉及一个非常分布式的网络，大约 45% 的记录神经元（23,139 ± 3,948 个，52,000 ± 1,693 个；n = 9 条鱼）在大约70%的大脑区域中活跃。全脑记录显示了在四个行为阶段——遇到、避免、通过障碍物和随后的间隔——中神经活动的广泛时间变化，为后续详细分析的任务相关动态提供了概览。</p>
+<blockquote>
+<p>Unlike stimulus-driven processing, such as evidence accumulation28, serial dependence requires retention of past information during a stimulus-free interval lasting tens of seconds and spanning multiple recent events (Figs. 1f,g and 2a). We therefore focused on the interval, during which the brain must internally retain information about the past obstacle to guide future actions. During this period, widespread activation during sensory phases converged to a smaller subset of neurons (approximately 8%).</p>
+</blockquote>
+<p>与刺激驱动的处理（例如证据积累）不同，序列依赖需要在持续几十秒并跨越多个最近事件的无刺激间隔期间保留过去的信息。因此，我们专注于这个期间，在此期间，大脑在感觉阶段的广泛激活收敛到一个较小的神经子集（约 8%）。</p>
+<blockquote>
+<p>Persistent neural activity has been widely recognized as a correlate of serial dependence7,9,29. To identify whether such sustained representations are anatomically localized, we registered all neurons to a standardized brain atlas15 (Fig. 2b) and quantified, for each region, the population-level discriminability of recently disappeared left versus right obstacles. Several regions emerged as top candidates, including the DT, pretectum (Pr), ventral thalamus (VT), optic tectum (TeO), habenula (Ha) and torus semicircularis (TS), all of which showed high discriminability (Fig. 2c, Extended Data Fig. 3a,b and Supplementary Table 1). Among them, the DT showed the strongest combination of history discriminability, persistence and interval selectivity (Extended Data Fig. 3c–f). In contrast to visually responsive but transient regions such as the TeO, DT neurons exhibited long-lasting activity that persisted well after obstacle disappearance (Fig. 2d). This sustained activity was both spatially selective, favouring contralateral stimuli (Fig. 2e,f), and temporally selective, occurring predominantly during the interval rather than during stimulus presentation (Extended Data Fig. 3e).</p>
+</blockquote>
+<p>持续的神经活动已被广泛认为是序列依赖的相关物。为了确定这种持续表示是否在解剖学上局部化，我们将所有神经元注册到一个标准化的大脑图谱，并量化了每个区域最近消失的左侧与右侧障碍物的群体水平可区分性。几个区域成为顶级候选，包括 DT、前视区（Pr）、腹侧丘脑（VT）、视丘（TeO）、缰核（Ha）和半规管圆顶（TS），它们都显示出高可区分性。其中，DT显示出历史可区分性、持久性和间隔选择性的最强组合。与视觉响应但短暂的区域如 TeO 不同，DT 神经元表现出长时间的活动，在障碍物消失后仍然持续。这种持续活动在空间上具有选择性，偏向对侧刺激，并且在时间上具有选择性，主要发生在间隔期间而不是刺激呈现期间。</p>
+<blockquote>
+<p>The zebrafish DT, which is homologous to the mammalian DT30, encodes diverse and motivationally salient visual cues, including conspecific motion, looming threats and ambient light changes31–33. This broad visual responsiveness, combined with robust persistent activity, positions the DT as a key hub for storing sensory history that drives serial dependence.</p>
+</blockquote>
+<p>斑马鱼 DT 与哺乳动物 DT 同源，编码多样且具有动机意义的视觉线索，包括同种运动、逼近威胁和环境光变化。这种广泛的视觉响应性，结合稳健的持续活动，使 DT 成为存储驱动序列依赖的感觉历史的关键枢纽。</p>
+<h1 id="the-dt-mediates-serial-bias">The DT mediates serial bias<a hidden class="anchor" aria-hidden="true" href="#the-dt-mediates-serial-bias">#</a></h1>
+<blockquote>
+<p>To determine whether persistent DT activity causally drives serial dependence, we performed optogenetic manipulation. Bilateral inhibition of the DT during the interval, achieved by pan-neuronal expression of an inhibitory opsin (GtACR1 or GtACR2)34 and targeted illumination with a spatial light modulator, substantially reduced DT activity and abolished serial bias in the next trial; fish responded to the obstacle as if they were devoid of memory (Fig. 2g–i). The same effect was observed when opsin was selectively expressed in DT neurons using the s1026tEt enhancer trap line31, whereas identical illumination in control fish lacking opsin expression had no effect, confirming that DT activation is necessary for serial dependence (Fig. 2i and Extended Data Fig. 4a).</p>
+</blockquote>
+<p>为了确定持续的 DT 活动是否因果地驱动序列依赖，我们进行了光遗传学操纵。通过全神经元表达抑制性光敏蛋白（GtACR1 或 GtACR2）并使用空间光调制器进行定向照明，在间隔期间双侧抑制 DT，显著减少了 DT 活动并消除了下一试验中的序列偏差；鱼对障碍物的反应就像它们没有记忆一样。在使用 s1026tEt 增强子陷阱线选择性表达 opsin 的 DT 神经元中观察到了同样的效果，而在缺乏 opsin 表达的对照鱼中进行相同照明没有效果，确认了 DT 激活对于序列依赖是必要的。</p>
+<blockquote>
+<p>Next, we asked whether DT activation alone is sufficient to impose such bias. We used trials with long inter-obstacle intervals (27 s), in which endogenous bias from previous trials was minimal. Unilateral DT activation for 2 s using ChrimsonR35 before the next obstacle effectively mimicked the memory of a previous obstacle (Fig. 2j). Specifically, this induced avoidance biases that mirrored those associated with an obstacle presented contralaterally to the stimulated hemisphere (Fig. 2k–m and Extended Data Fig. 4b). For example, activating the left DT enhanced avoidance of a subsequent right obstacle and reduced avoidance of a left obstacle, mimicking the effect of previous experience with a right-side obstacle.</p>
+</blockquote>
+<p>接下来，我们问 DT 激活是否足以施加这种偏差。我们使用了长障碍物间隔（27 秒）的试验，在这些试验中，来自先前试验的内源性偏差最小。在下一个障碍物出现之前，使用 ChrimsonR 单侧激活 DT 2 秒有效地模拟了先前障碍物的记忆。具体来说，这引起了回避偏差，反映了与刺激半球对侧呈现的障碍物相关的偏差。例如，激活左侧 DT 增强了对随后的右侧障碍物的回避，并减少了对左侧障碍物的回避，模仿了之前经历右侧障碍物的效果。</p>
+<blockquote>
+<p>Of note, both inhibition and activation used moderate laser power that did not elicit immediate motor responses: bout frequency, forwards velocity and lateral velocity were unchanged (Extended Data Fig. 4c,d). Instead, bias emerged only on encountering the next obstacle, indicating that persistent DT activity encoded an internal memory state that shaped subsequent decisions.</p>
+</blockquote>
+<p>值得注意的是，抑制和激活都使用了适度的激光功率，不会引起立即的运动反应：游泳频率、前向速度和横向速度没有改变。相反，偏差仅在遇到下一个障碍物时出现，表明持续的 DT 活动编码了一个内部记忆状态，塑造了随后的决策。</p>
+<blockquote>
+<p>Together, these results establish that persistent DT activity is both necessary and sufficient for serial dependence. The DT maintains a memory trace of recent sensory experience and transforms it into a behavioural bias in subsequent actions.</p>
+</blockquote>
+<p>总之，这些结果表明持续的 DT 活动对于序列依赖既是必要的又是充分的。DT 保持了最近感觉经验的记忆痕迹，并将其转化为随后的行为偏差。</p>
+<h1 id="the-dt-shows-attractor-dynamics">The DT shows attractor dynamics<a hidden class="anchor" aria-hidden="true" href="#the-dt-shows-attractor-dynamics">#</a></h1>
+<blockquote>
+<p>Persistent activity can arise from intrinsic cellular properties or from network-level interactions, such as recurrent excitation and inhibition, producing attractor dynamics and thus stabilizing activity states36–41. During maintenance periods, DT population activity settled into one of two stable states that persisted for over 10 s (Fig. 3a and Supplementary Video 3), far larger than the time constant of individual neurons (Extended Data Fig. 5a). Cross-validated analysis of this population activity showed robust separation corresponding to the side of the preceding obstacle, indicating that trial-specific memories are maintained through discrete attractor dynamics (Fig. 3b,c).</p>
+</blockquote>
+<p>持续的活动可以来自内在的细胞特性或来自网络级的相互作用，例如递归兴奋和抑制，产生吸引子动力学，从而稳定活动状态。在维护期间，DT 群体活动进入了两个稳定状态之一，持续超过 10 秒，远大于单个神经元的时间常数。对这种群体活动的交叉验证分析显示出与前一个障碍物侧面对应的稳健分离，表明试验特定的记忆是通过离散吸引子动力学维持的。</p>
+<blockquote>
+<p>A key feature of a two-point attractor is that following the same mild perturbation, activity should either return to its original state (‘stay’) or jump to the alternative (‘switch’), depending on the internal network noise and initial conditions41,42 (Fig. 3d). To test this, we briefly suppressed the DT bilaterally immediately after obstacle offset. Trials were classified into these two types using a threshold defined by the intersection of the coding direction distributions from control trials (current and opposite condition in Fig. 3e; see Methods). Following perturbation, DT activity in stay trials remained close to the original state (current type); whereas in switch trials, DT activity evolved towards the state associated with the opposite-side obstacle (opposite type; Fig. 3e). In a subset of animals, post-perturbation activity showed a clear bimodal distribution (Fig. 3f). Crucially, these two neural outcomes predicted opposite behavioural consequences: switch trials exhibited an inverted serial bias relative to stay trials (Fig. 3g and Extended Data Fig. 5b), demonstrating that the post-perturbation DT state determines the direction of subsequent behavioural bias.</p>
+</blockquote>
+<p>离散吸引子的一个关键特征是，在相同的轻微扰动之后，活动应该根据内部网络噪声和初始条件，要么返回到原始状态（“保持”），要么跳转到替代状态（“切换”）。为了测试这一点，我们在障碍物消失后立即双侧短暂抑制 DT。使用控制试验的编码方向分布的交点定义的阈值对这些试验进行分类。在扰动之后，保持试验中的 DT 活动保持接近原始状态（当前类型）；而在切换试验中，DT 活动演变朝向与对侧障碍物相关的状态（相反类型）。在一部分动物中，扰动后的活动显示出明显的双峰分布。关键是，这两种神经结果预测了相反的行为后果：切换试验相对于保持试验表现出反转的序列偏差，表明扰动后 DT 状态决定了随后的行为偏差方向。</p>
+<blockquote>
+<p>Discrete attractors should also classify fluctuating or corrupted sensory inputs to their corresponding attractor states41. We therefore systematically varied obstacle distance and duration (Fig. 3h). Unlike other brain regions with diminished or graded responses, DT activity persisted after the cue offset and consistently resolved into one of two discrete states, regardless of varied features (Fig. 3i and Extended Data Fig. 5c). The DT showed the highest bistability index — defined as the ratio of inter-category to intra-category differences — in both paradigms (Fig. 3j), highlighting its robust two-state memory-encoding ability.</p>
+</blockquote>
+<p>离散吸引子还应该将波动或损坏的感觉输入分类到它们对应的吸引子状态。因此，我们系统地改变了障碍物的距离和持续时间。与其他大脑区域相比，DT 活动在提示消失后持续存在，并且无论特征如何变化，都始终分为两个离散状态。DT 在两种范式中显示出最高的双稳态指数——定义为类别间差异与类别内差异的比率——突显了其稳健的两状态记忆编码能力。</p>
+<blockquote>
+<p>Together, these results show that DT activity occupies two stable states during the maintenance period, can either recover or switch after perturbation, and remains bistable across variable inputs. Thus, the DT behaves as a two-point attractor in the conventional computational neuroscience sense: a pair of discrete, self-sustaining, perturbation-switchable states that are well suited for maintaining recent sensory history while filtering input variability.</p>
+</blockquote>
+<p>总之，这些结果表明 DT 活动在维护期间占据两个稳定状态，在扰动后可以恢复或切换，并且在可变输入中保持双稳态。因此，DT 在传统计算神经科学意义上表现为一个两点吸引子：一对离散的、自我维持的、可通过扰动切换的状态，非常适合在过滤输入变异性的同时维护最近的感觉历史。</p>
+<h1 id="the-brainstem-integrates-multi-trial-history">The brainstem integrates multi-trial history<a hidden class="anchor" aria-hidden="true" href="#the-brainstem-integrates-multi-trial-history">#</a></h1>
+<blockquote>
+<p>A limitation of a two-point attractor is its winner-take-all nature: each new input resets the state, preventing graded accumulation over multiple trials41. Consistent with this, during the interval, DT encoded the most recent obstacle (trial t) with high fidelity, but failed to retain information from earlier trials (for example, trial t – 1), indicating that it cannot support multi-trial history (Fig. 4a,b). This computational constraint necessitates a downstream circuit to integrate these categorical memory states into the graded multi-trial serial bias observed behaviourally (Fig. 1g).</p>
+</blockquote>
+<p>两点吸引子的一个限制是它的赢家通吃性质：每个新输入都会重置状态，阻止多次试验的分级积累。与此一致，在间隔期间，DT 以高保真度编码了最近的障碍物（试验 t），但未能保留来自早期试验的信息（例如，试验 t – 1），表明它无法支持多试验历史。这种计算限制需要一个下游电路将这些分类记忆状态整合到行为上观察到的分级多试验序列偏差中。</p>
+<blockquote>
+<p>To identify such a substrate, we searched for neurons that encode both current and past stimuli. This revealed an ‘integrator’ network in the hindbrain premotor regions, localized mainly to rhombomeres 2, 3, 5 and 6, that decoded both the most recent obstacle and the obstacle preceding it (Fig. 4c and Extended Data Fig. 6a). It consists of an anatomically clustered but sparse population — representing just 1.5–2% of neurons per rhombomere — which explains why this network was not prominent in our earlier region-based analyses. Functionally, the graded and dynamically evolving activity of these neurons simultaneously encoded the history of multiple past events and predicted the strength of the upcoming behavioural bias (Fig. 4c and Extended Data Fig. 6b–d).</p>
+</blockquote>
+<p>为了确定这样的基质，我们搜索了同时编码当前和过去刺激的神经元。这揭示了一个位于后脑前运动区域的“积分器”网络，主要定位在第 2、3、5 和 6 个菱形体中，解码了最近的障碍物和之前的障碍物。它由一个解剖学上聚集但稀疏的群体组成——每个菱形体仅占神经元的 1.5–2%——这解释了为什么这个网络在我们早期基于区域的分析中不突出。从功能上讲，这些神经元的分级和动态演变活动同时编码了多个过去事件的历史，并预测了即将到来的行为偏差的强度。</p>
+<blockquote>
+<p>The zebrafish hindbrain is known to support sensorimotor computations including evidence accumulation, head-direction coding and lateralized motor command generation43–46, making it a plausible  downstream integrator of the thalamic memory signal. Consistent with this hierarchy, optogenetic activation of the DT elicited robust responses in the same hindbrain areas, confirming causal functional connectivity (Fig. 4d and Extended Data Fig. 6e,f). Furthermore, anatomical data from our mesoscopic projectome revealed excitatory projections from the DT to these hindbrain regions15 (Extended Data Fig. 7). Of note, DT activation triggered hindbrain activity on the opposite anatomical side (Extended Data Fig. 6f), indicating that the spatial memory signal crosses over and flips its meaning. Supporting this cross-hemisphere transformation, optogenetic activation of the contralateral hindbrain integrator region reversed the subsequent behavioural bias of the fish (Extended Data Fig. 6g).</p>
+</blockquote>
+<p>斑马鱼后脑已知支持包括证据积累、头部方向编码和侧化运动命令生成在内的感觉运动计算，使其成为丘脑记忆信号的合理下游积分器。与这种层次结构一致，DT 的光遗传学激活在同一后脑区域引起了强烈反应，确认了因果功能连接。此外，我们的中观项目组的解剖数据揭示了从 DT 到这些后脑区域的兴奋性投射。值得注意的是，DT 激活触发了对侧解剖学侧的后脑活动，表明空间记忆信号交叉并翻转了其含义。支持这种跨半球转换的是，对对侧后脑积分器区域的光遗传学激活逆转了鱼的随后的行为偏差。</p>
+<blockquote>
+<p>Together, these results support a hierarchical flow of history information in serial dependence: early sensory regions encode the current input, the DT maintains a categorical memory of the most recent event and the hindbrain integrates this signal into a multi-trial representation that biases behaviour (Fig. 4e).</p>
+</blockquote>
+<p>总之，这些结果支持序列依赖中历史信息的层次流动：早期感觉区域编码当前输入，DT 维持最近事件的分类记忆，后脑将该信号整合到一个多试验表示中，从而偏向行为。</p>
+<h1 id="hierarchical-attractorintegrator-model">Hierarchical attractor–integrator model<a hidden class="anchor" aria-hidden="true" href="#hierarchical-attractorintegrator-model">#</a></h1>
+<blockquote>
+<p>To elucidate the computations that underlie these multi-regional dynamics, we constructed a three-layered computational model constrained by the zebrafish whole-brain atlas15. The model consists of an input layer (layer 1, TeO analogue), an attractor network layer (layer 2, DT analogue) and an integrator layer (layer 3, hindbrain analogue) that combines signals from the first two layers to produce history-dependent output (Fig. 5a and Extended Data Fig. 8a,b). The architecture incorporated known anatomical data, including regional excitatory-to-inhibitory neuron ratios, ipsilateral TeO-to-DT excitatory  projections, cross-hemispheric inhibitory projections within the DT, and ipsilateral DT-to-hindbrain projections that preferentially target hindbrain inhibitory populations, an arrangement consistent with the observed lateralization flip between the DT and the hindbrain integrator15 (Extended Data Fig. 7). NMDA receptor-mediated currents were included to support persistent activity and integration, consistent with their known biophysical roles47 and with the clinical observation that NMDA receptor hypofunction reduces serial dependence48. To compare model output directly with behaviour, we added a readout stage that maps layer 3 activity to simulated avoidance behaviour (Fig. 5d,e and Extended Data Fig. 8a,b).</p>
+</blockquote>
+<p>为了阐明这些多区域动态背后的计算，我们构建了一个受斑马鱼全脑图谱约束的三层计算模型。该模型由输入层（层 1，TeO 类似物）、吸引子网络层（层 2，DT 类似物）和一个积分器层（层 3，后脑类似物）组成，后者结合了前两层的信号以产生基于历史的输出。该架构包含已知的解剖数据，包括区域兴奋性与抑制性神经元比例、同侧 TeO 到 DT 的兴奋性投射、DT 内的跨半球抑制性投射，以及同侧 DT 到后脑的投射，优先靶向后脑抑制性群体，这种安排与观察到的 DT 和后脑积分器之间的侧化翻转一致。包括 NMDA 受体介导的电流以支持持续活动和积分，与它们已知的生物物理作用以及临床观察到 NMDA 受体功能减退减少序列依赖一致。为了将模型输出直接与行为进行比较，我们添加了一个读出阶段，将第 3 层活动映射到模拟的回避行为。</p>
+<blockquote>
+<p>In our simulation, layer 2 exhibited two-state attractor dynamics (Fig. 5c). Crucially, our model solved the stability-versus-flexibility trade-off by incorporating transient inhibitory interneurons gated by sensory input from layer 1. This sensory-driven transient inhibition destabilizes the attractor to allow for rapid memory updating, whereas sustained inhibition maintains stability between stimuli. Consequently, the attractor can be flexibly reset by new input, consistent with DT dynamics in the real brain. A comparable model lacking this transient inhibition motif required substantially stronger input to achieve state transitions (Extended Data Fig. 9a). To validate the biological plausibility of this transient inhibition, we imaged DT inhibitory neurons in transgenic zebrafish. With an unsupervised clustering, we identified two functionally distinguishable clusters: a transient population (124 ± 32 neurons per fish) that was active primarily during stimulus presentation and a sustained population (41 ± 12 neurons per fish) that remained active across stimulus and maintenance phases (Fig. 5b and Extended Data Fig. 9b–f). Thus, the dual-inhibitory motif predicted by the model is present in the biological circuit.</p>
+</blockquote>
+<p>在我们的模拟中，第 2 层表现出两状态吸引子动力学。关键是，我们的模型通过引入由第 1 层感觉输入门控的瞬态抑制性中间神经元来解决稳定性与灵活性的权衡。这种感觉驱动的瞬态抑制使吸引子不稳定，以允许快速记忆更新，而持续的抑制在刺激之间保持稳定。因此，吸引子可以被新输入灵活地重置，与真实大脑中的 DT 动态一致。缺乏这种瞬态抑制模式的可比模型需要更强的输入才能实现状态转换。为了验证这种瞬态抑制的生物学合理性，我们在转基因斑马鱼中成像了 DT 抑制性神经元。通过无监督聚类，我们确定了两个功能上可区分的簇：一个瞬态群体（每条鱼 124 ± 32 个神经元），主要在刺激呈现期间活跃；另一个持续群体（每条鱼 41 ± 12 个神经元），在刺激和维护阶段保持活跃。因此，模型预测的双重抑制模式存在于生物电路中。</p>
+<blockquote>
+<p>When signals reach layer 3, the integrator combines the current sensory input from layer 1 with the stay-or-switch context from the layer 2, producing four distinct activation states corresponding to LL, LR, RL and RR (Fig. 5c, Extended Data Fig. 8c and Supplementary Video 4). A representative trial illustrates the dynamics of transformation (Fig. 5f). In a left-obstacle trial, the left integrator of layer 3 governs the output, whereas the right integrator is silenced by layer 2 input (Extended Data Fig. 8d). This strength of left integrator response depends on history. During a switch trial (for example, RL), strong inhibitory input from layer 2 suppresses the response of the integrator, whereas during a stay trial (LL), reduced inhibition allows for a stronger response (Fig. 5f and Extended Data Fig. 8d). Algorithmically, the model converts discrete attractor transitions into graded inhibition, modulating the excitation level of layer 3 and generates serial bias (Fig. 5g).</p>
+</blockquote>
+<p>当信号到达第 3 层时，积分器将来自第 1 层的当前感觉输入与来自第 2 层的保持或切换上下文结合起来，产生四个不同的激活状态，分别对应 LL、LR、RL 和 RR。在一个代表性试验中，左侧障碍物试验中，第 3 层的左侧积分器控制输出，而右侧积分器被第 2 层输入抑制。左侧积分器响应的强度取决于历史。在切换试验（例如 RL）期间，第 2 层的强烈抑制输入抑制了积分器的响应，而在保持试验（LL）期间，减少的抑制允许更强的响应。从算法上讲，该模型将离散吸引子转换为分级抑制，调节第 3 层的兴奋水平并产生序列偏差。</p>
+<blockquote>
+<p>This hierarchical attractor–integrator model provides a modular and biologically grounded account of serial dependence, separating memory maintenance from downstream integration to explain how serial dependence arises from multi-regional cooperation.</p>
+</blockquote>
+<p>这个分层吸引子-积分器模型提供了一个模块化和生物学基础的序列依赖解释，将记忆维护与下游整合分开，以解释序列依赖如何从多区域合作中产生。</p>
+<h1 id="discussion">Discussion<a hidden class="anchor" aria-hidden="true" href="#discussion">#</a></h1>
+<blockquote>
+<p>Our study reveals a brain-wide circuit mechanism for serial dependence, emerging from a two-stage neural computation. First, thalamic attractor dynamics stabilize a categorical memory of recent experience; second, a brainstem integrator transforms that memory into a graded premotor bias. This reframes serial dependence not as a passive byproduct of neural inertia, but as an active computation implemented by specialized modules. By monitoring nearly all neurons simultaneously, we linked previously disconnected observations into a unified circuit framework.</p>
+</blockquote>
+<p>我们的研究揭示了一个全脑电路机制，用于序列依赖，源自两阶段神经计算。首先，丘脑吸引子动力学稳定了最近经验的分类记忆；其次，脑干积分器将该记忆转化为分级的前运动偏差。这将序列依赖重新定义为一个由专门模块实现的主动计算，而不是神经惯性的被动副产品。通过同时监测几乎所有神经元，我们将先前未连接的观察结果联系到一个统一的电路框架中。</p>
+<blockquote>
+<p>Serial dependence is widely viewed as a solution to the stabilityflexibility tradeoff, exploiting environmental continuity to stabilize representations while preserving sensitivity to change1,3. Our hierarchical framework provides a concrete circuit implementation: by segregating persistent sensory memory in the thalamic attractor from ongoing sensory drive in the TeO, the circuit minimizes interference between past and present information. The hindbrain then serves as a convergence zone to compute history-biased actions. This modularity robustly preserves categorical priors within a discrete attractor while avoiding corruption of current perception. Here we use ‘attractors’ in the conventional computational-neuroscience sense to denote self-sustaining states that can be switched by perturbation; a fuller dynamical characterization of the landscape will be important to link state stability quantitatively to bias magnitude. Within our attractor framework, sensory-driven transient inhibition allows the circuit to stably preserve past information while remaining readily updatable by new input, thereby supporting serially biased decisions.</p>
+</blockquote>
+<p>序列依赖被广泛视为稳定性与灵活性权衡的解决方案，利用环境连续性来稳定表示，同时保持对变化的敏感性。我们的分层框架提供了一个具体的电路实现：通过将丘脑吸引子中的持续感觉记忆与 TeO 中的持续感觉驱动分开，电路最小化了过去和现在信息之间的干扰。然后，后脑作为一个汇聚区来计算基于历史的动作。这种模块化在离散吸引子中稳健地保留了分类先验，同时避免了当前感知的损坏。在这里，我们使用“吸引子”这个术语是指传统计算神经科学意义上的自我维持状态，可以通过扰动切换；对景观进行更全面的动力学表征将对于定量地将状态稳定性与偏差大小联系起来非常重要。在我们的吸引子框架内，感觉驱动的瞬态抑制使电路能够稳定地保留过去的信息，同时可以通过新输入轻松更新，从而支持序列偏置的决策。</p>
+<blockquote>
+<p>This hierarchical attractor–integrator motif is generalizable and scalable. The zebrafish DT responds to diverse sensory cues, from social cues to threatening stimuli31–33, whereas the hindbrain handles various sensorimotor functions, such as evidence accumulation, motor planning and path integration43–46,49. This suggests a reusable motif in which distinct sensory tasks can flexibly couple to premotor integrators to enable history-dependent modulation across many behaviours. The DT memory trace persists across multiple visual contexts (looming and gratings), and serial dependence extends from obstacle avoidance to escape manoeuvres evoked by threatening agents (Extended Data Fig. 10a,b). Thus, the DT functions as a relatively task-flexible memory buffer. Furthermore, the architecture is inherently scalable. Our modelling further suggests that longer history dependence could emerge from heterogeneity in the integrator stage, for example, through distinct NMDA receptor kinetics in L3 neurons48,50 (Extended Data Fig. 10c–e).</p>
+</blockquote>
+<p>这种分层吸引子-积分器模式是可推广和可扩展的。斑马鱼 DT 对多种感觉线索做出反应，从社交线索到威胁刺激，而后脑处理各种感觉运动功能，如证据积累、运动计划和路径积分。这表明了一个可重用的模式，其中不同的感觉任务可以灵活地耦合到前运动积分器，以实现许多行为的基于历史的调制。DT 记忆痕迹在多个视觉环境中持续存在（逼近和条纹），序列依赖从障碍物回避扩展到由威胁代理引发的逃逸机动。因此，DT 作为一个相对任务灵活的记忆缓冲区。此外，该架构本质上是可扩展的。我们的建模进一步表明，更长的历史依赖可能来自积分器阶段的异质性，例如，通过 L3 神经元中不同的 NMDA 受体动力学。</p>
+<blockquote>
+<p>Unconventionally, the downstream circuit decodes the transition structure (stay versus switch) of the attractor rather than its absolute persistent activity level41,51. This provides a biologically plausible solution to the theoretical fragility of finely tuned continuous attractors: instead of relying on absolute firing rates, robust integration can emerge from heterogeneous bistable units that exploit hysteresis52,53. In this framework, the DT acts as a noise-resistant categorical gate that delivers discrete state-transition signals, whereas the hindbrain integrator transforms these transitions into progressively graded population responses through state-dependent inhibition. By recruiting heterogeneous bistable subunits, such as L3 neurons with distinct NMDA receptor kinetics, the hindbrain can approximate a quasi-continuous manifold without implementing a strict line attractor, thereby converting a winner-take-all memory into an analogue signal that accumulates across trials to drive multi-trial serial bias.</p>
+</blockquote>
+<p>非传统地，下游电路解码吸引子的转变结构（保持与切换），而不是其绝对持续活动水平。这为理论上微调连续吸引子脆弱性的生物学合理解决方案提供了可能：不依赖于绝对的发火率，稳健的积分可以从利用滞后的异质双稳态单元中产生。在这个框架中，DT 作为一个抗噪声的分类门，提供离散状态转换信号，而后脑积分器通过状态依赖的抑制将这些转换转化为逐渐分级的群体响应。通过招募异质双稳态子单元，例如具有不同 NMDA 受体动力学的 L3 神经元，后脑可以近似一个准连续流形，而不需要实现严格的线性吸引子，从而将赢家通吃记忆转换为一个模拟信号，在试验之间积累以驱动多试验序列偏差。</p>
+<blockquote>
+<p>Several limitations point to future work. First, incorporating continuous-attractor dynamics into the integrator stage could improve the robustness and memory capacity of the model36,41,54. Second, connectomics are needed to resolve the microcircuitry of the DT (approximately 26.7% recurrent connectivity31) and to test whether its outputs preferentially recruit ipsilateral hindbrain inhibitory populations to explain the observed polarity inversion. Third, beyond the dominant PC1 axis, discrimination in higher-dimensional subspaces such as PC2 and PC3 suggests that mapping these representations will be essential for resolving the full distributed organization of history-dependent computation. Finally, our optogenetic perturbations relied on anatomical markers. Future work using real-time, activity-guided manipulations will enable the precise functional dissection of circuit components55,56, such as different subpopulations of inhibitory neurons in the DT.</p>
+</blockquote>
+<p>几个限制指向未来的工作。首先，将连续吸引子动力学纳入积分器阶段可以提高模型的稳健性和记忆容量。第二，需要连接组学来解析 DT 的微电路（约 26.7% 的递归连接）并测试其输出是否优先招募同侧后脑抑制性群体以解释观察到的极性反转。第三，除了主导的 PC1 轴之外，在 PC2 和 PC3 等更高维子空间中的区分表明，映射这些表示对于解决基于历史的计算的完整分布式组织至关重要。最后，我们的光遗传学扰动依赖于解剖标记。未来使用实时、基于活动的操纵将使得对电路组件进行精确功能剖析成为可能，例如 DT 中不同亚群体的抑制性神经元。</p>
+<blockquote>
+<p>An important next step is to test whether serial bias is plastic and adapts to environmental statistics. The brain might downweight previous information in volatile environments and upweight it when temporal correlations are strong. Such recalibration could be mediated by neuromodulatory or glial systems that regulate attractor stability or the integration window14,17,57. Demonstrating this plasticity would link our circuit model to Bayesian frameworks of adaptive inference and may have clinical relevance, as altered serial dependence has been implicated in conditions such as schizophrenia and autism48,58. Ultimately, by framing serial dependence as an active, distributed computation across hierarchical modules, our work provides a foundation for understanding how sensory history systematically shapes behaviour.</p>
+</blockquote>
+<p>一个重要的下一步是测试序列偏差是否具有可塑性并适应环境统计。在不稳定的环境中，大脑可能会降低对先前信息的权重，而在时间相关性强时增加其权重。这种重新校准可能由调节吸引子稳定性或积分窗口的神经调节或胶质系统介导。证明这种可塑性将把我们的电路模型与适应性推理的贝叶斯框架联系起来，并可能具有临床相关性，因为改变的序列依赖已被涉及到诸如精神分裂症和自闭症等疾病中。最终，通过将序列依赖框架化为跨层次模块的主动、分布式计算，我们的工作为理解感觉历史如何系统地塑造行为提供了基础。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/attractors/a-line-attractor-maintains-aggressiveness-during-feeding-in-hangry-mice/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>A line attractor maintains aggressiveness during feeding in &#39;hangry&#39; mice</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/life/attractors-proposal/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Attractors Proposal 拟定</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1210 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 159 篇 1072275 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

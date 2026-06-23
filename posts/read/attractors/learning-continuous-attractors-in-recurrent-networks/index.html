@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Learning Continuous Attractors in Recurrent Networks | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="在循环网络中学习连续吸引子机制">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/learning-continuous-attractors-in-recurrent-networks/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/learning-continuous-attractors-in-recurrent-networks/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="Learning Continuous Attractors in Recurrent Networks" />
+<meta property="og:description" content="在循环网络中学习连续吸引子机制" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/learning-continuous-attractors-in-recurrent-networks/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/06/23/4Hwo/20260623200823866.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-06-23T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-06-23T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/06/23/4Hwo/20260623200823866.png" />
+<meta name="twitter:title" content="Learning Continuous Attractors in Recurrent Networks"/>
+<meta name="twitter:description" content="在循环网络中学习连续吸引子机制"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Learning Continuous Attractors in Recurrent Networks",
+      "item": "https://Muatyz.github.io/posts/read/attractors/learning-continuous-attractors-in-recurrent-networks/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Learning Continuous Attractors in Recurrent Networks",
+  "name": "Learning Continuous Attractors in Recurrent Networks",
+  "description": "在循环网络中学习连续吸引子机制",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Abstract One approach to invariant object recognition employs a recurrent neural network as an associative memory. In the standard depiction of the network's state space, memories of objects are stored as attractive fixed points of the dynamics.\n一种用于不变物体识别的方法是使用循环神经网络作为联想记忆。在该网络状态空间的标准描述中，物体的记忆被存储为动力学的吸引不动点。\nI argue for a modification of this picture: if an object has a continuous family of instantiations, it should be represented by a continuous attractor. This idea is illustrated with a network that learns to complete patterns.\nTo perform the task of filling in missing information, the network develops a continuous attractor that models the manifold from which the patterns are drawn.\n我主张对这一图景进行修改：如果一个物体有一系列连续的实例，它应该由一个连续吸引子来表示。这个想法通过一个学习完成模式的网络得到了说明。\n为了执行填充缺失信息的任务，网络发展出一个连续吸引子，该吸引子模拟了模式来源的流形。\nFrom a statistical viewpoint, the pattern completion task allows a formulation of unsupervised learning in terms of regression rather than density estimation.\n从统计学的角度来看，模式完成任务允许以 回归 而非密度估计的方式来表述无监督学习。\nIntroduction A classic approach to invariant object recognition is to use a recurrent neural network as an associative memory. In spite of the intuitive appeal and biological plausibility of this approach, it has largely been abandoned in practical applications. This paper introduces two new concepts that could help resurrect it: object representation by continuous attractors, and learning attractors by pattern completion.\n一个经典的不变物体识别方法是使用循环神经网络作为联想记忆。尽管这种方法具有直观的吸引力和生物学上的合理性，但在实际应用中它已被大体上放弃。本文介绍了两个可能有助于复兴它的新概念：通过连续吸引子表示物体，以及 通过模式完成学习吸引子。\nIn most models of associative memory, memories are stored as attractive fixed points at discrete locations in state space. Discrete attractors may not be appropriate for patterns with continuous variability, like the images of a three-dimensional object from different viewpoints. When the instantiations of an object lie on a continuous pattern manifold, it is more appropriate to represent objects by attractive manifolds of fixed points, or continuous attractors.\n在大多数联想记忆模型中，记忆被存储为状态空间中离散位置的吸引不动点。对于具有连续变异性的模式，如从不同视角看到的三维物体的图像，离散吸引子可能不适用。当一个物体的实例位于一个连续模式流形上时，更适合通过不动点的吸引流形或连续吸引子来表示物体。\nTo make this idea practical, it is important to find methods for learning attractors from examples. A naive method is to train the network to retain examples in shortterm memory. This method is deficient because it does not prevent the network from storing spurious fixed points that are unrelated to the examples.\nA superior method is to train the network to restore examples that have been corrupted, so that it learns to complete patterns by filling in missing information.\n为了使这个想法具有实用性，找到从示例中学习吸引子的方法是很重要的。一种朴素的方法是训练网络在短期记忆中保留示例。这种方法存在缺陷，因为它不能防止网络存储与示例无关的 虚假不动点。\n一种更优的方法是训练网络恢复已被破坏的示例，从而学习通过填充缺失信息来完成模式。\nLearning by pattern completion can be understood from both dynamical and statistical perspectives. Since the completion task requires a large basin of attraction around each memory, spurious fixed points are suppressed.\nThe completion task also leads to a formulation of unsupervised learning as the regression problem of estimating functional dependences between variables in the sensory input.\n通过模式完成学习可以从动力学和统计学的角度来理解。由于完成任务要求每个记忆周围有一个大的吸引域，因此抑制了虚假不动点。\n完成任务还导致了将无监督学习表述为估计感官输入中变量之间函数依赖关系的回归问题。\nDensity estimation, rather than regression, is the dominant formulation of unsupervised learning in stochastic neural networks like the Boltzmann machine. Density estimation has the virtue of suppressing spurious fixed points automatically, but it also has the serious drawback of being intractable for many network architectures.\nRegression is a more tractable, but nonetheless powerful, alternative to density estimation.\n密度估计，而不是回归，是像 Boltzmann 机这样的随机神经网络中无监督学习的主要表述。密度估计具有自动抑制虚假不动点的优点，但它也有一个严重的缺点，即对于许多网络架构来说是不可行的。\n回归是密度估计的一个更易处理但仍然强大的替代方案。\nIn a number of recent neurobiological models, continuous attractors have been used to represent continuous quantities like eye position, direction of reaching, head direction, and orientation of a visual stimulus. Along with these models, the present work is part of a new paradigm for neural computation based on continuous attractors.\n在一些最近的神经生物学模型中，连续吸引子已被用来表示连续量，如眼睛位置、伸手方向、头部方向和视觉刺激的方向。与这些模型一起，本文工作是基于连续吸引子的神经计算新范式的一部分。\nDiscrete versus continuous attractors Figure 1 depicts two ways of representing objects as attractors of a recurrent neural network dynamics. The standard way is to represent each object by an attractive fixed point, as in Figure 1a. Recall of a memory is triggered by a sensory input, which sets the initial conditions. The network dynamics converges to a fixed point, thus retrieving a memory. If different instantiations of one object lie in the same basin of attraction, they all trigger retrieval of the same memory, resulting in the many-to-one map required for invariant recognition.\n图 1 描述了两种将物体表示为循环神经网络动力学吸引子的方式。标准方式是通过吸引不动点表示每个物体，如图 1a 所示。记忆的回忆由感官输入触发，该输入设置初始条件。网络动力学收敛到一个不动点，从而检索记忆。如果一个物体的不同实例位于同一吸引域中，它们都会触发相同记忆的检索，从而产生不变识别所需的多对一映射。\nIn Figure 1b, each object is represented by a continuous manifold of fixed points. A one-dimensional manifold is shown, but generally the attractor should be multidimensional, and is parametrized by the instantiation or pose parameters of the object . For example, in visual object recognition, the coordinates would include the viewpoint from which the object is seen.\n在图 1b 中，每个物体由不动点的连续流形表示。显示了一维流形，但通常吸引子应该是多维的，并且由物体的实例化或姿态参数参数化。例如，在视觉物体识别中，坐标将包括观察物体的视角。\nThe reader should be cautioned that the term \"continuous attractor\" is an idealization and should not be taken too literally. In real networks, a continuous attractor is only approximated by a manifold in state space along which drift is very slow. This is illustrated by a simple example, a descent dynamics on a trough-shaped energy landscape. If the bottom of the trough is perfectly level, it is a line of fixed points and an ideal continuous attractor of the dynamics. However, any slight imperfections cause slow drift along the line. This sort of approximate continuous attractor is what is found in real networks, including those trained by the learning algorithms to be discussed below.\n读者应注意，“连续吸引子”一词是一种理想化，不应过于字面理解。在真实网络中，连续吸引子仅由状态空间中的一个流形近似表示，在该流形上漂移非常缓慢。这通过一个简单的例子来说明，即在槽形能量景观上的下降动力学。如果槽底完全平坦，它就是不动点的线，是动力学的理想连续吸引子。然而，任何轻微的不完美都会导致沿着这条线的缓慢漂移。这种近似连续吸引子就是在真实网络中发现的，包括那些通过下面将讨论的学习算法训练的网络。\nDynamics of memory retrieval The preceding discussion has motivated the idea of representing pattern manifolds by continuous attractors. This idea will be further developed with the simple network shown in Figure 2a, which consists of a visible layer $x_{1}\\in \\mathbb{R}^{n_{1}}$ and a hidden layer $x_{2}\\in \\mathbb{R}^{n_{2}}$. The architecture is recurrent, containing both bottom-up connections (the $n_{2}\\times n_{1}$ matrix $W_{21}$ and top-down connections (the $n_{1} \\times n_{2}$ matrix $W_{12}$). The vectors $b_{1}$ and $b_{2}$ represent the biases of the neurons. The neurons have a rectification nonlinearity $[x]_{+} = \\max\\{x, 0\\}$, which acts on vectors component by component.\n前面的讨论激发了通过连续吸引子表示模式流形的想法。这个想法将在图 2a 所示的简单网络中进一步发展，该网络由一个可见层 $x_{1}\\in \\mathbb{R}^{n_{1}}$ 和一个隐藏层 $x_{2}\\in \\mathbb{R}^{n_{2}}$ 组成。该架构是循环的，包含自底向上的连接（$n_{2}\\times n_{1}$ 矩阵 $W_{21}$）和自上而下的连接（$n_{1} \\times n_{2}$ 矩阵 $W_{12}$）。向量 $b_{1}$ 和 $b_{2}$ 表示神经元的偏置。神经元具有整流非线性 $[x]_{+} = \\max\\{x, 0\\}$，它对向量逐分量作用。\nThere are many variants of recurrent network dynamics: a convenient choice is the following discrete-time version, in which updates of the hidden and visible layers alternate in time. After the visible layer is initialized with the input vector $x_{1}(0)$, the dynamics evolves as\n$$ \\begin{align*} x_{2}(t) \u0026= [b_{2} + W_{21}x_{1}(t-1)]_{+} \\\\ x_{1}(t) \u0026= [b_{1} + W_{12}x_{2}(t)]_{+} \\end{align*} $$\nIf memories are stored as attractors, iteration of this dynamics can be regarded as memory retrieval.\n有许多循环网络动力学的变体：一个方便的选择是以下离散时间版本，其中隐藏层和可见层的更新交替进行。在可见层用输入向量 $x_{1}(0)$ 初始化后，动力学演化如下：\n$$ \\begin{align*} x_{2}(t) \u0026= [b_{2} + W_{21}x_{1}(t-1)]_{+} \\\\ x_{1}(t) \u0026= [b_{1} + W_{12}x_{2}(t)]_{+} \\end{align*} $$\n如果记忆被存储为吸引子，则该动力学的迭代可以被视为记忆检索。\nActivity circulates around the feedback loop between the two layers. One iteration of this loop is the map $x_{1}(t-1)\\to x_{2}(t) \\to x_{1}(t)$. This single iteration is equivalent to the feedforward architecture of Figure 2b. In the case where the hidden layer is smaller than the visible layers, this architecture is known as an autoencoder network. Therefore the recurrent network dynamics (1) is equivalent to repeated iterations of the feedforward autoencoder. This is just the standard trick of unfolding the dynamics of a recurrent network in time, to yield an equivalent feedforward network with many layers. Because of the close relationship between the recurrent network of Figure 2a and the autoencoder of Figure 2b, it should not be surprising that learning algorithms for these two networks are also related, as will be explained below.\n活动在两层之间的反馈循环中循环。这个循环的一次迭代是映射 $x_{1}(t-1)\\to x_{2}(t) \\to x_{1}(t)$。这个单次迭代等价于图 2b 的前馈架构。在隐藏层比可见层小的情况下，这个架构被称为自动编码器网络。因此，循环网络动力学 (1) 等价于前馈自动编码器的重复迭代。这只是展开循环网络动力学在时间上的标准技巧，以产生一个具有多层的等效前馈网络。由于图 2a 的循环网络和图 2b 的自动编码器之间的密切关系，不应该感到惊讶的是，这两个网络的学习算法也相关，如下所述。\nLearning to retain patterns Little trace of an arbitrary input vector $x_{1}(0)$ remains after a few time steps of the dynamics (1). However, the network can retain some input vectors in short-term memory as \"reverberating\" patterns of activity. These correspond to fixed points of the dynamics (1); they are patterns that do not change as activity circulates around the feedback loop.\n在动力学 (1) 的几个时间步之后，任意输入向量 $x_{1}(0)$ 的痕迹几乎消失。然而，网络可以将一些输入向量保留在短期记忆中，作为“回响”的活动模式。这些对应于动力学 (1) 的不动点；它们是随着活动在反馈循环中循环而不改变的模式。\nThis suggests a formulation of learning as the optimization of the network's ability to retain examples in short-term memory. Then a suitable cost function is the squared difference $|x_{1}(T)-x_{1}(0)|^{2}$ between the example pattern $x_{1}(0)$ and the network's short-term memory $x_{1}(T)$ of it after $T$ time steps. Gradient descent on this cost function can be done via backpropagation through time.\n这表明可以将学习表述为优化网络在短期记忆中保留示例的能力。那么，一个合适的代价函数是示例模式 $x_{1}(0)$ 与网络在 $T$ 个时间步后对其的短期记忆 $x_{1}(T)$ 之间的平方差 $|x_{1}(T)-x_{1}(0)|^{2}$。可以通过时间反向传播对这个代价函数进行梯度下降。\nIf the network is trained with patterns drawn from a continuous family, then it can learn to perform the short-term memory task oy developing a continuous attractor that lies near the examples it is trained on. When the hidden layer is smaller than the visible layer, the dimensionality of the attractor is limited by the size of the hidden layer.\n如果网络使用从连续族中抽取的模式进行训练，那么它可以通过开发一个位于其训练示例附近的连续吸引子来学习执行短期记忆任务。当隐藏层比可见层小时，吸引子的维数受隐藏层大小的限制。\nFor the case of a single time step ($T = 1$), training the recurrent network of Figure 2a to retain patterns is equivalent to training the autoencoder of Figure 2b by minimizing the squared difference between its input and output layers, averaged over the examples. From the information theoretic perspective, the small hidden layer in Figure 2b acts as a bottleneck between the input and output layers, forcing the autoencoder to learn an efficient encoding of the input.\n对于单个时间步的情况（$T = 1$），训练图 2a 的循环网络以保留模式等价于通过最小化其输入和输出层之间的平方差（在示例上取平均）来训练图 2b 的自动编码器。从信息论的角度来看，图 2b 中的小隐藏层充当输入和输出层之间的瓶颈，迫使自动编码器学习输入的有效编码。\nFor the special case of a linear network, the nature of the learned encoding is understood completely. Then the input and output vectors are related by a simple matrix multiplication. The rank of the matrix is equal to the number of hidden units. The average distortion is minimized when this matrix becomes a projection operator onto the subspace spanned by the principal components of the examples.\n对于线性网络的特殊情况，学习编码的性质是完全理解的。然后输入和输出向量通过简单的矩阵乘法相关联。矩阵的秩等于隐藏单元的数量。当该矩阵成为投影算子到由示例的主成分所张成的子空间时，平均失真最小化。\nFrom the dynamical perspective, the principal subspace is a continuous attractor of the dynamics (1). The linear network dynamics converges to this attractor in a single iteration, starting from any initial condition. Therefore we can interpret principal component analysis and its variants as methods of learning continuous attractors.\n从动力学的角度来看，主子空间是动力学 (1) 的连续吸引子。线性网络动力学从任何初始条件开始，在单次迭代中收敛到这个吸引子。因此，我们可以将主成分分析及其变体解释为学习连续吸引子的方法。\nLearning to complete patterns Learning to retain patterns in short-term memory only works properly for architectures with a small hidden layer. The problem with a large hidden layer is evident when the hidden and visible layers are the same size, and the neurons are linear. Then the cost function for learning can be minimized by setting the weight matrices equal to the identity, $W_{21} = W_{12} = I$. For this trivial minimum, every input vector is a fixed point of the recurrent network (Figure 2a), and the equivalent feedforward network (Figure 2b) exactly realizes the identity map. Clearly these networks have not learned anything.\n在短期记忆中学习保留模式仅适用于具有小隐藏层的架构。当隐藏层和可见层大小相同时，且神经元是线性的，这个问题就很明显了。然后，学习的代价函数可以通过将权重矩阵设置为单位矩阵 $W_{21} = W_{12} = I$ 来最小化。对于这个平凡的最小值，每个输入向量都是循环网络（图 2a）的不动点，并且等效的前馈网络（图 2b）完全实现了恒等映射。显然，这些网络没有学到任何东西。\nTherefore in the case of a large hidden layer, learning to retain patterns is inadequate. Without the bottleneck in the architecture, there is no pressure on the feedforward network to learn an efficient encoding. Without constraints on the dimension of the attractor, the recurrent network develops spurious fixed points that have nothing to do with the examples.\n因此，在隐藏层较大的情况下，学习保留模式是不充分的。没有架构中的瓶颈，前馈网络没有压力去学习有效的编码。没有对吸引子维数的约束，循环网络会发展出与示例无关的虚假不动点。\nThese problems can be solved by a different formulation of learning based on the task of pattern completion. In the completion task of Figure 3a, the network is initialized with a corrupted version of an example. Learning is done by minimizing the completion error, which is the squared difference $|x_{1}(T)-d|^{2}$ between the uncorrupted pattern $d$ and the final visible vector $x_{1}(T)$. Gradient descent on completion error can be done with backpropagation through time.\n通过基于模式完成任务的不同学习表述可以解决这些问题。在图 3a 的完成任务中，网络用一个示例的损坏版本初始化。通过最小化完成误差来进行学习，完成误差是未损坏模式 $d$ 与最终可见向量 $x_{1}(T)$ 之间的平方差 $|x_{1}(T)-d|^{2}$。可以通过时间反向传播对完成误差进行梯度下降。\nThis new formulation of learning eliminates the trivial identity map solution mentioned above: while the identity network can retain any example, it cannot restore corrupted examples to their pristine form. The completion task forces the network to enlarge the basins of attraction of the stored memories, which suppresses spurious fixed points. It also forces the network to learn associations between variables in the sensory input.\n这种新的学习表述消除了上述提到的平凡恒等映射解：虽然恒等网络可以保留任何示例，但它无法将损坏的示例恢复到原始形式。完成任务迫使网络扩大存储记忆的吸引域，从而抑制虚假不动点。它还迫使网络学习感官输入中变量之间的关联。\nLocally connected architecture Experiments were conducted with images of handwritten digits from the USPS database described in [12]. The example images were $16\\times 16$, with a gray scale ranging from $0$ to $1$. The network was trained on a specific digit class, with the goal of learning a single pattern manifold. Both the network architecture and the nature of the completion task were chosen to suit the topographic structure present in visual images.\n使用 [12] 中描述的 USPS 数据库中的手写数字图像进行了实验。示例图像为 $16\\times 16$，灰度范围从 $0$ 到 $1$。网络在特定数字类别上进行训练，目标是学习单一模式流形。网络架构和完成任务的性质都被选择以适应视觉图像中存在的拓扑结构。\nThe network architecture was given a topographic organization by constraining the synaptic connectivity to be local, as shown in Figure 4a. Both the visible and hidden layers of the network were $16\\times 16$. The visible layer represented an image, while the hidden layer was a topographic feature map. Each neuron had $5\\times 5$ receptive and projective fields, except for neurons near the edges, which had more restricted connectivity.\n网络架构通过限制突触连接为局部来获得拓扑组织，如图 4a 所示。网络的可见层和隐藏层都是 $16\\times 16$。可见层表示图像，而隐藏层是一个拓扑特征图。每个神经元都有 $5\\times 5$ 的感受野和投射场，除了边缘附近的神经元，它们的连接更受限制。\nIn the pattern completion task, example images were corrupted by zeroing the pixels inside a $9\\times 9$ patch chosen at a random location, as shown in Figure 3a. The location of the patch was randomized for each presentation of an example. The size of the patch was a substantial fraction of the $16\\times 16$ image, and much larger than the $5\\times 5$ receptive field size. This method of corrupting the examples gave the completion task a topographic nature, because it involved a set of spatially contiguous pixels. This topographic nature would have been lacking if the examples had been corrupted by, for example, the addition of spatially uncorrelated noise.\n在模式完成任务中，示例图像通过将随机位置的 $9\\times 9$ 补丁内的像素置零来损坏，如图 3a 所示。每次呈现示例时，补丁的位置都是随机的。补丁的大小是 $16\\times 16$ 图像的一个重要部分，并且远大于 $5\\times 5$ 的感受野大小。这种损坏示例的方法赋予了完成任务一个拓扑性质，因为它涉及一组空间连续的像素。如果示例被损坏，例如通过添加空间不相关的噪声，这种拓扑性质就会缺失。\nFigure 3b illustrates the dynamics of pattern completion performed by a network trained on examples of the digit class \"two.\" The network is initialized with a corrupted example of a \"two.\" After the first itex:ation of the dynamics, the image is partially restored. The second iteration leads to superior restoration, with further sharpening of the image. The \"filling in\" phenomenon is also evident in the hidden layer.\n图 3b 说明了一个在数字类别 “二” 的示例上训练的网络执行模式完成的动力学。网络用一个损坏的 “二” 的示例初始化。第一次迭代后，图像部分恢复。第二次迭代导致更好的恢复，图像进一步锐化。“填充” 现象在隐藏层中也很明显。\nThe network was first trained on a retrieval dynamics of one iteration. The resulting biases and synaptic weights were then used as initial conditions for training on a retrieval dynamics of two iterations. The hidden layer developed into a topographic feature map suitable for representing images of the digit \"two.\" Figure 4b depicts the bottom-up receptive fields of the 256 hidden neurons. The top-down projective fields of these neurons were similar, but are not shown.\n网络首先在一次迭代的检索动力学上进行训练。然后将得到的偏置和突触权重用作在两次迭代的检索动力学上训练的初始条件。隐藏层发展成为适合表示数字 “二” 图像的拓扑特征图。图 4b 描述了 $256$ 个隐藏神经元的自底向上的感受野。这些神经元的自上而下投射场类似，但未显示。\nThis feature map is distinct from others because of its use of top-down and bottom-up connections in a feedback loop. The bottom-up connections analyze images into their constituent features, while the top-down connections synthesize images by composing features. The features in the top-down connections can be regarded as a \"vocabulary\" for synthesis of images. Since not all combinations of features are proper patterns, there must be some \"grammatical\" constraints on their combination. The network's ability to complete patterns suggests that some of these constraints are embedded in the dynamical equations of the network. Therefore the relaxation dynamics (1) can be regarded as a process of massively parallel constraint satisfaction.\n这个特征图因其在反馈循环中使用自上而下和自底向上的连接而与众不同。自底向上的连接将图像分析为其组成特征，而自上而下的连接通过组合特征合成图像。自上而下连接中的特征可以被视为合成图像的 “词汇”。由于并非所有特征的组合都是适当的模式，因此它们的组合必须有一些 “语法” 约束。网络完成模式的能力表明，其中一些约束嵌入在网络的动力学方程中。因此，松弛动力学 (1) 可以被视为一个大规模并行约束满足的过程。\nConclusion I have argued that continuous attractors are a natural representation for pattern manifolds. One method of learning attractors is to train the network to retain examples in short-term memory. This method is equivalent to autoencoder learning, and does not work if the number of hidden units is large. A better method is to train the network to complete patterns. For a locally connected network, this method was demonstrated to learn a topographic feature map. The trained network is able to complete patterns, indicating that syntactic constraints on the combination of features are embedded in the network dynamics.\n我认为连续吸引子是模式流形的自然表示。学习吸引子的一种方法是训练网络在短期记忆中保留示例。这种方法等价于自动编码器学习，并且当隐藏单元数量较大时不起作用。更好的方法是训练网络完成模式。对于局部连接的网络，已经证明这种方法可以学习一个拓扑特征图。训练好的网络能够完成模式，这表明对特征组合的语法约束嵌入在网络动力学中。\nEmpirical evidence that the network has indeed learned a continuous attractor is obtained by local linearization of the network (1). The linearized dynamics has many eigenvalues close to unity, indicating the existence of an approximate continuous attractor. Learning with an increased number of iterations in the retrieval dynamics should improve the quality of the approximation.\n通过对网络 (1) 的局部线性化获得了网络确实学习了连续吸引子的经验证据。线性化的动力学有许多接近于一的特征值，表明存在一个近似的连续吸引子。在检索动力学中增加迭代次数的学习应该会提高近似的质量。\nThere is only one aspect of the learning algorithm that is specifically tailored for continuous attractors. This aspect is the limitation of the retrieval dynamics (1) to a few iterations, rather than iterating it all the way to a true fixed point. As mentioned earlier, a continuous attractor is only an idealization; in a real network it does not consist of true fixed points, but is just a manifold to which relaxation is fast and along which drift is slow. Adjusting the shape of this manifold is the goal of learning; the exact locations of the true fixed points are not relevant.\n学习算法中只有一个方面是专门针对连续吸引子设计的。这个方面是将检索动力学 (1) 限制在几次迭代，而不是一直迭代到一个真正的不动点。如前所述，连续吸引子只是一个理想化；在真实网络中，它不由真正的不动点组成，而只是一个弛豫快速且漂移缓慢的流形。调整这个流形的形状是学习的目标；真正不动点的确切位置并不相关。\nThe use of a fast retrieval dynamics removes one long-standing objection to attractor neural networks, which is that true convergence to a fixed point takes too long. If all that is desired is fast relaxation to an approximate continuous attractor, attractor neural networks are not much slower than feedforward networks.\n快速检索动力学消除了对吸引子神经网络的一个长期存在的反对意见，即真正收敛到一个不动点需要太长时间。如果所需的只是快速弛豫到一个近似的连续吸引子，那么吸引子神经网络并不比前馈网络慢多少。\nIn the experiments discussed here, learning was done with backpropagation through time. Contrastive Hebbian learning is a simpler alternative. Part of the image is held clamped, the missing values are filled in by convergence to a fixed point, and an anti-Hebbian update is made. Then the missing values are clamped at their correct values, the network converges to a new fixed point, and a Hebbian update is made. This procedure has the disadvantage of requiring true convergence to a fixed point, which can take many iterations. It also requires symmetric connections, which may be a representational handicap.\n在这里讨论的实验中，学习是通过时间反向传播完成的。对比 Hebbian 学习是一种更简单的替代方法。部分图像被固定，缺失的值通过收敛到一个不动点来填充，然后进行反 Hebbian 更新。然后将缺失的值固定在正确的值上，网络收敛到一个新的不动点，并进行 Hebbian 更新。这种程序的缺点是需要真正收敛到一个不动点，这可能需要很多迭代。它还需要对称连接，这可能是一个表示上的障碍。\nThis paper addressed only the learning of a single attractor to represent a single pattern manifold. The problem of learning multiple attractors to represent mUltiple pattern classes will be discussed elsewhere, along with the extension to network architectures with many layers.\n这篇论文只讨论了学习一个吸引子来表示一个模式流形的问题。学习多个吸引子来表示多个模式类别的问题将另行讨论，以及扩展到具有多层的网络架构。\n",
+  "wordCount" : "7119",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/06/23/4Hwo/20260623200823866.png","datePublished": "2026-06-23T00:18:23+08:00",
+  "dateModified": "2026-06-23T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/learning-continuous-attractors-in-recurrent-networks/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                Learning Continuous Attractors in Recurrent Networks
+            </h1>
+            <div class="post-description">
+                在循环网络中学习连续吸引子机制
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-06-23
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>7119字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>15分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/line-attractor/" style="color: var(--secondary)!important;">Line Attractor</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/06/23/4Hwo/20260623200823866.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#discrete-versus-continuous-attractors" aria-label="Discrete versus continuous attractors">Discrete versus continuous attractors</a></li>
+                <li>
+                    <a href="#dynamics-of-memory-retrieval" aria-label="Dynamics of memory retrieval">Dynamics of memory retrieval</a></li>
+                <li>
+                    <a href="#learning-to-retain-patterns" aria-label="Learning to retain patterns">Learning to retain patterns</a></li>
+                <li>
+                    <a href="#learning-to-complete-patterns" aria-label="Learning to complete patterns">Learning to complete patterns</a></li>
+                <li>
+                    <a href="#locally-connected-architecture" aria-label="Locally connected architecture">Locally connected architecture</a></li>
+                <li>
+                    <a href="#conclusion" aria-label="Conclusion">Conclusion</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>One approach to invariant object recognition employs a recurrent neural network as an associative memory. In the standard depiction of the network's state space, memories of objects are stored as attractive fixed points of the dynamics.</p>
+</blockquote>
+<p>一种用于不变物体识别的方法是使用循环神经网络作为联想记忆。在该网络状态空间的标准描述中，物体的记忆被存储为动力学的吸引不动点。</p>
+<blockquote>
+<p>I argue for a modification of this picture: if an object has a continuous family of instantiations, it should be represented by a continuous attractor. This idea is illustrated with a network that learns to complete patterns.</p>
+<p>To perform the task of filling in missing information, the network develops a continuous attractor that models the manifold from which the patterns are drawn.</p>
+</blockquote>
+<p>我主张对这一图景进行修改：如果一个物体有一系列连续的实例，它应该由一个连续吸引子来表示。这个想法通过一个学习完成模式的网络得到了说明。</p>
+<p>为了执行填充缺失信息的任务，网络发展出一个连续吸引子，该吸引子模拟了模式来源的流形。</p>
+<blockquote>
+<p>From a statistical viewpoint, the pattern completion task allows a formulation of unsupervised learning in terms of <strong>regression</strong> rather than density estimation.</p>
+</blockquote>
+<p>从统计学的角度来看，模式完成任务允许以 <strong>回归</strong> 而非密度估计的方式来表述无监督学习。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>A classic approach to invariant object recognition is to use a recurrent neural network as an associative memory. In spite of the intuitive appeal and biological plausibility of this approach, it has largely been abandoned in practical applications. This paper introduces two new concepts that could help resurrect it: object representation by continuous attractors, and <strong>learning attractors by pattern completion</strong>.</p>
+</blockquote>
+<p>一个经典的不变物体识别方法是使用循环神经网络作为联想记忆。尽管这种方法具有直观的吸引力和生物学上的合理性，但在实际应用中它已被大体上放弃。本文介绍了两个可能有助于复兴它的新概念：通过连续吸引子表示物体，以及 <strong>通过模式完成学习吸引子</strong>。</p>
+<blockquote>
+<p>In most models of associative memory, memories are stored as attractive fixed points at discrete locations in state space. Discrete attractors may not be appropriate for patterns with continuous variability, like the images of a three-dimensional object from different viewpoints. When the instantiations of an object lie on a continuous pattern manifold, it is more appropriate to represent objects by attractive manifolds of fixed points, or continuous attractors.</p>
+</blockquote>
+<p>在大多数联想记忆模型中，记忆被存储为状态空间中离散位置的吸引不动点。对于具有连续变异性的模式，如从不同视角看到的三维物体的图像，离散吸引子可能不适用。当一个物体的实例位于一个连续模式流形上时，更适合通过不动点的吸引流形或连续吸引子来表示物体。</p>
+<blockquote>
+<p>To make this idea practical, it is important to find methods for learning attractors from examples. A naive method is to train the network to retain examples in shortterm memory. This method is deficient because it does not prevent the network from storing <strong>spurious fixed points</strong> that are unrelated to the examples.</p>
+<p>A superior method is to train the network to restore examples that have been corrupted, so that it learns to complete patterns by filling in missing information.</p>
+</blockquote>
+<p>为了使这个想法具有实用性，找到从示例中学习吸引子的方法是很重要的。一种朴素的方法是训练网络在短期记忆中保留示例。这种方法存在缺陷，因为它不能防止网络存储与示例无关的 <strong>虚假不动点</strong>。</p>
+<p>一种更优的方法是训练网络恢复已被破坏的示例，从而学习通过填充缺失信息来完成模式。</p>
+<blockquote>
+<p>Learning by pattern completion can be understood from both dynamical and statistical perspectives. Since the completion task requires a large basin of attraction around each memory, spurious fixed points are suppressed.</p>
+<p>The completion task also leads to a formulation of unsupervised learning as the regression problem of estimating functional dependences between variables in the sensory input.</p>
+</blockquote>
+<p>通过模式完成学习可以从动力学和统计学的角度来理解。由于完成任务要求每个记忆周围有一个大的吸引域，因此抑制了虚假不动点。</p>
+<p>完成任务还导致了将无监督学习表述为估计感官输入中变量之间函数依赖关系的回归问题。</p>
+<blockquote>
+<p>Density estimation, rather than regression, is the dominant formulation of unsupervised learning in stochastic neural networks like the Boltzmann machine. Density estimation has the virtue of suppressing spurious fixed points automatically, but it also has the serious drawback of being intractable for many network architectures.</p>
+<p>Regression is a more tractable, but nonetheless powerful, alternative to density estimation.</p>
+</blockquote>
+<p>密度估计，而不是回归，是像 Boltzmann 机这样的随机神经网络中无监督学习的主要表述。密度估计具有自动抑制虚假不动点的优点，但它也有一个严重的缺点，即对于许多网络架构来说是不可行的。</p>
+<p>回归是密度估计的一个更易处理但仍然强大的替代方案。</p>
+<blockquote>
+<p>In a number of recent neurobiological models, continuous attractors have been used to represent continuous quantities like eye position, direction of reaching, head direction, and orientation of a visual stimulus. Along with these models, the present work is part of a new paradigm for neural computation based on continuous attractors.</p>
+</blockquote>
+<p>在一些最近的神经生物学模型中，连续吸引子已被用来表示连续量，如眼睛位置、伸手方向、头部方向和视觉刺激的方向。与这些模型一起，本文工作是基于连续吸引子的神经计算新范式的一部分。</p>
+<h1 id="discrete-versus-continuous-attractors">Discrete versus continuous attractors<a hidden class="anchor" aria-hidden="true" href="#discrete-versus-continuous-attractors">#</a></h1>
+<blockquote>
+<p>Figure 1 depicts two ways of representing objects as attractors of a recurrent neural network dynamics. The standard way is to represent each object by an attractive fixed point, as in Figure 1a. Recall of a memory is triggered by a sensory input, which sets the initial conditions. The network dynamics converges to a fixed point, thus retrieving a memory. If different instantiations of one object lie in the same basin of attraction, they all trigger retrieval of the same memory, resulting in the many-to-one map required for invariant recognition.</p>
+</blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/23/W6tc/20260623202600126.png" alt=""  /></p>
+</blockquote>
+<p>图 1 描述了两种将物体表示为循环神经网络动力学吸引子的方式。标准方式是通过吸引不动点表示每个物体，如图 1a 所示。记忆的回忆由感官输入触发，该输入设置初始条件。网络动力学收敛到一个不动点，从而检索记忆。如果一个物体的不同实例位于同一吸引域中，它们都会触发相同记忆的检索，从而产生不变识别所需的多对一映射。</p>
+<blockquote>
+<p>In Figure 1b, each object is represented by a continuous manifold of fixed points. A one-dimensional manifold is shown, but generally the attractor should be multidimensional, and is parametrized by the instantiation or pose parameters of the object . For example, in visual object recognition, the coordinates would include the viewpoint from which the object is seen.</p>
+</blockquote>
+<p>在图 1b 中，每个物体由不动点的连续流形表示。显示了一维流形，但通常吸引子应该是多维的，并且由物体的实例化或姿态参数参数化。例如，在视觉物体识别中，坐标将包括观察物体的视角。</p>
+<blockquote>
+<p>The reader should be cautioned that the term &quot;continuous attractor&quot; is an idealization and should not be taken too literally. In real networks, a continuous attractor is only approximated by a manifold in state space along <strong>which drift is very slow</strong>. This is illustrated by a simple example, a descent dynamics on a trough-shaped energy landscape. If the bottom of the trough is perfectly level, it is a line of fixed points and an ideal continuous attractor of the dynamics. However, any slight imperfections cause slow drift along the line. This sort of approximate continuous attractor is what is found in real networks, including those trained by the learning algorithms to be discussed below.</p>
+</blockquote>
+<p>读者应注意，“连续吸引子”一词是一种理想化，不应过于字面理解。在真实网络中，连续吸引子仅由状态空间中的一个流形近似表示，<strong>在该流形上漂移非常缓慢</strong>。这通过一个简单的例子来说明，即在槽形能量景观上的下降动力学。如果槽底完全平坦，它就是不动点的线，是动力学的理想连续吸引子。然而，任何轻微的不完美都会导致沿着这条线的缓慢漂移。这种近似连续吸引子就是在真实网络中发现的，包括那些通过下面将讨论的学习算法训练的网络。</p>
+<h1 id="dynamics-of-memory-retrieval">Dynamics of memory retrieval<a hidden class="anchor" aria-hidden="true" href="#dynamics-of-memory-retrieval">#</a></h1>
+<blockquote>
+<p>The preceding discussion has motivated the idea of representing pattern manifolds by continuous attractors. This idea will be further developed with the simple network shown in Figure 2a, which consists of a visible layer $x_{1}\in \mathbb{R}^{n_{1}}$ and a hidden layer $x_{2}\in \mathbb{R}^{n_{2}}$. The architecture is recurrent, containing both bottom-up connections (the $n_{2}\times n_{1}$ matrix $W_{21}$ and top-down connections (the $n_{1} \times n_{2}$ matrix $W_{12}$). The vectors $b_{1}$ and $b_{2}$ represent the biases of the neurons. The neurons have a rectification nonlinearity $[x]_{+} = \max\{x, 0\}$, which acts on vectors component by component.</p>
+</blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/23/Fqf6/20260623203245569.png" alt=""  /></p>
+</blockquote>
+<p>前面的讨论激发了通过连续吸引子表示模式流形的想法。这个想法将在图 2a 所示的简单网络中进一步发展，该网络由一个可见层 $x_{1}\in \mathbb{R}^{n_{1}}$ 和一个隐藏层 $x_{2}\in \mathbb{R}^{n_{2}}$ 组成。该架构是循环的，包含自底向上的连接（$n_{2}\times n_{1}$ 矩阵 $W_{21}$）和自上而下的连接（$n_{1} \times n_{2}$ 矩阵 $W_{12}$）。向量 $b_{1}$ 和 $b_{2}$ 表示神经元的偏置。神经元具有整流非线性 $[x]_{+} = \max\{x, 0\}$，它对向量逐分量作用。</p>
+<blockquote>
+<p>There are many variants of recurrent network dynamics: a convenient choice is the following discrete-time version, in which updates of the hidden and visible layers alternate in time. After the visible layer is initialized with the input vector $x_{1}(0)$, the dynamics evolves as</p>
+<p>$$
+\begin{align*}
+x_{2}(t) &amp;= [b_{2} + W_{21}x_{1}(t-1)]_{+} \\
+x_{1}(t) &amp;= [b_{1} + W_{12}x_{2}(t)]_{+}
+\end{align*}
+$$</p>
+<p>If memories are stored as attractors, iteration of this dynamics can be regarded as memory retrieval.</p>
+</blockquote>
+<p>有许多循环网络动力学的变体：一个方便的选择是以下离散时间版本，其中隐藏层和可见层的更新交替进行。在可见层用输入向量 $x_{1}(0)$ 初始化后，动力学演化如下：</p>
+<p>$$
+\begin{align*}
+x_{2}(t) &amp;= [b_{2} + W_{21}x_{1}(t-1)]_{+} \\
+x_{1}(t) &amp;= [b_{1} + W_{12}x_{2}(t)]_{+}
+\end{align*}
+$$</p>
+<p>如果记忆被存储为吸引子，则该动力学的迭代可以被视为记忆检索。</p>
+<blockquote>
+<p>Activity circulates around the feedback loop between the two layers. One iteration of this loop is the map $x_{1}(t-1)\to x_{2}(t) \to x_{1}(t)$. This single iteration is equivalent to the feedforward architecture of Figure 2b. In the case where the hidden layer is smaller than the visible layers, this architecture is known as an autoencoder network. Therefore the recurrent network dynamics (1) is equivalent to repeated iterations of the feedforward autoencoder. This is just the standard trick of unfolding the dynamics of a recurrent network in time, to yield an equivalent feedforward network with many layers. Because of the close relationship between the recurrent network of Figure 2a and the autoencoder of Figure 2b, it should not be surprising that learning algorithms for these two networks are also related, as will be explained below.</p>
+</blockquote>
+<p>活动在两层之间的反馈循环中循环。这个循环的一次迭代是映射 $x_{1}(t-1)\to x_{2}(t) \to x_{1}(t)$。这个单次迭代等价于图 2b 的前馈架构。在隐藏层比可见层小的情况下，这个架构被称为自动编码器网络。因此，循环网络动力学 (1) 等价于前馈自动编码器的重复迭代。这只是展开循环网络动力学在时间上的标准技巧，以产生一个具有多层的等效前馈网络。由于图 2a 的循环网络和图 2b 的自动编码器之间的密切关系，不应该感到惊讶的是，这两个网络的学习算法也相关，如下所述。</p>
+<h1 id="learning-to-retain-patterns">Learning to retain patterns<a hidden class="anchor" aria-hidden="true" href="#learning-to-retain-patterns">#</a></h1>
+<blockquote>
+<p>Little trace of an arbitrary input vector $x_{1}(0)$ remains after a few time steps of the dynamics (1). However, the network can retain some input vectors in short-term memory as &quot;reverberating&quot; patterns of activity. These correspond to fixed points of the dynamics (1); they are patterns that do not change as activity circulates around the feedback loop.</p>
+</blockquote>
+<p>在动力学 (1) 的几个时间步之后，任意输入向量 $x_{1}(0)$ 的痕迹几乎消失。然而，网络可以将一些输入向量保留在短期记忆中，作为“回响”的活动模式。这些对应于动力学 (1) 的不动点；它们是随着活动在反馈循环中循环而不改变的模式。</p>
+<blockquote>
+<p>This suggests a formulation of learning as the optimization of the network's ability to retain examples in short-term memory. Then a suitable cost function is the squared difference $|x_{1}(T)-x_{1}(0)|^{2}$ between the example pattern $x_{1}(0)$ and the network's short-term memory $x_{1}(T)$ of it after $T$ time steps. Gradient descent on this cost function can be done via backpropagation through time.</p>
+</blockquote>
+<p>这表明可以将学习表述为优化网络在短期记忆中保留示例的能力。那么，一个合适的代价函数是示例模式 $x_{1}(0)$ 与网络在 $T$ 个时间步后对其的短期记忆 $x_{1}(T)$ 之间的平方差 $|x_{1}(T)-x_{1}(0)|^{2}$。可以通过时间反向传播对这个代价函数进行梯度下降。</p>
+<blockquote>
+<p>If the network is trained with patterns drawn from a continuous family, then it can learn to perform the short-term memory task oy developing a continuous attractor that lies near the examples it is trained on. When the hidden layer is smaller than the visible layer, the dimensionality of the attractor is limited by the size of the hidden layer.</p>
+</blockquote>
+<p>如果网络使用从连续族中抽取的模式进行训练，那么它可以通过开发一个位于其训练示例附近的连续吸引子来学习执行短期记忆任务。当隐藏层比可见层小时，吸引子的维数受隐藏层大小的限制。</p>
+<blockquote>
+<p>For the case of a single time step ($T = 1$), training the recurrent network of Figure 2a to retain patterns is equivalent to training the autoencoder of Figure 2b by minimizing the squared difference between its input and output layers, averaged over the examples. From the information theoretic perspective, the small hidden layer in Figure 2b acts as a bottleneck between the input and output layers, forcing the autoencoder to learn an efficient encoding of the input.</p>
+</blockquote>
+<p>对于单个时间步的情况（$T = 1$），训练图 2a 的循环网络以保留模式等价于通过最小化其输入和输出层之间的平方差（在示例上取平均）来训练图 2b 的自动编码器。从信息论的角度来看，图 2b 中的小隐藏层充当输入和输出层之间的瓶颈，迫使自动编码器学习输入的有效编码。</p>
+<blockquote>
+<p>For the special case of a linear network, the nature of the learned encoding is understood completely. Then the input and output vectors are related by a simple matrix multiplication. The rank of the matrix is equal to the number of hidden units. The average distortion is minimized when this matrix becomes a projection operator onto the subspace spanned by the principal components of the examples.</p>
+</blockquote>
+<p>对于线性网络的特殊情况，学习编码的性质是完全理解的。然后输入和输出向量通过简单的矩阵乘法相关联。矩阵的秩等于隐藏单元的数量。当该矩阵成为投影算子到由示例的主成分所张成的子空间时，平均失真最小化。</p>
+<blockquote>
+<p>From the dynamical perspective, the principal subspace is a continuous attractor of the dynamics (1). The linear network dynamics converges to this attractor in a single iteration, starting from any initial condition. Therefore we can interpret principal component analysis and its variants as methods of learning continuous attractors.</p>
+</blockquote>
+<p>从动力学的角度来看，主子空间是动力学 (1) 的连续吸引子。线性网络动力学从任何初始条件开始，在单次迭代中收敛到这个吸引子。因此，我们可以将主成分分析及其变体解释为学习连续吸引子的方法。</p>
+<h1 id="learning-to-complete-patterns">Learning to complete patterns<a hidden class="anchor" aria-hidden="true" href="#learning-to-complete-patterns">#</a></h1>
+<blockquote>
+<p>Learning to retain patterns in short-term memory only works properly for architectures with a small hidden layer. The problem with a large hidden layer is evident when the hidden and visible layers are the same size, and the neurons are linear. Then the cost function for learning can be minimized by setting the weight matrices equal to the identity, $W_{21} = W_{12} = I$. For this trivial minimum, every input vector is a fixed point of the recurrent network (Figure 2a), and the equivalent feedforward network (Figure 2b) exactly realizes the identity map. Clearly these networks have not learned anything.</p>
+</blockquote>
+<p>在短期记忆中学习保留模式仅适用于具有小隐藏层的架构。当隐藏层和可见层大小相同时，且神经元是线性的，这个问题就很明显了。然后，学习的代价函数可以通过将权重矩阵设置为单位矩阵 $W_{21} = W_{12} = I$ 来最小化。对于这个平凡的最小值，每个输入向量都是循环网络（图 2a）的不动点，并且等效的前馈网络（图 2b）完全实现了恒等映射。显然，这些网络没有学到任何东西。</p>
+<blockquote>
+<p>Therefore in the case of a large hidden layer, learning to retain patterns is inadequate. Without the bottleneck in the architecture, there is no pressure on the feedforward network to learn an efficient encoding. Without constraints on the dimension of the attractor, the recurrent network develops spurious fixed points that have nothing to do with the examples.</p>
+</blockquote>
+<p>因此，在隐藏层较大的情况下，学习保留模式是不充分的。没有架构中的瓶颈，前馈网络没有压力去学习有效的编码。没有对吸引子维数的约束，循环网络会发展出与示例无关的虚假不动点。</p>
+<blockquote>
+<p>These problems can be solved by a different formulation of learning based on the task of pattern completion. In the completion task of Figure 3a, the network is initialized with a corrupted version of an example. Learning is done by minimizing  the completion error, which is the squared difference $|x_{1}(T)-d|^{2}$ between the uncorrupted pattern $d$ and the final visible vector $x_{1}(T)$. Gradient descent on completion error can be done with backpropagation through time.</p>
+</blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/23/Svr3/20260623210221613.png" alt=""  /></p>
+</blockquote>
+<p>通过基于模式完成任务的不同学习表述可以解决这些问题。在图 3a 的完成任务中，网络用一个示例的损坏版本初始化。通过最小化完成误差来进行学习，完成误差是未损坏模式 $d$ 与最终可见向量 $x_{1}(T)$ 之间的平方差 $|x_{1}(T)-d|^{2}$。可以通过时间反向传播对完成误差进行梯度下降。</p>
+<blockquote>
+<p>This new formulation of learning eliminates the trivial identity map solution mentioned above: while the identity network can retain any example, it cannot restore corrupted examples to their pristine form. The completion task forces the network to enlarge the basins of attraction of the stored memories, which suppresses spurious fixed points. It also forces the network to learn associations between variables in the sensory input.</p>
+</blockquote>
+<p>这种新的学习表述消除了上述提到的平凡恒等映射解：虽然恒等网络可以保留任何示例，但它无法将损坏的示例恢复到原始形式。完成任务迫使网络扩大存储记忆的吸引域，从而抑制虚假不动点。它还迫使网络学习感官输入中变量之间的关联。</p>
+<h1 id="locally-connected-architecture">Locally connected architecture<a hidden class="anchor" aria-hidden="true" href="#locally-connected-architecture">#</a></h1>
+<blockquote>
+<p>Experiments were conducted with images of handwritten digits from the USPS database described in [12]. The example images were $16\times 16$, with a gray scale ranging from $0$ to $1$. The network was trained on a specific digit class, with the goal of learning a single pattern manifold. Both the network architecture and the nature of the completion task were chosen to suit the topographic structure present in visual images.</p>
+</blockquote>
+<p>使用 [12] 中描述的 USPS 数据库中的手写数字图像进行了实验。示例图像为 $16\times 16$，灰度范围从 $0$ 到 $1$。网络在特定数字类别上进行训练，目标是学习单一模式流形。网络架构和完成任务的性质都被选择以适应视觉图像中存在的拓扑结构。</p>
+<blockquote>
+<p>The network architecture was given a topographic organization by constraining the synaptic connectivity to be local, as shown in Figure 4a. Both the visible and hidden layers of the network were $16\times 16$. The visible layer represented an image, while the hidden layer was a topographic feature map. Each neuron had $5\times 5$ receptive and projective fields, except for neurons near the edges, which had more restricted connectivity.</p>
+</blockquote>
+<p>网络架构通过限制突触连接为局部来获得拓扑组织，如图 4a 所示。网络的可见层和隐藏层都是 $16\times 16$。可见层表示图像，而隐藏层是一个拓扑特征图。每个神经元都有 $5\times 5$ 的感受野和投射场，除了边缘附近的神经元，它们的连接更受限制。</p>
+<blockquote>
+<p>In the pattern completion task, example images were corrupted by zeroing the pixels inside a $9\times 9$ patch chosen at a random location, as shown in Figure 3a. The location of the patch was randomized for each presentation of an example. The size of the patch was a substantial fraction of the $16\times 16$ image, and much larger than the $5\times 5$ receptive field size. This method of corrupting the examples gave the completion task a topographic nature, because it involved a set of spatially contiguous pixels. This topographic nature would have been lacking if the examples had been corrupted by, for example, the addition of spatially uncorrelated noise.</p>
+</blockquote>
+<p>在模式完成任务中，示例图像通过将随机位置的 $9\times 9$ 补丁内的像素置零来损坏，如图 3a 所示。每次呈现示例时，补丁的位置都是随机的。补丁的大小是 $16\times 16$ 图像的一个重要部分，并且远大于 $5\times 5$ 的感受野大小。这种损坏示例的方法赋予了完成任务一个拓扑性质，因为它涉及一组空间连续的像素。如果示例被损坏，例如通过添加空间不相关的噪声，这种拓扑性质就会缺失。</p>
+<blockquote>
+<p>Figure 3b illustrates the dynamics of pattern completion performed by a network trained on examples of the digit class &quot;two.&quot; The network is initialized with a corrupted example of a &quot;two.&quot; After the first itex:ation of the dynamics, the image is partially restored. The second iteration leads to superior restoration, with further sharpening of the image. The &quot;filling in&quot; phenomenon is also evident in the hidden layer.</p>
+</blockquote>
+<p>图 3b 说明了一个在数字类别 “二” 的示例上训练的网络执行模式完成的动力学。网络用一个损坏的 “二” 的示例初始化。第一次迭代后，图像部分恢复。第二次迭代导致更好的恢复，图像进一步锐化。“填充” 现象在隐藏层中也很明显。</p>
+<blockquote>
+<p>The network was first trained on a retrieval dynamics of one iteration. The resulting biases and synaptic weights were then used as initial conditions for training on a retrieval dynamics of two iterations. The hidden layer developed into a topographic feature map suitable for representing images of the digit &quot;two.&quot; Figure 4b depicts the bottom-up receptive fields of the 256 hidden neurons. The top-down projective fields of these neurons were similar, but are not shown.</p>
+</blockquote>
+<p>网络首先在一次迭代的检索动力学上进行训练。然后将得到的偏置和突触权重用作在两次迭代的检索动力学上训练的初始条件。隐藏层发展成为适合表示数字 “二” 图像的拓扑特征图。图 4b 描述了 $256$ 个隐藏神经元的自底向上的感受野。这些神经元的自上而下投射场类似，但未显示。</p>
+<blockquote>
+<p>This feature map is distinct from others because of its use of top-down and bottom-up connections in a feedback loop. The bottom-up connections analyze images into their constituent features, while the top-down connections synthesize images by composing features. The features in the top-down connections can be regarded as a &quot;vocabulary&quot; for synthesis of images. Since not all combinations of features are proper patterns, there must be some &quot;grammatical&quot; constraints on their combination. The network's ability to complete patterns suggests that some of these constraints are embedded in the dynamical equations of the network. Therefore the relaxation dynamics (1) can be regarded as a process of massively parallel constraint satisfaction.</p>
+</blockquote>
+<p>这个特征图因其在反馈循环中使用自上而下和自底向上的连接而与众不同。自底向上的连接将图像分析为其组成特征，而自上而下的连接通过组合特征合成图像。自上而下连接中的特征可以被视为合成图像的 “词汇”。由于并非所有特征的组合都是适当的模式，因此它们的组合必须有一些 “语法” 约束。网络完成模式的能力表明，其中一些约束嵌入在网络的动力学方程中。因此，松弛动力学 (1) 可以被视为一个大规模并行约束满足的过程。</p>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<blockquote>
+<p>I have argued that continuous attractors are a natural representation for pattern manifolds. One method of learning attractors is to train the network to retain examples in short-term memory. This method is equivalent to autoencoder learning, and does not work if the number of hidden units is large. A better method is to train the network to complete patterns. For a locally connected network, this method was demonstrated to learn a topographic feature map. The trained network is able to complete patterns, indicating that syntactic constraints on the combination of features are embedded in the network dynamics.</p>
+</blockquote>
+<p>我认为连续吸引子是模式流形的自然表示。学习吸引子的一种方法是训练网络在短期记忆中保留示例。这种方法等价于自动编码器学习，并且当隐藏单元数量较大时不起作用。更好的方法是训练网络完成模式。对于局部连接的网络，已经证明这种方法可以学习一个拓扑特征图。训练好的网络能够完成模式，这表明对特征组合的语法约束嵌入在网络动力学中。</p>
+<blockquote>
+<p>Empirical evidence that the network has indeed learned a continuous attractor is obtained by local linearization of the network (1). The linearized dynamics has many eigenvalues close to unity, indicating the existence of an approximate continuous attractor. Learning with an increased number of iterations in the retrieval dynamics should improve the quality of the approximation.</p>
+</blockquote>
+<p>通过对网络 (1) 的局部线性化获得了网络确实学习了连续吸引子的经验证据。线性化的动力学有许多接近于一的特征值，表明存在一个近似的连续吸引子。在检索动力学中增加迭代次数的学习应该会提高近似的质量。</p>
+<blockquote>
+<p>There is only one aspect of the learning algorithm that is specifically tailored for continuous attractors. This aspect is the limitation of the retrieval dynamics (1) to a few iterations, rather than iterating it all the way to a true fixed point. As mentioned earlier, a continuous attractor is only an idealization; in a real network it does not consist of true fixed points, but is just a manifold to which relaxation is fast and along which drift is slow. Adjusting the shape of this manifold is the goal of learning; the exact locations of the true fixed points are not relevant.</p>
+</blockquote>
+<p>学习算法中只有一个方面是专门针对连续吸引子设计的。这个方面是将检索动力学 (1) 限制在几次迭代，而不是一直迭代到一个真正的不动点。如前所述，连续吸引子只是一个理想化；在真实网络中，它不由真正的不动点组成，而只是一个弛豫快速且漂移缓慢的流形。调整这个流形的形状是学习的目标；真正不动点的确切位置并不相关。</p>
+<blockquote>
+<p>The use of a fast retrieval dynamics removes one long-standing objection to attractor neural networks, which is that true convergence to a fixed point takes too long. If all that is desired is fast relaxation to an approximate continuous attractor, attractor neural networks are not much slower than feedforward networks.</p>
+</blockquote>
+<p>快速检索动力学消除了对吸引子神经网络的一个长期存在的反对意见，即真正收敛到一个不动点需要太长时间。如果所需的只是快速弛豫到一个近似的连续吸引子，那么吸引子神经网络并不比前馈网络慢多少。</p>
+<blockquote>
+<p>In the experiments discussed here, learning was done with backpropagation through time. Contrastive Hebbian learning is a simpler alternative. Part of the image is held clamped, the missing values are filled in by convergence to a fixed point, and an anti-Hebbian update is made. Then the missing values are clamped at their correct values, the network converges to a new fixed point, and a Hebbian update is made. This procedure has the disadvantage of requiring true convergence to a fixed point, which can take many iterations. It also requires symmetric connections, which may be a representational handicap.</p>
+</blockquote>
+<p>在这里讨论的实验中，学习是通过时间反向传播完成的。对比 Hebbian 学习是一种更简单的替代方法。部分图像被固定，缺失的值通过收敛到一个不动点来填充，然后进行反 Hebbian 更新。然后将缺失的值固定在正确的值上，网络收敛到一个新的不动点，并进行 Hebbian 更新。这种程序的缺点是需要真正收敛到一个不动点，这可能需要很多迭代。它还需要对称连接，这可能是一个表示上的障碍。</p>
+<blockquote>
+<p>This paper addressed only the learning of a single attractor to represent a single pattern manifold. The problem of learning multiple attractors to represent mUltiple pattern classes will be discussed elsewhere, along with the extension to network architectures with many layers.</p>
+</blockquote>
+<p>这篇论文只讨论了学习一个吸引子来表示一个模式流形的问题。学习多个吸引子来表示多个模式类别的问题将另行讨论，以及扩展到具有多层的网络架构。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/attractors/back-to-the-continuous-attractor/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Back to the Continuous Attractor</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/multiscale-representation-of-very-large-environments-in-the-hippocampus-of-flying-bats/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Multiscale representation of very large environments in the hippocampus of flying bats</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1210 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 159 篇 1072275 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
