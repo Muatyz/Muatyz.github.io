@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Learning accurate path integration in ring attractor models of the head direction system | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="环形吸引子模型中头向系统的精确路径积分学习">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/learning-accurate-path-integration-in-ring-attractor-models-of-the-head-direction-system/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/learning-accurate-path-integration-in-ring-attractor-models-of-the-head-direction-system/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="Learning accurate path integration in ring attractor models of the head direction system" />
+<meta property="og:description" content="环形吸引子模型中头向系统的精确路径积分学习" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/learning-accurate-path-integration-in-ring-attractor-models-of-the-head-direction-system/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/06/26/7cuZ/20260626210218976.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-06-26T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-06-26T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/06/26/7cuZ/20260626210218976.png" />
+<meta name="twitter:title" content="Learning accurate path integration in ring attractor models of the head direction system"/>
+<meta name="twitter:description" content="环形吸引子模型中头向系统的精确路径积分学习"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Learning accurate path integration in ring attractor models of the head direction system",
+      "item": "https://Muatyz.github.io/posts/read/attractors/learning-accurate-path-integration-in-ring-attractor-models-of-the-head-direction-system/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Learning accurate path integration in ring attractor models of the head direction system",
+  "name": "Learning accurate path integration in ring attractor models of the head direction system",
+  "description": "环形吸引子模型中头向系统的精确路径积分学习",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Abstract Ring attractor models for angular path integration have received strong experimental support. To function as integrators, head direction circuits require precisely tuned connectivity, but it is currently unknown how such tuning could be achieved. Here, we propose a network model in which a local, biologically plausible learning rule adjusts synaptic efficacies during development, guided by supervisory allothetic cues.\n环吸引子模型在角度路径积分方面得到了强有力的实验支持。为了作为积分器，头朝向回路需要精确调谐的连接性，但目前尚不清楚如何实现这种调谐。在这里，我们提出了一个网络模型，其中 局部的、生物学上可行的学习规则 在发育过程中调整突触效能，并由监督性的外部线索引导。\nApplied to the Drosophila head direction system, the model learns to path-integrate accurately and develops a connectivity strikingly similar to the one reported in experiments. The mature network is a quasi-continuous attractor and reproduces key experiments in which optogenetic stimulation controls the internal representation of heading in flies, and where the network remaps to integrate with different gains in rodents. Our model predicts that path integration requires self-supervised learning during a developmental phase, and proposes a general framework to learn to path-integrate with gain-1 even in architectures that lack the physical topography of a ring.\n应用于果蝇头向系统，该模型学会了准确地进行路径积分，并发展出与实验中报道的连接性惊人相似的结构。成熟的网络是一个准连续吸引子，并重现了关键实验，其中光遗传刺激控制了果蝇内部的航向表示，以及网络在啮齿动物中重新映射以不同增益进行积分。我们的模型预测，路径积分需要在发育阶段进行 自我监督学习，并提出了一个通用框架，即使在缺乏环形物理拓扑结构的架构中，也能学习以增益1进行路径积分。\nEditor's evaluation This paper will be of interest to neuroscientists studying the navigation system, and in particular, those who study the ability of animals to path integrate. This study proposes an elegant synaptic plasticity rule that maintains the connectivity required for path integration by integrating visual and self-motion input arriving at different dendritic locations in a neuron. This idea is applied to the central complex of Drosophila, a well-characterized experimental system.\n这篇论文将引起研究导航系统的神经科学家的兴趣，特别是那些研究动物路径积分能力的科学家。这项研究提出了一种优雅的 突触可塑性规则，通过积分到达神经元不同 树突位置 的视觉和自我运动输入，维持路径积分所需的连接性。这个想法被应用于果蝇的 中央复合体，这是一个经过充分表征的实验系统。\nIntroduction Spatial navigation is crucial for the survival of animals in the wild and has been studied in many model organisms (Tolman, 1948; O’Keefe and Nadel, 1978; Gallistel, 1993; Eichenbaum, 2017). To orient themselves in an environment, animals rely on external sensory cues (e.g. visual, tactile, or auditory), but such allothetic cues are often ambiguous or absent. In these cases, animals have been found to update internal representations of their current location based on idiothetic cues, a process that is termed path integration (PI, Darwin, 1873; Mittelstaedt and Mittelstaedt, 1980; McNaughton et al., 1996; Etienne et al., 1996; Neuser et al., 2008; Burak and Fiete, 2009). The head direction (HD) system partakes in PI by performing one of the computations required: estimating the current HD by integrating angular velocities; namely angular integration. Furthermore, head direction cells in rodents and flies provide an internal representation of orientation that can persist in darkness (Ranck, 1984; Mizumori and Williams, 1993; Seelig and Jayaraman, 2015).\n空间导航对于野生动物的生存至关重要，并且已经在许多模式生物中进行了研究（Tolman，1948；O'Keefe和Nadel，1978；Gallistel，1993；Eichenbaum，2017）。为了在环境中定位自己，动物依赖于外部感官线索（例如视觉、触觉或听觉），但这些外部线索通常是模糊的或缺失的。在这些情况下，发现动物会根据自我运动线索更新其当前位置的内部表示，这一过程被称为 路径积分（PI，Darwin，1873；Mittelstaedt和Mittelstaedt，1980；McNaughton等人，1996；Etienne等人，1996；Neuser等人，2008；Burak和Fiete，2009）。头向系统通过执行所需的计算之一参与 PI：通过积分角速度来估计当前的头向，即角度积分。此外，啮齿动物和果蝇中的 HD 细胞提供了一个可以在黑暗中持续存在的方向内部表示（Ranck，1984；Mizumori和Williams，1993；Seelig和Jayaraman，2015）。\nIn rodents, the internal representation of heading takes the form of a localized \"bump\" of activity in the high-dimensional neural manifold of HD cells (Chaudhuri et al., 2019). It has been proposed that such a localized activity bump could be sustained by a ring attractor network with local excitatory connections (Skaggs et al., 1995; Redish et al., 1996; Hahnloser, 2003; Samsonovich and McNaughton, 1997; Song and Wang, 2005; Stringer et al., 2002; Xie et al., 2002), resembling reverberation mechanisms proposed for working memory (Wang, 2001). Ring attractor networks used to model HD cells fall in the theoretical framework of continuous attractor networks (Amari, 1977; Ben-Yishai et al., 1995; Seung, 1996). In this setting, HD cells can update the heading representation in darkness by smoothly moving the bump around the ring obeying idiothetic angular-velocity cues.\n在 啮齿动物 中，航向的内部表示采取了头朝向细胞高维神经流形中局部化 “峰值” 活动的形式（Chaudhuri等人，2019）。有人提出，这种局部化的活动峰值可以通过具有局部兴奋性连接的环形吸引子网络来维持（Skaggs等人，1995；Redish等人，1996；Hahnloser，2003；Samsonovich和McNaughton，1997；Song和Wang，2005；Stringer等人，2002；Xie等人，2002），类似于为工作记忆提出的 反响机制（Wang，2001）。用于模拟 HD 细胞的环形吸引子网络属于连续吸引子网络的理论框架（Amari，1977；Ben-Yishai等人，1995；Seung，1996）。在这种设置下， HD 细胞可以通过平滑地移动环上的峰值来更新黑暗中的航向表示，从而遵循自我运动角速度线索。\nInterestingly, a physical ring-like attractor network of HD cells was observed in the Drosophila central complex (CX, Seelig and Jayaraman, 2015; Green et al., 2017; Green et al., 2019; Franconville et al., 2018; Kim et al., 2019; Fisher et al., 2019; Turner-Evans et al., 2020). Notably, in Drosophila (from here on simply referred to as ‘fly’), HD cells (named E-PG neurons, also referred to as ‘compass’ neurons) are physically arranged in a ring, and an activity bump is readily observable from a small number of cells (Seelig and Jayaraman, 2015). Moreover, as predicted by some computational models (Skaggs et al., 1995; Samsonovich and McNaughton, 1997; Stringer et al., 2002; Song and Wang, 2005), the fly HD system also includes cells (named P-EN1 neurons) that are conjunctively tuned to head direction and head angular velocity. We refer to these neurons as head rotation (HR) cells because of their putative role in shifting the HD bump across the network according to the head’s angular velocity (Turner-Evans et al., 2017; Turner-Evans et al., 2020).\n有趣的是, 在果蝇中央复合体（CX，Seelig 和 Jayaraman，2015；Green等人，2017；Green等人，2019；Franconville等人，2018；Kim等人，2019；Fisher等人，2019；Turner-Evans等人，2020）中观察到了 HD 细胞的物理环状吸引子网络。值得注意的是，在果蝇 (Drosophila) 中（从此以后简称为“果蝇(fly)”）， HD 细胞（称为E-PG神经元，也称为“指南针”神经元）在物理上排列成一个环，并且可以从少量细胞中清楚地观察到活动峰值（Seelig和Jayaraman，2015）。此外，正如一些计算模型所预测的那样（Skaggs等人，1995；Samsonovich和McNaughton，1997；Stringer等人，2002；Song和Wang，2005），果蝇头向系统还包括与头向和头角速度共同调谐的细胞（称为P-EN1神经元）。我们将这些神经元称为头旋转（HR）细胞，因为它们在根据头部的角速度在网络中移动头向峰值方面具有 假定的作用（Turner-Evans等人，2017；Turner-Evans等人，2020）。\nA model for PI needs to both sustain a bump of activity and move it with the right speed and direction around the ring. The latter presents a great challenge, since the bump has to be ‘pushed’ for the right amount starting from any location and for all angular velocities. Therefore, ring attractor models that act as path integrators require that synaptic connections are precisely tuned (Hahnloser, 2003).\nIf the circuit was completely hardwired, the amount of information that an organism would need to genetically encode connection strenghts would be exceedingly high. Additionally, it would be unclear how these networks could cope with variable sensory experiences.\nIn fact, remarkable experimental studies in rodents have shown that when animals are placed in an augmented reality environment where visual and self-motion information can be manipulated independently, PI capabilities adapt accordingly (Jayakumar et al., 2019). These findings suggest that PI networks are able to self-organize and to constantly recalibrate. Notably, in mature flies there is no evidence for such plasticity (Seelig and Jayaraman, 2015) — however, the presence of plasticity has not been tested in young animals.\n一个 PI 模型需要既维持一个活动峰值，又以正确的速度和方向在环上移动它。后者提出了一个巨大的挑战，因为峰值必须从任何位置以所有角速度“推动”适当的量。因此，作为路径积分器的环形吸引子模型要求突触连接被 精确调谐（Hahnloser，2003）。\n如果回路是完全硬连线的，那么有机体需要遗传编码连接强度的信息量将是极高的。此外，这些网络如何应对可变的感官体验也不清楚。\n事实上，在啮齿动物中进行的显著实验研究表明，当动物被置于增强现实环境中，在该环境中视觉和自我运动信息可以独立操纵时，PI 能力会相应地适应（Jayakumar等人，2019）。这些发现表明，PI 网络能够 自我组织 并不断重新校准。值得注意的是，在 成熟的果蝇中没有证据表明存在这种可塑性（Seelig和Jayaraman，2015）——然而，在年轻动物中尚未测试可塑性的存在。\nHere, we propose that a simple local learning rule could support the emergence of a PI circuit during development and its re-calibration once the circuit has formed. Specifically, we suggest that accurate PI is achieved by associating allothetic and idiothetic inputs at the cellular level. When available, the allothetic sensory input (here chosen to be visual) acts as a ‘teacher’ to guide learning. The learning rule is an example of self-supervised multimodal learning, where one sense acts as a teaching signal for the other and the need for an external teacher is obviated. It exploits the relation between the allothetic heading of the animal (given by the visual input) and the idiothetic self-motion cues (which are always available), to learn how to integrate the latter.\n这里，我们提出一个简单的局部学习规则可以在发育过程中支持 PI 回路的出现，并在回路形成后进行重新校准。具体来说，我们建议通过在细胞水平上关联外部和自我运动输入来实现准确的 PI。当可用时，外部感官输入（这里选择为视觉）充当 “教师” 来指导学习。学习规则是自我监督多模态学习的一个例子，其中一种感觉充当另一种感觉的教学信号，从而消除了对外部教师的需求。它利用动物的外部航向（由视觉输入给出）与自我运动线索（始终可用）之间的关系，学习如何积分后者。\nThe learning rule is inspired by previous experimental and computational work on mammalian cortical pyramidal neurons, which are believed to associate inputs to different compartments through an in-built cellular mechanism (Larkum, 2013; Urbanczik and Senn, 2014; Brea et al., 2016).\nIn fact, it was shown that in layer 5 pyramidal cells internal and external information about the world arrive at distinct anatomical locations, and active dendritic gating controls learning between the two (Doron et al., 2020).\nIn a similar fashion, we propose that learning PI in the HD system occurs by associating inputs at opposite poles of compartmentalized HD neurons, which we call ‘associative neurons’ (Urbanczik and Senn, 2014; Brea et al., 2016).\nTherefore, to accomplish PI the learning rule relies on structural inductive biases in terms of the morphology and arborization of HD cells.\n学习规则的灵感来自于对 哺乳动物皮层锥体神经元 的先前实验和计算工作，这些神经元被认为通过内禀的细胞机制将输入关联到不同的区（Larkum，2013；Urbanczik和Senn，2014；Brea等人，2016）。\n事实上，有研究表明，在第 5 层锥体细胞中，关于世界的内部和外部信息到达不同的解剖位置，并且主动树突门控控制两者之间的学习（Doron 等人，2020）。\n以类似的方式，我们提出，在头向系统中学习 PI 是通过在分隔的头向神经元的相对极点关联输入来实现的，我们称之为 “关联神经元”（Urbanczik和Senn，2014；Brea等人，2016）。\n因此，为了实现 PI，学习规则依赖于 HD 细胞 形态 和 树突分支 方面的结构归纳偏差。\nResults To illustrate basic principles of how PI could be achieved, we study a computational model of the HD system and show that synaptic plasticity could shape its circuitry through visual experience. In particular, we simulate the development of a network that, after learning, provides a stable internal representation of head direction and uses only angular-velocity inputs to update the representation in darkness. The internal representation of heading (after learning) takes the form of a localized bump of activity in the ring of HD cells. All neurons in our model are rate-based, i.e., spiking activity is not modeled explicitly.\n为了说明如何实现 PI 的基本原理，我们研究了头向系统的计算模型，并表明突触可塑性可以通过 视觉经验 塑造其回路。具体来说，我们模拟了一个网络的发展，在学习之后，该网络提供了头向的稳定内部表示，并仅使用角速度输入在黑暗中更新表示。航向的内部表示（学习后）采取了 HD 细胞环中局部化活动峰值的形式。我们模型中的所有神经元都是基于(放电)率的，即不显式建模尖峰活动。\nModel setup The gross model architecture closely resembles the one found in the fly CX (Figure 1A). It comprises HD cells organized in a ring, and HR cells organized in two wings. One wing is responsible for leftward and the other for rightward movement of the internal heading representation.\nHD cells receive visual input from the so-called ‘ring’ neurons; this input takes the form of a disinhibitory bump centered at the current HD (Figure 1B, Omoto et al., 2017; Fisher et al., 2019). The location of this visual bump in the network is controlled by the current head direction.\n该 粗略模型 架构与果蝇 CX 中发现的架构非常相似（图 1A）。它包括组织成环的 HD 细胞和组织成两个翼的 HR 细胞。一个翼负责内部航向表示的左移，另一个翼负责右移。\nHD 细胞从所谓的 “环” 神经元接收视觉输入；该输入采取以当前头向为中心的去抑制峰值的形式（图 1B，Omoto 等人，2017；Fisher 等人，2019）。该视觉峰值在网络中的位置由当前头向控制。\nWe simulate head movements by sampling head-turning velocities from an Ornstein-Uhlenbeck process (Materials and methods), and we provide the corresponding velocity input to the HR cells (Figure 1C). HR cells provide direct input to HD cells, and HR cells also receive input from HD cells (Figure 1A). Both HR and HD cells receive global inhibition, which is in line with a putative ‘local’ model of HD network organization (Kim et al., 2017). The connections from HR to HD cells (WHR) and the recurrent connections among HD cells (Wrec) are assumed to be plastic. The goal of learning is to tune these plastic connections so that the network can achieve PI in the absence of visual input.\n我们通过从 Ornstein-Uhlenbeck 过程采样头部转动速度来模拟头部运动（材料和方法），并为 HR 细胞提供相应的速度输入（图 1C）。HR 细胞为 HD 细胞提供直接输入，并且 HR 细胞还接收来自 HD 细胞的输入（图 1A）。HR 和 HD 细胞都接收全局抑制，这与假定的头朝向网络组织的 “局部” 模型一致（Kim 等人，2017）。假设从 HR 到 HD 细胞的连接 ($W^{\\mathrm{HR}}$) 和 HD 细胞之间的循环连接 ($W^{\\mathrm{rec}}$) 是可塑的。学习的目标是调整这些可塑连接，以便网络在没有视觉输入的情况下实现 PI。\nThe unit that controls plasticity in our network is an ‘associative neuron’. It is inspired by pyramidal neurons of the mammalian cortex whose dendrites act, via backpropagating action potentials, as coincidence detectors for signals arriving from different layers of the cortex and targeting different compartments of the neuron (Larkum et al., 1999). Paired with synaptic plasticity, coincidence detection can lead to long-lasting associations between these signals (Larkum, 2013).\n在我们的网络中控制可塑性的单元是一个 “关联神经元”。它的灵感来自于哺乳动物皮层的锥体神经元，其树突通过 反向传播的动作电位 充当来自皮层不同层并针对神经元不同 区 的信号的 巧合检测器（Larkum 等人，1999）。配合突触可塑性，巧合检测可以导致这些信号之间的长期关联（Larkum，2013）。\nTo map the morphology of a cortical pyramidal cell to the one of a HD cell in the fly, we first point out that all relevant inputs arrive at the dendrites of HD cells within the ellipsoid body (EB) of the fly (Xu, 2020) moreover, the soma itself is externalized in the fly brain, and it is unlikely to contribute considerably to computations (Gouwens and Wilson, 2009; Tuthill, 2009).\nWe thus link the dendrites of the pyramidal associative neuron to the axon-distal dendritic compartment of the associative HD neuron in the fly, and we link the soma of the pyramidal associative neuron to the axon-proximal dendritic compartment of the associative HD neuron in the fly. Furthermore, we assume that the axon-proximal compartment is electrotonically closer to the axon initial segment, and therefore, similarly to the somatic compartment in pyramidal neurons, inputs there can more readily initiate action potentials.\n为了将 皮层锥体细胞 的形态映射到果蝇中 HD 细胞的形态，我们首先指出，所有相关输入都到达果蝇 椭球体 (EB) 中 HD 细胞的树突（Xu，2020），此外，细胞体本身在果蝇大脑中是外部化的，并且不太可能对计算有显著贡献（Gouwens 和 Wilson，2009；Tuthill，2009）。\n因此，我们将锥体关联神经元的树突连接到果蝇中关联头向神经元的轴突远端树突区，并将锥体关联神经元的细胞体连接到果蝇中关联头向神经元的轴突近端树突区。此外，我们假设轴突近端区在电学上更接近轴突初始段，因此，与锥体神经元中的细胞体区类似，那里的输入可以更容易地引发动作电位。\nNote that our model does not require active backpropagation of action potentials — passive spread of voltage to the axon-distal compartment would be sufficient (for details, see Materials and methods and Discussion). We also assume that associative HD cells receive visual input ($I^{\\mathrm{vis}}$) in the axon-proximal compartment, and both recurrent input ($W^{\\mathrm{rec}}$) and HR input ($W^{\\mathrm{HR}}$) in the axon-distal compartment; accordingly, we model HD neurons as two-compartment units (Figure 1D).\nThe associative neuron can learn the synaptic weights of the incoming connections in the axon-distal compartment, therefore, as mentioned, we let $W^{\\mathrm{rec}}$ and $W^{\\mathrm{HR}}$ be plastic.\n请注意，我们的模型不需要动作电位的主动反向传播——电压被动传播到 轴突远端区 就足够了（详情请参见材料和方法以及讨论）。我们还假设关联 HD 细胞在 轴突近端区 接收视觉输入 ($I^{\\mathrm{vis}}$)，并在轴突远端区接收循环输入 ($W^{\\mathrm{rec}}$) 和 HR 输入 ($W^{\\mathrm{HR}}$)；因此，我们将头向神经元建模为两区单元（图 1D）。\n关联神经元可以学习轴突远端区中传入连接的突触权重，因此，如前所述，我们让 $W^{\\mathrm{rec}}$ 和 $W^{\\mathrm{HR}}$ 是可塑的。\nWe find that the assumption of spatial segregation of postsynapses of HD cells is consistent with our analysis of EM data from the fly (Xu, 2020).\nFor an example HD (E-PG) neuron, Figure 1E depicts that head rotation and recurrent inputs (mediated by P-EN1 and P-EN2 cells, respectively [TurnerEvans et al., 2020]) contact the E-PG cell in locations within the EB that are distinct compared to those of visually responsive neurons R2 and R4d (Omoto et al., 2017; Fisher et al., 2019), as hypothesized.\n我们发现，HD 细胞的后突触空间分离的假设与我们对果蝇 EM 数据的分析一致（Xu，2020）。\n对于一个示例 HD (E-PG) 神经元，图 1E 描述了头旋转和循环输入（分别由 P-EN1 和 P-EN2 细胞介导 [TurnerEvans 等人，2020]）在 EB 内接触 E-PG 细胞的位置，与视觉响应神经元 R2 和 R4d 的位置不同（Omoto 等人，2017；Fisher 等人，2019），如假设所示。\nThe same pattern was observed for a total of $16$ E-PG neurons (one for each ‘wedge’ of the EB) that we analyzed (Figure 1—figure supplement 1A).\nTo further support the assumption that visual inputs are separated from recurrent and HR-to-HD inputs, we perform binary classification between the two classes, using SVMs (for details, see Materials and methods). Figure 1—figure supplement 1B shows that predicting class identity from spatial location alone in held-out test data is excellent (test accuracy \u003e0.95 across neurons and model runs).\n我们分析的总共 $16$ 个 E-PG 神经元（EB 的每个 “楔形” 对应一个）也观察到了相同的模式（图 1—figure supplement 1A）。\n为了进一步支持视觉输入与循环和 HR 到 HD 输入分离的假设，我们使用 SVMs 在两类之间进行二进制分类（详情请参见材料和方法）。图 1—figure supplement 1B 显示，仅从空间位置预测持出测试数据中的类别身份是非常出色的（跨神经元和模型运行的测试准确率 $\u003e0.95$）。\nThe connections from HD to HR cells (WHD) are assumed to be fixed, and HR cells are modeled as single-compartment units.\nProjections are organized such that each wing neuron receives input from only one specific HD neuron for every HD (Figure 1A). This simple initial wiring makes HR cells conjunctively tuned to HR and HD, and we assume that it has already been formed, for example, during circuit assembly. We note that the conditions for 1-to-1 wiring and constant amplitude of the HD-to-HR connections can be relaxed, because the learning rule can balance asymmetries in the initial architecture (see Appendix 3).\nHD 到 HR 细胞的连接 ($W^{\\mathrm{HD}}$) 被假定为固定的，并且 HR 细胞被建模为单区单元。投影的组织方式是，每个翼神经元仅从每个 HD 的一个特定 HD 神经元接收输入（图 1A）。这种简单的初始布线使 HR 细胞对 HR 和 HD 共同调谐，并且我们假设它已经形成，例如，在回路组装期间。我们注意到，HD 到 HR 连接的一对一布线和恒定幅度的条件可以放宽，因为学习规则可以平衡初始架构中的不对称性（见附录 3）。\n(A) The ring of HD cells projects to two wings of HR cells, a leftward (Left HR cells, abbreviated as L-HR) and a rightward (Right HR cells, or R-HR), so that each wing receives selective connections only from a specific HD cell (L: left, R: right) for every head direction. For illustration purposes, the network is scaled-down by a factor of $5$ compared to the cell numbers $N^{\\mathrm{HR}} = N^{\\mathrm{HD}} = 60$ in the model. The schema shows the outgoing connections ($W^{\\mathrm{HD}}$ and $W^{\\mathrm{rec}}$) only from the green HD neurons and the incoming connections (WHR and Wrec) only to the light blue and yellow HD neurons. Furthermore, the visual input to HD cells and the velocity inputs to HR cells are indicated.\n(A) HD 细胞的环投射到 HR 细胞的两个翼，一个向左（左 HR 细胞，缩写为 L-HR）和一个向右（右 HR 细胞，或 R-HR），因此每个翼仅从每个头向的特定 HD 细胞接收选择性连接。为了说明起见，与模型中的细胞数 $N^{\\mathrm{HR}} = N^{\\mathrm{HD}} = 60$ 相比，网络按比例缩小了 $5$ 倍。该模式仅显示来自绿色 HD 神经元的输出连接 ($W^{\\mathrm{HD}}$ 和 $W^{\\mathrm{rec}}$) 和仅到浅蓝色和黄色 HD 神经元的输入连接 ($W^{\\mathrm{HR}}$ 和 $W^{\\mathrm{rec}}$)。此外，还指示了对 HD 细胞的视觉输入和对 HR 细胞的速度输入。\n(B) Visual input to the ring of HD cells as a function of radial distance from the current head direction (see Equation 5).\n(B) 对 HD 细胞环的视觉输入，作为与当前头向的径向距离的函数（见方程 5）。\n(C) Angular-velocity input to the wings of HR cells for three angular velocities: 720 (green), 0 (blue), and -360 (orange) deg/s (see Equation 10).\n(C) 对 HR 细胞翼的角速度输入，针对三个角速度：720（绿色）、0（蓝色）和 -360（橙色）度/秒（见方程 10）。\n(D) The associative neuron: Va and Vd denote the voltage in the axonproximal (i.e. closer to the axon initial segment) and axon-distal (i.e. further away from the axon initial segment) compartment, respectively. Arrows indicate the inputs to the compartments, as in (A), and Ivis is the visual input current.\n(D) 关联神经元：$V^{a}$ 和 $V^{d}$ 分别表示轴突近端（即更接近轴突初始段）和轴突远端（即更远离轴突初始段）区的电压。箭头表示对各区的输入，如 (A) 所示，$I^{\\mathrm{vis}}$ 是视觉输入电流。\n(E) Left: skeleton plot of an example HD (E-PG) neuron (Neuron ID =416642425) created using neuPrint (Clements et al., 2020) the ellipsoid body (EB) and protocerebral bridge (PB) are overlayed. Right: zoomed in area in the EB indicated by the box, showing postsynaptic locations in the EB for this E-PG neuron; for details, see Methods. The neuron receives recurrent and HR input (green and orange dots, corresponding to inputs from P-EN1 and P-EN2 cells, respectively) and visual input (purple and blue dots, corresponding to inputs from visually responsive R2 and R4d cells, respectively) in distinct spatial locations. The online version of this article includes the following video and figure supplement(s) for figure 1:\n(E) 左：使用 neuPrint（Clements 等人，2020）创建的示例 HD (E-PG) 神经元（神经元 ID =416642425）的骨架图，叠加了椭球体 (EB) 和前脑桥 (PB)。右：EB 中由框指示的放大区域，显示了该 E-PG 神经元在 EB 中的后突触位置；详情请参见方法。该神经元在不同的空间位置接收循环和 HR 输入（绿色和橙色点，分别对应来自 P-EN1 和 P-EN2 细胞的输入）和视觉输入（紫色和蓝色点，分别对应来自视觉响应 R2 和 R4d 细胞的输入）。本文的在线版本包括图 1 的以下视频和图补充。\nIn addition, the connections carrying the visual and angular velocity inputs are also assumed to be fixed.\nAlthough plasticity in the visual inputs has been shown to exist (Fisher et al., 2019; Kim et al., 2019), here we focus on how the path-integrating circuit itself originally self-organizes.\nTherefore, to simplify the setting and without loss of generality, we assume a fixed anchoring to environmental cues as the animal moves in the same environment (for details, see Discussion).\n此外，携带视觉和角速度输入的连接也被假定为固定的。\n尽管已经显示视觉输入中存在可塑性（Fisher 等人，2019；Kim 等人，2019），但在这里我们关注的是路径积分回路本身最初如何自我组织。\n因此，为了简化设置并且不失一般性，我们假设在动物在相同环境中移动时对环境线索有固定的锚定（详情请参见讨论）。\nIn our model, the visual input acts as a supervisory signal during learning (as in D’Albis and Kempter, 2020), which is used to change weights of synapses onto the axon-distal compartment of HD cells. We utilize the learning rule proposed by Urbanczik and Senn, 2014 (for details, see Materials and methods), which tunes the incoming synaptic connections in the axon-distal compartment in order to minimize the discrepancy between the firing rate of the neuron $f(V^{a})$ (where $V^{a}$ is the axonproximal voltage, primarily controlled by the visual input) and the prediction of the firing rate by the axon-distal compartment from axon-distal inputs alone, $f(pV^{d})$ (where $p$ is a constant and $V^{d}$ is the axon-distal voltage, which depends on head rotation velocity). From now on, we refer to this discrepancy as ‘learning error’, or simply ‘error’ (Equation 18; in units of firing rate). The synaptic weight change ∆Wpre,post from a presynaptic (HD or HR) neuron to a postsynaptic HD neuron is then given by:\n$$ \\Delta W_{\\text{pre,post}} = \\eta \\bigg[f(V_{\\text{post}}^{a}) - f(pV_{\\text{post}}^{d})\\bigg] P_{\\text{pre}} $$\nwhere $\\eta$ is the constant learning rate and $P_{\\text{pre}}$ is the postsynaptic potential from the presynaptic neuron. When implementing this learning rule, we low-pass filter the prospective weight change $\\Delta W_{\\text{pre,post}}$ to ensure smoothness of learning.\n在我们的模型中，视觉输入在学习过程中充当监督信号（如 D'Albis 和 Kempter，2020 所述），用于改变 HD 细胞轴突远端区突触的权重。我们利用 Urbanczik 和 Senn（2014）提出的学习规则（详情请参见材料和方法），该规则调整轴突远端区的传入突触连接，以最小化神经元的放电率 $f(V^{a})$（其中 $V^{a}$ 是轴突近端电压，主要由视觉输入控制）与仅由轴突远端输入预测的放电率 $f(pV^{d})$ 之间的差异（其中 $p$ 是常数，$V^{d}$ 是轴突远端电压，取决于头旋转速度）。从现在起，我们将这种差异称为 “学习误差”，或简称为 “误差”（方程 18；以放电率为单位）。从一个突触前（HD 或 HR）神经元到一个突触后 HD 神经元的突触权重变化 ∆Wpre,post 给出如下：\n$$ \\Delta W_{\\text{pre,post}} = \\eta \\bigg[f(V_{\\text{post}}^{a}) - f(pV_{\\text{post}}^{d})\\bigg] P_{\\text{pre}} $$\n其中 $\\eta$ 是恒定的学习率，$P_{\\text{pre}}$ 是来自突触前神经元的突触后电位。在实现该学习规则时，我们对预期的权重变化 $\\Delta W_{\\text{pre,post}}$ 进行低通滤波，以确保学习的平滑性。\nImportantly, this learning rule is biologically plausible because the firing rate of an associative neuron f(Va) is locally available at every synapse in the axon-distal compartment due to the (passive or active) backpropagation of axonal activity to the axon-distal dendrites. The other two signals that enter the learning rule are the voltage of the axon-distal compartment Vd and the postsynaptic potential P, which are also available locally at the synapse; for details, see Materials and methods. Furthermore, recent behavioral experiments show that conditioning in Drosophila (Zhao et al., 2021) is not well explained by classical correlation-based plasticity, but it can be well accounted for by predictive synaptic plasticity. The latter is in line with the learning rule utilized here.\n重要的是，这个学习规则在生物学上是可行的，因为由于轴突活动向轴突远端树突的（被动或主动）反向传播，关联神经元的放电率 $f(V^{a})$ 在轴突远端区的每个突触处都是局部可用的。进入学习规则的其他两个信号是轴突远端区的电压 $V^{d}$ 和突触后电位 $P$，这些信号在突触处也是局部可用的；详情请参见材料和方法。此外，最近的行为实验表明，果蝇中的条件作用（Zhao 等人，2021）不能很好地用经典的基于相关性的可塑性来解释，但可以很好地用预测性突触可塑性来解释。后者与这里使用的学习规则一致。\nMature network can path-integrate in darkness Figure 2A shows an example of the performance of a trained network, for the light condition (i.e. when visual input is available; yellow overbars) and for PI in darkness (purple overbars); the performance is quantified by the PI error (in units of degrees) over time. PI error refers to the accumulated difference between the internal representation of heading and the true heading, and it is different from the learning error introduced previously.\n图 2A 显示了训练网络在光照条件下（即当视觉输入可用时；黄色上方条）和黑暗中进行 PI（紫色上方条）的性能示例；性能通过随时间变化的 PI 误差（以度为单位）来量化。 PI 误差是指航向的内部表示与真实航向之间的累积差异，它不同于之前介绍的学习误差。\n(A) Example activity profiles of HD, L-HR, and R-HR neurons (firing rates gray-scale coded). Activities are visually guided (yellow overbars) or are the result of PI in the absence of visual input (purple overbar). The ability of the circuit to follow the true heading is slightly degraded during PI in darkness. The PI error, that is, the difference between the PVA and the true heading of the animal as well as the instantaneous head angular velocity are plotted separately.\n(A) HD、L-HR 和 R-HR 神经元的示例活动曲线（放电率以灰度编码）。活动受到视觉引导（黄色上方条）或在没有视觉输入的情况下进行 PI 的结果（紫色上方条）。在黑暗中进行 PI 时，回路跟随真实航向的能力略有下降。 PI 误差，即 PVA 与动物真实航向之间的差异，以及瞬时头部角速度分别绘制。\n(B) Temporal evolution of the distribution of PI errors in darkness, for 1000 simulations. The distribution gets wider with time, akin to a diffusion process. We estimate the diffusion coefficient to be D = 24.5 deg2/s (see ‘Diffusion Coefficient’ in Materials and methods). Note that, unless otherwise stated, for this type of plot we limit the range of angular velocities to those normally exhibited by the fly, i.e. |v| \u003c 500 deg/s.\n(B) 在黑暗中，1000 次模拟中 PI 误差分布的时间演变。随着时间的推移，分布变得更宽，类似于扩散过程。我们估计扩散系数为 $D = 24.5$ deg²/s（见材料和方法中的 “扩散系数”）。请注意，除非另有说明，对于这种类型的图，我们将角速度的范围限制为果蝇通常表现出的范围，即 $|v| \u003c 500$ deg/s。\n(C) Relation between head angular velocity and neural angular velocity, i.e., the speed with which the bump moves in the network. There is almost perfect (gain 1) PI in darkness for head angular velocities within the range of maximum angular velocities that are displayed by the fly (dashed green horizontal lines; see Methods).\n(C) 头部角速度与神经角速度之间的关系，即峰值在网络中移动的速度。在黑暗中，对于果蝇显示的最大角速度范围内的头部角速度（虚线绿色水平线；见方法），几乎实现了完美的（增益为 1）PI。\n(D) Example of consecutive stimulations in randomly permeated HD locations, simulating optogenetic stimulation experiments in Kim et al., 2017. Red overbars indicate when the network is stimulated with stronger than normal visual-like input, at the location indicated by the animal’s true heading (light green line), while red dashed vertical lines indicate the onset of the stimulation. The network is then left in the dark. Our simulations show that the bump remains at the stimulated positions.\n(D) 在随机渗透的 HD 位置中连续刺激的示例，模拟 Kim 等人（2017）中的光遗传学刺激实验。红色上方条表示当网络受到比正常视觉输入更强的刺激时，位于动物真实航向（浅绿色线）所指示的位置，而红色虚线垂直线表示刺激的开始。然后将网络置于黑暗中。我们的模拟表明，峰值保持在刺激位置。\nA unique bump of activity is clearly present at all times in the HD network (Figure 2A, top), in both light and darkness conditions, and this bump moves smoothly across the network for a variable angular velocity (Figure 2A, bottom). The position of the bump is defined as the population vector average (PVA) of the neural activity in the HD network. The HD bump also leads to the emergence of bumps in the HR network, separately for L-HR and R-HR cells (Figure 2A, second and third panel from top). In light conditions (0–20 s in Figure 2A), the PVA closely tracks the head direction of the animal in HD, L-HR, and R-HR cells alike, which is expected because the visual input guides the network activity. Importantly, however, in darkness (20–50 s in Figure 2A), the self-motion input alone is enough to track the animal’s heading, leading to a small PI error between the internal representation of heading and the ground truth. This error is corrected after the visual input reappears (at 50 s in Figure 2A). Such PI errors in darkness are qualitatively consistent with data reported in the experimental literature (Seelig and Jayaraman, 2015). The correction of the PI error also reproduces in silico the experimental finding that the visual input (whenever available) exerts stronger control on the bump location than the self-motion input (Seelig and Jayaraman, 2015), which suggests that even the mature network does not rely on PI when visual cues are available.\n一个独特的活动峰值在 HD 网络中始终清晰可见（图 2A，顶部），无论是在光照条件下还是在黑暗条件下，并且该峰值以可变的角速度平滑地移动穿过网络（图 2A，底部）。峰值的位置定义为 HD 网络中神经活动的群体向量平均值 (PVA)。 HD 峰值还导致 HR 网络中峰值的出现，分别针对 L-HR 和 R-HR 细胞（图 2A，从顶部起第二和第三个面板）。在光照条件下（图 2A 中的 0–20 秒），PVA 紧密跟踪动物在 HD、L-HR 和 R-HR 细胞中的头向，这是预期的，因为视觉输入引导网络活动。然而，重要的是，在黑暗中（图 2A 中的 20–50 秒），仅自我运动输入就足以跟踪动物的航向，从而导致航向的内部表示与真实情况之间产生较小的 PI 误差。在视觉输入重新出现后（图 2A 中的 50 秒），该误差得到了纠正。黑暗中的这种 PI 误差在定性上与实验文献中报告的数据一致（Seelig 和 Jayaraman，2015）。 PI 误差的纠正还在计算机模拟中再现了实验发现，即视觉输入（无论何时可用）对峰值位置施加比自我运动输入更强的控制（Seelig 和 Jayaraman，2015），这表明即使是成熟的网络在视觉线索可用时也不依赖于 PI。\nTo quantify the accuracy of PI in our model, we draw 1,000 trials, each 60 s long, for constant synaptic weights and in the absence of visual input. We also limit the angular velocities in these trials to retain only velocities that flies realistically display (see dashed green lines in Figure 2C and Methods). We then plot the distribution of PI errors every 10 s (Figure 2B). We find that average absolute PI errors (widths of distributions) increase with time in darkness, but most of the PI errors at 60 s are within 60 deg of the true heading. This vastly exceeds the PI performance of flies (Seelig and Jayaraman, 2015). In flies, the correlation between the PVA estimate and the true heading in darkness varied widely across animals in the range $[0.3, 0.95]$ (Seelig and Jayaraman, 2015), whereas for the model it is close to 1. However, it should be noted that the model here corresponds to an ideal scenario that serves as a proof of principle. We will later incorporate irregularities owing to biological factors (asymmetry in the weights, biological noise) that bring the network’s performance closer to the fly’s behavior.\n为了量化我们模型中 PI 的准确性，我们绘制了 $1,000$ 个试验，每个试验持续 $60$ 秒，使用恒定的突触权重并且没有视觉输入。我们还限制了这些试验中的角速度，仅保留果蝇实际显示的速度（见图 2C 中的虚线绿色线和方法）。然后，我们绘制每 10 秒的 PI 误差分布（图 2B）。我们发现，在黑暗中，平均绝对 PI 误差（分布宽度）随时间增加，但在 60 秒时，大多数 PI 误差在真实航向的 60 度以内。这远远超过了果蝇的 PI 性能（Seelig 和 Jayaraman，2015）。在果蝇中，黑暗中 PVA 估计与真实航向之间的相关性在动物之间变化很大，范围为 $[0.3, 0.95]$（Seelig 和 Jayaraman，2015），而对于模型，它接近于 1。然而，应注意的是，这里的模型对应于一个理想场景，作为原理证明。我们稍后将结合由于生物因素（权重不对称、生物噪声）引起的不规则性，使网络的性能更接近果蝇的行为。\nTo further assess the network’s ability to integrate different angular velocities, we simulate the system both with and without visual input in 5 s intervals during which the angular velocity is constant. We then compute the average movement velocity of the bump across the network, that is the neural velocity, and compare it to the real velocity provided as input. Figure 2C shows that the network achieves a PI gain (defined as the ratio between neural and real velocity) close to 1 both with and without supervisory visual input, meaning that the neural velocity matches very well the angular velocity of the animal, for all angular velocities that are observed in experiments (|v| \u003c 500 deg/s for walking and flying) (Geurten et al., 2014; Stowers et al., 2017). Although expected in light conditions, the fact that gain 1 is achieved in darkness shows that the network predicts the missing visual input from the velocity input, that is, the network path integrates accurately. Note that PI is impaired in our model for very small angular velocities (Figure 2C, flat purple line for |v| \u003c 30 deg/s), similarly to previous hand-tuned theoretical models (Turner-Evans et al., 2017). This is a direct consequence of the fact that maintaining a stable activity bump and moving it across the network at very small angular velocities are competing goals. Crucially, it has been reported that such an impairment of PI for small angular velocities exists in flies (Seelig and Jayaraman, 2015). Note that if we increase the number of HD neurons from 60 (∼50 were reported in the fly by Turner-Evans et al., 2020; Xu, 2020) to 120 or 240, this flat region is no longer observed (data not shown).\n为了进一步评估网络积分不同角速度的能力，我们在角速度恒定的 5 秒间隔内模拟系统，同时有和没有视觉输入。然后，我们计算峰值在网络中的平均移动速度，即神经速度，并将其与作为输入提供的真实速度进行比较。图 2C 显示，网络在有和没有监督视觉输入的情况下都实现了接近 1 的 PI 增益（定义为神经速度与真实速度的比率），这意味着神经速度与动物的角速度非常匹配，对于实验中观察到的所有角速度（步行和飞行时 |v| \u003c 500 deg/s）（Geurten 等人，2014；Stowers 等人，2017）。虽然在光照条件下是预期的，但在黑暗中实现增益 1 的事实表明，网络从速度输入预测缺失的视觉输入，即网络准确地进行了路径积分。请注意，在我们的模型中，对于非常小的角速度，PI 会受到损害（图 2C，对于 $|v| \u003c 30$ deg/s 的平坦紫线），类似于先前手动调谐的理论模型（Turner-Evans 等人，2017）。这是因为维持稳定的活动峰值并以非常小的角速度在网络中移动它是相互竞争的目标。关键的是，据报道，在果蝇中也存在这种对小角速度 PI 的损害（Seelig 和 Jayaraman，2015）。请注意，如果我们将 HD 神经元的数量从 60（Turner-Evans 等人，2020；Xu，2020 报告果蝇中约为 50）增加到 120 或 240，则不再观察到这个平坦区域（数据未显示）。\nThe network is a quasi-continuous attractor A continuous attractor network (CAN) should be able to maintain a localised bump of activity in virtually a continuum of locations around the ring of HD cells. To prove that the learned network approximates this property, we seek to reproduce in silico experimental findings in Kim et al., 2017. There it was shown that local optogenetic stimulation of HD cells in the ring can cause the activity bump to jump to a new position and persist in that location — supported by internal dynamics alone.\n一个连续吸引子网络 (CAN) 应该能够在 HD 细胞环周围的几乎连续的位置中维持局部化的活动峰值。为了证明学习后的网络近似于这种特性，我们试图在计算机模拟中再现 Kim 等人（2017）中的实验发现。那里显示，环中 HD 细胞的局部光遗传刺激可以导致活动峰值跳到一个新位置并持续存在于该位置——仅由内部动力学支持。\nTo reproduce the experiments by Kim et al., 2017, we simulate optogenetic stimulation of HD cells in our network as visual input of increased strength and extent (for details, see Materials and methods). We find that the strength and extent of the stimulation needs to be increased relative to that of the visual input; only in this case, a bump at some other location in the network can be suppressed, and a new bump emerges at the stimulated location. The stimuli are assumed to appear instantaneously at random locations, but we restrict our set of stimulation locations to the discrete angles represented by the finite number of HD neurons. Furthermore, the velocity input is set to zero for the entire simulation, signaling lack of head movement.\n为了复现 Kim 等人（2017）的实验，我们将网络中 HD 细胞的光遗传刺激模拟为增强强度和范围的视觉输入（详情请参见材料和方法）。我们发现，相对于视觉输入，刺激的强度和范围需要增加；只有在这种情况下，网络中某个其他位置的峰值才能被抑制，并且在刺激位置出现新的峰值。假设刺激瞬间出现在随机位置，但我们将刺激位置的集合限制为有限数量的 HD 神经元所表示的离散角度。此外，整个模拟过程中速度输入设置为零，表示头部没有运动。\nFigure 2D shows network activity in response to several stimuli, when the stimulation location changes abruptly every 5 s. During stimulation (2 s long, red overbars), the bump is larger than normal due to the use of a stronger than usual visual-like input to mimic optogenetic stimulation. The way in which the network responds to a stimulation depends on how far away from the ‘current’ location it is stimulated: for shorter distances, the bump activity shifts to the new location, as evidenced by the transient dynamics at the edges of the bump resembling a decay from an initial to a new location (see Figure 2D at {5,15,20} s). However, for larger phase shifts ∆θ the bump first emerges in the new location and subsequently disappears at the initial location, a mechanism akin to a ‘jump’ (Figure 2D, all other transitions). Similar effects have been observed in the experimental literature (Seelig and Jayaraman, 2015; Kim et al., 2017). The way the network responds to stimulation indicates that it operates in a CAN manner, and not as a winner-takes-all network where changes in bump location would always be instantaneous (Carpenter and Grossberg, 1987; Itti et al., 1998; Wang, 2002). That is to say, the network operates as expected from a quasi-continuous attractor. Furthermore, we find that the transition strategy in our model changes from predominantly smooth transitions to jumps at ∆θ ≈ 90 deg, which matches experiments well (Kim et al., 2017).\n图 2D 显示了网络对几个刺激的活动响应，当刺激位置每 $5$ 秒突然变化一次。在刺激期间（持续 $2$ 秒，红色上方条），由于使用了比平常更强的类似视觉的输入来模拟光遗传刺激，峰值比正常情况下更大。网络对刺激的响应方式取决于它距离 “当前” 位置的远近：对于较短的距离，峰值活动会转移到新位置，如峰值边缘的瞬态动力学从初始位置衰减到新位置所示（见图 2D 在 $\\{5,15,20\\}$ 秒）。然而，对于较大的相位偏移 $\\Delta\\theta$，峰值首先出现在新位置，然后在初始位置消失，这种机制类似于 “跳跃”（图 2D，所有其他过渡）。在实验文献中也观察到了类似的效果（Seelig 和 Jayaraman，2015；Kim 等人，2017）。网络对刺激的响应方式表明，它以 CAN 的方式运行，而不是作为一个赢家通吃的网络，其中峰值位置的变化总是瞬时发生（Carpenter 和 Grossberg，1987；Itti 等人，1998；Wang，2002）。也就是说，该网络按预期以准连续吸引子的方式运行。此外，我们发现，在我们的模型中，当 $\\Delta\\theta\\approx 90$ 度时，过渡策略从主要是平滑过渡变为跳跃，这与实验结果非常吻合（Kim 等人，2017）。\nFollowing a 2 s stimulation, the network activity has converged to the new cued location. After the stimulation has been turned off, the bump remains at the new location (within the angular resolution $\\Delta\\phi$ of the network), supported by internal network dynamics alone (Figure 2D). We confirmed in additional simulations that the bump does not drift away from the stimulated location for extended periods of time (3 min duration tested, only 3 s shown), and for all discrete locations in the HD network (only six locations shown). Therefore, we conclude that the HD network is a quasi-continuous attractor that can reliably sustain a heading representation over time in all HD locations. Note that for the network size used ($N^{\\mathrm{HD}} = 60$) we still obtain discrete attractors with separated basins of attraction; however it is expected that with increasing $N^{\\mathrm{HD}}$ adjacent attractors will merge when the intrinsic noise overcomes the barrier separating them. Indeed, we find that for $N^{\\mathrm{HD}} = N^{\\mathrm{HR}} = 120$ it is easier to diffuse to adjacent attractors in the presence of synaptic input noise; for the impact of noise, see Appendix 1—figure 1C. In reality, the bump may drift away due to asymmetries in the connectivity of the biological circuit as well as intrinsic noise (Burak and Fiete, 2012) see also Appendix 1. In flies, for instance, the bump can stay put only for several seconds (Kim et al., 2017).\n在 2 秒的刺激之后，网络活动已经收敛到新提示的位置。在刺激关闭后，峰值仍然保持在新位置（在网络的角分辨率 $\\Delta\\phi$ 内），仅由内部网络动力学支持（图 2D）。我们在额外的模拟中确认，峰值不会在长时间内从刺激位置漂移（测试持续时间为 3 分钟，仅显示 3 秒），并且对于 HD 网络中的所有离散位置（仅显示六个位置）。因此，我们得出结论，HD 网络是一个准连续吸引子，能可靠地在所有 HD 位置上维持航向表示。请注意，对于使用的网络大小 ($N^{\\mathrm{HD}} = 60$)，我们仍然获得具有分离吸引域的离散吸引子；然而，预计随着 $N^{\\mathrm{HD}}$ 的增加，当内在噪声克服分隔它们的障碍时，相邻的吸引子将合并。实际上，我们发现对于 $N^{\\mathrm{HD}} = N^{\\mathrm{HR}} = 120$，在存在突触输入噪声的情况下，更容易扩散到相邻的吸引子；有关噪声的影响，请参见附录 1—图 1C。实际上，由于生物回路连接的不对称性以及内在噪声（Burak 和 Fiete，2012），峰值可能会漂移（另见附录 1）。例如，在果蝇中，峰值只能保持几秒钟不动（Kim 等人，2017）。\nLearning results in synaptic connectivity that matches the one in the fly To gain more insight into how the network achieves PI and attains CAN properties, we show how the synaptic weights of the network are tuned during a developmental period (Figure 3). Figure 3A and B shows the learned recurrent synaptic weights among the HD cells, Wrec, and the learned synaptic weights from HR to HD cells, WHR, respectively. Circular symmetry is apparent in both matrices, a crucial property for a symmetric ring attractor. Therefore, we also plot the profiles of the learned weights as a function of receptive field difference in Figure 3C. Note that pixelized appearance in these plots is due to the fact that two adjacent HD neurons are tuned for the same HD, and develop identical synaptic strengths.\n为了更深入地了解网络如何实现 PI 并获得 CAN 特性，我们展示了网络在发育期间突触权重的调节方式（图 3）。图 3A 和 B 分别显示了 HD 细胞之间学习到的循环突触权重 $W^{\\mathrm{rec}}$ 和从 HR 到 HD 细胞学习到的突触权重 $W^{\\mathrm{HR}}$。两个矩阵中都明显存在圆对称性，这是对称环吸引子的关键特性。因此，我们还在图 3C 中绘制了学习到的权重作为感受野差异函数的曲线。请注意，这些图中的像素化外观是由于两个相邻的 HD 神经元针对相同的 HD 调谐，并且发展出相同的突触强度。\n(A), (B) The learned weight matrices (color coded) of recurrent connections in the HD ring, Wrec, and of HR-to-HD connections, WHR, respectively. Note the circular symmetry in both matrices.\n(A)、(B) 分别为 HD 环中循环连接的学习权重矩阵 $W^{\\mathrm{rec}}$ 和 HR 到 HD 连接的学习权重矩阵 $W^{\\mathrm{HR}}$（颜色编码）。请注意两个矩阵中的圆对称性。\n(C) Profiles of (A) and (B), averaged across presynaptic neurons.\n(C) (A) 和 (B) 的曲线，跨突触前神经元平均。\n(D) Absolute learning error in the network (Equation 19) for 12 simulations (transparent lines) and average across simulations (opaque line). At time t = 0, we initialize all the plastic weights at random and train the network for 8 × 104 s (∼22 hr). The mean learning error increases in the beginning while a bump in Wrec is emerging, which is necessary to generate a pronounced bump in the network activity. For weak activity bumps, absolute errors are small because the overall network activity is low. After ∼1 hr of training, the mean learning error decreases with increasing training time and converges to a small value.\n(D) 网络中的绝对学习误差（方程 19），针对 12 次模拟（透明线）和跨模拟的平均值（不透明线）。在时间 $t = 0$ 时，我们将所有可塑权重随机初始化，并训练网络 $8 \\times 10^{4}$ 秒（约 22 小时）。在 $W^{\\mathrm{rec}}$ 中出现峰值的初期，平均学习误差增加，这是生成网络活动中明显峰值所必需的。对于弱活动峰值，绝对误差较小，因为整体网络活动较低。在约 1 小时的训练后，平均学习误差随着训练时间的增加而减小，并收敛到一个较小的值。\n(E), (F) Time courses of development of the profiles of Wrec and WHR, respectively. Note the logarithmic time scale.\n(E)、(F) 分别为 $W^{\\mathrm{rec}}$ 和 $W^{\\mathrm{HR}}$ 曲线的发展时间过程。请注意对数时间尺度。\nFirst, we discuss the properties of the learned weights. Local excitatory connections have developed along the main diagonal of Wrec, similar to what is observed in the CX (Turner-Evans et al., 2020). This local excitation can be readily seen in the weight profile of Wrec in Figure 3C, and it is the substrate that allows the network to support stable activity bumps in virtually any location. In addition, we observe inhibition surrounding the local excitatory profile in both directions. This inhibition emerges despite the fact that we provide global inhibition to all HD cells (IiHnhD parameter, Materials and methods), in line with suggestions from previous work (Kim et al., 2017). Surrounding inhibition was a feature we observed consistently in learned networks of different sizes and for different global inhibition levels. Finally, the angular offset of the two negative sidelobes in the connectivity depends on the size and shape of the entrained HD bump (for details, see Appendix 5).\n首先，我们讨论学习到的权重的特性。沿着 $W^{\\mathrm{rec}}$ 的主对角线已经发展出局部兴奋性连接，这与在 CX 中观察到的情况类似（Turner-Evans 等人，2020）。这种局部兴奋性可以在图 3C 中的 $W^{\\mathrm{rec}}$ 权重曲线中清楚地看到，它是允许网络在几乎任何位置支持稳定活动峰值的基础。此外，我们观察到在两个方向上围绕局部兴奋性曲线的抑制。尽管我们为所有 HD 细胞提供了全局抑制（IiHnhD 参数，材料和方法），但这种抑制仍然出现，这与先前工作的建议一致（Kim 等人，2017）。我们在不同大小和不同全局抑制水平的学习网络中始终观察到周围抑制的特征。最后，连接中两个负侧叶的角偏移取决于被锁定的 HD 峰值的大小和形状（详情请参见附录 5）。\nFurthermore, we find a consistent pattern of both L-HR and R-HR populations to excite the direction for which they are selective (Figure 3C), which is also similar to what is observed in the CX (TurnerEvans et al., 2020). Excitation in one direction is accompanied by inhibition in the reverse direction in the learned network. As a result of the symmetry in our learning paradigm, the connectivity profiles of L-HR and R-HR cells are mirrored versions of each other, which is also clearly visible in Figure 3C. The inhibition of the reverse direction has a width comparable to the bump size and acts as a ‘break’ to prevent the bump from moving in this direction. The excitation in the selective direction, on the other hand, has a wider profile, which allows the network to path integrate for a wide range of angular velocities, that is for high angular velocities neurons further downstream can be ‘primed’ and activated in rapid succession. Indeed, when we remove the wide projections from the excitatory connectivity, PI performance is impaired for the higher angular velocities exclusively (Figure 3—figure supplement 1). The even weight profile in Wrec and the mirror symmetry for L-HR vs. R-HR profiles in WHR, together with the circular symmetry of the weights throughout the ring, guarantee that there is no side bias (i.e. tendency of the bump to favor one direction of movement versus the other) during PI. Indeed, the PI error distribution in Figure 2B remains symmetric throughout the 60 s simulations.\n此外，我们发现 L-HR 和 R-HR 群体都有一致的模式来激发它们选择的方向（图 3C），这也类似于在 CX 中观察到的情况（TurnerEvans 等人，2020）。在学习网络中，一个方向的兴奋伴随着反向方向的抑制。由于我们学习范式中的对称性，L-HR 和 R-HR 细胞的连接曲线是彼此的镜像版本，这在图 3C 中也清晰可见。反向方向的抑制具有与峰值大小相当的宽度，并充当“刹车”，以防止峰值朝该方向移动。另一方面，选择性方向的兴奋具有更宽的曲线，这允许网络在广泛的角速度范围内进行路径积分，即对于高角速度，下游神经元可以被“预激活”并快速连续激活。实际上，当我们从兴奋性连接中移除宽投影时，PI 性能仅在较高角速度下受到损害（图 3—图补充 1）。 $W^{\\mathrm{rec}}$ 中的均匀权重曲线以及 $W^{\\mathrm{HR}}$ 中 L-HR 与 R-HR 曲线的镜像对称性，再加上整个环中权重的圆对称性，保证了在 PI 过程中没有侧偏（即峰值倾向于偏向一个运动方向而不是另一个）。实际上，图 2B 中的 PI 误差分布在整个 60 秒模拟过程中保持对称。\nNext, we focus our attention on the dynamics of learning. For training times larger than a few hours, the absolute learning error drops and settles to a low value, indicating that learning has converged after ∼20 hr (or 4000 cycles, each cycle lasting 1/η) of training time (Figure 3D). The non-zero value of the final error is only due to errors occurring at the edges of the bump (Figure 3—figure supplement 2A, top panel). An intuitive explanation of why these errors persist is that the velocity pathway is learning to predict the visual input; as a result, when the visual input is present, the velocity pathway creates errors that are consistent with PI velocity biases in darkness.\n接下来，我们将注意力集中在学习的动态上。对于大于几个小时的训练时间，绝对学习误差下降并稳定在较低值，这表明在约 20 小时（或 4000 个周期，每个周期持续 $1/\\eta$）的训练时间后，学习已经收敛（图 3D）。最终误差的非零值仅是由于峰值边缘发生的误差（图 3—图补充 2A，顶部面板）。这些误差持续存在的直观解释是，速度通路正在学习预测视觉输入；因此，当视觉输入存在时，速度通路会产生与黑暗中 PI 速度偏差一致的误差。\nFigure 3E and F shows the weight development history for the entire simulation. The first structure that emerges during learning is the local excitatory recurrent connections in Wrec. For these early stages of learning, the initial connectivity is controlled by the autocorrelation of the visual input, which gets imprinted in the recurrent connections by means of Hebbian co-activation of adjacent HD neurons. As a result, the width of the local excitatory profile mirrors the width of the visual input. Once a clear bump is established in the HD ring, the HR connections are learned to support bump movement, and negative sidelobes in Wrec emerge. To understand the shape of the learned connectivity profiles and the dynamics of their development, we study a reduced version of the full model, which follows learning in bump-centric coordinates (see Appendix 5). The reduced model produces a connectivity strikingly similar to the full model, and highlights the important role of non-linearities in the system.\n图 3E 和 F 显示了整个模拟的权重发展历史。在学习过程中出现的第一个结构是 $W^{\\mathrm{rec}}$ 中的局部兴奋性循环连接。在学习的早期阶段，初始连接性由视觉输入的自相关控制，通过相邻 HD 神经元的 Hebbian 共激活将其印刻在循环连接中。因此，局部兴奋性曲线的宽度反映了视觉输入的宽度。一旦在 HD 环中建立了清晰的峰值，就会学习 HR 连接以支持峰值移动，并且 $W^{\\mathrm{rec}}$ 中出现负侧叶。为了理解学习到的连接曲线的形状及其发展的动态，我们研究了完整模型的简化版本，该版本遵循以峰值为中心的坐标进行学习（见附录 5）。简化模型产生了与完整模型惊人相似的连接性，并突出了系统中非线性的重要作用。\nSo far, we have shown results in which our model far outperforms flies in terms of PI accuracy. To bridge this gap, we add noise to the weight connectivity in Figure 3A and B and obtain the connectivity matrices in Figure 3—figure supplement 3A,B, respectively. This perturbation of the weights could account for irregularities in the fly HD system owning to biological factors such as uneven synaptic densities. The resulting neural velocity gain curve in Figure 3—figure supplement 3E is impaired mainly for small angular velocities (Figure 2C). Interestingly, it now bears greater similarity to the one observed in flies, because the previously flat area for small angular velocities is wider (flat for |v| \u003c 60 deg/s, cf. extended data fig. 7G,J in Seelig and Jayaraman, 2015). This happens because the noisy connectivity is less effective in initiating bump movement. Finally, the PI errors in the network with noisy connectivity grow much faster and display a strong side bias (Figure 3—figure supplement 3D, Figure 2B). The latter can be attributed to the fact that the noise in the connectivity generates local minima that are easier to transverse from one direction vs. the other. Side bias can also emerge if the learning rate η in Equation 16 is increased, effectively forcing learning to converge faster to a local minimum, which results in slight deviations from circularly symmetric connectivity (data not shown). It is therefore expected that different animals will display different degrees and directions of side bias during PI, owning either to fast learning or asymmetries in the underlying neurobiology. Since the exact behavior of the network with noise in the connectivity depends on the specific realization, we also generate multiple such networks and estimate the diffusion coefficient during path integration, which quantifies how fast the width of the PI error distribution in Figure 3—figure supplement 3D increases. We find the grand average to be 82.3 ± 15.7 deg2/s, which is considerably larger (Student’s t-test, 95% conf. intervals for a total of 12 networks) than the diffusion coefficient for networks without a perturbation in the weights (24.5 deg2/s in Figure 2B). Finally, in Appendix 1 we also incorporate random Gaussian noise to all inputs, which can account for noisy percepts or stochasticity of spiking, and show that learning is not disrupted even for high noise levels.\n到目前为止，我们已经展示了我们的模型在 PI 精度方面远远优于果蝇的结果。为了弥合这一差距，我们在图 3A 和 B 中的权重连接中添加噪声，并分别获得图 3—图补充 3A、B 中的连接矩阵。这种权重扰动可以解释果蝇 HD 系统中由于生物因素（如不均匀的突触密度）而导致的不规则性。图 3—图补充 3E 中得到的神经速度增益曲线主要在小角速度下受到损害（图 2C）。有趣的是，它现在与果蝇中观察到的曲线更为相似，因为之前的小角速度平坦区域更宽（对于 |v| \u003c 60 deg/s 平坦，参见 Seelig 和 Jayaraman，2015 中的扩展数据图 7G、J）。这是因为嘈杂的连接在启动峰值移动方面效果较差。最后，具有嘈杂连接的网络中的 PI 误差增长得更快，并显示出强烈的侧偏（图 3—图补充 3D，图 2B）。后者可以归因于连接中的噪声产生了局部最小值，从一个方向比另一个方向更容易穿越。如果增加方程 16 中的学习率 η，也可能出现侧偏，有效地迫使学习更快地收敛到局部最小值，从而导致圆对称连接性略有偏离（数据未显示）。因此，预计不同动物在 PI 过程中会显示出不同程度和方向的侧偏，这要么是由于快速学习，要么是由于潜在神经生物学的不对称性。由于具有连接噪声的网络的确切行为取决于具体实现，我们还生成了多个这样的网络，并估计路径积分期间的扩散系数，该系数量化了图 3—图补充 3D 中 PI 误差分布宽度增加的速度。我们发现总体平均值为 $82.3 \\pm 15.7$ deg²/s，这比没有权重扰动的网络的扩散系数（图 2B 中为 $24.5$ deg²/s）大得多（Student’s t 检验，总共 12 个网络的 95% 置信区间）。最后，在附录 1 中，我们还将随机高斯噪声引入所有输入，这可以解释嘈杂的感知或尖峰的随机性，并表明即使在高噪声水平下，学习也不会受到干扰。\n",
+  "wordCount" : "17485",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/06/26/7cuZ/20260626210218976.png","datePublished": "2026-06-26T00:18:23+08:00",
+  "dateModified": "2026-06-26T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/learning-accurate-path-integration-in-ring-attractor-models-of-the-head-direction-system/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                Learning accurate path integration in ring attractor models of the head direction system
+            </h1>
+            <div class="post-description">
+                环形吸引子模型中头向系统的精确路径积分学习
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-06-26
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>17485字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>35分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/line-attractor/" style="color: var(--secondary)!important;">Line Attractor</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/06/26/7cuZ/20260626210218976.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#editors-evaluation" aria-label="Editor&#39;s evaluation">Editor's evaluation</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#results" aria-label="Results">Results</a><ul>
+                        
+                <li>
+                    <a href="#model-setup" aria-label="Model setup">Model setup</a></li>
+                <li>
+                    <a href="#mature-network-can-path-integrate-in-darkness" aria-label="Mature network can path-integrate in darkness">Mature network can path-integrate in darkness</a></li>
+                <li>
+                    <a href="#the-network-is-a-quasi-continuous-attractor" aria-label="The network is a quasi-continuous attractor">The network is a quasi-continuous attractor</a></li>
+                <li>
+                    <a href="#learning-results-in-synaptic-connectivity-that-matches-the-one-in-the-fly" aria-label="Learning results in synaptic connectivity that matches the one in the fly">Learning results in synaptic connectivity that matches the one in the fly</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>Ring attractor models for angular path integration have received strong experimental support. To function as integrators, head direction circuits require precisely tuned connectivity, but it is currently unknown how such tuning could be achieved. Here, we propose a network model in which <strong>a local, biologically plausible learning rule</strong> adjusts synaptic efficacies during development, guided by supervisory allothetic cues.</p>
+</blockquote>
+<p>环吸引子模型在角度路径积分方面得到了强有力的实验支持。为了作为积分器，头朝向回路需要精确调谐的连接性，但目前尚不清楚如何实现这种调谐。在这里，我们提出了一个网络模型，其中 <strong>局部的、生物学上可行的学习规则</strong> 在发育过程中调整突触效能，并由监督性的外部线索引导。</p>
+<blockquote>
+<p>Applied to the Drosophila head direction system, the model learns to path-integrate accurately and develops a connectivity strikingly similar to the one reported in experiments. The mature network is a quasi-continuous attractor and reproduces key experiments in which optogenetic stimulation controls the internal representation of heading in flies, and where the network remaps to integrate with different gains in rodents. Our model predicts that path integration requires self-supervised learning during a developmental phase, and proposes a general framework to learn to path-integrate with gain-1 even in architectures that lack the physical topography of a ring.</p>
+</blockquote>
+<p>应用于果蝇头向系统，该模型学会了准确地进行路径积分，并发展出与实验中报道的连接性惊人相似的结构。成熟的网络是一个准连续吸引子，并重现了关键实验，其中光遗传刺激控制了果蝇内部的航向表示，以及网络在啮齿动物中重新映射以不同增益进行积分。我们的模型预测，路径积分需要在发育阶段进行 <strong>自我监督学习</strong>，并提出了一个通用框架，即使在缺乏环形物理拓扑结构的架构中，也能学习以增益1进行路径积分。</p>
+<h1 id="editors-evaluation">Editor's evaluation<a hidden class="anchor" aria-hidden="true" href="#editors-evaluation">#</a></h1>
+<blockquote>
+<p>This paper will be of interest to neuroscientists studying the navigation system, and in particular, those who study the ability of animals to path integrate. This study proposes an elegant <strong>synaptic plasticity rule</strong> that maintains the connectivity required for path integration by integrating visual and self-motion input arriving at different <strong>dendritic locations</strong> in a neuron. This idea is applied to the <strong>central complex</strong> of Drosophila, a well-characterized experimental system.</p>
+</blockquote>
+<p>这篇论文将引起研究导航系统的神经科学家的兴趣，特别是那些研究动物路径积分能力的科学家。这项研究提出了一种优雅的 <strong>突触可塑性规则</strong>，通过积分到达神经元不同 <strong>树突位置</strong> 的视觉和自我运动输入，维持路径积分所需的连接性。这个想法被应用于果蝇的 <strong>中央复合体</strong>，这是一个经过充分表征的实验系统。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>Spatial navigation is crucial for the survival of animals in the wild and has been studied in many model organisms (Tolman, 1948; O’Keefe and Nadel, 1978; Gallistel, 1993; Eichenbaum, 2017). To orient themselves in an environment, animals rely on external sensory cues (e.g. visual, tactile, or auditory), but such allothetic cues are often ambiguous or absent. In these cases, animals have been found to update internal representations of their current location based on idiothetic cues, a process that is termed <strong>path integration</strong> (PI, Darwin, 1873; Mittelstaedt and Mittelstaedt, 1980; McNaughton et al., 1996; Etienne et al., 1996; Neuser et al., 2008; Burak and Fiete, 2009). The head direction (HD) system partakes in PI by performing one of the computations required: estimating the current HD by integrating angular velocities; namely angular integration. Furthermore, head direction cells in rodents and flies provide an internal representation of orientation that can persist in darkness (Ranck, 1984; Mizumori and Williams, 1993; Seelig and Jayaraman, 2015).</p>
+</blockquote>
+<p>空间导航对于野生动物的生存至关重要，并且已经在许多模式生物中进行了研究（Tolman，1948；O'Keefe和Nadel，1978；Gallistel，1993；Eichenbaum，2017）。为了在环境中定位自己，动物依赖于外部感官线索（例如视觉、触觉或听觉），但这些外部线索通常是模糊的或缺失的。在这些情况下，发现动物会根据自我运动线索更新其当前位置的内部表示，这一过程被称为 <strong>路径积分</strong>（PI，Darwin，1873；Mittelstaedt和Mittelstaedt，1980；McNaughton等人，1996；Etienne等人，1996；Neuser等人，2008；Burak和Fiete，2009）。头向系统通过执行所需的计算之一参与 PI：通过积分角速度来估计当前的头向，即角度积分。此外，啮齿动物和果蝇中的 HD 细胞提供了一个可以在黑暗中持续存在的方向内部表示（Ranck，1984；Mizumori和Williams，1993；Seelig和Jayaraman，2015）。</p>
+<blockquote>
+<p>In <strong>rodents</strong>, the internal representation of heading takes the form of a localized &quot;bump&quot; of activity in the high-dimensional neural manifold of HD cells (Chaudhuri et al., 2019). It has been proposed that such a localized activity bump could be sustained by a ring attractor network with local excitatory connections (Skaggs et al., 1995; Redish et al., 1996; Hahnloser, 2003; Samsonovich and McNaughton, 1997; Song and Wang, 2005; Stringer et al., 2002; Xie et al., 2002), resembling <strong>reverberation mechanisms</strong> proposed for working memory (Wang, 2001). Ring attractor networks used to model HD cells fall in the theoretical framework of continuous attractor networks (Amari, 1977; Ben-Yishai et al., 1995; Seung, 1996). In this setting, HD cells can update the heading representation in darkness by smoothly moving the bump around the ring obeying idiothetic angular-velocity cues.</p>
+</blockquote>
+<p>在 <strong>啮齿动物</strong> 中，航向的内部表示采取了头朝向细胞高维神经流形中局部化 “峰值” 活动的形式（Chaudhuri等人，2019）。有人提出，这种局部化的活动峰值可以通过具有局部兴奋性连接的环形吸引子网络来维持（Skaggs等人，1995；Redish等人，1996；Hahnloser，2003；Samsonovich和McNaughton，1997；Song和Wang，2005；Stringer等人，2002；Xie等人，2002），类似于为工作记忆提出的 <strong>反响机制</strong>（Wang，2001）。用于模拟 HD 细胞的环形吸引子网络属于连续吸引子网络的理论框架（Amari，1977；Ben-Yishai等人，1995；Seung，1996）。在这种设置下， HD 细胞可以通过平滑地移动环上的峰值来更新黑暗中的航向表示，从而遵循自我运动角速度线索。</p>
+<blockquote>
+<p>Interestingly, a physical ring-like attractor network of HD cells was observed in the Drosophila central complex (CX, Seelig and Jayaraman, 2015; Green et al., 2017; Green et al., 2019; Franconville et al., 2018; Kim et al., 2019; Fisher et al., 2019; Turner-Evans et al., 2020). Notably, in Drosophila (from here on simply referred to as ‘fly’), HD cells (named E-PG neurons, also referred to as ‘compass’ neurons) are physically arranged in a ring, and an activity bump is readily observable from a small number of cells (Seelig and Jayaraman, 2015). Moreover, as predicted by some computational models (Skaggs et al., 1995; Samsonovich and McNaughton, 1997; Stringer et al., 2002; Song and Wang, 2005), the fly HD system also includes cells (named P-EN1 neurons) that are conjunctively tuned to head direction and head angular velocity. We refer to these neurons as <strong>head rotation</strong> (HR) cells because of their <strong>putative role</strong> in shifting the HD bump across the network according to the head’s angular velocity (Turner-Evans et al., 2017; Turner-Evans et al., 2020).</p>
+</blockquote>
+<p>有趣的是, 在果蝇中央复合体（CX，Seelig 和 Jayaraman，2015；Green等人，2017；Green等人，2019；Franconville等人，2018；Kim等人，2019；Fisher等人，2019；Turner-Evans等人，2020）中观察到了 HD 细胞的物理环状吸引子网络。值得注意的是，在果蝇 (Drosophila) 中（从此以后简称为“果蝇(fly)”）， HD 细胞（称为E-PG神经元，也称为“指南针”神经元）在物理上排列成一个环，并且可以从少量细胞中清楚地观察到活动峰值（Seelig和Jayaraman，2015）。此外，正如一些计算模型所预测的那样（Skaggs等人，1995；Samsonovich和McNaughton，1997；Stringer等人，2002；Song和Wang，2005），果蝇头向系统还包括与头向和头角速度共同调谐的细胞（称为P-EN1神经元）。我们将这些神经元称为<strong>头旋转</strong>（HR）细胞，因为它们在根据头部的角速度在网络中移动头向峰值方面具有 <strong>假定的作用</strong>（Turner-Evans等人，2017；Turner-Evans等人，2020）。</p>
+<blockquote>
+<p>A model for PI needs to both sustain a bump of activity and move it with the right speed and direction around the ring. The latter presents a great challenge, since the bump has to be ‘pushed’ for the right amount starting from any location and for all angular velocities. Therefore, ring attractor models that act as path integrators require that synaptic connections are <strong>precisely tuned</strong> (Hahnloser, 2003).</p>
+<p>If the circuit was completely hardwired, the amount of information that an organism would need to genetically encode connection strenghts would be exceedingly high. Additionally, it would be unclear how these networks could cope with variable sensory experiences.</p>
+<p>In fact, remarkable experimental studies in rodents have shown that when animals are placed in an augmented reality environment where visual and self-motion information can be manipulated independently, PI capabilities adapt accordingly (Jayakumar et al., 2019). These findings suggest that PI networks are able to <strong>self-organize</strong> and to constantly recalibrate. Notably, <em>in mature flies there is no evidence for such plasticity</em> (Seelig and Jayaraman, 2015) — however, the presence of plasticity has not been tested in young animals.</p>
+</blockquote>
+<p>一个 PI 模型需要既维持一个活动峰值，又以正确的速度和方向在环上移动它。后者提出了一个巨大的挑战，因为峰值必须从任何位置以所有角速度“推动”适当的量。因此，作为路径积分器的环形吸引子模型要求突触连接被 <strong>精确调谐</strong>（Hahnloser，2003）。</p>
+<p>如果回路是完全硬连线的，那么有机体需要遗传编码连接强度的信息量将是极高的。此外，这些网络如何应对可变的感官体验也不清楚。</p>
+<p>事实上，在啮齿动物中进行的显著实验研究表明，当动物被置于增强现实环境中，在该环境中视觉和自我运动信息可以独立操纵时，PI 能力会相应地适应（Jayakumar等人，2019）。这些发现表明，PI 网络能够 <strong>自我组织</strong> 并不断重新校准。值得注意的是，在 <em>成熟的果蝇中没有证据表明存在这种可塑性</em>（Seelig和Jayaraman，2015）——然而，在年轻动物中尚未测试可塑性的存在。</p>
+<blockquote>
+<p>Here, we propose that a simple local learning rule could support the emergence of a PI circuit during development and its re-calibration once the circuit has formed. Specifically, we suggest that accurate PI is achieved by associating allothetic and idiothetic inputs at the cellular level. When available, the allothetic sensory input (here chosen to be visual) acts as a ‘teacher’ to guide learning. The learning rule is an example of self-supervised multimodal learning, where one sense acts as a teaching signal for the other and the need for an external teacher is obviated. It exploits the relation between the allothetic heading of the animal (given by the visual input) and the idiothetic self-motion cues (which are always available), to learn how to integrate the latter.</p>
+</blockquote>
+<p>这里，我们提出一个简单的局部学习规则可以在发育过程中支持 PI 回路的出现，并在回路形成后进行重新校准。具体来说，我们建议通过在细胞水平上关联外部和自我运动输入来实现准确的 PI。当可用时，外部感官输入（这里选择为视觉）充当 “教师” 来指导学习。学习规则是自我监督多模态学习的一个例子，其中一种感觉充当另一种感觉的教学信号，从而消除了对外部教师的需求。它利用动物的外部航向（由视觉输入给出）与自我运动线索（始终可用）之间的关系，学习如何积分后者。</p>
+<blockquote>
+<p>The learning rule is inspired by previous experimental and computational work on <strong>mammalian cortical pyramidal neurons</strong>, which are believed to associate inputs to different compartments through an in-built cellular mechanism (Larkum, 2013; Urbanczik and Senn, 2014; Brea et al., 2016).</p>
+<p>In fact, it was shown that in layer 5 pyramidal cells internal and external information about the world arrive at distinct anatomical locations, and active dendritic gating controls learning between the two (Doron et al., 2020).</p>
+<p>In a similar fashion, we propose that learning PI in the HD system occurs by associating inputs at opposite poles of compartmentalized HD neurons, which we call ‘associative neurons’ (Urbanczik and Senn, 2014; Brea et al., 2016).</p>
+<p>Therefore, to accomplish PI the learning rule relies on structural inductive biases in terms of the <strong>morphology</strong> and <strong>arborization</strong> of HD cells.</p>
+</blockquote>
+<p>学习规则的灵感来自于对 <strong>哺乳动物皮层锥体神经元</strong> 的先前实验和计算工作，这些神经元被认为通过内禀的细胞机制将输入关联到不同的区（Larkum，2013；Urbanczik和Senn，2014；Brea等人，2016）。</p>
+<p>事实上，有研究表明，在第 5 层锥体细胞中，关于世界的内部和外部信息到达不同的解剖位置，并且主动树突门控控制两者之间的学习（Doron 等人，2020）。</p>
+<p>以类似的方式，我们提出，在头向系统中学习 PI 是通过在分隔的头向神经元的相对极点关联输入来实现的，我们称之为 “关联神经元”（Urbanczik和Senn，2014；Brea等人，2016）。</p>
+<p>因此，为了实现 PI，学习规则依赖于 HD 细胞 <strong>形态</strong> 和 <strong>树突分支</strong> 方面的结构归纳偏差。</p>
+<h1 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h1>
+<blockquote>
+<p>To illustrate basic principles of how PI could be achieved, we study a computational model of the HD system and show that synaptic plasticity could shape its circuitry through <strong>visual experience</strong>. In particular, we simulate the development of a network that, after learning, provides a stable internal representation of head direction and uses only angular-velocity inputs to update the representation in darkness. The internal representation of heading (after learning) takes the form of a localized bump of activity in the ring of HD cells. All neurons in our model are rate-based, i.e., spiking activity is not modeled explicitly.</p>
+</blockquote>
+<p>为了说明如何实现 PI 的基本原理，我们研究了头向系统的计算模型，并表明突触可塑性可以通过 <strong>视觉经验</strong> 塑造其回路。具体来说，我们模拟了一个网络的发展，在学习之后，该网络提供了头向的稳定内部表示，并仅使用角速度输入在黑暗中更新表示。航向的内部表示（学习后）采取了 HD 细胞环中局部化活动峰值的形式。我们模型中的所有神经元都是基于(放电)率的，即不显式建模尖峰活动。</p>
+<h2 id="model-setup">Model setup<a hidden class="anchor" aria-hidden="true" href="#model-setup">#</a></h2>
+<blockquote>
+<p>The <strong>gross model</strong> architecture closely resembles the one found in the fly CX (Figure 1A). It comprises HD cells organized in a ring, and HR cells organized in two wings. One wing is responsible for leftward and the other for rightward movement of the internal heading representation.</p>
+<p>HD cells receive visual input from the so-called ‘ring’ neurons; this input takes the form of a disinhibitory bump centered at the current HD (Figure 1B, Omoto et al., 2017; Fisher et al., 2019). The location of this visual bump in the network is controlled by the current head direction.</p>
+</blockquote>
+<p>该 <strong>粗略模型</strong> 架构与果蝇 CX 中发现的架构非常相似（图 1A）。它包括组织成环的 HD 细胞和组织成两个翼的 HR 细胞。一个翼负责内部航向表示的左移，另一个翼负责右移。</p>
+<p>HD 细胞从所谓的 “环” 神经元接收视觉输入；该输入采取以当前头向为中心的去抑制峰值的形式（图 1B，Omoto 等人，2017；Fisher 等人，2019）。该视觉峰值在网络中的位置由当前头向控制。</p>
+<blockquote>
+<p>We simulate head movements by sampling head-turning velocities from an Ornstein-Uhlenbeck process (Materials and methods), and we provide the corresponding velocity input to the HR cells (Figure 1C). HR cells provide direct input to HD cells, and HR cells also receive input from HD cells (Figure 1A). Both HR and HD cells receive global inhibition, which is in line with a putative ‘local’ model of HD network organization (Kim et al., 2017). The connections from HR to HD cells (WHR) and the recurrent connections among HD cells (Wrec) are assumed to be plastic. The goal of learning is to tune these plastic connections so that the network can achieve PI in the absence of visual input.</p>
+</blockquote>
+<p>我们通过从 Ornstein-Uhlenbeck 过程采样头部转动速度来模拟头部运动（材料和方法），并为 HR 细胞提供相应的速度输入（图 1C）。HR 细胞为 HD 细胞提供直接输入，并且 HR 细胞还接收来自 HD 细胞的输入（图 1A）。HR 和 HD 细胞都接收全局抑制，这与假定的头朝向网络组织的 “局部” 模型一致（Kim 等人，2017）。假设从 HR 到 HD 细胞的连接 ($W^{\mathrm{HR}}$) 和 HD 细胞之间的循环连接 ($W^{\mathrm{rec}}$) 是可塑的。学习的目标是调整这些可塑连接，以便网络在没有视觉输入的情况下实现 PI。</p>
+<blockquote>
+<p>The unit that controls plasticity in our network is an ‘<strong>associative neuron</strong>’. It is inspired by pyramidal neurons of the mammalian cortex whose dendrites act, via <strong>backpropagating action potentials</strong>, as <strong>coincidence detectors</strong> for signals arriving from different layers of the cortex and targeting different <strong>compartments</strong> of the neuron (Larkum et al., 1999). Paired with synaptic plasticity, coincidence detection can lead to long-lasting associations between these signals (Larkum, 2013).</p>
+</blockquote>
+<p>在我们的网络中控制可塑性的单元是一个 “<strong>关联神经元</strong>”。它的灵感来自于哺乳动物皮层的锥体神经元，其树突通过 <strong>反向传播的动作电位</strong> 充当来自皮层不同层并针对神经元不同 <strong>区</strong> 的信号的 <strong>巧合检测器</strong>（Larkum 等人，1999）。配合突触可塑性，巧合检测可以导致这些信号之间的长期关联（Larkum，2013）。</p>
+<blockquote>
+<p>To map the morphology of a <strong>cortical pyramidal cell</strong> to the one of a HD cell in the fly, we first point out that all relevant inputs arrive at the dendrites of HD cells within the <strong>ellipsoid body</strong> (EB) of the fly (Xu, 2020) moreover, the soma itself is externalized in the fly brain, and it is unlikely to contribute considerably to computations (Gouwens and Wilson, 2009; Tuthill, 2009).</p>
+<p>We thus link the dendrites of the pyramidal associative neuron to the axon-distal dendritic compartment of the associative HD neuron in the fly, and we link the soma of the pyramidal associative neuron to the axon-proximal dendritic compartment of the associative HD neuron in the fly. Furthermore, we assume that the axon-proximal compartment is electrotonically closer to the axon initial segment, and therefore, similarly to the somatic compartment in pyramidal neurons, inputs there can more readily initiate action potentials.</p>
+</blockquote>
+<p>为了将 <strong>皮层锥体细胞</strong> 的形态映射到果蝇中 HD 细胞的形态，我们首先指出，所有相关输入都到达果蝇 <strong>椭球体</strong> (EB) 中 HD 细胞的树突（Xu，2020），此外，细胞体本身在果蝇大脑中是外部化的，并且不太可能对计算有显著贡献（Gouwens 和 Wilson，2009；Tuthill，2009）。</p>
+<p>因此，我们将锥体关联神经元的树突连接到果蝇中关联头向神经元的轴突远端树突区，并将锥体关联神经元的细胞体连接到果蝇中关联头向神经元的轴突近端树突区。此外，我们假设轴突近端区在电学上更接近轴突初始段，因此，与锥体神经元中的细胞体区类似，那里的输入可以更容易地引发动作电位。</p>
+<blockquote>
+<p>Note that our model does not require active backpropagation of action potentials — passive spread of voltage to the <strong>axon-distal compartment</strong> would be sufficient (for details, see Materials and methods and Discussion). We also assume that associative HD cells receive visual input ($I^{\mathrm{vis}}$) in the <strong>axon-proximal compartment</strong>, and both recurrent input ($W^{\mathrm{rec}}$) and HR input ($W^{\mathrm{HR}}$) in the axon-distal compartment; accordingly, we model HD neurons as two-compartment units (Figure 1D).</p>
+<p>The associative neuron can learn the synaptic weights of the incoming connections in the axon-distal compartment, therefore, as mentioned, we let $W^{\mathrm{rec}}$ and $W^{\mathrm{HR}}$ be plastic.</p>
+</blockquote>
+<p>请注意，我们的模型不需要动作电位的主动反向传播——电压被动传播到 <strong>轴突远端区</strong> 就足够了（详情请参见材料和方法以及讨论）。我们还假设关联 HD 细胞在 <strong>轴突近端区</strong> 接收视觉输入 ($I^{\mathrm{vis}}$)，并在轴突远端区接收循环输入 ($W^{\mathrm{rec}}$) 和 HR 输入 ($W^{\mathrm{HR}}$)；因此，我们将头向神经元建模为两区单元（图 1D）。</p>
+<p>关联神经元可以学习轴突远端区中传入连接的突触权重，因此，如前所述，我们让 $W^{\mathrm{rec}}$ 和 $W^{\mathrm{HR}}$ 是可塑的。</p>
+<blockquote>
+<p>We find that the assumption of spatial segregation of postsynapses of HD cells is consistent with our analysis of EM data from the fly (Xu, 2020).</p>
+<p>For an example HD (E-PG) neuron, Figure 1E depicts that head rotation and recurrent inputs (mediated by P-EN1 and P-EN2 cells, respectively [TurnerEvans et al., 2020]) contact the E-PG cell in locations within the EB that are distinct compared to those of visually responsive neurons R2 and R4d (Omoto et al., 2017; Fisher et al., 2019), as hypothesized.</p>
+</blockquote>
+<p>我们发现，HD 细胞的后突触空间分离的假设与我们对果蝇 EM 数据的分析一致（Xu，2020）。</p>
+<p>对于一个示例 HD (E-PG) 神经元，图 1E 描述了头旋转和循环输入（分别由 P-EN1 和 P-EN2 细胞介导 [TurnerEvans 等人，2020]）在 EB 内接触 E-PG 细胞的位置，与视觉响应神经元 R2 和 R4d 的位置不同（Omoto 等人，2017；Fisher 等人，2019），如假设所示。</p>
+<blockquote>
+<p>The same pattern was observed for a total of $16$ E-PG neurons (one for each ‘wedge’ of the EB) that we analyzed (Figure 1—figure supplement 1A).</p>
+<p>To further support the assumption that visual inputs are separated from recurrent and HR-to-HD inputs, we perform binary classification between the two classes, using SVMs (for details, see Materials and methods). Figure 1—figure supplement 1B shows that predicting class identity from spatial location alone in held-out test data is excellent (test accuracy &gt;0.95 across neurons and model runs).</p>
+</blockquote>
+<p>我们分析的总共 $16$ 个 E-PG 神经元（EB 的每个 “楔形” 对应一个）也观察到了相同的模式（图 1—figure supplement 1A）。</p>
+<p>为了进一步支持视觉输入与循环和 HR 到 HD 输入分离的假设，我们使用 SVMs 在两类之间进行二进制分类（详情请参见材料和方法）。图 1—figure supplement 1B 显示，仅从空间位置预测持出测试数据中的类别身份是非常出色的（跨神经元和模型运行的测试准确率 $&gt;0.95$）。</p>
+<blockquote>
+<p>The connections from HD to HR cells (WHD) are assumed to be fixed, and HR cells are modeled as single-compartment units.</p>
+<p>Projections are organized such that each wing neuron receives input from only one specific HD neuron for every HD (Figure 1A). This simple initial wiring makes HR cells conjunctively tuned to HR and HD, and we assume that it has already been formed, for example, during circuit assembly. We note that the conditions for 1-to-1 wiring and constant amplitude of the HD-to-HR connections can be relaxed, because the learning rule can balance asymmetries in the initial architecture (see Appendix 3).</p>
+</blockquote>
+<p>HD 到 HR 细胞的连接 ($W^{\mathrm{HD}}$) 被假定为固定的，并且 HR 细胞被建模为单区单元。投影的组织方式是，每个翼神经元仅从每个 HD 的一个特定 HD 神经元接收输入（图 1A）。这种简单的初始布线使 HR 细胞对 HR 和 HD 共同调谐，并且我们假设它已经形成，例如，在回路组装期间。我们注意到，HD 到 HR 连接的一对一布线和恒定幅度的条件可以放宽，因为学习规则可以平衡初始架构中的不对称性（见附录 3）。</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/Cva2/20260628163750847.png" alt=""  /></p>
+<p>(A) The ring of HD cells projects to two wings of HR cells, a leftward (Left HR cells, abbreviated as L-HR) and a rightward (Right HR cells, or R-HR), so that each wing receives selective connections only from a specific HD cell (L: left, R: right) for every head direction. For illustration purposes, the network is scaled-down by a factor of $5$ compared to the cell numbers $N^{\mathrm{HR}} = N^{\mathrm{HD}} = 60$ in the model. The schema shows the outgoing connections ($W^{\mathrm{HD}}$ and $W^{\mathrm{rec}}$) only from the green HD neurons and the incoming connections (WHR and Wrec) only to the light blue and yellow HD neurons. Furthermore, the visual input to HD cells and the velocity inputs to HR cells are indicated.</p>
+</blockquote>
+<p>(A) HD 细胞的环投射到 HR 细胞的两个翼，一个向左（左 HR 细胞，缩写为 L-HR）和一个向右（右 HR 细胞，或 R-HR），因此每个翼仅从每个头向的特定 HD 细胞接收选择性连接。为了说明起见，与模型中的细胞数 $N^{\mathrm{HR}} = N^{\mathrm{HD}} = 60$ 相比，网络按比例缩小了 $5$ 倍。该模式仅显示来自绿色 HD 神经元的输出连接 ($W^{\mathrm{HD}}$ 和 $W^{\mathrm{rec}}$) 和仅到浅蓝色和黄色 HD 神经元的输入连接 ($W^{\mathrm{HR}}$ 和 $W^{\mathrm{rec}}$)。此外，还指示了对 HD 细胞的视觉输入和对 HR 细胞的速度输入。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/vvN5/20260628165628268.png" alt=""  /></p>
+<p>(B) Visual input to the ring of HD cells as a function of radial distance from the current head direction (see Equation 5).</p>
+</blockquote>
+<p>(B) 对 HD 细胞环的视觉输入，作为与当前头向的径向距离的函数（见方程 5）。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/uV7u/20260628165715756.png" alt=""  /></p>
+<p>(C) Angular-velocity input to the wings of HR cells for three angular velocities: 720 (green), 0 (blue), and -360 (orange) deg/s (see Equation 10).</p>
+</blockquote>
+<p>(C) 对 HR 细胞翼的角速度输入，针对三个角速度：720（绿色）、0（蓝色）和 -360（橙色）度/秒（见方程 10）。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/4qNy/20260628165814835.png" alt=""  /></p>
+<p>(D) The associative neuron: Va and Vd denote the voltage in the axonproximal (i.e. closer to the axon initial segment) and axon-distal (i.e. further away from the axon initial segment) compartment, respectively. Arrows indicate the inputs to the compartments, as in (A), and Ivis is the visual input current.</p>
+</blockquote>
+<p>(D) 关联神经元：$V^{a}$ 和 $V^{d}$ 分别表示轴突近端（即更接近轴突初始段）和轴突远端（即更远离轴突初始段）区的电压。箭头表示对各区的输入，如 (A) 所示，$I^{\mathrm{vis}}$ 是视觉输入电流。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/i1iG/20260628165841639.png" alt=""  /></p>
+<p>(E) Left: skeleton plot of an example HD (E-PG) neuron (Neuron ID =416642425) created using neuPrint (Clements et al., 2020) the ellipsoid body (EB) and <strong>protocerebral bridge</strong> (PB) are overlayed. Right: zoomed in area in the EB indicated by the box, showing postsynaptic locations in the EB for this E-PG neuron; for details, see Methods. The neuron receives recurrent and HR input (green and orange dots, corresponding to inputs from P-EN1 and P-EN2 cells, respectively) and visual input (purple and blue dots, corresponding to inputs from visually responsive R2 and R4d cells, respectively) in distinct spatial locations. The online version of this article includes the following video and figure supplement(s) for figure 1:</p>
+</blockquote>
+<p>(E) 左：使用 neuPrint（Clements 等人，2020）创建的示例 HD (E-PG) 神经元（神经元 ID =416642425）的骨架图，叠加了椭球体 (EB) 和<strong>前脑桥</strong> (PB)。右：EB 中由框指示的放大区域，显示了该 E-PG 神经元在 EB 中的后突触位置；详情请参见方法。该神经元在不同的空间位置接收循环和 HR 输入（绿色和橙色点，分别对应来自 P-EN1 和 P-EN2 细胞的输入）和视觉输入（紫色和蓝色点，分别对应来自视觉响应 R2 和 R4d 细胞的输入）。本文的在线版本包括图 1 的以下视频和图补充。</p>
+</blockquote>
+<blockquote>
+<p>In addition, the connections carrying the visual and angular velocity inputs are also assumed to be fixed.</p>
+<p>Although plasticity in the visual inputs has been shown to exist (Fisher et al., 2019; Kim et al., 2019), here we focus on how the path-integrating circuit itself originally self-organizes.</p>
+<p>Therefore, to simplify the setting and without loss of generality, we assume a fixed anchoring to environmental cues as the animal moves in the same environment (for details, see Discussion).</p>
+</blockquote>
+<p>此外，携带视觉和角速度输入的连接也被假定为固定的。</p>
+<p>尽管已经显示视觉输入中存在可塑性（Fisher 等人，2019；Kim 等人，2019），但在这里我们关注的是路径积分回路本身最初如何自我组织。</p>
+<p>因此，为了简化设置并且不失一般性，我们假设在动物在相同环境中移动时对环境线索有固定的锚定（详情请参见讨论）。</p>
+<blockquote>
+<p>In our model, the visual input acts as a supervisory signal during learning (as in D’Albis and Kempter, 2020), which is used to change weights of synapses onto the axon-distal compartment of HD cells. We utilize the learning rule proposed by Urbanczik and Senn, 2014 (for details, see Materials and methods), which tunes the incoming synaptic connections in the axon-distal compartment in order to minimize the discrepancy between the firing rate of the neuron $f(V^{a})$ (where $V^{a}$ is the axonproximal voltage, primarily controlled by the visual input) and the prediction of the firing rate by the axon-distal compartment from axon-distal inputs alone, $f(pV^{d})$ (where $p$ is a constant and $V^{d}$ is the axon-distal voltage, which depends on head rotation velocity). From now on, we refer to this discrepancy as ‘learning error’, or simply ‘error’ (Equation 18; in units of firing rate). The synaptic weight change ∆Wpre,post from a presynaptic (HD or HR) neuron to a postsynaptic HD neuron is then given by:</p>
+<p>$$
+\Delta W_{\text{pre,post}} = \eta \bigg[f(V_{\text{post}}^{a}) - f(pV_{\text{post}}^{d})\bigg] P_{\text{pre}}
+$$</p>
+<p>where $\eta$ is the constant learning rate and $P_{\text{pre}}$ is the postsynaptic potential from the presynaptic neuron. When implementing this learning rule, we low-pass filter the prospective weight change $\Delta W_{\text{pre,post}}$ to ensure smoothness of learning.</p>
+</blockquote>
+<p>在我们的模型中，视觉输入在学习过程中充当监督信号（如 D'Albis 和 Kempter，2020 所述），用于改变 HD 细胞轴突远端区突触的权重。我们利用 Urbanczik 和 Senn（2014）提出的学习规则（详情请参见材料和方法），该规则调整轴突远端区的传入突触连接，以最小化神经元的放电率 $f(V^{a})$（其中 $V^{a}$ 是轴突近端电压，主要由视觉输入控制）与仅由轴突远端输入预测的放电率 $f(pV^{d})$ 之间的差异（其中 $p$ 是常数，$V^{d}$ 是轴突远端电压，取决于头旋转速度）。从现在起，我们将这种差异称为 “学习误差”，或简称为 “误差”（方程 18；以放电率为单位）。从一个突触前（HD 或 HR）神经元到一个突触后 HD 神经元的突触权重变化 ∆Wpre,post 给出如下：</p>
+<p>$$
+\Delta W_{\text{pre,post}} = \eta \bigg[f(V_{\text{post}}^{a}) - f(pV_{\text{post}}^{d})\bigg] P_{\text{pre}}
+$$</p>
+<p>其中 $\eta$ 是恒定的学习率，$P_{\text{pre}}$ 是来自突触前神经元的突触后电位。在实现该学习规则时，我们对预期的权重变化 $\Delta W_{\text{pre,post}}$ 进行低通滤波，以确保学习的平滑性。</p>
+<blockquote>
+<p>Importantly, this learning rule is biologically plausible because the firing rate of an associative neuron f(Va) is locally available at every synapse in the axon-distal compartment due to the (passive or active) backpropagation of axonal activity to the axon-distal dendrites. The other two signals that enter the learning rule are the voltage of the axon-distal compartment Vd and the postsynaptic potential P, which are also available locally at the synapse; for details, see Materials and methods. Furthermore, recent behavioral experiments show that conditioning in Drosophila (Zhao et al., 2021) is not well explained by classical correlation-based plasticity, but it can be well accounted for by predictive synaptic plasticity. The latter is in line with the learning rule utilized here.</p>
+</blockquote>
+<p>重要的是，这个学习规则在生物学上是可行的，因为由于轴突活动向轴突远端树突的（被动或主动）反向传播，关联神经元的放电率 $f(V^{a})$ 在轴突远端区的每个突触处都是局部可用的。进入学习规则的其他两个信号是轴突远端区的电压 $V^{d}$ 和突触后电位 $P$，这些信号在突触处也是局部可用的；详情请参见材料和方法。此外，最近的行为实验表明，果蝇中的条件作用（Zhao 等人，2021）不能很好地用经典的基于相关性的可塑性来解释，但可以很好地用预测性突触可塑性来解释。后者与这里使用的学习规则一致。</p>
+<h2 id="mature-network-can-path-integrate-in-darkness">Mature network can path-integrate in darkness<a hidden class="anchor" aria-hidden="true" href="#mature-network-can-path-integrate-in-darkness">#</a></h2>
+<blockquote>
+<p>Figure 2A shows an example of the performance of a trained network, for the light condition (i.e. when visual input is available; yellow overbars) and for PI in darkness (purple overbars); the performance is quantified by the PI error (in units of degrees) over time. PI error refers to the accumulated difference between the internal representation of heading and the true heading, and it is different from the learning error introduced previously.</p>
+</blockquote>
+<p>图 2A 显示了训练网络在光照条件下（即当视觉输入可用时；黄色上方条）和黑暗中进行 PI（紫色上方条）的性能示例；性能通过随时间变化的 PI 误差（以度为单位）来量化。 PI 误差是指航向的内部表示与真实航向之间的累积差异，它不同于之前介绍的学习误差。</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/l8fL/20260628203823986.png" alt=""  /></p>
+<p>(A) Example activity profiles of HD, L-HR, and R-HR neurons (firing rates gray-scale coded). Activities are visually guided (yellow overbars) or are the result of PI in the absence of visual input (purple overbar). The ability of the circuit to follow the true heading is slightly degraded during PI in darkness. The PI error, that is, the difference between the PVA and the true heading of the animal as well as the instantaneous head angular velocity are plotted separately.</p>
+</blockquote>
+<p>(A) HD、L-HR 和 R-HR 神经元的示例活动曲线（放电率以灰度编码）。活动受到视觉引导（黄色上方条）或在没有视觉输入的情况下进行 PI 的结果（紫色上方条）。在黑暗中进行 PI 时，回路跟随真实航向的能力略有下降。 PI 误差，即 PVA 与动物真实航向之间的差异，以及瞬时头部角速度分别绘制。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/Bw8z/20260628204033932.png" alt=""  /></p>
+<p>(B) Temporal evolution of the distribution of PI errors in darkness, for 1000 simulations. The distribution gets wider with time, akin to a diffusion process. We estimate the diffusion coefficient to be D = 24.5 deg2/s (see ‘Diffusion Coefficient’ in Materials and methods). Note that, unless otherwise stated, for this type of plot we limit the range of angular velocities to those normally exhibited by the fly, i.e. |v| &lt; 500 deg/s.</p>
+</blockquote>
+<p>(B) 在黑暗中，1000 次模拟中 PI 误差分布的时间演变。随着时间的推移，分布变得更宽，类似于扩散过程。我们估计扩散系数为 $D = 24.5$ deg²/s（见材料和方法中的 “扩散系数”）。请注意，除非另有说明，对于这种类型的图，我们将角速度的范围限制为果蝇通常表现出的范围，即 $|v| &lt; 500$ deg/s。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/z3oG/20260628204112661.png" alt=""  /></p>
+<p>(C) Relation between head angular velocity and neural angular velocity, i.e., the speed with which the bump moves in the network. There is almost perfect (gain 1) PI in darkness for head angular velocities within the range of maximum angular velocities that are displayed by the fly (dashed green horizontal lines; see Methods).</p>
+</blockquote>
+<p>(C) 头部角速度与神经角速度之间的关系，即峰值在网络中移动的速度。在黑暗中，对于果蝇显示的最大角速度范围内的头部角速度（虚线绿色水平线；见方法），几乎实现了完美的（增益为 1）PI。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/3maP/20260628204151469.png" alt=""  /></p>
+<p>(D) Example of consecutive stimulations in randomly permeated HD locations, simulating optogenetic stimulation experiments in Kim et al., 2017. Red overbars indicate when the network is stimulated with stronger than normal visual-like input, at the location indicated by the animal’s true heading (light green line), while red dashed vertical lines indicate the onset of the stimulation. The network is then left in the dark. Our simulations show that the bump remains at the stimulated positions.</p>
+</blockquote>
+<p>(D) 在随机渗透的 HD 位置中连续刺激的示例，模拟 Kim 等人（2017）中的光遗传学刺激实验。红色上方条表示当网络受到比正常视觉输入更强的刺激时，位于动物真实航向（浅绿色线）所指示的位置，而红色虚线垂直线表示刺激的开始。然后将网络置于黑暗中。我们的模拟表明，峰值保持在刺激位置。</p>
+</blockquote>
+<blockquote>
+<p>A unique bump of activity is clearly present at all times in the HD network (Figure 2A, top), in both light and darkness conditions, and this bump moves smoothly across the network for a variable angular velocity (Figure 2A, bottom). The position of the bump is defined as the population vector average (PVA) of the neural activity in the HD network. The HD bump also leads to the emergence of bumps in the HR network, separately for L-HR and R-HR cells (Figure 2A, second and third panel from top). In light conditions (0–20 s in Figure 2A), the PVA closely tracks the head direction of the animal in HD, L-HR, and R-HR cells alike, which is expected because the visual input guides the network activity. Importantly, however, in darkness (20–50 s in Figure 2A), the self-motion input alone is enough to track the animal’s heading, leading to a small PI error between the internal representation of heading and the ground truth. This error is corrected after the visual input reappears (at 50 s in Figure 2A). Such PI errors in darkness are qualitatively consistent with data reported in the experimental literature (Seelig and Jayaraman, 2015). The correction of the PI error also reproduces in silico the experimental finding that the visual input (whenever available) exerts stronger control on the bump location than the self-motion input (Seelig and Jayaraman, 2015), which suggests that even the mature network does not rely on PI when visual cues are available.</p>
+</blockquote>
+<p>一个独特的活动峰值在 HD 网络中始终清晰可见（图 2A，顶部），无论是在光照条件下还是在黑暗条件下，并且该峰值以可变的角速度平滑地移动穿过网络（图 2A，底部）。峰值的位置定义为 HD 网络中神经活动的群体向量平均值 (PVA)。 HD 峰值还导致 HR 网络中峰值的出现，分别针对 L-HR 和 R-HR 细胞（图 2A，从顶部起第二和第三个面板）。在光照条件下（图 2A 中的 0–20 秒），PVA 紧密跟踪动物在 HD、L-HR 和 R-HR 细胞中的头向，这是预期的，因为视觉输入引导网络活动。然而，重要的是，在黑暗中（图 2A 中的 20–50 秒），仅自我运动输入就足以跟踪动物的航向，从而导致航向的内部表示与真实情况之间产生较小的 PI 误差。在视觉输入重新出现后（图 2A 中的 50 秒），该误差得到了纠正。黑暗中的这种 PI 误差在定性上与实验文献中报告的数据一致（Seelig 和 Jayaraman，2015）。 PI 误差的纠正还在计算机模拟中再现了实验发现，即视觉输入（无论何时可用）对峰值位置施加比自我运动输入更强的控制（Seelig 和 Jayaraman，2015），这表明即使是成熟的网络在视觉线索可用时也不依赖于 PI。</p>
+<blockquote>
+<p>To quantify the accuracy of PI in our model, we draw 1,000 trials, each 60 s long, for constant synaptic weights and in the absence of visual input. We also limit the angular velocities in these trials to retain only velocities that flies realistically display (see dashed green lines in Figure 2C and Methods). We then plot the distribution of PI errors every 10 s (Figure 2B). We find that average absolute PI errors (widths of distributions) increase with time in darkness, but most of the PI errors at 60 s are within 60 deg of the true heading. This vastly exceeds the PI performance of flies (Seelig and Jayaraman, 2015). In flies, the correlation between the PVA estimate and the true heading in darkness varied widely across animals in the range $[0.3, 0.95]$ (Seelig and Jayaraman, 2015), whereas for the model it is close to 1. However, it should be noted that the model here corresponds to an ideal scenario that serves as a proof of principle. We will later incorporate irregularities owing to biological factors (asymmetry in the weights, biological noise) that bring the network’s performance closer to the fly’s behavior.</p>
+</blockquote>
+<p>为了量化我们模型中 PI 的准确性，我们绘制了 $1,000$ 个试验，每个试验持续 $60$ 秒，使用恒定的突触权重并且没有视觉输入。我们还限制了这些试验中的角速度，仅保留果蝇实际显示的速度（见图 2C 中的虚线绿色线和方法）。然后，我们绘制每 10 秒的 PI 误差分布（图 2B）。我们发现，在黑暗中，平均绝对 PI 误差（分布宽度）随时间增加，但在 60 秒时，大多数 PI 误差在真实航向的 60 度以内。这远远超过了果蝇的 PI 性能（Seelig 和 Jayaraman，2015）。在果蝇中，黑暗中 PVA 估计与真实航向之间的相关性在动物之间变化很大，范围为 $[0.3, 0.95]$（Seelig 和 Jayaraman，2015），而对于模型，它接近于 1。然而，应注意的是，这里的模型对应于一个理想场景，作为原理证明。我们稍后将结合由于生物因素（权重不对称、生物噪声）引起的不规则性，使网络的性能更接近果蝇的行为。</p>
+<blockquote>
+<p>To further assess the network’s ability to integrate different angular velocities, we simulate the system both with and without visual input in 5 s intervals during which the angular velocity is constant. We then compute the average movement velocity of the bump across the network, that is the neural velocity, and compare it to the real velocity provided as input. Figure 2C shows that the network achieves a PI gain (defined as the ratio between neural and real velocity) close to 1 both with and without supervisory visual input, meaning that the neural velocity matches very well the angular velocity of the animal, for all angular velocities that are observed in experiments (|v| &lt; 500 deg/s for walking and flying) (Geurten et al., 2014; Stowers et al., 2017). Although expected in light conditions, the fact that gain 1 is achieved in darkness shows that the network predicts the missing visual input from the velocity input, that is, the network path integrates accurately. Note that PI is impaired in our model for very small angular velocities (Figure 2C, flat purple line for |v| &lt; 30 deg/s), similarly to previous hand-tuned theoretical models (Turner-Evans et al., 2017). This is a direct consequence of the fact that maintaining a stable activity bump and moving it across the network at very small angular velocities are competing goals. Crucially, it has been reported that such an impairment of PI for small angular velocities exists in flies (Seelig and Jayaraman, 2015). Note that if we increase the number of HD neurons from 60 (∼50 were reported in the fly by Turner-Evans et al., 2020; Xu, 2020) to 120 or 240, this flat region is no longer observed (data not shown).</p>
+</blockquote>
+<p>为了进一步评估网络积分不同角速度的能力，我们在角速度恒定的 5 秒间隔内模拟系统，同时有和没有视觉输入。然后，我们计算峰值在网络中的平均移动速度，即神经速度，并将其与作为输入提供的真实速度进行比较。图 2C 显示，网络在有和没有监督视觉输入的情况下都实现了接近 1 的 PI 增益（定义为神经速度与真实速度的比率），这意味着神经速度与动物的角速度非常匹配，对于实验中观察到的所有角速度（步行和飞行时 |v| &lt; 500 deg/s）（Geurten 等人，2014；Stowers 等人，2017）。虽然在光照条件下是预期的，但在黑暗中实现增益 1 的事实表明，网络从速度输入预测缺失的视觉输入，即网络准确地进行了路径积分。请注意，在我们的模型中，对于非常小的角速度，PI 会受到损害（图 2C，对于 $|v| &lt; 30$ deg/s 的平坦紫线），类似于先前手动调谐的理论模型（Turner-Evans 等人，2017）。这是因为维持稳定的活动峰值并以非常小的角速度在网络中移动它是相互竞争的目标。关键的是，据报道，在果蝇中也存在这种对小角速度 PI 的损害（Seelig 和 Jayaraman，2015）。请注意，如果我们将 HD 神经元的数量从 60（Turner-Evans 等人，2020；Xu，2020 报告果蝇中约为 50）增加到 120 或 240，则不再观察到这个平坦区域（数据未显示）。</p>
+<h2 id="the-network-is-a-quasi-continuous-attractor">The network is a quasi-continuous attractor<a hidden class="anchor" aria-hidden="true" href="#the-network-is-a-quasi-continuous-attractor">#</a></h2>
+<blockquote>
+<p>A continuous attractor network (CAN) should be able to maintain a localised bump of activity in virtually a continuum of locations around the ring of HD cells. To prove that the learned network approximates this property, we seek to reproduce in silico experimental findings in Kim et al., 2017. There it was shown that local optogenetic stimulation of HD cells in the ring can cause the activity bump to jump to a new position and persist in that location — supported by internal dynamics alone.</p>
+</blockquote>
+<p>一个连续吸引子网络 (CAN) 应该能够在 HD 细胞环周围的几乎连续的位置中维持局部化的活动峰值。为了证明学习后的网络近似于这种特性，我们试图在计算机模拟中再现 Kim 等人（2017）中的实验发现。那里显示，环中 HD 细胞的局部光遗传刺激可以导致活动峰值跳到一个新位置并持续存在于该位置——仅由内部动力学支持。</p>
+<blockquote>
+<p>To reproduce the experiments by Kim et al., 2017, we simulate optogenetic stimulation of HD cells in our network as visual input of increased strength and extent (for details, see Materials and methods). We find that the strength and extent of the stimulation needs to be increased relative to that of the visual input; only in this case, a bump at some other location in the network can be suppressed, and a new bump emerges at the stimulated location. The stimuli are assumed to appear instantaneously at random locations, but we restrict our set of stimulation locations to the discrete angles represented by the finite number of HD neurons. Furthermore, the velocity input is set to zero for the entire simulation, signaling lack of head movement.</p>
+</blockquote>
+<p>为了复现 Kim 等人（2017）的实验，我们将网络中 HD 细胞的光遗传刺激模拟为增强强度和范围的视觉输入（详情请参见材料和方法）。我们发现，相对于视觉输入，刺激的强度和范围需要增加；只有在这种情况下，网络中某个其他位置的峰值才能被抑制，并且在刺激位置出现新的峰值。假设刺激瞬间出现在随机位置，但我们将刺激位置的集合限制为有限数量的 HD 神经元所表示的离散角度。此外，整个模拟过程中速度输入设置为零，表示头部没有运动。</p>
+<blockquote>
+<p>Figure 2D shows network activity in response to several stimuli, when the stimulation location changes abruptly every 5 s. During stimulation (2 s long, red overbars), the bump is larger than normal due to the use of a stronger than usual visual-like input to mimic optogenetic stimulation. The way in which the network responds to a stimulation depends on how far away from the ‘current’ location it is stimulated: for shorter distances, the bump activity shifts to the new location, as evidenced by the transient dynamics at the edges of the bump resembling a decay from an initial to a new location (see Figure 2D at {5,15,20} s). However, for larger phase shifts ∆θ the bump first emerges in the new location and subsequently disappears at the initial location, a mechanism akin to a ‘jump’ (Figure 2D, all other transitions). Similar effects have been observed in the experimental literature (Seelig and Jayaraman, 2015; Kim et al., 2017). The way the network responds to stimulation indicates that it operates in a CAN manner, and not as a winner-takes-all network where changes in bump location would always be instantaneous (Carpenter and Grossberg, 1987; Itti et al., 1998; Wang, 2002). That is to say, the network operates as expected from a quasi-continuous attractor. Furthermore, we find that the transition strategy in our model changes from predominantly smooth transitions to jumps at ∆θ ≈ 90 deg, which matches experiments well (Kim et al., 2017).</p>
+</blockquote>
+<p>图 2D 显示了网络对几个刺激的活动响应，当刺激位置每 $5$ 秒突然变化一次。在刺激期间（持续 $2$ 秒，红色上方条），由于使用了比平常更强的类似视觉的输入来模拟光遗传刺激，峰值比正常情况下更大。网络对刺激的响应方式取决于它距离 “当前” 位置的远近：对于较短的距离，峰值活动会转移到新位置，如峰值边缘的瞬态动力学从初始位置衰减到新位置所示（见图 2D 在 $\{5,15,20\}$ 秒）。然而，对于较大的相位偏移 $\Delta\theta$，峰值首先出现在新位置，然后在初始位置消失，这种机制类似于 “跳跃”（图 2D，所有其他过渡）。在实验文献中也观察到了类似的效果（Seelig 和 Jayaraman，2015；Kim 等人，2017）。网络对刺激的响应方式表明，它以 CAN 的方式运行，而不是作为一个赢家通吃的网络，其中峰值位置的变化总是瞬时发生（Carpenter 和 Grossberg，1987；Itti 等人，1998；Wang，2002）。也就是说，该网络按预期以准连续吸引子的方式运行。此外，我们发现，在我们的模型中，当 $\Delta\theta\approx 90$ 度时，过渡策略从主要是平滑过渡变为跳跃，这与实验结果非常吻合（Kim 等人，2017）。</p>
+<blockquote>
+<p>Following a 2 s stimulation, the network activity has converged to the new cued location. After the stimulation has been turned off, the bump remains at the new location (within the angular resolution $\Delta\phi$ of the network), supported by internal network dynamics alone (Figure 2D). We confirmed in additional simulations that the bump does not drift away from the stimulated location for extended periods of time (3 min duration tested, only 3 s shown), and for all discrete locations in the HD network (only six locations shown). Therefore, we conclude that the HD network is a quasi-continuous attractor that can reliably sustain a heading representation over time in all HD locations. Note that for the network size used ($N^{\mathrm{HD}} = 60$) we still obtain discrete attractors with separated basins of attraction;  however it is expected that with increasing $N^{\mathrm{HD}}$ adjacent attractors will merge when the intrinsic noise overcomes the barrier separating them. Indeed, we find that for $N^{\mathrm{HD}} = N^{\mathrm{HR}} = 120$ it is easier to diffuse to adjacent attractors in the presence of synaptic input noise; for the impact of noise, see Appendix 1—figure 1C. In reality, the bump may drift away due to asymmetries in the connectivity of the biological circuit as well as intrinsic noise (Burak and Fiete, 2012) see also Appendix 1. In flies, for instance, the bump can stay put only for several seconds (Kim et al., 2017).</p>
+</blockquote>
+<p>在 2 秒的刺激之后，网络活动已经收敛到新提示的位置。在刺激关闭后，峰值仍然保持在新位置（在网络的角分辨率 $\Delta\phi$ 内），仅由内部网络动力学支持（图 2D）。我们在额外的模拟中确认，峰值不会在长时间内从刺激位置漂移（测试持续时间为 3 分钟，仅显示 3 秒），并且对于 HD 网络中的所有离散位置（仅显示六个位置）。因此，我们得出结论，HD 网络是一个准连续吸引子，能可靠地在所有 HD 位置上维持航向表示。请注意，对于使用的网络大小 ($N^{\mathrm{HD}} = 60$)，我们仍然获得具有分离吸引域的离散吸引子；然而，预计随着 $N^{\mathrm{HD}}$ 的增加，当内在噪声克服分隔它们的障碍时，相邻的吸引子将合并。实际上，我们发现对于 $N^{\mathrm{HD}} = N^{\mathrm{HR}} = 120$，在存在突触输入噪声的情况下，更容易扩散到相邻的吸引子；有关噪声的影响，请参见附录 1—图 1C。实际上，由于生物回路连接的不对称性以及内在噪声（Burak 和 Fiete，2012），峰值可能会漂移（另见附录 1）。例如，在果蝇中，峰值只能保持几秒钟不动（Kim 等人，2017）。</p>
+<h2 id="learning-results-in-synaptic-connectivity-that-matches-the-one-in-the-fly">Learning results in synaptic connectivity that matches the one in the fly<a hidden class="anchor" aria-hidden="true" href="#learning-results-in-synaptic-connectivity-that-matches-the-one-in-the-fly">#</a></h2>
+<blockquote>
+<p>To gain more insight into how the network achieves PI and attains CAN properties, we show how the synaptic weights of the network are tuned during a developmental period (Figure 3). Figure 3A and B shows the learned recurrent synaptic weights among the HD cells, Wrec, and the learned synaptic weights from HR to HD cells, WHR, respectively. Circular symmetry is apparent in both matrices, a crucial property for a symmetric ring attractor. Therefore, we also plot the profiles of the learned weights as a function of receptive field difference in Figure 3C. Note that pixelized appearance in these plots is due to the fact that two adjacent HD neurons are tuned for the same HD, and develop identical synaptic strengths.</p>
+</blockquote>
+<p>为了更深入地了解网络如何实现 PI 并获得 CAN 特性，我们展示了网络在发育期间突触权重的调节方式（图 3）。图 3A 和 B 分别显示了 HD 细胞之间学习到的循环突触权重 $W^{\mathrm{rec}}$ 和从 HR 到 HD 细胞学习到的突触权重 $W^{\mathrm{HR}}$。两个矩阵中都明显存在圆对称性，这是对称环吸引子的关键特性。因此，我们还在图 3C 中绘制了学习到的权重作为感受野差异函数的曲线。请注意，这些图中的像素化外观是由于两个相邻的 HD 神经元针对相同的 HD 调谐，并且发展出相同的突触强度。</p>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/aJr8/20260628204519389.png" alt=""  /></p>
+<p>(A), (B) The learned weight matrices (color coded) of recurrent connections in the HD ring, Wrec, and of HR-to-HD connections, WHR, respectively. Note the circular symmetry in both matrices.</p>
+</blockquote>
+<p>(A)、(B) 分别为 HD 环中循环连接的学习权重矩阵 $W^{\mathrm{rec}}$ 和 HR 到 HD 连接的学习权重矩阵 $W^{\mathrm{HR}}$（颜色编码）。请注意两个矩阵中的圆对称性。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/lt3F/20260628204556227.png" alt=""  /></p>
+<p>(C) Profiles of (A) and (B), averaged across presynaptic neurons.</p>
+</blockquote>
+<p>(C) (A) 和 (B) 的曲线，跨突触前神经元平均。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/X0bv/20260628204626982.png" alt=""  /></p>
+<p>(D) Absolute learning error in the network (Equation 19) for 12 simulations (transparent lines) and average across simulations (opaque line). At time t = 0, we initialize all the plastic weights at random and train the network for 8 × 104 s (∼22 hr). The  mean learning error increases in the beginning while a bump in Wrec is emerging, which is necessary to generate a pronounced bump in the network activity. For weak activity bumps, absolute errors are small because the overall network activity is low. After ∼1 hr of training, the mean learning error decreases with increasing training time and converges to a small value.</p>
+</blockquote>
+<p>(D) 网络中的绝对学习误差（方程 19），针对 12 次模拟（透明线）和跨模拟的平均值（不透明线）。在时间 $t = 0$ 时，我们将所有可塑权重随机初始化，并训练网络 $8 \times 10^{4}$ 秒（约 22 小时）。在 $W^{\mathrm{rec}}$ 中出现峰值的初期，平均学习误差增加，这是生成网络活动中明显峰值所必需的。对于弱活动峰值，绝对误差较小，因为整体网络活动较低。在约 1 小时的训练后，平均学习误差随着训练时间的增加而减小，并收敛到一个较小的值。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/06/28/gl6L/20260628204741499.png" alt=""  /></p>
+<p>(E), (F) Time courses of development of the profiles of Wrec and WHR, respectively. Note the logarithmic time scale.</p>
+</blockquote>
+<p>(E)、(F) 分别为 $W^{\mathrm{rec}}$ 和 $W^{\mathrm{HR}}$ 曲线的发展时间过程。请注意对数时间尺度。</p>
+</blockquote>
+<blockquote>
+<p>First, we discuss the properties of the learned weights. Local excitatory connections have developed along the main diagonal of Wrec, similar to what is observed in the CX (Turner-Evans et al., 2020). This local excitation can be readily seen in the weight profile of Wrec in Figure 3C, and it is the substrate that allows the network to support stable activity bumps in virtually any location. In addition, we observe inhibition surrounding the local excitatory profile in both directions. This inhibition emerges despite the fact that we provide global inhibition to all HD cells (IiHnhD parameter, Materials and methods), in line with suggestions from previous work (Kim et al., 2017). Surrounding inhibition was a feature we observed consistently in learned networks of different sizes and for different global inhibition levels. Finally, the angular offset of the two negative sidelobes in the connectivity depends on the size and shape of the entrained HD bump (for details, see Appendix 5).</p>
+</blockquote>
+<p>首先，我们讨论学习到的权重的特性。沿着 $W^{\mathrm{rec}}$ 的主对角线已经发展出局部兴奋性连接，这与在 CX 中观察到的情况类似（Turner-Evans 等人，2020）。这种局部兴奋性可以在图 3C 中的 $W^{\mathrm{rec}}$ 权重曲线中清楚地看到，它是允许网络在几乎任何位置支持稳定活动峰值的基础。此外，我们观察到在两个方向上围绕局部兴奋性曲线的抑制。尽管我们为所有 HD 细胞提供了全局抑制（IiHnhD 参数，材料和方法），但这种抑制仍然出现，这与先前工作的建议一致（Kim 等人，2017）。我们在不同大小和不同全局抑制水平的学习网络中始终观察到周围抑制的特征。最后，连接中两个负侧叶的角偏移取决于被锁定的 HD 峰值的大小和形状（详情请参见附录 5）。</p>
+<blockquote>
+<p>Furthermore, we find a consistent pattern of both L-HR and R-HR populations to excite the direction for which they are selective (Figure 3C), which is also similar to what is observed in the CX (TurnerEvans et al., 2020). Excitation in one direction is accompanied by inhibition in the reverse direction in the learned network. As a result of the symmetry in our learning paradigm, the connectivity profiles of L-HR and R-HR cells are mirrored versions of each other, which is also clearly visible in Figure 3C. The inhibition of the reverse direction has a width comparable to the bump size and acts as a ‘break’ to prevent the bump from moving in this direction. The excitation in the selective direction, on the other hand, has a wider profile, which allows the network to path integrate for a wide range of angular velocities, that is for high angular velocities neurons further downstream can be ‘primed’ and activated in rapid succession. Indeed, when we remove the wide projections from the excitatory connectivity, PI performance is impaired for the higher angular velocities exclusively (Figure 3—figure supplement 1). The even weight profile in Wrec and the mirror symmetry for L-HR vs. R-HR profiles in WHR, together with the circular symmetry of the weights throughout the ring, guarantee that there is no side bias (i.e. tendency of the bump to favor one direction of movement versus the other) during PI. Indeed, the PI error distribution in Figure 2B remains symmetric throughout the 60 s simulations.</p>
+</blockquote>
+<p>此外，我们发现 L-HR 和 R-HR 群体都有一致的模式来激发它们选择的方向（图 3C），这也类似于在 CX 中观察到的情况（TurnerEvans 等人，2020）。在学习网络中，一个方向的兴奋伴随着反向方向的抑制。由于我们学习范式中的对称性，L-HR 和 R-HR 细胞的连接曲线是彼此的镜像版本，这在图 3C 中也清晰可见。反向方向的抑制具有与峰值大小相当的宽度，并充当“刹车”，以防止峰值朝该方向移动。另一方面，选择性方向的兴奋具有更宽的曲线，这允许网络在广泛的角速度范围内进行路径积分，即对于高角速度，下游神经元可以被“预激活”并快速连续激活。实际上，当我们从兴奋性连接中移除宽投影时，PI 性能仅在较高角速度下受到损害（图 3—图补充 1）。 $W^{\mathrm{rec}}$ 中的均匀权重曲线以及 $W^{\mathrm{HR}}$ 中 L-HR 与 R-HR 曲线的镜像对称性，再加上整个环中权重的圆对称性，保证了在 PI 过程中没有侧偏（即峰值倾向于偏向一个运动方向而不是另一个）。实际上，图 2B 中的 PI 误差分布在整个 60 秒模拟过程中保持对称。</p>
+<blockquote>
+<p>Next, we focus our attention on the dynamics of learning. For training times larger than a few hours, the absolute learning error drops and settles to a low value, indicating that learning has converged after ∼20 hr (or 4000 cycles, each cycle lasting 1/η) of training time (Figure 3D). The non-zero value of the final error is only due to errors occurring at the edges of the bump (Figure 3—figure supplement 2A, top panel). An intuitive explanation of why these errors persist is that the velocity pathway is learning to predict the visual input; as a result, when the visual input is present, the velocity pathway creates errors that are consistent with PI velocity biases in darkness.</p>
+</blockquote>
+<p>接下来，我们将注意力集中在学习的动态上。对于大于几个小时的训练时间，绝对学习误差下降并稳定在较低值，这表明在约 20 小时（或 4000 个周期，每个周期持续 $1/\eta$）的训练时间后，学习已经收敛（图 3D）。最终误差的非零值仅是由于峰值边缘发生的误差（图 3—图补充 2A，顶部面板）。这些误差持续存在的直观解释是，速度通路正在学习预测视觉输入；因此，当视觉输入存在时，速度通路会产生与黑暗中 PI 速度偏差一致的误差。</p>
+<blockquote>
+<p>Figure 3E and F shows the weight development history for the entire simulation. The first structure that emerges during learning is the local excitatory recurrent connections in Wrec. For these early stages of learning, the initial connectivity is controlled by the autocorrelation of the visual input, which gets imprinted in the recurrent connections by means of Hebbian co-activation of adjacent HD neurons. As a result, the width of the local excitatory profile mirrors the width of the visual input. Once a clear bump is established in the HD ring, the HR connections are learned to support bump movement, and negative sidelobes in Wrec emerge. To understand the shape of the learned connectivity profiles and the dynamics of their development, we study a reduced version of the full model, which follows learning in bump-centric coordinates (see Appendix 5). The reduced model produces a connectivity strikingly similar to the full model, and highlights the important role of non-linearities in the system.</p>
+</blockquote>
+<p>图 3E 和 F 显示了整个模拟的权重发展历史。在学习过程中出现的第一个结构是 $W^{\mathrm{rec}}$ 中的局部兴奋性循环连接。在学习的早期阶段，初始连接性由视觉输入的自相关控制，通过相邻 HD 神经元的 Hebbian 共激活将其印刻在循环连接中。因此，局部兴奋性曲线的宽度反映了视觉输入的宽度。一旦在 HD 环中建立了清晰的峰值，就会学习 HR 连接以支持峰值移动，并且 $W^{\mathrm{rec}}$ 中出现负侧叶。为了理解学习到的连接曲线的形状及其发展的动态，我们研究了完整模型的简化版本，该版本遵循以峰值为中心的坐标进行学习（见附录 5）。简化模型产生了与完整模型惊人相似的连接性，并突出了系统中非线性的重要作用。</p>
+<blockquote>
+<p>So far, we have shown results in which our model far outperforms flies in terms of PI accuracy. To bridge this gap, we add noise to the weight connectivity in Figure 3A and B and obtain the connectivity matrices in Figure 3—figure supplement 3A,B, respectively. This perturbation of the weights could account for irregularities in the fly HD system owning to biological factors such as uneven synaptic densities. The resulting neural velocity gain curve in Figure 3—figure supplement 3E is impaired mainly for small angular velocities (Figure 2C). Interestingly, it now bears greater similarity to the one observed in flies, because the previously flat area for small angular velocities is wider (flat for |v| &lt; 60 deg/s, cf. extended data fig. 7G,J in Seelig and Jayaraman, 2015). This happens because the noisy connectivity is less effective in initiating bump movement. Finally, the PI errors in the network with noisy connectivity grow much faster and display a strong side bias (Figure 3—figure supplement 3D, Figure 2B). The latter can be attributed to the fact that the noise in the connectivity generates local minima that are easier to transverse from one direction vs. the other. Side bias can also emerge if the learning rate η in Equation 16 is increased, effectively forcing learning to converge faster to a local minimum, which results in slight deviations from circularly symmetric connectivity (data not shown). It is therefore expected that different animals will display different degrees and directions of side bias during PI, owning either to fast learning or asymmetries in the underlying neurobiology. Since the exact behavior of the network with noise in the connectivity depends on the specific realization, we also generate multiple such networks and estimate the diffusion coefficient during path integration, which quantifies how fast the width of the PI error distribution in Figure 3—figure supplement 3D increases. We find the grand average to be 82.3 ± 15.7 deg2/s, which is considerably larger (Student’s t-test, 95% conf. intervals for a total of 12 networks) than the diffusion coefficient for networks without a perturbation in the weights (24.5 deg2/s in Figure 2B). Finally, in Appendix 1 we also incorporate random Gaussian noise to all inputs, which can account for noisy percepts or stochasticity of spiking, and show that learning is not disrupted even for high noise levels.</p>
+</blockquote>
+<p>到目前为止，我们已经展示了我们的模型在 PI 精度方面远远优于果蝇的结果。为了弥合这一差距，我们在图 3A 和 B 中的权重连接中添加噪声，并分别获得图 3—图补充 3A、B 中的连接矩阵。这种权重扰动可以解释果蝇 HD 系统中由于生物因素（如不均匀的突触密度）而导致的不规则性。图 3—图补充 3E 中得到的神经速度增益曲线主要在小角速度下受到损害（图 2C）。有趣的是，它现在与果蝇中观察到的曲线更为相似，因为之前的小角速度平坦区域更宽（对于 |v| &lt; 60 deg/s 平坦，参见 Seelig 和 Jayaraman，2015 中的扩展数据图 7G、J）。这是因为嘈杂的连接在启动峰值移动方面效果较差。最后，具有嘈杂连接的网络中的 PI 误差增长得更快，并显示出强烈的侧偏（图 3—图补充 3D，图 2B）。后者可以归因于连接中的噪声产生了局部最小值，从一个方向比另一个方向更容易穿越。如果增加方程 16 中的学习率 η，也可能出现侧偏，有效地迫使学习更快地收敛到局部最小值，从而导致圆对称连接性略有偏离（数据未显示）。因此，预计不同动物在 PI 过程中会显示出不同程度和方向的侧偏，这要么是由于快速学习，要么是由于潜在神经生物学的不对称性。由于具有连接噪声的网络的确切行为取决于具体实现，我们还生成了多个这样的网络，并估计路径积分期间的扩散系数，该系数量化了图 3—图补充 3D 中 PI 误差分布宽度增加的速度。我们发现总体平均值为 $82.3 \pm 15.7$ deg²/s，这比没有权重扰动的网络的扩散系数（图 2B 中为 $24.5$ deg²/s）大得多（Student’s t 检验，总共 12 个网络的 95% 置信区间）。最后，在附录 1 中，我们还将随机高斯噪声引入所有输入，这可以解释嘈杂的感知或尖峰的随机性，并表明即使在高噪声水平下，学习也不会受到干扰。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Renormalization group for neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/mechanisms-of-memory-supporting-neuronal-dynamics-in-hippocampal-area-ca3/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Mechanisms of memory-supporting neuronal dynamics in hippocampal area CA3</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1218 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 161 篇 1106440 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

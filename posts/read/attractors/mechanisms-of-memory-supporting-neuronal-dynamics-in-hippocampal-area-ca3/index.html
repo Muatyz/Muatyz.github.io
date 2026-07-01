@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Mechanisms of memory-supporting neuronal dynamics in hippocampal area CA3 | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="海马区 CA3 中支持记忆的神经动力学机制">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/mechanisms-of-memory-supporting-neuronal-dynamics-in-hippocampal-area-ca3/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/mechanisms-of-memory-supporting-neuronal-dynamics-in-hippocampal-area-ca3/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="Mechanisms of memory-supporting neuronal dynamics in hippocampal area CA3" />
+<meta property="og:description" content="海马区 CA3 中支持记忆的神经动力学机制" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/mechanisms-of-memory-supporting-neuronal-dynamics-in-hippocampal-area-ca3/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/06/25/6qRz/20260625170738691.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-06-25T00:18:23+08:00" />
+<meta property="article:modified_time" content="2026-06-25T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/06/25/6qRz/20260625170738691.png" />
+<meta name="twitter:title" content="Mechanisms of memory-supporting neuronal dynamics in hippocampal area CA3"/>
+<meta name="twitter:description" content="海马区 CA3 中支持记忆的神经动力学机制"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Mechanisms of memory-supporting neuronal dynamics in hippocampal area CA3",
+      "item": "https://Muatyz.github.io/posts/read/attractors/mechanisms-of-memory-supporting-neuronal-dynamics-in-hippocampal-area-ca3/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mechanisms of memory-supporting neuronal dynamics in hippocampal area CA3",
+  "name": "Mechanisms of memory-supporting neuronal dynamics in hippocampal area CA3",
+  "description": "海马区 CA3 中支持记忆的神经动力学机制",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Summary Hippocampal CA3 is central to memory formation and retrieval. Although various network mechanisms have been proposed, direct evidence is lacking.\nUsing intracellular Vm recordings and optogenetic manipulations in behaving mice, we found that CA3 place-field activity is produced by a symmetric form of behavioral timescale synaptic plasticity (BTSP) at recurrent synapses among CA3 pyramidal neurons but not at synapses from the dentate gyrus (DG).\nAdditional manipulations revealed that excitatory input from the entorhinal cortex (EC) but not the DG was required to update place cell activity based on the animal’s movement. These data were captured by a computational model that used BTSP and an external updating input to produce attractor dynamics under online learning conditions.\nTheoretical analyses further highlight the superior memory storage capacity of such networks, especially when dealing with correlated input patterns. This evidence elucidates the cellular and circuit mechanisms of learning and memory formation in the hippocampus.\n海马体 CA3 区在记忆形成和检索中起着核心作用。尽管已经提出了各种网络机制，但缺乏直接证据。\n通过在行为小鼠中进行 细胞内膜电位（Vm）记录和 光遗传学操作，我们发现 CA3 位置场活动是由 CA3 锥体神经元之间的复发突触处的一种对称形式的行为时间尺度突触可塑性（BTSP）产生的，而不是来自齿状回（DG）的突触。\n额外的操作显示，来自 内嗅皮层（EC）的兴奋性输入，而不是 DG，是根据动物的运动更新位置细胞活动所必需的。这些数据被一个计算模型刻画，该模型使用 BTSP 和外部更新输入在在线学习条件下产生吸引子动力学。\n理论分析进一步强调了这种网络在处理相关输入模式时具有优越的记忆存储能力。这些证据阐明了海马体中学习和记忆形成的细胞和电路机制。\nIntroduction The mammalian hippocampus plays a crucial role in episodic memory formation and retrieval.1–4 One subregion, area CA3, is thought to be particularly important in this process as consistent, environmentally specific sequences of robust place cell (PC) activity originate here.5,6\nThe concept of attractors, which are the minimal set of states in a state space to which all nearby states eventually flow, currently represents an appealing theoretical mechanism for memory storage within brains.7,8 Attractor networks produce a complete output from only a partial set of inputs (pattern completion), have the potential to robustly store and accurately retrieve a very large number of activity patterns, and have been implicated in the creation of distinct output patterns even when presented with similar inputs (pattern separation).7–9\nWhile various forms of attractor dynamics have been hypothesized to underlie the mnemonic functions of the hippocampus, whether and how they are implemented in CA3 remains unknown.\n哺乳动物的海马体在情景记忆的形成和检索中起着至关重要的作用。其中一个亚区，CA3 区，被认为在这一过程中尤为重要，因为一致的、环境特异性的强烈位置细胞（PC）活动序列起源于此。\n吸引子（attractors）的概念，即状态空间中所有附近状态最终流向的最小状态集，目前代表了大脑内记忆存储的一种有吸引力的理论机制。吸引子网络仅从部分输入集产生完整输出（模式完成），具有稳健存储和准确检索大量活动模式的潜力，并且即使在呈现相似输入时，也与创建不同输出模式（模式分离）有关。\n尽管已经假设各种形式的吸引子动力学是海马体记忆功能的基础，但它们是否以及如何在 CA3 中实现仍然未知。\nMost relevant to hippocampal memory are networks whose activity dynamics are linked to or updated by the animal’s behavior (Figures S1C–S1F). Formation of place-related activity patterns in such networks requires specific adjustments of synaptic strengths to produce a set of neurons that become active together (an activity ‘‘bump’’; Figures S1E and S1F) and a separate mechanism to associate this neuronal activity with certain internal (movement velocity and path integration) and external (sensory environmental elements) features such that the dynamics of the activity bump is linked to behavior8–17 (red arrows in Figures S1D and S1F).\n与海马体记忆最相关的是其活动动力学与动物行为相关或由其更新的网络（图 S1C–S1F）。在此类网络中形成与位置相关的活动模式需要特定的突触强度调整，以产生一组同时活跃的神经元（活动“峰”；图 S1E 和 S1F），以及一个单独的机制，将这种神经元活动与某些内部（运动速度和路径积分）和外部（感官环境元素）特征关联起来，从而使活动峰的动力学与行为相关联（图 S1D 和 S1F 中的红色箭头）。\nThis updating or linking mechanism is frequently an additional appropriately tuned excitatory input.\nThe specific adjustments mentioned above are mediated by learning rules that yield synaptic weight changes, usually at recurrent connections, that are symmetrical in network space8–20 (Figures S1B and S1F, blue arrows).\nSuch rules produce stable network activity dynamics that can give rise to single neuron place-specific activity that persists within the same location in the absence of the additional updating mechanism.\nAsymmetric learning rules, on the other hand, cause unstable network dynamics where activity can change independently of any external linking inputs and is thus untethered to behavior21,22 (Figures S1G–S1K).\n这种更新或链接机制通常是额外的恰好调谐的兴奋性输入。\n上述特定调整是通过学习规则介导的，这些规则产生突触权重变化，通常在循环连接处，在网络空间中是对称的（图 S1B 和 S1F，蓝色箭头）。\n这种规则产生稳定的网络活动动力学，可以产生单个神经元的位置特异性活动，即使在没有额外更新机制的情况下，也能在同一位置持续存在。\n另一方面，不对称学习规则会导致不稳定的网络动力学，其中活动可以独立于任何外部链接输入而变化，因此与行为无关（图 S1G–S1K）。\nWhile there are many theories about what learning rules and which pathways allow CA3 to produce the observed network dynamics,6–20,23,24 there is no relevant direct in vivo experimental evidence. We therefore sought to determine (1) what plasticity forms, (2) which synapses are responsible for individual CA3 place-field (PF) activity, (3) which input pathways, if any, act as an activity update mechanism, and (4) what are the theoretical capabilities of such an attractor network.\n虽然有许多关于哪些学习规则和哪些通路允许 CA3 产生所观察到的网络动力学的理论，但没有相关的 直接体内实验证据。因此，我们试图确定 (1) 哪种可塑性形式，(2) 哪些突触负责个体 CA3 位置场 (PF) 活动，(3) 哪些输入通路（如果有的话）充当活动更新机制，以及 (4) 这种吸引子网络的理论能力。\nResults Characteristics of CA3 PFs We began by using whole-cell intracellular membrane potential (Vm) recordings from CA3 pyramidal neurons ($n = 185$) in headfixed mice running on a linear treadmill ($\\sim 180$ cm) for a water reward25–28 (Figures 1A and 1B).\nApproximately one-quarter of the pyramidal neurons ($46/185$) fired action potentials (APs) in spatially specific patterns during running periods (Figures 1B and 1C; see individual PCs in Figure S2A). This spatially localized firing was associated with a gradual increase in Vm depolarization (Vm ramp; Figure 1E) and a rise in the amplitude of intracellular theta frequency oscillations (Vm theta; Figure 1F), both peaking around the same spatial location as the AP rate (Figure 1D).\n我们首先使用来自头固定小鼠的 CA3 锥体神经元（$n = 185$）的全细胞膜电位（Vm）记录，这些小鼠在一个线性跑步机上奔跑（$\\sim 180$ cm）以获得水奖励（图 1A 和 1B）。\n大约四分之一的 锥体神经元（$46/185$）在奔跑期间以空间特异性的模式发放动作电位（AP）（图 1B 和 1C；见图 S2A 中的个体 PC）。这种空间局部化的放电与 Vm 去极化的逐渐增加（Vm ramp；图 1E）以及细胞内 theta 频率振荡幅度的上升（Vm theta；图 1F）相关，两者在与 AP 速率相同的空间位置达到峰值（图 1D）。\nIn addition to standard AP firing, high-frequency burst firing associated with moderate-duration after-depolarizations (ADPs) was frequently observed within the PF (Figure 1G). Population averages of AP rate, Vm ramp, and Vm theta remained relatively flat across the track, except for a possible modulation of AP rate by animal running speed ($R^{2} = 0.90$; $p \u003c 5.4\\times 10^{-36}$; $n = 100$ spatial bins from average AP rate versus average velocity; Figures 1H–1K), suggesting that the spatial density of CA3 PCs is uniform across the environment. This uniformity was further supported by the even distribution of PF peak locations (Figure 1L).\n除了标准的 AP 放电外，在 PF 内还经常观察到与中等持续时间后去极化（ADP）相关的高频爆发放电（图 1G）。AP 速率、Vm ramp 和 Vm theta 的群体平均值在整个轨道上保持相对平坦，除了可能由动物奔跑速度调制 AP 速率（$R^{2} = 0.90$；$p \u003c 5.4\\times 10^{-36}$；来自平均 AP 速率与平均速度的 $n = 100$ 空间分块；图 1H–1K），这表明 CA3 PC 的空间密度在整个环境中是均匀的。这种均匀性进一步得到了 PF 峰值位置均匀分布的支持（图 1L）。\nTogether, these results indicate that, like CA1 PCs, CA3 PF firing is driven by a slow ramp of Vm depolarization and an increase in the amplitude of theta frequency Vm oscillations. However, unlike CA1,28–31 the spatial activity of CA3 PCs is uniformly distributed across the environment, creating a favorable condition for stable attractor dynamics.\n总之，这些结果表明，与 CA1 PC 类似，CA3 PF 放电是由 Vm 去极化的缓慢上升和 theta 频率 Vm 振荡幅度的增加驱动的。然而，与 CA1 不同，CA3 PC 的空间活动在整个环境中均匀分布，为稳定的吸引子动力学创造了有利条件。\n",
+  "wordCount" : "2605",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/06/25/6qRz/20260625170738691.png","datePublished": "2026-06-25T00:18:23+08:00",
+  "dateModified": "2026-06-25T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/mechanisms-of-memory-supporting-neuronal-dynamics-in-hippocampal-area-ca3/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                Mechanisms of memory-supporting neuronal dynamics in hippocampal area CA3
+            </h1>
+            <div class="post-description">
+                海马区 CA3 中支持记忆的神经动力学机制
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-06-25
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2605字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>6分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/line-attractor/" style="color: var(--secondary)!important;">Line Attractor</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/06/25/6qRz/20260625170738691.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#summary" aria-label="Summary">Summary</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#results" aria-label="Results">Results</a><ul>
+                        
+                <li>
+                    <a href="#characteristics-of-ca3-pfs" aria-label="Characteristics of CA3 PFs">Characteristics of CA3 PFs</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h1>
+<blockquote>
+<p>Hippocampal CA3 is central to memory formation and retrieval. Although various network mechanisms have been proposed, direct evidence is lacking.</p>
+<p>Using <strong>intracellular Vm</strong> recordings and <strong>optogenetic manipulations</strong> in behaving mice, we found that CA3 place-field activity is produced by a symmetric form of behavioral timescale synaptic plasticity (BTSP) at recurrent synapses among CA3 pyramidal neurons but not at synapses from the dentate gyrus (DG).</p>
+<p>Additional manipulations revealed that excitatory input from the <strong>entorhinal cortex</strong> (EC) but not the DG was required to update place cell activity based on the animal’s movement. These data were captured by a computational model that used BTSP and an external updating input to produce attractor dynamics under online learning conditions.</p>
+<p>Theoretical analyses further highlight the superior memory storage capacity of such networks, especially when dealing with correlated input patterns. This evidence elucidates the cellular and circuit mechanisms of learning and memory formation in the hippocampus.</p>
+</blockquote>
+<p>海马体 CA3 区在记忆形成和检索中起着核心作用。尽管已经提出了各种网络机制，但缺乏直接证据。</p>
+<p>通过在行为小鼠中进行 <strong>细胞内膜电位</strong>（Vm）记录和 <strong>光遗传学操作</strong>，我们发现 CA3 位置场活动是由 CA3 锥体神经元之间的复发突触处的一种对称形式的行为时间尺度突触可塑性（BTSP）产生的，而不是来自齿状回（DG）的突触。</p>
+<p>额外的操作显示，来自 <strong>内嗅皮层</strong>（EC）的兴奋性输入，而不是 DG，是根据动物的运动更新位置细胞活动所必需的。这些数据被一个计算模型刻画，该模型使用 BTSP 和外部更新输入在在线学习条件下产生吸引子动力学。</p>
+<p>理论分析进一步强调了这种网络在处理相关输入模式时具有优越的记忆存储能力。这些证据阐明了海马体中学习和记忆形成的细胞和电路机制。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>The mammalian hippocampus plays a crucial role in episodic memory formation and retrieval.1–4 One subregion, area CA3, is thought to be particularly important in this process as consistent, environmentally specific sequences of robust place cell (PC) activity originate here.5,6</p>
+<p>The concept of attractors, which are the minimal set of states in a state space to which all nearby states eventually flow, currently represents an appealing theoretical mechanism for memory storage within brains.7,8 Attractor networks produce a complete output from only a partial set of inputs (pattern completion), have the potential to robustly store and accurately retrieve a very large number of activity patterns, and have been implicated in the creation of distinct output patterns even when presented with similar inputs (pattern separation).7–9</p>
+<p>While various forms of attractor dynamics have been hypothesized to underlie the mnemonic functions of the hippocampus, whether and how they are implemented in CA3 remains unknown.</p>
+</blockquote>
+<p>哺乳动物的海马体在情景记忆的形成和检索中起着至关重要的作用。其中一个亚区，CA3 区，被认为在这一过程中尤为重要，因为一致的、环境特异性的强烈位置细胞（PC）活动序列起源于此。</p>
+<p>吸引子（attractors）的概念，即状态空间中所有附近状态最终流向的最小状态集，目前代表了大脑内记忆存储的一种有吸引力的理论机制。吸引子网络仅从部分输入集产生完整输出（模式完成），具有稳健存储和准确检索大量活动模式的潜力，并且即使在呈现相似输入时，也与创建不同输出模式（模式分离）有关。</p>
+<p>尽管已经假设各种形式的吸引子动力学是海马体记忆功能的基础，但它们是否以及如何在 CA3 中实现仍然未知。</p>
+<blockquote>
+<p>Most relevant to hippocampal memory are networks whose activity dynamics are linked to or updated by the animal’s behavior (Figures S1C–S1F). Formation of place-related activity patterns in such networks requires specific adjustments of synaptic strengths to produce a set of neurons that become active together (an activity ‘‘bump’’; Figures S1E and S1F) and a separate mechanism to associate this neuronal activity with certain internal (movement velocity and path integration) and external (sensory environmental elements) features such that the dynamics of the activity bump is linked to behavior8–17 (red arrows  in Figures S1D and S1F).</p>
+</blockquote>
+<p>与海马体记忆最相关的是其活动动力学与动物行为相关或由其更新的网络（图 S1C–S1F）。在此类网络中形成与位置相关的活动模式需要特定的突触强度调整，以产生一组同时活跃的神经元（活动“峰”；图 S1E 和 S1F），以及一个单独的机制，将这种神经元活动与某些内部（运动速度和路径积分）和外部（感官环境元素）特征关联起来，从而使活动峰的动力学与行为相关联（图 S1D 和 S1F 中的红色箭头）。</p>
+<blockquote>
+<p>This updating or linking mechanism is frequently an additional appropriately tuned excitatory input.</p>
+<p>The specific adjustments mentioned above are mediated by learning rules that yield synaptic weight changes, usually at recurrent connections, that are symmetrical in network space8–20 (Figures S1B and S1F, blue arrows).</p>
+<p>Such rules produce stable network activity dynamics that can give rise to single neuron place-specific activity that persists within the same location in the absence of the additional updating mechanism.</p>
+<p>Asymmetric learning rules, on the other hand, cause unstable network dynamics where activity can change independently of any external linking inputs and is thus untethered to behavior21,22 (Figures S1G–S1K).</p>
+</blockquote>
+<p>这种更新或链接机制通常是额外的恰好调谐的兴奋性输入。</p>
+<p>上述特定调整是通过学习规则介导的，这些规则产生突触权重变化，通常在循环连接处，在网络空间中是对称的（图 S1B 和 S1F，蓝色箭头）。</p>
+<p>这种规则产生稳定的网络活动动力学，可以产生单个神经元的位置特异性活动，即使在没有额外更新机制的情况下，也能在同一位置持续存在。</p>
+<p>另一方面，不对称学习规则会导致不稳定的网络动力学，其中活动可以独立于任何外部链接输入而变化，因此与行为无关（图 S1G–S1K）。</p>
+<blockquote>
+<p>While there are many theories about what learning rules and which pathways allow CA3 to produce the observed network dynamics,6–20,23,24 there is no relevant direct in <strong>vivo experimental evidence</strong>. We therefore sought to determine (1) what plasticity forms, (2) which synapses are responsible for individual CA3 place-field (PF) activity, (3) which input pathways, if any, act as an activity update mechanism, and (4) what are the theoretical capabilities of such an attractor network.</p>
+</blockquote>
+<p>虽然有许多关于哪些学习规则和哪些通路允许 CA3 产生所观察到的网络动力学的理论，但没有相关的 <strong>直接体内实验证据</strong>。因此，我们试图确定 (1) 哪种可塑性形式，(2) 哪些突触负责个体 CA3 位置场 (PF) 活动，(3) 哪些输入通路（如果有的话）充当活动更新机制，以及 (4) 这种吸引子网络的理论能力。</p>
+<h1 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h1>
+<h2 id="characteristics-of-ca3-pfs">Characteristics of CA3 PFs<a hidden class="anchor" aria-hidden="true" href="#characteristics-of-ca3-pfs">#</a></h2>
+<blockquote>
+<p>We began by using whole-cell intracellular membrane potential (Vm) recordings from CA3 pyramidal neurons ($n = 185$) in headfixed mice running on a linear treadmill ($\sim 180$ cm) for a water reward25–28 (Figures 1A and 1B).</p>
+<p>Approximately one-quarter of the <strong>pyramidal neurons</strong> ($46/185$) fired action potentials (APs) in spatially specific patterns during running periods (Figures 1B and 1C; see individual PCs in Figure S2A). This spatially localized firing was associated with a gradual increase in Vm depolarization (Vm ramp; Figure 1E) and a rise in the amplitude of intracellular theta frequency oscillations (Vm theta; Figure 1F), both peaking around the same spatial location as the AP rate (Figure 1D).</p>
+</blockquote>
+<p>我们首先使用来自头固定小鼠的 CA3 锥体神经元（$n = 185$）的全细胞膜电位（Vm）记录，这些小鼠在一个线性跑步机上奔跑（$\sim 180$ cm）以获得水奖励（图 1A 和 1B）。</p>
+<p>大约四分之一的 <strong>锥体神经元</strong>（$46/185$）在奔跑期间以空间特异性的模式发放动作电位（AP）（图 1B 和 1C；见图 S2A 中的个体 PC）。这种空间局部化的放电与 Vm 去极化的逐渐增加（Vm ramp；图 1E）以及细胞内 theta 频率振荡幅度的上升（Vm theta；图 1F）相关，两者在与 AP 速率相同的空间位置达到峰值（图 1D）。</p>
+<blockquote>
+<p>In addition to standard AP firing, high-frequency burst firing associated with moderate-duration after-depolarizations (ADPs) was frequently observed within the PF (Figure 1G). Population averages of AP rate, Vm ramp, and Vm theta remained relatively flat across the track, except for a possible modulation of AP rate by animal running speed ($R^{2} = 0.90$; $p &lt; 5.4\times 10^{-36}$; $n = 100$ spatial bins from average AP rate versus average velocity; Figures 1H–1K), suggesting that the spatial density of CA3 PCs is uniform across the environment. This uniformity was further supported by the even distribution of PF peak locations (Figure 1L).</p>
+</blockquote>
+<p>除了标准的 AP 放电外，在 PF 内还经常观察到与中等持续时间后去极化（ADP）相关的高频爆发放电（图 1G）。AP 速率、Vm ramp 和 Vm theta 的群体平均值在整个轨道上保持相对平坦，除了可能由动物奔跑速度调制 AP 速率（$R^{2} = 0.90$；$p &lt; 5.4\times 10^{-36}$；来自平均 AP 速率与平均速度的 $n = 100$ 空间分块；图 1H–1K），这表明 CA3 PC 的空间密度在整个环境中是均匀的。这种均匀性进一步得到了 PF 峰值位置均匀分布的支持（图 1L）。</p>
+<blockquote>
+<p>Together, these results indicate that, like CA1 PCs, CA3 PF firing is driven by a slow ramp of Vm depolarization and an increase in the amplitude of theta frequency Vm oscillations. However, unlike CA1,28–31 the spatial activity of CA3 PCs is uniformly distributed across the environment, creating a favorable condition for stable attractor dynamics.</p>
+</blockquote>
+<p>总之，这些结果表明，与 CA1 PC 类似，CA3 PF 放电是由 Vm 去极化的缓慢上升和 theta 频率 Vm 振荡幅度的增加驱动的。然而，与 CA1 不同，CA3 PC 的空间活动在整个环境中均匀分布，为稳定的吸引子动力学创造了有利条件。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/attractors/learning-accurate-path-integration-in-ring-attractor-models-of-the-head-direction-system/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Learning accurate path integration in ring attractor models of the head direction system</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/back-to-the-continuous-attractor/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Back to the Continuous Attractor</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1218 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 161 篇 1106440 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
