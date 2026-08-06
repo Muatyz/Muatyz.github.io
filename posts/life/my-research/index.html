@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>研究模型概述 | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="随着对论文复现的逐渐深入, 我认为是时候对目前代码的实现进行梳理和总结, 展示阶段性成果">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/life/my-research/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/life/my-research/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="研究模型概述" />
+<meta property="og:description" content="随着对论文复现的逐渐深入, 我认为是时候对目前代码的实现进行梳理和总结, 展示阶段性成果" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/life/my-research/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-08-05T00:18:15+08:00" />
+<meta property="article:modified_time" content="2026-08-05T00:18:15+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="研究模型概述"/>
+<meta name="twitter:description" content="随着对论文复现的逐渐深入, 我认为是时候对目前代码的实现进行梳理和总结, 展示阶段性成果"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🏖 生活",
+          "item": "https://Muatyz.github.io/posts/life/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "研究模型概述",
+      "item": "https://Muatyz.github.io/posts/life/my-research/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "研究模型概述",
+  "name": "研究模型概述",
+  "description": "随着对论文复现的逐渐深入, 我认为是时候对目前代码的实现进行梳理和总结, 展示阶段性成果",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Vafidis' learning rule 目前采用的是单时钟同步更新计算. 下面给出 data stream 的 $t_{n}\\to t_{n+1} = t_{n} + \\Delta t$ 的状态更新逻辑:\n根据速度模型 (常速度/OU process) 生成本次速度 $v_{n+1}$:\n$$ \\begin{aligned} v_{n+1}= \\begin{cases} v_{\\mathrm{const}}, \u0026 \\text{constant},\\\\ v_{n}+\\frac{\\Delta t}{\\tau_v}(\\mu_v-v_n) +\\sigma_v\\sqrt{\\dfrac{2\\Delta t}{\\tau_v}}\\,\\xi_{n+1}, \\quad \\xi_{n+1}\\sim\\mathcal N(0,1), \u0026 \\text{OU}. \\end{cases} \\end{aligned} $$\n更新真实头朝向 $\\theta_{n+1} = \\big[(\\theta_n+v_{n+1}\\Delta t+\\pi)\\bmod 2\\pi\\big]-\\pi$\n构造 von Mises visual input 和 velocity input:\n$$ \\begin{aligned} I_{\\mathrm{HD},a,i}^{n+1} \u0026= \\begin{cases} s_{\\mathrm{prox}} \\left[ A_{\\mathrm{vis}} e^{\\kappa_{\\mathrm{vis}}(\\cos\\Delta\\theta_{i}^{n+1}-1)} -b_{\\mathrm{vis}}+I_{\\mathrm{exc}}\\right], \u0026 \\text{visual teacher on},\\\\ 0, \u0026 \\text{visual teacher off}, \\end{cases}\\\\ \\vec{I}_{\\mathrm{vel}\\to\\mathrm{HR}}^{n+1} \u0026= \\begin{bmatrix} +k_{v}v_{n+1}\\vec 1_{N_{\\mathrm{HR}}/2}\\\\ -k_{v}v_{n+1}\\vec 1_{N_{\\mathrm{HR}}/2} \\end{bmatrix}. \\end{aligned} $$\n计算 HD distal drive, 即树突接收到的所有输入 (此时权重为旧权重 $W^{n}$)\n$$ \\begin{aligned} \\vec I_{\\mathrm{HD},d}^{\\,n} \u0026= \\vec I_{\\mathrm{HD}\\leftarrow\\mathrm{HD}}^{\\,n} +\\vec I_{\\mathrm{HD}\\leftarrow\\mathrm{LHR}}^{\\,n} +\\vec I_{\\mathrm{HD}\\leftarrow\\mathrm{RHR}}^{\\,n} -b_{\\mathrm{HD}}\\vec{1}\\\\ \u0026= \\mathbf W_{\\mathrm{HD}\\to\\mathrm{HD}}^{\\,n}\\vec r_{\\mathrm{HD}}^{\\,n} + \\mathbf W_{\\mathrm{LHR}\\to\\mathrm{HD}}^{\\,n}\\vec r_{\\mathrm{LHR}}^{\\,n} + \\mathbf W_{\\mathrm{RHR}\\to\\mathrm{HD}}^{\\,n}\\vec r_{\\mathrm{RHR}}^{\\,n}-b_{\\mathrm{HD}}\\vec{1} \\end{aligned} $$\n根据 distal 的电流弛豫动力学, 更新 HD distal 电流:\n$$ \\vec I_{\\mathrm{HD},d}^{\\,n+1} =\\vec I_{\\mathrm{HD},d}^{\\,n} +\\frac{\\Delta t}{\\tau_s} \\left(-\\vec I_{\\mathrm{HD},d}^{\\,n}+\\vec D_{\\mathrm{HD},d}^{\\,n}\\right) $$\n根据新 HD distal 电流, 更新 HD distal 膜电位():\n$$ \\vec V_{\\mathrm{HD},d}^{\\,n+1} =\\vec V_{\\mathrm{HD},d}^{\\,n} +\\frac{\\Delta t}{\\tau_{l,\\mathrm{HD}}} \\left(-\\vec V_{\\mathrm{HD},d}^{\\,n} +\\vec I_{\\mathrm{HD},d}^{\\,n+1}\\right). $$\n",
+  "wordCount" : "244",
+  "inLanguage": "zh",
+  "datePublished": "2026-08-05T00:18:15+08:00",
+  "dateModified": "2026-08-05T00:18:15+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/life/my-research/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/life/">🏖 生活</a></div>
+            <h1 class="post-title">
+                研究模型概述
+            </h1>
+            <div class="post-description">
+                随着对论文复现的逐渐深入, 我认为是时候对目前代码的实现进行梳理和总结, 展示阶段性成果
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-08-05
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>244字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>1分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/life/" style="color: var(--secondary)!important;">Life</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#vafidis-learning-rule" aria-label="Vafidis&#39; learning rule">Vafidis' learning rule</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="vafidis-learning-rule">Vafidis' learning rule<a hidden class="anchor" aria-hidden="true" href="#vafidis-learning-rule">#</a></h1>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/08/05/6pnZ/20260805201948157.png" alt=""  /></p>
+<p>目前采用的是单时钟同步更新计算. 下面给出 data stream 的 $t_{n}\to t_{n+1} = t_{n} + \Delta t$ 的状态更新逻辑:</p>
+<ol>
+<li>
+<p>根据速度模型 (常速度/OU process) 生成本次速度 $v_{n+1}$:</p>
+<p>$$
+\begin{aligned}
+v_{n+1}=
+\begin{cases}
+v_{\mathrm{const}}, &amp; \text{constant},\\
+v_{n}+\frac{\Delta t}{\tau_v}(\mu_v-v_n) +\sigma_v\sqrt{\dfrac{2\Delta t}{\tau_v}}\,\xi_{n+1},
+\quad \xi_{n+1}\sim\mathcal N(0,1), &amp; \text{OU}.
+\end{cases}
+\end{aligned}
+$$</p>
+</li>
+<li>
+<p>更新真实头朝向 $\theta_{n+1} = \big[(\theta_n+v_{n+1}\Delta t+\pi)\bmod 2\pi\big]-\pi$</p>
+</li>
+<li>
+<p>构造 von Mises visual input 和 velocity input:</p>
+<p>$$
+\begin{aligned}
+I_{\mathrm{HD},a,i}^{n+1} &amp;= \begin{cases}
+s_{\mathrm{prox}} \left[ A_{\mathrm{vis}} e^{\kappa_{\mathrm{vis}}(\cos\Delta\theta_{i}^{n+1}-1)}
+-b_{\mathrm{vis}}+I_{\mathrm{exc}}\right], &amp; \text{visual teacher on},\\
+0, &amp; \text{visual teacher off},
+\end{cases}\\
+\vec{I}_{\mathrm{vel}\to\mathrm{HR}}^{n+1} &amp;= \begin{bmatrix}
++k_{v}v_{n+1}\vec 1_{N_{\mathrm{HR}}/2}\\
+-k_{v}v_{n+1}\vec 1_{N_{\mathrm{HR}}/2}
+\end{bmatrix}.
+\end{aligned}
+$$</p>
+</li>
+<li>
+<p>计算 HD distal drive, 即树突接收到的所有输入 (此时权重为旧权重 $W^{n}$)</p>
+<p>$$
+\begin{aligned}
+\vec I_{\mathrm{HD},d}^{\,n} &amp;= \vec I_{\mathrm{HD}\leftarrow\mathrm{HD}}^{\,n} +\vec I_{\mathrm{HD}\leftarrow\mathrm{LHR}}^{\,n} +\vec I_{\mathrm{HD}\leftarrow\mathrm{RHR}}^{\,n}
+-b_{\mathrm{HD}}\vec{1}\\
+&amp;= \mathbf W_{\mathrm{HD}\to\mathrm{HD}}^{\,n}\vec r_{\mathrm{HD}}^{\,n} + \mathbf W_{\mathrm{LHR}\to\mathrm{HD}}^{\,n}\vec r_{\mathrm{LHR}}^{\,n} + \mathbf W_{\mathrm{RHR}\to\mathrm{HD}}^{\,n}\vec r_{\mathrm{RHR}}^{\,n}-b_{\mathrm{HD}}\vec{1}
+\end{aligned}
+$$</p>
+</li>
+<li>
+<p>根据 distal 的电流弛豫动力学, 更新 HD distal 电流:</p>
+<p>$$
+\vec I_{\mathrm{HD},d}^{\,n+1} =\vec I_{\mathrm{HD},d}^{\,n} +\frac{\Delta t}{\tau_s} \left(-\vec I_{\mathrm{HD},d}^{\,n}+\vec D_{\mathrm{HD},d}^{\,n}\right)
+$$</p>
+</li>
+<li>
+<p>根据新 HD distal 电流, 更新 HD distal 膜电位():</p>
+<p>$$
+\vec V_{\mathrm{HD},d}^{\,n+1} =\vec V_{\mathrm{HD},d}^{\,n} +\frac{\Delta t}{\tau_{l,\mathrm{HD}}} \left(-\vec V_{\mathrm{HD},d}^{\,n} +\vec I_{\mathrm{HD},d}^{\,n+1}\right).
+$$</p>
+</li>
+<li></li>
+</ol>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://s2.loli.net/2023/07/11/SAy54bkgO1HmKlD.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://s2.loli.net/2023/07/11/8IYCUkW5QGXu16v.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Renormalization group for neurons</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/read/attractors/near-critical-slow-dynamics-enable-flexible-temporal-computations-and-generalization/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Near-critical slow dynamics enable flexible temporal computations  and generalization</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1254 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 164 篇 1127982 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>

@@ -6,7 +6,16 @@
     <description>Recent content in 🏖 生活 on 无处惹尘埃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 10 May 2026 00:18:15 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/life/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Aug 2026 00:18:15 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/posts/life/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>研究模型概述</title>
+      <link>https://Muatyz.github.io/posts/life/my-research/</link>
+      <pubDate>Wed, 05 Aug 2026 00:18:15 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/life/my-research/</guid>
+      <description>随着对论文复现的逐渐深入, 我认为是时候对目前代码的实现进行梳理和总结, 展示阶段性成果</description>
+    </item>
+    
     <item>
       <title>Attractors Proposal 拟定</title>
       <link>https://Muatyz.github.io/posts/life/attractors-proposal/</link>
