@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Attractor on 无处惹尘埃</title>
+    <link>https://Muatyz.github.io/tags/attractor/</link>
+    <description>Recent content in Attractor on 无处惹尘埃</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 18 Aug 2026 00:18:24 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/tags/attractor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Biological computations: Limitations of attractor-based formalisms and the need for transients</title>
+      <link>https://Muatyz.github.io/posts/read/attractors/biological-computations-limitations-of-attractor-based-formalisms-and-the-need-for-transients/</link>
+      <pubDate>Tue, 18 Aug 2026 00:18:24 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/attractors/biological-computations-limitations-of-attractor-based-formalisms-and-the-need-for-transients/</guid>
+      <description>生物计算：基于吸引子的形式主义的局限性和对瞬态的需求</description>
+    </item>
+    
+  </channel>
+</rss>

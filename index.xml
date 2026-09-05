@@ -6,7 +6,7 @@
     <description>Recent content on 无处惹尘埃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 05 Aug 2026 00:18:15 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Aug 2026 12:20:21 +0800</lastBuildDate><atom:link href="https://Muatyz.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Formal Statistical Mechanics of Neural Networks</title>
       <link>https://Muatyz.github.io/posts/read/theory-of-neural-computation/theory-of-neural-computation-10/</link>
@@ -140,6 +140,24 @@
       
       <guid>https://Muatyz.github.io/posts/read/reference/statistical-mechanics-for-networks-of-real-neurons/statistical-mechanics-for-networks-of-real-neurons-7/</guid>
       <description>真实神经元网络的统计力学</description>
+    </item>
+    
+    <item>
+      <title>SSH 连接备忘录</title>
+      <link>https://Muatyz.github.io/posts/cs/ssh-link/</link>
+      <pubDate>Tue, 18 Aug 2026 12:20:21 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/cs/ssh-link/</guid>
+      <description>指导 ssh 连接方法</description>
+    </item>
+    
+    <item>
+      <title>Biological computations: Limitations of attractor-based formalisms and the need for transients</title>
+      <link>https://Muatyz.github.io/posts/read/attractors/biological-computations-limitations-of-attractor-based-formalisms-and-the-need-for-transients/</link>
+      <pubDate>Tue, 18 Aug 2026 00:18:24 +0800</pubDate>
+      
+      <guid>https://Muatyz.github.io/posts/read/attractors/biological-computations-limitations-of-attractor-based-formalisms-and-the-need-for-transients/</guid>
+      <description>生物计算：基于吸引子的形式主义的局限性和对瞬态的需求</description>
     </item>
     
     <item>

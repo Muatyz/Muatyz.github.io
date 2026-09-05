@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Biological computations: Limitations of attractor-based formalisms and the need for transients | 无处惹尘埃</title>
+<meta name="keywords" content="">
+<meta name="description" content="生物计算：基于吸引子的形式主义的局限性和对瞬态的需求">
+<meta name="author" content="Muartz">
+<link rel="canonical" href="https://Muatyz.github.io/posts/read/attractors/biological-computations-limitations-of-attractor-based-formalisms-and-the-need-for-transients/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Muatyz.github.io/img/Head16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="apple-touch-icon" href="https://Muatyz.github.io/img/Head32.png">
+<link rel="mask-icon" href="https://Muatyz.github.io/img/Head32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Muatyz.github.io/posts/read/attractors/biological-computations-limitations-of-attractor-based-formalisms-and-the-need-for-transients/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+
+<script defer
+src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ],
+      preProcess: function (math, displayMode) {
+        if (!displayMode && !math.includes("\\begin")) {
+          return "\\begin{aligned}" + math + "\\end{aligned}";
+        }
+        return math;
+      }
+    });
+  }
+});
+</script>
+
+
+<script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script async defer src="https://umami-muatyzs-projects.vercel.app/script.js" data-website-id="725be122-c28c-49af-911c-31a0fbabaa25"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ 
+#twikoo_count_container .fa {
+    font-family: "FontAwesome" !important;  
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+     
+    font-size: 1em;
+    margin-right: 0.2em;
+}
+</style>
+
+
+<script>
+window.addEventListener("load", function () {
+  if (typeof window.copyCodeButtons === "function") {
+    window.copyCodeButtons();
+  }
+});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-609WYY5125"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-609WYY5125');
+        }
+      </script><meta property="og:title" content="Biological computations: Limitations of attractor-based formalisms and the need for transients" />
+<meta property="og:description" content="生物计算：基于吸引子的形式主义的局限性和对瞬态的需求" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Muatyz.github.io/posts/read/attractors/biological-computations-limitations-of-attractor-based-formalisms-and-the-need-for-transients/" />
+<meta property="og:image" content="https://files.seeusercontent.com/2026/08/18/Z3id/20260818145449107.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-08-18T00:18:24+08:00" />
+<meta property="article:modified_time" content="2026-08-18T00:18:24+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://files.seeusercontent.com/2026/08/18/Z3id/20260818145449107.png" />
+<meta name="twitter:title" content="Biological computations: Limitations of attractor-based formalisms and the need for transients"/>
+<meta name="twitter:description" content="生物计算：基于吸引子的形式主义的局限性和对瞬态的需求"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Muatyz.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "📕 阅读",
+          "item": "https://Muatyz.github.io/posts/read/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  3 ,
+          "name": "🕳️ 吸引",
+          "item": "https://Muatyz.github.io/posts/read/attractors/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Biological computations: Limitations of attractor-based formalisms and the need for transients",
+      "item": "https://Muatyz.github.io/posts/read/attractors/biological-computations-limitations-of-attractor-based-formalisms-and-the-need-for-transients/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Biological computations: Limitations of attractor-based formalisms and the need for transients",
+  "name": "Biological computations: Limitations of attractor-based formalisms and the need for transients",
+  "description": "生物计算：基于吸引子的形式主义的局限性和对瞬态的需求",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "Abstract Living systems, from single cells to higher vertebrates, receive a continuous stream of non-stationary inputs that they sense, for e.g. via cell surface receptors or sensory organs.\n生物系统，从单细胞到高等脊椎动物，接收连续的非稳态输入流，这些输入通过细胞表面受体或感官器官进行感知。\nBy integrating these time-varying, multi-sensory, and often noisy information with memory using complex molecular or neuronal networks, they generate a variety of responses beyond simple stimulus-response association, including avoidance behavior, life-long-learning or social interactions. In a broad sense, these processes can be understood as a type of biological computation.\n通过将这些随时间变化的、多感官的、且通常是噪声的信息与记忆结合，利用复杂的分子或神经网络，它们产生了多种反应，超越了简单的刺激-反应关联，包括 回避行为、终身学习 或社会互动。从广义上讲，这些过程可以理解为一种生物计算。\nTaking as a basis generic features of biological computations, such as real-time responsiveness or robustness and flexibility of the computation, we highlight the limitations of the current attractor-based framework for understanding computations in biological systems.\n基于生物计算的通用特征，如实时响应能力或计算的鲁棒性和灵活性，我们强调了当前基于吸引子的框架在理解生物系统中的计算方面的局限性。\nWe argue that frameworks based on transient dynamics away from attractors are better suited for the description of computations performed by neuronal and signaling networks.\n我们认为，基于远离吸引子的瞬态动力学的框架更适合描述神经和信号网络执行的计算。\nIn particular, we discuss how quasi-stable transient dynamics from ghost states that emerge at criticality have a promising potential for developing an integrated framework of computations, that can help us understand how living system actively process information and learn from their continuously changing environment.\n特别是，我们讨论了在临界状态下出现的幽灵状态所产生的准稳定瞬态动力学如何具有开发综合计算框架的潜力，这可以帮助我们理解生物系统如何主动处理信息并从其不断变化的环境中学习。\nIntroduction When referring to computations, the associated concept usually reflects the formal definition of computation adopted during the first half of the 20th century which was devised with the purpose of answering questions relating e.g. the extent to which mathematics can be reduced to discrete logical formulas, and how mathematical proofs or calculations may be automated [14,51].\n当提到计算时，相关的概念通常反映了 20 世纪上半叶采用的计算的正式定义，该定义旨在回答与数学在多大程度上可以简化为 离散逻辑公式 以及如何自动化数学证明或计算等问题[14,51]。\nFor example, a function on the integer numbers is called computable, if an output integer can be calculated by an algorithm after a finite number of steps [51]. This implies that computation, in an abstract way, refers to a defined mapping between inputs and outputs.\nIn that broad sense, many basic processes characteristic of living systems on all scales of organization, from single cells in tissues to free-living single-cell organisms and higher vertebrates, can be defined in terms of computation.\n比如，如果一个整数函数可以通过算法在有限步数后计算出输出整数，则称其为可计算的[51]。这意味着计算在抽象意义上是指输入和输出之间的定义映射。\n从这个广义上讲，从组织中单个细胞到自由生活的单细胞生物和高等脊椎动物，许多生物系统在所有组织尺度上具有的基本过程都可以用计算来定义。\nWhile vertebrates and many other multi-cellular organisms rely on neuronal networks, single cells and single-cell organisms use protein and/or gene-regulatory networks as computational entities to integrate multi-dimensional sensory information (inputs) with memory, generating complex self-organized behavior (output) [26].\n虽然脊椎动物和许多其他多细胞生物依赖于神经网络，但单细胞和单细胞生物使用蛋白质和/或基因调控网络作为计算实体，将多维感官信息（输入）与记忆整合，产生复杂的自组织行为（输出）[26]。\nA fox that chases a rabbit, for example, uses its neuronal network to continually process sensory (visual, auditory, olfactory, tactile etc.) information which is disrupted and changes over time and space, i.e. when the rabbit hides behind a bush (Fig. 1a, top).\n比如，一只追逐兔子的狐狸使用其神经网络不断处理感官（视觉、听觉、嗅觉、触觉等）信息，这些信息会随着时间和空间的变化而中断，即当兔子躲在灌木丛后面时（图 1a，顶部）。\nIn order to avoid random change in the running direction in the absence of a visual contact with the rabbit, the fox integrates the current sensory information with the memory of the last localization of the rabbit to determine its behavior.\n为了避免在没有视觉接触兔子的情况下随机改变奔跑方向，狐狸将当前的感官信息与上次定位兔子的记忆积分，以确定其行为。\nImmune cells in our body that chase invading bacteria, however, face similar challenges as the fox chasing the rabbit: the cells’ navigation is guided by local chemical cues secreted by the bacteria that are noisy, disrupted, and vary over time and space, in order to engulf and degrade the motile invading microbes (Fig. 1a, bottom).\n在我们体内追逐入侵细菌的免疫细胞，然而，面临着与狐狸追逐兔子类似的挑战：细胞的导航是由细菌分泌的局部化学线索引导的，这些线索是嘈杂的、被破坏的，并且随时间和空间变化，以吞噬和降解运动的入侵微生物（图 1a，底部）。\nTo avoid immediate switching to random migration when signals are disrupted, single cells, just like the fox chasing a rabbit, require a memory of the localization of the last encountered chemical signal, as a means of generating a reliable migration trajectory over long distances. We will refer to such computations performed by living systems as biological or natural computations.\n为了避免在信号中断时立即切换到随机迁移，单个细胞就像追逐兔子的狐狸一样，需要记住上次遇到的化学信号的位置，以便在长距离上生成可靠的迁移轨迹。我们将把生物系统执行的这种计算称为生物计算或自然计算。\nThis description of processes in living systems through the concept of computation has inevitably led to a frequent referral to terms such as ’circuitry’, ’computer/machine’, ’execution of programs’ or ’interpretation of code’. However, their indiscriminate use can easily convey misleading ideas (and often does) by neglecting fundamental differences between the computational process in living and engineered systems [13,44,59,60,65,72,74].\n这种通过计算概念描述生物系统过程的方式不可避免地导致频繁引用诸如“电路”、“计算机/机器”、“程序执行”或“代码解释”等术语。然而，它们的不加区分的使用很容易传达误导性的想法（并且经常会这样做），因为它忽略了生物系统和工程系统中计算过程的根本差异[13,44,59,60,65,72,74]。\nFor example, computers accept input once at the beginning of the computation (i.e., do not accept signals while performing a particular task), and obtaining the result of the computation requires presentation of the complete input [47]. In contrast, living systems compute in real-time (like the fox and the immune cell), using incomplete inputs which continuously change across time and space.\n比如，计算机在计算开始时一次性接受输入（即，在执行特定任务时不接受信号），并且获取计算结果需要提供完整的输入[47]。相比之下，生物系统实时计算（就像狐狸和免疫细胞一样），使用不断随时间和空间变化的不完整输入。\nThe process of natural computation itself is adaptive, while yielding robust and reproducible responses even in the presence of noise, whereas computer algorithms account only for robustness and reproducibility of computations, which is achieved by minimizing noise (in the constituting computer circuits). Moreover, living systems are characterized by on-the-fly and life-long learning, features that have not been realized in any man-made system so far.\n自然计算的过程本身是自适应的，即使在存在噪声的情况下也能产生稳健且可重复的响应，而计算机算法仅考虑计算的稳健性和可重复性，这是通过最小化噪声（在构成计算机电路中）来实现的。此外，生物系统的特点是即时学习和终身学习，这些特征迄今为止尚未在任何人造系统中实现。\nWe therefore discuss in this article the current concepts of computation from a dynamical systems point of view and argue that they explain information processing in living systems only to a very limited extent. We advocate the necessity to base theories of biological computation on transients which can serve as a dynamical basis through which the majority of the observed features of natural computation can be captured [5,7,8,16,22,37,46,47,50,53,63].\n因此，我们在本文中从动力系统的角度讨论当前的计算概念，并认为它们仅在很大程度上解释了生物系统中的信息处理。我们主张有必要将生物计算理论建立在瞬态基础上，这可以作为动力学基础，通过它可以捕捉到自然计算的大多数观察特征[5,7,8,16,22,37,46,47,50,53,63]。\nGiven that from a conceptual viewpoint, the challenges, which single cells and higher vertebrates face are overlapping to a large degree, we emphasize in this review the necessity for a general theory of natural computations and learning that is applicable to both neural and aneural systems.\n鉴于从概念上看，单细胞和高等脊椎动物所面临的挑战在很大程度上是重叠的，我们在本综述中强调了对适用于神经系统和非神经系统的一般自然计算和学习理论的必要性。\nResults Computing with stable attractors: machines, neuronal networks and cellular signaling The existing theoretical frameworks for biological computations mainly refer to Turing-like computations [83]. Let us exemplify this by considering an every-day example of a finite-state machine, a turnstile. A turnstile can be found in two different states, closed (S1) and open (S2). It requires an input, i.e. a coin to switch from the closed to the open state (S1 → S2), and a second input, a push, to return to the closed state (S2 → S1). If a coin is inserted when the system is in S2 (open), or if its bars are pushed when it is in S1 (closed), the machine does not respond (Fig. 1b). For this system, the computation is realized through the switching between the distinct stable states (S1, S2) that are available, such that the specific inputs (coin, push) are mapped to a defined state of the turnstile. Despite that this machine has a very limited computational power that does not reflect that of Turing machines in general, we will use it to demonstrate a line of thought that (i) the state-dependent computations performed by machines display limitations for tasks that are relevant for living systems, and that (ii) a range of computations performed by living systems lie outside of the domain of machines, prompting us to propose that a broader definition and mechanisms of computations are necessary to describe biological computations.\n现存的生物计算理论框架主要参考图灵式计算[83]。让我们通过考虑一个日常的有限状态机示例——旋转门来说明这一点。旋转门可以处于两种不同的状态：关闭（S1）和打开（S2）。它需要一个输入，即一枚硬币，以从关闭状态切换到打开状态（S1 → S2），以及第二个输入，即推动，以返回到关闭状态（S2 → S1）。如果在系统处于 S2（打开）时插入硬币，或者在系统处于 S1（关闭）时推动其栏杆，机器不会响应（图 1b）。对于该系统，计算是通过在可用的不同稳定状态（S1、S2）之间切换来实现的，这样特定的输入（硬币、推动）就映射到旋转门的定义状态。尽管这台机器的计算能力非常有限，并不反映图灵机的一般能力，但我们将用它来展示一种思路，即（i）机器执行的状态依赖计算在与生物系统相关的任务中显示出局限性，以及（ii）生物系统执行的一系列计算超出了机器的领域，这促使我们提出需要更广泛的计算定义和机制来描述生物计算。\nThe computations of the turnstile, in the language of dynamical systems, can be formalized as attractor-based computation. Turing implicitly used this idea in his unpublished work on intelligent machines [85], as well as in his seminal work on self-organization in living systems [84]. The idea, however, was clearly explicated by Hebb [27] and Hopfield [29] for neuronal networks, receiving formalization by Hirsch and Baird [28]: ”as the overall system evolves in time, each subsystem passes through a sequence of attractors that are related to specific output of the system, and this sequence is termed as the computation process”. In this view, the number and type of attractors is an intrinsic property of the system, determined by the underlying network topology and nodal dynamics. Thus, restricting only to fixed point dynamics for simplicity, the possible solutions of the system form a so-called quasi-potential landscape which can be explicitly calculated for gradient systems [73]. Each valley in the landscape corresponds to a stable state, separated by unstable states or saddles (Fig. 1c). The external signals induce switching between the available states, such that a signal is uniquely associated with a specific valley. This also implies that in absence of a perturbation, the dynamics would be retained indefinitely in a valley. The same conceptual framework has been also adopted to study signaling networks in single cells. Large numbers of experimental and theoretical studies over the past two decades have been focused on identifying the underlying protein- or gene-interaction networks or network modules [12,18], relating the possible attractors with the observed phenotypes or responses [1,3,32,62,66,67,69]. The question is however, to which extent attractor-based computations can explain the basic features of natural computations, the simplest being real-time processing of non-stationary signals.\n以动力系统的语言来说，旋转门的计算可以形式化为基于吸引子的计算。Turing 在他关于智能机器的未发表工作以及他关于生物系统自组织的开创性工作中隐含地使用了这一思想。然而，这一思想被 Hebb 和 Hopfield 明确阐述用于神经网络，并由 Hirsch 和 Baird 进行了形式化：“随着整个系统随时间演化，每个子系统都会经历一系列与系统特定输出相关的吸引子，这个序列被称为计算过程”。在这种观点下，吸引子的数量和类型是系统的内在属性，由底层网络拓扑和节点动力学决定。因此，为了简化，仅限于不动点动力学，系统的可能解形成所谓的准势景观，可以显式地计算梯度系统[73]。景观中的每个山谷对应一个稳定状态，由不稳定状态或鞍点分隔（图 1c）。外部信号引起可用状态之间的切换，使得信号与特定山谷唯一关联。这也意味着，在没有扰动的情况下，动力学将无限期地保留在一个山谷中。同样的概念框架也被采用来研究单细胞中的信号网络。在过去二十年中，大量实验和理论研究集中于识别潜在的蛋白质或基因相互作用网络或网络模块[12,18]，将可能的吸引子与观察到的表型或反应相关联[1,3,32,62,66,67,69]。然而，问题是，基于吸引子的计算在多大程度上可以解释自然计算的基本特征，其中最简单的是对非稳态信号的实时处理。\nLimitations of the current framework: an example from single-cell signaling Let us consider a bistable system as a minimal case of multistability, i.e. as a system that has multiple, coexisting states/attractors (cf. Box 1). In the quasi-potential landscape analogy, this corresponds to a landscape with two valleys, separated by a saddle. Generally, bistability can emerge via double negative or positive feedback loops, common motifs in gene regulatory [61,87], neuronal [41,43], as well as in signaling networks including, e.g., the experimentally identified Epidermal growth factor receptor (EGFR) network [75] (Fig. 2a). For parametric organization in the bistable regime (Fig. 2b), in this case defined by a certain range of EGFR concentrations on the plasma membrane, the system has two available stable states: basal (S1) and high EGFR-phosphorylated (S2) state. A pulse of epidermal growth factor (EGF) induces a transition from S1 to S2, however, the high EGFRp state will be maintained even after removal of the EGF signal, as S2 is also a stable attractor. This can be seen from the temporal EGFRp profile, as well as the trajectory of the signaling state of the EGFR network (Fig. 2c). Thus, addition of subsequent EGF pulses will not lead to further state changes in the system, implying that the cell will remain unresponsive to upcoming changes in the environment. Better understanding of these temporal system’s responses can be gained from a quasi-potential landscape description: as noted above, the organization in the bistable regime corresponds to a quasi-potential landscape with two wells, corresponding to S1 and S2 (Fig. 2d). In absence of a signal, the system resides in S1. Upon EGF addition, the quasi-potential landscape remodels to a single well corresponding to S2, resulting in a robust EGFR phosphorylation. When the EGF is removed, however, the landscape resets to its former double-well shape, but the system remains in the S2 well and thereby is unresponsive to upcoming signals (Fig. 1c), just like the turnstile does not respond to a coin when already in S2.\n让我们考虑一个双稳态系统，作为多稳态的最小情况，即具有多个共存状态/吸引子的系统（参见框 1）。在准势景观类比中，这对应于具有两个山谷的景观，由一个鞍点分隔。一般来说，双稳态可以通过双负反馈或正反馈环路出现，这些是基因调控[61,87]、神经元[41,43]以及信号网络（包括实验确定的表皮生长因子受体（EGFR）网络[75]）中的常见模式（图 2a）。在双稳态区域的参数组织中（图 2b），在这种情况下由质膜上一定范围的 EGFR 浓度定义，系统有两个可用的稳定状态：基础状态（S1）和高 EGFR-磷酸化状态（S2）。一脉冲的表皮生长因子（EGF）会诱导从 S1 到 S2 的转变，然而，即使在移除 EGF 信号后，高 EGFRp 状态仍将维持，因为 S2 也是一个稳定的吸引子。这可以从时间 EGFRp 曲线以及 EGFR 网络信号状态的轨迹中看到（图 2c）。因此，随后的 EGF 脉冲的添加不会导致系统进一步的状态变化，这意味着细胞将对即将到来的环境变化保持无响应。对这些时间系统响应的更好理解可以通过准势景观描述获得：如上所述，在双稳态区域中的组织对应于具有两个井的准势景观，对应于 S1 和 S2（图 2d）。在没有信号的情况下，系统驻留在 S1。当添加 EGF 时，准势景观重塑为对应于 S2 的单井，导致稳健的 EGFR 磷酸化。然而，当移除 EGF 时，景观重置为其先前的双井形状，但系统仍然驻留在 S2 井中，从而对即将到来的信号无响应（图 1c），就像旋转门在已经处于 S2 时不会对硬币做出反应一样。\n",
+  "wordCount" : "4897",
+  "inLanguage": "zh",
+  "image":"https://files.seeusercontent.com/2026/08/18/Z3id/20260818145449107.png","datePublished": "2026-08-18T00:18:24+08:00",
+  "dateModified": "2026-08-18T00:18:24+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Muartz"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Muatyz.github.io/posts/read/attractors/biological-computations-limitations-of-attractor-based-formalisms-and-the-need-for-transients/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "无处惹尘埃",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Muatyz.github.io/img/Head32.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Muatyz.github.io/" accesskey="h" title="计算物理学习日志 (Alt + H)">
+            <img src="https://Muatyz.github.io/img/Head64.png" alt="logo" aria-label="logo"
+                 height="35">计算物理学习日志</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Muatyz.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Muatyz.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Muatyz.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/">📕 阅读</a>&nbsp;»&nbsp;<a href="https://Muatyz.github.io/posts/read/attractors/">🕳️ 吸引</a></div>
+            <h1 class="post-title">
+                Biological computations: Limitations of attractor-based formalisms and the need for transients
+            </h1>
+            <div class="post-description">
+                生物计算：基于吸引子的形式主义的局限性和对瞬态的需求
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2026-08-18
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>4897字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>10分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Muartz
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Muatyz.github.io/tags/attractor/" style="color: var(--secondary)!important;">Attractor</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    
+                    <span id="post_meta_style_8">
+                        <span id="twikoo_count_container">
+                            <span class="fa fa-commenting-o"></span>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                    
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://files.seeusercontent.com/2026/08/18/Z3id/20260818145449107.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#abstract" aria-label="Abstract">Abstract</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#results" aria-label="Results">Results</a><ul>
+                        
+                <li>
+                    <a href="#computing-with-stable-attractors-machines-neuronal-networks-and-cellular-signaling" aria-label="Computing with stable attractors: machines, neuronal networks and cellular signaling">Computing with stable attractors: machines, neuronal networks and cellular signaling</a></li>
+                <li>
+                    <a href="#limitations-of-the-current-framework-an-example-from-single-cell-signaling" aria-label="Limitations of the current framework: an example from single-cell signaling">Limitations of the current framework: an example from single-cell signaling</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h1>
+<blockquote>
+<p>Living systems, from single cells to higher <strong>vertebrates</strong>, receive a continuous stream of non-stationary inputs that they sense, for e.g. via cell surface receptors or sensory organs.</p>
+</blockquote>
+<p>生物系统，从单细胞到高等<strong>脊椎动物</strong>，接收连续的非稳态输入流，这些输入通过细胞表面受体或感官器官进行感知。</p>
+<blockquote>
+<p>By integrating these time-varying, multi-sensory, and often noisy information with memory using complex molecular or neuronal networks, they generate a variety of responses beyond simple stimulus-response association, including <strong>avoidance behavior</strong>, <strong>life-long-learning</strong> or social interactions. In a broad sense, these processes can be understood as a type of biological computation.</p>
+</blockquote>
+<p>通过将这些随时间变化的、多感官的、且通常是噪声的信息与记忆结合，利用复杂的分子或神经网络，它们产生了多种反应，超越了简单的刺激-反应关联，包括 <strong>回避行为</strong>、<strong>终身学习</strong> 或社会互动。从广义上讲，这些过程可以理解为一种生物计算。</p>
+<blockquote>
+<p>Taking as a basis generic features of biological computations, such as real-time responsiveness or robustness and flexibility of the computation, we highlight the limitations of the current attractor-based framework for understanding computations in biological systems.</p>
+</blockquote>
+<p>基于生物计算的通用特征，如实时响应能力或计算的鲁棒性和灵活性，我们强调了当前基于吸引子的框架在理解生物系统中的计算方面的局限性。</p>
+<blockquote>
+<p>We argue that frameworks based on transient dynamics away from attractors are better suited for the description of computations performed by neuronal and signaling networks.</p>
+</blockquote>
+<p>我们认为，基于远离吸引子的瞬态动力学的框架更适合描述神经和信号网络执行的计算。</p>
+<blockquote>
+<p>In particular, we discuss how quasi-stable transient dynamics from ghost states that emerge at criticality have a promising potential for developing an integrated framework of computations, that can help us understand how living system actively process information and learn from their continuously changing environment.</p>
+</blockquote>
+<p>特别是，我们讨论了在临界状态下出现的幽灵状态所产生的准稳定瞬态动力学如何具有开发综合计算框架的潜力，这可以帮助我们理解生物系统如何主动处理信息并从其不断变化的环境中学习。</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<blockquote>
+<p>When referring to computations, the associated concept usually reflects the formal definition of computation adopted during the first half of the 20th century which was devised with the purpose of answering questions relating e.g. the extent to which mathematics can be reduced to <strong>discrete logical formulas</strong>, and how mathematical proofs or calculations may be automated [14,51].</p>
+</blockquote>
+<p>当提到计算时，相关的概念通常反映了 20 世纪上半叶采用的计算的正式定义，该定义旨在回答与数学在多大程度上可以简化为 <strong>离散逻辑公式</strong> 以及如何自动化数学证明或计算等问题[14,51]。</p>
+<blockquote>
+<p>For example, a function on the integer numbers is called computable, if an output integer can be calculated by an algorithm after a finite number of steps [51]. This implies that computation, in an abstract way, refers to <strong>a defined mapping between inputs and outputs</strong>.</p>
+<p>In that broad sense, many basic processes characteristic of living systems on all scales of organization, from single cells in tissues to free-living single-cell organisms and higher vertebrates, can be defined in terms of computation.</p>
+</blockquote>
+<p>比如，如果一个整数函数可以通过算法在有限步数后计算出输出整数，则称其为可计算的[51]。这意味着计算在抽象意义上是指<strong>输入和输出之间的定义映射</strong>。</p>
+<p>从这个广义上讲，从组织中单个细胞到自由生活的单细胞生物和高等脊椎动物，许多生物系统在所有组织尺度上具有的基本过程都可以用计算来定义。</p>
+<blockquote>
+<p>While vertebrates and many other multi-cellular organisms rely on neuronal networks, single cells and single-cell organisms use protein and/or gene-regulatory networks as computational entities to integrate multi-dimensional sensory information (inputs) with memory, generating complex self-organized behavior (output) [26].</p>
+</blockquote>
+<p>虽然脊椎动物和许多其他多细胞生物依赖于神经网络，但单细胞和单细胞生物使用蛋白质和/或基因调控网络作为计算实体，将多维感官信息（输入）与记忆整合，产生复杂的自组织行为（输出）[26]。</p>
+<blockquote>
+<p>A fox that chases a rabbit, for example, uses its neuronal network to continually process sensory (visual, auditory, olfactory, tactile etc.) information which is disrupted and changes over time and space, i.e. when the rabbit hides behind a bush (Fig. 1a, top).</p>
+</blockquote>
+<p>比如，一只追逐兔子的狐狸使用其神经网络不断处理感官（视觉、听觉、嗅觉、触觉等）信息，这些信息会随着时间和空间的变化而中断，即当兔子躲在灌木丛后面时（图 1a，顶部）。</p>
+<blockquote>
+<p>In order to avoid random change in the running direction in the absence of a visual contact with the rabbit, the fox integrates the current sensory information with the memory of the last localization of the rabbit to determine its behavior.</p>
+</blockquote>
+<p>为了避免在没有视觉接触兔子的情况下随机改变奔跑方向，狐狸将当前的感官信息与上次定位兔子的记忆积分，以确定其行为。</p>
+<blockquote>
+<p>Immune cells in our body that chase invading bacteria, however, face similar challenges as the fox chasing the rabbit: the cells’ navigation is guided by local chemical cues secreted by the bacteria that are noisy, disrupted, and vary over time and space, in order to engulf and degrade the motile invading microbes (Fig. 1a, bottom).</p>
+</blockquote>
+<p>在我们体内追逐入侵细菌的免疫细胞，然而，面临着与狐狸追逐兔子类似的挑战：细胞的导航是由细菌分泌的局部化学线索引导的，这些线索是嘈杂的、被破坏的，并且随时间和空间变化，以吞噬和降解运动的入侵微生物（图 1a，底部）。</p>
+<blockquote>
+<p>To avoid immediate switching to random migration when signals are disrupted, single cells, just like the fox chasing a rabbit, require a memory of the localization of the last encountered chemical signal, as a means of generating a reliable migration trajectory over long distances. We will refer to such computations performed by living systems as biological or natural computations.</p>
+</blockquote>
+<p>为了避免在信号中断时立即切换到随机迁移，单个细胞就像追逐兔子的狐狸一样，需要记住上次遇到的化学信号的位置，以便在长距离上生成可靠的迁移轨迹。我们将把生物系统执行的这种计算称为生物计算或自然计算。</p>
+<hr>
+<blockquote>
+<p>This description of processes in living systems through the concept of computation has inevitably led to a frequent referral to terms such as ’circuitry’, ’computer/machine’, ’execution of programs’ or ’interpretation of code’. However, their indiscriminate use can easily convey misleading ideas (and often does) by neglecting fundamental differences between the computational process in living and engineered systems [13,44,59,60,65,72,74].</p>
+</blockquote>
+<p>这种通过计算概念描述生物系统过程的方式不可避免地导致频繁引用诸如“电路”、“计算机/机器”、“程序执行”或“代码解释”等术语。然而，它们的不加区分的使用很容易传达误导性的想法（并且经常会这样做），因为它忽略了生物系统和工程系统中计算过程的根本差异[13,44,59,60,65,72,74]。</p>
+<blockquote>
+<p>For example, computers accept input once at the beginning of the computation (i.e., do not accept signals while performing a particular task), and obtaining the result of the computation requires presentation of the complete input [47]. In contrast, living systems compute in real-time (like the fox and the immune cell), using incomplete inputs which continuously change across time and space.</p>
+</blockquote>
+<p>比如，计算机在计算开始时一次性接受输入（即，在执行特定任务时不接受信号），并且获取计算结果需要提供完整的输入[47]。相比之下，生物系统实时计算（就像狐狸和免疫细胞一样），使用不断随时间和空间变化的不完整输入。</p>
+<blockquote>
+<p>The process of natural computation itself is adaptive, while yielding robust and reproducible responses even in the presence of noise, whereas computer algorithms account only for robustness and reproducibility of computations, which is achieved by minimizing noise (in the constituting computer circuits). Moreover, living systems are characterized by on-the-fly and life-long learning, features that have not been realized in any man-made system so far.</p>
+</blockquote>
+<p>自然计算的过程本身是自适应的，即使在存在噪声的情况下也能产生稳健且可重复的响应，而计算机算法仅考虑计算的稳健性和可重复性，这是通过最小化噪声（在构成计算机电路中）来实现的。此外，生物系统的特点是即时学习和终身学习，这些特征迄今为止尚未在任何人造系统中实现。</p>
+<blockquote>
+<p>We therefore discuss in this article the current concepts of computation from a dynamical systems point of view and argue that they explain information processing in living systems only to a very limited extent. We advocate the necessity to base theories of biological computation on transients which can serve as a dynamical basis through which the majority of the observed features of natural computation can be captured [5,7,8,16,22,37,46,47,50,53,63].</p>
+</blockquote>
+<p>因此，我们在本文中从动力系统的角度讨论当前的计算概念，并认为它们仅在很大程度上解释了生物系统中的信息处理。我们主张有必要将生物计算理论建立在瞬态基础上，这可以作为动力学基础，通过它可以捕捉到自然计算的大多数观察特征[5,7,8,16,22,37,46,47,50,53,63]。</p>
+<blockquote>
+<p>Given that from a conceptual viewpoint, the challenges, which single cells and higher vertebrates face are overlapping to a large degree, we emphasize in this review the necessity for a general theory of natural computations and learning that is applicable to both neural and aneural systems.</p>
+</blockquote>
+<p>鉴于从概念上看，单细胞和高等脊椎动物所面临的挑战在很大程度上是重叠的，我们在本综述中强调了对适用于神经系统和非神经系统的一般自然计算和学习理论的必要性。</p>
+<h1 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h1>
+<h2 id="computing-with-stable-attractors-machines-neuronal-networks-and-cellular-signaling">Computing with stable attractors: machines, neuronal networks and cellular signaling<a hidden class="anchor" aria-hidden="true" href="#computing-with-stable-attractors-machines-neuronal-networks-and-cellular-signaling">#</a></h2>
+<blockquote>
+<p>The existing theoretical frameworks for biological computations mainly refer to Turing-like computations [83]. Let us exemplify this by considering an every-day example of a finite-state machine, a turnstile. A turnstile can be found in two different states, closed (S1) and open (S2). It requires an input, i.e. a coin to switch from the closed to the open state (S1 → S2), and a second input, a push, to return to the closed state (S2 → S1). If a coin is inserted when the system is in S2 (open), or if its bars are pushed when it is in S1 (closed), the machine does not respond (Fig. 1b). For this system, the computation is realized through the switching between the distinct stable states (S1, S2) that are available, such that the specific inputs (coin, push) are mapped to a defined state of the turnstile. Despite that this machine has a very limited computational power that does not reflect that of Turing machines in general, we will use it to demonstrate a line of thought that (i) the state-dependent computations performed by machines display limitations for tasks that are relevant for living systems, and that (ii) a range of computations performed by living systems lie outside of the domain of machines, prompting us to propose that a broader definition and mechanisms of computations are necessary to describe biological computations.</p>
+</blockquote>
+<p>现存的生物计算理论框架主要参考图灵式计算[83]。让我们通过考虑一个日常的有限状态机示例——旋转门来说明这一点。旋转门可以处于两种不同的状态：关闭（S1）和打开（S2）。它需要一个输入，即一枚硬币，以从关闭状态切换到打开状态（S1 → S2），以及第二个输入，即推动，以返回到关闭状态（S2 → S1）。如果在系统处于 S2（打开）时插入硬币，或者在系统处于 S1（关闭）时推动其栏杆，机器不会响应（图 1b）。对于该系统，计算是通过在可用的不同稳定状态（S1、S2）之间切换来实现的，这样特定的输入（硬币、推动）就映射到旋转门的定义状态。尽管这台机器的计算能力非常有限，并不反映图灵机的一般能力，但我们将用它来展示一种思路，即（i）机器执行的状态依赖计算在与生物系统相关的任务中显示出局限性，以及（ii）生物系统执行的一系列计算超出了机器的领域，这促使我们提出需要更广泛的计算定义和机制来描述生物计算。</p>
+<hr>
+<blockquote>
+<p>The computations of the turnstile, in the language of dynamical systems, can be formalized as attractor-based computation. Turing implicitly used this idea in his unpublished work on intelligent machines [85], as well as in his seminal work on self-organization in living systems [84]. The idea, however, was clearly explicated by Hebb [27] and Hopfield [29] for neuronal networks, receiving formalization by Hirsch and Baird [28]: ”as the overall system evolves in time, each subsystem passes through a sequence of attractors that are related to specific output of the system, and this sequence is termed as the computation process”. In this view, the number and type of attractors is an intrinsic property of the system, determined by the underlying network topology and nodal dynamics. Thus, restricting only to fixed point dynamics for simplicity, the possible solutions of the system form a so-called quasi-potential landscape which can be explicitly calculated for gradient systems [73]. Each valley in the landscape corresponds to a stable state, separated by unstable states or saddles (Fig. 1c). The external signals induce switching between the available states, such that a signal is uniquely associated with a specific valley. This also implies that in absence of a perturbation, the dynamics would be retained indefinitely in a valley. The same conceptual framework has been also adopted to study signaling networks in single cells. Large numbers of experimental and theoretical studies over the past two decades have been focused on identifying the underlying protein- or gene-interaction networks or network modules [12,18], relating the possible attractors with the observed phenotypes or responses [1,3,32,62,66,67,69]. The question is however, to which extent attractor-based computations can explain the basic features of natural computations, the simplest being real-time processing of non-stationary signals.</p>
+</blockquote>
+<p>以动力系统的语言来说，旋转门的计算可以形式化为基于吸引子的计算。Turing 在他关于智能机器的未发表工作以及他关于生物系统自组织的开创性工作中隐含地使用了这一思想。然而，这一思想被 Hebb 和 Hopfield 明确阐述用于神经网络，并由 Hirsch 和 Baird 进行了形式化：“随着整个系统随时间演化，每个子系统都会经历一系列与系统特定输出相关的吸引子，这个序列被称为计算过程”。在这种观点下，吸引子的数量和类型是系统的内在属性，由底层网络拓扑和节点动力学决定。因此，为了简化，仅限于不动点动力学，系统的可能解形成所谓的准势景观，可以显式地计算梯度系统[73]。景观中的每个山谷对应一个稳定状态，由不稳定状态或鞍点分隔（图 1c）。外部信号引起可用状态之间的切换，使得信号与特定山谷唯一关联。这也意味着，在没有扰动的情况下，动力学将无限期地保留在一个山谷中。同样的概念框架也被采用来研究单细胞中的信号网络。在过去二十年中，大量实验和理论研究集中于识别潜在的蛋白质或基因相互作用网络或网络模块[12,18]，将可能的吸引子与观察到的表型或反应相关联[1,3,32,62,66,67,69]。然而，问题是，基于吸引子的计算在多大程度上可以解释自然计算的基本特征，其中最简单的是对非稳态信号的实时处理。</p>
+<h2 id="limitations-of-the-current-framework-an-example-from-single-cell-signaling">Limitations of the current framework: an example from single-cell signaling<a hidden class="anchor" aria-hidden="true" href="#limitations-of-the-current-framework-an-example-from-single-cell-signaling">#</a></h2>
+<blockquote>
+<p>Let us consider a bistable system as a minimal case of multistability, i.e. as a system that has multiple, coexisting states/attractors (cf. Box 1). In the quasi-potential landscape analogy, this corresponds to a landscape with two valleys, separated by a saddle. Generally, bistability can emerge via double negative or positive feedback loops, common motifs in gene regulatory [61,87], neuronal [41,43], as well as in signaling networks including, e.g., the experimentally identified Epidermal growth factor receptor (EGFR) network [75] (Fig. 2a). For parametric organization in the bistable regime (Fig. 2b), in this case defined by a certain range of EGFR concentrations on the plasma membrane, the system has two available stable states: basal (S1) and high EGFR-phosphorylated (S2) state. A pulse of epidermal growth factor (EGF) induces a transition from S1 to S2, however, the high EGFRp state will be maintained even after removal of the EGF signal, as S2 is also a stable attractor. This can be seen from the temporal EGFRp profile, as well as the trajectory of the signaling state of the EGFR network (Fig. 2c). Thus, addition of subsequent EGF pulses will not lead to further state changes in the system, implying that the cell will remain unresponsive to upcoming changes in the environment. Better understanding of these temporal system’s responses can be gained from a quasi-potential landscape description: as noted above, the organization in the bistable regime corresponds to a quasi-potential landscape with two wells, corresponding to S1 and S2 (Fig. 2d). In absence of a signal, the system resides in S1. Upon EGF addition, the quasi-potential landscape remodels to a single well corresponding to S2, resulting in a robust EGFR phosphorylation. When the EGF is removed, however, the landscape resets to its former double-well shape, but the system remains in the S2 well and thereby is unresponsive to upcoming signals (Fig. 1c), just like the turnstile does not respond to a coin when already in S2.</p>
+</blockquote>
+<p>让我们考虑一个双稳态系统，作为多稳态的最小情况，即具有多个共存状态/吸引子的系统（参见框 1）。在准势景观类比中，这对应于具有两个山谷的景观，由一个鞍点分隔。一般来说，双稳态可以通过双负反馈或正反馈环路出现，这些是基因调控[61,87]、神经元[41,43]以及信号网络（包括实验确定的表皮生长因子受体（EGFR）网络[75]）中的常见模式（图 2a）。在双稳态区域的参数组织中（图 2b），在这种情况下由质膜上一定范围的 EGFR 浓度定义，系统有两个可用的稳定状态：基础状态（S1）和高 EGFR-磷酸化状态（S2）。一脉冲的表皮生长因子（EGF）会诱导从 S1 到 S2 的转变，然而，即使在移除 EGF 信号后，高 EGFRp 状态仍将维持，因为 S2 也是一个稳定的吸引子。这可以从时间 EGFRp 曲线以及 EGFR 网络信号状态的轨迹中看到（图 2c）。因此，随后的 EGF 脉冲的添加不会导致系统进一步的状态变化，这意味着细胞将对即将到来的环境变化保持无响应。对这些时间系统响应的更好理解可以通过准势景观描述获得：如上所述，在双稳态区域中的组织对应于具有两个井的准势景观，对应于 S1 和 S2（图 2d）。在没有信号的情况下，系统驻留在 S1。当添加 EGF 时，准势景观重塑为对应于 S2 的单井，导致稳健的 EGFR 磷酸化。然而，当移除 EGF 时，景观重置为其先前的双井形状，但系统仍然驻留在 S2 井中，从而对即将到来的信号无响应（图 1c），就像旋转门在已经处于 S2 时不会对硬币做出反应一样。</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Muatyz.github.io/posts/cs/ssh-link/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>SSH 连接备忘录</span>
+  </a>
+  <a class="next" href="https://Muatyz.github.io/posts/life/my-research/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>研究模型概述</span>
+  </a>
+</nav>
+
+        </footer>
+    </div><style>
+     
+    .pagination__title { margin-top: 30px; }
+    .comment-loading { margin-top: 10px; color: var(--secondary); text-align: center; }
+    .comment-fallback { display: none; margin: 20px auto; padding: 20px; border-radius: 10px; background: var(--code-bg); color: var(--content); text-align: center; }
+</style>
+
+<div id="tcomment-wrapper">
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size:20px;">💬 评论</span>
+        <hr />
+    </div>
+
+    <div id="tcomment"></div>
+
+    <div id="comment-loading" class="comment-loading">正在加载评论...</div>
+
+    <div id="comment-fallback" class="comment-fallback">
+⚠ 评论区加载失败。<br><br>
+
+可能原因: 1. 浏览器广告拦截插件; 2. 隐私保护插件; 3. DNS / 网络过滤. <br>
+
+允许本站脚本后, 刷新页面即可查看评论。
+<br><br>
+
+<button onclick="location.reload()">👉点击重新加载评论</button>
+</div>
+</div>
+
+<script>
+(function() {
+    const envId = "https://twikoo-api-one-xi.vercel.app";
+    const path = window.TWIKOO_MAGIC_PATH || window.location.pathname;
+
+    
+    function fetchCommentCount() {
+        fetch(envId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event: 'GET_COMMENTS_COUNT',
+                urls: [path],
+                includeReply: false
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            const countElement = document.getElementById('comment_count');
+            const container = document.getElementById('twikoo_count_container');
+            if (res.data && res.data[0] && countElement) {
+                countElement.innerText = res.data[0].count;
+                container.style.display = 'inline';
+            }
+        })
+        .catch(err => console.error("Twikoo Count Fetch Error:", err));
+    }
+
+    
+    function initTwikoo() {
+        if (window.twikoo) return; 
+
+        const script = document.createElement('script');
+        
+        script.src = "https://npm.elemecdn.com/twikoo@1.6.16/dist/twikoo.all.min.js";
+        script.async = true;
+
+        script.onload = () => {
+            twikoo.init({
+                envId: envId,
+                el: '#tcomment',
+                path: path,
+                lang: 'zh-CN',
+                onCommentLoaded: function() {
+                    document.getElementById('comment-loading').style.display = 'none';
+                }
+            });
+        };
+
+        script.onerror = () => {
+            document.getElementById('comment-loading').style.display = 'none';
+            document.getElementById('comment-fallback').style.display = 'block';
+        };
+
+        document.body.appendChild(script);
+    }
+
+    
+    
+    document.addEventListener('DOMContentLoaded', fetchCommentCount);
+
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                initTwikoo();
+                observer.disconnect();
+            }
+        }, { rootMargin: '400px' }); 
+        observer.observe(document.getElementById('tcomment-wrapper'));
+    } else {
+        
+        window.addEventListener('load', initTwikoo);
+    }
+})();
+</script>
+</article>
+</main>
+
+<footer class="footer" style="line-height:1.6; text-align:center;">
+
+    
+    <div style="margin-bottom:0.3em;">
+        Powered by
+        <a href="https://gohugo.io/" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" target="_blank">PaperMod</a> 
+        
+        
+        · 运行 1284 天
+
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        · 已经水了 166 篇 1133527 字, 再接再厉!
+    </div>
+
+    
+    <div style="font-size:0.9em; color:#939393;">
+        Copyright &copy; 2023-2026. 
+        <a href="https://Muatyz.github.io/">无处惹尘埃</a> All Rights Reserved · 
+        <a href="https://beian.miit.gov.cn/" target="_blank">没有备案号</a> ·
+        
+        
+        <span>
+            <img src="https://files.seeusercontent.com/2026/03/12/f9Jj/beian.png" 
+                 style="vertical-align:middle; margin-right:0.3em;"/>
+        </span>
+
+        
+        <span>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null" 
+       target="_blank">
+        所以不会有公网安备
+        </a>  
+</span>
+
+        <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script><script>
+
+    let detail = document.getElementsByClassName('details')
+   
+    details = [].slice.call(detail);
+   
+    for (let index = 0; index < details.length; index++) {
+   
+    let element = details[index]
+   
+    const summary = element.getElementsByClassName('details-summary')[0];
+   
+    if (summary) {
+   
+    summary.addEventListener('click', () => {
+   
+    element.classList.toggle('open');
+   
+    }, false);
+   
+    }
+   
+    }
+   
+   </script>
+
+
+<script>
+document.addEventListener('click', async function(event) {
+    
+    const copyButton = event.target.closest('.copy-code');
+    if (!copyButton) return;
+
+    event.preventDefault();
+
+    
+    const container = copyButton.closest('.highlight') || copyButton.parentElement;
+    let codeText = '';
+    
+    
+    const table = container.querySelector('table.lntable');
+    if (table) {
+        
+        const codeTd = table.querySelectorAll('td.lntd')[1];
+        if (codeTd) {
+            codeText = codeTd.textContent || codeTd.innerText;
+        }
+    } else {
+        
+        const codeElement = container.querySelector('code');
+        if (codeElement) {
+            codeText = codeElement.textContent || codeElement.innerText;
+        }
+    }
+
+    if (!codeText) return;
+
+    
+    try {
+        await navigator.clipboard.writeText(codeText);
+        
+        
+        const originalHTML = copyButton.innerHTML;
+        copyButton.innerHTML = '已严肃学习'; 
+        
+        setTimeout(() => {
+            copyButton.innerHTML = originalHTML;
+        }, 2000);
+    } catch (err) {
+        console.error('代码复制失败:', err);
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+
+</body>
+
+
+
+<body>
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+</body>
+
+
+</html>
